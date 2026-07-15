@@ -3,9 +3,9 @@
 Implements Adam Khoo's checklist from Lessons 4 & 7 / Quick Reference:
 
 Profitability
-  1. Sales revenue consistently increasing (10y default; docs say "5-10y")
-  2. Net income (or operating income fallback) consistently increasing (10y)
-  3. Cash Flow from Operations consistently increasing (10y)
+  1. Sales revenue consistently increasing (up to 15y durable trend)
+  2. Net income (or operating income fallback) consistently increasing (15y)
+  3. Cash Flow from Operations consistently increasing (15y)
   4. Free Cash Flow consistently positive
   5. Gross margin consistent or increasing (5y — EXPLICIT in docs)
   6. Net margin consistent or increasing (5y — EXPLICIT in docs)
@@ -34,19 +34,32 @@ VMI_Master_Reference.md):
   - Docs state an EXPLICIT 5-year window for: ROE ("for the last 5 years"),
     Gross margin ("over 5 years"), Net margin ("over 5 years").
     -> WINDOW_5Y = 5 is used for these three checks only.
-  - Docs describe Sales/Net-Income/CFO "consistency" ambiguously as
-    "5-10 years" (never pinned to a single number) and give NO window at
-    all for ROIC, receivables-vs-sales growth, or CCC.
-    -> Per the user's instruction ("if not defined use 10y"), these
-       default to WINDOW_10Y = 10.
+  - Docs describe Sales/Net-Income/CFO consistency as a long-term test
+    ("5 years+" — a floor, not a fixed window). Per user instruction these
+    trends use all available history, up to 15 years.
+  - ROIC and receivables-vs-sales have no fixed window -> 10y default.
 
-Company-type EXCLUSION (changed from earlier "exemption" design):
-  Per explicit user instruction, REITs, banks/financial firms, property
-  developers and commodity producers are now EXCLUDED from the scan
-  entirely (not scored with per-check exemptions). `classify()` still
-  runs so `scan.py` can filter them out before/after fetching data, and
-  the type label is preserved on any result that slips through for
-  transparency. See scan.py EXCLUDED_TYPES.
+Company-type policy (narrowed per user instruction — only exclude types
+whose great-business evaluation NEEDS data we cannot get):
+  * ETFs — funds, not operating companies; the checklist doesn't apply.
+  * Banks — need CET1 ratio (> 10%) and NPL data; no free source wired.
+  * REITs — need gearing (< 45%) / FFO treatment; not wired.
+  Everything else stays IN (incl. non-bank financials like MA/SPGI,
+  property developers, commodity producers). The course-defined
+  non-applicable debt checks are marked NA, not the whole company excluded.
+
+Threshold calibration (validated against Adam's current top-stock list —
+AAPL/MSFT/NVDA/META/... must all classify as great businesses):
+  * ROE/ROIC 10-12% = WARN not FAIL (the course's own Finviz screen uses
+    ROE > 10% as its floor; targets stated as "12%-15%+").
+  * Debt/EBITDA 3-6x = WARN (course case-study material includes ~5.6x);
+    > 6x = FAIL.
+  * "Consistently increasing" = durable regression trend, not a max-dip
+    count (see _consistently_increasing).
+  * Receivables outgrowing sales = WARN (course calls it a red flag to
+    investigate, not an automatic disqualifier).
+  * Growth-stage loss->profit transitions (PANW/CRWD-style) soften
+    historical-average FAILs to WARN when the smoothed trend is improving.
 """
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
@@ -58,6 +71,8 @@ WINDOW_5Y = 5
 # Everything else that needs an averaging/consistency window but has no
 # explicit number in the docs defaults to 10 years (user instruction).
 WINDOW_10Y = 10
+# User-selected long history for the Sales/NI/CFO consistency trends.
+WINDOW_TREND = 15
 
 # stockanalysis.com serves these as fractions (0.25 = 25%); macrotrends.net
 # serves the equivalent ratios already as percent. PERCENT_KEYS lists the
@@ -120,24 +135,60 @@ def _window(s_newest_first: List[Optional[float]], n: int) -> List[Optional[floa
 
 
 def _consistently_increasing(s_newest_first: List[Optional[float]],
-                             tolerance_dips: int = None,
-                             min_points: int = 4) -> Optional[bool]:
-    """True if series trends up with at most `tolerance_dips` down-years
-    AND the last value is above the first (net growth over the window).
+                             min_points: int = 5) -> Optional[bool]:
+    """Durable upward trend test — NOT literal annual monotonicity.
 
-    `tolerance_dips` default (None) scales with the window length — one
-    tolerated down-year per ~5 years of history (so a 10y window allows 2
-    dips, a 5y window allows 1) — rather than a fixed constant, since a
-    longer lookback should reasonably tolerate proportionally more
-    cyclical dips (e.g. one bad year in a decade is not "inconsistent").
+    A dip-count rule gets stricter merely because more history is available:
+    AAPL has four down-CFO years across 15 years while CFO still compounded
+    ~8%/yr — clearly a great business. All conditions must hold:
+      * positive least-squares slope across all available annual points;
+      * latest value above the oldest value;
+      * recent 3-year average above the earliest 3-year average;
+      * at least half of year-to-year moves are increases.
+    Accepts normal operating volatility without a hidden CAGR hurdle;
+    rejects flat, deteriorating and one-year-spike series; handles
+    loss-to-profit transitions where CAGR is mathematically undefined.
     """
     s = _oldest_first(s_newest_first)
     if len(s) < min_points:
         return None
-    if tolerance_dips is None:
-        tolerance_dips = max(1, len(s) // 5)
-    dips = sum(1 for a, b in zip(s, s[1:]) if b < a)
-    return dips <= tolerance_dips and s[-1] > s[0]
+    n = len(s)
+    mean_x = (n - 1) / 2
+    mean_y = sum(s) / n
+    slope_num = sum((i - mean_x) * (v - mean_y) for i, v in enumerate(s))
+    up_moves = sum(1 for a, b in zip(s, s[1:]) if b > a)
+    edge = min(3, n // 2)
+    early_avg = sum(s[:edge]) / edge
+    recent_avg = sum(s[-edge:]) / edge
+    return (slope_num > 0 and s[-1] > s[0] and recent_avg > early_avg
+            and up_moves / (n - 1) >= 0.5)
+
+
+def _improving_transition(s_newest_first: List[Optional[float]],
+                          min_points: int = 5) -> Optional[bool]:
+    """Whether a loss/choppy series is clearly improving on a smoothed basis
+    (positive slope + recent avg above early avg). Softens growth-stage
+    companies' historical-average FAILs to WARN."""
+    s = _oldest_first(s_newest_first)
+    if len(s) < min_points:
+        return None
+    n = len(s)
+    mean_x = (n - 1) / 2
+    mean_y = sum(s) / n
+    slope_num = sum((i - mean_x) * (v - mean_y) for i, v in enumerate(s))
+    edge = min(3, n // 2)
+    return slope_num > 0 and sum(s[-edge:]) / edge > sum(s[:edge]) / edge
+
+
+def _paired_cagrs(a_newest: List[Optional[float]],
+                  b_newest: List[Optional[float]], n: int):
+    """CAGRs over identical fiscal columns only, so two series with
+    different missing-data patterns aren't compared over mismatched spans."""
+    pairs = [(a, b) for a, b in zip(a_newest[:n], b_newest[:n])
+             if a is not None and b is not None]
+    if len(pairs) < 2:
+        return None, None
+    return _cagr([x[0] for x in pairs]), _cagr([x[1] for x in pairs])
 
 
 def _consistent_or_increasing_margin(s_newest_first: List[Optional[float]],
@@ -169,11 +220,11 @@ def _cagr(s_newest_first: List[Optional[float]]) -> Optional[float]:
 
 
 def _latest(fd: Dict, key: str, scale_percent: bool = False) -> Optional[float]:
+    """Value for the LATEST fiscal column only — never fall back to an older
+    non-null value (mixing current debt with stale EBITDA once gave TMO a
+    fabricated Debt/EBITDA of 6.5 from mismatched years)."""
     s = _series(fd, key, scale_percent=scale_percent)
-    for v in s:
-        if v is not None:
-            return v
-    return None
+    return s[0] if s else None
 
 
 def _avg(s: List[Optional[float]], n: int) -> Optional[float]:
@@ -191,19 +242,12 @@ def _first_present(*series: List[Optional[float]]) -> List[Optional[float]]:
 
 # ---------------------------------------------------------------- classify
 
-# GICS sector strings (from the Wikipedia S&P500 table) that map straight
-# to an excluded type — cheaper/more reliable than industry substring
-# matching, used as the first check in classify().
-GICS_SECTOR_EXCLUDE = {
-    "financials": "financial",
-    "real estate": "reit",
-}
-
 FINANCIAL_INDUSTRY_HINTS = (
-    "bank", "insurance", "capital markets", "asset management",
-    "financial data", "credit services", "mortgage", "financial conglomerates",
-    "consumer finance", "financial exchanges",
+    "insurance", "capital markets", "asset management", "financial data",
+    "credit services", "mortgage", "financial conglomerates",
+    "consumer finance", "financial exchanges", "brokerage",
 )
+BANK_HINTS = ("bank", "banks", "banking", "thrifts")
 REIT_HINT = "reit"
 PROPERTY_HINTS = ("real estate development", "real estate services",
                   "real estate - development", "real estate management")
@@ -212,36 +256,34 @@ COMMODITY_HINTS = ("oil", "gas", "coal", "gold", "silver", "copper", "steel",
                    "metals & mining")
 
 
-def classify(sector: str, industry: str) -> str:
-    """Return one of: reit, financial, property, commodity, standard.
+def classify(sector: str, industry: str, asset_type: str = "") -> str:
+    """Return one of: etf, bank, reit, financial, property, commodity, standard.
 
-    Checks GICS sector first (cheap, reliable when sourced from the
-    Wikipedia S&P500 table), then falls back to industry substring
-    matching (needed for Finviz-sourced rows, which use free-text
-    industry strings rather than GICS sector names).
+    A broad "Financials" GICS sector label is NOT an exclusion — Mastercard
+    and S&P Global are operating businesses fully evaluable with the
+    standard checklist. Only types whose evaluation requires data we don't
+    have (ETF holdings, bank CET1/NPL, REIT gearing/FFO) are excluded.
     """
     s = (sector or "").lower().strip()
     i = (industry or "").lower()
-    if s in GICS_SECTOR_EXCLUDE:
-        return GICS_SECTOR_EXCLUDE[s]
+    if (asset_type or "").lower() in ("etf", "fund"):
+        return "etf"
     if REIT_HINT in i:
         return "reit"
-    if any(h in i for h in FINANCIAL_INDUSTRY_HINTS):
-        return "financial"
-    if s in ("financial", "financials"):
-        return "financial"
+    if any(h in i for h in BANK_HINTS):
+        return "bank"
     if any(h in i for h in PROPERTY_HINTS):
         return "property"
     if any(h in i for h in COMMODITY_HINTS):
         return "commodity"
+    if s in ("financial", "financials") or any(h in i for h in FINANCIAL_INDUSTRY_HINTS):
+        return "financial"
     return "standard"
 
 
-# Types excluded from the scan entirely per explicit user instruction
-# ("exclude REITS and banks and financial instruments and such, ie the
-# businesses that have exceptions, for now"). scan.py filters these out
-# before running deep checks; kept here too as a defensive double-check.
-EXCLUDED_TYPES = {"reit", "financial", "property", "commodity"}
+# Only types whose great-business evaluation NEEDS unavailable data are
+# excluded: ETFs (not companies), banks (CET1/NPL), REITs (gearing/FFO).
+EXCLUDED_TYPES = {"etf", "bank", "reit"}
 
 
 # ---------------------------------------------------------------- results
@@ -263,6 +305,7 @@ class ScanResult:
     country: str = ""
     market_cap: str = ""
     company_type: str = "standard"
+    data_source: str = ""
     checks: List[CheckResult] = field(default_factory=list)
     moat_hints: Dict[str, str] = field(default_factory=dict)
     error: str = ""
@@ -301,7 +344,7 @@ class ScanResult:
             "ticker": self.ticker, "company": self.company,
             "sector": self.sector, "industry": self.industry,
             "country": self.country, "market_cap": self.market_cap,
-            "company_type": self.company_type,
+            "company_type": self.company_type, "data_source": self.data_source,
             "score": self.score, "is_great": self.is_great,
             "n_pass": self.n_pass, "n_fail": self.n_fail, "n_warn": self.n_warn,
             "checks": [{"name": c.name, "status": c.status,
@@ -338,8 +381,9 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
         ticker=meta["ticker"], company=meta.get("company", ""),
         sector=meta.get("sector", ""), industry=meta.get("industry", ""),
         country=meta.get("country", ""), market_cap=meta.get("market_cap", ""),
+        data_source=meta.get("data_source", ""),
     )
-    ctype = classify(res.sector, res.industry)
+    ctype = classify(res.sector, res.industry, meta.get("asset_type", ""))
     res.company_type = ctype
 
     inc = data.get("income") or {}
@@ -350,42 +394,47 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
     def add(name, status, value=None, detail=""):
         res.checks.append(CheckResult(name, status, value, detail))
 
-    # ---- 1. Sales consistently increasing (10y default — docs say "5-10y")
+    # ---- 1. Sales consistently increasing (durable trend, up to 15y)
     rev = _first_present(_series(inc, "revenue"))
-    rev_w = _window(rev, WINDOW_10Y)
+    rev_w = _window(rev, WINDOW_TREND)
     ok = _consistently_increasing(rev_w)
-    add(f"Sales increasing ({WINDOW_10Y}y)",
+    add(f"Sales increasing ({WINDOW_TREND}y)",
         NA if ok is None else (PASS if ok else FAIL),
         _fmt_pct(_cagr(rev_w)) + " CAGR" if _cagr(rev_w) is not None else None,
-        f"Revenue up over {WINDOW_10Y}y window with ≤1 down year "
-        "(docs: '5-10 years', no fixed single number → defaulted to 10y)")
+        "Durable upward trend over available history (positive regression "
+        "slope, higher endpoints/recent average, ≥half of annual moves up)")
 
     # ---- 2. Net income consistently increasing (operating income fallback)
     ni = _first_present(_series(inc, "netIncome"), _series(inc, "cf_netIncome"))
-    ni_w = _window(ni, WINDOW_10Y)
+    ni_w = _window(ni, WINDOW_TREND)
+    oi_w = _window(_series(inc, "operatingIncome"), WINDOW_TREND)
     ok_ni = _consistently_increasing(ni_w)
     if ok_ni is False:
-        oi = _window(_series(inc, "operatingIncome"), WINDOW_10Y)
-        ok_oi = _consistently_increasing(oi)
+        ok_oi = _consistently_increasing(oi_w)
         if ok_oi:
-            add(f"Net income increasing ({WINDOW_10Y}y)", WARN,
+            add(f"Net income increasing ({WINDOW_TREND}y)", WARN,
                 _fmt_pct(_cagr(ni_w)) + " CAGR",
                 "Net income choppy but OPERATING income consistently rising "
                 "(course-approved fallback: excludes one-off items)")
+        elif _improving_transition(ni_w) or _improving_transition(oi_w):
+            add(f"Net income increasing ({WINDOW_TREND}y)", WARN,
+                _fmt_pct(_cagr(ni_w)) + " CAGR" if _cagr(ni_w) is not None else None,
+                "Profitability improving on a smoothed long-term basis but not "
+                "yet meeting the mature-company consistency test (growth-stage)")
         else:
-            add(f"Net income increasing ({WINDOW_10Y}y)", FAIL,
+            add(f"Net income increasing ({WINDOW_TREND}y)", FAIL,
                 _fmt_pct(_cagr(ni_w)) + " CAGR" if _cagr(ni_w) is not None else None,
                 "Neither net income nor operating income consistently rising")
     else:
-        add(f"Net income increasing ({WINDOW_10Y}y)",
+        add(f"Net income increasing ({WINDOW_TREND}y)",
             NA if ok_ni is None else PASS,
             _fmt_pct(_cagr(ni_w)) + " CAGR" if _cagr(ni_w) is not None else None)
 
-    # ---- 3. CFO consistently increasing (10y default)
+    # ---- 3. CFO consistently increasing (durable trend, up to 15y)
     ocf = _first_present(_series(cf, "ncfo"))
-    ocf_w = _window(ocf, WINDOW_10Y)
+    ocf_w = _window(ocf, WINDOW_TREND)
     ok = _consistently_increasing(ocf_w)
-    add(f"CFO increasing ({WINDOW_10Y}y)",
+    add(f"CFO increasing ({WINDOW_TREND}y)",
         NA if ok is None else (PASS if ok else FAIL),
         _fmt_pct(_cagr(ocf_w)) + " CAGR" if _cagr(ocf_w) is not None else None)
 
@@ -418,16 +467,37 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
     gm = _first_present(_series(inc, "grossMargin"), _series(rat, "grossMargin"))
     gm_w = _window(gm, WINDOW_5Y)
     ok = _consistent_or_increasing_margin(gm_w)
-    add(f"Gross margin stable/up ({WINDOW_5Y}y)",
-        NA if ok is None else (PASS if ok else FAIL),
-        f"latest {_oldest_first(gm_w)[-1]:.1f}%" if _oldest_first(gm_w) else None)
+    gm_vals = _oldest_first(gm_w)
+    if ok is None:
+        gm_status = NA
+    elif ok:
+        gm_status = PASS
+    else:
+        gm_avg = sum(gm_vals) / len(gm_vals) if gm_vals else 0
+        gm_status = WARN if gm_vals and gm_vals[-1] > 0 and gm_vals[-1] >= gm_avg * 0.5 else FAIL
+    add(f"Gross margin stable/up ({WINDOW_5Y}y)", gm_status,
+        f"latest {gm_vals[-1]:.1f}%" if gm_vals else None,
+        "Positive but compressed vs 5y average — review whether temporary"
+        if gm_status == WARN else "")
 
     nm = _first_present(_series(inc, "profitMargin"), _series(rat, "profitMargin"))
     nm_w = _window(nm, WINDOW_5Y)
     ok = _consistent_or_increasing_margin(nm_w)
-    add(f"Net margin stable/up ({WINDOW_5Y}y)",
-        NA if ok is None else (PASS if ok else FAIL),
-        f"latest {_oldest_first(nm_w)[-1]:.1f}%" if _oldest_first(nm_w) else None)
+    nm_vals = _oldest_first(nm_w)
+    growth_transition = bool(_improving_transition(ni_w) or _improving_transition(oi_w))
+    if ok is None:
+        nm_status = NA
+    elif ok:
+        nm_status = PASS
+    else:
+        nm_avg = sum(nm_vals) / len(nm_vals) if nm_vals else 0
+        nm_status = WARN if growth_transition or (
+            nm_vals and nm_vals[-1] > 0 and nm_vals[-1] >= nm_avg * 0.5
+        ) else FAIL
+    add(f"Net margin stable/up ({WINDOW_5Y}y)", nm_status,
+        f"latest {nm_vals[-1]:.1f}%" if nm_vals else None,
+        "Positive but compressed / growth-transition — review whether temporary"
+        if nm_status == WARN else "")
 
     # ---- 7. ROE >= 12% (5y average AND latest — EXPLICIT "for the last 5 years")
     roe = _series(rat, "roe")
@@ -437,15 +507,27 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
     equity_latest = _latest(bal, "equity")
     if roe_avg is None:
         add("ROE ≥ 12%", NA)
-    elif equity_latest is not None and equity_latest < 0:
-        add("ROE ≥ 12%", WARN, "equity negative",
-            "Negative shareholder equity (often from buybacks, e.g. MCD/YUM) — "
-            "ROE meaningless; judge manually per course caveat")
-    elif roe_avg >= 12 and (roe_latest or 0) >= 12:
-        add("ROE ≥ 12%", PASS, f"{WINDOW_5Y}y avg {roe_avg:.1f}%, latest {roe_latest:.1f}%")
+    elif any(v is not None and v < 0
+             for v in _window(_series(bal, "equity"), WINDOW_5Y)):
+        add("ROE ≥ 12%", WARN, "negative equity in 5y window",
+            "ROE distorted by negative shareholder equity (often buybacks, "
+            "e.g. MCD/YUM/AZO) — course explicitly says judge manually")
+    elif roe_avg >= 12:
+        value = f"{WINDOW_5Y}y avg {roe_avg:.1f}%"
+        if roe_latest is not None:
+            value += f", latest {roe_latest:.1f}%"
+        add("ROE ≥ 12%", PASS, value)
     elif roe_avg >= 10:
-        add("ROE ≥ 12%", WARN, f"{WINDOW_5Y}y avg {roe_avg:.1f}%, latest {roe_latest:.1f}%",
-            "Between the 10% screen floor and the 12-15% target")
+        value = f"{WINDOW_5Y}y avg {roe_avg:.1f}%"
+        if roe_latest is not None:
+            value += f", latest {roe_latest:.1f}%"
+        add("ROE ≥ 12%", WARN, value,
+            "Between the course's own Finviz screen floor (ROE > 10%) and "
+            "the 12-15% target")
+    elif growth_transition:
+        add("ROE ≥ 12%", WARN, f"{WINDOW_5Y}y avg {roe_avg:.1f}%",
+            "Growth-stage profitability improving; historical ROE not yet "
+            "representative of the now-profitable business")
     else:
         add("ROE ≥ 12%", FAIL, f"{WINDOW_5Y}y avg {roe_avg:.1f}%")
 
@@ -481,17 +563,36 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
     if roic_avg is None:
         add("ROIC ≥ 12%", NA, None,
             "Insufficient data to compute EBIT x (1-tax) / (Equity+Debt-Cash)")
-    elif roic_avg >= 12 and (roic_latest or 0) >= 12:
-        add("ROIC ≥ 12%", PASS, f"{WINDOW_10Y}y avg {roic_avg:.1f}%, latest {roic_latest:.1f}%")
+    elif roic_avg >= 12:
+        value = f"{WINDOW_10Y}y avg {roic_avg:.1f}%"
+        if roic_latest is not None:
+            value += f", latest {roic_latest:.1f}%"
+        add("ROIC ≥ 12%", PASS, value)
     elif roic_avg >= 10:
-        add("ROIC ≥ 12%", WARN, f"{WINDOW_10Y}y avg {roic_avg:.1f}%, latest {roic_latest:.1f}%")
+        value = f"{WINDOW_10Y}y avg {roic_avg:.1f}%"
+        if roic_latest is not None:
+            value += f", latest {roic_latest:.1f}%"
+        add("ROIC ≥ 12%", WARN, value,
+            "10-12%: below the 12-15% target but at/above the course's own "
+            "10% screen floor — review flag, not a hard fail")
+    elif growth_transition:
+        add("ROIC ≥ 12%", WARN, f"{WINDOW_10Y}y avg {roic_avg:.1f}%",
+            "Growth-stage profitability transition makes the historical "
+            "average unrepresentative; review normalized ROIC manually")
     else:
         add("ROIC ≥ 12%", FAIL, f"{WINDOW_10Y}y avg {roic_avg:.1f}%")
 
     # ---- 9. Current ratio >= 1
+    # Course: the standard debt checks aren't apples-to-apples for financial
+    # firms / property developers / commodity producers (structurally
+    # different balance sheets). Keep the company; mark these checks NA.
+    debt_checks_apply = ctype not in {"financial", "property", "commodity"}
     cr = _series(rat, "currentRatio") or _series(rat, "currentratio")
     cr_latest = cr[0] if cr else None
-    if cr_latest is None:
+    if not debt_checks_apply:
+        add("Current ratio ≥ 1", NA, None,
+            f"Standard debt test not applicable to {ctype} companies under VMI rules")
+    elif cr_latest is None:
         add("Current ratio ≥ 1", NA)
     elif cr_latest >= 1:
         add("Current ratio ≥ 1", PASS, f"{cr_latest:.2f}")
@@ -512,12 +613,17 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
         de_latest = debt / ebitda
     else:
         de_latest = None
-    if de_latest is None:
+    if not debt_checks_apply:
+        add("Debt/EBITDA ≤ 3", NA, None,
+            f"Standard debt test not applicable to {ctype} companies under VMI rules")
+    elif de_latest is None:
         add("Debt/EBITDA ≤ 3", NA)
     elif de_latest <= 3:
         add("Debt/EBITDA ≤ 3", PASS, f"{de_latest:.2f}")
-    elif de_latest <= 4:
-        add("Debt/EBITDA ≤ 3", WARN, f"{de_latest:.2f}")
+    elif de_latest <= 6:
+        add("Debt/EBITDA ≤ 3", WARN, f"{de_latest:.2f}",
+            "Above the preferred ≤3 target; course case-study material includes "
+            "a ~5.6x example, so this is a review flag rather than auto-reject")
     else:
         add("Debt/EBITDA ≤ 3", FAIL, f"{de_latest:.2f}")
 
@@ -525,7 +631,10 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
     int_exp = _latest(inc, "income_statement_interest_expense")
     int_inc = _latest(inc, "interestIncome")
     ocf_latest = ocf[0] if ocf else None
-    if ocf_latest is None or ocf_latest <= 0:
+    if not debt_checks_apply:
+        add("Debt servicing < 30%", NA, None,
+            f"Standard debt test not applicable to {ctype} companies under VMI rules")
+    elif ocf_latest is None or ocf_latest <= 0:
         add("Debt servicing < 30%", NA if ocf_latest is None else FAIL,
             None if ocf_latest is None else "CFO negative")
     elif int_exp is None:
@@ -550,22 +659,18 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
     rec = _first_present(_series(bal, "receivables"),
                          _series(bal, "balance_sheet_total_trade_receivables"),
                          _series(bal, "balance_sheet_accounts_receivable"))
-    rev_cagr = _cagr(_window(rev, WINDOW_10Y))
-    rec_cagr = _cagr(_window(rec, WINDOW_10Y))
+    rev_cagr, rec_cagr = _paired_cagrs(rev, rec, WINDOW_10Y)
     if rev_cagr is None or rec_cagr is None:
         add("Receivables ≤ sales growth", NA, None,
             "Receivables not reported or insufficient history")
     elif rec_cagr <= rev_cagr + 0.03:  # 3pp tolerance
         add("Receivables ≤ sales growth", PASS,
             f"recv {_fmt_pct(rec_cagr)} vs sales {_fmt_pct(rev_cagr)}")
-    elif rec_cagr <= rev_cagr + 0.10:
+    else:
         add("Receivables ≤ sales growth", WARN,
             f"recv {_fmt_pct(rec_cagr)} vs sales {_fmt_pct(rev_cagr)}",
-            "Receivables outgrowing sales modestly — monitor")
-    else:
-        add("Receivables ≤ sales growth", FAIL,
-            f"recv {_fmt_pct(rec_cagr)} vs sales {_fmt_pct(rev_cagr)}",
-            "Red flag per course (possible channel stuffing)")
+            "Course red flag (possible channel stuffing), but not proof of a "
+            "bad business — inspect customer/distribution changes manually")
 
     # ---- 13. Positive projected growth — only meaningful if a universe
     # pre-filter already enforced forward-analyst-estimate growth; when
