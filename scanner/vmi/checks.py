@@ -297,6 +297,10 @@ def run_checks(meta: Dict, data: Dict[str, Dict]) -> ScanResult:
     fcf = _series(cf, "fcf") or _series(inc, "fcf")
     if ctype == "financial":
         add("FCF positive", NA, None, "Capex/FCF not meaningful for financials")
+    elif ctype == "reit":
+        add("FCF positive", NA, None,
+            "REITs are constantly recycling capital via acquisitions/disposals — "
+            "use DPU growth & P/NAV instead per VMI (check manually)")
     else:
         vals = [v for v in fcf if v is not None]
         if not vals:
@@ -329,7 +333,12 @@ def run_checks(meta: Dict, data: Dict[str, Dict]) -> ScanResult:
     roe_avg = _avg(roe)
     roe_latest = roe[0] if roe else None
     equity_latest = _latest(bal, "equity")
-    if roe_avg is None:
+    if ctype == "reit":
+        add("ROE ≥ 12%", NA, f"5y avg {roe_avg:.1f}%" if roe_avg is not None else None,
+            "GAAP ROE is distorted for REITs by real estate held at depreciated "
+            "historical cost — not a VMI-specified REIT metric; use DPU growth "
+            "& gearing instead")
+    elif roe_avg is None:
         add("ROE ≥ 12%", NA)
     elif equity_latest is not None and equity_latest < 0:
         add("ROE ≥ 12%", WARN, "equity negative",

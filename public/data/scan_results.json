@@ -1,0 +1,1048 @@
+{
+ "generated_at": "2026-07-15T06:42:40.835332+00:00",
+ "criteria_version": "VMI Lessons 4+7 fundamentals (no valuation/TA)",
+ "universe_size": 10,
+ "counts": {
+  "great": 4,
+  "near_miss": 4,
+  "failed": 2,
+  "errors": 0
+ },
+ "results": [
+  {
+   "ticker": "GOOGL",
+   "company": "",
+   "sector": "Communication Services",
+   "industry": "Internet Content & Information",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "11.8% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": "14.8% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "PASS",
+     "value": "15.8% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 59.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 32.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 30.3%, latest 35.7%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 42.2%, latest 35.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.01",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.40",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "no interest expense reported",
+     "detail": "No interest expense line \u2014 effectively debt-free or immaterial"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 12.5% vs sales 11.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "59.7% (high \u2014 pricing power?)",
+    "operating_margin": "32.0% (high)",
+    "roic_persistence": "ROIC \u2265 15% every year for 5y \u2014 strong moat signal",
+    "buybacks": "avg buyback yield 2.3%/yr \u2014 self-financing, shareholder friendly",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "MSFT",
+   "company": "",
+   "sector": "Technology",
+   "industry": "Software - Infrastructure",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "13.8% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": "13.5% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "PASS",
+     "value": "15.4% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 68.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 40.7%, latest 33.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 58.9%, latest 37.2%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.35",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.37",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "no interest expense reported",
+     "detail": "No interest expense line \u2014 effectively debt-free or immaterial"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 16.4% vs sales 13.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "68.8% (high \u2014 pricing power?)",
+    "operating_margin": "45.6% (high)",
+    "roic_persistence": "ROIC \u2265 15% every year for 5y \u2014 strong moat signal",
+    "buybacks": "avg buyback yield 0.6%/yr \u2014 self-financing, shareholder friendly",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "NVDA",
+   "company": "",
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "68.3% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": "87.3% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "PASS",
+     "value": "83.3% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 71.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 55.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 75.0%, latest 101.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 109.1%, latest 145.7%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "3.91",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.08",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 69.6% vs sales 68.3%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "71.1% (high \u2014 pricing power?)",
+    "operating_margin": "60.4% (high)",
+    "roic_persistence": "ROIC \u2265 15% every year for 5y \u2014 strong moat signal",
+    "buybacks": "avg buyback/dilution 0.5%/yr",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "V",
+   "company": "",
+   "sector": "Financials",
+   "industry": "Credit Services",
+   "country": "",
+   "market_cap": "",
+   "company_type": "financial",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 6,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "13.5% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": "13.0% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial companies per VMI (inconsistent by nature)"
+    },
+    {
+     "name": "FCF positive",
+     "status": "NA",
+     "value": null,
+     "detail": "Capex/FCF not meaningful for financials"
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 97.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 50.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 44.7%, latest 52.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to banks/financials per VMI"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial"
+    },
+    {
+     "name": "Bank CET1 > 10% / NPL < 5%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not available from free sources \u2014 check the bank's investor relations / Basel III Pillar 3 disclosures manually"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "NA",
+     "value": null,
+     "detail": "Not meaningful for financials"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "97.8% (high \u2014 pricing power?)",
+    "operating_margin": "60.0% (high)",
+    "roic_persistence": "ROIC \u2265 15% every year for 5y \u2014 strong moat signal",
+    "buybacks": "avg buyback yield 3.8%/yr \u2014 self-financing, shareholder friendly",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "CAT",
+   "company": "",
+   "sector": "Industrials",
+   "industry": "Farm & Heavy Construction Machinery",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 88.5,
+   "is_great": false,
+   "n_pass": 11,
+   "n_fail": 1,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "7.3% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": "8.2% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "FAIL",
+     "value": "13.0% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 33.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 13.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 47.6%, latest 43.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 16.7%, latest 16.0%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.44",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.23",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "4.3%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.6% vs sales 7.3%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "33.8%",
+    "operating_margin": "16.5%",
+    "roic_persistence": "ROIC not uniformly \u2265 15%",
+    "buybacks": "avg buyback yield 2.9%/yr \u2014 self-financing, shareholder friendly",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "KO",
+   "company": "",
+   "sector": "Consumer Staples",
+   "industry": "Beverages - Non-Alcoholic",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 84.6,
+   "is_great": false,
+   "n_pass": 10,
+   "n_fail": 1,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "5.5% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "WARN",
+     "value": "7.6% CAGR",
+     "detail": "Net income choppy but OPERATING income consistently rising (course-approved fallback: excludes one-off items)"
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "FAIL",
+     "value": "-12.5% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 61.6%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 27.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 40.7%, latest 43.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 16.4%, latest 18.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.46",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.07",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -3.6% vs sales 5.5%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "61.6% (high \u2014 pricing power?)",
+    "operating_margin": "28.7% (high)",
+    "roic_persistence": "ROIC not uniformly \u2265 15%",
+    "buybacks": "avg buyback/dilution 0.0%/yr",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "PLTR",
+   "company": "",
+   "sector": "Technology",
+   "industry": "Software - Infrastructure",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 84.6,
+   "is_great": false,
+   "n_pass": 11,
+   "n_fail": 2,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "30.5% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": null,
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "PASS",
+     "value": "59.0% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 82.4%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "FAIL",
+     "value": "5y avg 0.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 161.4%, latest 433.2%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "7.11",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.16",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "FAIL",
+     "value": "recv 52.8% vs sales 30.5%",
+     "detail": "Red flag per course (possible channel stuffing)"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "82.4% (high \u2014 pricing power?)",
+    "operating_margin": "31.6% (high)",
+    "roic_persistence": "ROIC not uniformly \u2265 15%",
+    "buybacks": "avg buyback/dilution -25.3%/yr",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "AAPL",
+   "company": "",
+   "sector": "Technology",
+   "industry": "Consumer Electronics",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "score": 80.8,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 1,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "3.3% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "WARN",
+     "value": "4.3% CAGR",
+     "detail": "Net income choppy but OPERATING income consistently rising (course-approved fallback: excludes one-off items)"
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "FAIL",
+     "value": "1.7% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 46.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 26.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 164.7%, latest 171.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 89.2%, latest 103.9%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.89",
+     "detail": "Slightly below 1"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.68",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "no interest expense reported",
+     "detail": "No interest expense line \u2014 effectively debt-free or immaterial"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 9.1% vs sales 3.3%",
+     "detail": "Receivables outgrowing sales modestly \u2014 monitor"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "46.9%",
+    "operating_margin": "32.0% (high)",
+    "roic_persistence": "ROIC \u2265 15% every year for 5y \u2014 strong moat signal",
+    "buybacks": "avg buyback yield 3.1%/yr \u2014 self-financing, shareholder friendly",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "JPM",
+   "company": "",
+   "sector": "Financials",
+   "industry": "Banks - Diversified",
+   "country": "",
+   "market_cap": "",
+   "company_type": "financial",
+   "score": 80.0,
+   "is_great": false,
+   "n_pass": 4,
+   "n_fail": 1,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "6.5% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "FAIL",
+     "value": "4.6% CAGR",
+     "detail": "Neither net income nor operating income consistently rising"
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial companies per VMI (inconsistent by nature)"
+    },
+    {
+     "name": "FCF positive",
+     "status": "NA",
+     "value": null,
+     "detail": "Capex/FCF not meaningful for financials"
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 33.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "5y avg 15.8%, latest 16.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to banks/financials per VMI"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to financial"
+    },
+    {
+     "name": "Bank CET1 > 10% / NPL < 5%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not available from free sources \u2014 check the bank's investor relations / Basel III Pillar 3 disclosures manually"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "NA",
+     "value": null,
+     "detail": "Not meaningful for financials"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "buybacks": "avg buyback yield 2.1%/yr \u2014 self-financing, shareholder friendly",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  },
+  {
+   "ticker": "O",
+   "company": "",
+   "sector": "Real Estate",
+   "industry": "REIT - Retail",
+   "country": "",
+   "market_cap": "",
+   "company_type": "reit",
+   "score": 68.2,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 3,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (5y)",
+     "status": "PASS",
+     "value": "28.9% CAGR",
+     "detail": "Revenue up over window with \u22641 down year"
+    },
+    {
+     "name": "Net income increasing (5y)",
+     "status": "PASS",
+     "value": "31.0% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (5y)",
+     "status": "PASS",
+     "value": "31.8% CAGR",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "4/5 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 92.5%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 18.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "FAIL",
+     "value": "5y avg 2.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "FAIL",
+     "value": "5y avg 2.7%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to reit"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to reit"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Not applicable to reit"
+    },
+    {
+     "name": "REIT gearing < 45%",
+     "status": "WARN",
+     "value": "41.6%",
+     "detail": "Between 40% and 45%"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 25.3% vs sales 28.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y estimate > 0",
+     "detail": "Enforced by the Finviz pre-screen (analyst estimates)"
+    }
+   ],
+   "moat_hints": {
+    "gross_margin": "92.5% (high \u2014 pricing power?)",
+    "operating_margin": "36.5% (high)",
+    "roic_persistence": "ROIC not uniformly \u2265 15%",
+    "buybacks": "avg buyback/dilution -22.2%/yr",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": ""
+  }
+ ]
+}
