@@ -34,24 +34,48 @@ import time
 from datetime import datetime, timezone
 
 from .checks import run_checks, classify, EXCLUDED_TYPES, ScanResult
-from . import macrotrends
+from . import macrotrends, sec, yahoo
+from .finviz import fetch_growth_estimates
 from .sp500 import fetch_sp500
 
 OUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "public", "data")
 DEFAULT_OUT = os.path.join(OUT_DIR, "scan_results.json")
 
 
-def scan_one(meta: dict, use_cache: bool = True) -> ScanResult:
+# SEC Company Facts first: one fast JSON call per ticker at the SEC's
+# documented 10 req/s fair-access rate (every S&P500 name files 10-Ks), so
+# a full pass takes ~1-2 min with 8 workers. Yahoo covers OTC non-filers;
+# macrotrends (8s/request HTML scrape) is the last-ditch fallback only.
+SOURCES = (("sec", sec.fetch_all),
+           ("yahoo", yahoo.fetch_all),
+           ("macrotrends", macrotrends.fetch_all))
+
+
+def scan_one(meta: dict, use_cache: bool = True, allow_macrotrends: bool = True) -> ScanResult:
     ticker = meta["ticker"]
     try:
-        data = macrotrends.fetch_all(ticker, use_cache=use_cache)
+        data, src = None, ""
+        for name, fetch in SOURCES:
+            if name == "macrotrends" and not allow_macrotrends:
+                continue
+            try:
+                data = fetch(ticker, use_cache=use_cache)
+            except Exception:  # noqa: BLE001 — failing source falls through
+                data = None
+            if data is not None:
+                src = name
+                break
         if data is None:
             r = ScanResult(ticker=ticker, company=meta.get("company", ""),
                            sector=meta.get("sector", ""), industry=meta.get("industry", ""),
                            company_type=classify(meta.get("sector", ""), meta.get("industry", "")))
-            r.error = "no financial data on macrotrends.net"
+            r.error = "no financial data (tried SEC, Yahoo" + (", macrotrends)" if allow_macrotrends else ")")
             return r
-        return run_checks(meta, data, has_growth_prefilter=meta.get("_has_growth_prefilter", False))
+        r = run_checks(meta, data,
+                       growth_estimate=meta.get("_growth_estimate"),
+                       require_5y_only_pass=meta.get("_require_5y_only_pass", False))
+        r.data_source = src
+        return r
     except Exception as e:  # noqa: BLE001
         r = ScanResult(ticker=ticker, company=meta.get("company", ""),
                        sector=meta.get("sector", ""), industry=meta.get("industry", ""))
@@ -108,12 +132,16 @@ def main():
     ap.add_argument("--tickers", type=str, default="",
                      help="comma list to scan directly instead of the S&P500 universe")
     ap.add_argument("--no-cache", action="store_true")
-    ap.add_argument("--workers", type=int, default=1,
-                     help="macrotrends is globally throttled to 1 req/8s regardless of "
-                          "worker count, so >1 worker will not speed up a macrotrends-"
-                          "only run — kept configurable for future faster sources")
+    ap.add_argument("--workers", type=int, default=8,
+                     help="parallel fetch workers (SEC fair-access allows 10 req/s)")
+    ap.add_argument("--no-macrotrends", dest="allow_macrotrends", action="store_false",
+                     default=True, help="skip the slow macrotrends fallback")
+    ap.add_argument("--accept-5y-alone", dest="accept_5y_alone", action="store_true",
+                     default=False,
+                     help="trend/average checks pass if ANY window incl. 5y passes; "
+                          "default: a 5y-only pass yields WARN, not PASS")
     ap.add_argument("--out", type=str, default="")
-    ap.add_argument("--checkpoint-every", type=int, default=15,
+    ap.add_argument("--checkpoint-every", type=int, default=25,
                      help="write partial results to --out every N newly-scanned tickers")
     ap.add_argument("--resume", action="store_true", default=True,
                      help="skip tickers already present (without error) in --out (default on)")
@@ -174,18 +202,33 @@ def main():
                 excluded_rows.append(r)
                 seen_excl.add(r["ticker"])
 
-    print(f"Step 3: deep fundamental checks (macrotrends.net) on {len(todo)} tickers "
-          f"(~8s/request x 4 statements/ticker — this is slow by design, macrotrends "
-          "rate-limits aggressively)...")
+    # Forward growth estimates: finviz bulk pull (~25 pages for the whole
+    # S&P500, not per-ticker) so check 13 stops being NA.
+    growth_by_ticker = {}
+    try:
+        print("Step 2b: fetching analyst EPS estimates (finviz bulk)...")
+        growth_by_ticker = fetch_growth_estimates(
+            [m["ticker"] for m in todo], use_cache=use_cache)
+        print(f"  -> estimates for "
+              f"{sum(1 for v in growth_by_ticker.values() if v)}/{len(todo)} tickers")
+    except Exception as e:  # noqa: BLE001 — enrichment, not fatal
+        print(f"  finviz estimates unavailable ({type(e).__name__}: {e})")
+    for m in todo:
+        m["_growth_estimate"] = growth_by_ticker.get(m["ticker"])
+        m["_require_5y_only_pass"] = not args.accept_5y_alone
+
+    print(f"Step 3: deep fundamental checks on {len(todo)} tickers "
+          f"(SEC-first, {args.workers} workers; Yahoo/macrotrends fallbacks)...")
     t0 = time.time()
     done_new = 0
     with cf.ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
-        futs = {ex.submit(scan_one, m, use_cache): m["ticker"] for m in todo}
+        futs = {ex.submit(scan_one, m, use_cache, args.allow_macrotrends): m["ticker"]
+                for m in todo}
         for fut in cf.as_completed(futs):
             r = fut.result()
             results.append(r.to_dict())
             done_new += 1
-            if done_new % 5 == 0 or done_new == len(todo):
+            if done_new % 25 == 0 or done_new == len(todo):
                 great = sum(1 for x in results if not x.get("error") and x.get("is_great"))
                 print(f"  {done_new}/{len(todo)} new tickers scanned "
                       f"({already_done + done_new}/{len(included)} total, "

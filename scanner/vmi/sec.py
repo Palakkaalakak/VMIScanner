@@ -28,6 +28,7 @@ Caveats handled here:
     rather than scoring stale history as current.
 """
 import json
+import threading
 import time
 from typing import Dict, List, Optional
 
@@ -92,16 +93,18 @@ DURATION_KEYS = {"revenue", "netIncome", "operatingIncome", "pretaxIncome",
                  "interestExpense", "interestIncome", "ncfo", "capex"}
 
 _ticker_map_cache: Optional[Dict[str, int]] = None
+_ticker_map_lock = threading.Lock()  # parallel scan workers share this map
 
 
 def _ticker_map() -> Dict[str, int]:
     """SEC ticker -> CIK map (single cached request, refreshed weekly)."""
     global _ticker_map_cache
-    if _ticker_map_cache is None:
-        raw = get(TICKER_MAP_URL, domain_hint="sec", cache_max_age=86400 * 7)
-        data = json.loads(raw)
-        _ticker_map_cache = {row["ticker"].upper(): int(row["cik_str"])
-                             for row in data.values()}
+    with _ticker_map_lock:
+        if _ticker_map_cache is None:
+            raw = get(TICKER_MAP_URL, domain_hint="sec", cache_max_age=86400 * 7)
+            data = json.loads(raw)
+            _ticker_map_cache = {row["ticker"].upper(): int(row["cik_str"])
+                                 for row in data.values()}
     return _ticker_map_cache
 
 
