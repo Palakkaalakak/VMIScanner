@@ -301,6 +301,10 @@ FINANCIAL_INDUSTRY_HINTS = (
     "insurance", "capital markets", "asset management", "financial data",
     "credit services", "mortgage", "financial conglomerates",
     "consumer finance", "financial exchanges", "brokerage",
+    # Managed-care insurers (UNH, ELV, CI, HUM): premium/claims float makes
+    # current liabilities structurally large — the same insurance-float
+    # balance-sheet reality the course's debt-check exception covers.
+    "managed health care", "healthcare plans", "health care plans",
 )
 BANK_HINTS = ("bank", "banks", "banking", "thrifts")
 REIT_HINT = "reit"
@@ -626,7 +630,10 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         tax_rate = tax / pretax
         invested_capital = eq + debt - cash
         if invested_capital and invested_capital > 0:
-            roic_computed.append(ebit * (1 - tax_rate) / invested_capital * 100)
+            v = ebit * (1 - tax_rate) / invested_capital * 100
+            # Near-zero invested capital (heavy-buyback balance sheets)
+            # produces absurd magnitudes — not a real return; skip.
+            roic_computed.append(v if abs(v) <= 500 else None)
         else:
             roic_computed.append(None)
     roic_w = _window(roic_computed, WINDOW_10Y)
