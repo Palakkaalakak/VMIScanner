@@ -1,0 +1,78 @@
+"""S&P 500 universe source — scraped from Wikipedia's constituents table.
+
+This is the PRIMARY universe for the scanner (per user requirement: scan
+ALL S&P 500 companies, not just an arbitrary Finviz-filtered subset).
+
+Design note — "largest filters first" infrastructure:
+  This module is intentionally decoupled from any specific index. The
+  universe-source functions here are the seam future universe sources
+  should implement (e.g. `russell3000.py`, `all_us_listed.py`,
+  `all_global_listed.py`) so the orchestrator (`scan.py`) can eventually
+  chain multiple universes with the *cheapest / broadest filters first*:
+    1. Index membership (S&P500 today; Russell 3000 / all-listed later)
+    2. Free-text sector/industry exclusion (REIT/bank/financial — cheap,
+       no network call, done on the metadata already in the universe row)
+    3. Coarse numeric pre-filters (Finviz screener — one HTTP call for
+       hundreds of tickers) — OPTIONAL, only when scanning very large
+       universes where deep-checking everything is too slow/rate-limited
+    4. Deep per-ticker fundamental checks (macrotrends/stockanalysis) —
+       most expensive step, run last, only on what survives 1-3.
+  For the S&P500-only case (today's deliverable) step 3 is skipped
+  entirely since 503 tickers is small enough to deep-check directly.
+"""
+import re
+from typing import Dict, List
+
+from .http import get
+
+WIKI_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+
+
+def _clean(cell: str) -> str:
+    return re.sub(r"<[^>]+>", "", cell).strip()
+
+
+def fetch_sp500(use_cache: bool = True, cache_max_age: float = 86400 * 7) -> List[Dict]:
+    """Scrape the current S&P 500 constituent table from Wikipedia.
+
+    Returns a list of dicts: {ticker, company, sector, sub_industry,
+    headquarters, industry, country, market_cap}. `sector` here is the
+    GICS sector name (e.g. "Financials", "Real Estate", "Industrials")
+    which is a cleaner exclusion signal than Finviz's free-text industry
+    string.
+    """
+    html = get(WIKI_URL, use_cache=use_cache, cache_max_age=cache_max_age,
+               domain_hint="wikipedia")
+    i = html.find('id="constituents"')
+    if i == -1:
+        raise RuntimeError("Wikipedia constituents table not found (page layout changed?)")
+    j = html.find("</table>", i)
+    table_html = html[i:j]
+
+    rows = re.findall(r"<tr[^>]*>(.*?)</tr>", table_html, re.S)
+    out: List[Dict] = []
+    for row in rows:
+        cells = re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", row, re.S)
+        if len(cells) < 4:
+            continue
+        ticker = _clean(cells[0])
+        if not re.fullmatch(r"[A-Z][A-Z0-9.\-]{0,6}", ticker):
+            continue  # skip header row / malformed rows
+        out.append({
+            "ticker": ticker.replace(".", "-"),  # BRK.B -> BRK-B (stockanalysis/macrotrends style)
+            "company": _clean(cells[1]),
+            "sector": _clean(cells[2]),
+            "sub_industry": _clean(cells[3]) if len(cells) > 3 else "",
+            "headquarters": _clean(cells[4]) if len(cells) > 4 else "",
+            "industry": _clean(cells[3]) if len(cells) > 3 else "",  # alias for classify()
+            "country": "USA",
+            "market_cap": "",
+        })
+    return out
+
+
+if __name__ == "__main__":
+    rows = fetch_sp500(use_cache=False)
+    print(f"{len(rows)} S&P 500 constituents")
+    for r in rows[:5]:
+        print(r)
