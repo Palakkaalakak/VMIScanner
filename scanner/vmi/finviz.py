@@ -85,3 +85,69 @@ def screen_universe(use_cache: bool = True, cache_max_age: float = 86400) -> Lis
         if total and r > total:
             break
     return out
+
+
+# ---------------------------------------------------------------- estimates
+# Custom view v=152 column ids (verified against live header row):
+#   1=Ticker, 17=EPS This Y, 18=EPS Next Y, 19=EPS Past 5Y, 20=EPS Next 5Y
+_EST_COLS = "0,1,17,18,19,20"
+
+
+def _parse_est_rows(html: str) -> Dict[str, Dict]:
+    out: Dict[str, Dict] = {}
+    for tr in re.findall(r"<tr[^>]*valign=\"top\"[^>]*>(.*?)</tr>", html, re.S):
+        raw_tds = re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)
+        tds = [re.sub(r"<[^>]+>", "", t).strip() for t in raw_tds]
+        if len(tds) < 6:
+            continue
+        # The ticker cell renders its text twice (visible + styled copy) so
+        # stripped text comes out doubled ("AAAPL"); the link href is the
+        # reliable source: stock?t=AAPL or quote.ashx?t=AAPL.
+        m = re.search(r"(?:quote\.ashx|stock)\?t=([A-Za-z0-9.\-]+)", raw_tds[1])
+        if not m:
+            continue
+        ticker = m.group(1).upper()
+
+        def pct(x: str):
+            x = x.replace("%", "").strip()
+            try:
+                return float(x)
+            except ValueError:
+                return None
+
+        out[ticker] = {
+            "eps_this_y": pct(tds[2]), "eps_next_y": pct(tds[3]),
+            "eps_past_5y": pct(tds[4]), "eps_next_5y": pct(tds[5]),
+        }
+    return out
+
+
+def fetch_growth_estimates(tickers: List[str], use_cache: bool = True,
+                           cache_max_age: float = 86400) -> Dict[str, Dict]:
+    """Bulk analyst growth estimates via finviz custom view — paginates the
+    whole S&P500 index screen (~25 pages of 20) rather than one URL per
+    ticker. Returns {ticker: {eps_this_y, eps_next_y, eps_past_5y,
+    eps_next_5y}} in percent (12.5 = +12.5%/yr); unknown tickers -> None."""
+    got: Dict[str, Dict] = {}
+    r = 1
+    total = None
+    while True:
+        url = f"{BASE}?v=152&f=idx_sp500&c={_EST_COLS}&r={r}"
+        html = get(url, use_cache=use_cache, cache_max_age=cache_max_age)
+        if total is None:
+            total = _total_count(html)
+        rows = _parse_est_rows(html)
+        if not rows:
+            break
+        before = len(got)
+        got.update(rows)
+        if len(got) == before:
+            break
+        r += 20
+        if total and r > total:
+            break
+    out: Dict[str, Dict] = {}
+    for t in tickers:
+        k = t.upper().replace(".", "-")
+        out[t] = got.get(k) or got.get(k.replace("-", "."))
+    return out

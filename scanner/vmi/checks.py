@@ -73,6 +73,11 @@ WINDOW_5Y = 5
 WINDOW_10Y = 10
 # User-selected long history for the Sales/NI/CFO consistency trends.
 WINDOW_TREND = 15
+# Multi-window rule (user instruction): every trend/average check is tried
+# over 20y, 15y and 10y and PASSES if ANY window passes. A 5y-only pass is
+# gated behind the accept_5y toggle — by default 5y alone is NOT enough
+# and yields WARN instead.
+LONG_WINDOWS = (20, 15, 10)
 
 # stockanalysis.com serves these as fractions (0.25 = 25%); macrotrends.net
 # serves the equivalent ratios already as percent. PERCENT_KEYS lists the
@@ -87,7 +92,7 @@ PERCENT_KEYS = {
 # ---------------------------------------------------------------- helpers
 
 
-def _series(fd: Dict, key: str, max_n: int = 15, scale_percent: bool = False) -> List[Optional[float]]:
+def _series(fd: Dict, key: str, max_n: int = 20, scale_percent: bool = False) -> List[Optional[float]]:
     """Newest-first numeric series for annual fiscal years (skip TTM col).
 
     Data shape: macrotrends.net dicts (clean annual columns only, ratio
@@ -162,6 +167,56 @@ def _consistently_increasing(s_newest_first: List[Optional[float]],
     recent_avg = sum(s[-edge:]) / edge
     return (slope_num > 0 and s[-1] > s[0] and recent_avg > early_avg
             and up_moves / (n - 1) >= 0.5)
+
+
+def _multi_window_trend(s_newest: List[Optional[float]], accept_5y: bool):
+    """Durable-trend test over 20/15/10y — PASS if ANY long window passes.
+    Falls back to 5y: PASS only when accept_5y, else WARN (review flag).
+    Returns (status, window_used, cagr_of_that_window)."""
+    avail = sum(1 for v in s_newest if v is not None)
+    tried_long = False
+    for w in LONG_WINDOWS:
+        # A long-window claim needs ≥8 annual points (or all we have when
+        # the series is shorter than the window).
+        if avail < min(w, 8):
+            continue
+        tried_long = True
+        win = _window(s_newest, w)
+        if _consistently_increasing(win, min_points=8):
+            return PASS, w, _cagr(win)
+    win5 = _window(s_newest, 5)
+    ok5 = _consistently_increasing(win5, min_points=5)
+    if ok5:
+        return (PASS if accept_5y else WARN), 5, _cagr(win5)
+    if not tried_long and ok5 is None:
+        return NA, None, None
+    return FAIL, None, _cagr(_window(s_newest, 15))
+
+
+def _multi_window_avg(s_newest: List[Optional[float]], threshold: float,
+                      accept_5y: bool):
+    """Average-threshold test over 20/15/10y — PASS if ANY long-window
+    average clears the threshold; 5y-only clearance gated by accept_5y.
+    Returns (status, window_used, avg_of_that_window)."""
+    best_long = None
+    for w in LONG_WINDOWS:
+        vals = [v for v in _window(s_newest, w) if v is not None]
+        if len(vals) < min(w, 6) or len(vals) <= 5:
+            continue  # degenerate: would be the same data as the 5y test
+        avg = sum(vals) / len(vals)
+        if best_long is None or avg > best_long[1]:
+            best_long = (w, avg)
+        if avg >= threshold:
+            return PASS, w, avg
+    vals5 = [v for v in _window(s_newest, 5) if v is not None]
+    avg5 = sum(vals5) / len(vals5) if vals5 else None
+    if avg5 is not None and avg5 >= threshold:
+        return (PASS if accept_5y else WARN), 5, avg5
+    if avg5 is None and best_long is None:
+        return NA, None, None
+    if best_long is not None:
+        return FAIL, best_long[0], best_long[1]
+    return FAIL, 5, avg5
 
 
 def _improving_transition(s_newest_first: List[Optional[float]],
@@ -307,6 +362,7 @@ class ScanResult:
     company_type: str = "standard"
     data_source: str = ""
     checks: List[CheckResult] = field(default_factory=list)
+    metrics: Dict[str, Optional[float]] = field(default_factory=dict)
     moat_hints: Dict[str, str] = field(default_factory=dict)
     error: str = ""
     excluded: bool = False
@@ -330,8 +386,12 @@ class ScanResult:
 
     @property
     def is_great(self) -> bool:
-        """Great business = zero hard FAILs among applicable checks."""
-        return self.n_fail == 0 and self.applicable >= 6
+        """Great business = zero hard FAILs, at most 2 review WARNs, and
+        enough applicable checks for a meaningful verdict. NA never
+        disqualifies: data a source doesn't report (or a check that doesn't
+        apply to the company type) is not evidence of a bad business — it
+        just doesn't count toward `applicable`."""
+        return self.n_fail == 0 and self.n_warn <= 2 and self.applicable >= 8
 
     @property
     def score(self) -> float:
@@ -349,6 +409,7 @@ class ScanResult:
             "n_pass": self.n_pass, "n_fail": self.n_fail, "n_warn": self.n_warn,
             "checks": [{"name": c.name, "status": c.status,
                         "value": c.value, "detail": c.detail} for c in self.checks],
+            "metrics": self.metrics,
             "moat_hints": self.moat_hints,
             "error": self.error,
             "excluded": self.excluded,
@@ -362,7 +423,10 @@ def _fmt_pct(x: Optional[float]) -> str:
     return f"{x*100:.1f}%" if x is not None else "n/a"
 
 
-def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = False) -> ScanResult:
+def run_checks(meta: Dict, data: Dict[str, Dict],
+               growth_estimate: Optional[Dict] = None,
+               require_5y_only_pass: bool = False,
+               has_growth_prefilter: bool = False) -> ScanResult:
     """Run the VMI fundamentals checklist.
 
     `data` must have keys "income", "balance", "cashflow", "ratios", each
@@ -393,6 +457,11 @@ def run_checks(meta: Dict, data: Dict[str, Dict], has_growth_prefilter: bool = F
 
     def add(name, status, value=None, detail=""):
         res.checks.append(CheckResult(name, status, value, detail))
+
+    accept_5y = not require_5y_only_pass
+
+    def _wl(w):
+        return f"{w}y" if w else ""
 
     # ---- 1. Sales consistently increasing (durable trend, up to 15y)
     rev = _first_present(_series(inc, "revenue"))
