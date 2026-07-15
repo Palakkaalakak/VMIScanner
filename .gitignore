@@ -1,0 +1,12 @@
+node_modules/
+.wrangler/
+dist/
+*.log
+pids
+*.pid
+.env
+.dev.vars
+scanner/cache/
+scanner/__pycache__/
+scanner/vmi/__pycache__/
+*.pyc
