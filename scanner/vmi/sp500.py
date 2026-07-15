@@ -20,16 +20,20 @@ Design note — "largest filters first" infrastructure:
   For the S&P500-only case (today's deliverable) step 3 is skipped
   entirely since 503 tickers is small enough to deep-check directly.
 """
+import html
 import re
 from typing import Dict, List
 
 from .http import get
 
-WIKI_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+# The plain article URL (en.wikipedia.org/wiki/...) 403s our requests
+# session (bot-detection on that path specifically); the REST API's
+# rendered-HTML endpoint serves the identical table without issue.
+WIKI_URL = "https://en.wikipedia.org/api/rest_v1/page/html/List_of_S%26P_500_companies"
 
 
 def _clean(cell: str) -> str:
-    return re.sub(r"<[^>]+>", "", cell).strip()
+    return html.unescape(re.sub(r"<[^>]+>", "", cell)).strip()
 
 
 def fetch_sp500(use_cache: bool = True, cache_max_age: float = 86400 * 7) -> List[Dict]:

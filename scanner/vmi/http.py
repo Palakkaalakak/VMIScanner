@@ -2,10 +2,17 @@
 import hashlib
 import os
 import random
+import subprocess
 import threading
 import time
 
 import requests
+
+# Domains that block Python's `requests`/urllib3 via TLS fingerprinting
+# (JA3) even with correct headers, but accept plain `curl` requests fine
+# (verified empirically: wikipedia.org 403s requests, 200s curl with the
+# identical User-Agent). Shell out to curl for these instead.
+_CURL_FALLBACK_DOMAINS = {"wikipedia"}
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -68,6 +75,27 @@ def _cache_path(url: str) -> str:
     return os.path.join(CACHE_DIR, h + ".html")
 
 
+def _curl_get(url: str, timeout: int) -> "tuple[int, str]":
+    """Fallback fetch via the `curl` binary for domains that TLS-fingerprint
+    block Python's requests/urllib3 (see _CURL_FALLBACK_DOMAINS)."""
+    try:
+        proc = subprocess.run(
+            ["curl", "-s", "-L", "-A", UA, "-w", "\n__HTTP_CODE__%{http_code}",
+             "--max-time", str(timeout), url],
+            capture_output=True, text=True, timeout=timeout + 10,
+        )
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        raise RuntimeError(f"curl fallback failed for {url}: {e}")
+    out = proc.stdout
+    marker = "__HTTP_CODE__"
+    idx = out.rfind(marker)
+    if idx == -1:
+        return 0, out
+    code = int(out[idx + len(marker):].strip() or 0)
+    body = out[:idx]
+    return code, body
+
+
 def get(url: str, use_cache: bool = True, cache_max_age: float = 86400 * 3,
         retries: int = 3, timeout: int = 30, domain_hint: str = None) -> str:
     """GET a URL with per-domain throttling, retries and optional disk cache.
@@ -84,23 +112,28 @@ def get(url: str, use_cache: bool = True, cache_max_age: float = 86400 * 3,
                 return f.read()
 
     domain = _domain_key(url, domain_hint)
+    use_curl = domain in _CURL_FALLBACK_DOMAINS
     last_err = None
     for attempt in range(retries):
         _throttle(domain)
         try:
-            r = _session().get(url, timeout=timeout, allow_redirects=True)
-            if r.status_code == 200 and len(r.text) > 500:
+            if use_curl:
+                status_code, text = _curl_get(url, timeout)
+            else:
+                r = _session().get(url, timeout=timeout, allow_redirects=True)
+                status_code, text = r.status_code, r.text
+            if status_code == 200 and len(text) > 500:
                 with open(cp, "w", encoding="utf-8") as f:
-                    f.write(r.text)
-                return r.text
-            if r.status_code == 404:
+                    f.write(text)
+                return text
+            if status_code == 404:
                 raise LookupError(f"404 for {url}")
-            if r.status_code == 429:
+            if status_code == 429:
                 # Back off harder for rate-limited domains before retrying.
                 time.sleep(15 * (attempt + 1))
                 last_err = RuntimeError(f"HTTP 429 for {url}")
                 continue
-            last_err = RuntimeError(f"HTTP {r.status_code} for {url}")
+            last_err = RuntimeError(f"HTTP {status_code} for {url}")
         except LookupError:
             raise
         except Exception as e:  # noqa: BLE001
