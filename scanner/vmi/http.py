@@ -26,7 +26,9 @@ _session_local = threading.local()
 # rate-limit tolerances (macrotrends 429s aggressively; stockanalysis and
 # finviz and wikipedia are comfortable much faster).
 _DOMAIN_MIN_INTERVAL = {
-    "macrotrends": 8.0,     # empirically the safe floor to avoid 429s
+    "macrotrends": 8.0,     # fallback source; aggressively rate-limited
+    "sec": 0.15,            # below the SEC fair-access ceiling of 10 req/s
+    "yahoo": 0.35,
     "stockanalysis": 0.35,
     "finviz": 0.5,
     "wikipedia": 0.5,
@@ -120,7 +122,20 @@ def get(url: str, use_cache: bool = True, cache_max_age: float = 86400 * 3,
             if use_curl:
                 status_code, text = _curl_get(url, timeout)
             else:
-                r = _session().get(url, timeout=timeout, allow_redirects=True)
+                headers = None
+                if domain == "sec":
+                    # SEC fair-access policy requires a declarative identifying
+                    # UA ("Name contact"); browser-style UAs get 403'd.
+                    # Override SEC_USER_AGENT with a real contact for
+                    # scheduled/production runs.
+                    headers = {
+                        "User-Agent": os.environ.get(
+                            "SEC_USER_AGENT", "VMIScanner scanner@example.com"
+                        ),
+                        "Accept": "application/json",
+                    }
+                r = _session().get(url, timeout=timeout, allow_redirects=True,
+                                   headers=headers)
                 status_code, text = r.status_code, r.text
             if status_code == 200 and len(text) > 500:
                 with open(cp, "w", encoding="utf-8") as f:
