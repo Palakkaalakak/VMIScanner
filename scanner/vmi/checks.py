@@ -463,49 +463,57 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     def _wl(w):
         return f"{w}y" if w else ""
 
-    # ---- 1. Sales consistently increasing (durable trend, up to 15y)
+    # ---- 1. Sales consistently increasing — multi-window (20/15/10y
+    # any-pass; a 5y-only pass is WARN unless the UI toggle allows it)
     rev = _first_present(_series(inc, "revenue"))
-    rev_w = _window(rev, WINDOW_TREND)
-    ok = _consistently_increasing(rev_w)
-    add(f"Sales increasing ({WINDOW_TREND}y)",
-        NA if ok is None else (PASS if ok else FAIL),
-        _fmt_pct(_cagr(rev_w)) + " CAGR" if _cagr(rev_w) is not None else None,
-        "Durable upward trend over available history (positive regression "
-        "slope, higher endpoints/recent average, ≥half of annual moves up)")
+    st, w, cagr = _multi_window_trend(rev, accept_5y)
+    res.metrics["rev_cagr_5y"] = _cagr(_window(rev, 5))
+    res.metrics["rev_cagr_10y"] = _cagr(_window(rev, 10))
+    res.metrics["rev_cagr_15y"] = _cagr(_window(rev, 15))
+    add("Sales increasing (multi-window)", st,
+        (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
+        "Durable-trend test over ANY of 20/15/10y"
+        + ("; 5y alone also accepted" if accept_5y else "; 5y alone → WARN"))
 
-    # ---- 2. Net income consistently increasing (operating income fallback)
+    # ---- 2. Net income consistently increasing — multi-window, with the
+    # course-approved operating-income fallback
     ni = _first_present(_series(inc, "netIncome"), _series(inc, "cf_netIncome"))
+    oi = _series(inc, "operatingIncome")
     ni_w = _window(ni, WINDOW_TREND)
-    oi_w = _window(_series(inc, "operatingIncome"), WINDOW_TREND)
-    ok_ni = _consistently_increasing(ni_w)
-    if ok_ni is False:
-        ok_oi = _consistently_increasing(oi_w)
-        if ok_oi:
-            add(f"Net income increasing ({WINDOW_TREND}y)", WARN,
-                _fmt_pct(_cagr(ni_w)) + " CAGR",
+    oi_w = _window(oi, WINDOW_TREND)
+    res.metrics["ni_cagr_5y"] = _cagr(_window(ni, 5))
+    res.metrics["ni_cagr_10y"] = _cagr(_window(ni, 10))
+    res.metrics["ni_cagr_15y"] = _cagr(_window(ni, 15))
+    st_ni, w_ni, cagr_ni = _multi_window_trend(ni, accept_5y)
+    if st_ni == FAIL:
+        st_oi, w_oi, _c = _multi_window_trend(oi, accept_5y)
+        if st_oi == PASS:
+            add("Net income increasing (multi-window)", WARN,
+                (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
                 "Net income choppy but OPERATING income consistently rising "
-                "(course-approved fallback: excludes one-off items)")
+                f"({_wl(w_oi)}) — course-approved fallback (one-off items)")
         elif _improving_transition(ni_w) or _improving_transition(oi_w):
-            add(f"Net income increasing ({WINDOW_TREND}y)", WARN,
-                _fmt_pct(_cagr(ni_w)) + " CAGR" if _cagr(ni_w) is not None else None,
+            add("Net income increasing (multi-window)", WARN,
+                (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
                 "Profitability improving on a smoothed long-term basis but not "
                 "yet meeting the mature-company consistency test (growth-stage)")
         else:
-            add(f"Net income increasing ({WINDOW_TREND}y)", FAIL,
-                _fmt_pct(_cagr(ni_w)) + " CAGR" if _cagr(ni_w) is not None else None,
-                "Neither net income nor operating income consistently rising")
+            add("Net income increasing (multi-window)", FAIL,
+                (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
+                "Neither net income nor operating income consistently rising "
+                "over any of 20/15/10y (or 5y)")
     else:
-        add(f"Net income increasing ({WINDOW_TREND}y)",
-            NA if ok_ni is None else PASS,
-            _fmt_pct(_cagr(ni_w)) + " CAGR" if _cagr(ni_w) is not None else None)
+        add("Net income increasing (multi-window)", st_ni,
+            (_fmt_pct(cagr_ni) + f" CAGR ({_wl(w_ni)})") if cagr_ni is not None else None,
+            "5y-only pass — review flag" if st_ni == WARN else "")
 
-    # ---- 3. CFO consistently increasing (durable trend, up to 15y)
+    # ---- 3. CFO consistently increasing — multi-window
     ocf = _first_present(_series(cf, "ncfo"))
-    ocf_w = _window(ocf, WINDOW_TREND)
-    ok = _consistently_increasing(ocf_w)
-    add(f"CFO increasing ({WINDOW_TREND}y)",
-        NA if ok is None else (PASS if ok else FAIL),
-        _fmt_pct(_cagr(ocf_w)) + " CAGR" if _cagr(ocf_w) is not None else None)
+    st, w, cagr = _multi_window_trend(ocf, accept_5y)
+    res.metrics["cfo_cagr_10y"] = _cagr(_window(ocf, 10))
+    add("CFO increasing (multi-window)", st,
+        (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
+        "5y-only pass — review flag" if st == WARN else "")
 
     # ---- 4. FCF consistently positive (FCF = CFO - Capex)
     fcf_direct = _series(cf, "fcf") or _series(inc, "fcf")
@@ -568,37 +576,32 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         "Positive but compressed / growth-transition — review whether temporary"
         if nm_status == WARN else "")
 
-    # ---- 7. ROE >= 12% (5y average AND latest — EXPLICIT "for the last 5 years")
+    # ---- 7. ROE >= 12% — multi-window average (20/15/10y any-pass; 5y gated)
     roe = _series(rat, "roe")
-    roe_w = _window(roe, WINDOW_5Y)
-    roe_avg = _avg(roe_w, WINDOW_5Y)
-    roe_latest = roe_w[0] if roe_w else None
-    equity_latest = _latest(bal, "equity")
-    if roe_avg is None:
+    roe_latest = next((v for v in roe if v is not None), None)
+    st, w, roe_avg = _multi_window_avg(roe, 12.0, accept_5y)
+    if st == NA:
         add("ROE ≥ 12%", NA)
     elif any(v is not None and v < 0
-             for v in _window(_series(bal, "equity"), WINDOW_5Y)):
-        add("ROE ≥ 12%", WARN, "negative equity in 5y window",
+             for v in _window(_series(bal, "equity"), WINDOW_10Y)):
+        add("ROE ≥ 12%", WARN, "negative equity in window",
             "ROE distorted by negative shareholder equity (often buybacks, "
             "e.g. MCD/YUM/AZO) — course explicitly says judge manually")
-    elif roe_avg >= 12:
-        value = f"{WINDOW_5Y}y avg {roe_avg:.1f}%"
-        if roe_latest is not None:
-            value += f", latest {roe_latest:.1f}%"
-        add("ROE ≥ 12%", PASS, value)
-    elif roe_avg >= 10:
-        value = f"{WINDOW_5Y}y avg {roe_avg:.1f}%"
-        if roe_latest is not None:
-            value += f", latest {roe_latest:.1f}%"
-        add("ROE ≥ 12%", WARN, value,
-            "Between the course's own Finviz screen floor (ROE > 10%) and "
-            "the 12-15% target")
-    elif growth_transition:
-        add("ROE ≥ 12%", WARN, f"{WINDOW_5Y}y avg {roe_avg:.1f}%",
-            "Growth-stage profitability improving; historical ROE not yet "
-            "representative of the now-profitable business")
     else:
-        add("ROE ≥ 12%", FAIL, f"{WINDOW_5Y}y avg {roe_avg:.1f}%")
+        val = f"{_wl(w)} avg {roe_avg:.1f}%" if roe_avg is not None else None
+        if val and roe_latest is not None:
+            val += f", latest {roe_latest:.1f}%"
+        if st == FAIL and roe_avg is not None and roe_avg >= 10:
+            add("ROE ≥ 12%", WARN, val,
+                "10-12%: between the course's Finviz floor (>10%) and the "
+                "12-15% target")
+        elif st == FAIL and growth_transition:
+            add("ROE ≥ 12%", WARN, val,
+                "Growth-stage profitability improving; historical ROE not yet "
+                "representative")
+        else:
+            add("ROE ≥ 12%", st, val,
+                "5y-only clearance — review flag" if st == WARN and w == 5 else "")
 
     # ---- 8. ROIC >= 12% (10y default — docs give NO window, only a target %)
     # VMI formula (line 90): EBIT x (1 - tax rate) / (Equity + Debt - Cash).
@@ -627,29 +630,26 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         else:
             roic_computed.append(None)
     roic_w = _window(roic_computed, WINDOW_10Y)
-    roic_avg = _avg(roic_w, WINDOW_10Y)
-    roic_latest = roic_w[0] if roic_w else None
-    if roic_avg is None:
+    roic_latest = next((v for v in roic_computed if v is not None), None)
+    st, w, roic_avg = _multi_window_avg(roic_computed, 12.0, accept_5y)
+    if st == NA:
         add("ROIC ≥ 12%", NA, None,
             "Insufficient data to compute EBIT x (1-tax) / (Equity+Debt-Cash)")
-    elif roic_avg >= 12:
-        value = f"{WINDOW_10Y}y avg {roic_avg:.1f}%"
-        if roic_latest is not None:
-            value += f", latest {roic_latest:.1f}%"
-        add("ROIC ≥ 12%", PASS, value)
-    elif roic_avg >= 10:
-        value = f"{WINDOW_10Y}y avg {roic_avg:.1f}%"
-        if roic_latest is not None:
-            value += f", latest {roic_latest:.1f}%"
-        add("ROIC ≥ 12%", WARN, value,
-            "10-12%: below the 12-15% target but at/above the course's own "
-            "10% screen floor — review flag, not a hard fail")
-    elif growth_transition:
-        add("ROIC ≥ 12%", WARN, f"{WINDOW_10Y}y avg {roic_avg:.1f}%",
-            "Growth-stage profitability transition makes the historical "
-            "average unrepresentative; review normalized ROIC manually")
     else:
-        add("ROIC ≥ 12%", FAIL, f"{WINDOW_10Y}y avg {roic_avg:.1f}%")
+        val = f"{_wl(w)} avg {roic_avg:.1f}%" if roic_avg is not None else None
+        if val and roic_latest is not None:
+            val += f", latest {roic_latest:.1f}%"
+        if st == FAIL and roic_avg is not None and roic_avg >= 10:
+            add("ROIC ≥ 12%", WARN, val,
+                "10-12%: below the 12-15% target but at/above the course's own "
+                "10% screen floor — review flag, not a hard fail")
+        elif st == FAIL and growth_transition:
+            add("ROIC ≥ 12%", WARN, val,
+                "Growth-stage profitability transition makes the historical "
+                "average unrepresentative; review normalized ROIC manually")
+        else:
+            add("ROIC ≥ 12%", st, val,
+                "5y-only clearance — review flag" if st == WARN and w == 5 else "")
 
     # ---- 9. Current ratio >= 1
     # Course: the standard debt checks aren't apples-to-apples for financial
@@ -741,18 +741,36 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "Course red flag (possible channel stuffing), but not proof of a "
             "bad business — inspect customer/distribution changes manually")
 
-    # ---- 13. Positive projected growth — only meaningful if a universe
-    # pre-filter already enforced forward-analyst-estimate growth; when
-    # scanning the raw S&P500 list directly we have no free forward-EPS
-    # estimate source, so mark NA rather than rubber-stamping PASS.
-    if has_growth_prefilter:
+    # ---- 13. Positive projected growth — analyst EPS estimates (finviz
+    # bulk pull wired through scan.py). NA only when finviz genuinely has
+    # no estimate; NA never disqualifies.
+    g = growth_estimate or {}
+    proj5 = g.get("eps_next_5y")
+    proj1 = g.get("eps_next_y")
+    res.metrics["proj_eps_next_5y"] = proj5
+    res.metrics["proj_eps_next_y"] = proj1
+    res.metrics["eps_past_5y"] = g.get("eps_past_5y")
+    if proj5 is not None:
+        if proj5 > 0:
+            add("Positive projected growth", PASS,
+                f"EPS next-5Y est {proj5:+.1f}%/yr"
+                + (f", next-Y {proj1:+.1f}%" if proj1 is not None else ""))
+        elif proj1 is not None and proj1 > 0:
+            add("Positive projected growth", WARN,
+                f"next-5Y {proj5:+.1f}%/yr but next-Y {proj1:+.1f}%",
+                "Long-term estimate negative while next year positive — review")
+        else:
+            add("Positive projected growth", FAIL, f"EPS next-5Y est {proj5:+.1f}%/yr")
+    elif proj1 is not None:
+        add("Positive projected growth", PASS if proj1 > 0 else FAIL,
+            f"EPS next-Y est {proj1:+.1f}% (no 5Y estimate)")
+    elif has_growth_prefilter:
         add("Positive projected growth", PASS, "EPS next-5Y estimate > 0",
             "Enforced by the Finviz pre-screen (analyst estimates)")
     else:
         add("Positive projected growth", NA, None,
-            "No free forward-estimate source wired in for direct-universe "
-            "scans — check analyst estimates manually (this check does not "
-            "count against is_great)")
+            "No analyst estimate available for this ticker — does not "
+            "count against is_great")
 
     # ---------------- Moat hints (informational only — user decides) ----
     gm_latest = _oldest_first(gm)[-1] if _oldest_first(gm) else None
