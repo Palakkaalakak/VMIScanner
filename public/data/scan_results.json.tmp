@@ -1,0 +1,381 @@
+{
+ "generated_at": "2026-07-16T05:13:50.804498+00:00",
+ "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
+ "universe": "S&P 500 (Wikipedia constituents)",
+ "universe_size": 503,
+ "included_after_exclusion": 443,
+ "excluded_count": 60,
+ "counts": {
+  "great": 61,
+  "near_miss": 123,
+  "failed": 41,
+  "errors": 0
+ },
+ "excluded": [
+  {
+   "ticker": "ARE",
+   "company": "Alexandria Real Estate Equities",
+   "sector": "Real Estate",
+   "industry": "Office REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "AMT",
+   "company": "American Tower",
+   "sector": "Real Estate",
+   "industry": "Telecom Tower REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "AMP",
+   "company": "Ameriprise Financial",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "APO",
+   "company": "Apollo Global Management",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "ARES",
+   "company": "Ares Management",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "AVB",
+   "company": "AvalonBay Communities",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BAC",
+   "company": "Bank of America",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BLK",
+   "company": "BlackRock",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BX",
+   "company": "Blackstone Inc.",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BNY",
+   "company": "BNY Mellon",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BXP",
+   "company": "BXP, Inc.",
+   "sector": "Real Estate",
+   "industry": "Office REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "CPT",
+   "company": "Camden Property Trust",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "SCHW",
+   "company": "Charles Schwab Corporation",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "C",
+   "company": "Citigroup",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "CFG",
+   "company": "Citizens Financial Group",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "CCI",
+   "company": "Crown Castle",
+   "sector": "Real Estate",
+   "industry": "Telecom Tower REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "DLR",
+   "company": "Digital Realty",
+   "sector": "Real Estate",
+   "industry": "Data Center REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "EQIX",
+   "company": "Equinix",
+   "sector": "Real Estate",
+   "industry": "Data Center REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "EQR",
+   "company": "Equity Residential",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "ESS",
+   "company": "Essex Property Trust",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "EXR",
+   "company": "Extra Space Storage",
+   "sector": "Real Estate",
+   "industry": "Self-Storage REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "FRT",
+   "company": "Federal Realty Investment Trust",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "FITB",
+   "company": "Fifth Third Bancorp",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BEN",
+   "company": "Franklin Resources",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "GS",
+   "company": "Goldman Sachs",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "DOC",
+   "company": "Healthpeak Properties",
+   "sector": "Real Estate",
+   "industry": "Health Care REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "HST",
+   "company": "Host Hotels & Resorts",
+   "sector": "Real Estate",
+   "industry": "Hotel & Resort REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "HBAN",
+   "company": "Huntington Bancshares",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "IBKR",
+   "company": "Interactive Brokers",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "IVZ",
+   "company": "Invesco",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "INVH",
+   "company": "Invitation Homes",
+   "sector": "Real Estate",
+   "industry": "Single-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "IRM",
+   "company": "Iron Mountain",
+   "sector": "Real Estate",
+   "industry": "Other Specialized REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "JPM",
+   "company": "JPMorgan Chase",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "KEY",
+   "company": "KeyCorp",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "KIM",
+   "company": "Kimco Realty",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "KKR",
+   "company": "KKR & Co.",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "MTB",
+   "company": "M&T Bank",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "MAA",
+   "company": "Mid-America Apartment Communities",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "MS",
+   "company": "Morgan Stanley",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "NTRS",
+   "company": "Northern Trust",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "PNC",
+   "company": "PNC Financial Services",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "PLD",
+   "company": "Prologis",
+   "sector": "Real Estate",
+   "industry": "Industrial REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "PSA",
+   "company": "Public Storage",
+   "sector": "Real Estate",
+   "industry": "Self-Storage REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "RJF",
+   "company": "Raymond James Financial",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "O",
+   "company": "Realty Income",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "REG",
+   "company": "Regency Centers",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
