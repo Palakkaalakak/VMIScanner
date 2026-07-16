@@ -21,8 +21,9 @@ st.set_page_config(page_title="VMI Great Business Scanner", page_icon="📈",
 st.title("📈 VMI Great Business Scanner")
 st.caption("S&P 500 · fundamentals-only checklist · SEC Company Facts primary, "
            "Yahoo + macrotrends fallbacks · trend/average checks pass on ANY of "
-           "20/15/10y windows · IV = 10y two-stage FCF DCF (10% discount, "
-           "2.5% terminal, analyst growth clamped 0-20% with 0.8 haircut)")
+           "20/15/10y windows · IV = 20y discounted earnings (StockOracle-"
+           "calibrated: forward EPS, growth capped 12%, CAPM discount, "
+           "+ current net assets; no terminal value)")
 
 
 def run_scan(extra_args: list, label: str):
