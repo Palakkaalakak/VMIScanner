@@ -154,10 +154,20 @@ def _row(r):
 
 df = pd.DataFrame([_row(r) for r in rows])
 
+
+def _fmt_disc(v):
+    if v is None or pd.isna(v):
+        return ""
+    return f"({abs(v):.1f}%)" if v < 0 else f"{v:.1f}%"
+
+
+if "Discount %" in df.columns:
+    df["Discount"] = df["Discount %"].map(_fmt_disc)
+
 # Main visible columns (the CAGR/projection columns were removed per request;
 # replaced by Price / Intrinsic Value / Discount).
 MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
-             "Score", "Price $", "Intrinsic Value $", "Discount %", "Source"]
+             "Score", "Price $", "Intrinsic Value $", "Discount", "Source"]
 MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
 
 # ---- Base filters -----------------------------------------------------
@@ -215,7 +225,8 @@ with st.expander("🔧 Custom filters & sorting (all known data)", expanded=Fals
         value=False)
 
 st.caption(f"{len(view)} stocks shown · you can also click any column header "
-           "to sort · Discount % > 0 means price below intrinsic value")
+           "to sort · Discount shows % below IV; (x%) in parentheses = premium "
+           "above IV · sort by the numeric 'Discount %' field in custom filters")
 table = view if show_all_cols else view[MAIN_COLS]
 st.dataframe(table.reset_index(drop=True), use_container_width=True, height=460)
 
@@ -231,8 +242,10 @@ if pick:
         d1.metric("Price", f"${m.get('price'):,.2f}" if m.get("price") else "—")
         d2.metric("Intrinsic value (DCF)", f"${m['intrinsic_value']:,.2f}")
         disc = m.get("discount_pct")
-        d3.metric("Discount", f"{disc:+.1f}%" if disc is not None else "—",
-                  help="Positive = trading below intrinsic value")
+        disc_txt = ("—" if disc is None
+                    else f"({abs(disc):.1f}%)" if disc < 0 else f"{disc:.1f}%")
+        d3.metric("Discount", disc_txt,
+                  help="x% = trading below intrinsic value; (x%) = premium above IV")
         d4.metric("DCF growth used", f"{m.get('dcf_growth_used', 0):.1f}%/yr")
     checks = pd.DataFrame([{
         "Check": ch["name"],
