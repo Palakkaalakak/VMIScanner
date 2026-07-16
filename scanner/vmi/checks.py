@@ -796,6 +796,41 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "No analyst estimate available for this ticker — does not "
             "count against is_great")
 
+    # ---------------- Intrinsic value via DCF (informational, no check) ----
+    # Two-stage FCF DCF, all inputs already fetched (no extra requests):
+    #   Stage 1 (10y): latest FCF grown at the analyst EPS-next-5Y estimate,
+    #     clamped to [0%, 20%] and haircut by 20% (estimates skew optimistic);
+    #     without an estimate, historical 10y FCF CAGR clamped the same way.
+    #   Terminal: Gordon growth at 2.5% (~long-run GDP+inflation).
+    #   Discount rate 10% (common intrinsic-value convention).
+    price = g.get("price")
+    shares = g.get("shares_outstanding")
+    res.metrics["price"] = price
+    fcf_latest = next((v for v in fcf if v is not None), None) if fcf else None
+    iv_ps = None
+    if fcf_latest is not None and fcf_latest > 0 and shares:
+        DISCOUNT, TERM_G, YEARS = 0.10, 0.025, 10
+        if proj5 is not None:
+            g1 = min(max(proj5 / 100.0, 0.0), 0.20) * 0.8
+        else:
+            hist = _cagr(_window(fcf, 10))
+            g1 = min(max(hist if hist is not None else 0.0, 0.0), 0.20) * 0.8
+        pv, f = 0.0, fcf_latest
+        for yr in range(1, YEARS + 1):
+            f *= (1 + g1)
+            pv += f / (1 + DISCOUNT) ** yr
+        terminal = f * (1 + TERM_G) / (DISCOUNT - TERM_G)
+        pv += terminal / (1 + DISCOUNT) ** YEARS
+        iv_ps = pv / shares
+        res.metrics["intrinsic_value"] = round(iv_ps, 2)
+        res.metrics["dcf_growth_used"] = round(g1 * 100, 1)
+        if price:
+            # Positive = trading below IV (discount); negative = premium.
+            res.metrics["discount_pct"] = round((iv_ps - price) / iv_ps * 100, 1)
+    else:
+        res.metrics["intrinsic_value"] = None
+        res.metrics["discount_pct"] = None
+
     # ---------------- Moat hints (informational only — user decides) ----
     gm_latest = _oldest_first(gm)[-1] if _oldest_first(gm) else None
     om = _first_present(_series(rat, "operatingMargin"), _series(inc, "operatingMargin"))

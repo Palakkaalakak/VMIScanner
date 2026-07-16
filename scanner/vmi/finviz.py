@@ -89,8 +89,9 @@ def screen_universe(use_cache: bool = True, cache_max_age: float = 86400) -> Lis
 
 # ---------------------------------------------------------------- estimates
 # Custom view v=152 column ids (verified against live header row):
-#   1=Ticker, 17=EPS This Y, 18=EPS Next Y, 19=EPS Past 5Y, 20=EPS Next 5Y
-_EST_COLS = "0,1,17,18,19,20"
+#   1=Ticker, 17=EPS This Y, 18=EPS Next Y, 19=EPS Past 5Y, 20=EPS Next 5Y,
+#   24=Shares Outstanding, 65=Price
+_EST_COLS = "0,1,17,18,19,20,24,65"
 
 
 def _parse_est_rows(html: str) -> Dict[str, Dict]:
@@ -115,9 +116,25 @@ def _parse_est_rows(html: str) -> Dict[str, Dict]:
             except ValueError:
                 return None
 
+        def num(x: str):
+            """Parse plain numbers and 15.20B / 890.5M style abbreviations."""
+            x = x.replace(",", "").strip()
+            mult = 1.0
+            if x[-1:] in ("B", "b"):
+                mult, x = 1e9, x[:-1]
+            elif x[-1:] in ("M", "m"):
+                mult, x = 1e6, x[:-1]
+            elif x[-1:] in ("K", "k"):
+                mult, x = 1e3, x[:-1]
+            try:
+                return float(x) * mult
+            except ValueError:
+                return None
+
         out[ticker] = {
             "eps_this_y": pct(tds[2]), "eps_next_y": pct(tds[3]),
             "eps_past_5y": pct(tds[4]), "eps_next_5y": pct(tds[5]),
+            "shares_outstanding": num(tds[6]), "price": num(tds[7]),
         }
     return out
 
