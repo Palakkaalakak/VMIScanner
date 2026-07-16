@@ -797,36 +797,59 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "count against is_great")
 
     # ---------------- Intrinsic value via DCF (informational, no check) ----
-    # Two-stage FCF DCF, all inputs already fetched (no extra requests):
-    #   Stage 1 (10y): latest FCF grown at the analyst EPS-next-5Y estimate,
-    #     clamped to [0%, 20%] and haircut by 20% (estimates skew optimistic);
-    #     without an estimate, historical 10y FCF CAGR clamped the same way.
-    #   Terminal: Gordon growth at 2.5% (~long-run GDP+inflation).
-    #   Discount rate 10% (common intrinsic-value convention).
+    # Adam Khoo's "VMI IV Calculator (20 years)" — Discounted Free Cash Flow
+    # method, replicated exactly from the course workbook formulas:
+    #   FCF (latest annual, = CFO − Capex) projected 20 years, NO terminal:
+    #     Yr 1-5  : analyst EPS-next-5Y growth estimate (clamped 0-20%;
+    #               fallback: historical 10y FCF CAGR clamped the same)
+    #     Yr 6-10 : same rate but capped at 15%   (MSFT example: 17.48%→15%)
+    #     Yr 11-20: 4% flat                        (workbook F24)
+    #   Discount rate = Rf + beta × MRP (CAPM); Rf/MRP are the 5y averages
+    #     shipped in the workbook's "Discount Rate Data" sheet
+    #     (market-risk-premia.com, updated 2026-03): Rf 3.608%, MRP 2.728%.
+    #     Beta from finviz, clamped to the workbook's table range 0.8-1.6;
+    #     1.0 assumed when unavailable.
+    #   IV/share = PV/shares − total debt/share + (cash + ST invest)/share.
     price = g.get("price")
     shares = g.get("shares_outstanding")
+    beta = g.get("beta")
     res.metrics["price"] = price
     fcf_latest = next((v for v in fcf if v is not None), None) if fcf else None
     iv_ps = None
     if fcf_latest is not None and fcf_latest > 0 and shares:
-        DISCOUNT, TERM_G, YEARS = 0.10, 0.025, 10
+        RF, MRP = 0.03608, 0.02728
+        b = min(max(beta if beta is not None else 1.0, 0.8), 1.6)
+        disc = RF + b * MRP
         if proj5 is not None:
-            g1 = min(max(proj5 / 100.0, 0.0), 0.20) * 0.8
+            g1 = min(max(proj5 / 100.0, 0.0), 0.20)
         else:
             hist = _cagr(_window(fcf, 10))
-            g1 = min(max(hist if hist is not None else 0.0, 0.0), 0.20) * 0.8
+            g1 = min(max(hist if hist is not None else 0.0, 0.0), 0.20)
+        g2 = min(g1, 0.15)
+        G3 = 0.04
         pv, f = 0.0, fcf_latest
-        for yr in range(1, YEARS + 1):
-            f *= (1 + g1)
-            pv += f / (1 + DISCOUNT) ** yr
-        terminal = f * (1 + TERM_G) / (DISCOUNT - TERM_G)
-        pv += terminal / (1 + DISCOUNT) ** YEARS
+        for yr in range(1, 21):
+            f *= (1 + (g1 if yr <= 5 else g2 if yr <= 10 else G3))
+            pv += f / (1 + disc) ** yr
         iv_ps = pv / shares
+
+        def _latest_bal(key):
+            s = _series(bal, key)
+            return next((v for v in s if v is not None), None) if s else None
+
+        debt_total = (_latest_bal("shortTermDebt") or 0) + \
+                     (_latest_bal("longTermDebt") or 0)
+        cash_total = (_latest_bal("cash") or 0) + \
+                     (_latest_bal("shortTermInvestments") or 0)
+        iv_ps = iv_ps - debt_total / shares + cash_total / shares
         res.metrics["intrinsic_value"] = round(iv_ps, 2)
         res.metrics["dcf_growth_used"] = round(g1 * 100, 1)
-        if price:
+        res.metrics["dcf_discount_rate"] = round(disc * 100, 2)
+        if price and iv_ps > 0:
             # Positive = trading below IV (discount); negative = premium.
             res.metrics["discount_pct"] = round((iv_ps - price) / iv_ps * 100, 1)
+        else:
+            res.metrics["discount_pct"] = None
     else:
         res.metrics["intrinsic_value"] = None
         res.metrics["discount_pct"] = None

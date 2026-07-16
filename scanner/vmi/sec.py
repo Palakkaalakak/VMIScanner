@@ -70,6 +70,13 @@ TAGS = {
     "cash": ("CashAndCashEquivalentsAtCarryingValue",
              "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
              "CashAndCashEquivalents"),
+    "shortTermInvestments": ("ShortTermInvestments", "MarketableSecuritiesCurrent",
+                             "AvailableForSaleSecuritiesDebtSecuritiesCurrent",
+                             "AvailableForSaleSecuritiesCurrent",
+                             "OtherShortTermInvestments"),
+    "shortTermDebt": ("DebtCurrent", "LongTermDebtCurrent",
+                      "ShortTermBorrowings", "LongTermDebtAndCapitalLeaseObligationsCurrent",
+                      "CurrentPortionOfLongTermDebt"),
     "receivables": ("AccountsReceivableNetCurrent",
                     "AccountsNotesAndLoansReceivableNetCurrent",
                     "ReceivablesNetCurrent", "TradeAndOtherCurrentReceivables"),
@@ -243,6 +250,8 @@ def fetch_all(ticker: str, use_cache: bool = True
         "equity": equity,
         "longTermDebt": _aligned(raw, years, "longTermDebt"),
         "cash": _aligned(raw, years, "cash"),
+        "shortTermInvestments": _aligned(raw, years, "shortTermInvestments"),
+        "shortTermDebt": _aligned(raw, years, "shortTermDebt"),
         "receivables": _aligned(raw, years, "receivables"),
     }
     cashflow = {
