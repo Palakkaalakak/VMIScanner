@@ -19,9 +19,10 @@ RESULTS_PATH = os.path.join(REPO_ROOT, "public", "data", "scan_results.json")
 st.set_page_config(page_title="VMI Great Business Scanner", page_icon="📈",
                    layout="wide")
 st.title("📈 VMI Great Business Scanner")
-st.caption("S&P 500 · fundamentals-only (no valuation/TA) · SEC Company Facts "
-           "primary, Yahoo + macrotrends fallbacks · trend/average checks pass "
-           "on ANY of 20/15/10y windows")
+st.caption("S&P 500 · fundamentals-only checklist · SEC Company Facts primary, "
+           "Yahoo + macrotrends fallbacks · trend/average checks pass on ANY of "
+           "20/15/10y windows · IV = 10y two-stage FCF DCF (10% discount, "
+           "2.5% terminal, analyst growth clamped 0-20% with 0.8 haircut)")
 
 
 def run_scan(extra_args: list, label: str):
@@ -108,29 +109,58 @@ def _verdict(r):
     return "🟡 NEAR" if r.get("n_fail", 9) <= 1 else "❌ FAIL"
 
 
-df = pd.DataFrame([{
-    "Ticker": r["ticker"], "Company": r.get("company", ""),
-    "Sector": r.get("sector", ""), "Verdict": _verdict(r),
-    "Fails": r.get("n_fail", 0), "Warns": r.get("n_warn", 0),
-    "Score": r.get("score", 0),
-    "Rev CAGR 5y %": (r.get("metrics") or {}).get("rev_cagr_5y"),
-    "Rev CAGR 10y %": (r.get("metrics") or {}).get("rev_cagr_10y"),
-    "Rev CAGR 15y %": (r.get("metrics") or {}).get("rev_cagr_15y"),
-    "NI CAGR 5y %": (r.get("metrics") or {}).get("ni_cagr_5y"),
-    "NI CAGR 10y %": (r.get("metrics") or {}).get("ni_cagr_10y"),
-    "NI CAGR 15y %": (r.get("metrics") or {}).get("ni_cagr_15y"),
-    "Proj EPS 5y %/yr": (r.get("metrics") or {}).get("proj_eps_next_5y"),
-    "Proj EPS next-Y %": (r.get("metrics") or {}).get("proj_eps_next_y"),
-    "Source": r.get("data_source", ""),
-} for r in rows])
+# ---- Build the master dataframe: display columns + ALL known data as
+# ---- extra (hideable) columns so the custom filter can use everything.
 
-# CAGRs are stored as fractions (0.112 = 11.2%); projections already percent.
-for col in df.columns:
-    if "CAGR" in col:
-        df[col] = (df[col] * 100).round(1)
-    elif col.startswith("Proj"):
-        df[col] = df[col].round(1)
+# Fraction-stored metrics get converted to % for display/filtering.
+_FRACTION_METRICS = {"rev_cagr_5y", "rev_cagr_10y", "rev_cagr_15y",
+                     "ni_cagr_5y", "ni_cagr_10y", "ni_cagr_15y",
+                     "cfo_cagr_10y"}
+_METRIC_LABELS = {
+    "price": "Price $",
+    "intrinsic_value": "Intrinsic Value $",
+    "discount_pct": "Discount %",
+    "dcf_growth_used": "DCF growth used %",
+    "rev_cagr_5y": "Rev CAGR 5y %", "rev_cagr_10y": "Rev CAGR 10y %",
+    "rev_cagr_15y": "Rev CAGR 15y %",
+    "ni_cagr_5y": "NI CAGR 5y %", "ni_cagr_10y": "NI CAGR 10y %",
+    "ni_cagr_15y": "NI CAGR 15y %",
+    "cfo_cagr_10y": "CFO CAGR 10y %",
+    "proj_eps_next_5y": "Proj EPS 5y %/yr",
+    "proj_eps_next_y": "Proj EPS next-Y %",
+    "eps_past_5y": "EPS past 5y %/yr",
+}
 
+all_metric_keys = sorted({k for r in rows for k in (r.get("metrics") or {})})
+
+
+def _row(r):
+    m = r.get("metrics") or {}
+    d = {
+        "Ticker": r["ticker"], "Company": r.get("company", ""),
+        "Sector": r.get("sector", ""), "Verdict": _verdict(r),
+        "Fails": r.get("n_fail", 0), "Warns": r.get("n_warn", 0),
+        "Score": r.get("score", 0),
+        "Applicable checks": r.get("applicable", None),
+        "Source": r.get("data_source", ""),
+    }
+    for k in all_metric_keys:
+        v = m.get(k)
+        if v is not None and k in _FRACTION_METRICS:
+            v = round(v * 100, 1)
+        d[_METRIC_LABELS.get(k, k)] = v
+    return d
+
+
+df = pd.DataFrame([_row(r) for r in rows])
+
+# Main visible columns (the CAGR/projection columns were removed per request;
+# replaced by Price / Intrinsic Value / Discount).
+MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
+             "Score", "Price $", "Intrinsic Value $", "Discount %", "Source"]
+MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
+
+# ---- Base filters -----------------------------------------------------
 fc1, fc2, fc3 = st.columns([2, 2, 3])
 verdict_f = fc1.multiselect("Verdict", ["✅ GREAT", "🟡 NEAR", "❌ FAIL"],
                             default=["✅ GREAT"])
@@ -145,16 +175,65 @@ if search:
     view = view[view["Ticker"].str.lower().str.contains(s)
                 | view["Company"].str.lower().str.contains(s)]
 
-st.caption("Click any column header to sort ascending/descending "
-           "(CAGRs, projected growth, score…)")
-st.dataframe(view.reset_index(drop=True), use_container_width=True, height=460)
+# ---- Custom filters + sorting (ALL known data) ------------------------
+numeric_fields = sorted(
+    col for col in df.columns
+    if col not in ("Ticker", "Company", "Sector", "Verdict", "Source")
+    and pd.api.types.is_numeric_dtype(df[col]))
+
+with st.expander("🔧 Custom filters & sorting (all known data)", expanded=False):
+    st.caption("Stack any number of numeric filters on top of the verdict "
+               "filter above. Blank rows in the data (NA) are **kept** by "
+               "default — NA never disqualifies — untick to drop them.")
+    n_filters = st.number_input("Number of custom filters", 0, 8, 0)
+    for i in range(int(n_filters)):
+        f1, f2, f3, f4 = st.columns([3, 2, 2, 2])
+        field = f1.selectbox(f"Field #{i+1}", numeric_fields, key=f"ff{i}")
+        col_data = df[field].dropna()
+        lo_default = float(col_data.min()) if len(col_data) else 0.0
+        hi_default = float(col_data.max()) if len(col_data) else 0.0
+        lo = f2.number_input("Min", value=lo_default, key=f"lo{i}")
+        hi = f3.number_input("Max", value=hi_default, key=f"hi{i}")
+        keep_na = f4.checkbox("Keep NA", value=True, key=f"na{i}")
+        mask = (view[field] >= lo) & (view[field] <= hi)
+        if keep_na:
+            mask = mask | view[field].isna()
+        view = view[mask]
+
+    st.divider()
+    s1, s2 = st.columns([3, 2])
+    sort_by = s1.selectbox("Sort by", ["(none)"] + numeric_fields
+                           + ["Ticker", "Company", "Sector"])
+    sort_dir = s2.radio("Direction", ["Descending", "Ascending"],
+                        horizontal=True)
+    if sort_by != "(none)":
+        view = view.sort_values(sort_by, ascending=(sort_dir == "Ascending"),
+                                na_position="last")
+
+    show_all_cols = st.checkbox(
+        "Show ALL data columns in the table (CAGRs, projections, …)",
+        value=False)
+
+st.caption(f"{len(view)} stocks shown · you can also click any column header "
+           "to sort · Discount % > 0 means price below intrinsic value")
+table = view if show_all_cols else view[MAIN_COLS]
+st.dataframe(table.reset_index(drop=True), use_container_width=True, height=460)
 
 st.subheader("Check detail")
 pick = st.selectbox("Ticker", [""] + view["Ticker"].tolist())
 if pick:
     r = next(x for x in rows if x["ticker"] == pick)
+    m = r.get("metrics") or {}
     st.markdown(f"**{r['ticker']} — {r.get('company','')}** · {r.get('sector','')} "
                 f"/ {r.get('industry','')} · source: `{r.get('data_source','')}`")
+    if m.get("intrinsic_value") is not None:
+        d1, d2, d3, d4 = st.columns(4)
+        d1.metric("Price", f"${m.get('price'):,.2f}" if m.get("price") else "—")
+        d2.metric("Intrinsic value (DCF)", f"${m['intrinsic_value']:,.2f}")
+        disc = m.get("discount_pct")
+        d3.metric("Discount", f"{disc:+.1f}%" if disc is not None else "—",
+                  help="Positive = trading below intrinsic value")
+        d4.metric("DCF growth used", f"{m.get('dcf_growth_used', 0):.1f}%/yr")
     checks = pd.DataFrame([{
         "Check": ch["name"],
         "Status": {"PASS": "✅ PASS", "FAIL": "❌ FAIL",
