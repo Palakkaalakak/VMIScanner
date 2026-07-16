@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-07-16T08:07:31.999732+00:00",
+ "generated_at": "2026-07-16T08:19:11.516187+00:00",
  "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
  "universe": "S&P 500 (Wikipedia constituents)",
  "universe_size": 503,
  "included_after_exclusion": 443,
  "excluded_count": 60,
  "counts": {
-  "great": 118,
-  "near_miss": 249,
+  "great": 157,
+  "near_miss": 210,
   "failed": 76,
   "errors": 0
  },
@@ -1078,11 +1078,11 @@
     "proj_eps_next_5y": 21.78,
     "proj_eps_next_y": 22.66,
     "eps_past_5y": 40.7,
-    "price": 170.0,
+    "price": 169.66,
     "intrinsic_value": 130.77,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -30.0
+    "discount_pct": -29.7
    },
    "moat_hints": {
     "gross_margin": "64.1% (high \u2014 pricing power?)",
@@ -1319,11 +1319,11 @@
     "proj_eps_next_5y": 24.61,
     "proj_eps_next_y": 19.36,
     "eps_past_5y": 27.85,
-    "price": 156.99,
+    "price": 156.6,
     "intrinsic_value": 139.38,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.99,
-    "discount_pct": -12.6
+    "discount_pct": -12.4
    },
    "moat_hints": {
     "gross_margin": "36.9%",
@@ -1440,11 +1440,11 @@
     "proj_eps_next_5y": 56.27,
     "proj_eps_next_y": 67.96,
     "eps_past_5y": 49.76,
-    "price": 389.3,
+    "price": 387.38,
     "intrinsic_value": 202.16,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.62,
-    "discount_pct": -92.6
+    "discount_pct": -91.6
    },
    "moat_hints": {
     "gross_margin": "67.8% (high \u2014 pricing power?)",
@@ -2038,11 +2038,11 @@
     "proj_eps_next_5y": 24.68,
     "proj_eps_next_y": 22.74,
     "eps_past_5y": 28.05,
-    "price": 909.66,
+    "price": 903.66,
     "intrinsic_value": 648.65,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.92,
-    "discount_pct": -40.2
+    "discount_pct": -39.3
    },
    "moat_hints": {
     "gross_margin": "33.8%",
@@ -2280,11 +2280,11 @@
     "proj_eps_next_5y": 18.72,
     "proj_eps_next_y": 16.52,
     "eps_past_5y": 11.29,
-    "price": 626.31,
+    "price": 662.5,
     "intrinsic_value": 637.33,
     "dcf_growth_used": 18.7,
     "dcf_discount_rate": 6.96,
-    "discount_pct": 1.7
+    "discount_pct": -3.9
    },
    "moat_hints": {
     "gross_margin": "25.3%",
@@ -2401,11 +2401,11 @@
     "proj_eps_next_5y": 11.1,
     "proj_eps_next_y": 10.43,
     "eps_past_5y": 15.09,
-    "price": 918.0,
+    "price": 918.82,
     "intrinsic_value": 508.21,
     "dcf_growth_used": 11.1,
     "dcf_discount_rate": 5.98,
-    "discount_pct": -80.6
+    "discount_pct": -80.8
    },
    "moat_hints": {
     "gross_margin": "12.8%",
@@ -3125,11 +3125,11 @@
     "proj_eps_next_5y": 4.21,
     "proj_eps_next_y": 8.06,
     "eps_past_5y": 4.11,
-    "price": 207.25,
+    "price": 208.79,
     "intrinsic_value": 189.51,
     "dcf_growth_used": 4.2,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -9.4
+    "discount_pct": -10.2
    },
    "moat_hints": {
     "gross_margin": "79.0% (high \u2014 pricing power?)",
@@ -3486,11 +3486,11 @@
     "proj_eps_next_5y": 14.72,
     "proj_eps_next_y": 17.84,
     "eps_past_5y": 24.52,
-    "price": 408.8,
+    "price": 406.0,
     "intrinsic_value": 276.39,
     "dcf_growth_used": 14.7,
     "dcf_discount_rate": 6.83,
-    "discount_pct": -47.9
+    "discount_pct": -46.9
    },
    "moat_hints": {
     "gross_margin": "37.6%",
@@ -4090,11 +4090,11 @@
     "proj_eps_next_5y": 16.76,
     "proj_eps_next_y": 3.72,
     "eps_past_5y": 29.82,
-    "price": 372.0,
+    "price": 374.39,
     "intrinsic_value": 488.54,
     "dcf_growth_used": 16.8,
     "dcf_discount_rate": 6.96,
-    "discount_pct": 23.9
+    "discount_pct": 23.4
    },
    "moat_hints": {
     "gross_margin": "59.7% (high \u2014 pricing power?)",
@@ -4211,11 +4211,11 @@
     "proj_eps_next_5y": 16.79,
     "proj_eps_next_y": 3.68,
     "eps_past_5y": 29.82,
-    "price": 372.88,
+    "price": 375.8,
     "intrinsic_value": 218.83,
     "dcf_growth_used": 16.8,
     "dcf_discount_rate": 6.99,
-    "discount_pct": -70.4
+    "discount_pct": -71.7
    },
    "moat_hints": {
     "gross_margin": "59.7% (high \u2014 pricing power?)",
@@ -4573,11 +4573,11 @@
     "proj_eps_next_5y": 15.12,
     "proj_eps_next_y": 16.33,
     "eps_past_5y": -2.13,
-    "price": 277.79,
+    "price": 278.98,
     "intrinsic_value": 693.81,
     "dcf_growth_used": 15.1,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 60.0
+    "discount_pct": 59.8
    },
    "moat_hints": {
     "gross_margin": "40.3%",
@@ -4694,11 +4694,11 @@
     "proj_eps_next_5y": 10.02,
     "proj_eps_next_y": 11.21,
     "eps_past_5y": 20.85,
-    "price": 479.92,
+    "price": 485.4,
     "intrinsic_value": 381.86,
     "dcf_growth_used": 10.0,
     "dcf_discount_rate": 6.04,
-    "discount_pct": -25.7
+    "discount_pct": -27.1
    },
    "moat_hints": {
     "gross_margin": "35.3%",
@@ -4815,11 +4815,11 @@
     "proj_eps_next_5y": 15.37,
     "proj_eps_next_y": 14.94,
     "eps_past_5y": 14.6,
-    "price": 281.62,
+    "price": 283.0,
     "intrinsic_value": 790.19,
     "dcf_growth_used": 15.4,
     "dcf_discount_rate": 6.31,
-    "discount_pct": 64.4
+    "discount_pct": 64.2
    },
    "moat_hints": {
     "gross_margin": "97.7% (high \u2014 pricing power?)",
@@ -4936,11 +4936,11 @@
     "proj_eps_next_5y": 14.48,
     "proj_eps_next_y": 13.21,
     "eps_past_5y": 21.79,
-    "price": 389.88,
+    "price": 389.37,
     "intrinsic_value": 226.18,
     "dcf_growth_used": 14.5,
     "dcf_discount_rate": 7.59,
-    "discount_pct": -72.4
+    "discount_pct": -72.2
    },
    "moat_hints": {
     "gross_margin": "66.0% (high \u2014 pricing power?)",
@@ -5298,11 +5298,11 @@
     "proj_eps_next_5y": 9.82,
     "proj_eps_next_y": 10.57,
     "eps_past_5y": 14.9,
-    "price": 248.5,
+    "price": 248.65,
     "intrinsic_value": 196.86,
     "dcf_growth_used": 9.8,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -26.2
+    "discount_pct": -26.3
    },
    "moat_hints": {
     "gross_margin": "67.9% (high \u2014 pricing power?)",
@@ -5418,11 +5418,11 @@
     "proj_eps_next_5y": 22.33,
     "proj_eps_next_y": 16.22,
     "eps_past_5y": 8.17,
-    "price": 316.54,
+    "price": 316.65,
     "intrinsic_value": 299.42,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.91,
-    "discount_pct": -5.7
+    "discount_pct": -5.8
    },
    "moat_hints": {
     "gross_margin": "62.1% (high \u2014 pricing power?)",
@@ -5539,11 +5539,11 @@
     "proj_eps_next_5y": 24.21,
     "proj_eps_next_y": 40.1,
     "eps_past_5y": 31.57,
-    "price": 221.58,
+    "price": 219.83,
     "intrinsic_value": 106.94,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.45,
-    "discount_pct": -107.2
+    "discount_pct": -105.6
    },
    "moat_hints": {
     "gross_margin": "60.9% (high \u2014 pricing power?)",
@@ -5659,11 +5659,11 @@
     "proj_eps_next_5y": 33.22,
     "proj_eps_next_y": 41.64,
     "eps_past_5y": 22.42,
-    "price": 329.61,
+    "price": 326.58,
     "intrinsic_value": 159.99,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -106.0
+    "discount_pct": -104.1
    },
    "moat_hints": {
     "gross_margin": "48.7%",
@@ -5780,11 +5780,11 @@
     "proj_eps_next_5y": 15.92,
     "proj_eps_next_y": 15.98,
     "eps_past_5y": 20.99,
-    "price": 535.81,
+    "price": 537.0,
     "intrinsic_value": 746.46,
     "dcf_growth_used": 15.9,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 28.2
+    "discount_pct": 28.1
    },
    "moat_hints": {
     "operating_margin": "57.6% (high)",
@@ -5900,11 +5900,11 @@
     "proj_eps_next_5y": 19.63,
     "proj_eps_next_y": 6.22,
     "eps_past_5y": 18.41,
-    "price": 680.15,
+    "price": 680.4,
     "intrinsic_value": 836.12,
     "dcf_growth_used": 19.6,
     "dcf_discount_rate": 7.02,
-    "discount_pct": 18.7
+    "discount_pct": 18.6
    },
    "moat_hints": {
     "gross_margin": "82.0% (high \u2014 pricing power?)",
@@ -6021,11 +6021,11 @@
     "proj_eps_next_5y": 5.78,
     "proj_eps_next_y": 244.67,
     "eps_past_5y": 21.23,
-    "price": 124.0,
+    "price": 123.61,
     "intrinsic_value": 81.5,
     "dcf_growth_used": 5.8,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -52.1
+    "discount_pct": -51.7
    },
    "moat_hints": {
     "gross_margin": "74.8% (high \u2014 pricing power?)",
@@ -6260,11 +6260,11 @@
     "proj_eps_next_5y": 18.66,
     "proj_eps_next_y": 15.77,
     "eps_past_5y": 18.8,
-    "price": 399.61,
+    "price": 399.28,
     "intrinsic_value": 384.76,
     "dcf_growth_used": 18.7,
     "dcf_discount_rate": 6.69,
-    "discount_pct": -3.9
+    "discount_pct": -3.8
    },
    "moat_hints": {
     "gross_margin": "68.8% (high \u2014 pricing power?)",
@@ -6620,11 +6620,11 @@
     "proj_eps_next_5y": 20.72,
     "proj_eps_next_y": 20.46,
     "eps_past_5y": 112.19,
-    "price": 278.45,
+    "price": 273.98,
     "intrinsic_value": 311.93,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": 10.7
+    "discount_pct": 12.2
    },
    "moat_hints": {
     "gross_margin": "54.7% (high \u2014 pricing power?)",
@@ -7345,11 +7345,11 @@
     "proj_eps_next_5y": 12.09,
     "proj_eps_next_y": 11.32,
     "eps_past_5y": 8.69,
-    "price": 444.88,
+    "price": 444.72,
     "intrinsic_value": 473.88,
     "dcf_growth_used": 12.1,
     "dcf_discount_rate": 6.55,
-    "discount_pct": 6.1
+    "discount_pct": 6.2
    },
    "moat_hints": {
     "gross_margin": "70.2% (high \u2014 pricing power?)",
@@ -8185,11 +8185,11 @@
     "proj_eps_next_5y": 14.63,
     "proj_eps_next_y": 14.45,
     "eps_past_5y": 29.52,
-    "price": 480.2,
+    "price": 477.31,
     "intrinsic_value": 396.59,
     "dcf_growth_used": 14.6,
     "dcf_discount_rate": 6.85,
-    "discount_pct": -21.1
+    "discount_pct": -20.4
    },
    "moat_hints": {
     "gross_margin": "30.5%",
@@ -8306,7 +8306,7 @@
     "proj_eps_next_5y": 16.38,
     "proj_eps_next_y": 19.9,
     "eps_past_5y": 12.67,
-    "price": 19.46,
+    "price": 19.51,
     "intrinsic_value": 71.63,
     "dcf_growth_used": 16.4,
     "dcf_discount_rate": 6.42,
@@ -8426,7 +8426,7 @@
     "proj_eps_next_5y": 13.71,
     "proj_eps_next_y": 13.42,
     "eps_past_5y": 16.47,
-    "price": 354.96,
+    "price": 354.89,
     "intrinsic_value": 438.74,
     "dcf_growth_used": 13.7,
     "dcf_discount_rate": 5.79,
@@ -8787,11 +8787,11 @@
     "proj_eps_next_5y": 7.55,
     "proj_eps_next_y": 7.09,
     "eps_past_5y": 11.96,
-    "price": 74.55,
+    "price": 75.01,
     "intrinsic_value": 101.91,
     "dcf_growth_used": 7.5,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 26.8
+    "discount_pct": 26.4
    },
    "moat_hints": {
     "gross_margin": "71.8% (high \u2014 pricing power?)",
@@ -9027,11 +9027,11 @@
     "proj_eps_next_5y": 14.5,
     "proj_eps_next_y": 12.75,
     "eps_past_5y": 9.04,
-    "price": 226.8,
+    "price": 228.0,
     "intrinsic_value": 743.91,
     "dcf_growth_used": 14.5,
     "dcf_discount_rate": 7.51,
-    "discount_pct": 69.5
+    "discount_pct": 69.4
    },
    "moat_hints": {
     "gross_margin": "89.3% (high \u2014 pricing power?)",
@@ -9174,7 +9174,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 96.2,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 12,
    "n_fail": 0,
    "n_warn": 1,
@@ -9390,11 +9390,11 @@
     "proj_eps_next_5y": 11.44,
     "proj_eps_next_y": 11.91,
     "eps_past_5y": -0.69,
-    "price": 111.34,
+    "price": 111.05,
     "intrinsic_value": 88.1,
     "dcf_growth_used": 11.4,
     "dcf_discount_rate": 6.36,
-    "discount_pct": -26.4
+    "discount_pct": -26.0
    },
    "moat_hints": {
     "gross_margin": "64.9% (high \u2014 pricing power?)",
@@ -9753,11 +9753,11 @@
     "proj_eps_next_5y": 33.33,
     "proj_eps_next_y": 24.16,
     "eps_past_5y": 47.85,
-    "price": 1736.7,
+    "price": 1712.0,
     "intrinsic_value": 1085.99,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -59.9
+    "discount_pct": -57.6
    },
    "moat_hints": {
     "gross_margin": "24.1%",
@@ -10116,11 +10116,11 @@
     "proj_eps_next_5y": 6.37,
     "proj_eps_next_y": 6.01,
     "eps_past_5y": 20.63,
-    "price": 108.21,
+    "price": 108.7,
     "intrinsic_value": 229.38,
     "dcf_growth_used": 6.4,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 52.8
+    "discount_pct": 52.6
    },
    "moat_hints": {
     "gross_margin": "17.7%",
@@ -10142,7 +10142,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 96.2,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 12,
    "n_fail": 0,
    "n_warn": 1,
@@ -10479,11 +10479,11 @@
     "proj_eps_next_5y": 47.6,
     "proj_eps_next_y": 41.21,
     "eps_past_5y": 95.27,
-    "price": 209.83,
+    "price": 209.24,
     "intrinsic_value": 146.15,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -43.6
+    "discount_pct": -43.2
    },
    "moat_hints": {
     "gross_margin": "71.1% (high \u2014 pricing power?)",
@@ -10868,7 +10868,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 96.2,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 12,
    "n_fail": 0,
    "n_warn": 1,
@@ -11110,7 +11110,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 96.2,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 12,
    "n_fail": 0,
    "n_warn": 1,
@@ -11326,7 +11326,7 @@
     "proj_eps_next_5y": 10.72,
     "proj_eps_next_y": 13.11,
     "eps_past_5y": 8.51,
-    "price": 191.94,
+    "price": 191.9,
     "intrinsic_value": 217.33,
     "dcf_growth_used": 10.7,
     "dcf_discount_rate": 5.79,
@@ -11352,7 +11352,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 96.2,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 12,
    "n_fail": 0,
    "n_warn": 1,
@@ -12293,11 +12293,11 @@
     "proj_eps_next_5y": 21.9,
     "proj_eps_next_y": 7.45,
     "eps_past_5y": 32.98,
-    "price": 74.08,
+    "price": 74.2,
     "intrinsic_value": 81.99,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.75,
-    "discount_pct": 9.6
+    "discount_pct": 9.5
    },
    "moat_hints": {
     "gross_margin": "48.5%",
@@ -12534,11 +12534,11 @@
     "proj_eps_next_5y": 6.15,
     "proj_eps_next_y": 10.05,
     "eps_past_5y": 13.02,
-    "price": 64.32,
+    "price": 63.2,
     "intrinsic_value": 75.99,
     "dcf_growth_used": 6.2,
     "dcf_discount_rate": 6.39,
-    "discount_pct": 15.4
+    "discount_pct": 16.8
    },
    "moat_hints": {
     "gross_margin": "40.5%",
@@ -12776,11 +12776,11 @@
     "proj_eps_next_5y": 22.76,
     "proj_eps_next_y": 16.48,
     "eps_past_5y": -1.81,
-    "price": 299.66,
+    "price": 295.08,
     "intrinsic_value": 101.79,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.18,
-    "discount_pct": -194.4
+    "discount_pct": -189.9
    },
    "moat_hints": {
     "gross_margin": "57.0% (high \u2014 pricing power?)",
@@ -12802,7 +12802,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 95.8,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 1,
@@ -13257,11 +13257,11 @@
     "proj_eps_next_5y": 8.8,
     "proj_eps_next_y": 8.68,
     "eps_past_5y": -8.39,
-    "price": 121.28,
+    "price": 121.0,
     "intrinsic_value": 242.32,
     "dcf_growth_used": 8.8,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 50.0
+    "discount_pct": 50.1
    },
    "moat_hints": {
     "gross_margin": "30.7%",
@@ -13499,11 +13499,11 @@
     "proj_eps_next_5y": 29.14,
     "proj_eps_next_y": 27.19,
     "eps_past_5y": 27.59,
-    "price": 1156.39,
+    "price": 1155.16,
     "intrinsic_value": 774.37,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -49.3
+    "discount_pct": -49.2
    },
    "moat_hints": {
     "gross_margin": "83.0% (high \u2014 pricing power?)",
@@ -14097,11 +14097,11 @@
     "proj_eps_next_5y": 15.3,
     "proj_eps_next_y": 18.01,
     "eps_past_5y": 13.95,
-    "price": 371.5,
+    "price": 372.99,
     "intrinsic_value": 208.32,
     "dcf_growth_used": 15.3,
     "dcf_discount_rate": 6.72,
-    "discount_pct": -78.3
+    "discount_pct": -79.0
    },
    "moat_hints": {
     "gross_margin": "94.5% (high \u2014 pricing power?)",
@@ -14122,7 +14122,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 95.0,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 9,
    "n_fail": 0,
    "n_warn": 1,
@@ -14816,11 +14816,11 @@
     "proj_eps_next_5y": 25.4,
     "proj_eps_next_y": 26.14,
     "eps_past_5y": 29.77,
-    "price": 1351.46,
+    "price": 1329.35,
     "intrinsic_value": 517.06,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -161.4
+    "discount_pct": -157.1
    },
    "moat_hints": {
     "gross_margin": "55.2% (high \u2014 pricing power?)",
@@ -14841,7 +14841,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 95.0,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 9,
    "n_fail": 0,
    "n_warn": 1,
@@ -15057,7 +15057,7 @@
     "proj_eps_next_5y": 4.68,
     "proj_eps_next_y": 26.78,
     "eps_past_5y": -10.02,
-    "price": 42.89,
+    "price": 42.88,
     "intrinsic_value": 24.82,
     "dcf_growth_used": 4.7,
     "dcf_discount_rate": 6.66,
@@ -15176,11 +15176,11 @@
     "proj_eps_next_5y": 20.82,
     "proj_eps_next_y": 21.92,
     "eps_past_5y": 70.18,
-    "price": 106.25,
+    "price": 106.06,
     "intrinsic_value": 199.71,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.2,
-    "discount_pct": 46.8
+    "discount_pct": 46.9
    },
    "moat_hints": {
     "gross_margin": "77.5% (high \u2014 pricing power?)",
@@ -15417,11 +15417,11 @@
     "proj_eps_next_5y": 15.53,
     "proj_eps_next_y": 13.99,
     "eps_past_5y": -3.76,
-    "price": 418.66,
+    "price": 417.0,
     "intrinsic_value": 619.14,
     "dcf_growth_used": 15.5,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 32.4
+    "discount_pct": 32.6
    },
    "moat_hints": {
     "gross_margin": "88.7% (high \u2014 pricing power?)",
@@ -15683,7 +15683,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 94.4,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 8,
    "n_fail": 0,
    "n_warn": 1,
@@ -15778,11 +15778,11 @@
     "proj_eps_next_5y": 6.16,
     "proj_eps_next_y": 9.99,
     "eps_past_5y": 35.23,
-    "price": 50.7,
+    "price": 50.5,
     "intrinsic_value": 105.03,
     "dcf_growth_used": 6.2,
     "dcf_discount_rate": 5.82,
-    "discount_pct": 51.7
+    "discount_pct": 51.9
    },
    "moat_hints": {
     "gross_margin": "87.2% (high \u2014 pricing power?)",
@@ -15922,7 +15922,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 94.4,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 8,
    "n_fail": 0,
    "n_warn": 1,
@@ -16043,7 +16043,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 93.8,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 7,
    "n_fail": 0,
    "n_warn": 1,
@@ -16993,7 +16993,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -17088,11 +17088,11 @@
     "proj_eps_next_5y": 30.12,
     "proj_eps_next_y": 21.21,
     "eps_past_5y": 6.82,
-    "price": 389.54,
+    "price": 383.92,
     "intrinsic_value": 347.95,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.85,
-    "discount_pct": -12.0
+    "discount_pct": -10.3
    },
    "moat_hints": {
     "gross_margin": "61.5% (high \u2014 pricing power?)",
@@ -17209,11 +17209,11 @@
     "proj_eps_next_5y": 16.18,
     "proj_eps_next_y": 12.75,
     "eps_past_5y": -0.79,
-    "price": 208.98,
+    "price": 210.5,
     "intrinsic_value": 386.28,
     "dcf_growth_used": 16.2,
     "dcf_discount_rate": 7.18,
-    "discount_pct": 45.9
+    "discount_pct": 45.5
    },
    "moat_hints": {
     "gross_margin": "91.0% (high \u2014 pricing power?)",
@@ -17330,11 +17330,11 @@
     "proj_eps_next_5y": 3.8,
     "proj_eps_next_y": 4.87,
     "eps_past_5y": 2.93,
-    "price": 358.9,
+    "price": 356.96,
     "intrinsic_value": 155.75,
     "dcf_growth_used": 3.8,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -130.4
+    "discount_pct": -129.2
    },
    "moat_hints": {
     "gross_margin": "67.2% (high \u2014 pricing power?)",
@@ -17451,11 +17451,11 @@
     "proj_eps_next_5y": 22.09,
     "proj_eps_next_y": 14.31,
     "eps_past_5y": 27.96,
-    "price": 256.06,
+    "price": 256.5,
     "intrinsic_value": 31.68,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.62,
-    "discount_pct": -708.2
+    "discount_pct": -709.6
    },
    "moat_hints": {
     "gross_margin": "50.3% (high \u2014 pricing power?)",
@@ -17477,7 +17477,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -17814,11 +17814,11 @@
     "proj_eps_next_5y": 11.38,
     "proj_eps_next_y": 8.54,
     "eps_past_5y": 32.99,
-    "price": 165.0,
+    "price": 165.17,
     "intrinsic_value": 83.95,
     "dcf_growth_used": 11.4,
     "dcf_discount_rate": 6.55,
-    "discount_pct": -96.5
+    "discount_pct": -96.7
    },
    "moat_hints": {
     "gross_margin": "80.5% (high \u2014 pricing power?)",
@@ -18445,7 +18445,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -18540,11 +18540,11 @@
     "proj_eps_next_5y": 7.81,
     "proj_eps_next_y": 7.29,
     "eps_past_5y": 6.95,
-    "price": 80.81,
+    "price": 80.47,
     "intrinsic_value": 79.15,
     "dcf_growth_used": 7.8,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -2.1
+    "discount_pct": -1.7
    },
    "moat_hints": {
     "gross_margin": "65.0% (high \u2014 pricing power?)",
@@ -18661,11 +18661,11 @@
     "proj_eps_next_5y": 171.8,
     "proj_eps_next_y": 109.74,
     "eps_past_5y": 26.19,
-    "price": 883.18,
+    "price": 876.2,
     "intrinsic_value": 51.92,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -1601.0
+    "discount_pct": -1587.5
    },
    "moat_hints": {
     "gross_margin": "39.8%",
@@ -18782,11 +18782,11 @@
     "proj_eps_next_5y": 8.9,
     "proj_eps_next_y": 10.56,
     "eps_past_5y": 14.47,
-    "price": 161.49,
+    "price": 160.0,
     "intrinsic_value": 197.29,
     "dcf_growth_used": 8.9,
     "dcf_discount_rate": 7.59,
-    "discount_pct": 18.1
+    "discount_pct": 18.9
    },
    "moat_hints": {
     "gross_margin": "70.7% (high \u2014 pricing power?)",
@@ -18903,11 +18903,11 @@
     "proj_eps_next_5y": 5.16,
     "proj_eps_next_y": 4.82,
     "eps_past_5y": 3.25,
-    "price": 135.8,
+    "price": 136.04,
     "intrinsic_value": 70.39,
     "dcf_growth_used": 5.2,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -92.9
+    "discount_pct": -93.3
    },
    "moat_hints": {
     "gross_margin": "54.1% (high \u2014 pricing power?)",
@@ -18929,7 +18929,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -19024,11 +19024,11 @@
     "proj_eps_next_5y": 21.89,
     "proj_eps_next_y": 17.03,
     "eps_past_5y": 17.25,
-    "price": 648.98,
+    "price": 644.87,
     "intrinsic_value": 398.42,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.94,
-    "discount_pct": -62.9
+    "discount_pct": -61.9
    },
    "moat_hints": {
     "gross_margin": "15.0%",
@@ -19145,11 +19145,11 @@
     "proj_eps_next_5y": 3.82,
     "proj_eps_next_y": 1.9,
     "eps_past_5y": 2.08,
-    "price": 175.04,
+    "price": 174.29,
     "intrinsic_value": 160.57,
     "dcf_growth_used": 3.8,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -9.0
+    "discount_pct": -8.5
    },
    "moat_hints": {
     "gross_margin": "55.4% (high \u2014 pricing power?)",
@@ -19266,11 +19266,11 @@
     "proj_eps_next_5y": 15.59,
     "proj_eps_next_y": 12.08,
     "eps_past_5y": -2.65,
-    "price": 461.92,
+    "price": 452.23,
     "intrinsic_value": 358.55,
     "dcf_growth_used": 15.6,
     "dcf_discount_rate": 7.81,
-    "discount_pct": -28.8
+    "discount_pct": -26.1
    },
    "moat_hints": {
     "gross_margin": "48.1%",
@@ -19413,7 +19413,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -19655,7 +19655,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -19871,11 +19871,11 @@
     "proj_eps_next_5y": 39.09,
     "proj_eps_next_y": 35.74,
     "eps_past_5y": null,
-    "price": 297.71,
+    "price": 296.5,
     "intrinsic_value": 175.64,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -69.5
+    "discount_pct": -68.8
    },
    "moat_hints": {
     "gross_margin": "36.3%",
@@ -19897,7 +19897,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 92.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 11,
    "n_fail": 0,
    "n_warn": 2,
@@ -20355,11 +20355,11 @@
     "proj_eps_next_5y": 31.52,
     "proj_eps_next_y": 37.48,
     "eps_past_5y": 17.18,
-    "price": 571.57,
+    "price": 563.92,
     "intrinsic_value": 264.95,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.89,
-    "discount_pct": -115.7
+    "discount_pct": -112.8
    },
    "moat_hints": {
     "gross_margin": "48.7%",
@@ -20597,11 +20597,11 @@
     "proj_eps_next_5y": 7.47,
     "proj_eps_next_y": 6.56,
     "eps_past_5y": 11.14,
-    "price": 82.67,
+    "price": 82.82,
     "intrinsic_value": 19.59,
     "dcf_growth_used": 7.5,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -321.9
+    "discount_pct": -322.7
    },
    "moat_hints": {
     "gross_margin": "61.6% (high \u2014 pricing power?)",
@@ -20839,11 +20839,11 @@
     "proj_eps_next_5y": 12.79,
     "proj_eps_next_y": 10.22,
     "eps_past_5y": 17.91,
-    "price": 327.64,
+    "price": 328.97,
     "intrinsic_value": 193.47,
     "dcf_growth_used": 12.8,
     "dcf_discount_rate": 6.58,
-    "discount_pct": -69.3
+    "discount_pct": -70.0
    },
    "moat_hints": {
     "gross_margin": "46.9%",
@@ -21202,11 +21202,11 @@
     "proj_eps_next_5y": 24.44,
     "proj_eps_next_y": 28.94,
     "eps_past_5y": 5.26,
-    "price": 298.38,
+    "price": 298.0,
     "intrinsic_value": 381.76,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.13,
-    "discount_pct": 21.8
+    "discount_pct": 21.9
    },
    "moat_hints": {
     "operating_margin": "7.2%",
@@ -21227,7 +21227,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 91.7,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 10,
    "n_fail": 0,
    "n_warn": 2,
@@ -21469,7 +21469,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 91.7,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 10,
    "n_fail": 0,
    "n_warn": 2,
@@ -21711,7 +21711,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 90.9,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 9,
    "n_fail": 0,
    "n_warn": 2,
@@ -21926,11 +21926,11 @@
     "proj_eps_next_5y": 19.42,
     "proj_eps_next_y": 17.59,
     "eps_past_5y": null,
-    "price": 264.07,
+    "price": 265.52,
     "intrinsic_value": 122.59,
     "dcf_growth_used": 19.4,
     "dcf_discount_rate": 7.81,
-    "discount_pct": -115.4
+    "discount_pct": -116.6
    },
    "moat_hints": {
     "gross_margin": "80.0% (high \u2014 pricing power?)",
@@ -22071,7 +22071,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 90.9,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 9,
    "n_fail": 0,
    "n_warn": 2,
@@ -22287,7 +22287,7 @@
     "proj_eps_next_5y": 12.43,
     "proj_eps_next_y": 13.05,
     "eps_past_5y": 7.99,
-    "price": 98.35,
+    "price": 98.34,
     "intrinsic_value": 64.65,
     "dcf_growth_used": 12.4,
     "dcf_discount_rate": 5.79,
@@ -22408,11 +22408,11 @@
     "proj_eps_next_5y": 51.6,
     "proj_eps_next_y": 36.35,
     "eps_past_5y": -4.13,
-    "price": 342.04,
+    "price": 330.0,
     "intrinsic_value": 108.22,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -216.1
+    "discount_pct": -204.9
    },
    "moat_hints": {
     "gross_margin": "58.2% (high \u2014 pricing power?)",
@@ -22795,7 +22795,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 90.0,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 8,
    "n_fail": 0,
    "n_warn": 2,
@@ -22890,11 +22890,11 @@
     "proj_eps_next_5y": 15.61,
     "proj_eps_next_y": 15.97,
     "eps_past_5y": 24.36,
-    "price": 78.22,
+    "price": 77.91,
     "intrinsic_value": 229.68,
     "dcf_growth_used": 15.6,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 65.9
+    "discount_pct": 66.1
    },
    "moat_hints": {
     "gross_margin": "72.6% (high \u2014 pricing power?)",
@@ -23011,11 +23011,11 @@
     "proj_eps_next_5y": 9.32,
     "proj_eps_next_y": 9.56,
     "eps_past_5y": 20.99,
-    "price": 384.0,
+    "price": 382.2,
     "intrinsic_value": 570.44,
     "dcf_growth_used": 9.3,
     "dcf_discount_rate": 6.64,
-    "discount_pct": 32.7
+    "discount_pct": 33.0
    },
    "moat_hints": {
     "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
@@ -23369,7 +23369,7 @@
     "proj_eps_next_5y": -2.24,
     "proj_eps_next_y": 3.84,
     "eps_past_5y": 24.13,
-    "price": 117.67,
+    "price": 117.76,
     "intrinsic_value": 121.22,
     "dcf_growth_used": 0.0,
     "dcf_discount_rate": 5.98,
@@ -23394,7 +23394,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 90.0,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 8,
    "n_fail": 0,
    "n_warn": 2,
@@ -23970,11 +23970,11 @@
     "proj_eps_next_5y": 13.85,
     "proj_eps_next_y": 11.75,
     "eps_past_5y": -5.48,
-    "price": 77.8,
+    "price": 77.0,
     "intrinsic_value": 607.39,
     "dcf_growth_used": 13.8,
     "dcf_discount_rate": 7.21,
-    "discount_pct": 87.2
+    "discount_pct": 87.3
    },
    "moat_hints": {
     "gross_margin": "11.5%",
@@ -23995,7 +23995,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 88.9,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 7,
    "n_fail": 0,
    "n_warn": 2,
@@ -24116,7 +24116,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 88.9,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 7,
    "n_fail": 0,
    "n_warn": 2,
@@ -24211,7 +24211,7 @@
     "proj_eps_next_5y": 9.43,
     "proj_eps_next_y": 9.42,
     "eps_past_5y": 25.41,
-    "price": 513.8,
+    "price": 513.91,
     "intrinsic_value": 232.21,
     "dcf_growth_used": 9.4,
     "dcf_discount_rate": 5.79,
@@ -24452,11 +24452,11 @@
     "proj_eps_next_5y": 5.58,
     "proj_eps_next_y": 8.13,
     "eps_past_5y": 8.84,
-    "price": 55.14,
+    "price": 55.01,
     "intrinsic_value": 102.83,
     "dcf_growth_used": 5.6,
     "dcf_discount_rate": 7.26,
-    "discount_pct": 46.4
+    "discount_pct": 46.5
    },
    "moat_hints": {
     "operating_margin": "18.3%",
@@ -24812,7 +24812,7 @@
     "proj_eps_next_5y": 10.69,
     "proj_eps_next_y": 16.01,
     "eps_past_5y": 15.03,
-    "price": 2977.0,
+    "price": 2976.5,
     "intrinsic_value": 2451.42,
     "dcf_growth_used": 10.7,
     "dcf_discount_rate": 5.79,
@@ -24838,7 +24838,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 88.5,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 10,
    "n_fail": 0,
    "n_warn": 3,
@@ -24933,11 +24933,11 @@
     "proj_eps_next_5y": 10.44,
     "proj_eps_next_y": 10.21,
     "eps_past_5y": null,
-    "price": 43.39,
+    "price": 43.33,
     "intrinsic_value": 59.39,
     "dcf_growth_used": 10.4,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 26.9
+    "discount_pct": 27.0
    },
    "moat_hints": {
     "gross_margin": "69.0% (high \u2014 pricing power?)",
@@ -25175,11 +25175,11 @@
     "proj_eps_next_5y": 75.55,
     "proj_eps_next_y": 47.63,
     "eps_past_5y": -18.19,
-    "price": 413.53,
+    "price": 410.0,
     "intrinsic_value": 184.61,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.1,
-    "discount_pct": -124.0
+    "discount_pct": -122.1
    },
    "moat_hints": {
     "gross_margin": "42.0%",
@@ -25417,11 +25417,11 @@
     "proj_eps_next_5y": 36.14,
     "proj_eps_next_y": 20.6,
     "eps_past_5y": 15.51,
-    "price": 399.6,
+    "price": 395.36,
     "intrinsic_value": 950.98,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.18,
-    "discount_pct": 58.0
+    "discount_pct": 58.4
    },
    "moat_hints": {
     "gross_margin": "20.0%",
@@ -25443,7 +25443,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 88.5,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 10,
    "n_fail": 0,
    "n_warn": 3,
@@ -25659,11 +25659,11 @@
     "proj_eps_next_5y": 39.67,
     "proj_eps_next_y": 30.47,
     "eps_past_5y": -19.53,
-    "price": 84.87,
+    "price": 85.7,
     "intrinsic_value": 48.54,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -74.8
+    "discount_pct": -76.5
    },
    "moat_hints": {
     "gross_margin": "57.7% (high \u2014 pricing power?)",
@@ -25901,7 +25901,7 @@
     "proj_eps_next_5y": 35.05,
     "proj_eps_next_y": 39.18,
     "eps_past_5y": -12.08,
-    "price": 90.12,
+    "price": 90.21,
     "intrinsic_value": 130.11,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
@@ -26022,11 +26022,11 @@
     "proj_eps_next_5y": 9.74,
     "proj_eps_next_y": 9.08,
     "eps_past_5y": 7.09,
-    "price": 180.83,
+    "price": 181.0,
     "intrinsic_value": 148.07,
     "dcf_growth_used": 9.7,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -22.1
+    "discount_pct": -22.2
    },
    "moat_hints": {
     "gross_margin": "67.1% (high \u2014 pricing power?)",
@@ -26143,11 +26143,11 @@
     "proj_eps_next_5y": 6.99,
     "proj_eps_next_y": 6.95,
     "eps_past_5y": 40.15,
-    "price": 123.61,
+    "price": 124.05,
     "intrinsic_value": 137.89,
     "dcf_growth_used": 7.0,
     "dcf_discount_rate": 6.34,
-    "discount_pct": 10.4
+    "discount_pct": 10.0
    },
    "moat_hints": {
     "gross_margin": "83.8% (high \u2014 pricing power?)",
@@ -27474,11 +27474,11 @@
     "proj_eps_next_5y": 16.74,
     "proj_eps_next_y": 17.11,
     "eps_past_5y": 13.58,
-    "price": 426.05,
+    "price": 427.1,
     "intrinsic_value": 194.71,
     "dcf_growth_used": 16.7,
     "dcf_discount_rate": 6.94,
-    "discount_pct": -118.8
+    "discount_pct": -119.4
    },
    "moat_hints": {
     "gross_margin": "77.0% (high \u2014 pricing power?)",
@@ -27595,11 +27595,11 @@
     "proj_eps_next_5y": 11.52,
     "proj_eps_next_y": 13.04,
     "eps_past_5y": 11.53,
-    "price": 113.01,
+    "price": 112.98,
     "intrinsic_value": 50.41,
     "dcf_growth_used": 11.5,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -124.2
+    "discount_pct": -124.1
    },
    "moat_hints": {
     "gross_margin": "24.2%",
@@ -27621,7 +27621,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 87.5,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 6,
    "n_fail": 0,
    "n_warn": 2,
@@ -28680,11 +28680,11 @@
     "proj_eps_next_5y": 4.75,
     "proj_eps_next_y": 32.99,
     "eps_past_5y": null,
-    "price": 72.87,
+    "price": 72.8,
     "intrinsic_value": 76.57,
     "dcf_growth_used": 4.8,
     "dcf_discount_rate": 6.69,
-    "discount_pct": 4.8
+    "discount_pct": 4.9
    },
    "moat_hints": {
     "operating_margin": "10.7%",
@@ -28705,7 +28705,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 87.5,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 9,
    "n_fail": 0,
    "n_warn": 3,
@@ -28800,11 +28800,11 @@
     "proj_eps_next_5y": 16.96,
     "proj_eps_next_y": 17.69,
     "eps_past_5y": null,
-    "price": 144.01,
+    "price": 143.68,
     "intrinsic_value": 516.8,
     "dcf_growth_used": 17.0,
     "dcf_discount_rate": 6.64,
-    "discount_pct": 72.1
+    "discount_pct": 72.2
    },
    "moat_hints": {
     "gross_margin": "57.4% (high \u2014 pricing power?)",
@@ -28921,11 +28921,11 @@
     "proj_eps_next_5y": 9.56,
     "proj_eps_next_y": 10.31,
     "eps_past_5y": 40.52,
-    "price": 206.81,
+    "price": 213.27,
     "intrinsic_value": 195.63,
     "dcf_growth_used": 9.6,
     "dcf_discount_rate": 6.88,
-    "discount_pct": -5.7
+    "discount_pct": -9.0
    },
    "moat_hints": {
     "operating_margin": "13.4%",
@@ -29041,7 +29041,7 @@
     "proj_eps_next_5y": 13.0,
     "proj_eps_next_y": 12.19,
     "eps_past_5y": null,
-    "price": 369.19,
+    "price": 369.05,
     "intrinsic_value": 288.6,
     "dcf_growth_used": 13.0,
     "dcf_discount_rate": 6.61,
@@ -29643,11 +29643,11 @@
     "proj_eps_next_5y": 10.33,
     "proj_eps_next_y": 9.73,
     "eps_past_5y": null,
-    "price": 195.6,
+    "price": 196.96,
     "intrinsic_value": 136.76,
     "dcf_growth_used": 10.3,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -43.0
+    "discount_pct": -44.0
    },
    "moat_hints": {
     "gross_margin": "48.1%",
@@ -29764,11 +29764,11 @@
     "proj_eps_next_5y": 11.92,
     "proj_eps_next_y": 10.96,
     "eps_past_5y": 4.49,
-    "price": 270.52,
+    "price": 271.61,
     "intrinsic_value": 356.05,
     "dcf_growth_used": 11.9,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 24.0
+    "discount_pct": 23.7
    },
    "moat_hints": {
     "gross_margin": "88.2% (high \u2014 pricing power?)",
@@ -30002,11 +30002,11 @@
     "proj_eps_next_5y": 1.74,
     "proj_eps_next_y": 3.29,
     "eps_past_5y": 11.79,
-    "price": 489.07,
+    "price": 488.92,
     "intrinsic_value": 293.11,
     "dcf_growth_used": 1.7,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -66.9
+    "discount_pct": -66.8
    },
    "moat_hints": {
     "operating_margin": "23.4%",
@@ -30500,7 +30500,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 85.0,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 7,
    "n_fail": 0,
    "n_warn": 3,
@@ -30595,11 +30595,11 @@
     "proj_eps_next_5y": 20.76,
     "proj_eps_next_y": -3.95,
     "eps_past_5y": null,
-    "price": 49.24,
+    "price": 49.32,
     "intrinsic_value": 193.5,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 74.6
+    "discount_pct": 74.5
    },
    "moat_hints": {
     "gross_margin": "82.3% (high \u2014 pricing power?)",
@@ -30716,11 +30716,11 @@
     "proj_eps_next_5y": 59.78,
     "proj_eps_next_y": 43.02,
     "eps_past_5y": null,
-    "price": 134.85,
+    "price": 134.93,
     "intrinsic_value": 36.31,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.95,
-    "discount_pct": -271.3
+    "discount_pct": -271.6
    },
    "moat_hints": {
     "gross_margin": "82.4% (high \u2014 pricing power?)",
@@ -30836,11 +30836,11 @@
     "proj_eps_next_5y": -2.25,
     "proj_eps_next_y": -34.33,
     "eps_past_5y": 43.52,
-    "price": 120.15,
+    "price": 118.5,
     "intrinsic_value": 140.08,
     "dcf_growth_used": 0.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 14.2
+    "discount_pct": 15.4
    },
    "moat_hints": {
     "gross_margin": "38.5%",
@@ -30957,7 +30957,7 @@
     "proj_eps_next_5y": 26.3,
     "proj_eps_next_y": 35.5,
     "eps_past_5y": 5.08,
-    "price": 132.9,
+    "price": 132.39,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -31075,11 +31075,11 @@
     "proj_eps_next_5y": 63.3,
     "proj_eps_next_y": 79.21,
     "eps_past_5y": 5.13,
-    "price": 514.46,
+    "price": 511.74,
     "intrinsic_value": 154.26,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -233.5
+    "discount_pct": -231.7
    },
    "moat_hints": {
     "gross_margin": "49.5%",
@@ -31343,7 +31343,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 84.6,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 9,
    "n_fail": 0,
    "n_warn": 4,
@@ -31680,11 +31680,11 @@
     "proj_eps_next_5y": 27.68,
     "proj_eps_next_y": 35.98,
     "eps_past_5y": 30.65,
-    "price": 223.32,
+    "price": 223.67,
     "intrinsic_value": 422.42,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": 47.1
+    "discount_pct": 47.0
    },
    "moat_hints": {
     "gross_margin": "40.6%",
@@ -32043,11 +32043,11 @@
     "proj_eps_next_5y": 12.72,
     "proj_eps_next_y": 10.39,
     "eps_past_5y": 12.24,
-    "price": 168.05,
+    "price": 169.81,
     "intrinsic_value": 488.6,
     "dcf_growth_used": 12.7,
     "dcf_discount_rate": 6.83,
-    "discount_pct": 65.6
+    "discount_pct": 65.2
    },
    "moat_hints": {
     "gross_margin": "77.7% (high \u2014 pricing power?)",
@@ -32432,7 +32432,7 @@
    "company_type": "commodity",
    "data_source": "sec",
    "score": 83.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 6,
    "n_fail": 0,
    "n_warn": 3,
@@ -32887,11 +32887,11 @@
     "proj_eps_next_5y": 7.45,
     "proj_eps_next_y": 3.25,
     "eps_past_5y": 1.83,
-    "price": 222.84,
+    "price": 223.98,
     "intrinsic_value": 293.52,
     "dcf_growth_used": 7.4,
     "dcf_discount_rate": 5.95,
-    "discount_pct": 24.1
+    "discount_pct": 23.7
    },
    "moat_hints": {
     "gross_margin": "36.9%",
@@ -32913,7 +32913,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 83.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 6,
    "n_fail": 0,
    "n_warn": 3,
@@ -33033,7 +33033,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 83.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 8,
    "n_fail": 0,
    "n_warn": 4,
@@ -33154,7 +33154,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 83.3,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 8,
    "n_fail": 0,
    "n_warn": 4,
@@ -33249,11 +33249,11 @@
     "proj_eps_next_5y": 13.1,
     "proj_eps_next_y": 8.82,
     "eps_past_5y": null,
-    "price": 353.26,
+    "price": 354.4,
     "intrinsic_value": 135.48,
     "dcf_growth_used": 13.1,
     "dcf_discount_rate": 6.09,
-    "discount_pct": -160.7
+    "discount_pct": -161.6
    },
    "moat_hints": {
     "gross_margin": "73.4% (high \u2014 pricing power?)",
@@ -33370,7 +33370,7 @@
     "proj_eps_next_5y": 6.29,
     "proj_eps_next_y": 5.15,
     "eps_past_5y": -1.14,
-    "price": 42.87,
+    "price": 42.82,
     "intrinsic_value": 142.88,
     "dcf_growth_used": 6.3,
     "dcf_discount_rate": 5.79,
@@ -34214,11 +34214,11 @@
     "proj_eps_next_5y": 18.54,
     "proj_eps_next_y": 19.93,
     "eps_past_5y": null,
-    "price": 31.86,
+    "price": 31.64,
     "intrinsic_value": 132.2,
     "dcf_growth_used": 18.5,
     "dcf_discount_rate": 6.06,
-    "discount_pct": 75.9
+    "discount_pct": 76.1
    },
    "moat_hints": {
     "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
@@ -34450,11 +34450,11 @@
     "proj_eps_next_5y": 17.7,
     "proj_eps_next_y": 44.26,
     "eps_past_5y": null,
-    "price": 117.72,
+    "price": 118.0,
     "intrinsic_value": 258.21,
     "dcf_growth_used": 17.7,
     "dcf_discount_rate": 7.07,
-    "discount_pct": 54.4
+    "discount_pct": 54.3
    },
    "moat_hints": {
     "operating_margin": "8.0%",
@@ -34570,7 +34570,7 @@
     "proj_eps_next_5y": 29.1,
     "proj_eps_next_y": 26.36,
     "eps_past_5y": -8.78,
-    "price": 206.8,
+    "price": 206.78,
     "intrinsic_value": 55.89,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.99,
@@ -34596,7 +34596,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 81.8,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 7,
    "n_fail": 0,
    "n_warn": 4,
@@ -34932,11 +34932,11 @@
     "proj_eps_next_5y": 7.36,
     "proj_eps_next_y": 9.15,
     "eps_past_5y": 13.64,
-    "price": 265.66,
+    "price": 265.78,
     "intrinsic_value": 160.42,
     "dcf_growth_used": 7.4,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -65.6
+    "discount_pct": -65.7
    },
    "moat_hints": {
     "operating_margin": "46.1% (high)",
@@ -35076,7 +35076,7 @@
    "company_type": "standard",
    "data_source": "sec",
    "score": 81.8,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 7,
    "n_fail": 0,
    "n_warn": 4,
@@ -35292,7 +35292,7 @@
     "proj_eps_next_5y": -5.55,
     "proj_eps_next_y": 9.47,
     "eps_past_5y": -2.39,
-    "price": 96.94,
+    "price": 96.95,
     "intrinsic_value": 60.29,
     "dcf_growth_used": 0.0,
     "dcf_discount_rate": 5.79,
@@ -35531,7 +35531,7 @@
     "proj_eps_next_5y": -4.16,
     "proj_eps_next_y": -2.46,
     "eps_past_5y": null,
-    "price": 58.71,
+    "price": 58.7,
     "intrinsic_value": 61.64,
     "dcf_growth_used": 0.0,
     "dcf_discount_rate": 5.79,
@@ -35888,7 +35888,7 @@
     "proj_eps_next_5y": 42.91,
     "proj_eps_next_y": 34.13,
     "eps_past_5y": null,
-    "price": 453.76,
+    "price": 454.0,
     "intrinsic_value": 466.88,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
@@ -36130,11 +36130,11 @@
     "proj_eps_next_5y": 25.56,
     "proj_eps_next_y": 25.19,
     "eps_past_5y": 38.32,
-    "price": 393.81,
+    "price": 393.31,
     "intrinsic_value": 69.69,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -465.1
+    "discount_pct": -464.3
    },
    "moat_hints": {
     "gross_margin": "18.0%",
@@ -36493,11 +36493,11 @@
     "proj_eps_next_5y": 22.42,
     "proj_eps_next_y": 16.8,
     "eps_past_5y": -2.81,
-    "price": 244.56,
+    "price": 244.72,
     "intrinsic_value": 423.52,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 42.3
+    "discount_pct": 42.2
    },
    "moat_hints": {
     "gross_margin": "70.2% (high \u2014 pricing power?)",
@@ -36977,11 +36977,11 @@
     "proj_eps_next_5y": 35.78,
     "proj_eps_next_y": 42.59,
     "eps_past_5y": 30.14,
-    "price": 60.88,
+    "price": 59.9,
     "intrinsic_value": 25.76,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.35,
-    "discount_pct": -136.3
+    "discount_pct": -132.5
    },
    "moat_hints": {
     "gross_margin": "26.1%",
@@ -37124,7 +37124,7 @@
    "company_type": "financial",
    "data_source": "sec",
    "score": 80.0,
-   "is_great": false,
+   "is_great": true,
    "n_pass": 6,
    "n_fail": 0,
    "n_warn": 4,
@@ -37820,7 +37820,7 @@
     "proj_eps_next_5y": 11.95,
     "proj_eps_next_y": 9.7,
     "eps_past_5y": null,
-    "price": 97.24,
+    "price": 97.27,
     "intrinsic_value": 121.24,
     "dcf_growth_used": 11.9,
     "dcf_discount_rate": 7.43,
@@ -38301,11 +38301,11 @@
     "proj_eps_next_5y": 10.7,
     "proj_eps_next_y": 9.83,
     "eps_past_5y": null,
-    "price": 21.43,
+    "price": 21.45,
     "intrinsic_value": 58.47,
     "dcf_growth_used": 10.7,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 63.4
+    "discount_pct": 63.3
    },
    "moat_hints": {
     "gross_margin": "54.2% (high \u2014 pricing power?)",
@@ -38663,11 +38663,11 @@
     "proj_eps_next_5y": 3.7,
     "proj_eps_next_y": 10.09,
     "eps_past_5y": 22.85,
-    "price": 134.5,
+    "price": 136.21,
     "intrinsic_value": 344.65,
     "dcf_growth_used": 3.7,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 61.0
+    "discount_pct": 60.5
    },
    "moat_hints": {
     "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
@@ -39142,11 +39142,11 @@
     "proj_eps_next_5y": 12.1,
     "proj_eps_next_y": 23.75,
     "eps_past_5y": null,
-    "price": 35.48,
+    "price": 35.25,
     "intrinsic_value": 54.75,
     "dcf_growth_used": 12.1,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 35.2
+    "discount_pct": 35.6
    },
    "moat_hints": {
     "gross_margin": "79.9% (high \u2014 pricing power?)",
@@ -39742,11 +39742,11 @@
     "proj_eps_next_5y": 54.42,
     "proj_eps_next_y": 53.17,
     "eps_past_5y": 8.01,
-    "price": 287.04,
+    "price": 284.05,
     "intrinsic_value": 20.56,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -1296.0
+    "discount_pct": -1281.5
    },
    "moat_hints": {
     "gross_margin": "35.2%",
@@ -40105,11 +40105,11 @@
     "proj_eps_next_5y": 15.57,
     "proj_eps_next_y": 34.54,
     "eps_past_5y": null,
-    "price": 70.48,
+    "price": 70.43,
     "intrinsic_value": 33.93,
     "dcf_growth_used": 15.6,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -107.7
+    "discount_pct": -107.6
    },
    "moat_hints": {
     "gross_margin": "20.6%",
@@ -40346,11 +40346,11 @@
     "proj_eps_next_5y": 7.61,
     "proj_eps_next_y": 7.57,
     "eps_past_5y": 12.36,
-    "price": 212.17,
+    "price": 212.56,
     "intrinsic_value": 230.67,
     "dcf_growth_used": 7.6,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 8.0
+    "discount_pct": 7.8
    },
    "moat_hints": {
     "gross_margin": "58.2% (high \u2014 pricing power?)",
@@ -41429,11 +41429,11 @@
     "proj_eps_next_5y": 37.14,
     "proj_eps_next_y": 30.56,
     "eps_past_5y": -51.08,
-    "price": 28.58,
+    "price": 28.62,
     "intrinsic_value": 17.43,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -64.0
+    "discount_pct": -64.2
    },
    "moat_hints": {
     "gross_margin": "78.9% (high \u2014 pricing power?)",
@@ -41789,11 +41789,11 @@
     "proj_eps_next_5y": 11.94,
     "proj_eps_next_y": 14.11,
     "eps_past_5y": -4.96,
-    "price": 68.37,
+    "price": 68.32,
     "intrinsic_value": 53.96,
     "dcf_growth_used": 11.9,
     "dcf_discount_rate": 7.15,
-    "discount_pct": -26.7
+    "discount_pct": -26.6
    },
    "moat_hints": {
     "gross_margin": "26.6%",
@@ -42030,11 +42030,11 @@
     "proj_eps_next_5y": 12.92,
     "proj_eps_next_y": 13.4,
     "eps_past_5y": 11.23,
-    "price": 26.45,
+    "price": 26.63,
     "intrinsic_value": 59.25,
     "dcf_growth_used": 12.9,
     "dcf_discount_rate": 6.94,
-    "discount_pct": 55.4
+    "discount_pct": 55.1
    },
    "moat_hints": {
     "gross_margin": "78.5% (high \u2014 pricing power?)",
@@ -42151,11 +42151,11 @@
     "proj_eps_next_5y": 9.6,
     "proj_eps_next_y": 10.36,
     "eps_past_5y": 10.36,
-    "price": 30.47,
+    "price": 30.31,
     "intrinsic_value": 16.77,
     "dcf_growth_used": 9.6,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -81.7
+    "discount_pct": -80.8
    },
    "moat_hints": {
     "gross_margin": "54.2% (high \u2014 pricing power?)",
@@ -42393,7 +42393,7 @@
     "proj_eps_next_5y": 8.86,
     "proj_eps_next_y": 8.76,
     "eps_past_5y": 17.36,
-    "price": 89.11,
+    "price": 89.16,
     "intrinsic_value": 99.93,
     "dcf_growth_used": 8.9,
     "dcf_discount_rate": 5.79,
@@ -42513,11 +42513,11 @@
     "proj_eps_next_5y": 13.33,
     "proj_eps_next_y": 15.06,
     "eps_past_5y": null,
-    "price": 293.0,
+    "price": 292.5,
     "intrinsic_value": 45.44,
     "dcf_growth_used": 13.3,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -544.9
+    "discount_pct": -543.8
    },
    "moat_hints": {
     "gross_margin": "49.4%",
@@ -42634,11 +42634,11 @@
     "proj_eps_next_5y": 21.17,
     "proj_eps_next_y": 22.01,
     "eps_past_5y": 59.92,
-    "price": 26.49,
+    "price": 26.33,
     "intrinsic_value": 100.47,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": 73.6
+    "discount_pct": 73.8
    },
    "moat_hints": {
     "gross_margin": "11.1%",
@@ -42755,11 +42755,11 @@
     "proj_eps_next_5y": 47.04,
     "proj_eps_next_y": 53.02,
     "eps_past_5y": null,
-    "price": 201.57,
+    "price": 200.36,
     "intrinsic_value": 55.14,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -265.6
+    "discount_pct": -263.4
    },
    "moat_hints": {
     "gross_margin": "51.0% (high \u2014 pricing power?)",
@@ -42876,11 +42876,11 @@
     "proj_eps_next_5y": 26.59,
     "proj_eps_next_y": 38.44,
     "eps_past_5y": null,
-    "price": 541.01,
+    "price": 540.0,
     "intrinsic_value": 33.61,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.37,
-    "discount_pct": -1509.5
+    "discount_pct": -1506.5
    },
    "moat_hints": {
     "gross_margin": "59.7% (high \u2014 pricing power?)",
@@ -42997,11 +42997,11 @@
     "proj_eps_next_5y": 1.94,
     "proj_eps_next_y": 0.03,
     "eps_past_5y": 5.79,
-    "price": 23.63,
+    "price": 23.64,
     "intrinsic_value": 32.58,
     "dcf_growth_used": 1.9,
     "dcf_discount_rate": 6.94,
-    "discount_pct": 27.5
+    "discount_pct": 27.4
    },
    "moat_hints": {
     "gross_margin": "20.6%",
@@ -43118,11 +43118,11 @@
     "proj_eps_next_5y": 77.85,
     "proj_eps_next_y": 91.47,
     "eps_past_5y": 12.31,
-    "price": 802.94,
+    "price": 791.1,
     "intrinsic_value": 113.83,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -605.4
+    "discount_pct": -595.0
    },
    "moat_hints": {
     "gross_margin": "35.2%",
@@ -43360,11 +43360,11 @@
     "proj_eps_next_5y": 9.43,
     "proj_eps_next_y": 10.66,
     "eps_past_5y": 0.61,
-    "price": 63.2,
+    "price": 63.17,
     "intrinsic_value": 68.21,
     "dcf_growth_used": 9.4,
     "dcf_discount_rate": 5.9,
-    "discount_pct": 7.3
+    "discount_pct": 7.4
    },
    "moat_hints": {
     "gross_margin": "40.0%",
@@ -43835,7 +43835,7 @@
     "proj_eps_next_5y": 24.21,
     "proj_eps_next_y": 8.93,
     "eps_past_5y": -44.9,
-    "price": 14.13,
+    "price": 14.14,
     "intrinsic_value": 118.09,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
@@ -44194,11 +44194,11 @@
     "proj_eps_next_5y": 15.84,
     "proj_eps_next_y": 14.42,
     "eps_past_5y": 69.37,
-    "price": 360.08,
+    "price": 358.07,
     "intrinsic_value": 219.58,
     "dcf_growth_used": 15.8,
     "dcf_discount_rate": 7.35,
-    "discount_pct": -64.0
+    "discount_pct": -63.1
    },
    "moat_hints": {
     "gross_margin": "20.3%",
@@ -44789,11 +44789,11 @@
     "proj_eps_next_5y": 22.63,
     "proj_eps_next_y": 15.49,
     "eps_past_5y": 32.58,
-    "price": 257.69,
+    "price": 256.0,
     "intrinsic_value": 136.96,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.66,
-    "discount_pct": -88.2
+    "discount_pct": -86.9
    },
    "moat_hints": {
     "operating_margin": "13.6%",
@@ -45271,11 +45271,11 @@
     "proj_eps_next_5y": 81.43,
     "proj_eps_next_y": 22.55,
     "eps_past_5y": 10.93,
-    "price": 159.34,
+    "price": 159.16,
     "intrinsic_value": 95.54,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.45,
-    "discount_pct": -66.8
+    "discount_pct": -66.6
    },
    "moat_hints": {
     "operating_margin": "10.8%",
@@ -45866,11 +45866,11 @@
     "proj_eps_next_5y": 16.62,
     "proj_eps_next_y": 16.81,
     "eps_past_5y": null,
-    "price": 140.1,
+    "price": 138.0,
     "intrinsic_value": 161.87,
     "dcf_growth_used": 16.6,
     "dcf_discount_rate": 6.34,
-    "discount_pct": 13.5
+    "discount_pct": 14.7
    },
    "moat_hints": {
     "gross_margin": "46.2%",
@@ -46460,7 +46460,7 @@
     "proj_eps_next_5y": 12.73,
     "proj_eps_next_y": 13.2,
     "eps_past_5y": -23.94,
-    "price": 106.0,
+    "price": 106.06,
     "intrinsic_value": 153.91,
     "dcf_growth_used": 12.7,
     "dcf_discount_rate": 5.79,
@@ -46823,11 +46823,11 @@
     "proj_eps_next_5y": 32.16,
     "proj_eps_next_y": 33.3,
     "eps_past_5y": 27.86,
-    "price": 168.9,
+    "price": 167.54,
     "intrinsic_value": 116.72,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.58,
-    "discount_pct": -44.7
+    "discount_pct": -43.5
    },
    "moat_hints": {
     "gross_margin": "36.0%",
@@ -46944,11 +46944,11 @@
     "proj_eps_next_5y": 7.91,
     "proj_eps_next_y": 6.73,
     "eps_past_5y": null,
-    "price": 82.11,
+    "price": 80.56,
     "intrinsic_value": 113.06,
     "dcf_growth_used": 7.9,
     "dcf_discount_rate": 5.79,
-    "discount_pct": 27.4
+    "discount_pct": 28.7
    },
    "moat_hints": {
     "gross_margin": "72.4% (high \u2014 pricing power?)",
@@ -47305,11 +47305,11 @@
     "proj_eps_next_5y": -8.9,
     "proj_eps_next_y": -3.79,
     "eps_past_5y": -3.57,
-    "price": 24.84,
+    "price": 24.85,
     "intrinsic_value": 10.54,
     "dcf_growth_used": 0.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -135.6
+    "discount_pct": -135.7
    },
    "moat_hints": {
     "gross_margin": "74.3% (high \u2014 pricing power?)",
@@ -47661,7 +47661,7 @@
     "proj_eps_next_5y": 20.68,
     "proj_eps_next_y": -31.77,
     "eps_past_5y": null,
-    "price": 53.52,
+    "price": 53.61,
     "intrinsic_value": 167.39,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 5.79,
@@ -47780,7 +47780,7 @@
     "proj_eps_next_5y": 142.09,
     "proj_eps_next_y": 124.37,
     "eps_past_5y": -26.6,
-    "price": 733.07,
+    "price": 724.84,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -48380,11 +48380,11 @@
     "proj_eps_next_5y": 24.93,
     "proj_eps_next_y": -16.83,
     "eps_past_5y": null,
-    "price": 1042.0,
+    "price": 1033.0,
     "intrinsic_value": 632.6,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.23,
-    "discount_pct": -64.7
+    "discount_pct": -63.3
    },
    "moat_hints": {
     "gross_margin": "19.8%",
@@ -49569,7 +49569,7 @@
     "proj_eps_next_5y": 19.74,
     "proj_eps_next_y": -11.98,
     "eps_past_5y": null,
-    "price": 181.15,
+    "price": 181.16,
     "intrinsic_value": 354.04,
     "dcf_growth_used": 19.7,
     "dcf_discount_rate": 5.79,
@@ -50050,11 +50050,11 @@
     "proj_eps_next_5y": -5.98,
     "proj_eps_next_y": 0.86,
     "eps_past_5y": null,
-    "price": 25.44,
+    "price": 25.45,
     "intrinsic_value": 23.21,
     "dcf_growth_used": 0.0,
     "dcf_discount_rate": 5.79,
-    "discount_pct": -9.6
+    "discount_pct": -9.7
    },
    "moat_hints": {
     "gross_margin": "33.3%",
@@ -50171,11 +50171,11 @@
     "proj_eps_next_5y": 80.89,
     "proj_eps_next_y": 85.23,
     "eps_past_5y": null,
-    "price": 493.02,
+    "price": 484.0,
     "intrinsic_value": 120.39,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.97,
-    "discount_pct": -309.5
+    "discount_pct": -302.0
    },
    "moat_hints": {
     "gross_margin": "38.8%",
@@ -51133,11 +51133,11 @@
     "proj_eps_next_5y": 13.05,
     "proj_eps_next_y": 871.72,
     "eps_past_5y": 52.26,
-    "price": 164.84,
+    "price": 163.55,
     "intrinsic_value": 297.12,
     "dcf_growth_used": 13.1,
     "dcf_discount_rate": 7.97,
-    "discount_pct": 44.5
+    "discount_pct": 45.0
    },
    "moat_hints": {
     "operating_margin": "20.0%",
@@ -51611,11 +51611,11 @@
     "proj_eps_next_5y": null,
     "proj_eps_next_y": -2.91,
     "eps_past_5y": null,
-    "price": 124.74,
+    "price": 122.3,
     "intrinsic_value": 65.7,
     "dcf_growth_used": 2.8,
     "dcf_discount_rate": 7.24,
-    "discount_pct": -89.8
+    "discount_pct": -86.1
    },
    "moat_hints": {
     "gross_margin": "13.0%",
@@ -51853,7 +51853,7 @@
     "proj_eps_next_5y": 79.91,
     "proj_eps_next_y": 46.69,
     "eps_past_5y": null,
-    "price": 101.19,
+    "price": 100.26,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -52093,7 +52093,7 @@
     "proj_eps_next_5y": 38.13,
     "proj_eps_next_y": 48.58,
     "eps_past_5y": null,
-    "price": 243.91,
+    "price": 243.93,
     "intrinsic_value": 105.31,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 6.23,
@@ -52931,7 +52931,7 @@
     "proj_eps_next_5y": null,
     "proj_eps_next_y": 211.34,
     "eps_past_5y": null,
-    "price": 1540.57,
+    "price": 1517.5,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -53168,11 +53168,11 @@
     "proj_eps_next_5y": 31.15,
     "proj_eps_next_y": 17.45,
     "eps_past_5y": 29.09,
-    "price": 46.97,
+    "price": 46.28,
     "intrinsic_value": 2.4,
     "dcf_growth_used": 20.0,
     "dcf_discount_rate": 7.54,
-    "discount_pct": -1854.2
+    "discount_pct": -1825.5
    },
    "moat_hints": {
     "gross_margin": "54.4% (high \u2014 pricing power?)",
@@ -53525,7 +53525,7 @@
     "proj_eps_next_5y": 27.74,
     "proj_eps_next_y": 44.93,
     "eps_past_5y": -29.93,
-    "price": 67.96,
+    "price": 67.89,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -53644,7 +53644,7 @@
     "proj_eps_next_5y": null,
     "proj_eps_next_y": 243.02,
     "eps_past_5y": -161.79,
-    "price": 97.1,
+    "price": 96.87,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -53763,7 +53763,7 @@
     "proj_eps_next_5y": null,
     "proj_eps_next_y": -21.22,
     "eps_past_5y": null,
-    "price": 29.7,
+    "price": 29.69,
     "intrinsic_value": null,
     "discount_pct": null
    },
@@ -53776,5 +53776,5 @@
    "exclusion_reason": ""
   }
  ],
- "elapsed_seconds": 80.4
+ "elapsed_seconds": 79.1
 }
