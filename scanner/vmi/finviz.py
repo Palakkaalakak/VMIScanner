@@ -89,9 +89,9 @@ def screen_universe(use_cache: bool = True, cache_max_age: float = 86400) -> Lis
 
 # ---------------------------------------------------------------- estimates
 # Custom view v=152 column ids (verified against live header row):
-#   1=Ticker, 17=EPS This Y, 18=EPS Next Y, 19=EPS Past 5Y, 20=EPS Next 5Y,
-#   24=Shares Outstanding, 65=Price
-_EST_COLS = "0,1,17,18,19,20,24,48,65"
+#   1=Ticker, 8=Forward P/E, 17=EPS This Y, 18=EPS Next Y, 19=EPS Past 5Y,
+#   20=EPS Next 5Y, 24=Shares Outstanding, 48=Beta, 65=Price
+_EST_COLS = "0,1,8,17,18,19,20,24,48,65"
 
 
 def _parse_est_rows(html: str) -> Dict[str, Dict]:
@@ -99,7 +99,7 @@ def _parse_est_rows(html: str) -> Dict[str, Dict]:
     for tr in re.findall(r"<tr[^>]*valign=\"top\"[^>]*>(.*?)</tr>", html, re.S):
         raw_tds = re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)
         tds = [re.sub(r"<[^>]+>", "", t).strip() for t in raw_tds]
-        if len(tds) < 9:
+        if len(tds) < 10:
             continue
         # The ticker cell renders its text twice (visible + styled copy) so
         # stripped text comes out doubled ("AAAPL"); the link href is the
@@ -131,11 +131,15 @@ def _parse_est_rows(html: str) -> Dict[str, Dict]:
             except ValueError:
                 return None
 
+        fwd_pe = num(tds[2])
+        price = num(tds[9])
         out[ticker] = {
-            "eps_this_y": pct(tds[2]), "eps_next_y": pct(tds[3]),
-            "eps_past_5y": pct(tds[4]), "eps_next_5y": pct(tds[5]),
-            "shares_outstanding": num(tds[6]), "beta": num(tds[7]),
-            "price": num(tds[8]),
+            "eps_this_y": pct(tds[3]), "eps_next_y": pct(tds[4]),
+            "eps_past_5y": pct(tds[5]), "eps_next_5y": pct(tds[6]),
+            "shares_outstanding": num(tds[7]), "beta": num(tds[8]),
+            "price": price,
+            # Forward EPS ($) derived from Forward P/E — the IV model's base flow.
+            "fwd_eps": (price / fwd_pe) if (price and fwd_pe and fwd_pe > 0) else None,
         }
     return out
 

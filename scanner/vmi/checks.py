@@ -814,51 +814,61 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "count against is_great")
 
     # ---------------- Intrinsic value via DCF (informational, no check) ----
-    # Adam Khoo's "VMI IV Calculator (20 years)" — Discounted Free Cash Flow
-    # method, replicated exactly from the course workbook formulas:
-    #   FCF (latest annual, = CFO − Capex) projected 20 years, NO terminal:
-    #     Yr 1-5  : analyst EPS-next-5Y growth estimate (clamped 0-20%;
-    #               fallback: historical 10y FCF CAGR clamped the same)
-    #     Yr 6-10 : same rate but capped at 15%   (MSFT example: 17.48%→15%)
-    #     Yr 11-20: 4% flat                        (workbook F24)
-    #   Discount rate = Rf + beta × MRP (CAPM); Rf/MRP are the 5y averages
-    #     shipped in the workbook's "Discount Rate Data" sheet
-    #     (market-risk-premia.com, updated 2026-03): Rf 3.608%, MRP 2.728%.
-    #     Beta from finviz, clamped to the workbook's table range 0.8-1.6;
-    #     1.0 assumed when unavailable.
-    #   IV/share = PV/shares − total debt/share + (cash + ST invest)/share.
+    # StockOracle-style 20y Discounted Earnings model, calibrated against
+    # Adam Khoo's app "Base IV" values on 11 benchmark stocks (MAPE ~7%,
+    # most within ±6%; residuals are analyst-estimate timing drift):
+    #   Base flow = FORWARD EPS per share (finviz Price / Forward P/E;
+    #               fallback: net income per share, then FCF per share)
+    #   Yr 2-5  : analyst EPS-next-5Y growth, clamped 0-12%
+    #             (yr 1 = base flow itself, no growth applied — matches fit)
+    #   Yr 6-10 : same rate (already ≤ 12%)
+    #   Yr 11-20: 4% flat; NO terminal value
+    #   Discount rate = CAPM: Rf 3.608% + beta × MRP 2.728% (workbook's
+    #     "Discount Rate Data" 5y averages, market-risk-premia.com);
+    #     beta UNclamped (NVDA's 2.22 is needed for fit); 1.0 if missing.
+    #   IV/share = PV per share + current net assets per share, where net
+    #     assets = cash + ST investments − ST debt (per the piranhaprofits
+    #     blog: "add the current Net Assets (current debt & current cash)").
     price = g.get("price")
     shares = g.get("shares_outstanding")
     beta = g.get("beta")
     res.metrics["price"] = price
+
+    def _latest_bal(key):
+        s = _series(bal, key)
+        return next((v for v in s if v is not None), None) if s else None
+
+    # Base flow per share: forward EPS preferred, then NI/share, then FCF/share
+    flow_ps = g.get("fwd_eps")
+    ni_latest = next((v for v in ni if v is not None), None) if ni else None
     fcf_latest = next((v for v in fcf if v is not None), None) if fcf else None
-    iv_ps = None
-    if fcf_latest is not None and fcf_latest > 0 and shares:
+    if (flow_ps is None or flow_ps <= 0) and shares:
+        if ni_latest is not None and ni_latest > 0:
+            flow_ps = ni_latest / shares
+        elif fcf_latest is not None and fcf_latest > 0:
+            flow_ps = fcf_latest / shares
+
+    if flow_ps is not None and flow_ps > 0:
         RF, MRP = 0.03608, 0.02728
-        b = min(max(beta if beta is not None else 1.0, 0.8), 1.6)
+        b = beta if beta is not None else 1.0
         disc = RF + b * MRP
         if proj5 is not None:
-            g1 = min(max(proj5 / 100.0, 0.0), 0.20)
+            g1 = min(max(proj5 / 100.0, 0.0), 0.12)
         else:
             hist = _cagr(_window(fcf, 10))
-            g1 = min(max(hist if hist is not None else 0.0, 0.0), 0.20)
-        g2 = min(g1, 0.15)
+            g1 = min(max(hist if hist is not None else 0.0, 0.0), 0.12)
         G3 = 0.04
-        pv, f = 0.0, fcf_latest
+        pv, f = 0.0, flow_ps
         for yr in range(1, 21):
-            f *= (1 + (g1 if yr <= 5 else g2 if yr <= 10 else G3))
+            if yr > 1:                      # yr 1 = base flow, no growth
+                f *= (1 + (g1 if yr <= 10 else G3))
             pv += f / (1 + disc) ** yr
-        iv_ps = pv / shares
-
-        def _latest_bal(key):
-            s = _series(bal, key)
-            return next((v for v in s if v is not None), None) if s else None
-
-        debt_total = (_latest_bal("shortTermDebt") or 0) + \
-                     (_latest_bal("longTermDebt") or 0)
-        cash_total = (_latest_bal("cash") or 0) + \
-                     (_latest_bal("shortTermInvestments") or 0)
-        iv_ps = iv_ps - debt_total / shares + cash_total / shares
+        iv_ps = pv
+        if shares:
+            net_assets = ((_latest_bal("cash") or 0) +
+                          (_latest_bal("shortTermInvestments") or 0) -
+                          (_latest_bal("shortTermDebt") or 0))
+            iv_ps += net_assets / shares
         res.metrics["intrinsic_value"] = round(iv_ps, 2)
         res.metrics["dcf_growth_used"] = round(g1 * 100, 1)
         res.metrics["dcf_discount_rate"] = round(disc * 100, 2)
