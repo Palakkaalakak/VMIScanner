@@ -38,7 +38,10 @@ from . import macrotrends, sec, yahoo
 from .finviz import fetch_growth_estimates
 from .sp500 import fetch_sp500
 
-OUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "public", "data")
+# repo_root/public/data — served by the Hono dashboard at /data/scan_results.json
+OUT_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    "public", "data")
 DEFAULT_OUT = os.path.join(OUT_DIR, "scan_results.json")
 
 

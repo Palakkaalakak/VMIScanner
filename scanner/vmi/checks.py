@@ -388,14 +388,31 @@ class ScanResult:
     def applicable(self):
         return sum(1 for c in self.checks if c.status in (PASS, FAIL, WARN))
 
+    # Core checks that must be hard PASSes (not merely WARN) for the GREAT
+    # verdict. Calibrated against the user's benchmark set (UNH/AAPL/MSFT/
+    # GOOGL/NVDA/V/CAT all retained): this cuts S&P500 "greats" from 183 to
+    # ~88 without dropping any benchmark. NA still doesn't disqualify —
+    # a missing analyst estimate or non-applicable check isn't evidence of
+    # a bad business.
+    CORE_CHECKS = (
+        "Sales increasing (multi-window)",
+        "Net income increasing (multi-window)",
+        "CFO increasing (multi-window)",
+        "ROE ≥ 12%",
+        "ROIC ≥ 12%",
+        "Positive projected growth",
+    )
+
     @property
     def is_great(self) -> bool:
-        """Great business = zero hard FAILs, at most 2 review WARNs, and
-        enough applicable checks for a meaningful verdict. NA never
-        disqualifies: data a source doesn't report (or a check that doesn't
-        apply to the company type) is not evidence of a bad business — it
-        just doesn't count toward `applicable`."""
-        return self.n_fail == 0 and self.n_warn <= 2 and self.applicable >= 8
+        """Great business = zero hard FAILs anywhere, at most 2 review
+        WARNs, every core check a hard PASS (WARN on a core check is not
+        enough; NA is tolerated — absence of data never disqualifies), and
+        enough applicable checks for a meaningful verdict."""
+        if self.n_fail != 0 or self.n_warn > 2 or self.applicable < 8:
+            return False
+        status = {c.name: c.status for c in self.checks}
+        return all(status.get(n) in (PASS, NA) for n in self.CORE_CHECKS)
 
     @property
     def score(self) -> float:
