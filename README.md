@@ -88,9 +88,20 @@ to force fresh data.
 3. Filter by sector or company type (standard / financial / REIT / property / commodity).
 4. Click any row to see the full 12-13 point checklist with PASS/FAIL/WARN/NA
    status, plus **moat hints** you should evaluate yourself before investing.
-5. This tool answers "is it a great business?" only. You still need to do
-   your own valuation (intrinsic value vs. price) and technical analysis
-   (entry timing) before making any investment decision — per the VMI 3-step framework.
+5. Each stock also shows an **Intrinsic Value** (StockOracle DCF-20yr
+   replica) and its discount/premium vs. price. The DCF *structure* is
+   verified to the cent against the Visa calculator screenshot in Lesson 5
+   (growth yrs 1-10 → 4% yrs 11-20, no terminal value, CAPM discount
+   Rf 3.608% + β×2.728%, IV = PV/sh − debt/sh + cash/sh). StockOracle's
+   growth rates and base-flow choice are proprietary, so both are
+   replicated by calibration against the app's "Base IV" on 11 benchmark
+   stocks (`scanner/calib/blend_fit_sec.py`) — reproduced within ±0.84%,
+   with **no caps or minimums**: base flow picked by a deterministic
+   capex/OCF + analyst-growth rule (NI / OCF / FCF), growth from a smooth
+   blend of analyst estimates and OCF/FCF history.
+6. This tool answers "is it a great business?" plus a valuation hint. You
+   still need your own technical analysis (entry timing) before making any
+   investment decision — per the VMI 3-step framework.
 
 ## Features not yet implemented
 - Non-US exchanges (HK/SG/etc.) — Finviz only covers US-listed tickers;
