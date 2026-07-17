@@ -1,0 +1,467 @@
+{
+ "AAPL": {
+  "sector": "tech-hw",
+  "so_growth": 10.9,
+  "g5": 12.92,
+  "disc": 6.581520000000001,
+  "impl": {
+   "ocf": 14.684,
+   "fcf": 16.375,
+   "ni": 14.618,
+   "fwdni": 11.304
+  }
+ },
+ "ACGL": {
+  "sector": "insurance",
+  "so_growth": 2.7,
+  "g5": 2.27,
+  "disc": 4.45368,
+  "impl": {
+   "ocf": -12.843,
+   "fcf": -12.734,
+   "ni": -7.823,
+   "fwdni": -4.465
+  }
+ },
+ "AMZN": {
+  "sector": "tech-net",
+  "so_growth": 26.7,
+  "g5": 22.14,
+  "disc": 7.61816,
+  "impl": {
+   "ocf": 6.811,
+   "fcf": 49.459,
+   "ni": 15.127,
+   "fwdni": 10.385
+  }
+ },
+ "ASML": {
+  "sector": "tech-hw",
+  "so_growth": 21.1,
+  "g5": 35.96,
+  "disc": 8.463840000000001,
+  "impl": {
+   "ocf": 18.279,
+   "fcf": 20.189,
+   "ni": 22.25,
+   "fwdni": 9.968
+  }
+ },
+ "AVGO": {
+  "sector": "tech-hw",
+  "so_growth": 26.1,
+  "g5": 56.27,
+  "disc": 7.61816,
+  "impl": {
+   "ocf": 27.694,
+   "fcf": 28.027,
+   "ni": 30.243,
+   "fwdni": 10.383
+  }
+ },
+ "AZO": {
+  "sector": "retail",
+  "so_growth": 13.1,
+  "g5": 10.69,
+  "disc": 4.508240000000001,
+  "impl": {
+   "ocf": 6.153,
+   "fcf": 13.64,
+   "ni": 9.139,
+   "fwdni": 7.249
+  }
+ },
+ "BABA": {
+  "sector": "tech-net",
+  "so_growth": 10.8,
+  "g5": 42.18,
+  "disc": 4.999280000000001,
+  "impl": {
+   "ocf": -15.046,
+   "ni": -20.155,
+   "fwdni": 3.364
+  }
+ },
+ "BKNG": {
+  "sector": "tech-net",
+  "so_growth": 14.9,
+  "g5": 16.15,
+  "disc": 6.55424,
+  "impl": {
+   "ocf": 4.268,
+   "fcf": 4.759,
+   "ni": 12.025,
+   "fwdni": 3.957
+  }
+ },
+ "CELH": {
+  "sector": "consumer",
+  "so_growth": 31.4,
+  "g5": 18.74,
+  "disc": 6.17232,
+  "impl": {
+   "ocf": 12.457,
+   "fcf": 13.922,
+   "ni": 29.372,
+   "fwdni": 7.691
+  }
+ },
+ "CPRT": {
+  "sector": "industrial",
+  "so_growth": 13.5,
+  "g5": 5.18,
+  "disc": 6.3632800000000005,
+  "impl": {
+   "ocf": 11.494,
+   "fcf": 16.779,
+   "ni": 13.548,
+   "fwdni": 13.53
+  }
+ },
+ "CRWD": {
+  "sector": "tech-sw",
+  "so_growth": 34.5,
+  "g5": 29.1,
+  "disc": 6.9907200000000005,
+  "impl": {
+   "ocf": 22.655,
+   "fcf": 25.619,
+   "fwdni": 22.881
+  }
+ },
+ "CTAS": {
+  "sector": "industrial",
+  "so_growth": 15.4,
+  "g5": 11.05,
+  "disc": 6.14504,
+  "impl": {
+   "ocf": 13.891,
+   "fcf": 16.795,
+   "ni": 16.364,
+   "fwdni": 12.207
+  }
+ },
+ "DSGX": {
+  "sector": "tech-sw",
+  "so_growth": 19.9,
+  "g5": 17.83,
+  "disc": 5.32664,
+  "impl": {
+   "ocf": 12.438,
+   "fcf": 12.736,
+   "ni": 19.115,
+   "fwdni": 14.428
+  }
+ },
+ "FTNT": {
+  "sector": "tech-sw",
+  "so_growth": 12.3,
+  "g5": 11.38,
+  "disc": 6.55424,
+  "impl": {
+   "ocf": 12.626,
+   "fcf": 14.741,
+   "ni": 17.299,
+   "fwdni": 13.061
+  }
+ },
+ "GOOGL": {
+  "sector": "tech-net",
+  "so_growth": 14.9,
+  "g5": 16.97,
+  "disc": 6.9907200000000005,
+  "impl": {
+   "ocf": 8.964,
+   "fcf": 20.353,
+   "ni": 12.055,
+   "fwdni": 7.658
+  }
+ },
+ "HCA": {
+  "sector": "health",
+  "so_growth": 11.0,
+  "g5": 9.32,
+  "disc": 6.636080000000001,
+  "impl": {
+   "ocf": -0.143,
+   "fcf": 6.901,
+   "ni": 8.659,
+   "fwdni": 7.595
+  }
+ },
+ "ICE": {
+  "sector": "fin-net",
+  "so_growth": 11.7,
+  "g5": 11.67,
+  "disc": 6.1996,
+  "impl": {
+   "ocf": 10.03,
+   "fcf": 11.185,
+   "ni": 14.755,
+   "fwdni": 9.199
+  }
+ },
+ "IDXX": {
+  "sector": "health",
+  "so_growth": 17.2,
+  "g5": 12.75,
+  "disc": 7.80912,
+  "impl": {
+   "ocf": 14.707,
+   "fcf": 16.291,
+   "ni": 16.26,
+   "fwdni": 13.221
+  }
+ },
+ "LIN": {
+  "sector": "industrial",
+  "so_growth": 8.2,
+  "g5": 9.43,
+  "disc": 5.57216,
+  "impl": {
+   "ocf": 8.667,
+   "fcf": 18.431,
+   "ni": 14.235,
+   "fwdni": 10.483
+  }
+ },
+ "MA": {
+  "sector": "fin-net",
+  "so_growth": 14.2,
+  "g5": 15.92,
+  "disc": 5.59944,
+  "impl": {
+   "ocf": 11.209,
+   "fcf": 11.595,
+   "ni": 13.47,
+   "fwdni": 9.431
+  }
+ },
+ "MELI": {
+  "sector": "tech-net",
+  "so_growth": 29.6,
+  "g5": 25.49,
+  "disc": 7.290800000000001,
+  "impl": {
+   "ocf": -1.294,
+   "fcf": 0.429,
+   "ni": 24.388,
+   "fwdni": 19.276
+  }
+ },
+ "META": {
+  "sector": "tech-net",
+  "so_growth": 18.0,
+  "g5": 19.6,
+  "disc": 7.018000000000001,
+  "impl": {
+   "ocf": 5.789,
+   "fcf": 18.744,
+   "ni": 14.932,
+   "fwdni": 11.554
+  }
+ },
+ "MSCI": {
+  "sector": "fin-net",
+  "so_growth": 12.3,
+  "g5": 14.68,
+  "disc": 6.96344,
+  "impl": {
+   "ocf": 11.718,
+   "fcf": 12.07,
+   "ni": 15.624,
+   "fwdni": 11.022
+  }
+ },
+ "MSFT": {
+  "sector": "tech-sw",
+  "so_growth": 17.0,
+  "g5": 18.65,
+  "disc": 6.69064,
+  "impl": {
+   "ocf": 13.371,
+   "fcf": 22.394,
+   "ni": 17.434,
+   "fwdni": 12.538
+  }
+ },
+ "MSI": {
+  "sector": "tech-hw",
+  "so_growth": 12.0,
+  "g5": 10.07,
+  "disc": 6.00864,
+  "impl": {
+   "ocf": 10.581,
+   "fcf": 11.935,
+   "ni": 14.386,
+   "fwdni": 9.445
+  }
+ },
+ "NFLX": {
+  "sector": "tech-net",
+  "so_growth": 21.6,
+  "g5": 21.83,
+  "disc": 7.75456,
+  "impl": {
+   "ocf": 16.769,
+   "fcf": 17.767,
+   "ni": 15.65,
+   "fwdni": 10.207
+  }
+ },
+ "NKE": {
+  "sector": "consumer",
+  "so_growth": 15.0,
+  "g5": 4.8,
+  "disc": 6.663360000000001,
+  "impl": {
+   "ocf": 14.402,
+   "fcf": 18.215,
+   "ni": 13.28,
+   "fwdni": 15.532
+  }
+ },
+ "NOW": {
+  "sector": "tech-sw",
+  "so_growth": 23.3,
+  "g5": 20.81,
+  "disc": 6.1996,
+  "impl": {
+   "ocf": 15.697,
+   "fcf": 18.115,
+   "ni": 31.803,
+   "fwdni": 16.32
+  }
+ },
+ "NVDA": {
+  "sector": "tech-hw",
+  "so_growth": 37.8,
+  "g5": 47.6,
+  "disc": 9.66416,
+  "impl": {
+   "ocf": 25.511,
+   "fcf": 26.407,
+   "ni": 23.214,
+   "fwdni": 9.39
+  }
+ },
+ "NVO": {
+  "sector": "health",
+  "so_growth": 14.5,
+  "g5": -0.87,
+  "disc": 5.70856,
+  "impl": {
+   "ocf": -32.591,
+   "fcf": -18.845,
+   "ni": -29.352,
+   "fwdni": 6.206
+  }
+ },
+ "PANW": {
+  "sector": "tech-sw",
+  "so_growth": 20.0,
+  "g5": 13.16,
+  "disc": 6.09048,
+  "impl": {
+   "ocf": 17.727,
+   "fcf": 18.682,
+   "ni": 34.673,
+   "fwdni": 19.194
+  }
+ },
+ "PLTR": {
+  "sector": "tech-sw",
+  "so_growth": 36.1,
+  "g5": 59.78,
+  "disc": 7.94552,
+  "impl": {
+   "ocf": 38.648,
+   "fcf": 38.891,
+   "ni": 42.833,
+   "fwdni": 26.635
+  }
+ },
+ "POOL": {
+  "sector": "industrial",
+  "so_growth": 5.9,
+  "g5": 6.99,
+  "disc": 6.4724,
+  "impl": {
+   "ocf": 13.386,
+   "fcf": 15.715,
+   "ni": 11.923,
+   "fwdni": 10.899
+  }
+ },
+ "SPGI": {
+  "sector": "fin-net",
+  "so_growth": 12.5,
+  "g5": 12.09,
+  "disc": 6.55424,
+  "impl": {
+   "ocf": 12.797,
+   "fcf": 13.286,
+   "ni": 16.063,
+   "fwdni": 11.654
+  }
+ },
+ "TMO": {
+  "sector": "health",
+  "so_growth": 15.1,
+  "g5": 9.49,
+  "disc": 5.95408,
+  "impl": {
+   "ocf": 13.805,
+   "fcf": 16.808,
+   "ni": 15.931,
+   "fwdni": 10.265
+  }
+ },
+ "UNH": {
+  "sector": "health",
+  "so_growth": 11.8,
+  "g5": 15.74,
+  "disc": 5.32664,
+  "impl": {
+   "ocf": 6.83,
+   "fcf": 9.609,
+   "ni": 13.542,
+   "fwdni": 7.039
+  }
+ },
+ "V": {
+  "sector": "fin-net",
+  "so_growth": 13.1,
+  "g5": 13.71,
+  "disc": 5.654,
+  "impl": {
+   "ocf": 8.952,
+   "fcf": 9.865,
+   "ni": 10.868,
+   "fwdni": 7.974
+  }
+ },
+ "VEEV": {
+  "sector": "tech-sw",
+  "so_growth": 19.2,
+  "g5": 11.85,
+  "disc": 6.14504,
+  "impl": {
+   "ocf": 10.768,
+   "ni": 16.906,
+   "fwdni": 8.776
+  }
+ },
+ "WM": {
+  "sector": "industrial",
+  "so_growth": 8.5,
+  "g5": 9.9,
+  "disc": 4.80832,
+  "impl": {
+   "ocf": 4.469,
+   "fcf": 14.833,
+   "ni": 15.365,
+   "fwdni": 11.167
+  }
+ }
+}
