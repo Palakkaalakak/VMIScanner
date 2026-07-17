@@ -89,16 +89,28 @@ to force fresh data.
 4. Click any row to see the full 12-13 point checklist with PASS/FAIL/WARN/NA
    status, plus **moat hints** you should evaluate yourself before investing.
 5. Each stock also shows an **Intrinsic Value** (StockOracle DCF-20yr
-   replica) and its discount/premium vs. price. The DCF *structure* is
-   verified to the cent against the Visa calculator screenshot in Lesson 5
-   (growth yrs 1-10 → 4% yrs 11-20, no terminal value, CAPM discount
-   Rf 3.608% + β×2.728%, IV = PV/sh − debt/sh + cash/sh). StockOracle's
-   growth rates and base-flow choice are proprietary, so both are
-   replicated by calibration against the app's "Base IV" on 11 benchmark
-   stocks (`scanner/calib/blend_fit_sec.py`) — reproduced within ±0.84%,
-   with **no caps or minimums**: base flow picked by a deterministic
-   capex/OCF + analyst-growth rule (NI / OCF / FCF), growth from a smooth
-   blend of analyst estimates and OCF/FCF history.
+   replica, calibration **v13**) and its discount/premium vs. price. The
+   DCF *structure* is verified to the cent against the Visa calculator
+   screenshot in Lesson 5 (growth yrs 1-10 → 4% yrs 11-20, no terminal
+   value, CAPM discount Rf 3.608% + β×2.728%, IV = PV/sh − debt/sh +
+   cash/sh). StockOracle's growth rates and base-flow choice are
+   proprietary, so both are replicated by calibration against the app's
+   "Base IV" on **36 large caps** (`scanner/calib/blend_fit_v13.py` →
+   `vmi/dcf_v13.py`): **36/36 within ±7%, 32/36 within ±5%** on the
+   calibration snapshot (live data drifts slightly as prices/estimates
+   move). **No invented caps or minimums**. Model:
+   - **Base flow** = continuous per-sector mix over 10 components —
+     annual SEC OCF/FCF/NI, finviz forward NI, **TTM flows scraped from
+     stockanalysis.com**, and 3-year SEC averages. E.g. software/internet
+     names value TTM OCF, health values 3y-avg OCF, payment networks
+     value a NI + forward-NI blend.
+   - **Growth** = deterministic blend of analyst estimates (this-yr,
+     next-yr, 5-yr) + fundamentals (net margin, capex/OCF intensity,
+     revenue 5y CAGR) with sector-group terms — capturing StockOracle's
+     systematic sector bias (its growth runs BELOW analyst 5y estimates
+     for tech hardware, ABOVE for consumer names).
+   - 8 sector groups mapped from GICS sector/sub-industry
+     (`vmi/dcf_v13.py::sector_group`).
 6. This tool answers "is it a great business?" plus a valuation hint. You
    still need your own technical analysis (entry timing) before making any
    investment decision — per the VMI 3-step framework.
