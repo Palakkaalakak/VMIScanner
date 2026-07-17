@@ -169,7 +169,21 @@ def fetch_growth_estimates(tickers: List[str], use_cache: bool = True,
         if total and r > total:
             break
     out: Dict[str, Dict] = {}
+    missing: List[str] = []
     for t in tickers:
         k = t.upper().replace(".", "-")
         out[t] = got.get(k) or got.get(k.replace("-", "."))
+        if out[t] is None:
+            missing.append(t)
+    # Non-S&P tickers (NVO, MELI, POOL...) aren't in the idx_sp500 screen —
+    # fetch them individually via the per-ticker t= filter.
+    for t in missing:
+        k = t.upper().replace(".", "-")
+        try:
+            url = f"{BASE}?v=152&t={k}&c={_EST_COLS}"
+            html = get(url, use_cache=use_cache, cache_max_age=cache_max_age)
+            rows = _parse_est_rows(html)
+            out[t] = rows.get(k) or rows.get(k.replace("-", "."))
+        except Exception:  # noqa: BLE001 — estimate stays None
+            pass
     return out
