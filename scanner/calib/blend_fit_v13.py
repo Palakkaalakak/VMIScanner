@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""v12 = v11 + fundamental separators (net margin, capex/OCF, rev 5y CAGR)
+"""v13 = v12 + sector-interaction features + tiny L1 + repair pass at full ±7 (net margin, capex/OCF, rev 5y CAGR)
 added as continuous growth features — no caps/minimums, just more signal: (a)+(c) combo over wide component set with
  - inner fit tolerance (fit at ±6.2%, evaluate at ±7%) to avoid boundary-riding
  - best-iterate tracking across alternation (eval every step)
@@ -105,6 +105,7 @@ for t, d in sorted(inp.items()):
     feats = [g5, sg(g5), eny, sg(eny), ety, sg(ety), ocfC or 0.0, fcfC or 0.0,
              marg, sg(marg), co, sg(co), rev5C, sg(rev5C), 1.0]
     sd = [1.0 if d['sector'] == s2 else 0.0 for s2 in SECTORS]
+    sd = sd + [x * sg(marg) for x in sd[:len(SECTORS)]] + [x * sg(co) for x in sd[:len(SECTORS)]]
     T.append(dict(t=t, sector=d['sector'], tgt=tgt, disc=disc, net=net,
                   fps=fps, x=np.array(feats + sd), sog=d['so_growth'], g5=g5))
 
@@ -131,6 +132,7 @@ def fit_growth_lp(ivls, hard_idx=None, center_pull=0.0):
     ns = len(idx)
     nv = 2 * NF + ns + (ns if center_pull > 0 else 0)
     cvec = np.zeros(nv); cvec[2 * NF:2 * NF + ns] = 1.0
+    cvec[:2 * NF] = 1e-4
     if center_pull > 0:
         cvec[2 * NF + ns:] = center_pull
     rows_ub, b_ub = [], []
@@ -261,7 +263,22 @@ for rounds in range(6):
     if (h2, h52) > (h7, h5):
         alpha, errs, h7, h5 = a2, e2, h2, h52
 
-print(f'=== after refinement: {h7}/{N} ±7%, {h5}/{N} ±5% ===\n')
+for rounds in range(4):
+    ivls = [g_interval(tk, base_ps(tk, alpha), TOL) for tk in T]
+    hard = [i for i, tk in enumerate(T) if abs(errs[tk['t']]) <= TOL and ivls[i] is not None]
+    w2 = fit_growth_lp(ivls, hard_idx=hard, center_pull=0.0)
+    if w2 is not None:
+        h2, e2 = evaluate(w2, alpha)
+        h52 = sum(1 for v in e2.values() if abs(v) <= 5)
+        if (h2, h52) > (h7, h5):
+            w, errs, h7, h5 = w2, e2, h2, h52
+    a2 = fit_alpha_lp(w, TOL)
+    h2, e2 = evaluate(w, a2)
+    h52 = sum(1 for v in e2.values() if abs(v) <= 5)
+    if (h2, h52) > (h7, h5):
+        alpha, errs, h7, h5 = a2, e2, h2, h52
+
+print(f'=== after refinement+repair: {h7}/{N} ±7%, {h5}/{N} ±5% ===\n')
 print('per-ticker errors (sorted by |err|):')
 for t, e in sorted(errs.items(), key=lambda kv: -abs(kv[1])):
     sec = next(tk['sector'] for tk in T if tk['t'] == t)
@@ -274,15 +291,17 @@ for s in SECTORS:
     print(f'  {s:11s} {aw}')
 
 names = ['g5', 'sqrt_g5', 'eny', 'sqrt_eny', 'ety', 'sqrt_ety', 'ocfC', 'fcfC',
-         'marg', 'sqrt_marg', 'co', 'sqrt_co', 'rev5C', 'sqrt_rev5C', 'const'] + ['sec_' + s for s in SECTORS]
+         'marg', 'sqrt_marg', 'co', 'sqrt_co', 'rev5C', 'sqrt_rev5C', 'const'] \
+    + ['sec_' + s for s in SECTORS] \
+    + ['secXmarg_' + s for s in SECTORS] + ['secXco_' + s for s in SECTORS]
 print('\ngrowth weights:')
 for n, v in zip(names, w):
     print(f'  {n:14s} {v:+9.4f}')
 
-with open('fit_v12.json', 'w') as f:
+with open('fit_v13.json', 'w') as f:
     json.dump({'weights': list(map(float, w)), 'feature_names': names,
                'sectors': SECTORS, 'components': COMPS,
                'alphas': {s: list(map(float, alpha[s])) for s in SECTORS},
                'hits7': h7, 'hits5': h5, 'n': N,
                'errors': {t: round(e, 3) for t, e in errs.items()}}, f, indent=1)
-print('\nsaved fit_v12.json')
+print('\nsaved fit_v13.json')
