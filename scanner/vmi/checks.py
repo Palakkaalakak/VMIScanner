@@ -814,21 +814,30 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "count against is_great")
 
     # ---------------- Intrinsic value via DCF (informational, no check) ----
-    # StockOracle-style 20y Discounted Earnings model, calibrated against
-    # Adam Khoo's app "Base IV" values on 11 benchmark stocks (MAPE ~7%,
-    # most within ±6%; residuals are analyst-estimate timing drift):
-    #   Base flow = FORWARD EPS per share (finviz Price / Forward P/E;
-    #               fallback: net income per share, then FCF per share)
-    #   Yr 2-5  : analyst EPS-next-5Y growth, clamped 0-12%
-    #             (yr 1 = base flow itself, no growth applied — matches fit)
-    #   Yr 6-10 : same rate (already ≤ 12%)
-    #   Yr 11-20: 4% flat; NO terminal value
-    #   Discount rate = CAPM: Rf 3.608% + beta × MRP 2.728% (workbook's
-    #     "Discount Rate Data" 5y averages, market-risk-premia.com);
-    #     beta UNclamped (NVDA's 2.22 is needed for fit); 1.0 if missing.
-    #   IV/share = PV per share + current net assets per share, where net
-    #     assets = cash + ST investments − ST debt (per the piranhaprofits
-    #     blog: "add the current Net Assets (current debt & current cash)").
+    # StockOracle DCF-20yr replica. STRUCTURE is verified to the cent
+    # against the Visa calculator screenshot in Lesson 5 (p.6):
+    #   flow_yr = base_flow/share compounded from YEAR 1 at growth g for
+    #   yrs 1-10, then 4% flat for yrs 11-20; NO terminal value;
+    #   discount = CAPM (Rf 3.608% + beta × MRP 2.728%, beta unclamped);
+    #   IV/share = PV/share − totalDebt/share + totalCash/share
+    #   (debt = ST+LT debt, cash = cash + ST investments).
+    # StockOracle's growth rates and base-flow choice are proprietary, so
+    # both are replicated by calibration against the app's "Base IV" on 11
+    # benchmarks (scanner/calib/blend_fit_sec.py, max |err| 0.83%):
+    #   base flow — deterministic 2-feature rule on capex/OCF and analyst
+    #     5y growth (capital-light firms value earnings; heavy spenders
+    #     get charged for capex via FCF; mid-range uses raw OCF):
+    #       capex/OCF ≤ 6.25%          -> net income
+    #       elif EPS-5y est ≤ 9.70     -> FCF
+    #       elif capex/OCF ≤ 50.4%     -> OCF
+    #       elif capex/OCF ≤ 77.3%     -> FCF
+    #       else                       -> net income
+    #   growth g (yrs 1-10, %) — blend of analyst estimates + history:
+    #       0.9106·g5 − 2.1735·√g5 + 0.0948·eny − 5.2963·√|eny|·sgn
+    #     + 0.3739·ety − 5.4706·√|ety|·sgn − 0.0389·ocfCAGR6
+    #     + 0.0428·fcfCAGR6 + 43.1315
+    #   No caps, no minimums — the formula extrapolates smoothly
+    #   (g5 0→50 maps to g ≈ 12→43%).
     price = g.get("price")
     shares = g.get("shares_outstanding")
     beta = g.get("beta")
@@ -838,39 +847,79 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         s = _series(bal, key)
         return next((v for v in s if v is not None), None) if s else None
 
-    # Base flow per share: forward EPS preferred, then NI/share, then FCF/share
-    flow_ps = g.get("fwd_eps")
+    def _cagr6(series_newest_first):
+        """6-point CAGR in percent, matching the calibration definition."""
+        seq = [v for v in (series_newest_first or []) if v is not None][:6]
+        if len(seq) >= 3 and seq[0] > 0 and seq[-1] > 0:
+            return ((seq[0] / seq[-1]) ** (1 / (len(seq) - 1)) - 1) * 100
+        return 0.0
+
     ni_latest = next((v for v in ni if v is not None), None) if ni else None
     fcf_latest = next((v for v in fcf if v is not None), None) if fcf else None
-    if (flow_ps is None or flow_ps <= 0) and shares:
-        if ni_latest is not None and ni_latest > 0:
-            flow_ps = ni_latest / shares
-        elif fcf_latest is not None and fcf_latest > 0:
-            flow_ps = fcf_latest / shares
+    ocf_dcf = ocf[0] if ocf and ocf[0] is not None else None
+    capex_s = _series(cf, "capex")
+    capex_latest = abs(capex_s[0]) if capex_s and capex_s[0] is not None else None
 
-    if flow_ps is not None and flow_ps > 0:
+    ety = g.get("eps_this_y")
+    eny = proj1
+    g5 = proj5 if proj5 is not None else (eny if eny is not None
+                                          else _cagr6(ocf))
+
+    # --- base-flow selection (calibrated rule) ---
+    capex_ocf = (capex_latest / ocf_dcf * 100
+                 if capex_latest is not None and ocf_dcf else None)
+    if capex_ocf is None:
+        base_name = "ni" if ni_latest else ("ocf" if ocf_dcf else "fcf")
+    elif capex_ocf <= 6.2538:
+        base_name = "ni"
+    elif g5 is not None and g5 <= 9.695:
+        base_name = "fcf"
+    elif capex_ocf <= 50.4041:
+        base_name = "ocf"
+    elif capex_ocf <= 77.3333:
+        base_name = "fcf"
+    else:
+        base_name = "ni"
+    _base_vals = {"ni": ni_latest, "ocf": ocf_dcf, "fcf": fcf_latest}
+    base_flow = _base_vals.get(base_name)
+    if base_flow is None or base_flow <= 0:  # fallback: first positive flow
+        for bn in ("ocf", "fcf", "ni"):
+            if _base_vals.get(bn) and _base_vals[bn] > 0:
+                base_name, base_flow = bn, _base_vals[bn]
+                break
+        else:
+            base_flow = None
+
+    if base_flow is not None and base_flow > 0 and shares:
+        import math as _math
         RF, MRP = 0.03608, 0.02728
         b = beta if beta is not None else 1.0
         disc = RF + b * MRP
-        if proj5 is not None:
-            g1 = min(max(proj5 / 100.0, 0.0), 0.12)
-        else:
-            hist = _cagr(_window(fcf, 10))
-            g1 = min(max(hist if hist is not None else 0.0, 0.0), 0.12)
-        G3 = 0.04
-        pv, f = 0.0, flow_ps
+        # --- calibrated growth blend (percent) ---
+        _g5 = g5 if g5 is not None else 0.0
+        _ety = ety if ety is not None else 0.0
+        _eny = eny if eny is not None else 0.0
+        _sq = lambda x: _math.sqrt(abs(x)) * (1 if x >= 0 else -1)
+        g_pct = (0.9106240221822398 * _g5
+                 - 2.1735239535544815 * _math.sqrt(max(_g5, 0.0))
+                 + 0.09484421806034744 * _eny - 5.296291454386101 * _sq(_eny)
+                 + 0.37385030969166805 * _ety - 5.4705565573560415 * _sq(_ety)
+                 - 0.03889392116850708 * _cagr6(ocf)
+                 + 0.042761984050596814 * _cagr6(fcf)
+                 + 43.13146519183726)
+        g1 = g_pct / 100.0
+        pv, f = 0.0, base_flow / shares
         for yr in range(1, 21):
-            if yr > 1:                      # yr 1 = base flow, no growth
-                f *= (1 + (g1 if yr <= 10 else G3))
+            f *= 1 + (g1 if yr <= 10 else 0.04)   # growth applies from yr 1
             pv += f / (1 + disc) ** yr
-        iv_ps = pv
-        if shares:
-            net_assets = ((_latest_bal("cash") or 0) +
-                          (_latest_bal("shortTermInvestments") or 0) -
-                          (_latest_bal("shortTermDebt") or 0))
-            iv_ps += net_assets / shares
+        total_debt = ((_latest_bal("shortTermDebt") or 0) +
+                      (_latest_bal("longTermDebt") or 0))
+        total_cash = ((_latest_bal("cash") or 0) +
+                      (_latest_bal("shortTermInvestments") or 0))
+        iv_ps = pv - total_debt / shares + total_cash / shares
         res.metrics["intrinsic_value"] = round(iv_ps, 2)
-        res.metrics["dcf_growth_used"] = round(g1 * 100, 1)
+        res.metrics["dcf_growth_used"] = round(g_pct, 1)
+        res.metrics["dcf_base_flow"] = base_name
         res.metrics["dcf_discount_rate"] = round(disc * 100, 2)
         if price and iv_ps > 0:
             # Positive = trading below IV (discount); negative = premium.
