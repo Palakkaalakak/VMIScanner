@@ -13,7 +13,12 @@ for t in inp:
         cf = fetch_statement(t, 'cashflow')
         ic = fetch_statement(t, 'income')
         dk = cf['datekey']
-        ocf = cf['ncfo']; capex = cf['capex']; ni = cf['cash_flow_statement_net_income']
+        ocf = cf['ncfo']
+        fcf = cf.get('fcf')
+        capex = cf.get('capex')
+        if capex is None and fcf is not None:
+            capex = [(f - o) for f, o in zip(fcf, ocf)]  # capex = fcf - ocf (negative)
+        ni = cf['cash_flow_statement_net_income']
         eps = ic.get('epsDiluted') or ic.get('epsBasic')
         dki = ic['datekey']
         rec = {
