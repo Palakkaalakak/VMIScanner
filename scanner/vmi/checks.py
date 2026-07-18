@@ -253,6 +253,77 @@ def _improving_transition(s_newest_first: List[Optional[float]],
     return slope_num > 0 and sum(s[-edge:]) / edge > sum(s[:edge]) / edge
 
 
+def _na_reason(s_newest: List[Optional[float]], need: int, what: str) -> str:
+    """Human-readable reason why a check is NA for this data series."""
+    avail = sum(1 for v in s_newest if v is not None)
+    if avail == 0:
+        return (f"{what} not reported by the data source for this company — "
+                "cannot evaluate; NA never disqualifies")
+    return (f"only {avail} annual value(s) of {what} available — this test "
+            f"needs ≥{need}; NA never disqualifies")
+
+
+def _trend_distortion_idx(s_newest: List[Optional[float]],
+                          any_long_window: bool) -> Optional[int]:
+    """Temporary-distortion detector for trend checks.
+
+    If the long-window durable-trend test FAILS but PASSES after removing
+    exactly ONE annual value, that year is very likely a one-off distortion
+    (M&A/integration charges, impairment, legal settlement, tax one-off,
+    divestiture, 53rd-week effects). Returns the newest-first index of the
+    distorting year, else None."""
+    avail = sum(1 for v in s_newest if v is not None)
+    for w in _long_windows(any_long_window):
+        if avail < min(w, 8):
+            continue
+        win = _window(s_newest, w)
+        if _consistently_increasing(win, min_points=8):
+            return None  # not failing — nothing to explain
+        for i in range(len(win)):
+            if win[i] is None:
+                continue
+            trial = win[:i] + win[i + 1:]
+            if _consistently_increasing(trial, min_points=8):
+                return i
+        return None
+    return None
+
+
+def _avg_distortion(s_newest: List[Optional[float]], threshold: float,
+                    any_long_window: bool):
+    """Temporary-distortion detector for average-threshold checks (ROE/ROIC).
+
+    If the long-window average FAILS the threshold but clears it once the
+    single WORST year is excluded — and that year is a clear outlier vs the
+    rest — return (excluded_value, avg_without_it); else None."""
+    for w in _long_windows(any_long_window):
+        vals = [v for v in _window(s_newest, w) if v is not None]
+        if len(vals) < min(w, 6) or len(vals) <= 5:
+            continue
+        avg = sum(vals) / len(vals)
+        if avg >= threshold:
+            return None  # not failing
+        worst = min(vals)
+        rest = [v for v in vals if v != worst] or vals
+        avg_rest = sum(rest) / len(rest)
+        # outlier test: worst year negative or far below the other years
+        spread = (sum((v - avg_rest) ** 2 for v in rest) / len(rest)) ** 0.5
+        is_outlier = worst < 0 or worst < avg_rest - 2 * max(spread, 1e-9)
+        if avg_rest >= threshold and is_outlier:
+            return worst, avg_rest
+        return None
+    return None
+
+
+def _single_year_jump(s_newest: List[Optional[float]], n: int,
+                      min_jump: float = 0.25) -> bool:
+    """True if any single year-over-year increase within the last n years
+    exceeds min_jump (e.g. +25%) — a step-change signature of M&A."""
+    win = [v for v in _window(s_newest, n) if v is not None]
+    s = list(reversed(win))
+    return any(a > 0 and (b - a) / a >= min_jump for a, b in zip(s, s[1:]))
+
+
 def _paired_cagrs(a_newest: List[Optional[float]],
                   b_newest: List[Optional[float]], n: int):
     """CAGRs over identical fiscal columns only, so two series with
@@ -531,10 +602,20 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     res.metrics["rev_cagr_5y"] = _cagr(_window(rev, 5))
     res.metrics["rev_cagr_10y"] = _cagr(_window(rev, 10))
     res.metrics["rev_cagr_15y"] = _cagr(_window(rev, 15))
-    add("Sales increasing (multi-window)", st,
-        (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
-        f"Durable-trend test over {_win_desc}"
-        + ("; 5y alone also accepted" if accept_5y else "; 5y alone → WARN"))
+    if st == NA:
+        add("Sales increasing (multi-window)", NA, None,
+            _na_reason(rev, 5, "revenue history"))
+    elif st == FAIL and _trend_distortion_idx(rev, any_long_window) is not None:
+        add("Sales increasing (multi-window)", WARN,
+            (_fmt_pct(cagr) + " CAGR") if cagr is not None else None,
+            "Trend passes once a SINGLE distorted year is excluded — likely a "
+            "temporary distortion (divestiture, M&A timing, FX, 53rd week). "
+            "Review that year manually; underlying trend intact")
+    else:
+        add("Sales increasing (multi-window)", st,
+            (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
+            f"Durable-trend test over {_win_desc}"
+            + ("; 5y alone also accepted" if accept_5y else "; 5y alone → WARN"))
 
     # ---- 2. Net income consistently increasing — multi-window, with the
     # course-approved operating-income fallback
@@ -546,13 +627,24 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     res.metrics["ni_cagr_10y"] = _cagr(_window(ni, 10))
     res.metrics["ni_cagr_15y"] = _cagr(_window(ni, 15))
     st_ni, w_ni, cagr_ni = _multi_window_trend(ni, accept_5y, any_long_window)
-    if st_ni == FAIL:
+    if st_ni == NA:
+        add("Net income increasing (multi-window)", NA, None,
+            _na_reason(ni, 5, "net income history"))
+    elif st_ni == FAIL:
         st_oi, w_oi, _c = _multi_window_trend(oi, accept_5y, any_long_window)
+        _ni_dist = _trend_distortion_idx(ni, any_long_window)
         if st_oi == PASS:
             add("Net income increasing (multi-window)", WARN,
                 (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
                 "Net income choppy but OPERATING income consistently rising "
                 f"({_wl(w_oi)}) — course-approved fallback (one-off items)")
+        elif _ni_dist is not None:
+            add("Net income increasing (multi-window)", WARN,
+                (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
+                "Trend passes once a SINGLE distorted year is excluded — "
+                "likely a temporary one-off (M&A/integration charges, "
+                "impairment, legal settlement, tax one-off). Review that "
+                "year manually; underlying trend intact")
         elif _improving_transition(ni_w) or _improving_transition(oi_w):
             add("Net income increasing (multi-window)", WARN,
                 (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
@@ -572,9 +664,19 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     ocf = _first_present(_series(cf, "ncfo"))
     st, w, cagr = _multi_window_trend(ocf, accept_5y, any_long_window)
     res.metrics["cfo_cagr_10y"] = _cagr(_window(ocf, 10))
-    add("CFO increasing (multi-window)", st,
-        (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
-        "5y-only pass — review flag" if st == WARN else "")
+    if st == NA:
+        add("CFO increasing (multi-window)", NA, None,
+            _na_reason(ocf, 5, "operating cash flow history"))
+    elif st == FAIL and _trend_distortion_idx(ocf, any_long_window) is not None:
+        add("CFO increasing (multi-window)", WARN,
+            (_fmt_pct(cagr) + " CAGR") if cagr is not None else None,
+            "Trend passes once a SINGLE distorted year is excluded — likely "
+            "temporary (working-capital swing, M&A/litigation cash outflow, "
+            "tax timing). Review that year manually; underlying trend intact")
+    else:
+        add("CFO increasing (multi-window)", st,
+            (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
+            "5y-only pass — review flag" if st == WARN else "")
 
     # ---- 4. FCF consistently positive (FCF = CFO - Capex)
     fcf_direct = _series(cf, "fcf") or _series(inc, "fcf")
@@ -590,7 +692,9 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     fcf_w = _window(fcf, WINDOW_10Y)
     vals = [v for v in fcf_w if v is not None]
     if not vals:
-        add("FCF positive", NA)
+        add("FCF positive", NA, None,
+            "Neither FCF nor CFO+capex reported by the data source — cannot "
+            "compute free cash flow; NA never disqualifies")
     else:
         neg = sum(1 for v in vals if v < 0)
         latest_neg = vals[0] < 0
@@ -615,8 +719,10 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         gm_status = WARN if gm_vals and gm_vals[-1] > 0 and gm_vals[-1] >= gm_avg * 0.5 else FAIL
     add(f"Gross margin stable/up ({WINDOW_5Y}y)", gm_status,
         f"latest {gm_vals[-1]:.1f}%" if gm_vals else None,
-        "Positive but compressed vs 5y average — review whether temporary"
-        if gm_status == WARN else "")
+        _na_reason(gm_w, 4, "gross margin (needs COGS split)")
+        if gm_status == NA else
+        ("Positive but compressed vs 5y average — review whether temporary"
+         if gm_status == WARN else ""))
 
     nm = _first_present(_series(inc, "profitMargin"), _series(rat, "profitMargin"))
     nm_w = _window(nm, WINDOW_5Y)
@@ -634,15 +740,17 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         ) else FAIL
     add(f"Net margin stable/up ({WINDOW_5Y}y)", nm_status,
         f"latest {nm_vals[-1]:.1f}%" if nm_vals else None,
-        "Positive but compressed / growth-transition — review whether temporary"
-        if nm_status == WARN else "")
+        _na_reason(nm_w, 4, "net profit margin")
+        if nm_status == NA else
+        ("Positive but compressed / growth-transition — review whether temporary"
+         if nm_status == WARN else ""))
 
     # ---- 7. ROE >= 12% — multi-window average (20/15/10y any-pass; 5y gated)
     roe = _series(rat, "roe")
     roe_latest = next((v for v in roe if v is not None), None)
     st, w, roe_avg = _multi_window_avg(roe, 12.0, accept_5y, any_long_window)
     if st == NA:
-        add("ROE ≥ 12%", NA)
+        add("ROE ≥ 12%", NA, None, _na_reason(roe, 6, "ROE history"))
     elif any(v is not None and v < 0
              for v in _window(_series(bal, "equity"), WINDOW_10Y)):
         add("ROE ≥ 12%", WARN, "negative equity in window",
@@ -652,7 +760,14 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         val = f"{_wl(w)} avg {roe_avg:.1f}%" if roe_avg is not None else None
         if val and roe_latest is not None:
             val += f", latest {roe_latest:.1f}%"
-        if st == FAIL and roe_avg is not None and roe_avg >= 10:
+        _roe_dist = _avg_distortion(roe, 12.0, any_long_window) if st == FAIL else None
+        if st == FAIL and _roe_dist is not None:
+            add("ROE ≥ 12%", WARN, val,
+                f"Average clears 12% ({_roe_dist[1]:.1f}%) once ONE outlier "
+                f"year ({_roe_dist[0]:.1f}%) is excluded — likely a temporary "
+                "distortion (impairment/M&A charge, one-off loss, equity "
+                "swing from buybacks). Review that year manually")
+        elif st == FAIL and roe_avg is not None and roe_avg >= 10:
             add("ROE ≥ 12%", WARN, val,
                 "10-12%: between the course's Finviz floor (>10%) and the "
                 "12-15% target")
@@ -698,13 +813,27 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     st, w, roic_avg = _multi_window_avg(roic_computed, 12.0, accept_5y,
                                         any_long_window)
     if st == NA:
+        _missing = [nm for nm, s_ in (("EBIT", ebit_s), ("pretax income", pretax_s),
+                                      ("income tax", tax_s), ("equity", equity_s),
+                                      ("LT debt", debt_s), ("cash", cash_s))
+                    if not any(v is not None for v in s_)]
         add("ROIC ≥ 12%", NA, None,
-            "Insufficient data to compute EBIT x (1-tax) / (Equity+Debt-Cash)")
+            "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): "
+            + (f"source is missing {', '.join(_missing)}" if _missing
+               else _na_reason(roic_computed, 6, "computable ROIC years"))
+            + "; NA never disqualifies")
     else:
         val = f"{_wl(w)} avg {roic_avg:.1f}%" if roic_avg is not None else None
         if val and roic_latest is not None:
             val += f", latest {roic_latest:.1f}%"
-        if st == FAIL and roic_avg is not None and roic_avg >= 10:
+        _roic_dist = _avg_distortion(roic_computed, 12.0, any_long_window) if st == FAIL else None
+        if st == FAIL and _roic_dist is not None:
+            add("ROIC ≥ 12%", WARN, val,
+                f"Average clears 12% ({_roic_dist[1]:.1f}%) once ONE outlier "
+                f"year ({_roic_dist[0]:.1f}%) is excluded — likely a temporary "
+                "distortion (goodwill/impairment charge, M&A year with "
+                "inflated invested capital before synergies). Review manually")
+        elif st == FAIL and roic_avg is not None and roic_avg >= 10:
             add("ROIC ≥ 12%", WARN, val,
                 "10-12%: below the 12-15% target but at/above the course's own "
                 "10% screen floor — review flag, not a hard fail")
@@ -727,7 +856,10 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         add("Current ratio ≥ 1", NA, None,
             f"Standard debt test not applicable to {ctype} companies under VMI rules")
     elif cr_latest is None:
-        add("Current ratio ≥ 1", NA)
+        add("Current ratio ≥ 1", NA, None,
+            "Current assets/liabilities split not reported by the data source "
+            "(common for insurers/utilities with unclassified balance sheets); "
+            "NA never disqualifies")
     elif cr_latest >= 1:
         add("Current ratio ≥ 1", PASS, f"{cr_latest:.2f}")
     elif cr_latest >= 0.8:
@@ -751,7 +883,10 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         add("Debt/EBITDA ≤ 3", NA, None,
             f"Standard debt test not applicable to {ctype} companies under VMI rules")
     elif de_latest is None:
-        add("Debt/EBITDA ≤ 3", NA)
+        add("Debt/EBITDA ≤ 3", NA, None,
+            ("EBITDA not reported/derivable from this source" if ebitda is None
+             else "long-term debt not reported by this source")
+            + " — cannot compute the ratio; NA never disqualifies")
     elif de_latest <= 3:
         add("Debt/EBITDA ≤ 3", PASS, f"{de_latest:.2f}")
     elif de_latest <= 6:
@@ -770,7 +905,9 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             f"Standard debt test not applicable to {ctype} companies under VMI rules")
     elif ocf_latest is None or ocf_latest <= 0:
         add("Debt servicing < 30%", NA if ocf_latest is None else FAIL,
-            None if ocf_latest is None else "CFO negative")
+            None if ocf_latest is None else "CFO negative",
+            "Operating cash flow not reported — the ratio needs interest/CFO; "
+            "NA never disqualifies" if ocf_latest is None else "")
     elif int_exp is None:
         add("Debt servicing < 30%", NA, None,
             "Interest expense not available from this free data source — "
@@ -795,11 +932,22 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
                          _series(bal, "balance_sheet_accounts_receivable"))
     rev_cagr, rec_cagr = _paired_cagrs(rev, rec, WINDOW_10Y)
     if rev_cagr is None or rec_cagr is None:
+        _rec_avail = sum(1 for v in rec if v is not None)
         add("Receivables ≤ sales growth", NA, None,
-            "Receivables not reported or insufficient history")
+            ("Trade receivables not reported by the data source — many "
+             "companies fold them into other current assets" if _rec_avail == 0
+             else f"only {_rec_avail} overlapping receivables/revenue year(s) "
+                  "— need ≥2 to compare growth rates")
+            + "; NA never disqualifies")
     elif rec_cagr <= rev_cagr + 0.03:  # 3pp tolerance
         add("Receivables ≤ sales growth", PASS,
             f"recv {_fmt_pct(rec_cagr)} vs sales {_fmt_pct(rev_cagr)}")
+    elif _single_year_jump(rec, WINDOW_10Y) and not _single_year_jump(rev, WINDOW_10Y, 0.20):
+        add("Receivables ≤ sales growth", WARN,
+            f"recv {_fmt_pct(rec_cagr)} vs sales {_fmt_pct(rev_cagr)}",
+            "Excess receivables growth traces to a SINGLE step-change year — "
+            "signature of an acquisition adding acquired receivables, not "
+            "channel stuffing. Verify the M&A year, then judge organically")
     else:
         add("Receivables ≤ sales growth", WARN,
             f"recv {_fmt_pct(rec_cagr)} vs sales {_fmt_pct(rev_cagr)}",
@@ -834,8 +982,8 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "Enforced by the Finviz pre-screen (analyst estimates)")
     else:
         add("Positive projected growth", NA, None,
-            "No analyst estimate available for this ticker — does not "
-            "count against is_great")
+            "finviz has no analyst EPS estimates for this ticker (thin "
+            "coverage / foreign listing) — does not count against is_great")
 
     # ---------------- Intrinsic value via DCF (informational, no check) ----
     # StockOracle DCF-20yr replica, calibration v13 (see vmi/dcf_v13.py).
