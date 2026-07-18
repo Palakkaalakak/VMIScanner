@@ -73,11 +73,18 @@ WINDOW_5Y = 5
 WINDOW_10Y = 10
 # User-selected long history for the Sales/NI/CFO consistency trends.
 WINDOW_TREND = 15
-# Multi-window rule (user instruction): every trend/average check is tried
-# over 20y, 15y and 10y and PASSES if ANY window passes. A 5y-only pass is
-# gated behind the accept_5y toggle — by default 5y alone is NOT enough
-# and yields WARN instead.
-LONG_WINDOWS = (20, 15, 10)
+# Long-window rule (user instruction, B-1): by DEFAULT every trend/average
+# check must pass over the FULL 20-year window. A boolean toggle
+# (any_long_window) re-enables the older lenient behavior where the check
+# is tried over 20y, 15y and 10y and PASSES if ANY window passes.
+# A 5y-only pass is separately gated behind the accept_5y toggle — by
+# default 5y alone is NOT enough and yields WARN instead.
+LONG_WINDOWS_ANY = (20, 15, 10)
+LONG_WINDOWS_STRICT = (20,)
+
+
+def _long_windows(any_long_window: bool):
+    return LONG_WINDOWS_ANY if any_long_window else LONG_WINDOWS_STRICT
 
 # stockanalysis.com serves these as fractions (0.25 = 25%); macrotrends.net
 # serves the equivalent ratios already as percent. PERCENT_KEYS lists the
@@ -169,13 +176,19 @@ def _consistently_increasing(s_newest_first: List[Optional[float]],
             and up_moves / (n - 1) >= 0.5)
 
 
-def _multi_window_trend(s_newest: List[Optional[float]], accept_5y: bool):
-    """Durable-trend test over 20/15/10y — PASS if ANY long window passes.
+def _multi_window_trend(s_newest: List[Optional[float]], accept_5y: bool,
+                        any_long_window: bool = False):
+    """Durable-trend test over the long window(s).
+
+    Default (any_long_window=False): only the 20-year window is tried —
+    the check must pass on the full 20y history (all available annual
+    points up to 20, minimum 8). With any_long_window=True the older
+    lenient rule applies: 20/15/10y, PASS if ANY window passes.
     Falls back to 5y: PASS only when accept_5y, else WARN (review flag).
     Returns (status, window_used, cagr_of_that_window)."""
     avail = sum(1 for v in s_newest if v is not None)
     tried_long = False
-    for w in LONG_WINDOWS:
+    for w in _long_windows(any_long_window):
         # A long-window claim needs ≥8 annual points (or all we have when
         # the series is shorter than the window).
         if avail < min(w, 8):
@@ -190,16 +203,21 @@ def _multi_window_trend(s_newest: List[Optional[float]], accept_5y: bool):
         return (PASS if accept_5y else WARN), 5, _cagr(win5)
     if not tried_long and ok5 is None:
         return NA, None, None
-    return FAIL, None, _cagr(_window(s_newest, 15))
+    return FAIL, None, _cagr(_window(s_newest,
+                                     15 if any_long_window else 20))
 
 
 def _multi_window_avg(s_newest: List[Optional[float]], threshold: float,
-                      accept_5y: bool):
-    """Average-threshold test over 20/15/10y — PASS if ANY long-window
-    average clears the threshold; 5y-only clearance gated by accept_5y.
+                      accept_5y: bool, any_long_window: bool = False):
+    """Average-threshold test over the long window(s).
+
+    Default (any_long_window=False): only the full 20-year average must
+    clear the threshold. With any_long_window=True the older lenient
+    rule applies: 20/15/10y, PASS if ANY window's average clears it.
+    5y-only clearance is gated by accept_5y.
     Returns (status, window_used, avg_of_that_window)."""
     best_long = None
-    for w in LONG_WINDOWS:
+    for w in _long_windows(any_long_window):
         vals = [v for v in _window(s_newest, w) if v is not None]
         if len(vals) < min(w, 6) or len(vals) <= 5:
             continue  # degenerate: would be the same data as the 5y test
@@ -464,6 +482,7 @@ def _fmt_pct(x: Optional[float]) -> str:
 def run_checks(meta: Dict, data: Dict[str, Dict],
                growth_estimate: Optional[Dict] = None,
                require_5y_only_pass: bool = False,
+               any_long_window: bool = False,
                has_growth_prefilter: bool = False) -> ScanResult:
     """Run the VMI fundamentals checklist.
 
@@ -501,16 +520,20 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     def _wl(w):
         return f"{w}y" if w else ""
 
-    # ---- 1. Sales consistently increasing — multi-window (20/15/10y
-    # any-pass; a 5y-only pass is WARN unless the UI toggle allows it)
+    _win_desc = ("ANY of 20/15/10y" if any_long_window
+                 else "the full 20y window")
+
+    # ---- 1. Sales consistently increasing — long-window trend (20y-only
+    # by default; 20/15/10y any-pass when the toggle is on; a 5y-only
+    # pass is WARN unless the accept-5y toggle allows it)
     rev = _first_present(_series(inc, "revenue"))
-    st, w, cagr = _multi_window_trend(rev, accept_5y)
+    st, w, cagr = _multi_window_trend(rev, accept_5y, any_long_window)
     res.metrics["rev_cagr_5y"] = _cagr(_window(rev, 5))
     res.metrics["rev_cagr_10y"] = _cagr(_window(rev, 10))
     res.metrics["rev_cagr_15y"] = _cagr(_window(rev, 15))
     add("Sales increasing (multi-window)", st,
         (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
-        "Durable-trend test over ANY of 20/15/10y"
+        f"Durable-trend test over {_win_desc}"
         + ("; 5y alone also accepted" if accept_5y else "; 5y alone → WARN"))
 
     # ---- 2. Net income consistently increasing — multi-window, with the
@@ -522,9 +545,9 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     res.metrics["ni_cagr_5y"] = _cagr(_window(ni, 5))
     res.metrics["ni_cagr_10y"] = _cagr(_window(ni, 10))
     res.metrics["ni_cagr_15y"] = _cagr(_window(ni, 15))
-    st_ni, w_ni, cagr_ni = _multi_window_trend(ni, accept_5y)
+    st_ni, w_ni, cagr_ni = _multi_window_trend(ni, accept_5y, any_long_window)
     if st_ni == FAIL:
-        st_oi, w_oi, _c = _multi_window_trend(oi, accept_5y)
+        st_oi, w_oi, _c = _multi_window_trend(oi, accept_5y, any_long_window)
         if st_oi == PASS:
             add("Net income increasing (multi-window)", WARN,
                 (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
@@ -539,7 +562,7 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             add("Net income increasing (multi-window)", FAIL,
                 (_fmt_pct(cagr_ni) + " CAGR") if cagr_ni is not None else None,
                 "Neither net income nor operating income consistently rising "
-                "over any of 20/15/10y (or 5y)")
+                f"over {_win_desc} (or 5y)")
     else:
         add("Net income increasing (multi-window)", st_ni,
             (_fmt_pct(cagr_ni) + f" CAGR ({_wl(w_ni)})") if cagr_ni is not None else None,
@@ -547,7 +570,7 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
 
     # ---- 3. CFO consistently increasing — multi-window
     ocf = _first_present(_series(cf, "ncfo"))
-    st, w, cagr = _multi_window_trend(ocf, accept_5y)
+    st, w, cagr = _multi_window_trend(ocf, accept_5y, any_long_window)
     res.metrics["cfo_cagr_10y"] = _cagr(_window(ocf, 10))
     add("CFO increasing (multi-window)", st,
         (_fmt_pct(cagr) + f" CAGR ({_wl(w)})") if cagr is not None else None,
@@ -617,7 +640,7 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     # ---- 7. ROE >= 12% — multi-window average (20/15/10y any-pass; 5y gated)
     roe = _series(rat, "roe")
     roe_latest = next((v for v in roe if v is not None), None)
-    st, w, roe_avg = _multi_window_avg(roe, 12.0, accept_5y)
+    st, w, roe_avg = _multi_window_avg(roe, 12.0, accept_5y, any_long_window)
     if st == NA:
         add("ROE ≥ 12%", NA)
     elif any(v is not None and v < 0
@@ -672,7 +695,8 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             roic_computed.append(None)
     roic_w = _window(roic_computed, WINDOW_10Y)
     roic_latest = next((v for v in roic_computed if v is not None), None)
-    st, w, roic_avg = _multi_window_avg(roic_computed, 12.0, accept_5y)
+    st, w, roic_avg = _multi_window_avg(roic_computed, 12.0, accept_5y,
+                                        any_long_window)
     if st == NA:
         add("ROIC ≥ 12%", NA, None,
             "Insufficient data to compute EBIT x (1-tax) / (Equity+Debt-Cash)")

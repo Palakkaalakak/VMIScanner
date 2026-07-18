@@ -15,15 +15,17 @@ import streamlit as st
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_PATH = os.path.join(REPO_ROOT, "public", "data", "scan_results.json")
+ADHOC_PATH = "/tmp/adhoc_scan.json"
 
 st.set_page_config(page_title="VMI Great Business Scanner", page_icon="📈",
                    layout="wide")
 st.title("📈 VMI Great Business Scanner")
 st.caption("S&P 500 · fundamentals-only checklist · SEC Company Facts primary, "
-           "Yahoo + macrotrends fallbacks · trend/average checks pass on ANY of "
-           "20/15/10y windows · IV = 20y discounted earnings (StockOracle-"
-           "calibrated: forward EPS, growth capped 12%, CAPM discount, "
-           "+ current net assets; no terminal value)")
+           "Yahoo + macrotrends fallbacks · trend/average checks require the "
+           "full 20y window by default (toggle allows 20/15/10y any-pass) · "
+           "IV = v13 sector-calibrated 20y DCF (StockOracle-matched: per-sector "
+           "base-flow blend + fitted growth model, CAPM discount, + net cash; "
+           "no terminal value · 36/36 calibration tickers within ±7%)")
 
 
 def run_scan(extra_args: list, label: str):
@@ -56,17 +58,29 @@ def run_scan(extra_args: list, label: str):
 
 with st.sidebar:
     st.header("Run scanner")
+    any_window = st.toggle(
+        "Allow 20/15/10y any-pass", value=False,
+        help="OFF (default): trend/average checks must pass on the FULL "
+             "20-year window. ON: the older lenient rule — pass if ANY of "
+             "the 20y/15y/10y windows passes.")
     accept_5y = st.toggle(
         "Accept 5y-only passes", value=False,
-        help="ON: a trend/average check passes if ANY window (20/15/10y or "
-             "just 5y) passes. OFF (default): 5y alone yields WARN — a long "
-             "window (20/15/10y) must pass.")
+        help="ON: a trend/average check passes if the 5y window alone "
+             "passes. OFF (default): 5y alone yields WARN — a long "
+             "window must pass.")
     fresh = st.checkbox("Force fresh data (ignore cache)", value=False)
     rescore = st.checkbox("Re-score all tickers (no resume)", value=True)
-    if st.button("🚀 Run full S&P 500 scan", type="primary", use_container_width=True):
-        args = []
+
+    def _common_args():
+        a = []
+        if any_window:
+            a.append("--any-long-window")
         if accept_5y:
-            args.append("--accept-5y-alone")
+            a.append("--accept-5y-alone")
+        return a
+
+    if st.button("🚀 Run full S&P 500 scan", type="primary", use_container_width=True):
+        args = _common_args()
         if fresh:
             args.append("--no-cache")
         if rescore:
@@ -77,11 +91,81 @@ with st.sidebar:
     st.subheader("Scan specific tickers")
     tickers_in = st.text_input("Comma-separated tickers", placeholder="AAPL, CNSWF, EVVTY")
     if st.button("Scan tickers", use_container_width=True) and tickers_in.strip():
-        args = ["--tickers", tickers_in.replace(" ", ""), "--no-resume",
-                "--out", "/tmp/adhoc_scan.json"]
-        if accept_5y:
-            args.append("--accept-5y-alone")
+        args = (["--tickers", tickers_in.replace(" ", ""), "--no-resume",
+                 "--out", ADHOC_PATH] + _common_args())
+        st.session_state["show_adhoc"] = True
         run_scan(args, f"scan of {tickers_in}")
+
+def _render_ticker_detail(r):
+    """Check-detail card for one scan-result dict (shared by the main
+    Check-detail picker and the adhoc specific-ticker results)."""
+    m = r.get("metrics") or {}
+    st.markdown(f"**{r['ticker']} — {r.get('company','')}** · {r.get('sector','')} "
+                f"/ {r.get('industry','')} · source: `{r.get('data_source','')}`")
+    if r.get("error"):
+        st.error(f"Scan error: {r['error']}")
+        return
+    if m.get("intrinsic_value") is not None:
+        d1, d2, d3, d4 = st.columns(4)
+        d1.metric("Price", f"${m.get('price'):,.2f}" if m.get("price") else "—")
+        d2.metric("Intrinsic value (DCF)", f"${m['intrinsic_value']:,.2f}")
+        disc = m.get("discount_pct")
+        disc_txt = ("—" if disc is None
+                    else f"({abs(disc):.1f}%)" if disc < 0 else f"{disc:.1f}%")
+        d3.metric("Discount", disc_txt,
+                  help="x% = trading below intrinsic value; (x%) = premium above IV")
+        d4.metric("DCF growth used", f"{m.get('dcf_growth_used', 0):.1f}%/yr")
+    checks = pd.DataFrame([{
+        "Check": ch["name"],
+        "Status": {"PASS": "✅ PASS", "FAIL": "❌ FAIL",
+                   "WARN": "⚠️ WARN", "NA": "➖ NA"}.get(ch["status"], ch["status"]),
+        "Value": ch.get("value", ""), "Note": ch.get("detail", ""),
+    } for ch in r.get("checks", [])])
+    st.dataframe(checks, use_container_width=True, height=530)
+
+
+def _verdict(r):
+    if r.get("is_great"):
+        return "✅ GREAT"
+    return "🟡 NEAR" if r.get("n_fail", 9) <= 1 else "❌ FAIL"
+
+
+# ---- Adhoc "Scan specific tickers" results (survives st.rerun via
+# ---- session_state; reads the /tmp output the adhoc scan wrote) --------
+if st.session_state.get("show_adhoc") and os.path.exists(ADHOC_PATH):
+    try:
+        with open(ADHOC_PATH) as f:
+            adhoc = json.load(f)
+        adhoc_rows = adhoc.get("results", [])
+    except (json.JSONDecodeError, OSError):
+        adhoc_rows = []
+    if adhoc_rows:
+        hdr, btn = st.columns([5, 1])
+        hdr.subheader("🎯 Specific-ticker scan results")
+        if btn.button("Dismiss", key="dismiss_adhoc"):
+            st.session_state["show_adhoc"] = False
+            st.rerun()
+        ts = adhoc.get("generated_at", "")[:19].replace("T", " ")
+        st.caption(f"Scanned {ts} UTC · these results are shown here only — "
+                   "they are NOT merged into the main S&P 500 table below.")
+        ok_rows = [r for r in adhoc_rows if not r.get("error")]
+        if ok_rows:
+            summary = pd.DataFrame([{
+                "Ticker": r["ticker"], "Company": r.get("company", ""),
+                "Verdict": _verdict(r), "Fails": r.get("n_fail", 0),
+                "Warns": r.get("n_warn", 0), "Score": r.get("score", 0),
+                "Price $": (r.get("metrics") or {}).get("price"),
+                "Intrinsic Value $": (r.get("metrics") or {}).get("intrinsic_value"),
+                "Discount %": (r.get("metrics") or {}).get("discount_pct"),
+                "Source": r.get("data_source", ""),
+            } for r in ok_rows])
+            st.dataframe(summary, use_container_width=True)
+        for r in sorted(adhoc_rows, key=lambda x: x["ticker"]):
+            with st.expander(f"{r['ticker']} — "
+                             f"{_verdict(r) if not r.get('error') else '⚠️ ERROR'}",
+                             expanded=(len(adhoc_rows) == 1)):
+                _render_ticker_detail(r)
+        st.divider()
 
 if not os.path.exists(RESULTS_PATH):
     st.info("No results yet — hit **Run full S&P 500 scan** in the sidebar.")
@@ -102,12 +186,6 @@ st.caption(f"Last scan: {data.get('generated_at', '')[:19].replace('T', ' ')} UT
            f"· universe {data.get('universe_size', '?')} tickers")
 
 rows = [r for r in data["results"] if not r.get("error")]
-
-
-def _verdict(r):
-    if r.get("is_great"):
-        return "✅ GREAT"
-    return "🟡 NEAR" if r.get("n_fail", 9) <= 1 else "❌ FAIL"
 
 
 # ---- Build the master dataframe: display columns + ALL known data as
@@ -235,25 +313,6 @@ st.subheader("Check detail")
 pick = st.selectbox("Ticker", [""] + view["Ticker"].tolist())
 if pick:
     r = next(x for x in rows if x["ticker"] == pick)
-    m = r.get("metrics") or {}
-    st.markdown(f"**{r['ticker']} — {r.get('company','')}** · {r.get('sector','')} "
-                f"/ {r.get('industry','')} · source: `{r.get('data_source','')}`")
-    if m.get("intrinsic_value") is not None:
-        d1, d2, d3, d4 = st.columns(4)
-        d1.metric("Price", f"${m.get('price'):,.2f}" if m.get("price") else "—")
-        d2.metric("Intrinsic value (DCF)", f"${m['intrinsic_value']:,.2f}")
-        disc = m.get("discount_pct")
-        disc_txt = ("—" if disc is None
-                    else f"({abs(disc):.1f}%)" if disc < 0 else f"{disc:.1f}%")
-        d3.metric("Discount", disc_txt,
-                  help="x% = trading below intrinsic value; (x%) = premium above IV")
-        d4.metric("DCF growth used", f"{m.get('dcf_growth_used', 0):.1f}%/yr")
-    checks = pd.DataFrame([{
-        "Check": ch["name"],
-        "Status": {"PASS": "✅ PASS", "FAIL": "❌ FAIL",
-                   "WARN": "⚠️ WARN", "NA": "➖ NA"}.get(ch["status"], ch["status"]),
-        "Value": ch.get("value", ""), "Note": ch.get("detail", ""),
-    } for ch in r.get("checks", [])])
-    st.dataframe(checks, use_container_width=True, height=530)
+    _render_ticker_detail(r)
     st.caption("NA = data not reported by the source or check not applicable "
                "to this company type — NA never disqualifies a stock.")

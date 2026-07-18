@@ -28,7 +28,13 @@
    Income Statement, Balance Sheet, Cash Flow Statement and Ratios from
    stockanalysis.com's public SvelteKit data endpoints, then evaluates the
    full VMI checklist (Lessons 4 & 7):
-   - Sales / Net Income (or Operating Income fallback) / CFO consistently increasing (5y)
+   - Sales / Net Income (or Operating Income fallback) / CFO consistently increasing —
+     by **default the full 20-year window must pass**; a UI toggle
+     ("Allow 20/15/10y any-pass" / CLI `--any-long-window`) re-enables the
+     lenient rule where passing ANY of 20/15/10y suffices. A separate toggle
+     (`--accept-5y-alone`) controls whether a 5y-only pass counts as PASS
+     (default: WARN). The same window rule applies to the ROE/ROIC ≥ 12%
+     long-run averages.
    - Free Cash Flow consistently positive
    - Gross & Net margin consistent or increasing
    - ROE ≥ 12%, ROIC ≥ 12% (n/a banks)

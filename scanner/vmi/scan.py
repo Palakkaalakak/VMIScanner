@@ -76,7 +76,8 @@ def scan_one(meta: dict, use_cache: bool = True, allow_macrotrends: bool = True)
             return r
         r = run_checks(meta, data,
                        growth_estimate=meta.get("_growth_estimate"),
-                       require_5y_only_pass=meta.get("_require_5y_only_pass", False))
+                       require_5y_only_pass=meta.get("_require_5y_only_pass", False),
+                       any_long_window=meta.get("_any_long_window", False))
         r.data_source = src
         return r
     except Exception as e:  # noqa: BLE001
@@ -143,6 +144,10 @@ def main():
                      default=False,
                      help="trend/average checks pass if ANY window incl. 5y passes; "
                           "default: a 5y-only pass yields WARN, not PASS")
+    ap.add_argument("--any-long-window", dest="any_long_window", action="store_true",
+                     default=False,
+                     help="trend/average checks pass if ANY of 20/15/10y passes; "
+                          "default: only the full 20y window is tested")
     ap.add_argument("--out", type=str, default="")
     ap.add_argument("--checkpoint-every", type=int, default=25,
                      help="write partial results to --out every N newly-scanned tickers")
@@ -219,6 +224,7 @@ def main():
     for m in todo:
         m["_growth_estimate"] = growth_by_ticker.get(m["ticker"])
         m["_require_5y_only_pass"] = not args.accept_5y_alone
+        m["_any_long_window"] = args.any_long_window
 
     print(f"Step 3: deep fundamental checks on {len(todo)} tickers "
           f"(SEC-first, {args.workers} workers; Yahoo/macrotrends fallbacks)...")
