@@ -130,189 +130,200 @@ def _verdict(r):
     return "🟡 NEAR" if r.get("n_fail", 9) <= 1 else "❌ FAIL"
 
 
-# ---- Adhoc "Scan specific tickers" results (survives st.rerun via
-# ---- session_state; reads the /tmp output the adhoc scan wrote) --------
-if st.session_state.get("show_adhoc") and os.path.exists(ADHOC_PATH):
+# ---- Top-level tabs: Scanner (existing) + Backtest dashboard ---------
+tab_scan, tab_bt = st.tabs(["🔎 Scanner", "🕰️ Backtest 2000–2013"])
+
+with tab_bt:
     try:
-        with open(ADHOC_PATH) as f:
-            adhoc = json.load(f)
-        adhoc_rows = adhoc.get("results", [])
-    except (json.JSONDecodeError, OSError):
-        adhoc_rows = []
-    if adhoc_rows:
-        hdr, btn = st.columns([5, 1])
-        hdr.subheader("🎯 Specific-ticker scan results")
-        if btn.button("Dismiss", key="dismiss_adhoc"):
-            st.session_state["show_adhoc"] = False
-            st.rerun()
-        ts = adhoc.get("generated_at", "")[:19].replace("T", " ")
-        st.caption(f"Scanned {ts} UTC · these results are shown here only — "
-                   "they are NOT merged into the main S&P 500 table below.")
-        ok_rows = [r for r in adhoc_rows if not r.get("error")]
-        if ok_rows:
-            summary = pd.DataFrame([{
-                "Ticker": r["ticker"], "Company": r.get("company", ""),
-                "Verdict": _verdict(r), "Fails": r.get("n_fail", 0),
-                "Warns": r.get("n_warn", 0), "Score": r.get("score", 0),
-                "Price $": (r.get("metrics") or {}).get("price"),
-                "Intrinsic Value $": (r.get("metrics") or {}).get("intrinsic_value"),
-                "Discount %": (r.get("metrics") or {}).get("discount_pct"),
-                "Source": r.get("data_source", ""),
-            } for r in ok_rows])
-            st.dataframe(summary, use_container_width=True)
-        for r in sorted(adhoc_rows, key=lambda x: x["ticker"]):
-            with st.expander(f"{r['ticker']} — "
-                             f"{_verdict(r) if not r.get('error') else '⚠️ ERROR'}",
-                             expanded=(len(adhoc_rows) == 1)):
-                _render_ticker_detail(r)
-        st.divider()
+        from scanner import backtest_tab
+    except ImportError:  # streamlit puts scanner/ itself on sys.path
+        import backtest_tab
+    backtest_tab.render()
 
-if not os.path.exists(RESULTS_PATH):
-    st.info("No results yet — hit **Run full S&P 500 scan** in the sidebar.")
-    st.stop()
+with tab_scan:
+    # ---- Adhoc "Scan specific tickers" results (survives st.rerun via
+    # ---- session_state; reads the /tmp output the adhoc scan wrote) --------
+    if st.session_state.get("show_adhoc") and os.path.exists(ADHOC_PATH):
+        try:
+            with open(ADHOC_PATH) as f:
+                adhoc = json.load(f)
+            adhoc_rows = adhoc.get("results", [])
+        except (json.JSONDecodeError, OSError):
+            adhoc_rows = []
+        if adhoc_rows:
+            hdr, btn = st.columns([5, 1])
+            hdr.subheader("🎯 Specific-ticker scan results")
+            if btn.button("Dismiss", key="dismiss_adhoc"):
+                st.session_state["show_adhoc"] = False
+                st.rerun()
+            ts = adhoc.get("generated_at", "")[:19].replace("T", " ")
+            st.caption(f"Scanned {ts} UTC · these results are shown here only — "
+                       "they are NOT merged into the main S&P 500 table below.")
+            ok_rows = [r for r in adhoc_rows if not r.get("error")]
+            if ok_rows:
+                summary = pd.DataFrame([{
+                    "Ticker": r["ticker"], "Company": r.get("company", ""),
+                    "Verdict": _verdict(r), "Fails": r.get("n_fail", 0),
+                    "Warns": r.get("n_warn", 0), "Score": r.get("score", 0),
+                    "Price $": (r.get("metrics") or {}).get("price"),
+                    "Intrinsic Value $": (r.get("metrics") or {}).get("intrinsic_value"),
+                    "Discount %": (r.get("metrics") or {}).get("discount_pct"),
+                    "Source": r.get("data_source", ""),
+                } for r in ok_rows])
+                st.dataframe(summary, use_container_width=True)
+            for r in sorted(adhoc_rows, key=lambda x: x["ticker"]):
+                with st.expander(f"{r['ticker']} — "
+                                 f"{_verdict(r) if not r.get('error') else '⚠️ ERROR'}",
+                                 expanded=(len(adhoc_rows) == 1)):
+                    _render_ticker_detail(r)
+            st.divider()
 
-with open(RESULTS_PATH) as f:
-    data = json.load(f)
+    if not os.path.exists(RESULTS_PATH):
+        st.info("No results yet — hit **Run full S&P 500 scan** in the sidebar.")
+        st.stop()
 
-c = data.get("counts", {})
-m1, m2, m3, m4, m5 = st.columns(5)
-m1.metric("✅ Great", c.get("great", 0))
-m2.metric("🟡 Near miss (1 fail)", c.get("near_miss", 0))
-m3.metric("❌ Failed", c.get("failed", 0))
-m4.metric("Errors", c.get("errors", 0))
-m5.metric("Excluded", data.get("excluded_count", 0),
-          help="ETFs / banks / REITs — VMI exception rules need data we don't have")
-st.caption(f"Last scan: {data.get('generated_at', '')[:19].replace('T', ' ')} UTC "
-           f"· universe {data.get('universe_size', '?')} tickers")
+    with open(RESULTS_PATH) as f:
+        data = json.load(f)
 
-rows = [r for r in data["results"] if not r.get("error")]
+    c = data.get("counts", {})
+    m1, m2, m3, m4, m5 = st.columns(5)
+    m1.metric("✅ Great", c.get("great", 0))
+    m2.metric("🟡 Near miss (1 fail)", c.get("near_miss", 0))
+    m3.metric("❌ Failed", c.get("failed", 0))
+    m4.metric("Errors", c.get("errors", 0))
+    m5.metric("Excluded", data.get("excluded_count", 0),
+              help="ETFs / banks / REITs — VMI exception rules need data we don't have")
+    st.caption(f"Last scan: {data.get('generated_at', '')[:19].replace('T', ' ')} UTC "
+               f"· universe {data.get('universe_size', '?')} tickers")
 
-
-# ---- Build the master dataframe: display columns + ALL known data as
-# ---- extra (hideable) columns so the custom filter can use everything.
-
-# Fraction-stored metrics get converted to % for display/filtering.
-_FRACTION_METRICS = {"rev_cagr_5y", "rev_cagr_10y", "rev_cagr_15y",
-                     "ni_cagr_5y", "ni_cagr_10y", "ni_cagr_15y",
-                     "cfo_cagr_10y"}
-_METRIC_LABELS = {
-    "price": "Price $",
-    "intrinsic_value": "Intrinsic Value $",
-    "discount_pct": "Discount %",
-    "dcf_growth_used": "DCF growth used %",
-    "rev_cagr_5y": "Rev CAGR 5y %", "rev_cagr_10y": "Rev CAGR 10y %",
-    "rev_cagr_15y": "Rev CAGR 15y %",
-    "ni_cagr_5y": "NI CAGR 5y %", "ni_cagr_10y": "NI CAGR 10y %",
-    "ni_cagr_15y": "NI CAGR 15y %",
-    "cfo_cagr_10y": "CFO CAGR 10y %",
-    "proj_eps_next_5y": "Proj EPS 5y %/yr",
-    "proj_eps_next_y": "Proj EPS next-Y %",
-    "eps_past_5y": "EPS past 5y %/yr",
-}
-
-all_metric_keys = sorted({k for r in rows for k in (r.get("metrics") or {})})
+    rows = [r for r in data["results"] if not r.get("error")]
 
 
-def _row(r):
-    m = r.get("metrics") or {}
-    d = {
-        "Ticker": r["ticker"], "Company": r.get("company", ""),
-        "Sector": r.get("sector", ""), "Verdict": _verdict(r),
-        "Fails": r.get("n_fail", 0), "Warns": r.get("n_warn", 0),
-        "Score": r.get("score", 0),
-        "Applicable checks": r.get("applicable", None),
-        "Source": r.get("data_source", ""),
+    # ---- Build the master dataframe: display columns + ALL known data as
+    # ---- extra (hideable) columns so the custom filter can use everything.
+
+    # Fraction-stored metrics get converted to % for display/filtering.
+    _FRACTION_METRICS = {"rev_cagr_5y", "rev_cagr_10y", "rev_cagr_15y",
+                         "ni_cagr_5y", "ni_cagr_10y", "ni_cagr_15y",
+                         "cfo_cagr_10y"}
+    _METRIC_LABELS = {
+        "price": "Price $",
+        "intrinsic_value": "Intrinsic Value $",
+        "discount_pct": "Discount %",
+        "dcf_growth_used": "DCF growth used %",
+        "rev_cagr_5y": "Rev CAGR 5y %", "rev_cagr_10y": "Rev CAGR 10y %",
+        "rev_cagr_15y": "Rev CAGR 15y %",
+        "ni_cagr_5y": "NI CAGR 5y %", "ni_cagr_10y": "NI CAGR 10y %",
+        "ni_cagr_15y": "NI CAGR 15y %",
+        "cfo_cagr_10y": "CFO CAGR 10y %",
+        "proj_eps_next_5y": "Proj EPS 5y %/yr",
+        "proj_eps_next_y": "Proj EPS next-Y %",
+        "eps_past_5y": "EPS past 5y %/yr",
     }
-    for k in all_metric_keys:
-        v = m.get(k)
-        if v is not None and k in _FRACTION_METRICS:
-            v = round(v * 100, 1)
-        d[_METRIC_LABELS.get(k, k)] = v
-    return d
+
+    all_metric_keys = sorted({k for r in rows for k in (r.get("metrics") or {})})
 
 
-df = pd.DataFrame([_row(r) for r in rows])
+    def _row(r):
+        m = r.get("metrics") or {}
+        d = {
+            "Ticker": r["ticker"], "Company": r.get("company", ""),
+            "Sector": r.get("sector", ""), "Verdict": _verdict(r),
+            "Fails": r.get("n_fail", 0), "Warns": r.get("n_warn", 0),
+            "Score": r.get("score", 0),
+            "Applicable checks": r.get("applicable", None),
+            "Source": r.get("data_source", ""),
+        }
+        for k in all_metric_keys:
+            v = m.get(k)
+            if v is not None and k in _FRACTION_METRICS:
+                v = round(v * 100, 1)
+            d[_METRIC_LABELS.get(k, k)] = v
+        return d
 
 
-def _fmt_disc(v):
-    if v is None or pd.isna(v):
-        return ""
-    return f"({abs(v):.1f}%)" if v < 0 else f"{v:.1f}%"
+    df = pd.DataFrame([_row(r) for r in rows])
 
 
-if "Discount %" in df.columns:
-    df["Discount"] = df["Discount %"].map(_fmt_disc)
+    def _fmt_disc(v):
+        if v is None or pd.isna(v):
+            return ""
+        return f"({abs(v):.1f}%)" if v < 0 else f"{v:.1f}%"
 
-# Main visible columns (the CAGR/projection columns were removed per request;
-# replaced by Price / Intrinsic Value / Discount).
-MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
-             "Score", "Price $", "Intrinsic Value $", "Discount", "Source"]
-MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
 
-# ---- Base filters -----------------------------------------------------
-fc1, fc2, fc3 = st.columns([2, 2, 3])
-verdict_f = fc1.multiselect("Verdict", ["✅ GREAT", "🟡 NEAR", "❌ FAIL"],
-                            default=["✅ GREAT"])
-sector_f = fc2.multiselect("Sector", sorted(x for x in df["Sector"].unique() if x))
-search = fc3.text_input("Search ticker / company")
+    if "Discount %" in df.columns:
+        df["Discount"] = df["Discount %"].map(_fmt_disc)
 
-view = df[df["Verdict"].isin(verdict_f)] if verdict_f else df
-if sector_f:
-    view = view[view["Sector"].isin(sector_f)]
-if search:
-    s = search.strip().lower()
-    view = view[view["Ticker"].str.lower().str.contains(s)
-                | view["Company"].str.lower().str.contains(s)]
+    # Main visible columns (the CAGR/projection columns were removed per request;
+    # replaced by Price / Intrinsic Value / Discount).
+    MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
+                 "Score", "Price $", "Intrinsic Value $", "Discount", "Source"]
+    MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
 
-# ---- Custom filters + sorting (ALL known data) ------------------------
-numeric_fields = sorted(
-    col for col in df.columns
-    if col not in ("Ticker", "Company", "Sector", "Verdict", "Source")
-    and pd.api.types.is_numeric_dtype(df[col]))
+    # ---- Base filters -----------------------------------------------------
+    fc1, fc2, fc3 = st.columns([2, 2, 3])
+    verdict_f = fc1.multiselect("Verdict", ["✅ GREAT", "🟡 NEAR", "❌ FAIL"],
+                                default=["✅ GREAT"])
+    sector_f = fc2.multiselect("Sector", sorted(x for x in df["Sector"].unique() if x))
+    search = fc3.text_input("Search ticker / company")
 
-with st.expander("🔧 Custom filters & sorting (all known data)", expanded=False):
-    st.caption("Stack any number of numeric filters on top of the verdict "
-               "filter above. Blank rows in the data (NA) are **kept** by "
-               "default — NA never disqualifies — untick to drop them.")
-    n_filters = st.number_input("Number of custom filters", 0, 8, 0)
-    for i in range(int(n_filters)):
-        f1, f2, f3, f4 = st.columns([3, 2, 2, 2])
-        field = f1.selectbox(f"Field #{i+1}", numeric_fields, key=f"ff{i}")
-        col_data = df[field].dropna()
-        lo_default = float(col_data.min()) if len(col_data) else 0.0
-        hi_default = float(col_data.max()) if len(col_data) else 0.0
-        lo = f2.number_input("Min", value=lo_default, key=f"lo{i}")
-        hi = f3.number_input("Max", value=hi_default, key=f"hi{i}")
-        keep_na = f4.checkbox("Keep NA", value=True, key=f"na{i}")
-        mask = (view[field] >= lo) & (view[field] <= hi)
-        if keep_na:
-            mask = mask | view[field].isna()
-        view = view[mask]
+    view = df[df["Verdict"].isin(verdict_f)] if verdict_f else df
+    if sector_f:
+        view = view[view["Sector"].isin(sector_f)]
+    if search:
+        s = search.strip().lower()
+        view = view[view["Ticker"].str.lower().str.contains(s)
+                    | view["Company"].str.lower().str.contains(s)]
 
-    st.divider()
-    s1, s2 = st.columns([3, 2])
-    sort_by = s1.selectbox("Sort by", ["(none)"] + numeric_fields
-                           + ["Ticker", "Company", "Sector"])
-    sort_dir = s2.radio("Direction", ["Descending", "Ascending"],
-                        horizontal=True)
-    if sort_by != "(none)":
-        view = view.sort_values(sort_by, ascending=(sort_dir == "Ascending"),
-                                na_position="last")
+    # ---- Custom filters + sorting (ALL known data) ------------------------
+    numeric_fields = sorted(
+        col for col in df.columns
+        if col not in ("Ticker", "Company", "Sector", "Verdict", "Source")
+        and pd.api.types.is_numeric_dtype(df[col]))
 
-    show_all_cols = st.checkbox(
-        "Show ALL data columns in the table (CAGRs, projections, …)",
-        value=False)
+    with st.expander("🔧 Custom filters & sorting (all known data)", expanded=False):
+        st.caption("Stack any number of numeric filters on top of the verdict "
+                   "filter above. Blank rows in the data (NA) are **kept** by "
+                   "default — NA never disqualifies — untick to drop them.")
+        n_filters = st.number_input("Number of custom filters", 0, 8, 0)
+        for i in range(int(n_filters)):
+            f1, f2, f3, f4 = st.columns([3, 2, 2, 2])
+            field = f1.selectbox(f"Field #{i+1}", numeric_fields, key=f"ff{i}")
+            col_data = df[field].dropna()
+            lo_default = float(col_data.min()) if len(col_data) else 0.0
+            hi_default = float(col_data.max()) if len(col_data) else 0.0
+            lo = f2.number_input("Min", value=lo_default, key=f"lo{i}")
+            hi = f3.number_input("Max", value=hi_default, key=f"hi{i}")
+            keep_na = f4.checkbox("Keep NA", value=True, key=f"na{i}")
+            mask = (view[field] >= lo) & (view[field] <= hi)
+            if keep_na:
+                mask = mask | view[field].isna()
+            view = view[mask]
 
-st.caption(f"{len(view)} stocks shown · you can also click any column header "
-           "to sort · Discount shows % below IV; (x%) in parentheses = premium "
-           "above IV · sort by the numeric 'Discount %' field in custom filters")
-table = view if show_all_cols else view[MAIN_COLS]
-st.dataframe(table.reset_index(drop=True), use_container_width=True, height=460)
+        st.divider()
+        s1, s2 = st.columns([3, 2])
+        sort_by = s1.selectbox("Sort by", ["(none)"] + numeric_fields
+                               + ["Ticker", "Company", "Sector"])
+        sort_dir = s2.radio("Direction", ["Descending", "Ascending"],
+                            horizontal=True)
+        if sort_by != "(none)":
+            view = view.sort_values(sort_by, ascending=(sort_dir == "Ascending"),
+                                    na_position="last")
 
-st.subheader("Check detail")
-pick = st.selectbox("Ticker", [""] + view["Ticker"].tolist())
-if pick:
-    r = next(x for x in rows if x["ticker"] == pick)
-    _render_ticker_detail(r)
-    st.caption("NA = data not reported by the source or check not applicable "
-               "to this company type — NA never disqualifies a stock.")
+        show_all_cols = st.checkbox(
+            "Show ALL data columns in the table (CAGRs, projections, …)",
+            value=False)
+
+    st.caption(f"{len(view)} stocks shown · you can also click any column header "
+               "to sort · Discount shows % below IV; (x%) in parentheses = premium "
+               "above IV · sort by the numeric 'Discount %' field in custom filters")
+    table = view if show_all_cols else view[MAIN_COLS]
+    st.dataframe(table.reset_index(drop=True), use_container_width=True, height=460)
+
+    st.subheader("Check detail")
+    pick = st.selectbox("Ticker", [""] + view["Ticker"].tolist())
+    if pick:
+        r = next(x for x in rows if x["ticker"] == pick)
+        _render_ticker_detail(r)
+        st.caption("NA = data not reported by the source or check not applicable "
+                   "to this company type — NA never disqualifies a stock.")
