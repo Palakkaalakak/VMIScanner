@@ -1,0 +1,3952 @@
+{
+ "vintage": 2010,
+ "date": "2010-01-04",
+ "snapshot": "2009-12-30",
+ "results": [
+  {
+   "ticker": "AABA",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ACS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ABC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ADP",
+   "sector": "Industrials",
+   "industry": "Human Resource & Employment Services",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "ADSK",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "A",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AAPL",
+   "sector": "Information Technology",
+   "industry": "Technology Hardware, Storage & Peripherals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AET",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ABT",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AGN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AEE",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ADM",
+   "sector": "Consumer Staples",
+   "industry": "Agricultural Products & Services",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "AIG",
+   "sector": "Financials",
+   "industry": "Multi-line Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AES",
+   "sector": "Utilities",
+   "industry": "Independent Power Producers & Energy Traders",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "AKS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ADBE",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ALTR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AEP",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ADI",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AFL",
+   "sector": "Financials",
+   "industry": "Life & Health Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AMP",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "AMT",
+   "sector": "Real Estate",
+   "industry": "Telecom Tower REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "AKAM",
+   "sector": "Information Technology",
+   "industry": "Internet Services & Infrastructure",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AIV",
+   "sector": "",
+   "industry": "Real Estate Investment Trusts",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "ANDV",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AIZ",
+   "sector": "Financials",
+   "industry": "Multi-line Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ANTM",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ALL",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AMAT",
+   "sector": "Information Technology",
+   "industry": "Semiconductor Materials & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AN",
+   "sector": "",
+   "industry": "Retail-Auto Dealers & Gasoline Stations",
+   "company_type": "commodity",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "APC",
+   "sector": "",
+   "industry": "Wholesale-Petroleum & Petroleum Products (No Bulk Stations)",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AMD",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "APOL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ARG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ARNC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ATGE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AMGN",
+   "sector": "Health Care",
+   "industry": "Biotechnology",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AVB",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "AVP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "APA",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "AMZN",
+   "sector": "Consumer Discretionary",
+   "industry": "Broadline Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AYE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AON",
+   "sector": "Financials",
+   "industry": "Insurance Brokers",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "APH",
+   "sector": "Information Technology",
+   "industry": "Electronic Components",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BAC",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "AVY",
+   "sector": "Materials",
+   "industry": "Paper & Plastic Packaging Products & Materials",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "APD",
+   "sector": "Materials",
+   "industry": "Industrial Gases",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "AZO",
+   "sector": "Consumer Discretionary",
+   "industry": "Automotive Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "BA",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BCR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BDK",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "AXP",
+   "sector": "Financials",
+   "industry": "Consumer Finance",
+   "company_type": "financial",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "BBT",
+   "sector": "",
+   "industry": "Savings Institutions, Not Federally Chartered",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "BEN",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "ATI",
+   "sector": "",
+   "industry": "Steel Pipe & Tubes",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BHGE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BIG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BDX",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BJS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BK",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BF.B",
+   "sector": "Consumer Staples",
+   "industry": "Distillers & Vintners",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "BLL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BMC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BMS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ANF",
+   "sector": "",
+   "industry": "Retail-Family Clothing Stores",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "BNI",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BRCM",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BIIB",
+   "sector": "Health Care",
+   "industry": "Biotechnology",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BTUUQ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BXP",
+   "sector": "Real Estate",
+   "industry": "Office REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "C",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "CA",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BAX",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BBY",
+   "sector": "Consumer Discretionary",
+   "industry": "Computer & Electronics Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CAM",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BBBY",
+   "sector": "",
+   "industry": "Retail-Catalog & Mail-Order Houses",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "CB",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "BKNG",
+   "sector": "Consumer Discretionary",
+   "industry": "Hotels, Resorts & Cruise Lines",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CBS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CCE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BSX",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CAH",
+   "sector": "Health Care",
+   "industry": "Health Care Distributors",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CELG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CEPH",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CBRE",
+   "sector": "Real Estate",
+   "industry": "Real Estate Services",
+   "company_type": "property",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CFN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CHK",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "BMY",
+   "sector": "Health Care",
+   "industry": "Pharmaceuticals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CAG",
+   "sector": "",
+   "industry": "Food and Kindred Products",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CAT",
+   "sector": "Industrials",
+   "industry": "Construction Machinery & Heavy Transportation Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CCL",
+   "sector": "Consumer Discretionary",
+   "industry": "Hotels, Resorts & Cruise Lines",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CI",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "CF",
+   "sector": "Materials",
+   "industry": "Fertilizers & Agricultural Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CMA",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CINF",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CHRW",
+   "sector": "Industrials",
+   "industry": "Air Freight & Logistics",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CEG",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "CL",
+   "sector": "Consumer Staples",
+   "industry": "Household Products",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CLX",
+   "sector": "Consumer Staples",
+   "industry": "Household Products",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "BEAM",
+   "sector": "",
+   "industry": "Biological Products, (No Diagnostic Substances)",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "CMS",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "COG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "COL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CMI",
+   "sector": "Industrials",
+   "industry": "Construction Machinery & Heavy Transportation Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CNP",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CMCSA",
+   "sector": "Communication Services",
+   "industry": "Cable & Satellite",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CME",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "COP",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "COF",
+   "sector": "Financials",
+   "industry": "Consumer Finance",
+   "company_type": "financial",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "COST",
+   "sector": "Consumer Staples",
+   "industry": "Consumer Staples Merchandise Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CNX",
+   "sector": "",
+   "industry": "Crude Petroleum & Natural Gas",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CTL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CSCO",
+   "sector": "Information Technology",
+   "industry": "Communications Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CTXS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CVH",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CTAS",
+   "sector": "Industrials",
+   "industry": "Diversified Support Services",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "CPB",
+   "sector": "",
+   "industry": "Food and Kindred Products",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CTSH",
+   "sector": "Information Technology",
+   "industry": "IT Consulting & Other Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CRM",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "CSX",
+   "sector": "Industrials",
+   "industry": "Rail Transportation",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CVX",
+   "sector": "Energy",
+   "industry": "Integrated Oil & Gas",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DF",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DFS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "CVS",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DD",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "D",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DGX",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DNB",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DNR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DO",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DHI",
+   "sector": "Consumer Discretionary",
+   "industry": "Homebuilding",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "DIS",
+   "sector": "Communication Services",
+   "industry": "Movies & Entertainment",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "DHR",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DE",
+   "sector": "Industrials",
+   "industry": "Agricultural & Farm Machinery",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DTV",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DOW",
+   "sector": "Materials",
+   "industry": "Commodity Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "CPWR",
+   "sector": "",
+   "industry": "Electric & Other Services Combined",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "DTE",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DOV",
+   "sector": "Industrials",
+   "industry": "Industrial Machinery & Supplies & Components",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "DRI",
+   "sector": "Consumer Discretionary",
+   "industry": "Restaurants",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "DXC",
+   "sector": "",
+   "industry": "Services-Computer Processing & Data Preparation",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "DUK",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "EBAY",
+   "sector": "Consumer Discretionary",
+   "industry": "Broadline Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "DVN",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "CLF",
+   "sector": "",
+   "industry": "Metal Mining",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "EKDKQ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "EA",
+   "sector": "Communication Services",
+   "industry": "Interactive Home Entertainment",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "EMC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "DVA",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "EFX",
+   "sector": "Industrials",
+   "industry": "Research & Consulting Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "DELL",
+   "sector": "Information Technology",
+   "industry": "Technology Hardware, Storage & Peripherals",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "EL",
+   "sector": "Consumer Staples",
+   "industry": "Personal Care Products",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "EQR",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "EMN",
+   "sector": "",
+   "industry": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ECL",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ESRX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ETFC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ED",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "EMR",
+   "sector": "Industrials",
+   "industry": "Electrical Components & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "EIX",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "EQT",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "EOG",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ES",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "ETN",
+   "sector": "Industrials",
+   "industry": "Electrical Components & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "ETR",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "FDO",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "EXPE",
+   "sector": "Consumer Discretionary",
+   "industry": "Hotels, Resorts & Cruise Lines",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "F",
+   "sector": "Consumer Discretionary",
+   "industry": "Automobile Manufacturers",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "EP",
+   "sector": "",
+   "industry": "Crude Petroleum & Natural Gas",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "FII",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "EXC",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "EXPD",
+   "sector": "Industrials",
+   "industry": "Air Freight & Logistics",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "FITB",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "FLIR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "FHN",
+   "sector": "",
+   "industry": "National Commercial Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "FE",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "FDX",
+   "sector": "Industrials",
+   "industry": "Air Freight & Logistics",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "FIS",
+   "sector": "Financials",
+   "industry": "Transaction & Payment Processing Services",
+   "company_type": "financial",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "FRX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "FCX",
+   "sector": "Materials",
+   "industry": "Copper",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "FAST",
+   "sector": "Industrials",
+   "industry": "Trading Companies & Distributors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "FTR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GAS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "FSLR",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "FLR",
+   "sector": "",
+   "industry": "Heavy Construction Other Than Bldg Const - Contractors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GENZ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "FTI",
+   "sector": "",
+   "industry": "Oil & Gas Field Machinery & Equipment",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "FOXA",
+   "sector": "Communication Services",
+   "industry": "Broadcasting",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "FISV",
+   "sector": "Financials",
+   "industry": "Transaction & Payment Processing Services",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "FLS",
+   "sector": "",
+   "industry": "Pumps & Pumping Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GD",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "FMC",
+   "sector": "",
+   "industry": "Chemicals & Allied Products",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GIS",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "GE",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GPS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GS",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "GOOGL",
+   "sector": "Communication Services",
+   "industry": "Interactive Media & Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "GLW",
+   "sector": "Information Technology",
+   "industry": "Electronic Components",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GPC",
+   "sector": "Consumer Discretionary",
+   "industry": "Distributors",
+   "company_type": "standard",
+   "error": "insufficient history: 4 FYs pre-2010",
+   "n_years": 4
+  },
+  {
+   "ticker": "HAR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GME",
+   "sector": "",
+   "industry": "Retail-Computer & Computer Software Stores",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HBAN",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "HCBK",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "HCP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GILD",
+   "sector": "Health Care",
+   "industry": "Biotechnology",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "HES",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GNW",
+   "sector": "",
+   "industry": "Life Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "HNZ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "HAL",
+   "sector": "Energy",
+   "industry": "Oil & Gas Equipment & Services",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "HAS",
+   "sector": "Consumer Discretionary",
+   "industry": "Leisure Products",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HOT",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "GWW",
+   "sector": "Industrials",
+   "industry": "Industrial Machinery & Supplies & Components",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GT",
+   "sector": "",
+   "industry": "Tires & Inner Tubes",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HD",
+   "sector": "Consumer Discretionary",
+   "industry": "Home Improvement Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HRS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "HSH",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "HSP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "HST",
+   "sector": "Real Estate",
+   "industry": "Hotel & Resort REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "HOG",
+   "sector": "",
+   "industry": "Motorcycles, Bicycles & Parts",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "HIG",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "HRB",
+   "sector": "",
+   "industry": "Services-Personal Services",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HRL",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HON",
+   "sector": "Industrials",
+   "industry": "Industrial Conglomerates",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "IGT",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "HUM",
+   "sector": "Health Care",
+   "industry": "Managed Health Care",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "HPQ",
+   "sector": "Information Technology",
+   "industry": "Technology Hardware, Storage & Peripherals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ICE",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "company_type": "financial",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "IPG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "IRM",
+   "sector": "Real Estate",
+   "industry": "Other Specialized REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "IBM",
+   "sector": "Information Technology",
+   "industry": "IT Consulting & Other Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "IFF",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "HSY",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "IVZ",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "JAVA",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "INTC",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ISRG",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "JCP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "JEC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "INTU",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "ITW",
+   "sector": "Industrials",
+   "industry": "Industrial Machinery & Supplies & Components",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "JNPR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "JNS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "JPM",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "JWN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "K",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "JEF",
+   "sector": "",
+   "industry": "Security Brokers, Dealers & Flotation Companies",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "KEY",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "JCI",
+   "sector": "Industrials",
+   "industry": "Building Products",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "KIM",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "IP",
+   "sector": "Materials",
+   "industry": "Paper & Plastic Packaging Products & Materials",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "GHC",
+   "sector": "",
+   "industry": "Services-Educational Services",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "JNJ",
+   "sector": "Health Care",
+   "industry": "Pharmaceuticals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "KDP",
+   "sector": "Consumer Staples",
+   "industry": "Soft Drinks & Non-alcoholic Beverages",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "KLAC",
+   "sector": "Information Technology",
+   "industry": "Semiconductor Materials & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "KMB",
+   "sector": "Consumer Staples",
+   "industry": "Household Products",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "KO",
+   "sector": "Consumer Staples",
+   "industry": "Soft Drinks & Non-alcoholic Beverages",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "KG",
+   "sector": "",
+   "industry": "Fire, Marine & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "LB",
+   "sector": "",
+   "industry": "Oil Royalty Traders",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "L",
+   "sector": "Financials",
+   "industry": "Multi-line Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "KSS",
+   "sector": "",
+   "industry": "Retail-Department Stores",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "JBL",
+   "sector": "Information Technology",
+   "industry": "Electronic Manufacturing Services",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "LLL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "LLTC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "KR",
+   "sector": "Consumer Staples",
+   "industry": "Food Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "LM",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "LDOS",
+   "sector": "Industrials",
+   "industry": "Diversified Support Services",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "LEN",
+   "sector": "Consumer Discretionary",
+   "industry": "Homebuilding",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "LO",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "LH",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "LSI",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "LIFE",
+   "sector": "",
+   "industry": "Insurance Agents, Brokers & Service",
+   "company_type": "financial",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "LXK",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "LEG",
+   "sector": "",
+   "industry": "Household Furniture",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "LLY",
+   "sector": "Health Care",
+   "industry": "Pharmaceuticals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "LUV",
+   "sector": "Industrials",
+   "industry": "Passenger Airlines",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "LOW",
+   "sector": "Consumer Discretionary",
+   "industry": "Home Improvement Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "LMT",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "LNC",
+   "sector": "",
+   "industry": "Life Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MAR",
+   "sector": "Consumer Discretionary",
+   "industry": "Hotels, Resorts & Cruise Lines",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ITT",
+   "sector": "",
+   "industry": "Pumps & Pumping Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "M",
+   "sector": "",
+   "industry": "Retail-Department Stores",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "MAS",
+   "sector": "Industrials",
+   "industry": "Building Products",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MDP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MA",
+   "sector": "Financials",
+   "industry": "Transaction & Payment Processing Services",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MEE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MCD",
+   "sector": "Consumer Discretionary",
+   "industry": "Restaurants",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MFE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MHS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MCHP",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "MIL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MJN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MCO",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MMC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MDLZ",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MET",
+   "sector": "Financials",
+   "industry": "Life & Health Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MOLX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MON",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MAT",
+   "sector": "",
+   "industry": "Dolls & Stuffed Toys",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MRO",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MS",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "MKC",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "MMM",
+   "sector": "Industrials",
+   "industry": "Industrial Conglomerates",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MTB",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "MDT",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "MCK",
+   "sector": "Health Care",
+   "industry": "Health Care Distributors",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "MWV",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MWW",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MYL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "NBL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MO",
+   "sector": "Consumer Staples",
+   "industry": "Tobacco",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MRK",
+   "sector": "Health Care",
+   "industry": "Pharmaceuticals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MI",
+   "sector": "",
+   "industry": "Finance Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "MSFT",
+   "sector": "Information Technology",
+   "industry": "Systems Software",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "NBR",
+   "sector": "",
+   "industry": "Drilling Oil & Gas Wells",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MSI",
+   "sector": "Information Technology",
+   "industry": "Communications Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "NDAQ",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "company_type": "financial",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "NOC",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "NOVL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "NKE",
+   "sector": "Consumer Discretionary",
+   "industry": "Apparel, Accessories & Luxury Goods",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "NSM",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "NEM",
+   "sector": "Materials",
+   "industry": "Gold",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "NTRS",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "NEE",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "MUR",
+   "sector": "",
+   "industry": "Crude Petroleum & Natural Gas",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "NVLS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "MU",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "NI",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "NYX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ODP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "NTAP",
+   "sector": "Information Technology",
+   "industry": "Technology Hardware, Storage & Peripherals",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "NOV",
+   "sector": "",
+   "industry": "Oil & Gas Field Machinery & Equipment",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "NSC",
+   "sector": "Industrials",
+   "industry": "Rail Transportation",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "NWL",
+   "sector": "",
+   "industry": "Plastics Products, NEC",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "NVDA",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "OMC",
+   "sector": "Communication Services",
+   "industry": "Advertising",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PBCT",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PBG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "NUE",
+   "sector": "Materials",
+   "industry": "Steel",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ORCL",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "OI",
+   "sector": "",
+   "industry": "Glass Containers",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PCL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PCP",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PDCO",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PEG",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ORLY",
+   "sector": "Consumer Discretionary",
+   "industry": "Automotive Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "OXY",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PAYX",
+   "sector": "Industrials",
+   "industry": "Human Resource & Employment Services",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "PCG",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PGN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PCAR",
+   "sector": "Industrials",
+   "industry": "Construction Machinery & Heavy Transportation Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "PBI",
+   "sector": "",
+   "industry": "Office Machines, NEC",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PFG",
+   "sector": "Financials",
+   "industry": "Life & Health Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PKI",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PLD",
+   "sector": "Real Estate",
+   "industry": "Industrial REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "PLL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PGR",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PNC",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "PG",
+   "sector": "Consumer Staples",
+   "industry": "Personal Care Products",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "PFE",
+   "sector": "Health Care",
+   "industry": "Pharmaceuticals",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "POM",
+   "sector": "",
+   "industry": "Retail-Miscellaneous Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "PH",
+   "sector": "Industrials",
+   "industry": "Industrial Machinery & Supplies & Components",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "PEP",
+   "sector": "Consumer Staples",
+   "industry": "Soft Drinks & Non-alcoholic Beverages",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PSA",
+   "sector": "Real Estate",
+   "industry": "Self-Storage REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "PTV",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PNW",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "PX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PXD",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PHM",
+   "sector": "Consumer Discretionary",
+   "industry": "Homebuilding",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "NYT",
+   "sector": "",
+   "industry": "Newspapers: Publishing or  Publishing & Printing",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "QLGC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PRU",
+   "sector": "Financials",
+   "industry": "Life & Health Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "RAI",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "RDC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "RF",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "PPG",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "RHT",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "PM",
+   "sector": "Consumer Staples",
+   "industry": "Tobacco",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "PWR",
+   "sector": "Industrials",
+   "industry": "Construction & Engineering",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "PPL",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "QCOM",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "RL",
+   "sector": "Consumer Discretionary",
+   "industry": "Apparel, Accessories & Luxury Goods",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "RRD",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "Q",
+   "sector": "Information Technology",
+   "industry": "Semiconductor Materials & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "RSHCQ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "RTN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "RX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "R",
+   "sector": "",
+   "industry": "Services-Auto Rental & Leasing (No Drivers)",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "RRC",
+   "sector": "",
+   "industry": "Crude Petroleum & Natural Gas",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SCG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SCHW",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "RHI",
+   "sector": "",
+   "industry": "Services-Help Supply Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "SEE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SHLD",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ROP",
+   "sector": "Information Technology",
+   "industry": "Electronic Equipment & Instruments",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SIAL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "RSG",
+   "sector": "Industrials",
+   "industry": "Environmental & Facilities Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "ROST",
+   "sector": "Consumer Discretionary",
+   "industry": "Apparel Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "SE",
+   "sector": "",
+   "industry": "Services-Miscellaneous Business Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "ROK",
+   "sector": "Industrials",
+   "industry": "Electrical Components & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SBUX",
+   "sector": "Consumer Discretionary",
+   "industry": "Restaurants",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SJM",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "SNI",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SHW",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SPG",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "SLB",
+   "sector": "Energy",
+   "industry": "Oil & Gas Equipment & Services",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SPLS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SRCL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SNDK",
+   "sector": "Information Technology",
+   "industry": "Technology Hardware, Storage & Peripherals",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "S",
+   "sector": "",
+   "industry": "Services-Prepackaged Software",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "STJ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "STR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "STT",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "SRE",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "STI",
+   "sector": "",
+   "industry": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "SUNEQ",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SVU",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SNA",
+   "sector": "Industrials",
+   "industry": "Industrial Machinery & Supplies & Components",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "SWN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SWY",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SPGI",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SYMC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SO",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "STZ",
+   "sector": "Consumer Staples",
+   "industry": "Distillers & Vintners",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  },
+  {
+   "ticker": "SII",
+   "sector": "",
+   "industry": "Finance Services",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "SYY",
+   "sector": "Consumer Staples",
+   "industry": "Food Distributors",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TE",
+   "sector": "",
+   "industry": "Semiconductors & Related Devices",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "TEG",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "SWK",
+   "sector": "Industrials",
+   "industry": "Industrial Machinery & Supplies & Components",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TGNA",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "T",
+   "sector": "Communication Services",
+   "industry": "Integrated Telecommunication Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SYK",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "TIE",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TIF",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TDC",
+   "sector": "",
+   "industry": "Services-Prepackaged Software",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TLAB",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TMK",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TAP",
+   "company": "TAP",
+   "sector": "Consumer Staples",
+   "industry": "Brewers",
+   "country": "",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "",
+   "score": 75.0,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 1,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-16.3% CAGR ()",
+     "detail": "Durable-trend test over ANY of 20/15/10y; 5y alone also accepted"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "10.0% CAGR",
+     "detail": "Profitability improving on a smoothed long-term basis but not yet meeting the mature-company consistency test (growth-stage)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.6% CAGR (5y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 43.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 23.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 7.9%, latest 10.2%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 8.7%, latest 9.5%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.08",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.86",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "10.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 8.9% vs sales -20.3%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "NA",
+     "value": null,
+     "detail": "finviz has no analyst EPS estimates for this ticker (thin coverage / foreign listing) \u2014 does not count against is_great"
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.16340852228283054,
+    "rev_cagr_10y": -0.16340852228283054,
+    "rev_cagr_15y": -0.16340852228283054,
+    "ni_cagr_5y": 0.10002397409910269,
+    "ni_cagr_10y": 0.10002397409910269,
+    "ni_cagr_15y": 0.10002397409910269,
+    "cfo_cagr_10y": 0.08646214763315418,
+    "proj_eps_next_5y": null,
+    "proj_eps_next_y": null,
+    "eps_past_5y": null,
+    "price": null,
+    "intrinsic_value": null,
+    "discount_pct": null
+   },
+   "moat_hints": {
+    "gross_margin": "43.1%",
+    "operating_margin": "24.9%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 3y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": "",
+   "n_years": 5,
+   "fy_span": "2007-2009"
+  },
+  {
+   "ticker": "TMO",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "TMUS",
+   "sector": "Communication Services",
+   "industry": "Wireless Telecommunication Services",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TROW",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "TPR",
+   "sector": "Consumer Discretionary",
+   "industry": "Apparel, Accessories & Luxury Goods",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TGT",
+   "sector": "Consumer Staples",
+   "industry": "Consumer Staples Merchandise Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TSS",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TWC",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TWX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "THC",
+   "sector": "",
+   "industry": "Services-General Medical & Surgical Hospitals, NEC",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "TJX",
+   "sector": "Consumer Discretionary",
+   "industry": "Apparel Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "TRV",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "TSN",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "TXN",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "UNH",
+   "sector": "Health Care",
+   "industry": "Managed Health Care",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "USB",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "UTX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TXT",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "VAR",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "UNM",
+   "sector": "",
+   "industry": "Accident & Health Insurance",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "VIAB",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "UNP",
+   "sector": "Industrials",
+   "industry": "Rail Transportation",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "UPS",
+   "sector": "Industrials",
+   "industry": "Air Freight & Logistics",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "SUN",
+   "sector": "",
+   "industry": "Petroleum Refining",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "V",
+   "sector": "Financials",
+   "industry": "Transaction & Payment Processing Services",
+   "company_type": "financial",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "VFC",
+   "sector": "",
+   "industry": "Men's & Boys' Furnishgs, Work Clothg, & Allied Garments",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "VTR",
+   "sector": "Real Estate",
+   "industry": "Health Care REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "VLO",
+   "sector": "Energy",
+   "industry": "Oil & Gas Refining & Marketing",
+   "company_type": "commodity",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "SLM",
+   "sector": "",
+   "industry": "Personal Credit Institutions",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "WBA",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "VRSN",
+   "sector": "Information Technology",
+   "industry": "Internet Services & Infrastructure",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "VNO",
+   "sector": "",
+   "industry": "Real Estate Investment Trusts",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "WELL",
+   "sector": "Real Estate",
+   "industry": "Health Care REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "WFC",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "WFM",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "TER",
+   "sector": "Information Technology",
+   "industry": "Semiconductor Materials & Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "WIN",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "VMC",
+   "sector": "Materials",
+   "industry": "Construction Materials",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "WAT",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "VZ",
+   "sector": "Communication Services",
+   "industry": "Integrated Telecommunication Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "WEC",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "WY",
+   "sector": "Real Estate",
+   "industry": "Timber REITs",
+   "company_type": "reit",
+   "excluded": true,
+   "exclusion_reason": "reit"
+  },
+  {
+   "ticker": "WYND",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "WHR",
+   "sector": "",
+   "industry": "Household Appliances",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "X",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "WDC",
+   "sector": "Information Technology",
+   "industry": "Technology Hardware, Storage & Peripherals",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "XL",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "XLNX",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "WM",
+   "sector": "Industrials",
+   "industry": "Environmental & Facilities Services",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "XOM",
+   "sector": "Energy",
+   "industry": "Integrated Oil & Gas",
+   "company_type": "commodity",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "WMB",
+   "sector": "Energy",
+   "industry": "Oil & Gas Storage & Transportation",
+   "company_type": "commodity",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "XTO",
+   "sector": "",
+   "industry": "",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "YUM",
+   "sector": "Consumer Discretionary",
+   "industry": "Restaurants",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "XEL",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "company_type": "standard",
+   "error": "no SEC data (not a filer / renamed)"
+  },
+  {
+   "ticker": "ZION",
+   "sector": "",
+   "industry": "National Commercial Banks",
+   "company_type": "bank",
+   "excluded": true,
+   "exclusion_reason": "bank"
+  },
+  {
+   "ticker": "WYNN",
+   "sector": "Consumer Discretionary",
+   "industry": "Casinos & Gaming",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "WU",
+   "sector": "",
+   "industry": "Services-Business Services, NEC",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "XRX",
+   "sector": "",
+   "industry": "Computer Peripheral Equipment, NEC",
+   "company_type": "standard",
+   "error": "insufficient history: 0 FYs pre-2010",
+   "n_years": 0
+  },
+  {
+   "ticker": "WMT",
+   "sector": "Consumer Staples",
+   "industry": "Consumer Staples Merchandise Retail",
+   "company_type": "standard",
+   "error": "insufficient history: 2 FYs pre-2010",
+   "n_years": 2
+  },
+  {
+   "ticker": "ZBH",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "XRAY",
+   "sector": "",
+   "industry": "Dental Equipment & Supplies",
+   "company_type": "standard",
+   "error": "insufficient history: 3 FYs pre-2010",
+   "n_years": 3
+  },
+  {
+   "ticker": "VIAV",
+   "sector": "",
+   "industry": "Semiconductors & Related Devices",
+   "company_type": "standard",
+   "error": "insufficient history: 1 FYs pre-2010",
+   "n_years": 1
+  }
+ ]
+}
