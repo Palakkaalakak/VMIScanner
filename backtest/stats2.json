@@ -1,0 +1,221 @@
+{
+ "defensive": {
+  "total_return_pct": 330.6,
+  "cagr_pct": 11.02,
+  "final_value": 4305880,
+  "corrections_7pct_plus": [
+   {
+    "peak": "2000-12-22",
+    "trough": "2001-03-16",
+    "recovered": "2001-08-10",
+    "depth_pct": 10.4,
+    "decline_days": 84,
+    "recovery_days_from_trough": 147,
+    "total_underwater_days": 231
+   },
+   {
+    "peak": "2002-04-26",
+    "trough": "2003-02-28",
+    "recovered": "2003-11-07",
+    "depth_pct": 17.5,
+    "decline_days": 308,
+    "recovery_days_from_trough": 252,
+    "total_underwater_days": 560
+   },
+   {
+    "peak": "2007-12-07",
+    "trough": "2009-02-27",
+    "recovered": "2010-09-10",
+    "depth_pct": 32.7,
+    "decline_days": 448,
+    "recovery_days_from_trough": 560,
+    "total_underwater_days": 1008
+   },
+   {
+    "peak": "2011-07-15",
+    "trough": "2011-07-29",
+    "recovered": "2011-12-16",
+    "depth_pct": 7.4,
+    "decline_days": 14,
+    "recovery_days_from_trough": 140,
+    "total_underwater_days": 154
+   }
+  ]
+ },
+ "growth": {
+  "total_return_pct": 813.8,
+  "cagr_pct": 17.16,
+  "final_value": 9137716,
+  "corrections_7pct_plus": [
+   {
+    "peak": "2001-01-26",
+    "trough": "2001-03-16",
+    "recovered": "2001-05-11",
+    "depth_pct": 10.7,
+    "decline_days": 49,
+    "recovery_days_from_trough": 56,
+    "total_underwater_days": 105
+   },
+   {
+    "peak": "2001-07-13",
+    "trough": "2001-09-14",
+    "recovered": "2001-11-09",
+    "depth_pct": 14.7,
+    "decline_days": 63,
+    "recovery_days_from_trough": 56,
+    "total_underwater_days": 119
+   },
+   {
+    "peak": "2002-05-17",
+    "trough": "2003-02-07",
+    "recovered": "2003-07-11",
+    "depth_pct": 18.3,
+    "decline_days": 266,
+    "recovery_days_from_trough": 154,
+    "total_underwater_days": 420
+   },
+   {
+    "peak": "2004-06-18",
+    "trough": "2004-08-06",
+    "recovered": "2004-10-29",
+    "depth_pct": 12.1,
+    "decline_days": 49,
+    "recovery_days_from_trough": 84,
+    "total_underwater_days": 133
+   },
+   {
+    "peak": "2005-02-25",
+    "trough": "2005-04-22",
+    "recovered": "2005-05-27",
+    "depth_pct": 7.1,
+    "decline_days": 56,
+    "recovery_days_from_trough": 35,
+    "total_underwater_days": 91
+   },
+   {
+    "peak": "2005-07-22",
+    "trough": "2005-10-21",
+    "recovered": "2006-01-27",
+    "depth_pct": 12.3,
+    "decline_days": 91,
+    "recovery_days_from_trough": 98,
+    "total_underwater_days": 189
+   },
+   {
+    "peak": "2006-03-31",
+    "trough": "2006-07-14",
+    "recovered": "2006-09-22",
+    "depth_pct": 9.8,
+    "decline_days": 105,
+    "recovery_days_from_trough": 70,
+    "total_underwater_days": 175
+   },
+   {
+    "peak": "2007-07-06",
+    "trough": "2008-01-11",
+    "recovered": "2008-08-22",
+    "depth_pct": 14.0,
+    "decline_days": 189,
+    "recovery_days_from_trough": 224,
+    "total_underwater_days": 413
+   },
+   {
+    "peak": "2008-08-22",
+    "trough": "2008-11-14",
+    "recovered": "2009-09-11",
+    "depth_pct": 34.4,
+    "decline_days": 84,
+    "recovery_days_from_trough": 301,
+    "total_underwater_days": 385
+   },
+   {
+    "peak": "2010-04-23",
+    "trough": "2010-08-20",
+    "recovered": "2010-09-24",
+    "depth_pct": 9.2,
+    "decline_days": 119,
+    "recovery_days_from_trough": 35,
+    "total_underwater_days": 154
+   },
+   {
+    "peak": "2011-07-01",
+    "trough": "2011-07-29",
+    "recovered": "2011-10-07",
+    "depth_pct": 11.0,
+    "decline_days": 28,
+    "recovery_days_from_trough": 70,
+    "total_underwater_days": 98
+   },
+   {
+    "peak": "2012-04-27",
+    "trough": "2012-11-09",
+    "recovered": "2013-02-01",
+    "depth_pct": 8.5,
+    "decline_days": 196,
+    "recovery_days_from_trough": 84,
+    "total_underwater_days": 280
+   }
+  ]
+ },
+ "spy": {
+  "total_return_pct": 63.1,
+  "cagr_pct": 3.56,
+  "final_value": 1631089,
+  "corrections_7pct_plus": [
+   {
+    "peak": "2000-01-07",
+    "trough": "2000-02-18",
+    "recovered": "2000-03-10",
+    "depth_pct": 7.7,
+    "decline_days": 42,
+    "recovery_days_from_trough": 21,
+    "total_underwater_days": 63
+   },
+   {
+    "peak": "2000-03-17",
+    "trough": "2000-05-19",
+    "recovered": "2000-08-25",
+    "depth_pct": 9.7,
+    "decline_days": 63,
+    "recovery_days_from_trough": 98,
+    "total_underwater_days": 161
+   },
+   {
+    "peak": "2000-08-25",
+    "trough": "2002-10-04",
+    "recovered": "2006-10-20",
+    "depth_pct": 45.5,
+    "decline_days": 770,
+    "recovery_days_from_trough": 1477,
+    "total_underwater_days": 2247
+   },
+   {
+    "peak": "2007-07-13",
+    "trough": "2007-08-10",
+    "recovered": "2007-10-05",
+    "depth_pct": 8.4,
+    "decline_days": 28,
+    "recovery_days_from_trough": 56,
+    "total_underwater_days": 84
+   },
+   {
+    "peak": "2007-10-05",
+    "trough": "2009-02-27",
+    "recovered": "2012-08-03",
+    "depth_pct": 54.4,
+    "decline_days": 511,
+    "recovery_days_from_trough": 1253,
+    "total_underwater_days": 1764
+   },
+   {
+    "peak": "2012-09-28",
+    "trough": "2012-11-09",
+    "recovered": "2012-12-28",
+    "depth_pct": 7.1,
+    "decline_days": 42,
+    "recovery_days_from_trough": 49,
+    "total_underwater_days": 91
+   }
+  ]
+ }
+}
