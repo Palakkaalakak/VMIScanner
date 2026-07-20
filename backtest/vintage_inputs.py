@@ -80,7 +80,7 @@ def build(year):
     px = yf.download(tickers + ["^GSPC"],
                      start=f"{year-5}-01-01", end=vd, interval="1wk",
                      auto_adjust=True, progress=False)["Close"]
-    mkt = px["^GSPC"].pct_change().dropna()
+    mkt = px["^GSPC"].pct_change(fill_method=None).dropna()
     rf = fred_dgs10(vd)
 
     out = []
@@ -97,7 +97,7 @@ def build(year):
         # beta
         beta = None
         if yft in px.columns:
-            r = px[yft].pct_change().dropna()
+            r = px[yft].pct_change(fill_method=None).dropna()
             j = r.index.intersection(mkt.index)
             if len(j) >= 100:
                 rr, mm = r.loc[j], mkt.loc[j]
