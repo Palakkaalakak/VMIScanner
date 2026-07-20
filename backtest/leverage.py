@@ -143,7 +143,7 @@ for acct in ("defensive", "growth", "spy"):
               f"maxDD {maxdd*100:5.1f}%  {flag}")
 
 # best qualifying per account
-for acct in out:
+for acct in list(out):
     ok = [r for r in out[acct] if not r["disqualified"]]
     best = max(ok, key=lambda r: r["cagr_pct"]) if ok else None
     out[acct + "_best"] = best

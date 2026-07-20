@@ -1,0 +1,278 @@
+{
+ "defensive": [
+  {
+   "leverage": 1.0,
+   "final_value": 3724147,
+   "cagr_pct": 9.85,
+   "total_return_pct": 272.4,
+   "max_drawdown_pct": 33.6,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 1.5,
+   "final_value": 6064520,
+   "cagr_pct": 13.75,
+   "total_return_pct": 506.5,
+   "max_drawdown_pct": 47.5,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 2.0,
+   "final_value": 9236794,
+   "cagr_pct": 17.22,
+   "total_return_pct": 823.7,
+   "max_drawdown_pct": 59.3,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 2.5,
+   "final_value": 13156564,
+   "cagr_pct": 20.22,
+   "total_return_pct": 1215.7,
+   "max_drawdown_pct": 69.1,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 3.0,
+   "final_value": 17521343,
+   "cagr_pct": 22.71,
+   "total_return_pct": 1652.1,
+   "max_drawdown_pct": 77.0,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 3.5,
+   "final_value": 21810649,
+   "cagr_pct": 24.64,
+   "total_return_pct": 2081.1,
+   "max_drawdown_pct": 83.2,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 4.0,
+   "final_value": 25367790,
+   "cagr_pct": 26.0,
+   "total_return_pct": 2436.8,
+   "max_drawdown_pct": 87.9,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 4.5,
+   "final_value": 27555502,
+   "cagr_pct": 26.74,
+   "total_return_pct": 2655.6,
+   "max_drawdown_pct": 91.5,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 5.0,
+   "final_value": 27938561,
+   "cagr_pct": 26.87,
+   "total_return_pct": 2693.9,
+   "max_drawdown_pct": 94.2,
+   "blown": false,
+   "disqualified": false
+  }
+ ],
+ "growth": [
+  {
+   "leverage": 1.0,
+   "final_value": 7781483,
+   "cagr_pct": 15.79,
+   "total_return_pct": 678.1,
+   "max_drawdown_pct": 35.4,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 1.5,
+   "final_value": 16681554,
+   "cagr_pct": 22.28,
+   "total_return_pct": 1568.2,
+   "max_drawdown_pct": 51.0,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 2.0,
+   "final_value": 31430942,
+   "cagr_pct": 27.94,
+   "total_return_pct": 3043.1,
+   "max_drawdown_pct": 64.0,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 2.5,
+   "final_value": 52039603,
+   "cagr_pct": 32.63,
+   "total_return_pct": 5104.0,
+   "max_drawdown_pct": 74.3,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 3.0,
+   "final_value": 75678470,
+   "cagr_pct": 36.23,
+   "total_return_pct": 7467.8,
+   "max_drawdown_pct": 82.3,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 3.5,
+   "final_value": 96598582,
+   "cagr_pct": 38.63,
+   "total_return_pct": 9559.9,
+   "max_drawdown_pct": 88.2,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 4.0,
+   "final_value": 108121500,
+   "cagr_pct": 39.75,
+   "total_return_pct": 10712.2,
+   "max_drawdown_pct": 92.4,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 4.5,
+   "final_value": 105987108,
+   "cagr_pct": 39.55,
+   "total_return_pct": 10498.7,
+   "max_drawdown_pct": 95.2,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 5.0,
+   "final_value": 90846802,
+   "cagr_pct": 38.02,
+   "total_return_pct": 8984.7,
+   "max_drawdown_pct": 97.1,
+   "blown": false,
+   "disqualified": false
+  }
+ ],
+ "spy": [
+  {
+   "leverage": 1.0,
+   "final_value": 1437882,
+   "cagr_pct": 2.63,
+   "total_return_pct": 43.8,
+   "max_drawdown_pct": 55.8,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 1.5,
+   "final_value": 1276854,
+   "cagr_pct": 1.76,
+   "total_return_pct": 27.7,
+   "max_drawdown_pct": 74.6,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 2.0,
+   "final_value": 971381,
+   "cagr_pct": -0.21,
+   "total_return_pct": -2.9,
+   "max_drawdown_pct": 87.8,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 2.5,
+   "final_value": 632325,
+   "cagr_pct": -3.22,
+   "total_return_pct": -36.8,
+   "max_drawdown_pct": 94.8,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 3.0,
+   "final_value": 351594,
+   "cagr_pct": -7.2,
+   "total_return_pct": -64.8,
+   "max_drawdown_pct": 98.0,
+   "blown": false,
+   "disqualified": false
+  },
+  {
+   "leverage": 3.5,
+   "final_value": 166609,
+   "cagr_pct": -12.02,
+   "total_return_pct": -83.3,
+   "max_drawdown_pct": 99.3,
+   "blown": false,
+   "disqualified": true
+  },
+  {
+   "leverage": 4.0,
+   "final_value": 67088,
+   "cagr_pct": -17.56,
+   "total_return_pct": -93.3,
+   "max_drawdown_pct": 99.8,
+   "blown": false,
+   "disqualified": true
+  },
+  {
+   "leverage": 4.5,
+   "final_value": 22872,
+   "cagr_pct": -23.66,
+   "total_return_pct": -97.7,
+   "max_drawdown_pct": 99.9,
+   "blown": false,
+   "disqualified": true
+  },
+  {
+   "leverage": 5.0,
+   "final_value": 6572,
+   "cagr_pct": -30.17,
+   "total_return_pct": -99.3,
+   "max_drawdown_pct": 100.0,
+   "blown": false,
+   "disqualified": true
+  }
+ ],
+ "defensive_best": {
+  "leverage": 5.0,
+  "final_value": 27938561,
+  "cagr_pct": 26.87,
+  "total_return_pct": 2693.9,
+  "max_drawdown_pct": 94.2,
+  "blown": false,
+  "disqualified": false
+ },
+ "growth_best": {
+  "leverage": 4.0,
+  "final_value": 108121500,
+  "cagr_pct": 39.75,
+  "total_return_pct": 10712.2,
+  "max_drawdown_pct": 92.4,
+  "blown": false,
+  "disqualified": false
+ },
+ "spy_best": {
+  "leverage": 1.0,
+  "final_value": 1437882,
+  "cagr_pct": 2.63,
+  "total_return_pct": 43.8,
+  "max_drawdown_pct": 55.8,
+  "blown": false,
+  "disqualified": false
+ }
+}
