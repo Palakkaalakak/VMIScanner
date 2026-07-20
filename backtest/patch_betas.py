@@ -11,14 +11,25 @@ for year, vd in ((2020, "2020-01-02"), (2015, "2015-01-02")):
     p = f"backtest/vintage_inputs_{year}.json"
     d = json.load(open(p))
     tickers = [c["ticker"].replace(".", "-") for c in d["candidates"]]
-    px = None
-    for attempt in range(4):
-        px = yf.download(tickers + ["^GSPC"], start=f"{year-5}-01-01", end=vd,
-                         interval="1wk", auto_adjust=True, progress=False)["Close"]
-        if "^GSPC" in px.columns and px["^GSPC"].notna().sum() > 100:
-            break
-        print(f"[{year}] batch retry {attempt+1}", flush=True)
-        time.sleep(15)
+    # chunked download: big batches silently return empty frames
+    import pandas as pd
+    frames = []
+    todo = tickers + ["^GSPC"]
+    for i in range(0, len(todo), 25):
+        chunk = todo[i:i + 25]
+        for attempt in range(3):
+            f = yf.download(chunk, start=f"{year-5}-01-01", end=vd,
+                            interval="1wk", auto_adjust=True,
+                            progress=False)["Close"]
+            if isinstance(f, pd.Series):
+                f = f.to_frame(chunk[0])
+            if len(f) and f.notna().any().any():
+                frames.append(f)
+                break
+            print(f"[{year}] chunk {i} retry {attempt+1}", flush=True)
+            time.sleep(10)
+    px = pd.concat(frames, axis=1)
+    px = px.loc[:, ~px.columns.duplicated()]
     mkt = px["^GSPC"].pct_change(fill_method=None).dropna()
     n = 0
     for c in d["candidates"]:
