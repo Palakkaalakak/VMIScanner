@@ -1,0 +1,1110 @@
+{
+ "defensive": {
+  "trades": [
+   {
+    "date": "2000-01-07",
+    "ticker": "ABT",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 7.7,
+    "amount": 20833,
+    "pct_of_iv": 85
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "BDX",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 14.17,
+    "amount": 20833,
+    "pct_of_iv": 72
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "UNH",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 5.9,
+    "amount": 20833,
+    "pct_of_iv": 51
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "KMB",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 26.2,
+    "amount": 20833,
+    "pct_of_iv": 86
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "GIS",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 7.24,
+    "amount": 20833,
+    "pct_of_iv": 80
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "HSY",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 12.06,
+    "amount": 20833,
+    "pct_of_iv": 99
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "HRL",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 2.87,
+    "amount": 20833,
+    "pct_of_iv": 68
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "MCD",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 22.19,
+    "amount": 20833,
+    "pct_of_iv": 96
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "GD",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 15.28,
+    "amount": 20833,
+    "pct_of_iv": 55
+   },
+   {
+    "date": "2000-01-21",
+    "ticker": "PEP",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 17.07,
+    "amount": 20833,
+    "pct_of_iv": 98
+   },
+   {
+    "date": "2000-02-04",
+    "ticker": "CLX",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 20.21,
+    "amount": 20833,
+    "pct_of_iv": 92
+   },
+   {
+    "date": "2000-02-18",
+    "ticker": "JNJ",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 18.59,
+    "amount": 20833,
+    "pct_of_iv": 95
+   },
+   {
+    "date": "2000-02-18",
+    "ticker": "CL",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 13.88,
+    "amount": 20833,
+    "pct_of_iv": 97
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "ABT",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 7.17,
+    "amount": 20833,
+    "pct_of_iv": 78
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "UNH",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 4.69,
+    "amount": 20833,
+    "pct_of_iv": 40
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "PG",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 14.39,
+    "amount": 20833,
+    "pct_of_iv": 77
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "KMB",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 19.94,
+    "amount": 20833,
+    "pct_of_iv": 64
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "GIS",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 6.83,
+    "amount": 20833,
+    "pct_of_iv": 75
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "HSY",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 11.16,
+    "amount": 20833,
+    "pct_of_iv": 90
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "HRL",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 2.14,
+    "amount": 20833,
+    "pct_of_iv": 50
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "MCD",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 16.78,
+    "amount": 20833,
+    "pct_of_iv": 71
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "GD",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 11.53,
+    "amount": 20833,
+    "pct_of_iv": 41
+   },
+   {
+    "date": "2000-03-17",
+    "ticker": "PEP",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 16.99,
+    "amount": 20833,
+    "pct_of_iv": 96
+   },
+   {
+    "date": "2000-03-24",
+    "ticker": "BDX",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 13.39,
+    "amount": 20833,
+    "pct_of_iv": 67
+   },
+   {
+    "date": "2000-03-31",
+    "ticker": "CLX",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 16.68,
+    "amount": 20833,
+    "pct_of_iv": 75
+   },
+   {
+    "date": "2000-04-14",
+    "ticker": "BMY",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 17.73,
+    "amount": 20833,
+    "pct_of_iv": 95
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "ABT",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 8.58,
+    "amount": 20833,
+    "pct_of_iv": 92
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "PG",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 15.13,
+    "amount": 20833,
+    "pct_of_iv": 80
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "KMB",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 23.36,
+    "amount": 20833,
+    "pct_of_iv": 74
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "HRL",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 2.21,
+    "amount": 20833,
+    "pct_of_iv": 51
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "MCD",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 18.75,
+    "amount": 20833,
+    "pct_of_iv": 78
+   },
+   {
+    "date": "2000-05-26",
+    "ticker": "CLX",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 19.65,
+    "amount": 20833,
+    "pct_of_iv": 87
+   },
+   {
+    "date": "2000-06-16",
+    "ticker": "BMY",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 19.06,
+    "amount": 20833,
+    "pct_of_iv": 100
+   },
+   {
+    "date": "2000-06-16",
+    "ticker": "BDX",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 13.88,
+    "amount": 20833,
+    "pct_of_iv": 68
+   },
+   {
+    "date": "2000-06-23",
+    "ticker": "PG",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 13.42,
+    "amount": 20833,
+    "pct_of_iv": 70
+   },
+   {
+    "date": "2000-06-30",
+    "ticker": "HSY",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 12.52,
+    "amount": 20833,
+    "pct_of_iv": 98
+   },
+   {
+    "date": "2000-07-14",
+    "ticker": "GIS",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 7.74,
+    "amount": 20833,
+    "pct_of_iv": 82
+   },
+   {
+    "date": "2000-08-11",
+    "ticker": "BMY",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 18.88,
+    "amount": 20833,
+    "pct_of_iv": 98
+   },
+   {
+    "date": "2000-08-11",
+    "ticker": "CL",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 15.0,
+    "amount": 20833,
+    "pct_of_iv": 100
+   },
+   {
+    "date": "2000-10-06",
+    "ticker": "CL",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 13.88,
+    "amount": 20833,
+    "pct_of_iv": 91
+   },
+   {
+    "date": "2001-03-16",
+    "ticker": "GD",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 18.97,
+    "amount": 20833,
+    "pct_of_iv": 61
+   },
+   {
+    "date": "2001-05-18",
+    "ticker": "UNH",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 10.59,
+    "amount": 20833,
+    "pct_of_iv": 80
+   },
+   {
+    "date": "2001-06-22",
+    "ticker": "MRK",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 24.52,
+    "amount": 20833,
+    "pct_of_iv": 100
+   },
+   {
+    "date": "2001-08-24",
+    "ticker": "MRK",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 24.89,
+    "amount": 20833,
+    "pct_of_iv": 100
+   },
+   {
+    "date": "2001-10-19",
+    "ticker": "MRK",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 25.21,
+    "amount": 20833,
+    "pct_of_iv": 100
+   },
+   {
+    "date": "2002-07-12",
+    "ticker": "BMY",
+    "action": "SELL",
+    "price": 8.82,
+    "amount": 29747
+   },
+   {
+    "date": "2002-07-12",
+    "ticker": "PFE",
+    "action": "BUY_REPL",
+    "price": 10.15,
+    "amount": 29747
+   },
+   {
+    "date": "2002-07-12",
+    "ticker": "BMY",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 8.82,
+    "amount": 20833,
+    "pct_of_iv": 38
+   },
+   {
+    "date": "2002-07-12",
+    "ticker": "PEP",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 21.02,
+    "amount": 20833,
+    "pct_of_iv": 95
+   },
+   {
+    "date": "2006-10-20",
+    "ticker": "UNH",
+    "action": "SELL",
+    "price": 37.89,
+    "amount": 376598
+   },
+   {
+    "date": "2006-10-20",
+    "ticker": "KO",
+    "action": "BUY_REPL",
+    "price": 12.93,
+    "amount": 376598
+   }
+  ],
+  "final_holdings": {
+   "ABT": {
+    "shares": 8040.1848,
+    "final_value": 239405
+   },
+   "BDX": {
+    "shares": 4527.3896,
+    "final_value": 310535
+   },
+   "KMB": {
+    "shares": 2731.4902,
+    "final_value": 177151
+   },
+   "GIS": {
+    "shares": 8617.1765,
+    "final_value": 268179
+   },
+   "HSY": {
+    "shares": 5257.0559,
+    "final_value": 374537
+   },
+   "HRL": {
+    "shares": 26416.935,
+    "final_value": 429586
+   },
+   "MCD": {
+    "shares": 3291.0245,
+    "final_value": 229570
+   },
+   "GD": {
+    "shares": 4269.2964,
+    "final_value": 307248
+   },
+   "PEP": {
+    "shares": 3437.7987,
+    "final_value": 193465
+   },
+   "CLX": {
+    "shares": 3339.8827,
+    "final_value": 211141
+   },
+   "JNJ": {
+    "shares": 1120.916,
+    "final_value": 72298
+   },
+   "CL": {
+    "shares": 4390.7019,
+    "final_value": 211112
+   },
+   "PG": {
+    "shares": 4377.0425,
+    "final_value": 247708
+   },
+   "MRK": {
+    "shares": 2513.0338,
+    "final_value": 80631
+   },
+   "PFE": {
+    "shares": 2930.034,
+    "final_value": 49760
+   },
+   "BMY": {
+    "shares": 2361.2206,
+    "final_value": 81007
+   },
+   "KO": {
+    "shares": 29118.4422,
+    "final_value": 801713
+   }
+  },
+  "final_cash": 20833,
+  "iv0": {
+   "JNJ": 19.38,
+   "ABT": 9.03,
+   "BMY": 18.28,
+   "BDX": 19.64,
+   "UNH": 11.63,
+   "MRK": 21.35,
+   "PG": 18.34,
+   "KMB": 30.5,
+   "CLX": 21.88,
+   "GIS": 9.01,
+   "HSY": 12.21,
+   "HRL": 4.24,
+   "PEP": 17.39,
+   "CL": 14.21,
+   "MCD": 23.21,
+   "GD": 27.84
+  },
+  "iv_growth": {
+   "JNJ": 0.1,
+   "ABT": 0.1,
+   "BMY": 0.1,
+   "BDX": 0.1,
+   "UNH": 0.1,
+   "MRK": 0.1,
+   "PG": 0.1,
+   "KMB": 0.1,
+   "CLX": 0.1,
+   "GIS": 0.09,
+   "HSY": 0.1,
+   "HRL": 0.1,
+   "PEP": 0.1,
+   "CL": 0.1,
+   "MCD": 0.1,
+   "GD": 0.1
+  },
+  "anchor": "2000-01-07"
+ },
+ "growth": {
+  "trades": [
+   {
+    "date": "2000-01-07",
+    "ticker": "TJX",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 1.78,
+    "amount": 20833,
+    "pct_of_iv": 44
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "ROST",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 1.27,
+    "amount": 20833,
+    "pct_of_iv": 40
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "AZO",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 30.0,
+    "amount": 20833,
+    "pct_of_iv": 37
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "ORLY",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 0.55,
+    "amount": 20833,
+    "pct_of_iv": 48
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "NKE",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 4.57,
+    "amount": 20833,
+    "pct_of_iv": 84
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "SYY",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 10.21,
+    "amount": 20833,
+    "pct_of_iv": 90
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "CAH",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 17.55,
+    "amount": 20833,
+    "pct_of_iv": 59
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "ITW",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 19.29,
+    "amount": 20833,
+    "pct_of_iv": 71
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "DHR",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 4.49,
+    "amount": 20833,
+    "pct_of_iv": 68
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "LOW",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 9.09,
+    "amount": 20833,
+    "pct_of_iv": 48
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "CVS",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 11.56,
+    "amount": 20833,
+    "pct_of_iv": 78
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "TGT",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 19.95,
+    "amount": 20833,
+    "pct_of_iv": 66
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "DLTR",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 11.58,
+    "amount": 20833,
+    "pct_of_iv": 51
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "CHD",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 3.3,
+    "amount": 20833,
+    "pct_of_iv": 68
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "SBUX",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 2.5,
+    "amount": 20833,
+    "pct_of_iv": 52
+   },
+   {
+    "date": "2000-01-07",
+    "ticker": "SYK",
+    "action": "BUY",
+    "tranche": 1,
+    "price": 14.93,
+    "amount": 20833,
+    "pct_of_iv": 72
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "TJX",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 1.43,
+    "amount": 20833,
+    "pct_of_iv": 35
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "ROST",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 1.62,
+    "amount": 20833,
+    "pct_of_iv": 51
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "AZO",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 22.75,
+    "amount": 20833,
+    "pct_of_iv": 28
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "ORLY",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 0.36,
+    "amount": 20833,
+    "pct_of_iv": 32
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "NKE",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 2.45,
+    "amount": 20833,
+    "pct_of_iv": 44
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "SYY",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 7.54,
+    "amount": 20833,
+    "pct_of_iv": 66
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "CAH",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 12.24,
+    "amount": 20833,
+    "pct_of_iv": 40
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "ITW",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 15.49,
+    "amount": 20833,
+    "pct_of_iv": 56
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "DHR",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 3.76,
+    "amount": 20833,
+    "pct_of_iv": 56
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "LOW",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 8.07,
+    "amount": 20833,
+    "pct_of_iv": 42
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "CVS",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 10.03,
+    "amount": 20833,
+    "pct_of_iv": 66
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "TGT",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 17.39,
+    "amount": 20833,
+    "pct_of_iv": 57
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "CHD",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 2.05,
+    "amount": 20833,
+    "pct_of_iv": 42
+   },
+   {
+    "date": "2000-03-03",
+    "ticker": "SYK",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 10.63,
+    "amount": 20833,
+    "pct_of_iv": 51
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "TJX",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 1.71,
+    "amount": 20833,
+    "pct_of_iv": 41
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "AZO",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 22.12,
+    "amount": 20833,
+    "pct_of_iv": 27
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "ORLY",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 0.43,
+    "amount": 20833,
+    "pct_of_iv": 37
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "NKE",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 3.92,
+    "amount": 20833,
+    "pct_of_iv": 70
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "ITW",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 17.7,
+    "amount": 20833,
+    "pct_of_iv": 63
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "LOW",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 8.24,
+    "amount": 20833,
+    "pct_of_iv": 42
+   },
+   {
+    "date": "2000-04-28",
+    "ticker": "CHD",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 2.32,
+    "amount": 20833,
+    "pct_of_iv": 46
+   },
+   {
+    "date": "2000-05-19",
+    "ticker": "TGT",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 18.83,
+    "amount": 20833,
+    "pct_of_iv": 60
+   },
+   {
+    "date": "2000-05-26",
+    "ticker": "DHR",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 4.75,
+    "amount": 20833,
+    "pct_of_iv": 69
+   },
+   {
+    "date": "2000-06-02",
+    "ticker": "ROST",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 1.63,
+    "amount": 20833,
+    "pct_of_iv": 50
+   },
+   {
+    "date": "2000-06-02",
+    "ticker": "CVS",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 12.14,
+    "amount": 20833,
+    "pct_of_iv": 78
+   },
+   {
+    "date": "2000-10-06",
+    "ticker": "DLTR",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 10.85,
+    "amount": 20833,
+    "pct_of_iv": 44
+   },
+   {
+    "date": "2000-12-08",
+    "ticker": "DLTR",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 11.83,
+    "amount": 20833,
+    "pct_of_iv": 48
+   },
+   {
+    "date": "2001-01-12",
+    "ticker": "SYK",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 17.41,
+    "amount": 20833,
+    "pct_of_iv": 76
+   },
+   {
+    "date": "2001-03-16",
+    "ticker": "CAH",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 26.52,
+    "amount": 20833,
+    "pct_of_iv": 79
+   },
+   {
+    "date": "2001-03-16",
+    "ticker": "SBUX",
+    "action": "ADD",
+    "tranche": 2,
+    "price": 3.69,
+    "amount": 20833,
+    "pct_of_iv": 69
+   },
+   {
+    "date": "2001-05-11",
+    "ticker": "SBUX",
+    "action": "ADD",
+    "tranche": 3,
+    "price": 3.82,
+    "amount": 20833,
+    "pct_of_iv": 70
+   },
+   {
+    "date": "2004-07-16",
+    "ticker": "CAH",
+    "action": "SELL",
+    "price": 23.07,
+    "amount": 84758
+   },
+   {
+    "date": "2004-07-16",
+    "ticker": "GPC",
+    "action": "BUY_REPL",
+    "price": 18.84,
+    "amount": 84758
+   }
+  ],
+  "final_holdings": {
+   "TJX": {
+    "shares": 38398.6295,
+    "final_value": 1028946
+   },
+   "ROST": {
+    "shares": 41953.164,
+    "final_value": 1378621
+   },
+   "AZO": {
+    "shares": 2551.8149,
+    "final_value": 1209841
+   },
+   "ORLY": {
+    "shares": 143387.8335,
+    "final_value": 1230841
+   },
+   "NKE": {
+    "shares": 18385.6273,
+    "final_value": 609333
+   },
+   "SYY": {
+    "shares": 4804.7921,
+    "final_value": 122720
+   },
+   "ITW": {
+    "shares": 3601.6064,
+    "final_value": 224107
+   },
+   "DHR": {
+    "shares": 14559.2392,
+    "final_value": 450377
+   },
+   "LOW": {
+    "shares": 7402.4911,
+    "final_value": 292268
+   },
+   "CVS": {
+    "shares": 5596.461,
+    "final_value": 279375
+   },
+   "TGT": {
+    "shares": 3348.8067,
+    "final_value": 145231
+   },
+   "DLTR": {
+    "shares": 5478.5104,
+    "final_value": 308988
+   },
+   "CHD": {
+    "shares": 25430.9334,
+    "final_value": 701431
+   },
+   "SBUX": {
+    "shares": 19417.6427,
+    "final_value": 584791
+   },
+   "SYK": {
+    "shares": 4552.6405,
+    "final_value": 293253
+   },
+   "GPC": {
+    "shares": 4498.6715,
+    "final_value": 256760
+   }
+  },
+  "final_cash": 20833,
+  "iv0": {
+   "TJX": 4.02,
+   "ROST": 3.16,
+   "AZO": 80.35,
+   "ORLY": 1.14,
+   "NKE": 5.45,
+   "SYY": 11.32,
+   "CAH": 29.9,
+   "ITW": 27.11,
+   "DHR": 6.64,
+   "LOW": 19.12,
+   "CVS": 14.9,
+   "TGT": 30.23,
+   "DLTR": 22.8,
+   "CHD": 4.87,
+   "SBUX": 4.8,
+   "SYK": 20.67
+  },
+  "iv_growth": {
+   "TJX": 0.1,
+   "ROST": 0.1,
+   "AZO": 0.1,
+   "ORLY": 0.1,
+   "NKE": 0.1,
+   "SYY": 0.1,
+   "CAH": 0.1,
+   "ITW": 0.1,
+   "DHR": 0.1,
+   "LOW": 0.1,
+   "CVS": 0.1,
+   "TGT": 0.1,
+   "DLTR": 0.1,
+   "CHD": 0.1,
+   "SBUX": 0.1,
+   "SYK": 0.1
+  },
+  "anchor": "2000-01-07"
+ }
+}

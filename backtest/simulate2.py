@@ -89,6 +89,7 @@ def run_account(book, repls, label):
     sh, tr, last = {}, {}, {}
     cash = INITIAL
     log = []
+    slog = []  # structured trade log for charting
     repl = {pd.Timestamp(d): (o, n) for d, o, n in repls}
     eq = []
     for i, d in enumerate(dates):
@@ -101,6 +102,12 @@ def run_account(book, repls, label):
                 tr[new] = 3; last[new] = i
                 log.append((d.date(),
                             f"SELL {old} (scandal/probe) ${proceeds:,.0f} -> BUY {new}"))
+                slog.append({"date": str(d.date()), "ticker": old, "action": "SELL",
+                             "price": round(float(px.at[d, old]), 2),
+                             "amount": round(proceeds)})
+                slog.append({"date": str(d.date()), "ticker": new, "action": "BUY_REPL",
+                             "price": round(float(px.at[d, new]), 2),
+                             "amount": round(proceeds)})
                 del repl[rd]
         for t in book:
             p = px.at[d, t] if t in px.columns else np.nan
@@ -113,6 +120,10 @@ def run_account(book, repls, label):
                     log.append((d.date(),
                                 f"BUY {t} T1 ${TRANCHE:,.0f} @ {p:.2f} "
                                 f"({p / iv_at(t, d) * 100:.0f}% of IV {iv_at(t, d):.2f})"))
+                    slog.append({"date": str(d.date()), "ticker": t, "action": "BUY",
+                                 "tranche": 1, "price": round(float(p), 2),
+                                 "amount": round(TRANCHE),
+                                 "pct_of_iv": round(float(p / iv_at(t, d) * 100))})
             elif tr[t] < 3 and i - last[t] >= GAP:
                 s = sma40.at[d, t]
                 if not np.isnan(s) and p <= s * 1.01 and p < iv_at(t, d) \
@@ -122,8 +133,18 @@ def run_account(book, repls, label):
                     log.append((d.date(),
                                 f"ADD {t} T{tr[t]} ${TRANCHE:,.0f} @ {p:.2f} "
                                 f"(40wSMA support + under IV)"))
+                    slog.append({"date": str(d.date()), "ticker": t, "action": "ADD",
+                                 "tranche": tr[t], "price": round(float(p), 2),
+                                 "amount": round(TRANCHE),
+                                 "pct_of_iv": round(float(p / iv_at(t, d) * 100))})
         eq.append(cash + sum(s_ * px.at[d, t] for t, s_ in sh.items()))
-    return pd.Series(eq, index=dates, name=label), log, {t: tr.get(t, 0) for t in book}
+    final = {t: {"shares": round(s_, 4),
+                 "final_value": round(s_ * px.at[dates[-1], t])}
+             for t, s_ in sh.items()}
+    export = {"trades": slog, "final_holdings": final, "final_cash": round(cash),
+              "iv0": {t: round(v, 2) for t, v in iv0.items()},
+              "iv_growth": g_iv, "anchor": str(anchor.date())}
+    return pd.Series(eq, index=dates, name=label), log, {t: tr.get(t, 0) for t in book}, export
 
 
 def drawdowns(series, thresh=0.07):
@@ -144,8 +165,8 @@ def drawdowns(series, thresh=0.07):
     return out
 
 
-eqA, logA, trA = run_account(DEFENSIVE, REPL["A"], "Defensive")
-eqB, logB, trB = run_account(GROWTH, REPL["B"], "Growth")
+eqA, logA, trA, expA = run_account(DEFENSIVE, REPL["A"], "Defensive")
+eqB, logB, trB, expB = run_account(GROWTH, REPL["B"], "Growth")
 spy = px.loc[dates, "SPY"]
 spy_eq = spy / spy.iloc[0] * INITIAL
 
@@ -167,6 +188,8 @@ for name, ser in (("defensive", eqA), ("growth", eqB), ("spy", spy_eq)):
 eqA.to_csv("eq_defensive.csv"); eqB.to_csv("eq_growth.csv")
 spy_eq.to_csv("eq_spy.csv")
 json.dump(out, open("stats2.json", "w"), indent=1)
+json.dump({"defensive": expA, "growth": expB},
+          open("trades.json", "w"), indent=1)
 with open("trades_defensive.txt", "w") as f:
     f.writelines(f"{d}  {m}\n" for d, m in logA)
 with open("trades_growth.txt", "w") as f:
