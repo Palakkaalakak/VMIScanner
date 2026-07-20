@@ -1,0 +1,425 @@
+[
+ {
+  "date": "2020-01-06",
+  "ticker": "HSY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 126.9,
+  "amount": 20833,
+  "pct_of_iv": 94
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "CHD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 64.88,
+  "amount": 20833,
+  "pct_of_iv": 90
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "SYY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 71.19,
+  "amount": 20833,
+  "pct_of_iv": 67
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "WM",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 104.52,
+  "amount": 20833,
+  "pct_of_iv": 63
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "LLY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 127.95,
+  "amount": 20833,
+  "pct_of_iv": 61
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "DG",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 139.27,
+  "amount": 20833,
+  "pct_of_iv": 86
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "NOC",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 336.51,
+  "amount": 20833,
+  "pct_of_iv": 76
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "ORLY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 29.12,
+  "amount": 20833,
+  "pct_of_iv": 88
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "NDAQ",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 32.51,
+  "amount": 20833,
+  "pct_of_iv": 43
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "GWW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 315.95,
+  "amount": 20833,
+  "pct_of_iv": 92
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "ROP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 355.84,
+  "amount": 20833,
+  "pct_of_iv": 80
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "GD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 153.91,
+  "amount": 20833,
+  "pct_of_iv": 86
+ },
+ {
+  "date": "2020-01-20",
+  "ticker": "EL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 188.48,
+  "amount": 20833,
+  "pct_of_iv": 99
+ },
+ {
+  "date": "2020-02-24",
+  "ticker": "PEP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 107.85,
+  "amount": 20833,
+  "pct_of_iv": 100
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "SYY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 56.13,
+  "amount": 20833,
+  "pct_of_iv": 52
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "NOC",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 296.76,
+  "amount": 20833,
+  "pct_of_iv": 66
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "ORLY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 24.54,
+  "amount": 20833,
+  "pct_of_iv": 73
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "GWW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 264.71,
+  "amount": 20833,
+  "pct_of_iv": 77
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "ROP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 336.61,
+  "amount": 20833,
+  "pct_of_iv": 75
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "GD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 140.57,
+  "amount": 20833,
+  "pct_of_iv": 78
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "HSY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 120.37,
+  "amount": 20833,
+  "pct_of_iv": 89
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "CHD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 58.76,
+  "amount": 20833,
+  "pct_of_iv": 80
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "WM",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 95.16,
+  "amount": 20833,
+  "pct_of_iv": 57
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "DG",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 132.54,
+  "amount": 20833,
+  "pct_of_iv": 80
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "NDAQ",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 29.37,
+  "amount": 20833,
+  "pct_of_iv": 38
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "HON",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 129.67,
+  "amount": 20833,
+  "pct_of_iv": 98
+ },
+ {
+  "date": "2020-03-16",
+  "ticker": "EL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 138.96,
+  "amount": 20833,
+  "pct_of_iv": 72
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 107.02,
+  "amount": 20833,
+  "pct_of_iv": 99
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "SYY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 44.71,
+  "amount": 20833,
+  "pct_of_iv": 41
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "NOC",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 295.94,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "ORLY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 25.09,
+  "amount": 20833,
+  "pct_of_iv": 74
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "GWW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 248.93,
+  "amount": 20833,
+  "pct_of_iv": 72
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "ROP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 326.62,
+  "amount": 20833,
+  "pct_of_iv": 72
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "GD",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 111.11,
+  "amount": 20833,
+  "pct_of_iv": 61
+ },
+ {
+  "date": "2020-05-04",
+  "ticker": "HSY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 114.65,
+  "amount": 20833,
+  "pct_of_iv": 85
+ },
+ {
+  "date": "2020-05-04",
+  "ticker": "WM",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 91.23,
+  "amount": 20833,
+  "pct_of_iv": 54
+ },
+ {
+  "date": "2020-05-04",
+  "ticker": "HON",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 118.82,
+  "amount": 20833,
+  "pct_of_iv": 90
+ },
+ {
+  "date": "2020-05-11",
+  "ticker": "EL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 155.9,
+  "amount": 20833,
+  "pct_of_iv": 80
+ },
+ {
+  "date": "2020-05-18",
+  "ticker": "CHD",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 67.01,
+  "amount": 20833,
+  "pct_of_iv": 91
+ },
+ {
+  "date": "2020-06-22",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 106.85,
+  "amount": 20833,
+  "pct_of_iv": 98
+ },
+ {
+  "date": "2020-06-29",
+  "ticker": "HON",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 126.79,
+  "amount": 20833,
+  "pct_of_iv": 96
+ },
+ {
+  "date": "2020-09-28",
+  "ticker": "LLY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 136.63,
+  "amount": 20833,
+  "pct_of_iv": 63
+ },
+ {
+  "date": "2020-11-23",
+  "ticker": "LLY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 139.44,
+  "amount": 20833,
+  "pct_of_iv": 64
+ },
+ {
+  "date": "2021-02-22",
+  "ticker": "DG",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 173.09,
+  "amount": 20833,
+  "pct_of_iv": 98
+ },
+ {
+  "date": "2022-01-10",
+  "ticker": "NDAQ",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 58.27,
+  "amount": 20833,
+  "pct_of_iv": 68
+ },
+ {
+  "date": "2023-10-09",
+  "ticker": "HRL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 28.53,
+  "amount": 20833,
+  "pct_of_iv": 96
+ },
+ {
+  "date": "2023-12-04",
+  "ticker": "HRL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 27.96,
+  "amount": 20833,
+  "pct_of_iv": 94
+ }
+]

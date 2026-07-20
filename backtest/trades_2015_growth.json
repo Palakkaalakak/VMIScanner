@@ -1,0 +1,407 @@
+[
+ {
+  "date": "2015-01-05",
+  "ticker": "AAPL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 24.79,
+  "amount": 20833,
+  "pct_of_iv": 12
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "BKNG",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 41.2,
+  "amount": 20833,
+  "pct_of_iv": 24
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "QCOM",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 53.89,
+  "amount": 20833,
+  "pct_of_iv": 20
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "CTSH",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 47.4,
+  "amount": 20833,
+  "pct_of_iv": 39
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "AME",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 47.21,
+  "amount": 20833,
+  "pct_of_iv": 60
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "KLAC",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 5.58,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "EW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 22.19,
+  "amount": 20833,
+  "pct_of_iv": 42
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "APH",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 12.04,
+  "amount": 20833,
+  "pct_of_iv": 91
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "ECL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 89.32,
+  "amount": 20833,
+  "pct_of_iv": 22
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "MNST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 19.51,
+  "amount": 20833,
+  "pct_of_iv": 78
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "MA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 78.71,
+  "amount": 20833,
+  "pct_of_iv": 75
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "TMO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 125.25,
+  "amount": 20833,
+  "pct_of_iv": 60
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "TSCO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 13.45,
+  "amount": 20833,
+  "pct_of_iv": 88
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "DLTR",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 69.46,
+  "amount": 20833,
+  "pct_of_iv": 57
+ },
+ {
+  "date": "2015-02-02",
+  "ticker": "FAST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 7.86,
+  "amount": 20833,
+  "pct_of_iv": 97
+ },
+ {
+  "date": "2015-03-02",
+  "ticker": "QCOM",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 52.09,
+  "amount": 20833,
+  "pct_of_iv": 19
+ },
+ {
+  "date": "2015-03-02",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 4.97,
+  "amount": 20833,
+  "pct_of_iv": 47
+ },
+ {
+  "date": "2015-03-09",
+  "ticker": "BKNG",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 45.35,
+  "amount": 20833,
+  "pct_of_iv": 26
+ },
+ {
+  "date": "2015-03-30",
+  "ticker": "FAST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 7.62,
+  "amount": 20833,
+  "pct_of_iv": 93
+ },
+ {
+  "date": "2015-04-13",
+  "ticker": "AME",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 47.96,
+  "amount": 20833,
+  "pct_of_iv": 59
+ },
+ {
+  "date": "2015-04-27",
+  "ticker": "QCOM",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 49.83,
+  "amount": 20833,
+  "pct_of_iv": 18
+ },
+ {
+  "date": "2015-04-27",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 4.89,
+  "amount": 20833,
+  "pct_of_iv": 45
+ },
+ {
+  "date": "2015-05-25",
+  "ticker": "FAST",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 7.76,
+  "amount": 20833,
+  "pct_of_iv": 93
+ },
+ {
+  "date": "2015-06-15",
+  "ticker": "BKNG",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 45.37,
+  "amount": 20833,
+  "pct_of_iv": 25
+ },
+ {
+  "date": "2015-07-06",
+  "ticker": "APH",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 12.29,
+  "amount": 20833,
+  "pct_of_iv": 89
+ },
+ {
+  "date": "2015-07-20",
+  "ticker": "ECL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 97.09,
+  "amount": 20833,
+  "pct_of_iv": 23
+ },
+ {
+  "date": "2015-07-27",
+  "ticker": "AAPL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 27.06,
+  "amount": 20833,
+  "pct_of_iv": 13
+ },
+ {
+  "date": "2015-08-17",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 84.83,
+  "amount": 20833,
+  "pct_of_iv": 76
+ },
+ {
+  "date": "2015-08-17",
+  "ticker": "TMO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 123.81,
+  "amount": 20833,
+  "pct_of_iv": 56
+ },
+ {
+  "date": "2015-08-17",
+  "ticker": "TSCO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 14.49,
+  "amount": 20833,
+  "pct_of_iv": 90
+ },
+ {
+  "date": "2015-08-17",
+  "ticker": "DLTR",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 76.35,
+  "amount": 20833,
+  "pct_of_iv": 59
+ },
+ {
+  "date": "2015-08-31",
+  "ticker": "AME",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 48.24,
+  "amount": 20833,
+  "pct_of_iv": 58
+ },
+ {
+  "date": "2015-08-31",
+  "ticker": "EW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 22.68,
+  "amount": 20833,
+  "pct_of_iv": 41
+ },
+ {
+  "date": "2015-08-31",
+  "ticker": "APH",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 11.48,
+  "amount": 20833,
+  "pct_of_iv": 82
+ },
+ {
+  "date": "2015-09-21",
+  "ticker": "AAPL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 25.71,
+  "amount": 20833,
+  "pct_of_iv": 12
+ },
+ {
+  "date": "2015-09-21",
+  "ticker": "CTSH",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 53.68,
+  "amount": 20833,
+  "pct_of_iv": 41
+ },
+ {
+  "date": "2015-09-21",
+  "ticker": "ECL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 98.21,
+  "amount": 20833,
+  "pct_of_iv": 23
+ },
+ {
+  "date": "2015-09-28",
+  "ticker": "MNST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 22.32,
+  "amount": 20833,
+  "pct_of_iv": 83
+ },
+ {
+  "date": "2015-10-12",
+  "ticker": "TMO",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 122.45,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "2015-10-12",
+  "ticker": "TSCO",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 14.43,
+  "amount": 20833,
+  "pct_of_iv": 88
+ },
+ {
+  "date": "2015-10-12",
+  "ticker": "DLTR",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 63.46,
+  "amount": 20833,
+  "pct_of_iv": 49
+ },
+ {
+  "date": "2015-11-30",
+  "ticker": "CTSH",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 55.15,
+  "amount": 20833,
+  "pct_of_iv": 41
+ },
+ {
+  "date": "2016-01-04",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 84.4,
+  "amount": 20833,
+  "pct_of_iv": 73
+ },
+ {
+  "date": "2016-01-11",
+  "ticker": "MNST",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 23.52,
+  "amount": 20833,
+  "pct_of_iv": 85
+ },
+ {
+  "date": "2016-10-24",
+  "ticker": "EW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 32.05,
+  "amount": 20833,
+  "pct_of_iv": 52
+ }
+]

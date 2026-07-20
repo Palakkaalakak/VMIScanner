@@ -1,0 +1,217 @@
+{
+ "vintages": {
+  "2000": {
+   "rf": 0.065,
+   "defensive": {
+    "label": "2000 defensive",
+    "final": 12514517,
+    "total_return_pct": 1151.5,
+    "cagr_pct": 10.0,
+    "years": 26.52,
+    "n_corrections_7pct": 12,
+    "max_drawdown_pct": 33.2
+   },
+   "growth": {
+    "label": "2000 growth",
+    "final": 49814496,
+    "total_return_pct": 4881.4,
+    "cagr_pct": 15.88,
+    "years": 26.52,
+    "n_corrections_7pct": 22,
+    "max_drawdown_pct": 34.1
+   },
+   "spy": {
+    "label": "2000 spy",
+    "final": 8697379,
+    "total_return_pct": 769.7,
+    "cagr_pct": 8.5,
+    "years": 26.52,
+    "n_corrections_7pct": 13,
+    "max_drawdown_pct": 54.4
+   },
+   "final_holdings": {
+    "defensive": {
+     "ABT": 789419,
+     "BDX": 750454,
+     "KMB": 296813,
+     "GIS": 349191,
+     "HSY": 925875,
+     "HRL": 608103,
+     "MCD": 941541,
+     "GD": 1705467,
+     "PEP": 510333,
+     "CLX": 326114,
+     "JNJ": 572272,
+     "PG": 629865,
+     "CL": 428094,
+     "MRK": 358302,
+     "PFE": 60791,
+     "KO": 3241049
+    },
+    "growth": {
+     "TJX": 5819648,
+     "ROST": 9466767,
+     "AZO": 7393284,
+     "ORLY": 11694073,
+     "NKE": 768831,
+     "SYY": 579317,
+     "ITW": 1080316,
+     "DHR": 2999609,
+     "LOW": 1606881,
+     "CVS": 610646,
+     "TGT": 477804,
+     "DLTR": 810461,
+     "CHD": 2484646,
+     "SBUX": 1713249,
+     "SYK": 1607811,
+     "GPC": 680318
+    }
+   },
+   "cash": {
+    "defensive": 20833,
+    "growth": 20833
+   }
+  },
+  "2015": {
+   "growth": {
+    "label": "2015 growth",
+    "final": 7057706,
+    "total_return_pct": 605.8,
+    "cagr_pct": 18.49,
+    "years": 11.52,
+    "n_corrections_7pct": 11,
+    "max_drawdown_pct": 29.4
+   },
+   "final_holdings": {
+    "growth": {
+     "AAPL": 807951,
+     "BKNG": 258745,
+     "QCOM": 206929,
+     "CTSH": 53964,
+     "AME": 309876,
+     "KLAC": 2592740,
+     "EW": 214941,
+     "APH": 792463,
+     "ECL": 180054,
+     "MNST": 281487,
+     "MA": 411563,
+     "TMO": 268768,
+     "TSCO": 135190,
+     "DLTR": 113483,
+     "FAST": 367053
+    },
+    "defensive": {
+     "GIS": 67058,
+     "PEP": 126255,
+     "DG": 131388,
+     "MCD": 216800,
+     "HRL": 68983,
+     "ORLY": 361912,
+     "MKC": 84820,
+     "JNJ": 212594,
+     "SJM": 91505,
+     "BDX": 107995,
+     "COST": 507904,
+     "SHW": 259897,
+     "CVS": 93610,
+     "ROST": 332582
+    }
+   },
+   "cash": {
+    "growth": 62500,
+    "defensive": 125000
+   },
+   "defensive": {
+    "label": "2015 defensive",
+    "final": 2788303,
+    "total_return_pct": 178.8,
+    "cagr_pct": 9.31,
+    "years": 11.52,
+    "n_corrections_7pct": 7,
+    "max_drawdown_pct": 20.0
+   },
+   "spy": {
+    "label": "2015 spy",
+    "final": 4405643,
+    "total_return_pct": 340.6,
+    "cagr_pct": 13.74,
+    "years": 11.52,
+    "n_corrections_7pct": 7,
+    "max_drawdown_pct": 31.8
+   },
+   "rf": 0.0212
+  },
+  "2020": {
+   "growth": {
+    "label": "2020 growth",
+    "final": 6168927,
+    "total_return_pct": 516.9,
+    "cagr_pct": 32.21,
+    "years": 6.52,
+    "n_corrections_7pct": 10,
+    "max_drawdown_pct": 29.9
+   },
+   "final_holdings": {
+    "growth": {
+     "ANET": 836186,
+     "ULTA": 122946,
+     "LRCX": 889244,
+     "KLAC": 876599,
+     "AMAT": 636661,
+     "CDNS": 200417,
+     "TSCO": 77253,
+     "CBOE": 172171,
+     "MA": 122405,
+     "NVDA": 1521295,
+     "ICE": 106372,
+     "CPRT": 82124,
+     "ADP": 117913,
+     "LHX": 100141,
+     "ADI": 239397,
+     "SYK": 46970
+    },
+    "defensive": {
+     "HSY": 88961,
+     "CHD": 96750,
+     "SYY": 92291,
+     "WM": 154737,
+     "LLY": 547935,
+     "DG": 53712,
+     "NOC": 105623,
+     "ORLY": 206060,
+     "NDAQ": 156502,
+     "GWW": 318530,
+     "ROP": 66899,
+     "GD": 173626,
+     "EL": 32367,
+     "PEP": 79915,
+     "HON": 112578,
+     "HRL": 37457
+    }
+   },
+   "cash": {
+    "growth": 20833,
+    "defensive": 20833
+   },
+   "defensive": {
+    "label": "2020 defensive",
+    "final": 2344776,
+    "total_return_pct": 134.5,
+    "cagr_pct": 13.97,
+    "years": 6.52,
+    "n_corrections_7pct": 7,
+    "max_drawdown_pct": 12.5
+   },
+   "spy": {
+    "label": "2020 spy",
+    "final": 2503579,
+    "total_return_pct": 150.4,
+    "cagr_pct": 15.12,
+    "years": 6.52,
+    "n_corrections_7pct": 4,
+    "max_drawdown_pct": 31.8
+   },
+   "rf": 0.018799999999999997
+  }
+ }
+}

@@ -1,0 +1,380 @@
+[
+ {
+  "date": "2015-01-05",
+  "ticker": "GIS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 34.75,
+  "amount": 20833,
+  "pct_of_iv": 61
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "PEP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 68.26,
+  "amount": 20833,
+  "pct_of_iv": 78
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "DG",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 58.42,
+  "amount": 20833,
+  "pct_of_iv": 50
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "MCD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 69.77,
+  "amount": 20833,
+  "pct_of_iv": 78
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "HRL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 19.0,
+  "amount": 20833,
+  "pct_of_iv": 85
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "ORLY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 12.52,
+  "amount": 20833,
+  "pct_of_iv": 58
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "MKC",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 29.8,
+  "amount": 20833,
+  "pct_of_iv": 89
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "JNJ",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 76.42,
+  "amount": 20833,
+  "pct_of_iv": 68
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "SJM",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 71.46,
+  "amount": 20833,
+  "pct_of_iv": 64
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "BDX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 92.57,
+  "amount": 20833,
+  "pct_of_iv": 90
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "COST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 115.19,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "SHW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 82.13,
+  "amount": 20833,
+  "pct_of_iv": 75
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "CVS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 70.46,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "2015-01-05",
+  "ticker": "ROST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 42.57,
+  "amount": 20833,
+  "pct_of_iv": 66
+ },
+ {
+  "date": "2015-03-02",
+  "ticker": "GIS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 34.16,
+  "amount": 20833,
+  "pct_of_iv": 59
+ },
+ {
+  "date": "2015-03-02",
+  "ticker": "JNJ",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 73.41,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "2015-04-27",
+  "ticker": "JNJ",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 73.42,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "2015-06-01",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 66.53,
+  "amount": 20833,
+  "pct_of_iv": 75
+ },
+ {
+  "date": "2015-06-01",
+  "ticker": "COST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 115.83,
+  "amount": 20833,
+  "pct_of_iv": 54
+ },
+ {
+  "date": "2015-06-29",
+  "ticker": "SJM",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 77.78,
+  "amount": 20833,
+  "pct_of_iv": 68
+ },
+ {
+  "date": "2015-07-13",
+  "ticker": "SHW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 79.99,
+  "amount": 20833,
+  "pct_of_iv": 69
+ },
+ {
+  "date": "2015-07-27",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 68.89,
+  "amount": 20833,
+  "pct_of_iv": 77
+ },
+ {
+  "date": "2015-08-17",
+  "ticker": "BDX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 91.6,
+  "amount": 20833,
+  "pct_of_iv": 87
+ },
+ {
+  "date": "2015-08-17",
+  "ticker": "COST",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 116.32,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2015-08-24",
+  "ticker": "ROST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 44.38,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "2015-08-31",
+  "ticker": "DG",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 62.58,
+  "amount": 20833,
+  "pct_of_iv": 50
+ },
+ {
+  "date": "2015-08-31",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 72.87,
+  "amount": 20833,
+  "pct_of_iv": 80
+ },
+ {
+  "date": "2015-08-31",
+  "ticker": "CVS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 72.78,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2015-09-07",
+  "ticker": "SHW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 77.07,
+  "amount": 20833,
+  "pct_of_iv": 66
+ },
+ {
+  "date": "2015-10-12",
+  "ticker": "BDX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 90.47,
+  "amount": 20833,
+  "pct_of_iv": 85
+ },
+ {
+  "date": "2015-10-19",
+  "ticker": "ROST",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 44.73,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "2015-10-26",
+  "ticker": "DG",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 58.63,
+  "amount": 20833,
+  "pct_of_iv": 46
+ },
+ {
+  "date": "2015-10-26",
+  "ticker": "CVS",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 72.05,
+  "amount": 20833,
+  "pct_of_iv": 52
+ },
+ {
+  "date": "2015-11-09",
+  "ticker": "GIS",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 37.43,
+  "amount": 20833,
+  "pct_of_iv": 63
+ },
+ {
+  "date": "2015-11-09",
+  "ticker": "SJM",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 80.89,
+  "amount": 20833,
+  "pct_of_iv": 70
+ },
+ {
+  "date": "2016-01-04",
+  "ticker": "ORLY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 15.64,
+  "amount": 20833,
+  "pct_of_iv": 67
+ },
+ {
+  "date": "2016-05-09",
+  "ticker": "ORLY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 17.21,
+  "amount": 20833,
+  "pct_of_iv": 72
+ },
+ {
+  "date": "2016-07-25",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 92.46,
+  "amount": 20833,
+  "pct_of_iv": 99
+ },
+ {
+  "date": "2016-11-28",
+  "ticker": "MKC",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 36.75,
+  "amount": 20833,
+  "pct_of_iv": 98
+ },
+ {
+  "date": "2017-05-22",
+  "ticker": "HRL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 25.61,
+  "amount": 20833,
+  "pct_of_iv": 98
+ },
+ {
+  "date": "2017-07-17",
+  "ticker": "HRL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 25.83,
+  "amount": 20833,
+  "pct_of_iv": 98
+ },
+ {
+  "date": "2023-10-16",
+  "ticker": "MKC",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 55.59,
+  "amount": 20833,
+  "pct_of_iv": 98
+ }
+]

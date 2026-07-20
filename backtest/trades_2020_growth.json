@@ -1,0 +1,439 @@
+[
+ {
+  "date": "2020-01-06",
+  "ticker": "ANET",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 12.97,
+  "amount": 20833,
+  "pct_of_iv": 14
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "ULTA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 267.28,
+  "amount": 20833,
+  "pct_of_iv": 28
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "LRCX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 27.37,
+  "amount": 20833,
+  "pct_of_iv": 51
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "KLAC",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 16.06,
+  "amount": 20833,
+  "pct_of_iv": 66
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "UNH",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 264.06,
+  "amount": 20833,
+  "pct_of_iv": 51
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "AMAT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 57.94,
+  "amount": 20833,
+  "pct_of_iv": 83
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "CDNS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 73.03,
+  "amount": 20833,
+  "pct_of_iv": 52
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "TSCO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 16.41,
+  "amount": 20833,
+  "pct_of_iv": 70
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "CBOE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 106.46,
+  "amount": 20833,
+  "pct_of_iv": 12
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "MA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 299.79,
+  "amount": 20833,
+  "pct_of_iv": 40
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "NVDA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 6.07,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "ICE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 86.69,
+  "amount": 20833,
+  "pct_of_iv": 44
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "CPRT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 23.83,
+  "amount": 20833,
+  "pct_of_iv": 81
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "ADP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 148.2,
+  "amount": 20833,
+  "pct_of_iv": 67
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "LHX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 185.25,
+  "amount": 20833,
+  "pct_of_iv": 37
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "ADI",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 105.84,
+  "amount": 20833,
+  "pct_of_iv": 69
+ },
+ {
+  "date": "2020-01-06",
+  "ticker": "SYK",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 195.62,
+  "amount": 20833,
+  "pct_of_iv": 51
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "ANET",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 11.92,
+  "amount": 20833,
+  "pct_of_iv": 13
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "ULTA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 256.58,
+  "amount": 20833,
+  "pct_of_iv": 26
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "CDNS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 64.73,
+  "amount": 20833,
+  "pct_of_iv": 45
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "TSCO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 16.5,
+  "amount": 20833,
+  "pct_of_iv": 70
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "CBOE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 107.62,
+  "amount": 20833,
+  "pct_of_iv": 11
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 276.52,
+  "amount": 20833,
+  "pct_of_iv": 37
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "CPRT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 20.05,
+  "amount": 20833,
+  "pct_of_iv": 68
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 137.86,
+  "amount": 20833,
+  "pct_of_iv": 61
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "LHX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 176.06,
+  "amount": 20833,
+  "pct_of_iv": 35
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "ADI",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 96.03,
+  "amount": 20833,
+  "pct_of_iv": 62
+ },
+ {
+  "date": "2020-03-02",
+  "ticker": "SYK",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 173.44,
+  "amount": 20833,
+  "pct_of_iv": 45
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 13.56,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "AMAT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 48.12,
+  "amount": 20833,
+  "pct_of_iv": 68
+ },
+ {
+  "date": "2020-03-09",
+  "ticker": "ICE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 76.45,
+  "amount": 20833,
+  "pct_of_iv": 38
+ },
+ {
+  "date": "2020-03-16",
+  "ticker": "LRCX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 17.47,
+  "amount": 20833,
+  "pct_of_iv": 32
+ },
+ {
+  "date": "2020-03-16",
+  "ticker": "UNH",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 185.64,
+  "amount": 20833,
+  "pct_of_iv": 35
+ },
+ {
+  "date": "2020-03-16",
+  "ticker": "NVDA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 5.12,
+  "amount": 20833,
+  "pct_of_iv": 44
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "ANET",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 12.98,
+  "amount": 20833,
+  "pct_of_iv": 14
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "ULTA",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 214.28,
+  "amount": 20833,
+  "pct_of_iv": 21
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "CBOE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 86.65,
+  "amount": 20833,
+  "pct_of_iv": 9
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 259.31,
+  "amount": 20833,
+  "pct_of_iv": 34
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "CPRT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 19.64,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 122.39,
+  "amount": 20833,
+  "pct_of_iv": 54
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "LHX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 167.6,
+  "amount": 20833,
+  "pct_of_iv": 33
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "ADI",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 93.01,
+  "amount": 20833,
+  "pct_of_iv": 59
+ },
+ {
+  "date": "2020-04-27",
+  "ticker": "SYK",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 169.14,
+  "amount": 20833,
+  "pct_of_iv": 43
+ },
+ {
+  "date": "2020-05-04",
+  "ticker": "AMAT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 50.88,
+  "amount": 20833,
+  "pct_of_iv": 71
+ },
+ {
+  "date": "2020-05-11",
+  "ticker": "LRCX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 23.56,
+  "amount": 20833,
+  "pct_of_iv": 43
+ },
+ {
+  "date": "2020-06-22",
+  "ticker": "ICE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 83.71,
+  "amount": 20833,
+  "pct_of_iv": 41
+ },
+ {
+  "date": "2020-09-07",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 16.19,
+  "amount": 20833,
+  "pct_of_iv": 62
+ },
+ {
+  "date": "2025-05-19",
+  "ticker": "UNH",
+  "action": "SELL",
+  "price": 285.83,
+  "amount": 54629
+ },
+ {
+  "date": "2025-05-19",
+  "ticker": "SYK",
+  "action": "BUY_REPL",
+  "price": 372.03,
+  "amount": 54629
+ }
+]
