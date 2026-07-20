@@ -1,0 +1,4314 @@
+{
+ "defensive": {
+  "off10": {
+   "sweep": [
+    {
+     "roof_pct": 25,
+     "final": 244141,
+     "legs": 4
+    },
+    {
+     "roof_pct": 30,
+     "final": 285610,
+     "legs": 4
+    },
+    {
+     "roof_pct": 35,
+     "final": 332151,
+     "legs": 4
+    },
+    {
+     "roof_pct": 40,
+     "final": 274400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 45,
+     "final": 304862,
+     "legs": 3
+    },
+    {
+     "roof_pct": 50,
+     "final": 337500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 55,
+     "final": 372388,
+     "legs": 3
+    },
+    {
+     "roof_pct": 60,
+     "final": 409600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 65,
+     "final": 449212,
+     "legs": 3
+    },
+    {
+     "roof_pct": 70,
+     "final": 491300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 75,
+     "final": 535938,
+     "legs": 3
+    },
+    {
+     "roof_pct": 80,
+     "final": 583200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 85,
+     "final": 633162,
+     "legs": 3
+    },
+    {
+     "roof_pct": 90,
+     "final": 685900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 95,
+     "final": 741488,
+     "legs": 3
+    },
+    {
+     "roof_pct": 100,
+     "final": 800000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 105,
+     "final": 861512,
+     "legs": 3
+    },
+    {
+     "roof_pct": 110,
+     "final": 926100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 115,
+     "final": 993838,
+     "legs": 3
+    },
+    {
+     "roof_pct": 120,
+     "final": 1064800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 125,
+     "final": 1139062,
+     "legs": 3
+    },
+    {
+     "roof_pct": 130,
+     "final": 1216700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 135,
+     "final": 1297788,
+     "legs": 3
+    },
+    {
+     "roof_pct": 140,
+     "final": 1382400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 145,
+     "final": 1470613,
+     "legs": 3
+    },
+    {
+     "roof_pct": 150,
+     "final": 1562500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 155,
+     "final": 1658137,
+     "legs": 3
+    },
+    {
+     "roof_pct": 160,
+     "final": 1757600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 165,
+     "final": 1860962,
+     "legs": 3
+    },
+    {
+     "roof_pct": 170,
+     "final": 1968300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 175,
+     "final": 2079688,
+     "legs": 3
+    },
+    {
+     "roof_pct": 180,
+     "final": 2195200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 185,
+     "final": 2314912,
+     "legs": 3
+    },
+    {
+     "roof_pct": 190,
+     "final": 2438900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 195,
+     "final": 2567238,
+     "legs": 3
+    },
+    {
+     "roof_pct": 200,
+     "final": 2700000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 205,
+     "final": 2837262,
+     "legs": 3
+    },
+    {
+     "roof_pct": 210,
+     "final": 2979100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 215,
+     "final": 3125588,
+     "legs": 3
+    },
+    {
+     "roof_pct": 220,
+     "final": 3276800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 225,
+     "final": 3432812,
+     "legs": 3
+    },
+    {
+     "roof_pct": 230,
+     "final": 3593700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 235,
+     "final": 3759538,
+     "legs": 3
+    },
+    {
+     "roof_pct": 240,
+     "final": 3930400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 245,
+     "final": 4106362,
+     "legs": 3
+    },
+    {
+     "roof_pct": 250,
+     "final": 4287500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 255,
+     "final": 4473888,
+     "legs": 3
+    },
+    {
+     "roof_pct": 260,
+     "final": 4665600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 265,
+     "final": 4862712,
+     "legs": 3
+    },
+    {
+     "roof_pct": 270,
+     "final": 5065300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 275,
+     "final": 5273438,
+     "legs": 3
+    },
+    {
+     "roof_pct": 280,
+     "final": 5487200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 285,
+     "final": 5706662,
+     "legs": 3
+    },
+    {
+     "roof_pct": 290,
+     "final": 5931900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 295,
+     "final": 6162988,
+     "legs": 3
+    },
+    {
+     "roof_pct": 300,
+     "final": 6400000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 305,
+     "final": 6643012,
+     "legs": 3
+    },
+    {
+     "roof_pct": 310,
+     "final": 6892100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 315,
+     "final": 7147338,
+     "legs": 3
+    },
+    {
+     "roof_pct": 320,
+     "final": 7408800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 325,
+     "final": 7676562,
+     "legs": 3
+    },
+    {
+     "roof_pct": 330,
+     "final": 7950700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 335,
+     "final": 8231287,
+     "legs": 3
+    },
+    {
+     "roof_pct": 340,
+     "final": 8518400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 345,
+     "final": 8812112,
+     "legs": 3
+    },
+    {
+     "roof_pct": 350,
+     "final": 9112500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 355,
+     "final": 9419638,
+     "legs": 3
+    },
+    {
+     "roof_pct": 360,
+     "final": 9733600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 365,
+     "final": 10054463,
+     "legs": 3
+    },
+    {
+     "roof_pct": 370,
+     "final": 10382300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 375,
+     "final": 10717188,
+     "legs": 3
+    },
+    {
+     "roof_pct": 380,
+     "final": 10917594,
+     "legs": 3
+    },
+    {
+     "roof_pct": 385,
+     "final": 11146228,
+     "legs": 3
+    },
+    {
+     "roof_pct": 390,
+     "final": 11377232,
+     "legs": 3
+    },
+    {
+     "roof_pct": 395,
+     "final": 11610605,
+     "legs": 3
+    },
+    {
+     "roof_pct": 400,
+     "final": 11846347,
+     "legs": 3
+    },
+    {
+     "roof_pct": 405,
+     "final": 12084459,
+     "legs": 3
+    },
+    {
+     "roof_pct": 410,
+     "final": 12324940,
+     "legs": 3
+    },
+    {
+     "roof_pct": 415,
+     "final": 12567790,
+     "legs": 3
+    },
+    {
+     "roof_pct": 420,
+     "final": 12813009,
+     "legs": 3
+    },
+    {
+     "roof_pct": 425,
+     "final": 13060598,
+     "legs": 3
+    },
+    {
+     "roof_pct": 430,
+     "final": 13310556,
+     "legs": 3
+    },
+    {
+     "roof_pct": 435,
+     "final": 13562883,
+     "legs": 3
+    },
+    {
+     "roof_pct": 440,
+     "final": 13817580,
+     "legs": 3
+    },
+    {
+     "roof_pct": 445,
+     "final": 14074645,
+     "legs": 3
+    },
+    {
+     "roof_pct": 450,
+     "final": 14334080,
+     "legs": 3
+    },
+    {
+     "roof_pct": 455,
+     "final": 14595885,
+     "legs": 3
+    },
+    {
+     "roof_pct": 460,
+     "final": 14860058,
+     "legs": 3
+    },
+    {
+     "roof_pct": 465,
+     "final": 15126601,
+     "legs": 3
+    },
+    {
+     "roof_pct": 470,
+     "final": 15395513,
+     "legs": 3
+    },
+    {
+     "roof_pct": 475,
+     "final": 15666794,
+     "legs": 3
+    },
+    {
+     "roof_pct": 480,
+     "final": 15940445,
+     "legs": 3
+    },
+    {
+     "roof_pct": 485,
+     "final": 16216465,
+     "legs": 3
+    },
+    {
+     "roof_pct": 490,
+     "final": 16494854,
+     "legs": 3
+    },
+    {
+     "roof_pct": 495,
+     "final": 16775612,
+     "legs": 3
+    },
+    {
+     "roof_pct": 500,
+     "final": 17058740,
+     "legs": 3
+    },
+    {
+     "roof_pct": 505,
+     "final": 17344237,
+     "legs": 3
+    },
+    {
+     "roof_pct": 510,
+     "final": 17632103,
+     "legs": 3
+    },
+    {
+     "roof_pct": 515,
+     "final": 17922339,
+     "legs": 3
+    },
+    {
+     "roof_pct": 520,
+     "final": 18214944,
+     "legs": 3
+    },
+    {
+     "roof_pct": 525,
+     "final": 18509918,
+     "legs": 3
+    },
+    {
+     "roof_pct": 530,
+     "final": 18807261,
+     "legs": 3
+    },
+    {
+     "roof_pct": 535,
+     "final": 19106974,
+     "legs": 3
+    },
+    {
+     "roof_pct": 540,
+     "final": 19409055,
+     "legs": 3
+    },
+    {
+     "roof_pct": 545,
+     "final": 19713507,
+     "legs": 3
+    },
+    {
+     "roof_pct": 550,
+     "final": 20020327,
+     "legs": 3
+    },
+    {
+     "roof_pct": 555,
+     "final": 20329517,
+     "legs": 3
+    },
+    {
+     "roof_pct": 560,
+     "final": 660000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 565,
+     "final": 665000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 570,
+     "final": 670000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 575,
+     "final": 675000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 580,
+     "final": 680000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 585,
+     "final": 685000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 590,
+     "final": 690000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 595,
+     "final": 695000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 600,
+     "final": 700000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 605,
+     "final": 705000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 610,
+     "final": 710000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 615,
+     "final": 715000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 620,
+     "final": 720000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 625,
+     "final": 725000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 630,
+     "final": 730000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 635,
+     "final": 735000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 640,
+     "final": 740000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 645,
+     "final": 745000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 650,
+     "final": 750000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 655,
+     "final": 755000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 660,
+     "final": 760000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 665,
+     "final": 765000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 670,
+     "final": 770000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 675,
+     "final": 775000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 680,
+     "final": 780000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 685,
+     "final": 785000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 690,
+     "final": 790000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 695,
+     "final": 795000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 700,
+     "final": 800000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 705,
+     "final": 805000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 710,
+     "final": 810000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 715,
+     "final": 815000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 720,
+     "final": 820000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 725,
+     "final": 825000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 730,
+     "final": 830000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 735,
+     "final": 835000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 740,
+     "final": 840000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 745,
+     "final": 845000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 750,
+     "final": 850000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 755,
+     "final": 855000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 760,
+     "final": 860000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 765,
+     "final": 865000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 770,
+     "final": 870000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 775,
+     "final": 875000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 780,
+     "final": 880000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 785,
+     "final": 885000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 790,
+     "final": 890000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 795,
+     "final": 895000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 800,
+     "final": 900000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 805,
+     "final": 905000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 810,
+     "final": 910000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 815,
+     "final": 915000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 820,
+     "final": 920000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 825,
+     "final": 925000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 830,
+     "final": 930000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 835,
+     "final": 935000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 840,
+     "final": 940000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 845,
+     "final": 945000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 850,
+     "final": 950000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 855,
+     "final": 955000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 860,
+     "final": 960000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 865,
+     "final": 965000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 870,
+     "final": 970000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 875,
+     "final": 975000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 880,
+     "final": 980000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 885,
+     "final": 985000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 890,
+     "final": 990000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 895,
+     "final": 995000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 900,
+     "final": 1000000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 905,
+     "final": 1005000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 910,
+     "final": 1010000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 915,
+     "final": 1015000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 920,
+     "final": 1020000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 925,
+     "final": 1025000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 930,
+     "final": 1030000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 935,
+     "final": 1035000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 940,
+     "final": 1040000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 945,
+     "final": 1045000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 950,
+     "final": 1050000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 955,
+     "final": 1055000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 960,
+     "final": 1060000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 965,
+     "final": 1065000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 970,
+     "final": 1070000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 975,
+     "final": 1075000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 980,
+     "final": 1080000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 985,
+     "final": 1085000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 990,
+     "final": 1090000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 995,
+     "final": 1095000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 1000,
+     "final": 1100000,
+     "legs": 1
+    }
+   ],
+   "best_roof_only": {
+    "roof_pct": 555,
+    "final": 20329517,
+    "legs": [
+     {
+      "trough": "2001-03-22",
+      "entry": "2001-07-18",
+      "exit": "2007-12-10",
+      "days": 2336,
+      "reason": "roof",
+      "mult": 6.55,
+      "min_mult": 0.3413,
+      "pot_after": 655000
+     },
+     {
+      "trough": "2009-03-05",
+      "entry": "2009-03-26",
+      "exit": "2011-04-28",
+      "days": 763,
+      "reason": "roof",
+      "mult": 6.55,
+      "min_mult": 0.9449,
+      "pot_after": 4290250
+     },
+     {
+      "trough": "2011-08-10",
+      "entry": "2011-10-21",
+      "exit": "2013-12-31",
+      "days": 802,
+      "reason": "end",
+      "mult": 4.7385,
+      "min_mult": 0.758,
+      "pot_after": 20329517
+     }
+    ]
+   },
+   "best_with_timelimit": {
+    "roof_pct": 550,
+    "max_days": null,
+    "final": 20020327,
+    "legs": [
+     {
+      "trough": "2001-03-22",
+      "entry": "2001-07-18",
+      "exit": "2007-12-10",
+      "days": 2336,
+      "reason": "roof",
+      "mult": 6.5,
+      "min_mult": 0.3413,
+      "pot_after": 650000
+     },
+     {
+      "trough": "2009-03-05",
+      "entry": "2009-03-26",
+      "exit": "2011-04-28",
+      "days": 763,
+      "reason": "roof",
+      "mult": 6.5,
+      "min_mult": 0.9449,
+      "pot_after": 4225000
+     },
+     {
+      "trough": "2011-08-10",
+      "entry": "2011-10-21",
+      "exit": "2013-12-31",
+      "days": 802,
+      "reason": "end",
+      "mult": 4.7385,
+      "min_mult": 0.758,
+      "pot_after": 20020327
+     }
+    ]
+   }
+  },
+  "off5": {
+   "sweep": [
+    {
+     "roof_pct": 25,
+     "final": 305176,
+     "legs": 5
+    },
+    {
+     "roof_pct": 30,
+     "final": 371293,
+     "legs": 5
+    },
+    {
+     "roof_pct": 35,
+     "final": 448403,
+     "legs": 5
+    },
+    {
+     "roof_pct": 40,
+     "final": 537824,
+     "legs": 5
+    },
+    {
+     "roof_pct": 45,
+     "final": 442051,
+     "legs": 4
+    },
+    {
+     "roof_pct": 50,
+     "final": 506250,
+     "legs": 4
+    },
+    {
+     "roof_pct": 55,
+     "final": 577201,
+     "legs": 4
+    },
+    {
+     "roof_pct": 60,
+     "final": 655360,
+     "legs": 4
+    },
+    {
+     "roof_pct": 65,
+     "final": 741201,
+     "legs": 4
+    },
+    {
+     "roof_pct": 70,
+     "final": 491300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 75,
+     "final": 535938,
+     "legs": 3
+    },
+    {
+     "roof_pct": 80,
+     "final": 583200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 85,
+     "final": 633162,
+     "legs": 3
+    },
+    {
+     "roof_pct": 90,
+     "final": 685900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 95,
+     "final": 741488,
+     "legs": 3
+    },
+    {
+     "roof_pct": 100,
+     "final": 800000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 105,
+     "final": 861512,
+     "legs": 3
+    },
+    {
+     "roof_pct": 110,
+     "final": 926100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 115,
+     "final": 993838,
+     "legs": 3
+    },
+    {
+     "roof_pct": 120,
+     "final": 1064800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 125,
+     "final": 1139062,
+     "legs": 3
+    },
+    {
+     "roof_pct": 130,
+     "final": 1216700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 135,
+     "final": 1297788,
+     "legs": 3
+    },
+    {
+     "roof_pct": 140,
+     "final": 1382400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 145,
+     "final": 1470613,
+     "legs": 3
+    },
+    {
+     "roof_pct": 150,
+     "final": 1562500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 155,
+     "final": 1658137,
+     "legs": 3
+    },
+    {
+     "roof_pct": 160,
+     "final": 1757600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 165,
+     "final": 1860962,
+     "legs": 3
+    },
+    {
+     "roof_pct": 170,
+     "final": 1968300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 175,
+     "final": 2079688,
+     "legs": 3
+    },
+    {
+     "roof_pct": 180,
+     "final": 2195200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 185,
+     "final": 2314912,
+     "legs": 3
+    },
+    {
+     "roof_pct": 190,
+     "final": 2438900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 195,
+     "final": 2567238,
+     "legs": 3
+    },
+    {
+     "roof_pct": 200,
+     "final": 2700000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 205,
+     "final": 2837262,
+     "legs": 3
+    },
+    {
+     "roof_pct": 210,
+     "final": 2979100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 215,
+     "final": 3125588,
+     "legs": 3
+    },
+    {
+     "roof_pct": 220,
+     "final": 3276800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 225,
+     "final": 3432812,
+     "legs": 3
+    },
+    {
+     "roof_pct": 230,
+     "final": 3593700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 235,
+     "final": 3759538,
+     "legs": 3
+    },
+    {
+     "roof_pct": 240,
+     "final": 3930400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 245,
+     "final": 4106362,
+     "legs": 3
+    },
+    {
+     "roof_pct": 250,
+     "final": 4287500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 255,
+     "final": 4473888,
+     "legs": 3
+    },
+    {
+     "roof_pct": 260,
+     "final": 4665600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 265,
+     "final": 4862712,
+     "legs": 3
+    },
+    {
+     "roof_pct": 270,
+     "final": 5065300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 275,
+     "final": 5273438,
+     "legs": 3
+    },
+    {
+     "roof_pct": 280,
+     "final": 5487200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 285,
+     "final": 5706662,
+     "legs": 3
+    },
+    {
+     "roof_pct": 290,
+     "final": 5931900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 295,
+     "final": 6162988,
+     "legs": 3
+    },
+    {
+     "roof_pct": 300,
+     "final": 6400000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 305,
+     "final": 6643012,
+     "legs": 3
+    },
+    {
+     "roof_pct": 310,
+     "final": 6892100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 315,
+     "final": 7147338,
+     "legs": 3
+    },
+    {
+     "roof_pct": 320,
+     "final": 7408800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 325,
+     "final": 7676562,
+     "legs": 3
+    },
+    {
+     "roof_pct": 330,
+     "final": 7950700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 335,
+     "final": 8231287,
+     "legs": 3
+    },
+    {
+     "roof_pct": 340,
+     "final": 8518400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 345,
+     "final": 8812112,
+     "legs": 3
+    },
+    {
+     "roof_pct": 350,
+     "final": 9112500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 355,
+     "final": 9419638,
+     "legs": 3
+    },
+    {
+     "roof_pct": 360,
+     "final": 9733600,
+     "legs": 3
+    },
+    {
+     "roof_pct": 365,
+     "final": 10054463,
+     "legs": 3
+    },
+    {
+     "roof_pct": 370,
+     "final": 10382300,
+     "legs": 3
+    },
+    {
+     "roof_pct": 375,
+     "final": 10717188,
+     "legs": 3
+    },
+    {
+     "roof_pct": 380,
+     "final": 11059200,
+     "legs": 3
+    },
+    {
+     "roof_pct": 385,
+     "final": 11408412,
+     "legs": 3
+    },
+    {
+     "roof_pct": 390,
+     "final": 11764900,
+     "legs": 3
+    },
+    {
+     "roof_pct": 395,
+     "final": 12128738,
+     "legs": 3
+    },
+    {
+     "roof_pct": 400,
+     "final": 12500000,
+     "legs": 3
+    },
+    {
+     "roof_pct": 405,
+     "final": 12878762,
+     "legs": 3
+    },
+    {
+     "roof_pct": 410,
+     "final": 13265100,
+     "legs": 3
+    },
+    {
+     "roof_pct": 415,
+     "final": 13659088,
+     "legs": 3
+    },
+    {
+     "roof_pct": 420,
+     "final": 14060800,
+     "legs": 3
+    },
+    {
+     "roof_pct": 425,
+     "final": 14470312,
+     "legs": 3
+    },
+    {
+     "roof_pct": 430,
+     "final": 14887700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 435,
+     "final": 15313037,
+     "legs": 3
+    },
+    {
+     "roof_pct": 440,
+     "final": 15746400,
+     "legs": 3
+    },
+    {
+     "roof_pct": 445,
+     "final": 16187862,
+     "legs": 3
+    },
+    {
+     "roof_pct": 450,
+     "final": 16637500,
+     "legs": 3
+    },
+    {
+     "roof_pct": 455,
+     "final": 17095388,
+     "legs": 3
+    },
+    {
+     "roof_pct": 460,
+     "final": 17446979,
+     "legs": 3
+    },
+    {
+     "roof_pct": 465,
+     "final": 17759923,
+     "legs": 3
+    },
+    {
+     "roof_pct": 470,
+     "final": 18075649,
+     "legs": 3
+    },
+    {
+     "roof_pct": 475,
+     "final": 18394156,
+     "legs": 3
+    },
+    {
+     "roof_pct": 480,
+     "final": 18715445,
+     "legs": 3
+    },
+    {
+     "roof_pct": 485,
+     "final": 19039516,
+     "legs": 3
+    },
+    {
+     "roof_pct": 490,
+     "final": 19366369,
+     "legs": 3
+    },
+    {
+     "roof_pct": 495,
+     "final": 19696003,
+     "legs": 3
+    },
+    {
+     "roof_pct": 500,
+     "final": 20028420,
+     "legs": 3
+    },
+    {
+     "roof_pct": 505,
+     "final": 20363617,
+     "legs": 3
+    },
+    {
+     "roof_pct": 510,
+     "final": 20701597,
+     "legs": 3
+    },
+    {
+     "roof_pct": 515,
+     "final": 21042358,
+     "legs": 3
+    },
+    {
+     "roof_pct": 520,
+     "final": 21385901,
+     "legs": 3
+    },
+    {
+     "roof_pct": 525,
+     "final": 21732226,
+     "legs": 3
+    },
+    {
+     "roof_pct": 530,
+     "final": 22081333,
+     "legs": 3
+    },
+    {
+     "roof_pct": 535,
+     "final": 22433221,
+     "legs": 3
+    },
+    {
+     "roof_pct": 540,
+     "final": 22787891,
+     "legs": 3
+    },
+    {
+     "roof_pct": 545,
+     "final": 23145342,
+     "legs": 3
+    },
+    {
+     "roof_pct": 550,
+     "final": 23505576,
+     "legs": 3
+    },
+    {
+     "roof_pct": 555,
+     "final": 23868591,
+     "legs": 3
+    },
+    {
+     "roof_pct": 560,
+     "final": 24234388,
+     "legs": 3
+    },
+    {
+     "roof_pct": 565,
+     "final": 24602966,
+     "legs": 3
+    },
+    {
+     "roof_pct": 570,
+     "final": 24974327,
+     "legs": 3
+    },
+    {
+     "roof_pct": 575,
+     "final": 25348469,
+     "legs": 3
+    },
+    {
+     "roof_pct": 580,
+     "final": 25725392,
+     "legs": 3
+    },
+    {
+     "roof_pct": 585,
+     "final": 26105098,
+     "legs": 3
+    },
+    {
+     "roof_pct": 590,
+     "final": 26487585,
+     "legs": 3
+    },
+    {
+     "roof_pct": 595,
+     "final": 26872854,
+     "legs": 3
+    },
+    {
+     "roof_pct": 600,
+     "final": 27260904,
+     "legs": 3
+    },
+    {
+     "roof_pct": 605,
+     "final": 27651737,
+     "legs": 3
+    },
+    {
+     "roof_pct": 610,
+     "final": 28045351,
+     "legs": 3
+    },
+    {
+     "roof_pct": 615,
+     "final": 28441747,
+     "legs": 3
+    },
+    {
+     "roof_pct": 620,
+     "final": 28840924,
+     "legs": 3
+    },
+    {
+     "roof_pct": 625,
+     "final": 29242883,
+     "legs": 3
+    },
+    {
+     "roof_pct": 630,
+     "final": 29647624,
+     "legs": 3
+    },
+    {
+     "roof_pct": 635,
+     "final": 30055147,
+     "legs": 3
+    },
+    {
+     "roof_pct": 640,
+     "final": 30465452,
+     "legs": 3
+    },
+    {
+     "roof_pct": 645,
+     "final": 30878538,
+     "legs": 3
+    },
+    {
+     "roof_pct": 650,
+     "final": 31294406,
+     "legs": 3
+    },
+    {
+     "roof_pct": 655,
+     "final": 31713055,
+     "legs": 3
+    },
+    {
+     "roof_pct": 660,
+     "final": 32134487,
+     "legs": 3
+    },
+    {
+     "roof_pct": 665,
+     "final": 32558700,
+     "legs": 3
+    },
+    {
+     "roof_pct": 670,
+     "final": 32985694,
+     "legs": 3
+    },
+    {
+     "roof_pct": 675,
+     "final": 33415471,
+     "legs": 3
+    },
+    {
+     "roof_pct": 680,
+     "final": 33848029,
+     "legs": 3
+    },
+    {
+     "roof_pct": 685,
+     "final": 34283369,
+     "legs": 3
+    },
+    {
+     "roof_pct": 690,
+     "final": 34721491,
+     "legs": 3
+    },
+    {
+     "roof_pct": 695,
+     "final": 35162394,
+     "legs": 3
+    },
+    {
+     "roof_pct": 700,
+     "final": 800000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 705,
+     "final": 805000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 710,
+     "final": 810000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 715,
+     "final": 815000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 720,
+     "final": 820000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 725,
+     "final": 825000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 730,
+     "final": 830000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 735,
+     "final": 835000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 740,
+     "final": 840000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 745,
+     "final": 845000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 750,
+     "final": 850000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 755,
+     "final": 855000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 760,
+     "final": 860000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 765,
+     "final": 865000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 770,
+     "final": 870000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 775,
+     "final": 875000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 780,
+     "final": 880000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 785,
+     "final": 885000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 790,
+     "final": 890000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 795,
+     "final": 895000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 800,
+     "final": 900000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 805,
+     "final": 905000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 810,
+     "final": 910000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 815,
+     "final": 915000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 820,
+     "final": 920000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 825,
+     "final": 925000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 830,
+     "final": 930000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 835,
+     "final": 935000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 840,
+     "final": 940000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 845,
+     "final": 945000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 850,
+     "final": 950000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 855,
+     "final": 955000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 860,
+     "final": 960000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 865,
+     "final": 965000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 870,
+     "final": 970000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 875,
+     "final": 975000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 880,
+     "final": 980000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 885,
+     "final": 985000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 890,
+     "final": 990000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 895,
+     "final": 995000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 900,
+     "final": 1000000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 905,
+     "final": 1005000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 910,
+     "final": 1010000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 915,
+     "final": 1015000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 920,
+     "final": 1020000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 925,
+     "final": 1025000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 930,
+     "final": 1030000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 935,
+     "final": 1035000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 940,
+     "final": 1040000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 945,
+     "final": 1045000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 950,
+     "final": 1050000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 955,
+     "final": 1055000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 960,
+     "final": 1060000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 965,
+     "final": 1065000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 970,
+     "final": 1070000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 975,
+     "final": 1075000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 980,
+     "final": 1080000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 985,
+     "final": 1085000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 990,
+     "final": 1090000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 995,
+     "final": 1095000,
+     "legs": 1
+    },
+    {
+     "roof_pct": 1000,
+     "final": 1100000,
+     "legs": 1
+    }
+   ],
+   "best_roof_only": {
+    "roof_pct": 695,
+    "final": 35162394,
+    "legs": [
+     {
+      "trough": "2001-03-22",
+      "entry": "2001-05-16",
+      "exit": "2007-12-10",
+      "days": 2399,
+      "reason": "roof",
+      "mult": 7.95,
+      "min_mult": 0.4138,
+      "pot_after": 795000
+     },
+     {
+      "trough": "2009-03-05",
+      "entry": "2009-03-13",
+      "exit": "2011-04-27",
+      "days": 775,
+      "reason": "roof",
+      "mult": 7.95,
+      "min_mult": 1.0317,
+      "pot_after": 6320250
+     },
+     {
+      "trough": "2011-08-10",
+      "entry": "2011-08-15",
+      "exit": "2013-12-31",
+      "days": 869,
+      "reason": "end",
+      "mult": 5.5634,
+      "min_mult": 0.8634,
+      "pot_after": 35162394
+     }
+    ]
+   },
+   "best_with_timelimit": {
+    "roof_pct": 675,
+    "max_days": null,
+    "final": 33415471,
+    "legs": [
+     {
+      "trough": "2001-03-22",
+      "entry": "2001-05-16",
+      "exit": "2007-12-07",
+      "days": 2396,
+      "reason": "roof",
+      "mult": 7.75,
+      "min_mult": 0.4138,
+      "pot_after": 775000
+     },
+     {
+      "trough": "2009-03-05",
+      "entry": "2009-03-13",
+      "exit": "2011-04-15",
+      "days": 763,
+      "reason": "roof",
+      "mult": 7.75,
+      "min_mult": 1.0317,
+      "pot_after": 6006250
+     },
+     {
+      "trough": "2011-08-10",
+      "entry": "2011-08-15",
+      "exit": "2013-12-31",
+      "days": 869,
+      "reason": "end",
+      "mult": 5.5634,
+      "min_mult": 0.8634,
+      "pot_after": 33415471
+     }
+    ]
+   }
+  }
+ },
+ "growth": {
+  "off10": {
+   "sweep": [
+    {
+     "roof_pct": 25,
+     "final": 1164153,
+     "legs": 11
+    },
+    {
+     "roof_pct": 30,
+     "final": 1792160,
+     "legs": 11
+    },
+    {
+     "roof_pct": 35,
+     "final": 2714385,
+     "legs": 11
+    },
+    {
+     "roof_pct": 40,
+     "final": 2892547,
+     "legs": 10
+    },
+    {
+     "roof_pct": 45,
+     "final": 4108469,
+     "legs": 10
+    },
+    {
+     "roof_pct": 50,
+     "final": 5766504,
+     "legs": 10
+    },
+    {
+     "roof_pct": 55,
+     "final": 5163989,
+     "legs": 9
+    },
+    {
+     "roof_pct": 60,
+     "final": 4294967,
+     "legs": 8
+    },
+    {
+     "roof_pct": 65,
+     "final": 2017919,
+     "legs": 6
+    },
+    {
+     "roof_pct": 70,
+     "final": 6975757,
+     "legs": 8
+    },
+    {
+     "roof_pct": 75,
+     "final": 8796388,
+     "legs": 8
+    },
+    {
+     "roof_pct": 80,
+     "final": 11019961,
+     "legs": 8
+    },
+    {
+     "roof_pct": 85,
+     "final": 4008948,
+     "legs": 6
+    },
+    {
+     "roof_pct": 90,
+     "final": 8938717,
+     "legs": 7
+    },
+    {
+     "roof_pct": 95,
+     "final": 10721172,
+     "legs": 7
+    },
+    {
+     "roof_pct": 100,
+     "final": 12800000,
+     "legs": 7
+    },
+    {
+     "roof_pct": 105,
+     "final": 15215178,
+     "legs": 7
+    },
+    {
+     "roof_pct": 110,
+     "final": 18010885,
+     "legs": 7
+    },
+    {
+     "roof_pct": 115,
+     "final": 9877130,
+     "legs": 6
+    },
+    {
+     "roof_pct": 120,
+     "final": 11337990,
+     "legs": 6
+    },
+    {
+     "roof_pct": 125,
+     "final": 12974634,
+     "legs": 6
+    },
+    {
+     "roof_pct": 130,
+     "final": 14803589,
+     "legs": 6
+    },
+    {
+     "roof_pct": 135,
+     "final": 16842524,
+     "legs": 6
+    },
+    {
+     "roof_pct": 140,
+     "final": 7962624,
+     "legs": 5
+    },
+    {
+     "roof_pct": 145,
+     "final": 8827352,
+     "legs": 5
+    },
+    {
+     "roof_pct": 150,
+     "final": 9765625,
+     "legs": 5
+    },
+    {
+     "roof_pct": 155,
+     "final": 10782039,
+     "legs": 5
+    },
+    {
+     "roof_pct": 160,
+     "final": 4569760,
+     "legs": 4
+    },
+    {
+     "roof_pct": 165,
+     "final": 13068609,
+     "legs": 5
+    },
+    {
+     "roof_pct": 170,
+     "final": 14348907,
+     "legs": 5
+    },
+    {
+     "roof_pct": 175,
+     "final": 5719141,
+     "legs": 4
+    },
+    {
+     "roof_pct": 180,
+     "final": 6146560,
+     "legs": 4
+    },
+    {
+     "roof_pct": 185,
+     "final": 6597501,
+     "legs": 4
+    },
+    {
+     "roof_pct": 190,
+     "final": 7072810,
+     "legs": 4
+    },
+    {
+     "roof_pct": 195,
+     "final": 7573351,
+     "legs": 4
+    },
+    {
+     "roof_pct": 200,
+     "final": 8100000,
+     "legs": 4
+    },
+    {
+     "roof_pct": 205,
+     "final": 8653651,
+     "legs": 4
+    },
+    {
+     "roof_pct": 210,
+     "final": 9235210,
+     "legs": 4
+    },
+    {
+     "roof_pct": 215,
+     "final": 9845601,
+     "legs": 4
+    },
+    {
+     "roof_pct": 220,
+     "final": 10485760,
+     "legs": 4
+    },
+    {
+     "roof_pct": 225,
+     "final": 11156641,
+     "legs": 4
+    },
+    {
+     "roof_pct": 230,
+     "final": 11859210,
+     "legs": 4
+    },
+    {
+     "roof_pct": 235,
+     "final": 12594451,
+     "legs": 4
+    },
+    {
+     "roof_pct": 240,
+     "final": 13363360,
+     "legs": 4
+    },
+    {
+     "roof_pct": 245,
+     "final": 14166951,
+     "legs": 4
+    },
+    {
+     "roof_pct": 250,
+     "final": 14317176,
+     "legs": 4
+    },
+    {
+     "roof_pct": 255,
+     "final": 14939577,
+     "legs": 4
+    },
+    {
+     "roof_pct": 260,
+     "final": 15579759,
+     "legs": 4
+    },
+    {
+     "roof_pct": 265,
+     "final": 16237973,
+     "legs": 4
+    },
+    {
+     "roof_pct": 270,
+     "final": 16914470,
+     "legs": 4
+    },
+    {
+     "roof_pct": 275,
+     "final": 17609500,
+     "legs": 4
+    },
+    {
+     "roof_pct": 280,
+     "final": 18323314,
+     "legs": 4
+    },
+    {
+     "roof_pct": 285,
+     "final": 19056161,
+     "legs": 4
+    },
+    {
+     "roof_pct": 290,
+     "final": 19808293,
+     "legs": 4
+    },
+    {
+     "roof_pct": 295,
+     "final": 20579960,
+     "legs": 4
+    },
+    {
+     "roof_pct": 300,
+     "final": 21371411,
+     "legs": 4
+    },
+    {
+     "roof_pct": 305,
+     "final": 22182899,
+     "legs": 4
+    },
+    {
+     "roof_pct": 310,
+     "final": 23014673,
+     "legs": 4
+    },
+    {
+     "roof_pct": 315,
+     "final": 23866983,
+     "legs": 4
+    },
+    {
+     "roof_pct": 320,
+     "final": 24740080,
+     "legs": 4
+    },
+    {
+     "roof_pct": 325,
+     "final": 25634215,
+     "legs": 4
+    },
+    {
+     "roof_pct": 330,
+     "final": 26549638,
+     "legs": 4
+    },
+    {
+     "roof_pct": 335,
+     "final": 27486599,
+     "legs": 4
+    },
+    {
+     "roof_pct": 340,
+     "final": 28445349,
+     "legs": 4
+    },
+    {
+     "roof_pct": 345,
+     "final": 29426138,
+     "legs": 4
+    },
+    {
+     "roof_pct": 350,
+     "final": 30429217,
+     "legs": 4
+    },
+    {
+     "roof_pct": 355,
+     "final": 31454836,
+     "legs": 4
+    },
+    {
+     "roof_pct": 360,
+     "final": 32503245,
+     "legs": 4
+    },
+    {
+     "roof_pct": 365,
+     "final": 33574696,
+     "legs": 4
+    },
+    {
+     "roof_pct": 370,
+     "final": 34669438,
+     "legs": 4
+    },
+    {
+     "roof_pct": 375,
+     "final": 35787722,
+     "legs": 4
+    },
+    {
+     "roof_pct": 380,
+     "final": 36929799,
+     "legs": 4
+    },
+    {
+     "roof_pct": 385,
+     "final": 38095918,
+     "legs": 4
+    },
+    {
+     "roof_pct": 390,
+     "final": 8017619,
+     "legs": 3
+    },
+    {
+     "roof_pct": 395,
+     "final": 8182078,
+     "legs": 3
+    },
+    {
+     "roof_pct": 400,
+     "final": 8348208,
+     "legs": 3
+    },
+    {
+     "roof_pct": 405,
+     "final": 8516007,
+     "legs": 3
+    },
+    {
+     "roof_pct": 410,
+     "final": 8685475,
+     "legs": 3
+    },
+    {
+     "roof_pct": 415,
+     "final": 8856613,
+     "legs": 3
+    },
+    {
+     "roof_pct": 420,
+     "final": 9029421,
+     "legs": 3
+    },
+    {
+     "roof_pct": 425,
+     "final": 9203899,
+     "legs": 3
+    },
+    {
+     "roof_pct": 430,
+     "final": 9380046,
+     "legs": 3
+    },
+    {
+     "roof_pct": 435,
+     "final": 9557863,
+     "legs": 3
+    },
+    {
+     "roof_pct": 440,
+     "final": 9737349,
+     "legs": 3
+    },
+    {
+     "roof_pct": 445,
+     "final": 9918505,
+     "legs": 3
+    },
+    {
+     "roof_pct": 450,
+     "final": 10101331,
+     "legs": 3
+    },
+    {
+     "roof_pct": 455,
+     "final": 10285827,
+     "legs": 3
+    },
+    {
+     "roof_pct": 460,
+     "final": 10471992,
+     "legs": 3
+    },
+    {
+     "roof_pct": 465,
+     "final": 10659826,
+     "legs": 3
+    },
+    {
+     "roof_pct": 470,
+     "final": 10849331,
+     "legs": 3
+    },
+    {
+     "roof_pct": 475,
+     "final": 11040505,
+     "legs": 3
+    },
+    {
+     "roof_pct": 480,
+     "final": 11233348,
+     "legs": 3
+    },
+    {
+     "roof_pct": 485,
+     "final": 11427861,
+     "legs": 3
+    },
+    {
+     "roof_pct": 490,
+     "final": 11624044,
+     "legs": 3
+    },
+    {
+     "roof_pct": 495,
+     "final": 11821897,
+     "legs": 3
+    },
+    {
+     "roof_pct": 500,
+     "final": 12021419,
+     "legs": 3
+    },
+    {
+     "roof_pct": 505,
+     "final": 12222611,
+     "legs": 3
+    },
+    {
+     "roof_pct": 510,
+     "final": 12425472,
+     "legs": 3
+    },
+    {
+     "roof_pct": 515,
+     "final": 12630003,
+     "legs": 3
+    },
+    {
+     "roof_pct": 520,
+     "final": 12836204,
+     "legs": 3
+    },
+    {
+     "roof_pct": 525,
+     "final": 13044074,
+     "legs": 3
+    },
+    {
+     "roof_pct": 530,
+     "final": 13253614,
+     "legs": 3
+    },
+    {
+     "roof_pct": 535,
+     "final": 13464824,
+     "legs": 3
+    },
+    {
+     "roof_pct": 540,
+     "final": 13677703,
+     "legs": 3
+    },
+    {
+     "roof_pct": 545,
+     "final": 13892252,
+     "legs": 3
+    },
+    {
+     "roof_pct": 550,
+     "final": 14108471,
+     "legs": 3
+    },
+    {
+     "roof_pct": 555,
+     "final": 14326359,
+     "legs": 3
+    },
+    {
+     "roof_pct": 560,
+     "final": 14545917,
+     "legs": 3
+    },
+    {
+     "roof_pct": 565,
+     "final": 14767144,
+     "legs": 3
+    },
+    {
+     "roof_pct": 570,
+     "final": 14990042,
+     "legs": 3
+    },
+    {
+     "roof_pct": 575,
+     "final": 15214608,
+     "legs": 3
+    },
+    {
+     "roof_pct": 580,
+     "final": 15440845,
+     "legs": 3
+    },
+    {
+     "roof_pct": 585,
+     "final": 15668751,
+     "legs": 3
+    },
+    {
+     "roof_pct": 590,
+     "final": 15898327,
+     "legs": 3
+    },
+    {
+     "roof_pct": 595,
+     "final": 16129572,
+     "legs": 3
+    },
+    {
+     "roof_pct": 600,
+     "final": 16362487,
+     "legs": 3
+    },
+    {
+     "roof_pct": 605,
+     "final": 4970250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 610,
+     "final": 5041000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 615,
+     "final": 5112250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 620,
+     "final": 5184000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 625,
+     "final": 5256250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 630,
+     "final": 5329000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 635,
+     "final": 5402250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 640,
+     "final": 5476000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 645,
+     "final": 5550250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 650,
+     "final": 5625000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 655,
+     "final": 5700250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 660,
+     "final": 5776000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 665,
+     "final": 5852250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 670,
+     "final": 5929000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 675,
+     "final": 6006250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 680,
+     "final": 6084000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 685,
+     "final": 6162250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 690,
+     "final": 6241000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 695,
+     "final": 6320250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 700,
+     "final": 6400000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 705,
+     "final": 6480250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 710,
+     "final": 6561000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 715,
+     "final": 6642250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 720,
+     "final": 6724000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 725,
+     "final": 6806250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 730,
+     "final": 6889000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 735,
+     "final": 6972250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 740,
+     "final": 7056000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 745,
+     "final": 7140250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 750,
+     "final": 7225000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 755,
+     "final": 7310250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 760,
+     "final": 7396000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 765,
+     "final": 7482250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 770,
+     "final": 7569000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 775,
+     "final": 7656250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 780,
+     "final": 7744000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 785,
+     "final": 7832250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 790,
+     "final": 7921000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 795,
+     "final": 8010250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 800,
+     "final": 8100000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 805,
+     "final": 8190250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 810,
+     "final": 8281000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 815,
+     "final": 8372250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 820,
+     "final": 8464000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 825,
+     "final": 8556250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 830,
+     "final": 8649000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 835,
+     "final": 8742250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 840,
+     "final": 8836000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 845,
+     "final": 8930250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 850,
+     "final": 9025000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 855,
+     "final": 9120250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 860,
+     "final": 9216000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 865,
+     "final": 9312250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 870,
+     "final": 9409000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 875,
+     "final": 9506250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 880,
+     "final": 9604000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 885,
+     "final": 9702250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 890,
+     "final": 9801000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 895,
+     "final": 9900250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 900,
+     "final": 10000000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 905,
+     "final": 10100250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 910,
+     "final": 10201000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 915,
+     "final": 10302250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 920,
+     "final": 10404000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 925,
+     "final": 10506250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 930,
+     "final": 10609000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 935,
+     "final": 10712250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 940,
+     "final": 10816000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 945,
+     "final": 10920250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 950,
+     "final": 11025000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 955,
+     "final": 11130250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 960,
+     "final": 11236000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 965,
+     "final": 11342250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 970,
+     "final": 11449000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 975,
+     "final": 11556250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 980,
+     "final": 11664000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 985,
+     "final": 11772250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 990,
+     "final": 11881000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 995,
+     "final": 11990250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 1000,
+     "final": 12100000,
+     "legs": 2
+    }
+   ],
+   "best_roof_only": {
+    "roof_pct": 385,
+    "final": 38095918,
+    "legs": [
+     {
+      "trough": "2000-03-07",
+      "entry": "2000-03-16",
+      "exit": "2002-05-08",
+      "days": 783,
+      "reason": "roof",
+      "mult": 4.85,
+      "min_mult": 0.9045,
+      "pot_after": 485000
+     },
+     {
+      "trough": "2002-07-23",
+      "entry": "2002-07-29",
+      "exit": "2006-10-12",
+      "days": 1536,
+      "reason": "roof",
+      "mult": 4.85,
+      "min_mult": 0.4944,
+      "pot_after": 2352250
+     },
+     {
+      "trough": "2008-03-10",
+      "entry": "2008-04-01",
+      "exit": "2012-03-22",
+      "days": 1451,
+      "reason": "roof",
+      "mult": 4.85,
+      "min_mult": 0.0664,
+      "pot_after": 11408412
+     },
+     {
+      "trough": "2012-11-14",
+      "entry": "2013-02-07",
+      "exit": "2013-12-31",
+      "days": 327,
+      "reason": "end",
+      "mult": 3.3393,
+      "min_mult": 0.9749,
+      "pot_after": 38095918
+     }
+    ]
+   },
+   "best_with_timelimit": {
+    "roof_pct": 325,
+    "max_days": 1095,
+    "final": 77391423,
+    "legs": [
+     {
+      "trough": "2000-03-07",
+      "entry": "2000-03-16",
+      "exit": "2002-03-15",
+      "days": 729,
+      "reason": "roof",
+      "mult": 4.25,
+      "min_mult": 0.9045,
+      "pot_after": 425000
+     },
+     {
+      "trough": "2002-07-23",
+      "entry": "2002-07-29",
+      "exit": "2005-03-04",
+      "days": 949,
+      "reason": "roof",
+      "mult": 4.25,
+      "min_mult": 0.4944,
+      "pot_after": 1806250
+     },
+     {
+      "trough": "2005-04-20",
+      "entry": "2005-06-14",
+      "exit": "2008-06-13",
+      "days": 1095,
+      "reason": "time",
+      "mult": 0.7104,
+      "min_mult": 0.4753,
+      "pot_after": 1283104
+     },
+     {
+      "trough": "2008-11-20",
+      "entry": "2008-11-24",
+      "exit": "2010-03-04",
+      "days": 465,
+      "reason": "roof",
+      "mult": 4.25,
+      "min_mult": 0.6702,
+      "pot_after": 5453191
+     },
+     {
+      "trough": "2010-08-31",
+      "entry": "2010-09-24",
+      "exit": "2012-01-05",
+      "days": 468,
+      "reason": "roof",
+      "mult": 4.25,
+      "min_mult": 1.0243,
+      "pot_after": 23176060
+     },
+     {
+      "trough": "2012-11-14",
+      "entry": "2013-02-07",
+      "exit": "2013-12-31",
+      "days": 327,
+      "reason": "end",
+      "mult": 3.3393,
+      "min_mult": 0.9749,
+      "pot_after": 77391423
+     }
+    ]
+   }
+  },
+  "off5": {
+   "sweep": [
+    {
+     "roof_pct": 25,
+     "final": 2842171,
+     "legs": 15
+    },
+    {
+     "roof_pct": 30,
+     "final": 5118589,
+     "legs": 15
+    },
+    {
+     "roof_pct": 35,
+     "final": 9015847,
+     "legs": 15
+    },
+    {
+     "roof_pct": 40,
+     "final": 7937148,
+     "legs": 13
+    },
+    {
+     "roof_pct": 45,
+     "final": 12525182,
+     "legs": 13
+    },
+    {
+     "roof_pct": 50,
+     "final": 8649756,
+     "legs": 11
+    },
+    {
+     "roof_pct": 55,
+     "final": 12406483,
+     "legs": 11
+    },
+    {
+     "roof_pct": 60,
+     "final": 17592186,
+     "legs": 11
+    },
+    {
+     "roof_pct": 65,
+     "final": 14956826,
+     "legs": 10
+    },
+    {
+     "roof_pct": 70,
+     "final": 20159939,
+     "legs": 10
+    },
+    {
+     "roof_pct": 75,
+     "final": 26938939,
+     "legs": 10
+    },
+    {
+     "roof_pct": 80,
+     "final": 35704672,
+     "legs": 10
+    },
+    {
+     "roof_pct": 85,
+     "final": 46958832,
+     "legs": 10
+    },
+    {
+     "roof_pct": 90,
+     "final": 32268770,
+     "legs": 9
+    },
+    {
+     "roof_pct": 95,
+     "final": 20906286,
+     "legs": 8
+    },
+    {
+     "roof_pct": 100,
+     "final": 25600000,
+     "legs": 8
+    },
+    {
+     "roof_pct": 105,
+     "final": 7422038,
+     "legs": 6
+    },
+    {
+     "roof_pct": 110,
+     "final": 37822859,
+     "legs": 8
+    },
+    {
+     "roof_pct": 115,
+     "final": 45657032,
+     "legs": 8
+    },
+    {
+     "roof_pct": 120,
+     "final": 54875874,
+     "legs": 8
+    },
+    {
+     "roof_pct": 125,
+     "final": 12974634,
+     "legs": 6
+    },
+    {
+     "roof_pct": 130,
+     "final": 34048254,
+     "legs": 7
+    },
+    {
+     "roof_pct": 135,
+     "final": 39579931,
+     "legs": 7
+    },
+    {
+     "roof_pct": 140,
+     "final": 45864714,
+     "legs": 7
+    },
+    {
+     "roof_pct": 145,
+     "final": 52986178,
+     "legs": 7
+    },
+    {
+     "roof_pct": 150,
+     "final": 61035156,
+     "legs": 7
+    },
+    {
+     "roof_pct": 155,
+     "final": 70110209,
+     "legs": 7
+    },
+    {
+     "roof_pct": 160,
+     "final": 30891578,
+     "legs": 6
+    },
+    {
+     "roof_pct": 165,
+     "final": 34631814,
+     "legs": 6
+    },
+    {
+     "roof_pct": 170,
+     "final": 38742049,
+     "legs": 6
+    },
+    {
+     "roof_pct": 175,
+     "final": 43251001,
+     "legs": 6
+    },
+    {
+     "roof_pct": 180,
+     "final": 48189030,
+     "legs": 6
+    },
+    {
+     "roof_pct": 185,
+     "final": 53588199,
+     "legs": 6
+    },
+    {
+     "roof_pct": 190,
+     "final": 20511149,
+     "legs": 5
+    },
+    {
+     "roof_pct": 195,
+     "final": 22341384,
+     "legs": 5
+    },
+    {
+     "roof_pct": 200,
+     "final": 24300000,
+     "legs": 5
+    },
+    {
+     "roof_pct": 205,
+     "final": 26393634,
+     "legs": 5
+    },
+    {
+     "roof_pct": 210,
+     "final": 28629151,
+     "legs": 5
+    },
+    {
+     "roof_pct": 215,
+     "final": 9845601,
+     "legs": 4
+    },
+    {
+     "roof_pct": 220,
+     "final": 10485760,
+     "legs": 4
+    },
+    {
+     "roof_pct": 225,
+     "final": 36259082,
+     "legs": 5
+    },
+    {
+     "roof_pct": 230,
+     "final": 39135393,
+     "legs": 5
+    },
+    {
+     "roof_pct": 235,
+     "final": 42191410,
+     "legs": 5
+    },
+    {
+     "roof_pct": 240,
+     "final": 45435424,
+     "legs": 5
+    },
+    {
+     "roof_pct": 245,
+     "final": 14166951,
+     "legs": 4
+    },
+    {
+     "roof_pct": 250,
+     "final": 15006250,
+     "legs": 4
+    },
+    {
+     "roof_pct": 255,
+     "final": 15882301,
+     "legs": 4
+    },
+    {
+     "roof_pct": 260,
+     "final": 16796160,
+     "legs": 4
+    },
+    {
+     "roof_pct": 265,
+     "final": 17748901,
+     "legs": 4
+    },
+    {
+     "roof_pct": 270,
+     "final": 18741610,
+     "legs": 4
+    },
+    {
+     "roof_pct": 275,
+     "final": 19775391,
+     "legs": 4
+    },
+    {
+     "roof_pct": 280,
+     "final": 20851360,
+     "legs": 4
+    },
+    {
+     "roof_pct": 285,
+     "final": 21970651,
+     "legs": 4
+    },
+    {
+     "roof_pct": 290,
+     "final": 23134410,
+     "legs": 4
+    },
+    {
+     "roof_pct": 295,
+     "final": 24343801,
+     "legs": 4
+    },
+    {
+     "roof_pct": 300,
+     "final": 25600000,
+     "legs": 4
+    },
+    {
+     "roof_pct": 305,
+     "final": 26904201,
+     "legs": 4
+    },
+    {
+     "roof_pct": 310,
+     "final": 28257610,
+     "legs": 4
+    },
+    {
+     "roof_pct": 315,
+     "final": 29661451,
+     "legs": 4
+    },
+    {
+     "roof_pct": 320,
+     "final": 31116960,
+     "legs": 4
+    },
+    {
+     "roof_pct": 325,
+     "final": 31452625,
+     "legs": 4
+    },
+    {
+     "roof_pct": 330,
+     "final": 32575828,
+     "legs": 4
+    },
+    {
+     "roof_pct": 335,
+     "final": 33725459,
+     "legs": 4
+    },
+    {
+     "roof_pct": 340,
+     "final": 34901825,
+     "legs": 4
+    },
+    {
+     "roof_pct": 345,
+     "final": 36105232,
+     "legs": 4
+    },
+    {
+     "roof_pct": 350,
+     "final": 37335987,
+     "legs": 4
+    },
+    {
+     "roof_pct": 355,
+     "final": 38594400,
+     "legs": 4
+    },
+    {
+     "roof_pct": 360,
+     "final": 39880776,
+     "legs": 4
+    },
+    {
+     "roof_pct": 365,
+     "final": 41195422,
+     "legs": 4
+    },
+    {
+     "roof_pct": 370,
+     "final": 42538647,
+     "legs": 4
+    },
+    {
+     "roof_pct": 375,
+     "final": 43910758,
+     "legs": 4
+    },
+    {
+     "roof_pct": 380,
+     "final": 45312061,
+     "legs": 4
+    },
+    {
+     "roof_pct": 385,
+     "final": 46742864,
+     "legs": 4
+    },
+    {
+     "roof_pct": 390,
+     "final": 48203474,
+     "legs": 4
+    },
+    {
+     "roof_pct": 395,
+     "final": 49694199,
+     "legs": 4
+    },
+    {
+     "roof_pct": 400,
+     "final": 51215346,
+     "legs": 4
+    },
+    {
+     "roof_pct": 405,
+     "final": 52767223,
+     "legs": 4
+    },
+    {
+     "roof_pct": 410,
+     "final": 54350135,
+     "legs": 4
+    },
+    {
+     "roof_pct": 415,
+     "final": 55964392,
+     "legs": 4
+    },
+    {
+     "roof_pct": 420,
+     "final": 57610299,
+     "legs": 4
+    },
+    {
+     "roof_pct": 425,
+     "final": 59288165,
+     "legs": 4
+    },
+    {
+     "roof_pct": 430,
+     "final": 60998297,
+     "legs": 4
+    },
+    {
+     "roof_pct": 435,
+     "final": 62741002,
+     "legs": 4
+    },
+    {
+     "roof_pct": 440,
+     "final": 64516586,
+     "legs": 4
+    },
+    {
+     "roof_pct": 445,
+     "final": 66325359,
+     "legs": 4
+    },
+    {
+     "roof_pct": 450,
+     "final": 68167626,
+     "legs": 4
+    },
+    {
+     "roof_pct": 455,
+     "final": 70043695,
+     "legs": 4
+    },
+    {
+     "roof_pct": 460,
+     "final": 71953874,
+     "legs": 4
+    },
+    {
+     "roof_pct": 465,
+     "final": 73898470,
+     "legs": 4
+    },
+    {
+     "roof_pct": 470,
+     "final": 75877789,
+     "legs": 4
+    },
+    {
+     "roof_pct": 475,
+     "final": 77892140,
+     "legs": 4
+    },
+    {
+     "roof_pct": 480,
+     "final": 79941829,
+     "legs": 4
+    },
+    {
+     "roof_pct": 485,
+     "final": 82027165,
+     "legs": 4
+    },
+    {
+     "roof_pct": 490,
+     "final": 84148453,
+     "legs": 4
+    },
+    {
+     "roof_pct": 495,
+     "final": 86306002,
+     "legs": 4
+    },
+    {
+     "roof_pct": 500,
+     "final": 14750020,
+     "legs": 3
+    },
+    {
+     "roof_pct": 505,
+     "final": 14996878,
+     "legs": 3
+    },
+    {
+     "roof_pct": 510,
+     "final": 15245784,
+     "legs": 3
+    },
+    {
+     "roof_pct": 515,
+     "final": 15496739,
+     "legs": 3
+    },
+    {
+     "roof_pct": 520,
+     "final": 15749743,
+     "legs": 3
+    },
+    {
+     "roof_pct": 525,
+     "final": 16004796,
+     "legs": 3
+    },
+    {
+     "roof_pct": 530,
+     "final": 16261897,
+     "legs": 3
+    },
+    {
+     "roof_pct": 535,
+     "final": 16521046,
+     "legs": 3
+    },
+    {
+     "roof_pct": 540,
+     "final": 16782245,
+     "legs": 3
+    },
+    {
+     "roof_pct": 545,
+     "final": 17045492,
+     "legs": 3
+    },
+    {
+     "roof_pct": 550,
+     "final": 17310787,
+     "legs": 3
+    },
+    {
+     "roof_pct": 555,
+     "final": 17578131,
+     "legs": 3
+    },
+    {
+     "roof_pct": 560,
+     "final": 17847524,
+     "legs": 3
+    },
+    {
+     "roof_pct": 565,
+     "final": 18118965,
+     "legs": 3
+    },
+    {
+     "roof_pct": 570,
+     "final": 18392455,
+     "legs": 3
+    },
+    {
+     "roof_pct": 575,
+     "final": 18667994,
+     "legs": 3
+    },
+    {
+     "roof_pct": 580,
+     "final": 18945581,
+     "legs": 3
+    },
+    {
+     "roof_pct": 585,
+     "final": 19225217,
+     "legs": 3
+    },
+    {
+     "roof_pct": 590,
+     "final": 19506901,
+     "legs": 3
+    },
+    {
+     "roof_pct": 595,
+     "final": 19790634,
+     "legs": 3
+    },
+    {
+     "roof_pct": 600,
+     "final": 20076416,
+     "legs": 3
+    },
+    {
+     "roof_pct": 605,
+     "final": 20364246,
+     "legs": 3
+    },
+    {
+     "roof_pct": 610,
+     "final": 20654125,
+     "legs": 3
+    },
+    {
+     "roof_pct": 615,
+     "final": 20946052,
+     "legs": 3
+    },
+    {
+     "roof_pct": 620,
+     "final": 21240028,
+     "legs": 3
+    },
+    {
+     "roof_pct": 625,
+     "final": 21536053,
+     "legs": 3
+    },
+    {
+     "roof_pct": 630,
+     "final": 21834126,
+     "legs": 3
+    },
+    {
+     "roof_pct": 635,
+     "final": 22134248,
+     "legs": 3
+    },
+    {
+     "roof_pct": 640,
+     "final": 22436419,
+     "legs": 3
+    },
+    {
+     "roof_pct": 645,
+     "final": 22740638,
+     "legs": 3
+    },
+    {
+     "roof_pct": 650,
+     "final": 23046906,
+     "legs": 3
+    },
+    {
+     "roof_pct": 655,
+     "final": 23355222,
+     "legs": 3
+    },
+    {
+     "roof_pct": 660,
+     "final": 23665587,
+     "legs": 3
+    },
+    {
+     "roof_pct": 665,
+     "final": 23978001,
+     "legs": 3
+    },
+    {
+     "roof_pct": 670,
+     "final": 24292463,
+     "legs": 3
+    },
+    {
+     "roof_pct": 675,
+     "final": 24608974,
+     "legs": 3
+    },
+    {
+     "roof_pct": 680,
+     "final": 24927533,
+     "legs": 3
+    },
+    {
+     "roof_pct": 685,
+     "final": 25248141,
+     "legs": 3
+    },
+    {
+     "roof_pct": 690,
+     "final": 25570798,
+     "legs": 3
+    },
+    {
+     "roof_pct": 695,
+     "final": 25895503,
+     "legs": 3
+    },
+    {
+     "roof_pct": 700,
+     "final": 26222257,
+     "legs": 3
+    },
+    {
+     "roof_pct": 705,
+     "final": 26551060,
+     "legs": 3
+    },
+    {
+     "roof_pct": 710,
+     "final": 26881911,
+     "legs": 3
+    },
+    {
+     "roof_pct": 715,
+     "final": 27214811,
+     "legs": 3
+    },
+    {
+     "roof_pct": 720,
+     "final": 27549759,
+     "legs": 3
+    },
+    {
+     "roof_pct": 725,
+     "final": 27886756,
+     "legs": 3
+    },
+    {
+     "roof_pct": 730,
+     "final": 28225802,
+     "legs": 3
+    },
+    {
+     "roof_pct": 735,
+     "final": 28566896,
+     "legs": 3
+    },
+    {
+     "roof_pct": 740,
+     "final": 28910039,
+     "legs": 3
+    },
+    {
+     "roof_pct": 745,
+     "final": 29255230,
+     "legs": 3
+    },
+    {
+     "roof_pct": 750,
+     "final": 29602470,
+     "legs": 3
+    },
+    {
+     "roof_pct": 755,
+     "final": 29951759,
+     "legs": 3
+    },
+    {
+     "roof_pct": 760,
+     "final": 30303096,
+     "legs": 3
+    },
+    {
+     "roof_pct": 765,
+     "final": 7482250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 770,
+     "final": 7569000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 775,
+     "final": 7656250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 780,
+     "final": 7744000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 785,
+     "final": 7832250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 790,
+     "final": 7921000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 795,
+     "final": 8010250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 800,
+     "final": 8100000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 805,
+     "final": 8190250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 810,
+     "final": 8281000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 815,
+     "final": 8372250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 820,
+     "final": 8464000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 825,
+     "final": 8556250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 830,
+     "final": 8649000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 835,
+     "final": 8742250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 840,
+     "final": 8836000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 845,
+     "final": 8930250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 850,
+     "final": 9025000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 855,
+     "final": 9120250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 860,
+     "final": 9216000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 865,
+     "final": 9312250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 870,
+     "final": 9409000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 875,
+     "final": 9506250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 880,
+     "final": 9604000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 885,
+     "final": 9702250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 890,
+     "final": 9801000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 895,
+     "final": 9900250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 900,
+     "final": 10000000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 905,
+     "final": 10100250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 910,
+     "final": 10201000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 915,
+     "final": 10302250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 920,
+     "final": 10404000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 925,
+     "final": 10506250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 930,
+     "final": 10609000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 935,
+     "final": 10712250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 940,
+     "final": 10816000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 945,
+     "final": 10920250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 950,
+     "final": 11025000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 955,
+     "final": 11130250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 960,
+     "final": 11236000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 965,
+     "final": 11342250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 970,
+     "final": 11449000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 975,
+     "final": 11556250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 980,
+     "final": 11664000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 985,
+     "final": 11772250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 990,
+     "final": 11881000,
+     "legs": 2
+    },
+    {
+     "roof_pct": 995,
+     "final": 11990250,
+     "legs": 2
+    },
+    {
+     "roof_pct": 1000,
+     "final": 12100000,
+     "legs": 2
+    }
+   ],
+   "best_roof_only": {
+    "roof_pct": 495,
+    "final": 86306002,
+    "legs": [
+     {
+      "trough": "2000-03-07",
+      "entry": "2000-03-15",
+      "exit": "2002-05-08",
+      "days": 784,
+      "reason": "roof",
+      "mult": 5.95,
+      "min_mult": 1.0854,
+      "pot_after": 595000
+     },
+     {
+      "trough": "2002-07-23",
+      "entry": "2002-07-24",
+      "exit": "2006-03-22",
+      "days": 1337,
+      "reason": "roof",
+      "mult": 5.95,
+      "min_mult": 0.6114,
+      "pot_after": 3540250
+     },
+     {
+      "trough": "2006-07-18",
+      "entry": "2006-09-01",
+      "exit": "2012-04-26",
+      "days": 2064,
+      "reason": "roof",
+      "mult": 5.95,
+      "min_mult": 0.0636,
+      "pot_after": 21064488
+     },
+     {
+      "trough": "2012-11-14",
+      "entry": "2012-11-28",
+      "exit": "2013-12-31",
+      "days": 398,
+      "reason": "end",
+      "mult": 4.0972,
+      "min_mult": 0.83,
+      "pot_after": 86306002
+     }
+    ]
+   },
+   "best_with_timelimit": {
+    "roof_pct": 425,
+    "max_days": 1095,
+    "final": 296913039,
+    "legs": [
+     {
+      "trough": "2000-03-07",
+      "entry": "2000-03-15",
+      "exit": "2002-03-15",
+      "days": 730,
+      "reason": "roof",
+      "mult": 5.25,
+      "min_mult": 1.0854,
+      "pot_after": 525000
+     },
+     {
+      "trough": "2002-07-23",
+      "entry": "2002-07-24",
+      "exit": "2005-03-04",
+      "days": 954,
+      "reason": "roof",
+      "mult": 5.25,
+      "min_mult": 0.6114,
+      "pot_after": 2756250
+     },
+     {
+      "trough": "2005-04-20",
+      "entry": "2005-05-17",
+      "exit": "2008-05-16",
+      "days": 1095,
+      "reason": "time",
+      "mult": 0.9539,
+      "min_mult": 0.5886,
+      "pot_after": 2629181
+     },
+     {
+      "trough": "2008-11-20",
+      "entry": "2008-11-24",
+      "exit": "2010-03-04",
+      "days": 465,
+      "reason": "roof",
+      "mult": 5.25,
+      "min_mult": 0.8259,
+      "pot_after": 13803203
+     },
+     {
+      "trough": "2010-08-31",
+      "entry": "2010-09-03",
+      "exit": "2011-12-27",
+      "days": 480,
+      "reason": "roof",
+      "mult": 5.25,
+      "min_mult": 0.9759,
+      "pot_after": 72466814
+     },
+     {
+      "trough": "2012-11-14",
+      "entry": "2012-11-28",
+      "exit": "2013-12-31",
+      "days": 398,
+      "reason": "end",
+      "mult": 4.0972,
+      "min_mult": 0.83,
+      "pot_after": 296913039
+     }
+    ]
+   }
+  }
+ }
+}
