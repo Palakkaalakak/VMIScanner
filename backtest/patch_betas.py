@@ -23,11 +23,17 @@ for year, vd in ((2020, "2020-01-02"), (2015, "2015-01-02")):
                             progress=False)["Close"]
             if isinstance(f, pd.Series):
                 f = f.to_frame(chunk[0])
-            if len(f) and f.notna().any().any():
+            # Yahoo intermittently returns truncated frames (e.g. 26
+            # weeks instead of ~260) — reject and retry those.
+            if len(f) >= 200 and f.notna().any().any():
                 frames.append(f)
                 break
-            print(f"[{year}] chunk {i} retry {attempt+1}", flush=True)
+            print(f"[{year}] chunk {i} short ({len(f)} rows) retry {attempt+1}",
+                  flush=True)
             time.sleep(10)
+        else:
+            if len(f):
+                frames.append(f)  # last resort: keep short frame
     px = pd.concat(frames, axis=1)
     px = px.loc[:, ~px.columns.duplicated()]
     mkt = px["^GSPC"].pct_change(fill_method=None).dropna()
