@@ -90,8 +90,9 @@ def build(year):
         met = g.get("metrics", {}) or {}
         rev5 = met.get("rev_cagr_5y")
         ni5 = met.get("ni_cagr_5y")
-        gs = [x for x in (rev5, ni5) if x is not None]
-        growth = float(np.median(gs)) if gs else None
+        # g = sales growth first (VMI check #1; durable, no base effects),
+        # NI growth only as fallback. No caps.
+        growth = rev5 if rev5 is not None else ni5
 
         # beta
         beta = None
@@ -123,14 +124,26 @@ def build(year):
             if ni_latest and ni_latest > 0 and sh_pit and yft in px.columns:
                 p0 = px[yft].dropna()
                 if len(p0):
-                    # yf auto_adjust price ~= actual price for recent vintages
-                    # (splits are back-adjusted; use raw Close for PE)
+                    # yfinance Close is SPLIT-adjusted even with
+                    # auto_adjust=False; SEC as-reported shares are
+                    # pre-split. Actual era price = close x product of
+                    # split ratios occurring AFTER the vintage date.
+                    fac = 1.0
+                    try:
+                        spl = yf.Ticker(yft).splits
+                        if spl is not None and len(spl):
+                            after = spl[spl.index.tz_localize(None) > pd.Timestamp(vd)]
+                            for ratio in after.values:
+                                if ratio and ratio > 0:
+                                    fac *= float(ratio)
+                    except Exception:
+                        pass
                     praw = yf.download(yft, start=vd, interval="1d",
                                        auto_adjust=False, progress=False,
                                        end=f"{year}-02-01")["Close"]
                     if len(praw):
                         price0 = float(praw.iloc[0].item() if hasattr(praw.iloc[0], "item") else praw.iloc[0])
-                        pe = price0 * sh_pit / ni_latest
+                        pe = price0 * fac * sh_pit / ni_latest
         except Exception as e:
             print(f"   {t}: inputs error {e}", flush=True)
 
