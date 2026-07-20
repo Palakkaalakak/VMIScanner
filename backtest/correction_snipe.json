@@ -1,0 +1,1240 @@
+{
+ "defensive": {
+  "roof_200": {
+   "trades": [
+    {
+     "correction_peak": "2000-12-29",
+     "trough": "2001-03-22",
+     "depth_pct": 10.5,
+     "entry": "2001-07-18",
+     "exit": "2001-11-01",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.027,
+     "profit_on_100k": 2671,
+     "min_mult_during": 0.762
+    },
+    {
+     "correction_peak": "2001-09-05",
+     "trough": "2001-09-21",
+     "depth_pct": 7.6,
+     "entry": "2002-01-31",
+     "exit": "2002-05-17",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.047,
+     "profit_on_100k": 4710,
+     "min_mult_during": 0.903
+    },
+    {
+     "correction_peak": "2002-05-02",
+     "trough": "2002-07-22",
+     "depth_pct": 20.9,
+     "entry": "2002-07-25",
+     "exit": "2002-11-08",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.067,
+     "profit_on_100k": 6699,
+     "min_mult_during": 0.886
+    },
+    {
+     "correction_peak": "2007-12-10",
+     "trough": "2009-03-05",
+     "depth_pct": 32.8,
+     "entry": "2009-03-26",
+     "exit": "2009-07-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.387,
+     "profit_on_100k": 38716,
+     "min_mult_during": 0.917
+    },
+    {
+     "correction_peak": "2011-07-22",
+     "trough": "2011-08-10",
+     "depth_pct": 9.8,
+     "entry": "2011-10-21",
+     "exit": "2012-02-06",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.079,
+     "profit_on_100k": 7925,
+     "min_mult_during": 0.75
+    }
+   ],
+   "summary": {
+    "n_trades": 5,
+    "wins": 5,
+    "losses": 0,
+    "roof_hits": 0,
+    "blowups": 0,
+    "total_profit_fresh_100k_each": 60721,
+    "avg_multiple": 1.121,
+    "worst_multiple": 1.027,
+    "compounded_100k_final": 171704
+   }
+  },
+  "roof_300": {
+   "trades": [
+    {
+     "correction_peak": "2000-12-29",
+     "trough": "2001-03-22",
+     "depth_pct": 10.5,
+     "entry": "2001-07-18",
+     "exit": "2001-11-01",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.027,
+     "profit_on_100k": 2671,
+     "min_mult_during": 0.762
+    },
+    {
+     "correction_peak": "2001-09-05",
+     "trough": "2001-09-21",
+     "depth_pct": 7.6,
+     "entry": "2002-01-31",
+     "exit": "2002-05-17",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.047,
+     "profit_on_100k": 4710,
+     "min_mult_during": 0.903
+    },
+    {
+     "correction_peak": "2002-05-02",
+     "trough": "2002-07-22",
+     "depth_pct": 20.9,
+     "entry": "2002-07-25",
+     "exit": "2002-11-08",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.067,
+     "profit_on_100k": 6699,
+     "min_mult_during": 0.886
+    },
+    {
+     "correction_peak": "2007-12-10",
+     "trough": "2009-03-05",
+     "depth_pct": 32.8,
+     "entry": "2009-03-26",
+     "exit": "2009-07-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.387,
+     "profit_on_100k": 38716,
+     "min_mult_during": 0.917
+    },
+    {
+     "correction_peak": "2011-07-22",
+     "trough": "2011-08-10",
+     "depth_pct": 9.8,
+     "entry": "2011-10-21",
+     "exit": "2012-02-06",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.079,
+     "profit_on_100k": 7925,
+     "min_mult_during": 0.75
+    }
+   ],
+   "summary": {
+    "n_trades": 5,
+    "wins": 5,
+    "losses": 0,
+    "roof_hits": 0,
+    "blowups": 0,
+    "total_profit_fresh_100k_each": 60721,
+    "avg_multiple": 1.121,
+    "worst_multiple": 1.027,
+    "compounded_100k_final": 171704
+   }
+  },
+  "roof_400": {
+   "trades": [
+    {
+     "correction_peak": "2000-12-29",
+     "trough": "2001-03-22",
+     "depth_pct": 10.5,
+     "entry": "2001-07-18",
+     "exit": "2001-11-01",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.027,
+     "profit_on_100k": 2671,
+     "min_mult_during": 0.762
+    },
+    {
+     "correction_peak": "2001-09-05",
+     "trough": "2001-09-21",
+     "depth_pct": 7.6,
+     "entry": "2002-01-31",
+     "exit": "2002-05-17",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.047,
+     "profit_on_100k": 4710,
+     "min_mult_during": 0.903
+    },
+    {
+     "correction_peak": "2002-05-02",
+     "trough": "2002-07-22",
+     "depth_pct": 20.9,
+     "entry": "2002-07-25",
+     "exit": "2002-11-08",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.067,
+     "profit_on_100k": 6699,
+     "min_mult_during": 0.886
+    },
+    {
+     "correction_peak": "2007-12-10",
+     "trough": "2009-03-05",
+     "depth_pct": 32.8,
+     "entry": "2009-03-26",
+     "exit": "2009-07-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.387,
+     "profit_on_100k": 38716,
+     "min_mult_during": 0.917
+    },
+    {
+     "correction_peak": "2011-07-22",
+     "trough": "2011-08-10",
+     "depth_pct": 9.8,
+     "entry": "2011-10-21",
+     "exit": "2012-02-06",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.079,
+     "profit_on_100k": 7925,
+     "min_mult_during": 0.75
+    }
+   ],
+   "summary": {
+    "n_trades": 5,
+    "wins": 5,
+    "losses": 0,
+    "roof_hits": 0,
+    "blowups": 0,
+    "total_profit_fresh_100k_each": 60721,
+    "avg_multiple": 1.121,
+    "worst_multiple": 1.027,
+    "compounded_100k_final": 171704
+   }
+  },
+  "sweep": [
+   {
+    "roof_pct": 25,
+    "total_profit": 72206,
+    "compounded": 191420,
+    "roof_hits": 2,
+    "n": 5
+   },
+   {
+    "roof_pct": 50,
+    "total_profit": 74089,
+    "compounded": 188292,
+    "roof_hits": 1,
+    "n": 5
+   },
+   {
+    "roof_pct": 75,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 100,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 125,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 150,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 175,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 200,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 225,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 250,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 275,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 300,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 325,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 350,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 375,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 400,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 450,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 500,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 550,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 600,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 650,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 700,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 750,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 800,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 850,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 900,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 950,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   },
+   {
+    "roof_pct": 1000,
+    "total_profit": 60721,
+    "compounded": 171704,
+    "roof_hits": 0,
+    "n": 5
+   }
+  ],
+  "ideal_roof_fresh": {
+   "roof_pct": 50,
+   "total_profit": 74089,
+   "compounded": 188292,
+   "roof_hits": 1,
+   "n": 5
+  },
+  "ideal_roof_compounded": {
+   "roof_pct": 25,
+   "total_profit": 72206,
+   "compounded": 191420,
+   "roof_hits": 2,
+   "n": 5
+  }
+ },
+ "growth": {
+  "roof_200": {
+   "trades": [
+    {
+     "correction_peak": "2000-01-10",
+     "trough": "2000-03-07",
+     "depth_pct": 9.8,
+     "entry": "2000-03-16",
+     "exit": "2000-06-30",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.887,
+     "profit_on_100k": -11343,
+     "min_mult_during": 0.761
+    },
+    {
+     "correction_peak": "2000-05-16",
+     "trough": "2000-06-23",
+     "depth_pct": 9.0,
+     "entry": "2000-10-30",
+     "exit": "2001-02-13",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.561,
+     "profit_on_100k": 56126,
+     "min_mult_during": 1.0
+    },
+    {
+     "correction_peak": "2001-02-01",
+     "trough": "2001-03-22",
+     "depth_pct": 10.7,
+     "entry": "2001-04-27",
+     "exit": "2001-08-13",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.314,
+     "profit_on_100k": 31436,
+     "min_mult_during": 0.913
+    },
+    {
+     "correction_peak": "2001-08-24",
+     "trough": "2001-09-21",
+     "depth_pct": 16.6,
+     "entry": "2001-09-28",
+     "exit": "2002-01-14",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.599,
+     "profit_on_100k": 59869,
+     "min_mult_during": 0.985
+    },
+    {
+     "correction_peak": "2002-05-23",
+     "trough": "2002-07-23",
+     "depth_pct": 21.9,
+     "entry": "2002-07-29",
+     "exit": "2002-11-12",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.864,
+     "profit_on_100k": -13578,
+     "min_mult_during": 0.572
+    },
+    {
+     "correction_peak": "2004-06-25",
+     "trough": "2004-08-06",
+     "depth_pct": 13.5,
+     "entry": "2004-10-27",
+     "exit": "2005-02-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.387,
+     "profit_on_100k": 38719,
+     "min_mult_during": 1.0
+    },
+    {
+     "correction_peak": "2005-03-07",
+     "trough": "2005-04-20",
+     "depth_pct": 9.2,
+     "entry": "2005-06-14",
+     "exit": "2005-09-28",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.64,
+     "profit_on_100k": -35994,
+     "min_mult_during": 0.627
+    },
+    {
+     "correction_peak": "2005-07-28",
+     "trough": "2005-10-27",
+     "depth_pct": 12.2,
+     "entry": "2005-12-02",
+     "exit": "2006-03-20",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.329,
+     "profit_on_100k": 32899,
+     "min_mult_during": 0.921
+    },
+    {
+     "correction_peak": "2006-04-06",
+     "trough": "2006-07-18",
+     "depth_pct": 10.7,
+     "entry": "2006-09-20",
+     "exit": "2007-01-04",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.329,
+     "profit_on_100k": 32916,
+     "min_mult_during": 0.936
+    },
+    {
+     "correction_peak": "2007-06-04",
+     "trough": "2008-03-10",
+     "depth_pct": 14.7,
+     "entry": "2008-04-01",
+     "exit": "2008-07-16",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.711,
+     "profit_on_100k": -28944,
+     "min_mult_during": 0.609
+    },
+    {
+     "correction_peak": "2008-09-03",
+     "trough": "2008-11-20",
+     "depth_pct": 34.9,
+     "entry": "2008-11-24",
+     "exit": "2009-03-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.825,
+     "profit_on_100k": -17513,
+     "min_mult_during": 0.65
+    },
+    {
+     "correction_peak": "2010-05-03",
+     "trough": "2010-08-31",
+     "depth_pct": 9.7,
+     "entry": "2010-09-24",
+     "exit": "2011-01-10",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.552,
+     "profit_on_100k": 55150,
+     "min_mult_during": 0.974
+    },
+    {
+     "correction_peak": "2011-07-07",
+     "trough": "2011-08-08",
+     "depth_pct": 14.1,
+     "entry": "2011-08-29",
+     "exit": "2011-12-13",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.5,
+     "profit_on_100k": 49953,
+     "min_mult_during": 0.842
+    },
+    {
+     "correction_peak": "2011-09-19",
+     "trough": "2011-10-03",
+     "depth_pct": 7.1,
+     "entry": "2011-10-21",
+     "exit": "2012-02-06",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.655,
+     "profit_on_100k": 65455,
+     "min_mult_during": 0.871
+    },
+    {
+     "correction_peak": "2012-05-02",
+     "trough": "2012-11-14",
+     "depth_pct": 9.0,
+     "entry": "2013-02-07",
+     "exit": "2013-05-24",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.608,
+     "profit_on_100k": 60845,
+     "min_mult_during": 0.923
+    }
+   ],
+   "summary": {
+    "n_trades": 15,
+    "wins": 10,
+    "losses": 5,
+    "roof_hits": 0,
+    "blowups": 0,
+    "total_profit_fresh_100k_each": 375996,
+    "avg_multiple": 1.251,
+    "worst_multiple": 0.64,
+    "compounded_100k_final": 1432125
+   }
+  },
+  "roof_300": {
+   "trades": [
+    {
+     "correction_peak": "2000-01-10",
+     "trough": "2000-03-07",
+     "depth_pct": 9.8,
+     "entry": "2000-03-16",
+     "exit": "2000-06-30",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.887,
+     "profit_on_100k": -11343,
+     "min_mult_during": 0.761
+    },
+    {
+     "correction_peak": "2000-05-16",
+     "trough": "2000-06-23",
+     "depth_pct": 9.0,
+     "entry": "2000-10-30",
+     "exit": "2001-02-13",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.561,
+     "profit_on_100k": 56126,
+     "min_mult_during": 1.0
+    },
+    {
+     "correction_peak": "2001-02-01",
+     "trough": "2001-03-22",
+     "depth_pct": 10.7,
+     "entry": "2001-04-27",
+     "exit": "2001-08-13",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.314,
+     "profit_on_100k": 31436,
+     "min_mult_during": 0.913
+    },
+    {
+     "correction_peak": "2001-08-24",
+     "trough": "2001-09-21",
+     "depth_pct": 16.6,
+     "entry": "2001-09-28",
+     "exit": "2002-01-14",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.599,
+     "profit_on_100k": 59869,
+     "min_mult_during": 0.985
+    },
+    {
+     "correction_peak": "2002-05-23",
+     "trough": "2002-07-23",
+     "depth_pct": 21.9,
+     "entry": "2002-07-29",
+     "exit": "2002-11-12",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.864,
+     "profit_on_100k": -13578,
+     "min_mult_during": 0.572
+    },
+    {
+     "correction_peak": "2004-06-25",
+     "trough": "2004-08-06",
+     "depth_pct": 13.5,
+     "entry": "2004-10-27",
+     "exit": "2005-02-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.387,
+     "profit_on_100k": 38719,
+     "min_mult_during": 1.0
+    },
+    {
+     "correction_peak": "2005-03-07",
+     "trough": "2005-04-20",
+     "depth_pct": 9.2,
+     "entry": "2005-06-14",
+     "exit": "2005-09-28",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.64,
+     "profit_on_100k": -35994,
+     "min_mult_during": 0.627
+    },
+    {
+     "correction_peak": "2005-07-28",
+     "trough": "2005-10-27",
+     "depth_pct": 12.2,
+     "entry": "2005-12-02",
+     "exit": "2006-03-20",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.329,
+     "profit_on_100k": 32899,
+     "min_mult_during": 0.921
+    },
+    {
+     "correction_peak": "2006-04-06",
+     "trough": "2006-07-18",
+     "depth_pct": 10.7,
+     "entry": "2006-09-20",
+     "exit": "2007-01-04",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.329,
+     "profit_on_100k": 32916,
+     "min_mult_during": 0.936
+    },
+    {
+     "correction_peak": "2007-06-04",
+     "trough": "2008-03-10",
+     "depth_pct": 14.7,
+     "entry": "2008-04-01",
+     "exit": "2008-07-16",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.711,
+     "profit_on_100k": -28944,
+     "min_mult_during": 0.609
+    },
+    {
+     "correction_peak": "2008-09-03",
+     "trough": "2008-11-20",
+     "depth_pct": 34.9,
+     "entry": "2008-11-24",
+     "exit": "2009-03-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.825,
+     "profit_on_100k": -17513,
+     "min_mult_during": 0.65
+    },
+    {
+     "correction_peak": "2010-05-03",
+     "trough": "2010-08-31",
+     "depth_pct": 9.7,
+     "entry": "2010-09-24",
+     "exit": "2011-01-10",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.552,
+     "profit_on_100k": 55150,
+     "min_mult_during": 0.974
+    },
+    {
+     "correction_peak": "2011-07-07",
+     "trough": "2011-08-08",
+     "depth_pct": 14.1,
+     "entry": "2011-08-29",
+     "exit": "2011-12-13",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.5,
+     "profit_on_100k": 49953,
+     "min_mult_during": 0.842
+    },
+    {
+     "correction_peak": "2011-09-19",
+     "trough": "2011-10-03",
+     "depth_pct": 7.1,
+     "entry": "2011-10-21",
+     "exit": "2012-02-06",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.655,
+     "profit_on_100k": 65455,
+     "min_mult_during": 0.871
+    },
+    {
+     "correction_peak": "2012-05-02",
+     "trough": "2012-11-14",
+     "depth_pct": 9.0,
+     "entry": "2013-02-07",
+     "exit": "2013-05-24",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.608,
+     "profit_on_100k": 60845,
+     "min_mult_during": 0.923
+    }
+   ],
+   "summary": {
+    "n_trades": 15,
+    "wins": 10,
+    "losses": 5,
+    "roof_hits": 0,
+    "blowups": 0,
+    "total_profit_fresh_100k_each": 375996,
+    "avg_multiple": 1.251,
+    "worst_multiple": 0.64,
+    "compounded_100k_final": 1432125
+   }
+  },
+  "roof_400": {
+   "trades": [
+    {
+     "correction_peak": "2000-01-10",
+     "trough": "2000-03-07",
+     "depth_pct": 9.8,
+     "entry": "2000-03-16",
+     "exit": "2000-06-30",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.887,
+     "profit_on_100k": -11343,
+     "min_mult_during": 0.761
+    },
+    {
+     "correction_peak": "2000-05-16",
+     "trough": "2000-06-23",
+     "depth_pct": 9.0,
+     "entry": "2000-10-30",
+     "exit": "2001-02-13",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.561,
+     "profit_on_100k": 56126,
+     "min_mult_during": 1.0
+    },
+    {
+     "correction_peak": "2001-02-01",
+     "trough": "2001-03-22",
+     "depth_pct": 10.7,
+     "entry": "2001-04-27",
+     "exit": "2001-08-13",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.314,
+     "profit_on_100k": 31436,
+     "min_mult_during": 0.913
+    },
+    {
+     "correction_peak": "2001-08-24",
+     "trough": "2001-09-21",
+     "depth_pct": 16.6,
+     "entry": "2001-09-28",
+     "exit": "2002-01-14",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.599,
+     "profit_on_100k": 59869,
+     "min_mult_during": 0.985
+    },
+    {
+     "correction_peak": "2002-05-23",
+     "trough": "2002-07-23",
+     "depth_pct": 21.9,
+     "entry": "2002-07-29",
+     "exit": "2002-11-12",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.864,
+     "profit_on_100k": -13578,
+     "min_mult_during": 0.572
+    },
+    {
+     "correction_peak": "2004-06-25",
+     "trough": "2004-08-06",
+     "depth_pct": 13.5,
+     "entry": "2004-10-27",
+     "exit": "2005-02-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.387,
+     "profit_on_100k": 38719,
+     "min_mult_during": 1.0
+    },
+    {
+     "correction_peak": "2005-03-07",
+     "trough": "2005-04-20",
+     "depth_pct": 9.2,
+     "entry": "2005-06-14",
+     "exit": "2005-09-28",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.64,
+     "profit_on_100k": -35994,
+     "min_mult_during": 0.627
+    },
+    {
+     "correction_peak": "2005-07-28",
+     "trough": "2005-10-27",
+     "depth_pct": 12.2,
+     "entry": "2005-12-02",
+     "exit": "2006-03-20",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.329,
+     "profit_on_100k": 32899,
+     "min_mult_during": 0.921
+    },
+    {
+     "correction_peak": "2006-04-06",
+     "trough": "2006-07-18",
+     "depth_pct": 10.7,
+     "entry": "2006-09-20",
+     "exit": "2007-01-04",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.329,
+     "profit_on_100k": 32916,
+     "min_mult_during": 0.936
+    },
+    {
+     "correction_peak": "2007-06-04",
+     "trough": "2008-03-10",
+     "depth_pct": 14.7,
+     "entry": "2008-04-01",
+     "exit": "2008-07-16",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.711,
+     "profit_on_100k": -28944,
+     "min_mult_during": 0.609
+    },
+    {
+     "correction_peak": "2008-09-03",
+     "trough": "2008-11-20",
+     "depth_pct": 34.9,
+     "entry": "2008-11-24",
+     "exit": "2009-03-10",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 0.825,
+     "profit_on_100k": -17513,
+     "min_mult_during": 0.65
+    },
+    {
+     "correction_peak": "2010-05-03",
+     "trough": "2010-08-31",
+     "depth_pct": 9.7,
+     "entry": "2010-09-24",
+     "exit": "2011-01-10",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.552,
+     "profit_on_100k": 55150,
+     "min_mult_during": 0.974
+    },
+    {
+     "correction_peak": "2011-07-07",
+     "trough": "2011-08-08",
+     "depth_pct": 14.1,
+     "entry": "2011-08-29",
+     "exit": "2011-12-13",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.5,
+     "profit_on_100k": 49953,
+     "min_mult_during": 0.842
+    },
+    {
+     "correction_peak": "2011-09-19",
+     "trough": "2011-10-03",
+     "depth_pct": 7.1,
+     "entry": "2011-10-21",
+     "exit": "2012-02-06",
+     "days_held": 108,
+     "exit_reason": "time",
+     "multiple": 1.655,
+     "profit_on_100k": 65455,
+     "min_mult_during": 0.871
+    },
+    {
+     "correction_peak": "2012-05-02",
+     "trough": "2012-11-14",
+     "depth_pct": 9.0,
+     "entry": "2013-02-07",
+     "exit": "2013-05-24",
+     "days_held": 106,
+     "exit_reason": "time",
+     "multiple": 1.608,
+     "profit_on_100k": 60845,
+     "min_mult_during": 0.923
+    }
+   ],
+   "summary": {
+    "n_trades": 15,
+    "wins": 10,
+    "losses": 5,
+    "roof_hits": 0,
+    "blowups": 0,
+    "total_profit_fresh_100k_each": 375996,
+    "avg_multiple": 1.251,
+    "worst_multiple": 0.64,
+    "compounded_100k_final": 1432125
+   }
+  },
+  "sweep": [
+   {
+    "roof_pct": 25,
+    "total_profit": 249340,
+    "compounded": 712556,
+    "roof_hits": 12,
+    "n": 15
+   },
+   {
+    "roof_pct": 50,
+    "total_profit": 373622,
+    "compounded": 1422584,
+    "roof_hits": 7,
+    "n": 15
+   },
+   {
+    "roof_pct": 75,
+    "total_profit": 460042,
+    "compounded": 2329656,
+    "roof_hits": 3,
+    "n": 15
+   },
+   {
+    "roof_pct": 100,
+    "total_profit": 417678,
+    "compounded": 1805607,
+    "roof_hits": 1,
+    "n": 15
+   },
+   {
+    "roof_pct": 125,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 150,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 175,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 200,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 225,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 250,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 275,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 300,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 325,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 350,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 375,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 400,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 450,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 500,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 550,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 600,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 650,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 700,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 750,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 800,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 850,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 900,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 950,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   },
+   {
+    "roof_pct": 1000,
+    "total_profit": 375996,
+    "compounded": 1432125,
+    "roof_hits": 0,
+    "n": 15
+   }
+  ],
+  "ideal_roof_fresh": {
+   "roof_pct": 75,
+   "total_profit": 460042,
+   "compounded": 2329656,
+   "roof_hits": 3,
+   "n": 15
+  },
+  "ideal_roof_compounded": {
+   "roof_pct": 75,
+   "total_profit": 460042,
+   "compounded": 2329656,
+   "roof_hits": 3,
+   "n": 15
+  }
+ }
+}
