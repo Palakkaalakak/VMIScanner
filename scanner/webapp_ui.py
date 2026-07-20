@@ -131,6 +131,17 @@ def _verdict(r):
 
 
 # ---- Top-level tabs: Scanner (existing) + Backtest dashboard ---------
+# Big, obvious tab buttons (default streamlit tabs are easy to miss).
+st.markdown("""
+<style>
+div[data-testid="stTabs"] > div > div[role="tablist"] button[role="tab"] {
+    font-size: 1.25rem; font-weight: 700; padding: 0.9rem 1.6rem;
+    background: #f0f2f6; border-radius: 10px 10px 0 0; margin-right: 6px;
+}
+div[data-testid="stTabs"] > div > div[role="tablist"] button[aria-selected="true"] {
+    background: #e8f0fe; border-bottom: 4px solid #1a73e8;
+}
+</style>""", unsafe_allow_html=True)
 tab_scan, tab_bt = st.tabs(["🔎 Scanner", "🕰️ Backtest 2000–2013"])
 
 with tab_bt:
