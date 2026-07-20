@@ -1,0 +1,304 @@
+{
+ "vintage": 2015,
+ "date": "2015-01-02",
+ "rf": 0.0212,
+ "mrp": 0.04,
+ "growth_book": {
+  "AAPL": {
+   "pe": 16.9,
+   "g": 0.2939,
+   "beta": 1.04,
+   "ocf_mult": 1.39,
+   "moat": "brand + ecosystem switching costs \u2014 Adam example",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "BKNG": {
+   "pe": 25.0,
+   "g": 0.2862,
+   "beta": 1.3,
+   "ocf_mult": 1.28,
+   "moat": "network effect (OTA two-sided marketplace)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "QCOM": {
+   "pe": 16.0,
+   "g": 0.2462,
+   "beta": 1.05,
+   "ocf_mult": 1.16,
+   "moat": "barriers + licensing lock (mobile SoC/IP)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "CTSH": {
+   "pe": 22.4,
+   "g": 0.2227,
+   "beta": 1.26,
+   "ocf_mult": 1.07,
+   "moat": "switching costs (embedded IT outsourcing)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "AME": {
+   "pe": 22.2,
+   "g": 0.1295,
+   "beta": 1.27,
+   "ocf_mult": 1.33,
+   "moat": "switching costs (niche instruments)",
+   "sector": "Industrials",
+   "anti_bubble": true
+  },
+  "KLAC": {
+   "pe": 20.3,
+   "g": 0.1262,
+   "beta": 1.41,
+   "ocf_mult": 1.48,
+   "moat": "barriers (process control)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "EW": {
+   "pe": 17.1,
+   "g": 0.1256,
+   "beta": 0.8,
+   "ocf_mult": 1.23,
+   "moat": "barriers (structural heart)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "APH": {
+   "pe": 24.2,
+   "g": 0.1074,
+   "beta": 1.28,
+   "ocf_mult": 1.12,
+   "moat": "switching costs (connector design-ins)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "ECL": {
+   "pe": 26.1,
+   "g": 0.2375,
+   "beta": 0.8,
+   "ocf_mult": 1.61,
+   "moat": "switching costs (embedded service)",
+   "sector": "Materials",
+   "anti_bubble": false
+  },
+  "MNST": {
+   "pe": 39.0,
+   "g": 0.1726,
+   "beta": 0.77,
+   "ocf_mult": 1.07,
+   "moat": "brand (energy drinks, KO distribution)",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "MA": {
+   "pe": 27.7,
+   "g": 0.1426,
+   "beta": 1.11,
+   "ocf_mult": 1.13,
+   "moat": "network effect (payments duopoly)",
+   "sector": "Financials",
+   "anti_bubble": false
+  },
+  "FAST": {
+   "pe": 28.5,
+   "g": 0.1325,
+   "beta": 1.16,
+   "ocf_mult": 0.91,
+   "moat": "scale + onsite embedment",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "TMO": {
+   "pe": 27.2,
+   "g": 0.1291,
+   "beta": 1.03,
+   "ocf_mult": 1.48,
+   "moat": "scale + switching costs",
+   "sector": "Health Care",
+   "anti_bubble": false
+  },
+  "TSCO": {
+   "pe": 29.4,
+   "g": 0.1194,
+   "beta": 1.08,
+   "ocf_mult": 1.19,
+   "moat": "niche scale (rural retail)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": false
+  },
+  "ISRG": {
+   "pe": 47.3,
+   "g": 0.1083,
+   "beta": 0.93,
+   "ocf_mult": 1.39,
+   "moat": "switching costs + barriers (da Vinci)",
+   "sector": "Health Care",
+   "anti_bubble": false
+  },
+  "DLTR": {
+   "pe": 25.8,
+   "g": 0.1065,
+   "beta": 0.5,
+   "ocf_mult": 1.39,
+   "moat": "scale (extreme value)",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  }
+ },
+ "defensive_book": {
+  "GIS": {
+   "pe": 18.8,
+   "g": 0.0518,
+   "beta": 0.37,
+   "ocf_mult": 1.36,
+   "moat": "brand portfolio",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "PEP": {
+   "pe": 22.1,
+   "g": 0.0362,
+   "beta": 0.43,
+   "ocf_mult": 1.43,
+   "moat": "brand + distribution scale",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "MO": {
+   "pe": 19.5,
+   "g": 0.0016,
+   "beta": 0.49,
+   "ocf_mult": 0.92,
+   "moat": "brand + regulation (tobacco)",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "CL": {
+   "pe": 29.3,
+   "g": 0.0264,
+   "beta": 0.49,
+   "ocf_mult": 1.38,
+   "moat": "brand monopoly (toothpaste)",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "DG": {
+   "pe": 22.4,
+   "g": 0.1037,
+   "beta": 0.5,
+   "ocf_mult": 1.41,
+   "moat": "scale + rural density",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "MCD": {
+   "pe": 19.3,
+   "g": 0.0333,
+   "beta": 0.5,
+   "ocf_mult": 1.31,
+   "moat": "brand + real estate scale",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "HRL": {
+   "pe": 23.1,
+   "g": 0.0658,
+   "beta": 0.52,
+   "ocf_mult": 1.15,
+   "moat": "brand portfolio (protein)",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "ORLY": {
+   "pe": 26.2,
+   "g": 0.0753,
+   "beta": 0.52,
+   "ocf_mult": 1.78,
+   "moat": "scale + distribution density",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": false
+  },
+  "MKC": {
+   "pe": 22.1,
+   "g": 0.0619,
+   "beta": 0.53,
+   "ocf_mult": 1.08,
+   "moat": "brand + scale (spices near-monopoly)",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "JNJ": {
+   "pe": 18.3,
+   "g": 0.0481,
+   "beta": 0.56,
+   "ocf_mult": 1.31,
+   "moat": "brand + scale breadth \u2014 Adam example",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "SJM": {
+   "pe": 18.4,
+   "g": 0.0506,
+   "beta": 0.59,
+   "ocf_mult": 1.39,
+   "moat": "brand portfolio",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "BDX": {
+   "pe": 23.3,
+   "g": 0.0435,
+   "beta": 0.65,
+   "ocf_mult": 1.35,
+   "moat": "switching costs (consumables installed base)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "COST": {
+   "pe": 30.4,
+   "g": 0.0965,
+   "beta": 0.66,
+   "ocf_mult": 1.95,
+   "moat": "scale + membership loyalty",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "SHW": {
+   "pe": 29.7,
+   "g": 0.0938,
+   "beta": 0.69,
+   "ocf_mult": 1.46,
+   "moat": "brand + distribution density",
+   "sector": "Materials",
+   "anti_bubble": false
+  },
+  "CVS": {
+   "pe": 23.9,
+   "g": 0.0983,
+   "beta": 0.73,
+   "ocf_mult": 1.57,
+   "moat": "scale (pharmacy + PBM integration)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "ROST": {
+   "pe": 24.2,
+   "g": 0.0924,
+   "beta": 0.74,
+   "ocf_mult": 1.39,
+   "moat": "scale (off-price)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  }
+ },
+ "anti_bubble_count": {
+  "growth": 8,
+  "defensive": 12
+ },
+ "wide_moat_pool": 45,
+ "not_in_candidates": []
+}

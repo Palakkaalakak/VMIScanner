@@ -1,0 +1,308 @@
+{
+ "vintage": 2020,
+ "date": "2020-01-02",
+ "rf": 0.018799999999999997,
+ "mrp": 0.04,
+ "growth_book": {
+  "ANET": {
+   "pe": 19.3,
+   "g": 0.3025,
+   "beta": 1.31,
+   "ocf_mult": 1.41,
+   "moat": "switching costs (cloud networking EOS)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "ULTA": {
+   "pe": 23.3,
+   "g": 0.1998,
+   "beta": 0.74,
+   "ocf_mult": 1.42,
+   "moat": "scale + loyalty (beauty specialty)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "LRCX": {
+   "pe": 21.7,
+   "g": 0.164,
+   "beta": 1.52,
+   "ocf_mult": 1.29,
+   "moat": "barriers (etch/deposition oligopoly)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "KLAC": {
+   "pe": 24.4,
+   "g": 0.1288,
+   "beta": 1.21,
+   "ocf_mult": 1.28,
+   "moat": "barriers (process-control near-monopoly)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "UNH": {
+   "pe": 20.4,
+   "g": 0.1142,
+   "beta": 0.99,
+   "ocf_mult": 1.4,
+   "moat": "scale (largest US insurer network)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "AMAT": {
+   "pe": 21.7,
+   "g": 0.109,
+   "beta": 1.52,
+   "ocf_mult": 1.17,
+   "moat": "barriers (semi-equipment scale)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "CDNS": {
+   "pe": 20.3,
+   "g": 0.0824,
+   "beta": 0.96,
+   "ocf_mult": 1.7,
+   "moat": "switching costs (EDA duopoly)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "TSCO": {
+   "pe": 20.0,
+   "g": 0.0762,
+   "beta": 1.1,
+   "ocf_mult": 1.37,
+   "moat": "niche scale (rural lifestyle retail)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "CBOE": {
+   "pe": 35.6,
+   "g": 0.3925,
+   "beta": 0.6,
+   "ocf_mult": 1.26,
+   "moat": "network effect + regulation (options exchange)",
+   "sector": "Financials",
+   "anti_bubble": false
+  },
+  "MA": {
+   "pe": 38.2,
+   "g": 0.2679,
+   "beta": 1.09,
+   "ocf_mult": 1.15,
+   "moat": "network effect (payments duopoly)",
+   "sector": "Financials",
+   "anti_bubble": false
+  },
+  "NVDA": {
+   "pe": 36.2,
+   "g": 0.2577,
+   "beta": 1.9,
+   "ocf_mult": 1.28,
+   "moat": "ecosystem barriers (CUDA, known by 2020) + scale",
+   "sector": "Information Technology",
+   "anti_bubble": false
+  },
+  "ICE": {
+   "pe": 27.1,
+   "g": 0.1834,
+   "beta": 0.81,
+   "ocf_mult": 1.2,
+   "moat": "network effect + regulation (NYSE/data)",
+   "sector": "Financials",
+   "anti_bubble": false
+  },
+  "CPRT": {
+   "pe": 38.0,
+   "g": 0.1553,
+   "beta": 0.99,
+   "ocf_mult": 1.21,
+   "moat": "network effect (salvage auctions)",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "ADP": {
+   "pe": 32.5,
+   "g": 0.155,
+   "beta": 1.0,
+   "ocf_mult": 1.27,
+   "moat": "switching costs (payroll)",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "LHX": {
+   "pe": 25.8,
+   "g": 0.1503,
+   "beta": 0.85,
+   "ocf_mult": 1.75,
+   "moat": "regulation + barriers (defense electronics)",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "ADI": {
+   "pe": 32.9,
+   "g": 0.1492,
+   "beta": 1.34,
+   "ocf_mult": 1.5,
+   "moat": "switching costs (analog design-ins)",
+   "sector": "Information Technology",
+   "anti_bubble": false
+  }
+ },
+ "defensive_book": {
+  "HRL": {
+   "pe": 24.7,
+   "g": 0.0062,
+   "beta": 0.41,
+   "ocf_mult": 1.2,
+   "moat": "brand portfolio (protein)",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "HSY": {
+   "pe": 28.2,
+   "g": 0.0197,
+   "beta": 0.43,
+   "ocf_mult": 1.67,
+   "moat": "brand monopoly (US chocolate)",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "CHD": {
+   "pe": 28.7,
+   "g": 0.0644,
+   "beta": 0.49,
+   "ocf_mult": 1.31,
+   "moat": "brand portfolio",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "PEP": {
+   "pe": 26.1,
+   "g": 0.0159,
+   "beta": 0.58,
+   "ocf_mult": 1.56,
+   "moat": "brand + distribution scale",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "SYY": {
+   "pe": 26.5,
+   "g": 0.0542,
+   "beta": 0.63,
+   "ocf_mult": 1.85,
+   "moat": "scale + distribution density (foodservice)",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "WM": {
+   "pe": 29.2,
+   "g": 0.045,
+   "beta": 0.63,
+   "ocf_mult": 2.34,
+   "moat": "regulation + scale (landfill permits)",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "LLY": {
+   "pe": 14.9,
+   "g": 0.0283,
+   "beta": 0.69,
+   "ocf_mult": 1.43,
+   "moat": "scale + pipeline breadth",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "DG": {
+   "pe": 26.2,
+   "g": 0.0789,
+   "beta": 0.74,
+   "ocf_mult": 1.25,
+   "moat": "scale + rural footprint density",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "NOC": {
+   "pe": 26.9,
+   "g": 0.0952,
+   "beta": 0.76,
+   "ocf_mult": 1.29,
+   "moat": "regulation + barriers (defense prime)",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "ORLY": {
+   "pe": 24.5,
+   "g": 0.0624,
+   "beta": 0.82,
+   "ocf_mult": 1.33,
+   "moat": "scale + distribution density (auto parts)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "EL": {
+   "pe": 42.8,
+   "g": 0.0836,
+   "beta": 0.82,
+   "ocf_mult": 1.71,
+   "moat": "brand portfolio (prestige beauty)",
+   "sector": "Consumer Staples",
+   "anti_bubble": false
+  },
+  "NDAQ": {
+   "pe": 23.3,
+   "g": 0.0576,
+   "beta": 0.88,
+   "ocf_mult": 2.75,
+   "moat": "network effect + regulation (exchange)",
+   "sector": "Financials",
+   "anti_bubble": true
+  },
+  "GWW": {
+   "pe": 22.3,
+   "g": 0.0359,
+   "beta": 0.98,
+   "ocf_mult": 1.48,
+   "moat": "scale (MRO distribution)",
+   "sector": "Industrials",
+   "anti_bubble": true
+  },
+  "ROP": {
+   "pe": 21.7,
+   "g": 0.0718,
+   "beta": 0.98,
+   "ocf_mult": 1.28,
+   "moat": "switching costs (niche roll-up)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "HON": {
+   "pe": 21.5,
+   "g": -0.0124,
+   "beta": 1.06,
+   "ocf_mult": 1.65,
+   "moat": "switching costs (aerospace/controls)",
+   "sector": "Industrials",
+   "anti_bubble": true
+  },
+  "GD": {
+   "pe": 14.9,
+   "g": 0.0549,
+   "beta": 1.07,
+   "ocf_mult": 0.96,
+   "moat": "regulation + barriers (defense prime)",
+   "sector": "Industrials",
+   "anti_bubble": true
+  }
+ },
+ "anti_bubble_count": {
+  "growth": 8,
+  "defensive": 8
+ },
+ "wide_moat_pool": 68,
+ "not_in_candidates": [
+  "GOOGL",
+  "MCD",
+  "DLTR"
+ ]
+}
