@@ -73,11 +73,18 @@ dow90["MRK"] = DOW90["MRK"]
 # ---------- 2000 ----------
 import sys
 sys.path.insert(0, HERE)
-from multi_vintage import B2000_GRO  # noqa: E402
-# anti-bubble rule was PE<=25 with real growth; PG(30)/JNJ(29) fail on PE,
-# MMM g=10% < CHD g=12% (the weakest incumbent).  -> book unchanged.
+from multi_vintage import B2000_GRO, dcf_factor  # noqa: E402
+# anti-bubble is SECTOR-based only: nothing in / near the bubble sector
+# (tech/telecom/media in 2000).  PG / JNJ / MMM are all fine on sector.
+# Selection stays growth-ranked (the era rule); valuation is left to the
+# engine's DCF at buy time -- NO PE cutoff.
+#   JNJ g=13% beats the weakest incumbent CHD g=12%  -> JNJ in, CHD out.
+#   PG  g=12% ties CHD, no improvement.  MMM g=10% below everyone.
 dow2000 = {t: {"pe": v[0], "g": v[1], "beta": v[2], "ocf_mult": v[3]}
-           for t, v in B2000_GRO.items()}
+           for t, v in B2000_GRO.items() if t != "CHD"}
+dow2000["JNJ"] = {"pe": 29, "g": 0.13,
+                  "beta": beta_at(px_wk, "JNJ", "2000-01-07"),
+                  "ocf_mult": 1.20, "sector": "Health Care"}
 POOL2000_EXTRA = {
     "MMM": {"pe": 22, "g": 0.10, "beta": beta_at(px_wk, "MMM", "2000-01-07"),
             "ocf_mult": 1.30, "sector": "Industrials"},
@@ -105,27 +112,30 @@ b15 = json.load(open(os.path.join(HERE, "books_growth_2015.json")))
 dow15 = {t: dict(v) for t, v in b15["growth_book"].items()}  # Dow already in pool
 
 # ---------- Claude picks: PEG rule ----------
-def claude_pick(cands, cap=4, n=16):
+def claude_pick(cands, rf, cap=4, n=16):
     """cands: list of dicts w/ ticker, pe, g, beta, ocf_mult, sector.
 
-    Quality gates (VMI-consistent, no hindsight):
+    Quality gates (VMI-consistent, no hindsight, NO PE-multiple judgment):
       * no Energy / commodity (scanner's own exclusion rule)
       * growth 8%..35% (era-knowable; >35% from one depressed base year
         is a data artifact, not a durable rate)
-      * beta <= 1.5 (skip the wild cyclicals), PE 10..50
+      * beta <= 1.5 (skip the wild cyclicals)
       * ocf_mult 0.8..2.0 (earnings must convert to real cash)
-    Rank by PEG = PE / (100 x growth): price paid per unit of growth.
-    Sector cap 4/16; if the capped pass can't fill 16, a second pass
-    ignores the cap.
+    Rank by DCF UPSIDE = intrinsic value / price
+      = dcf_factor(g, beta, rf) x ocf_mult / PE
+    (PE appears only to convert price into era earnings-per-share for the
+    DCF -- it is NOT a valuation judgment.)  Sector cap 4/16; if the
+    capped pass can't fill 16, a second pass ignores the cap.
     """
     ok = [c for c in cands
-          if 0.08 <= c["g"] <= 0.35 and 10 <= c["pe"] <= 50
+          if 0.08 <= c["g"] <= 0.35 and c.get("pe") and c["pe"] > 0
           and c.get("beta") and c["beta"] <= 1.5
           and 0.8 <= c["ocf_mult"] <= 2.0
           and c.get("sector") not in ("Energy", "?", None, "")]
     for c in ok:
-        c["peg"] = c["pe"] / (100 * c["g"])
-    ok.sort(key=lambda c: c["peg"])
+        c["upside"] = dcf_factor(c["g"], c["beta"], rf) \
+            * c["ocf_mult"] / c["pe"]
+    ok.sort(key=lambda c: -c["upside"])
     picked, sec_n = [], {}
     for c in ok:
         s = c.get("sector", "?")
@@ -159,12 +169,12 @@ def as_cands(book_dict, extra=None, sectors=None):
     return out
 
 
-cl90 = claude_pick(as_cands(pool90_all))
-cl2000 = claude_pick(as_cands(dow2000, POOL2000_EXTRA, SECT2000))
+cl90 = claude_pick(as_cands(pool90_all), rf=0.0794)
+cl2000 = claude_pick(as_cands(dow2000, POOL2000_EXTRA, SECT2000), rf=0.065)
 cl15_c = [{"ticker": c["ticker"].replace(".", "-"), "pe": c["trailing_pe"],
            "g": c["growth"], "beta": c["beta"], "ocf_mult": c["ocf_mult"],
            "sector": c["sector"]} for c in cands15]
-cl15 = claude_pick(cl15_c)
+cl15 = claude_pick(cl15_c, rf=0.0212)
 
 
 def to_book(picks):

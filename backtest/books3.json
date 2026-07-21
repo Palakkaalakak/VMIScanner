@@ -129,25 +129,11 @@
     "ocf_mult": 1.15,
     "sector": "Health Care"
    },
-   "AXP": {
-    "pe": 11,
-    "g": 0.11,
-    "beta": 1.25,
-    "ocf_mult": 1.2,
-    "sector": "Financials"
-   },
-   "ABT": {
-    "pe": 16,
-    "g": 0.14,
-    "beta": 1.08,
-    "ocf_mult": 1.2,
-    "sector": "Health Care"
-   },
-   "DIS": {
-    "pe": 23,
-    "g": 0.2,
-    "beta": 1.37,
-    "ocf_mult": 1.3,
+   "MCD": {
+    "pe": 15,
+    "g": 0.12,
+    "beta": 0.98,
+    "ocf_mult": 1.5,
     "sector": "Consumer Discretionary"
    },
    "MDT": {
@@ -157,26 +143,12 @@
     "ocf_mult": 1.2,
     "sector": "Health Care"
    },
-   "WMT": {
-    "pe": 29,
-    "g": 0.25,
-    "beta": 1.2,
-    "ocf_mult": 1.15,
-    "sector": "Consumer Staples"
-   },
-   "ITW": {
-    "pe": 14,
-    "g": 0.12,
-    "beta": 1.43,
+   "AXP": {
+    "pe": 11,
+    "g": 0.11,
+    "beta": 1.25,
     "ocf_mult": 1.2,
-    "sector": "Industrials"
-   },
-   "PEP": {
-    "pe": 18,
-    "g": 0.15,
-    "beta": 0.97,
-    "ocf_mult": 1.25,
-    "sector": "Consumer Staples"
+    "sector": "Financials"
    },
    "MMM": {
     "pe": 12,
@@ -185,12 +157,40 @@
     "ocf_mult": 1.25,
     "sector": "Industrials"
    },
-   "MCD": {
-    "pe": 15,
-    "g": 0.12,
-    "beta": 0.98,
-    "ocf_mult": 1.5,
+   "WMT": {
+    "pe": 29,
+    "g": 0.25,
+    "beta": 1.2,
+    "ocf_mult": 1.15,
+    "sector": "Consumer Staples"
+   },
+   "PEP": {
+    "pe": 18,
+    "g": 0.15,
+    "beta": 0.97,
+    "ocf_mult": 1.25,
+    "sector": "Consumer Staples"
+   },
+   "DIS": {
+    "pe": 23,
+    "g": 0.2,
+    "beta": 1.37,
+    "ocf_mult": 1.3,
     "sector": "Consumer Discretionary"
+   },
+   "ABT": {
+    "pe": 16,
+    "g": 0.14,
+    "beta": 1.08,
+    "ocf_mult": 1.2,
+    "sector": "Health Care"
+   },
+   "EMR": {
+    "pe": 13,
+    "g": 0.1,
+    "beta": 1.05,
+    "ocf_mult": 1.2,
+    "sector": "Industrials"
    },
    "SYY": {
     "pe": 19,
@@ -199,10 +199,17 @@
     "ocf_mult": 1.2,
     "sector": "Consumer Staples"
    },
-   "EMR": {
-    "pe": 13,
-    "g": 0.1,
-    "beta": 1.05,
+   "GWW": {
+    "pe": 15,
+    "g": 0.11,
+    "beta": 0.82,
+    "ocf_mult": 1.15,
+    "sector": "Industrials"
+   },
+   "ITW": {
+    "pe": 14,
+    "g": 0.12,
+    "beta": 1.43,
     "ocf_mult": 1.2,
     "sector": "Industrials"
    },
@@ -213,18 +220,11 @@
     "ocf_mult": 1.15,
     "sector": "Health Care"
    },
-   "GWW": {
-    "pe": 15,
-    "g": 0.11,
-    "beta": 0.82,
-    "ocf_mult": 1.15,
-    "sector": "Industrials"
-   },
-   "KO": {
-    "pe": 18,
+   "PG": {
+    "pe": 19,
     "g": 0.12,
-    "beta": 1.12,
-    "ocf_mult": 1.2,
+    "beta": 0.94,
+    "ocf_mult": 1.25,
     "sector": "Consumer Staples"
    }
   }
@@ -309,12 +309,6 @@
     "beta": 1.0,
     "ocf_mult": 1.2
    },
-   "CHD": {
-    "pe": 18,
-    "g": 0.12,
-    "beta": 0.7,
-    "ocf_mult": 1.25
-   },
    "SBUX": {
     "pe": 42,
     "g": 0.27,
@@ -326,6 +320,13 @@
     "g": 0.2,
     "beta": 0.9,
     "ocf_mult": 1.3
+   },
+   "JNJ": {
+    "pe": 29,
+    "g": 0.13,
+    "beta": 0.89,
+    "ocf_mult": 1.2,
+    "sector": "Health Care"
    }
   },
   "claude": {
@@ -357,13 +358,6 @@
     "ocf_mult": 1.2,
     "sector": "Consumer Discretionary"
    },
-   "CAH": {
-    "pe": 22,
-    "g": 0.2,
-    "beta": 0.9,
-    "ocf_mult": 1.1,
-    "sector": "Health Care"
-   },
    "DLTR": {
     "pe": 28,
     "g": 0.25,
@@ -371,12 +365,12 @@
     "ocf_mult": 1.2,
     "sector": "Consumer Staples"
    },
-   "ITW": {
-    "pe": 19,
-    "g": 0.14,
-    "beta": 0.95,
-    "ocf_mult": 1.2,
-    "sector": "Industrials"
+   "CAH": {
+    "pe": 22,
+    "g": 0.2,
+    "beta": 0.9,
+    "ocf_mult": 1.1,
+    "sector": "Health Care"
    },
    "DHR": {
     "pe": 24,
@@ -385,19 +379,12 @@
     "ocf_mult": 1.3,
     "sector": "Industrials"
    },
-   "CHD": {
-    "pe": 18,
-    "g": 0.12,
-    "beta": 0.7,
-    "ocf_mult": 1.25,
-    "sector": "Consumer Staples"
-   },
-   "CVS": {
-    "pe": 23,
-    "g": 0.15,
-    "beta": 0.85,
+   "ITW": {
+    "pe": 19,
+    "g": 0.14,
+    "beta": 0.95,
     "ocf_mult": 1.2,
-    "sector": "Consumer Staples"
+    "sector": "Industrials"
    },
    "SYK": {
     "pe": 32,
@@ -405,6 +392,13 @@
     "beta": 0.9,
     "ocf_mult": 1.3,
     "sector": "Health Care"
+   },
+   "CVS": {
+    "pe": 23,
+    "g": 0.15,
+    "beta": 0.85,
+    "ocf_mult": 1.2,
+    "sector": "Consumer Staples"
    },
    "SYY": {
     "pe": 27,
@@ -427,6 +421,13 @@
     "ocf_mult": 1.2,
     "sector": "Health Care"
    },
+   "PG": {
+    "pe": 30,
+    "g": 0.12,
+    "beta": 0.78,
+    "ocf_mult": 1.2,
+    "sector": "Consumer Staples"
+   },
    "ORLY": {
     "pe": 22,
     "g": 0.22,
@@ -434,11 +435,11 @@
     "ocf_mult": 1.2,
     "sector": "Consumer Discretionary"
    },
-   "TGT": {
-    "pe": 22,
-    "g": 0.15,
-    "beta": 0.95,
-    "ocf_mult": 1.4,
+   "SBUX": {
+    "pe": 42,
+    "g": 0.27,
+    "beta": 1.1,
+    "ocf_mult": 1.6,
     "sector": "Consumer Discretionary"
    }
   }
@@ -580,20 +581,6 @@
     "ocf_mult": 1.16,
     "sector": "Information Technology"
    },
-   "BKNG": {
-    "pe": 25.0,
-    "g": 0.2862,
-    "beta": 1.3,
-    "ocf_mult": 1.28,
-    "sector": "Consumer Discretionary"
-   },
-   "CTSH": {
-    "pe": 22.4,
-    "g": 0.2227,
-    "beta": 1.26,
-    "ocf_mult": 1.07,
-    "sector": "Information Technology"
-   },
    "ECL": {
     "pe": 26.1,
     "g": 0.2375,
@@ -601,18 +588,18 @@
     "ocf_mult": 1.61,
     "sector": "Materials"
    },
-   "DE": {
-    "pe": 10.2,
-    "g": 0.0852,
-    "beta": 1.12,
-    "ocf_mult": 0.89,
-    "sector": "Industrials"
+   "BKNG": {
+    "pe": 25.0,
+    "g": 0.2862,
+    "beta": 1.3,
+    "ocf_mult": 1.28,
+    "sector": "Consumer Discretionary"
    },
-   "EW": {
-    "pe": 17.1,
-    "g": 0.1256,
-    "beta": 0.8,
-    "ocf_mult": 1.23,
+   "UHS": {
+    "pe": 20.5,
+    "g": 0.1375,
+    "beta": 1.12,
+    "ocf_mult": 1.88,
     "sector": "Health Care"
    },
    "BIIB": {
@@ -622,19 +609,54 @@
     "ocf_mult": 1.33,
     "sector": "Health Care"
    },
-   "UHS": {
-    "pe": 20.5,
-    "g": 0.1375,
-    "beta": 1.12,
-    "ocf_mult": 1.88,
+   "CTSH": {
+    "pe": 22.4,
+    "g": 0.2227,
+    "beta": 1.26,
+    "ocf_mult": 1.07,
+    "sector": "Information Technology"
+   },
+   "EW": {
+    "pe": 17.1,
+    "g": 0.1256,
+    "beta": 0.8,
+    "ocf_mult": 1.23,
     "sector": "Health Care"
    },
-   "KLAC": {
-    "pe": 20.3,
-    "g": 0.1262,
-    "beta": 1.41,
-    "ocf_mult": 1.48,
+   "DG": {
+    "pe": 22.4,
+    "g": 0.1037,
+    "beta": 0.5,
+    "ocf_mult": 1.41,
+    "sector": "Consumer Staples"
+   },
+   "MSFT": {
+    "pe": 17.8,
+    "g": 0.0857,
+    "beta": 0.89,
+    "ocf_mult": 1.42,
     "sector": "Information Technology"
+   },
+   "DE": {
+    "pe": 10.2,
+    "g": 0.0852,
+    "beta": 1.12,
+    "ocf_mult": 0.89,
+    "sector": "Industrials"
+   },
+   "COST": {
+    "pe": 30.4,
+    "g": 0.0965,
+    "beta": 0.66,
+    "ocf_mult": 1.95,
+    "sector": "Consumer Staples"
+   },
+   "DLTR": {
+    "pe": 25.8,
+    "g": 0.1065,
+    "beta": 0.5,
+    "ocf_mult": 1.39,
+    "sector": "Consumer Staples"
    },
    "AME": {
     "pe": 22.2,
@@ -643,33 +665,12 @@
     "ocf_mult": 1.33,
     "sector": "Industrials"
    },
-   "MA": {
-    "pe": 27.7,
-    "g": 0.1426,
-    "beta": 1.11,
-    "ocf_mult": 1.13,
-    "sector": "Financials"
-   },
-   "RL": {
-    "pe": 21.7,
-    "g": 0.106,
-    "beta": 1.18,
-    "ocf_mult": 1.39,
-    "sector": "Consumer Discretionary"
-   },
-   "FAST": {
-    "pe": 28.5,
-    "g": 0.1325,
+   "UNP": {
+    "pe": 20.6,
+    "g": 0.0905,
     "beta": 1.16,
-    "ocf_mult": 0.91,
+    "ocf_mult": 1.56,
     "sector": "Industrials"
-   },
-   "DG": {
-    "pe": 22.4,
-    "g": 0.1037,
-    "beta": 0.5,
-    "ocf_mult": 1.41,
-    "sector": "Consumer Staples"
    }
   }
  }
