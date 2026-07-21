@@ -172,6 +172,7 @@ def main():
                      "industry": "", "country": "", "market_cap": ""}
                     for t in args.tickers.split(",") if t.strip()]
         universe_total = len(universe)
+        universe_label = f"ad-hoc tickers ({universe_total})"
     else:
         print("Step 1: fetching S&P 500 constituent list (Wikipedia)...")
         universe = fetch_sp500(use_cache=use_cache)
@@ -189,6 +190,9 @@ def main():
             except Exception as e:
                 print(f"  !! DJIA fetch failed ({e}) — continuing with S&P500 only")
         universe_total = len(universe)
+        universe_label = ("S&P 500 + Dow Jones 30 (Wikipedia constituents, merged)"
+                          if args.include_dow
+                          else "S&P 500 (Wikipedia constituents)")
         print(f"  -> universe: {universe_total} tickers"
               + (" (S&P500 + Dow Jones 30)" if args.include_dow
                  else " (S&P500 only)"))
