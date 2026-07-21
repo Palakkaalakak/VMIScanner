@@ -11,7 +11,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 res = json.load(open(os.path.join(HERE, "cc_results.json")))
 YEARS = list(res.keys())
 CFGS = ["none", "g<=8", "g<=10", "g<=12", "g<=15", "g<=20", "g<=25",
-        "g<=30", "ex_top4_growth", "ex_top2_growth", "lowbeta_half", "all"]
+        "g<=30", "ex_top4_growth", "ex_top2_growth", "lowbeta_half",
+        "g20_lowbeta", "g25_lowbeta", "all"]
 
 # ---- heatmap of CAGR uplift vs none ----
 up = np.array([[res[y][c]["cagr_pct"] - res[y]["none"]["cagr_pct"]
