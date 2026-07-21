@@ -137,6 +137,11 @@ def main():
     ap.add_argument("--tickers", type=str, default="",
                      help="comma list to scan directly instead of the S&P500 universe")
     ap.add_argument("--no-cache", action="store_true")
+    ap.add_argument("--include-dow", dest="include_dow", action="store_true",
+                     default=True,
+                     help="merge Dow Jones 30 components into the universe (default on)")
+    ap.add_argument("--no-dow", dest="include_dow", action="store_false",
+                     help="scan the S&P 500 only, without the Dow Jones 30")
     ap.add_argument("--workers", type=int, default=8,
                      help="parallel fetch workers (SEC fair-access allows 10 req/s)")
     ap.add_argument("--no-macrotrends", dest="allow_macrotrends", action="store_false",
@@ -170,18 +175,21 @@ def main():
         universe = fetch_sp500(use_cache=use_cache)
         sp_n = len(universe)
         print(f"  -> {sp_n} S&P 500 constituents")
-        print("Step 1b: fetching Dow Jones 30 components (Wikipedia)...")
-        try:
-            dow = fetch_dowjones(use_cache=use_cache)
-            seen = {m["ticker"] for m in universe}
-            added = [m for m in dow if m["ticker"] not in seen]
-            universe.extend(added)
-            print(f"  -> {len(dow)} DJIA components, "
-                  f"{len(added)} not already in S&P500 (merged)")
-        except Exception as e:
-            print(f"  !! DJIA fetch failed ({e}) — continuing with S&P500 only")
+        if args.include_dow:
+            print("Step 1b: fetching Dow Jones 30 components (Wikipedia)...")
+            try:
+                dow = fetch_dowjones(use_cache=use_cache)
+                seen = {m["ticker"] for m in universe}
+                added = [m for m in dow if m["ticker"] not in seen]
+                universe.extend(added)
+                print(f"  -> {len(dow)} DJIA components, "
+                      f"{len(added)} not already in S&P500 (merged)")
+            except Exception as e:
+                print(f"  !! DJIA fetch failed ({e}) — continuing with S&P500 only")
         universe_total = len(universe)
-        print(f"  -> merged universe: {universe_total} tickers")
+        print(f"  -> universe: {universe_total} tickers"
+              + (" (S&P500 + Dow Jones 30)" if args.include_dow
+                 else " (S&P500 only)"))
 
     # ---- Step 2: FREE exclusion filter (no network calls) ----
     included = []
