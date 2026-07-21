@@ -37,6 +37,7 @@ from .checks import run_checks, classify, EXCLUDED_TYPES, ScanResult
 from . import macrotrends, sec, yahoo
 from .finviz import fetch_growth_estimates
 from .sp500 import fetch_sp500
+from .dowjones import fetch_dowjones
 
 # repo_root/public/data — served by the Hono dashboard at /data/scan_results.json
 OUT_DIR = os.path.join(
@@ -109,7 +110,7 @@ def _write_payload(out_path: str, universe_total: int, included_total: int,
         "criteria_version": "VMI fundamentals only (no valuation/TA) — "
                             "5y window for ROE/margins (explicit in docs), "
                             "10y default elsewhere (docs ambiguous/silent)",
-        "universe": "S&P 500 (Wikipedia constituents)",
+        "universe": "S&P 500 + Dow Jones 30 (Wikipedia constituents, merged)",
         "universe_size": universe_total,
         "included_after_exclusion": included_total,
         "excluded_count": len(excluded_rows),
@@ -167,8 +168,20 @@ def main():
     else:
         print("Step 1: fetching S&P 500 constituent list (Wikipedia)...")
         universe = fetch_sp500(use_cache=use_cache)
+        sp_n = len(universe)
+        print(f"  -> {sp_n} S&P 500 constituents")
+        print("Step 1b: fetching Dow Jones 30 components (Wikipedia)...")
+        try:
+            dow = fetch_dowjones(use_cache=use_cache)
+            seen = {m["ticker"] for m in universe}
+            added = [m for m in dow if m["ticker"] not in seen]
+            universe.extend(added)
+            print(f"  -> {len(dow)} DJIA components, "
+                  f"{len(added)} not already in S&P500 (merged)")
+        except Exception as e:
+            print(f"  !! DJIA fetch failed ({e}) — continuing with S&P500 only")
         universe_total = len(universe)
-        print(f"  -> {universe_total} S&P 500 constituents")
+        print(f"  -> merged universe: {universe_total} tickers")
 
     # ---- Step 2: FREE exclusion filter (no network calls) ----
     included = []
