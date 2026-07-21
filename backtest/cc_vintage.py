@@ -198,9 +198,13 @@ def main():
         betas = {t: v[2] for t, v in book.items()}
         lowbeta8 = set(sorted(betas, key=lambda t: betas[t])[:8])
         configs = {"all": set(book)}
-        for x in (8, 10, 12, 15, 20):
+        for x in (8, 10, 12, 15, 20, 25, 30):
             configs[f"g<={x}"] = {t for t, g in gs.items() if g <= x / 100}
         configs["lowbeta_half"] = lowbeta8
+        top4g = set(sorted(gs, key=lambda t: -gs[t])[:4])
+        top2g = set(sorted(gs, key=lambda t: -gs[t])[:2])
+        configs["ex_top4_growth"] = set(book) - top4g
+        configs["ex_top2_growth"] = set(book) - top2g
         vout = {}
         for name, cset in configs.items():
             ser, prem, settle = run(px, dv, sma, vol, rfr, dates, book,
