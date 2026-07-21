@@ -88,7 +88,8 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     def exp_i(i, days):
         return int(np.searchsorted(dvals, dvals[i] + np.timedelta64(days, "D")))
 
-    lc = {}                    # t -> [K, exp_i, cov, cost]      long calls
+    lc = {}                    # t -> list of lots [K, exp_i, cov, cost]
+    backing = {}               # t -> reserved cash behind the notional
     sh = {t: 0.0 for t in iv0}  # real shares (after conversion)
     oc = {}                    # t -> [K, exp_i, cov, prem]      short calls
     stopped = {}               # hammer cut-loss parking: t -> True
@@ -103,43 +104,56 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     eq = np.empty(nD)
 
     def cov_of(t):
-        return lc[t][2] if t in lc else 0.0
+        return sum(l[2] for l in lc.get(t, []))
 
-    def open_long(t, p, sig, r, i, budget=None):
-        """Buy delta-LONG_D call; cov = notional shares (tranche/p) unless
-        full_tranche (spend the whole budget on calls)."""
+    def free_cash():
+        return cash - sum(backing.values())
+
+    def open_long(t, p, sig, r, i, budget):
+        """Buy delta-LONG_D calls with `budget` dollars of NOTIONAL.
+        Non-full mode: cov = budget/p shares of exposure; the unspent part
+        of the budget is locked as backing (no re-use = no leverage).
+        full_tranche: the whole budget is spent on premium (levered)."""
         nonlocal cash, long_paid, n_longroll
+        avail = free_cash()
+        budget = min(budget, avail)
+        if budget <= 0:
+            return False
         e = exp_i(i, long_dte)
         T = max((dates[min(e, nD - 1)] - dates[i]).days, 1) / 365.0
         K = k_for_d1(p, sig, r, T, d1_long)
         prc = bs_call(p, K, sig, r, T)
         if prc <= 0:
             return False
-        b = tranche if budget is None else budget
-        cov = (b / prc) if full_tranche else (b / p)
+        cov = (budget / prc) if full_tranche else (budget / p)
         cost = prc * cov
-        if cost > cash + 1e-9:
-            cov = cash / prc if full_tranche else cash / p
+        if cost > budget + 1e-9:           # deep-ITM call pricier than stock
+            cov = budget / prc
             cost = prc * cov
-            if cov <= 0:
-                return False
         cash -= cost
         long_paid += cost
-        if t in lc:                        # rolling: merge
-            lc[t] = [K, e, lc[t][2] + cov, lc[t][3] + cost]
-        else:
-            lc[t] = [K, e, cov, cost]
+        if not full_tranche:
+            backing[t] = backing.get(t, 0.0) + (budget - cost)
+        lc.setdefault(t, []).append([K, e, cov, cost])
         return True
 
-    def close_long(t, i, r):
+    def close_lot(t, j, i, r):
+        """Sell lot j of t at model value; release its share of backing."""
         nonlocal cash, long_recv
-        K, e, cov, cost = lc[t]
+        K, e, cov, cost = lc[t][j]
         p = px[i, ti[t]]
         T = max((dates[min(e, nD - 1)] - dates[i]).days, 0) / 365.0
         val = bs_call(p, K, sig_m[i, ti[t]], r, T) * cov
         cash += val
         long_recv += val
-        del lc[t]
+        if not full_tranche and t in backing:
+            tot = sum(l[2] for l in lc[t])
+            rel = backing[t] * (cov / tot) if tot > 0 else backing[t]
+            backing[t] -= rel
+        lc[t].pop(j)
+        if not lc[t]:
+            del lc[t]
+            backing.pop(t, None)
         return val, cov, cost
 
     def sell_short(t, p, sig, r, i):
