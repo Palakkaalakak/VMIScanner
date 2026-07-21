@@ -1,0 +1,1484 @@
+[
+ {
+  "date": "2020-01-10",
+  "ticker": "ANET",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 12.97,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "ULTA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 267.28,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "LRCX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 29.73,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "KLAC",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 17.51,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "UNH",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 285.85,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "AMAT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 61.81,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "TSCO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 18.25,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "ORLY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 29.12,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "CBOE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 115.85,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "MA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 311.17,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "ICE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 94.25,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "CPRT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 23.83,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "ADP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 172.36,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "LHX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 212.6,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "EW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 77.61,
+  "amount": 20833
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "BR",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 127.59,
+  "amount": 20833
+ },
+ {
+  "date": "2020-02-21",
+  "ticker": "ANET",
+  "action": "DIV_REINVEST",
+  "price": 13.97,
+  "amount": 252
+ },
+ {
+  "date": "2020-02-28",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 114.0,
+  "amount": 65
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "ANET",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 11.92,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "ULTA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 256.58,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 14.49,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "AMAT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 52.07,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "TSCO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 18.3,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "ORLY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 24.54,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "CBOE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 116.77,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 287.01,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "CPRT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 20.05,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 150.92,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "LHX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 186.58,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "EW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 68.62,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "BR",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 100.36,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-13",
+  "ticker": "LRCX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 21.35,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-13",
+  "ticker": "UNH",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 225.04,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-13",
+  "ticker": "ICE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 83.12,
+  "amount": 20833
+ },
+ {
+  "date": "2020-03-13",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 94.8,
+  "amount": 693
+ },
+ {
+  "date": "2020-03-20",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 79.69,
+  "amount": 142
+ },
+ {
+  "date": "2020-03-27",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 90.89,
+  "amount": 193
+ },
+ {
+  "date": "2020-04-10",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 93.42,
+  "amount": 56
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "ANET",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 12.98,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "ULTA",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 214.28,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 15.2,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "AMAT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 47.58,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "ORLY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 25.09,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "CBOE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 94.01,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 268.74,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "CPRT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 19.64,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 144.48,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "LHX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 186.82,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "EW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 69.78,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "BR",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 113.06,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-08",
+  "ticker": "LRCX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 26.22,
+  "amount": 20833
+ },
+ {
+  "date": "2020-05-15",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 99.88,
+  "amount": 340
+ },
+ {
+  "date": "2020-05-22",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 99.31,
+  "amount": 418
+ },
+ {
+  "date": "2020-05-29",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 106.46,
+  "amount": 489
+ },
+ {
+  "date": "2020-06-12",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 99.9,
+  "amount": 667
+ },
+ {
+  "date": "2020-06-19",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 98.75,
+  "amount": 632
+ },
+ {
+  "date": "2020-06-26",
+  "ticker": "ICE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 90.4,
+  "amount": 20833
+ },
+ {
+  "date": "2020-07-10",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 91.55,
+  "amount": 87
+ },
+ {
+  "date": "2020-08-14",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 88.26,
+  "amount": 360
+ },
+ {
+  "date": "2020-08-21",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 91.64,
+  "amount": 441
+ },
+ {
+  "date": "2020-08-28",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 91.75,
+  "amount": 263
+ },
+ {
+  "date": "2020-09-11",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 88.85,
+  "amount": 847
+ },
+ {
+  "date": "2020-09-18",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 90.85,
+  "amount": 530
+ },
+ {
+  "date": "2020-10-02",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 87.49,
+  "amount": 321
+ },
+ {
+  "date": "2020-10-09",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 85.36,
+  "amount": 87
+ },
+ {
+  "date": "2020-11-13",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 87.65,
+  "amount": 360
+ },
+ {
+  "date": "2020-11-20",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 89.94,
+  "amount": 714
+ },
+ {
+  "date": "2020-11-27",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 91.71,
+  "amount": 278
+ },
+ {
+  "date": "2020-12-04",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 93.16,
+  "amount": 207
+ },
+ {
+  "date": "2020-12-11",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 85.97,
+  "amount": 696
+ },
+ {
+  "date": "2020-12-18",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 90.78,
+  "amount": 530
+ },
+ {
+  "date": "2021-01-08",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 183.49,
+  "amount": 96
+ },
+ {
+  "date": "2021-02-26",
+  "ticker": "ORLY",
+  "action": "DIV_REINVEST",
+  "price": 29.82,
+  "amount": 1142
+ },
+ {
+  "date": "2021-03-19",
+  "ticker": "CPRT",
+  "action": "DIV_REINVEST",
+  "price": 26.65,
+  "amount": 1782
+ },
+ {
+  "date": "2021-08-20",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 354.99,
+  "amount": 3828
+ },
+ {
+  "date": "2021-08-27",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 355.73,
+  "amount": 282
+ },
+ {
+  "date": "2021-09-03",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 340.23,
+  "amount": 655
+ },
+ {
+  "date": "2021-09-10",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 347.39,
+  "amount": 615
+ },
+ {
+  "date": "2021-09-17",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 343.04,
+  "amount": 587
+ },
+ {
+  "date": "2021-09-24",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 358.16,
+  "amount": 371
+ },
+ {
+  "date": "2021-10-01",
+  "ticker": "UNH",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 387.01,
+  "amount": 20833
+ },
+ {
+  "date": "2021-10-08",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 354.96,
+  "amount": 103
+ },
+ {
+  "date": "2021-11-12",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 363.5,
+  "amount": 420
+ },
+ {
+  "date": "2021-11-19",
+  "ticker": "MA",
+  "action": "DIV_REINVEST",
+  "price": 339.72,
+  "amount": 565
+ },
+ {
+  "date": "2021-11-26",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 214.68,
+  "amount": 282
+ },
+ {
+  "date": "2021-12-03",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 215.3,
+  "amount": 645
+ },
+ {
+  "date": "2021-12-10",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 217.94,
+  "amount": 419
+ },
+ {
+  "date": "2021-12-17",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 202.02,
+  "amount": 958
+ },
+ {
+  "date": "2022-01-07",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 223.44,
+  "amount": 117
+ },
+ {
+  "date": "2022-02-11",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 120.29,
+  "amount": 420
+ },
+ {
+  "date": "2022-02-18",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 118.81,
+  "amount": 420
+ },
+ {
+  "date": "2022-02-25",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 117.44,
+  "amount": 612
+ },
+ {
+  "date": "2022-03-11",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 114.0,
+  "amount": 1110
+ },
+ {
+  "date": "2022-03-18",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 116.8,
+  "amount": 993
+ },
+ {
+  "date": "2022-04-08",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 116.35,
+  "amount": 117
+ },
+ {
+  "date": "2022-05-13",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 109.38,
+  "amount": 420
+ },
+ {
+  "date": "2022-05-27",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 111.85,
+  "amount": 1069
+ },
+ {
+  "date": "2022-06-03",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 114.0,
+  "amount": 373
+ },
+ {
+  "date": "2022-06-10",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 109.77,
+  "amount": 419
+ },
+ {
+  "date": "2022-06-17",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 109.15,
+  "amount": 1355
+ },
+ {
+  "date": "2022-07-08",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 118.51,
+  "amount": 117
+ },
+ {
+  "date": "2022-08-12",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 119.64,
+  "amount": 520
+ },
+ {
+  "date": "2022-08-19",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 231.2,
+  "amount": 420
+ },
+ {
+  "date": "2022-08-26",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 233.28,
+  "amount": 306
+ },
+ {
+  "date": "2022-09-02",
+  "ticker": "ANET",
+  "action": "DIV_REINVEST",
+  "price": 29.33,
+  "amount": 752
+ },
+ {
+  "date": "2022-09-09",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 234.75,
+  "amount": 781
+ },
+ {
+  "date": "2022-09-16",
+  "ticker": "ANET",
+  "action": "DIV_REINVEST",
+  "price": 28.93,
+  "amount": 1096
+ },
+ {
+  "date": "2022-10-07",
+  "ticker": "ANET",
+  "action": "DIV_REINVEST",
+  "price": 29.1,
+  "amount": 117
+ },
+ {
+  "date": "2022-11-11",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 115.1,
+  "amount": 520
+ },
+ {
+  "date": "2022-11-18",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 225.35,
+  "amount": 800
+ },
+ {
+  "date": "2022-11-25",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 225.86,
+  "amount": 306
+ },
+ {
+  "date": "2022-12-02",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 224.71,
+  "amount": 740
+ },
+ {
+  "date": "2022-12-09",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 217.59,
+  "amount": 504
+ },
+ {
+  "date": "2022-12-16",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 205.55,
+  "amount": 1096
+ },
+ {
+  "date": "2023-01-06",
+  "ticker": "ANET",
+  "action": "DIV_REINVEST",
+  "price": 28.11,
+  "amount": 136
+ },
+ {
+  "date": "2023-02-10",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 214.48,
+  "amount": 520
+ },
+ {
+  "date": "2023-02-24",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 210.7,
+  "amount": 775
+ },
+ {
+  "date": "2023-03-03",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 213.91,
+  "amount": 378
+ },
+ {
+  "date": "2023-03-10",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 118.65,
+  "amount": 1280
+ },
+ {
+  "date": "2023-03-17",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 197.04,
+  "amount": 1124
+ },
+ {
+  "date": "2023-04-07",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 199.22,
+  "amount": 136
+ },
+ {
+  "date": "2023-05-12",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 186.87,
+  "amount": 520
+ },
+ {
+  "date": "2023-05-26",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 178.76,
+  "amount": 846
+ },
+ {
+  "date": "2023-06-02",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 182.52,
+  "amount": 813
+ },
+ {
+  "date": "2023-06-09",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 189.12,
+  "amount": 504
+ },
+ {
+  "date": "2023-06-16",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 195.57,
+  "amount": 1536
+ },
+ {
+  "date": "2023-07-07",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 194.65,
+  "amount": 136
+ },
+ {
+  "date": "2023-08-11",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 186.46,
+  "amount": 520
+ },
+ {
+  "date": "2023-08-25",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 178.09,
+  "amount": 846
+ },
+ {
+  "date": "2023-09-01",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 177.26,
+  "amount": 878
+ },
+ {
+  "date": "2023-09-08",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 168.88,
+  "amount": 916
+ },
+ {
+  "date": "2023-09-15",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 175.13,
+  "amount": 1233
+ },
+ {
+  "date": "2023-10-06",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 180.21,
+  "amount": 136
+ },
+ {
+  "date": "2023-11-17",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 186.48,
+  "amount": 1057
+ },
+ {
+  "date": "2023-11-24",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 187.92,
+  "amount": 846
+ },
+ {
+  "date": "2023-12-01",
+  "ticker": "EW",
+  "action": "DIV_REINVEST",
+  "price": 68.36,
+  "amount": 834
+ },
+ {
+  "date": "2023-12-08",
+  "ticker": "EW",
+  "action": "DIV_REINVEST",
+  "price": 69.18,
+  "amount": 564
+ },
+ {
+  "date": "2023-12-15",
+  "ticker": "EW",
+  "action": "DIV_REINVEST",
+  "price": 76.9,
+  "amount": 1233
+ },
+ {
+  "date": "2024-01-12",
+  "ticker": "EW",
+  "action": "DIV_REINVEST",
+  "price": 74.03,
+  "amount": 157
+ },
+ {
+  "date": "2024-03-01",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 481.87,
+  "amount": 1879
+ },
+ {
+  "date": "2024-03-08",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 489.15,
+  "amount": 1481
+ },
+ {
+  "date": "2024-03-15",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 487.05,
+  "amount": 1254
+ },
+ {
+  "date": "2024-04-12",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 442.32,
+  "amount": 157
+ },
+ {
+  "date": "2024-05-17",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 399.56,
+  "amount": 580
+ },
+ {
+  "date": "2024-05-24",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 381.78,
+  "amount": 972
+ },
+ {
+  "date": "2024-05-31",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 172.99,
+  "amount": 422
+ },
+ {
+  "date": "2024-06-07",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 172.68,
+  "amount": 497
+ },
+ {
+  "date": "2024-06-14",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 167.6,
+  "amount": 1805
+ },
+ {
+  "date": "2024-06-21",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 175.91,
+  "amount": 494
+ },
+ {
+  "date": "2024-07-12",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 169.5,
+  "amount": 157
+ },
+ {
+  "date": "2024-08-16",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 377.23,
+  "amount": 580
+ },
+ {
+  "date": "2024-08-23",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 378.65,
+  "amount": 470
+ },
+ {
+  "date": "2024-08-30",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 352.84,
+  "amount": 997
+ },
+ {
+  "date": "2024-09-06",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 367.59,
+  "amount": 497
+ },
+ {
+  "date": "2024-09-13",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 378.34,
+  "amount": 1533
+ },
+ {
+  "date": "2024-09-20",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 402.01,
+  "amount": 884
+ },
+ {
+  "date": "2024-10-11",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 370.58,
+  "amount": 157
+ },
+ {
+  "date": "2024-11-15",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 365.17,
+  "amount": 1177
+ },
+ {
+  "date": "2024-11-22",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 338.38,
+  "amount": 470
+ },
+ {
+  "date": "2024-11-29",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 386.64,
+  "amount": 997
+ },
+ {
+  "date": "2024-12-06",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 229.76,
+  "amount": 480
+ },
+ {
+  "date": "2024-12-13",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 222.04,
+  "amount": 1678
+ },
+ {
+  "date": "2024-12-20",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 191.61,
+  "amount": 316
+ },
+ {
+  "date": "2025-01-10",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 190.94,
+  "amount": 181
+ },
+ {
+  "date": "2025-02-21",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 199.85,
+  "amount": 1150
+ },
+ {
+  "date": "2025-02-28",
+  "ticker": "LHX",
+  "action": "DIV_REINVEST",
+  "price": 207.7,
+  "amount": 1021
+ },
+ {
+  "date": "2025-03-07",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 355.43,
+  "amount": 1588
+ },
+ {
+  "date": "2025-03-14",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 357.48,
+  "amount": 1109
+ },
+ {
+  "date": "2025-03-21",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 350.57,
+  "amount": 337
+ },
+ {
+  "date": "2025-04-11",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 361.46,
+  "amount": 181
+ },
+ {
+  "date": "2025-05-16",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 315.89,
+  "amount": 760
+ },
+ {
+  "date": "2025-05-23",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 295.57,
+  "amount": 541
+ },
+ {
+  "date": "2025-05-30",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 304.72,
+  "amount": 1021
+ },
+ {
+  "date": "2025-06-06",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 303.19,
+  "amount": 539
+ },
+ {
+  "date": "2025-06-13",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 307.66,
+  "amount": 1973
+ },
+ {
+  "date": "2025-06-20",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 300.68,
+  "amount": 568
+ },
+ {
+  "date": "2025-07-11",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 300.58,
+  "amount": 181
+ },
+ {
+  "date": "2025-08-15",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 308.49,
+  "amount": 760
+ },
+ {
+  "date": "2025-08-22",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 304.86,
+  "amount": 541
+ },
+ {
+  "date": "2025-08-29",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 309.87,
+  "amount": 524
+ },
+ {
+  "date": "2025-09-05",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 320.25,
+  "amount": 539
+ },
+ {
+  "date": "2025-09-12",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 347.89,
+  "amount": 1725
+ },
+ {
+  "date": "2025-09-19",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 341.3,
+  "amount": 337
+ },
+ {
+  "date": "2025-09-26",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 345.18,
+  "amount": 642
+ },
+ {
+  "date": "2025-10-10",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 358.66,
+  "amount": 181
+ },
+ {
+  "date": "2025-11-14",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 320.52,
+  "amount": 1299
+ },
+ {
+  "date": "2025-11-21",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 319.05,
+  "amount": 541
+ },
+ {
+  "date": "2025-11-28",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 323.21,
+  "amount": 524
+ },
+ {
+  "date": "2025-12-05",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 323.62,
+  "amount": 1240
+ },
+ {
+  "date": "2025-12-12",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 341.1,
+  "amount": 1227
+ },
+ {
+  "date": "2025-12-19",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 325.16,
+  "amount": 337
+ },
+ {
+  "date": "2026-01-09",
+  "ticker": "ICE",
+  "action": "DIV_REINVEST",
+  "price": 165.98,
+  "amount": 207
+ },
+ {
+  "date": "2026-02-20",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 282.34,
+  "amount": 1300
+ },
+ {
+  "date": "2026-02-27",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 294.93,
+  "amount": 1115
+ },
+ {
+  "date": "2026-03-06",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 285.17,
+  "amount": 1839
+ },
+ {
+  "date": "2026-03-13",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 285.49,
+  "amount": 685
+ },
+ {
+  "date": "2026-03-20",
+  "ticker": "UNH",
+  "action": "DIV_REINVEST",
+  "price": 269.54,
+  "amount": 907
+ },
+ {
+  "date": "2026-04-10",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 520.38,
+  "amount": 207
+ },
+ {
+  "date": "2026-05-15",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 494.28,
+  "amount": 920
+ },
+ {
+  "date": "2026-05-22",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 515.04,
+  "amount": 623
+ },
+ {
+  "date": "2026-05-29",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 508.85,
+  "amount": 1115
+ },
+ {
+  "date": "2026-06-05",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 467.07,
+  "amount": 561
+ },
+ {
+  "date": "2026-06-12",
+  "ticker": "ULTA",
+  "action": "DIV_REINVEST",
+  "price": 467.74,
+  "amount": 1921
+ },
+ {
+  "date": "2026-06-19",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 249.1,
+  "amount": 1008
+ },
+ {
+  "date": "2026-07-10",
+  "ticker": "CBOE",
+  "action": "DIV_REINVEST",
+  "price": 268.07,
+  "amount": 207
+ }
+]

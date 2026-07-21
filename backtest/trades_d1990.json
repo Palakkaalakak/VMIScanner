@@ -1,0 +1,8708 @@
+[
+ {
+  "date": "1990-01-05",
+  "ticker": "WMT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.96,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "HD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.84,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "DIS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 9.61,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "NKE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 0.86,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "MCD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 8.47,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "KO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 4.84,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "PEP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 10.54,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "SYY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 3.88,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "JNJ",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 7.58,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "ABT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 3.85,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "MDT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 2.15,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "ADP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 4.87,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "GWW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 16.38,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "EMR",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 10.09,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "ITW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 5.58,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "AXP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 8.82,
+  "amount": 20833
+ },
+ {
+  "date": "1990-01-19",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.85,
+  "amount": 34
+ },
+ {
+  "date": "1990-02-02",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.76,
+  "amount": 70
+ },
+ {
+  "date": "1990-02-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.5,
+  "amount": 245
+ },
+ {
+  "date": "1990-02-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.47,
+  "amount": 100
+ },
+ {
+  "date": "1990-02-23",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.4,
+  "amount": 17
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "DIS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 9.09,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 9.44,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "SYY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.34,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "JNJ",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 6.77,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "ABT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.61,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "AXP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 7.08,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.08,
+  "amount": 130
+ },
+ {
+  "date": "1990-03-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.21,
+  "amount": 183
+ },
+ {
+  "date": "1990-03-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.21,
+  "amount": 95
+ },
+ {
+  "date": "1990-03-23",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 7.84,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-23",
+  "ticker": "MDT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.93,
+  "amount": 20833
+ },
+ {
+  "date": "1990-03-30",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.69,
+  "amount": 321
+ },
+ {
+  "date": "1990-04-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.89,
+  "amount": 429
+ },
+ {
+  "date": "1990-04-20",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.02,
+  "amount": 73
+ },
+ {
+  "date": "1990-04-27",
+  "ticker": "DIS",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 9.08,
+  "amount": 20833
+ },
+ {
+  "date": "1990-04-27",
+  "ticker": "AXP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 6.98,
+  "amount": 20833
+ },
+ {
+  "date": "1990-05-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.92,
+  "amount": 162
+ },
+ {
+  "date": "1990-05-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.53,
+  "amount": 163
+ },
+ {
+  "date": "1990-05-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.72,
+  "amount": 248
+ },
+ {
+  "date": "1990-06-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 8.14,
+  "amount": 318
+ },
+ {
+  "date": "1990-06-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.89,
+  "amount": 214
+ },
+ {
+  "date": "1990-06-15",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.89,
+  "amount": 74
+ },
+ {
+  "date": "1990-06-29",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 8.05,
+  "amount": 514
+ },
+ {
+  "date": "1990-07-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.95,
+  "amount": 500
+ },
+ {
+  "date": "1990-07-20",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 8.25,
+  "amount": 20833
+ },
+ {
+  "date": "1990-07-20",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.76,
+  "amount": 73
+ },
+ {
+  "date": "1990-07-27",
+  "ticker": "GWW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 16.97,
+  "amount": 20833
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 4.96,
+  "amount": 20833
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "EMR",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 9.12,
+  "amount": 20833
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "ITW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 6.0,
+  "amount": 20833
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.76,
+  "amount": 84
+ },
+ {
+  "date": "1990-08-10",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.05,
+  "amount": 524
+ },
+ {
+  "date": "1990-08-17",
+  "ticker": "SYY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 3.91,
+  "amount": 20833
+ },
+ {
+  "date": "1990-08-17",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.4,
+  "amount": 248
+ },
+ {
+  "date": "1990-08-24",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.28,
+  "amount": 219
+ },
+ {
+  "date": "1990-08-31",
+  "ticker": "NKE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.02,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-07",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 6.21,
+  "amount": 456
+ },
+ {
+  "date": "1990-09-14",
+  "ticker": "KO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 5.06,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.95,
+  "amount": 147
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "WMT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 2.16,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "HD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 2.29,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 10.81,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "JNJ",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 7.67,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "GWW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 14.16,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 4.98,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "EMR",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 8.41,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "ITW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 5.62,
+  "amount": 20833
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.76,
+  "amount": 537
+ },
+ {
+  "date": "1990-10-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.5,
+  "amount": 212
+ },
+ {
+  "date": "1990-10-12",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.8,
+  "amount": 263
+ },
+ {
+  "date": "1990-10-19",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.12,
+  "amount": 490
+ },
+ {
+  "date": "1990-10-26",
+  "ticker": "NKE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 0.84,
+  "amount": 20833
+ },
+ {
+  "date": "1990-11-02",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.12,
+  "amount": 533
+ },
+ {
+  "date": "1990-11-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.57,
+  "amount": 563
+ },
+ {
+  "date": "1990-11-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.57,
+  "amount": 363
+ },
+ {
+  "date": "1990-11-23",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.21,
+  "amount": 418
+ },
+ {
+  "date": "1990-12-07",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.6,
+  "amount": 667
+ },
+ {
+  "date": "1990-12-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.47,
+  "amount": 220
+ },
+ {
+  "date": "1990-12-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.31,
+  "amount": 584
+ },
+ {
+  "date": "1991-01-04",
+  "ticker": "WMT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 2.42,
+  "amount": 20833
+ },
+ {
+  "date": "1991-01-04",
+  "ticker": "ABT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 4.5,
+  "amount": 20833
+ },
+ {
+  "date": "1991-01-04",
+  "ticker": "MDT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 2.5,
+  "amount": 20833
+ },
+ {
+  "date": "1991-01-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.09,
+  "amount": 131
+ },
+ {
+  "date": "1991-01-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.05,
+  "amount": 453
+ },
+ {
+  "date": "1991-01-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.34,
+  "amount": 148
+ },
+ {
+  "date": "1991-02-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.95,
+  "amount": 245
+ },
+ {
+  "date": "1991-02-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 7.5,
+  "amount": 288
+ },
+ {
+  "date": "1991-05-10",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.89,
+  "amount": 4081
+ },
+ {
+  "date": "1991-05-17",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.92,
+  "amount": 990
+ },
+ {
+  "date": "1991-06-07",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.21,
+  "amount": 835
+ },
+ {
+  "date": "1991-06-14",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.2,
+  "amount": 352
+ },
+ {
+  "date": "1991-06-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.89,
+  "amount": 653
+ },
+ {
+  "date": "1991-07-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.63,
+  "amount": 404
+ },
+ {
+  "date": "1991-07-12",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.89,
+  "amount": 443
+ },
+ {
+  "date": "1991-07-19",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.95,
+  "amount": 148
+ },
+ {
+  "date": "1991-08-16",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 7.75,
+  "amount": 1598
+ },
+ {
+  "date": "1991-09-06",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 8.0,
+  "amount": 1009
+ },
+ {
+  "date": "1991-09-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 9.34,
+  "amount": 251
+ },
+ {
+  "date": "1991-09-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 9.37,
+  "amount": 728
+ },
+ {
+  "date": "1991-10-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.34,
+  "amount": 315
+ },
+ {
+  "date": "1991-10-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.34,
+  "amount": 443
+ },
+ {
+  "date": "1991-10-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.15,
+  "amount": 148
+ },
+ {
+  "date": "1991-11-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.8,
+  "amount": 608
+ },
+ {
+  "date": "1991-11-15",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.89,
+  "amount": 427
+ },
+ {
+  "date": "1991-11-22",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.89,
+  "amount": 841
+ },
+ {
+  "date": "1991-11-29",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.96,
+  "amount": 252
+ },
+ {
+  "date": "1991-12-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.8,
+  "amount": 510
+ },
+ {
+  "date": "1991-12-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 4.76,
+  "amount": 251
+ },
+ {
+  "date": "1991-12-27",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.41,
+  "amount": 777
+ },
+ {
+  "date": "1992-01-03",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.54,
+  "amount": 315
+ },
+ {
+  "date": "1992-01-10",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.63,
+  "amount": 443
+ },
+ {
+  "date": "1992-01-24",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.83,
+  "amount": 212
+ },
+ {
+  "date": "1992-01-31",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.73,
+  "amount": 300
+ },
+ {
+  "date": "1992-02-07",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.54,
+  "amount": 308
+ },
+ {
+  "date": "1992-02-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.54,
+  "amount": 1016
+ },
+ {
+  "date": "1992-02-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.34,
+  "amount": 190
+ },
+ {
+  "date": "1992-03-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.66,
+  "amount": 771
+ },
+ {
+  "date": "1992-03-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.5,
+  "amount": 251
+ },
+ {
+  "date": "1992-03-20",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.73,
+  "amount": 125
+ },
+ {
+  "date": "1992-04-03",
+  "ticker": "ITW",
+  "action": "DIV_REINVEST",
+  "price": 7.66,
+  "amount": 1166
+ },
+ {
+  "date": "1992-04-10",
+  "ticker": "ITW",
+  "action": "DIV_REINVEST",
+  "price": 7.55,
+  "amount": 532
+ },
+ {
+  "date": "1992-04-24",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.63,
+  "amount": 212
+ },
+ {
+  "date": "1992-05-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.73,
+  "amount": 306
+ },
+ {
+  "date": "1992-05-08",
+  "ticker": "ITW",
+  "action": "DIV_REINVEST",
+  "price": 8.02,
+  "amount": 328
+ },
+ {
+  "date": "1992-05-15",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.9,
+  "amount": 1080
+ },
+ {
+  "date": "1992-05-22",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.84,
+  "amount": 102
+ },
+ {
+  "date": "1992-05-29",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.84,
+  "amount": 200
+ },
+ {
+  "date": "1992-06-05",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.79,
+  "amount": 728
+ },
+ {
+  "date": "1992-06-12",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.81,
+  "amount": 420
+ },
+ {
+  "date": "1992-06-26",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.91,
+  "amount": 837
+ },
+ {
+  "date": "1992-07-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 12.09,
+  "amount": 117
+ },
+ {
+  "date": "1992-07-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 11.22,
+  "amount": 784
+ },
+ {
+  "date": "1992-07-24",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 12.22,
+  "amount": 254
+ },
+ {
+  "date": "1992-07-31",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 12.78,
+  "amount": 307
+ },
+ {
+  "date": "1992-08-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 10.47,
+  "amount": 328
+ },
+ {
+  "date": "1992-08-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 10.62,
+  "amount": 1085
+ },
+ {
+  "date": "1992-08-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.37,
+  "amount": 306
+ },
+ {
+  "date": "1992-09-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.66,
+  "amount": 565
+ },
+ {
+  "date": "1992-09-11",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 25.5,
+  "amount": 583
+ },
+ {
+  "date": "1992-09-25",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.63,
+  "amount": 847
+ },
+ {
+  "date": "1992-10-02",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.41,
+  "amount": 371
+ },
+ {
+  "date": "1992-10-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.25,
+  "amount": 532
+ },
+ {
+  "date": "1992-10-23",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.28,
+  "amount": 254
+ },
+ {
+  "date": "1992-10-30",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.5,
+  "amount": 335
+ },
+ {
+  "date": "1992-11-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.44,
+  "amount": 330
+ },
+ {
+  "date": "1992-11-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.57,
+  "amount": 491
+ },
+ {
+  "date": "1992-11-20",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 5.7,
+  "amount": 823
+ },
+ {
+  "date": "1992-12-04",
+  "ticker": "ITW",
+  "action": "DIV_REINVEST",
+  "price": 7.91,
+  "amount": 1264
+ },
+ {
+  "date": "1993-01-01",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 6.82,
+  "amount": 1146
+ },
+ {
+  "date": "1993-01-08",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 6.42,
+  "amount": 656
+ },
+ {
+  "date": "1993-01-22",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 6.34,
+  "amount": 296
+ },
+ {
+  "date": "1993-01-29",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 6.17,
+  "amount": 340
+ },
+ {
+  "date": "1993-02-05",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 5.98,
+  "amount": 330
+ },
+ {
+  "date": "1993-02-12",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 6.28,
+  "amount": 1110
+ },
+ {
+  "date": "1993-02-26",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 2.27,
+  "amount": 204
+ },
+ {
+  "date": "1993-03-05",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 2.29,
+  "amount": 844
+ },
+ {
+  "date": "1993-03-12",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 5.95,
+  "amount": 358
+ },
+ {
+  "date": "1993-03-19",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 5.56,
+  "amount": 154
+ },
+ {
+  "date": "1993-03-26",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 5.5,
+  "amount": 894
+ },
+ {
+  "date": "1993-04-02",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 5.7,
+  "amount": 393
+ },
+ {
+  "date": "1993-04-09",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 5.67,
+  "amount": 638
+ },
+ {
+  "date": "1993-04-23",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 11.53,
+  "amount": 296
+ },
+ {
+  "date": "1993-04-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 13.24,
+  "amount": 340
+ },
+ {
+  "date": "1993-05-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 12.99,
+  "amount": 360
+ },
+ {
+  "date": "1993-05-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 13.03,
+  "amount": 1175
+ },
+ {
+  "date": "1993-06-04",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 2.19,
+  "amount": 764
+ },
+ {
+  "date": "1993-06-11",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 2.13,
+  "amount": 975
+ },
+ {
+  "date": "1993-07-02",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.71,
+  "amount": 1344
+ },
+ {
+  "date": "1993-07-09",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.74,
+  "amount": 643
+ },
+ {
+  "date": "1993-07-23",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.74,
+  "amount": 296
+ },
+ {
+  "date": "1993-07-30",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.77,
+  "amount": 340
+ },
+ {
+  "date": "1993-08-13",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.68,
+  "amount": 1534
+ },
+ {
+  "date": "1993-08-27",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.66,
+  "amount": 219
+ },
+ {
+  "date": "1993-09-03",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.63,
+  "amount": 839
+ },
+ {
+  "date": "1993-09-10",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.61,
+  "amount": 684
+ },
+ {
+  "date": "1993-10-01",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.47,
+  "amount": 1200
+ },
+ {
+  "date": "1993-10-08",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.45,
+  "amount": 787
+ },
+ {
+  "date": "1993-10-22",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.45,
+  "amount": 296
+ },
+ {
+  "date": "1993-10-29",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.62,
+  "amount": 368
+ },
+ {
+  "date": "1993-11-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.89,
+  "amount": 360
+ },
+ {
+  "date": "1993-11-12",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.55,
+  "amount": 555
+ },
+ {
+  "date": "1993-11-19",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.66,
+  "amount": 671
+ },
+ {
+  "date": "1993-11-26",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.51,
+  "amount": 867
+ },
+ {
+  "date": "1993-12-03",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 8.05,
+  "amount": 877
+ },
+ {
+  "date": "1993-12-31",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.63,
+  "amount": 1216
+ },
+ {
+  "date": "1994-01-07",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.6,
+  "amount": 787
+ },
+ {
+  "date": "1994-01-21",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 8.11,
+  "amount": 381
+ },
+ {
+  "date": "1994-01-28",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 1.56,
+  "amount": 368
+ },
+ {
+  "date": "1994-02-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.89,
+  "amount": 360
+ },
+ {
+  "date": "1994-02-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.98,
+  "amount": 1226
+ },
+ {
+  "date": "1994-02-25",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.53,
+  "amount": 219
+ },
+ {
+  "date": "1994-03-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.4,
+  "amount": 687
+ },
+ {
+  "date": "1994-03-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.43,
+  "amount": 737
+ },
+ {
+  "date": "1994-03-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.72,
+  "amount": 202
+ },
+ {
+  "date": "1994-04-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.02,
+  "amount": 1264
+ },
+ {
+  "date": "1994-04-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.82,
+  "amount": 893
+ },
+ {
+  "date": "1994-04-22",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.72,
+  "amount": 381
+ },
+ {
+  "date": "1994-04-29",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.76,
+  "amount": 368
+ },
+ {
+  "date": "1994-05-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.56,
+  "amount": 399
+ },
+ {
+  "date": "1994-05-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.31,
+  "amount": 1290
+ },
+ {
+  "date": "1994-06-03",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 8.1,
+  "amount": 1039
+ },
+ {
+  "date": "1994-06-10",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 15.69,
+  "amount": 989
+ },
+ {
+  "date": "1994-07-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.59,
+  "amount": 1396
+ },
+ {
+  "date": "1994-07-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.62,
+  "amount": 893
+ },
+ {
+  "date": "1994-07-22",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.66,
+  "amount": 381
+ },
+ {
+  "date": "1994-07-29",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 7.84,
+  "amount": 368
+ },
+ {
+  "date": "1994-08-12",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.12,
+  "amount": 1690
+ },
+ {
+  "date": "1994-08-26",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.94,
+  "amount": 249
+ },
+ {
+  "date": "1994-09-02",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 14.0,
+  "amount": 1002
+ },
+ {
+  "date": "1994-09-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.56,
+  "amount": 787
+ },
+ {
+  "date": "1994-09-23",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.38,
+  "amount": 425
+ },
+ {
+  "date": "1994-09-30",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.12,
+  "amount": 1052
+ },
+ {
+  "date": "1994-10-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.31,
+  "amount": 1260
+ },
+ {
+  "date": "1994-10-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 12.74,
+  "amount": 381
+ },
+ {
+  "date": "1994-11-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 13.07,
+  "amount": 399
+ },
+ {
+  "date": "1994-11-11",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 27.25,
+  "amount": 619
+ },
+ {
+  "date": "1994-11-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 13.93,
+  "amount": 740
+ },
+ {
+  "date": "1994-11-25",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 14.38,
+  "amount": 670
+ },
+ {
+  "date": "1994-12-02",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 14.19,
+  "amount": 1017
+ },
+ {
+  "date": "1994-12-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 14.25,
+  "amount": 377
+ },
+ {
+  "date": "1994-12-23",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.67,
+  "amount": 425
+ },
+ {
+  "date": "1994-12-30",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.54,
+  "amount": 1420
+ },
+ {
+  "date": "1995-01-06",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 6.25,
+  "amount": 895
+ },
+ {
+  "date": "1995-01-20",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.58,
+  "amount": 470
+ },
+ {
+  "date": "1995-02-03",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 30.06,
+  "amount": 402
+ },
+ {
+  "date": "1995-02-10",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.96,
+  "amount": 1359
+ },
+ {
+  "date": "1995-02-24",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.9,
+  "amount": 446
+ },
+ {
+  "date": "1995-04-28",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.83,
+  "amount": 5044
+ },
+ {
+  "date": "1995-05-05",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.88,
+  "amount": 464
+ },
+ {
+  "date": "1995-05-12",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.56,
+  "amount": 1444
+ },
+ {
+  "date": "1995-06-09",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.44,
+  "amount": 1482
+ },
+ {
+  "date": "1995-06-16",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.31,
+  "amount": 902
+ },
+ {
+  "date": "1995-06-30",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.19,
+  "amount": 425
+ },
+ {
+  "date": "1995-07-14",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 28.44,
+  "amount": 2527
+ },
+ {
+  "date": "1995-07-28",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.31,
+  "amount": 470
+ },
+ {
+  "date": "1995-08-18",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.81,
+  "amount": 2042
+ },
+ {
+  "date": "1995-09-01",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.81,
+  "amount": 560
+ },
+ {
+  "date": "1995-09-08",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.75,
+  "amount": 922
+ },
+ {
+  "date": "1995-09-15",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 6.88,
+  "amount": 902
+ },
+ {
+  "date": "1995-09-29",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 6.81,
+  "amount": 482
+ },
+ {
+  "date": "1995-10-06",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 6.81,
+  "amount": 468
+ },
+ {
+  "date": "1995-10-13",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.75,
+  "amount": 2059
+ },
+ {
+  "date": "1995-10-27",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.65,
+  "amount": 477
+ },
+ {
+  "date": "1995-11-03",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.88,
+  "amount": 508
+ },
+ {
+  "date": "1995-11-10",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.98,
+  "amount": 705
+ },
+ {
+  "date": "1995-11-17",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.04,
+  "amount": 843
+ },
+ {
+  "date": "1995-12-01",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.02,
+  "amount": 1033
+ },
+ {
+  "date": "1995-12-08",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.94,
+  "amount": 1034
+ },
+ {
+  "date": "1995-12-15",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.81,
+  "amount": 502
+ },
+ {
+  "date": "1995-12-29",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.71,
+  "amount": 694
+ },
+ {
+  "date": "1996-01-05",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.9,
+  "amount": 1521
+ },
+ {
+  "date": "1996-01-12",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 11.31,
+  "amount": 794
+ },
+ {
+  "date": "1996-01-26",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.33,
+  "amount": 564
+ },
+ {
+  "date": "1996-02-09",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.79,
+  "amount": 508
+ },
+ {
+  "date": "1996-02-16",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.54,
+  "amount": 705
+ },
+ {
+  "date": "1996-02-23",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.62,
+  "amount": 843
+ },
+ {
+  "date": "1996-03-01",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.71,
+  "amount": 299
+ },
+ {
+  "date": "1996-03-08",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.71,
+  "amount": 1034
+ },
+ {
+  "date": "1996-03-15",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 9.09,
+  "amount": 1330
+ },
+ {
+  "date": "1996-03-29",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.92,
+  "amount": 482
+ },
+ {
+  "date": "1996-04-05",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.69,
+  "amount": 2090
+ },
+ {
+  "date": "1996-04-12",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.79,
+  "amount": 1175
+ },
+ {
+  "date": "1996-05-03",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.92,
+  "amount": 552
+ },
+ {
+  "date": "1996-05-31",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 19.85,
+  "amount": 1984
+ },
+ {
+  "date": "1996-06-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 13.09,
+  "amount": 2512
+ },
+ {
+  "date": "1996-07-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 12.47,
+  "amount": 2800
+ },
+ {
+  "date": "1996-07-12",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 11.96,
+  "amount": 1179
+ },
+ {
+  "date": "1996-08-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 13.17,
+  "amount": 2206
+ },
+ {
+  "date": "1996-08-30",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 12.76,
+  "amount": 642
+ },
+ {
+  "date": "1996-09-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 12.73,
+  "amount": 899
+ },
+ {
+  "date": "1996-09-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 19.81,
+  "amount": 1301
+ },
+ {
+  "date": "1996-09-27",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.69,
+  "amount": 538
+ },
+ {
+  "date": "1996-10-04",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.31,
+  "amount": 564
+ },
+ {
+  "date": "1996-10-11",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.31,
+  "amount": 2975
+ },
+ {
+  "date": "1996-11-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.56,
+  "amount": 552
+ },
+ {
+  "date": "1996-11-15",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.12,
+  "amount": 812
+ },
+ {
+  "date": "1996-11-22",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.75,
+  "amount": 929
+ },
+ {
+  "date": "1996-11-29",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.12,
+  "amount": 865
+ },
+ {
+  "date": "1996-12-06",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.1,
+  "amount": 982
+ },
+ {
+  "date": "1996-12-13",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.88,
+  "amount": 1391
+ },
+ {
+  "date": "1996-12-27",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.92,
+  "amount": 538
+ },
+ {
+  "date": "1997-01-03",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.69,
+  "amount": 1761
+ },
+ {
+  "date": "1997-01-10",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 3.92,
+  "amount": 1866
+ },
+ {
+  "date": "1997-02-07",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.08,
+  "amount": 552
+ },
+ {
+  "date": "1997-02-14",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.1,
+  "amount": 812
+ },
+ {
+  "date": "1997-02-21",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 4.1,
+  "amount": 1958
+ },
+ {
+  "date": "1997-02-28",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 21.69,
+  "amount": 340
+ },
+ {
+  "date": "1997-03-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.12,
+  "amount": 2588
+ },
+ {
+  "date": "1997-03-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 22.5,
+  "amount": 1037
+ },
+ {
+  "date": "1997-04-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 23.31,
+  "amount": 2445
+ },
+ {
+  "date": "1997-04-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 22.81,
+  "amount": 1348
+ },
+ {
+  "date": "1997-05-16",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 8.5,
+  "amount": 2493
+ },
+ {
+  "date": "1997-06-20",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 38.38,
+  "amount": 3593
+ },
+ {
+  "date": "1997-07-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.72,
+  "amount": 4593
+ },
+ {
+  "date": "1997-08-15",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 8.77,
+  "amount": 2506
+ },
+ {
+  "date": "1997-08-29",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.66,
+  "amount": 377
+ },
+ {
+  "date": "1997-09-12",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.03,
+  "amount": 1507
+ },
+ {
+  "date": "1997-09-19",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 24.12,
+  "amount": 1708
+ },
+ {
+  "date": "1997-09-26",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 24.06,
+  "amount": 680
+ },
+ {
+  "date": "1997-10-03",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.94,
+  "amount": 1782
+ },
+ {
+  "date": "1997-10-10",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.0,
+  "amount": 21578
+ },
+ {
+  "date": "1997-10-17",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.88,
+  "amount": 327
+ },
+ {
+  "date": "1997-11-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 22.38,
+  "amount": 609
+ },
+ {
+  "date": "1997-11-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.56,
+  "amount": 940
+ },
+ {
+  "date": "1997-11-21",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 24.5,
+  "amount": 1046
+ },
+ {
+  "date": "1997-11-28",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 24.44,
+  "amount": 1020
+ },
+ {
+  "date": "1997-12-05",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.75,
+  "amount": 341
+ },
+ {
+  "date": "1997-12-12",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.0,
+  "amount": 1435
+ },
+ {
+  "date": "1997-12-19",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.19,
+  "amount": 1036
+ },
+ {
+  "date": "1997-12-26",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.12,
+  "amount": 680
+ },
+ {
+  "date": "1998-01-02",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.75,
+  "amount": 1872
+ },
+ {
+  "date": "1998-01-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.19,
+  "amount": 1120
+ },
+ {
+  "date": "1998-01-16",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 23.78,
+  "amount": 1029
+ },
+ {
+  "date": "1998-07-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 30.19,
+  "amount": 21892
+ },
+ {
+  "date": "1998-07-17",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.75,
+  "amount": 1144
+ },
+ {
+  "date": "1998-07-24",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.0,
+  "amount": 387
+ },
+ {
+  "date": "1998-08-07",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 42.75,
+  "amount": 681
+ },
+ {
+  "date": "1998-08-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 28.05,
+  "amount": 2221
+ },
+ {
+  "date": "1998-08-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 22.76,
+  "amount": 490
+ },
+ {
+  "date": "1998-09-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 21.48,
+  "amount": 409
+ },
+ {
+  "date": "1998-09-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 23.83,
+  "amount": 2097
+ },
+ {
+  "date": "1998-09-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 24.82,
+  "amount": 1101
+ },
+ {
+  "date": "1998-09-25",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 24.22,
+  "amount": 850
+ },
+ {
+  "date": "1998-10-02",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 21.15,
+  "amount": 807
+ },
+ {
+  "date": "1998-10-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 23.27,
+  "amount": 2455
+ },
+ {
+  "date": "1998-10-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 26.11,
+  "amount": 1144
+ },
+ {
+  "date": "1998-11-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 27.68,
+  "amount": 683
+ },
+ {
+  "date": "1998-11-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 28.28,
+  "amount": 1068
+ },
+ {
+  "date": "1998-11-20",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 44.38,
+  "amount": 1270
+ },
+ {
+  "date": "1998-11-27",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 42.25,
+  "amount": 1121
+ },
+ {
+  "date": "1998-12-04",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 43.62,
+  "amount": 409
+ },
+ {
+  "date": "1998-12-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 26.7,
+  "amount": 2069
+ },
+ {
+  "date": "1998-12-18",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 39.0,
+  "amount": 598
+ },
+ {
+  "date": "1999-01-01",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 40.62,
+  "amount": 1747
+ },
+ {
+  "date": "1999-01-08",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 41.0,
+  "amount": 2087
+ },
+ {
+  "date": "1999-01-15",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 39.75,
+  "amount": 1144
+ },
+ {
+  "date": "1999-02-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 28.32,
+  "amount": 714
+ },
+ {
+  "date": "1999-02-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 28.0,
+  "amount": 1068
+ },
+ {
+  "date": "1999-02-19",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 29.97,
+  "amount": 1276
+ },
+ {
+  "date": "1999-03-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 29.97,
+  "amount": 409
+ },
+ {
+  "date": "1999-03-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 29.25,
+  "amount": 2762
+ },
+ {
+  "date": "1999-03-19",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 28.0,
+  "amount": 1243
+ },
+ {
+  "date": "1999-03-26",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 27.44,
+  "amount": 850
+ },
+ {
+  "date": "1999-04-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 26.78,
+  "amount": 2048
+ },
+ {
+  "date": "1999-04-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 29.66,
+  "amount": 937
+ },
+ {
+  "date": "1999-04-16",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 36.75,
+  "amount": 1296
+ },
+ {
+  "date": "1999-05-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 29.35,
+  "amount": 761
+ },
+ {
+  "date": "1999-05-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.61,
+  "amount": 2527
+ },
+ {
+  "date": "1999-05-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.73,
+  "amount": 533
+ },
+ {
+  "date": "1999-06-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.61,
+  "amount": 3407
+ },
+ {
+  "date": "1999-06-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 30.33,
+  "amount": 645
+ },
+ {
+  "date": "1999-06-25",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.92,
+  "amount": 850
+ },
+ {
+  "date": "1999-07-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.93,
+  "amount": 3207
+ },
+ {
+  "date": "1999-07-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.44,
+  "amount": 1296
+ },
+ {
+  "date": "1999-08-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.56,
+  "amount": 3288
+ },
+ {
+  "date": "1999-08-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.12,
+  "amount": 533
+ },
+ {
+  "date": "1999-09-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.56,
+  "amount": 545
+ },
+ {
+  "date": "1999-09-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.68,
+  "amount": 2275
+ },
+ {
+  "date": "1999-09-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.81,
+  "amount": 1243
+ },
+ {
+  "date": "1999-10-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.28,
+  "amount": 1917
+ },
+ {
+  "date": "1999-10-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.91,
+  "amount": 2742
+ },
+ {
+  "date": "1999-10-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.31,
+  "amount": 1296
+ },
+ {
+  "date": "1999-11-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.18,
+  "amount": 761
+ },
+ {
+  "date": "1999-11-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.53,
+  "amount": 2969
+ },
+ {
+  "date": "1999-11-19",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 26.88,
+  "amount": 1466
+ },
+ {
+  "date": "1999-11-26",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.05,
+  "amount": 1206
+ },
+ {
+  "date": "1999-12-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.44,
+  "amount": 817
+ },
+ {
+  "date": "1999-12-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 26.78,
+  "amount": 1722
+ },
+ {
+  "date": "1999-12-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 27.76,
+  "amount": 1243
+ },
+ {
+  "date": "1999-12-31",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 28.78,
+  "amount": 1020
+ },
+ {
+  "date": "2000-01-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 29.5,
+  "amount": 3381
+ },
+ {
+  "date": "2000-01-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 30.47,
+  "amount": 1296
+ },
+ {
+  "date": "2000-02-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 24.97,
+  "amount": 761
+ },
+ {
+  "date": "2000-02-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 23.19,
+  "amount": 1196
+ },
+ {
+  "date": "2000-02-18",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 3.5,
+  "amount": 1526
+ },
+ {
+  "date": "2000-03-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 21.25,
+  "amount": 3255
+ },
+ {
+  "date": "2000-03-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 23.47,
+  "amount": 1375
+ },
+ {
+  "date": "2000-03-31",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 26.5,
+  "amount": 1020
+ },
+ {
+  "date": "2000-04-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 27.44,
+  "amount": 2229
+ },
+ {
+  "date": "2000-04-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 27.53,
+  "amount": 1449
+ },
+ {
+  "date": "2000-04-21",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 26.94,
+  "amount": 1229
+ },
+ {
+  "date": "2000-05-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 27.59,
+  "amount": 809
+ },
+ {
+  "date": "2000-05-12",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 44.69,
+  "amount": 1608
+ },
+ {
+  "date": "2000-05-19",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 43.12,
+  "amount": 1367
+ },
+ {
+  "date": "2000-06-09",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 35.53,
+  "amount": 1753
+ },
+ {
+  "date": "2000-06-16",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 30.5,
+  "amount": 2908
+ },
+ {
+  "date": "2000-06-30",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 32.06,
+  "amount": 1020
+ },
+ {
+  "date": "2000-07-07",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 30.38,
+  "amount": 3746
+ },
+ {
+  "date": "2000-07-14",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 32.19,
+  "amount": 1449
+ },
+ {
+  "date": "2000-08-11",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 33.25,
+  "amount": 2487
+ },
+ {
+  "date": "2000-08-18",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 31.19,
+  "amount": 1367
+ },
+ {
+  "date": "2000-09-01",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.31,
+  "amount": 817
+ },
+ {
+  "date": "2000-09-08",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 29.44,
+  "amount": 869
+ },
+ {
+  "date": "2000-09-15",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 27.94,
+  "amount": 2974
+ },
+ {
+  "date": "2000-09-29",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 26.62,
+  "amount": 1133
+ },
+ {
+  "date": "2000-10-06",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 26.94,
+  "amount": 3746
+ },
+ {
+  "date": "2000-10-13",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 26.56,
+  "amount": 1449
+ },
+ {
+  "date": "2000-11-03",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 32.25,
+  "amount": 967
+ },
+ {
+  "date": "2000-11-10",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 34.94,
+  "amount": 2339
+ },
+ {
+  "date": "2000-11-17",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 35.88,
+  "amount": 3088
+ },
+ {
+  "date": "2000-12-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 29.04,
+  "amount": 1533
+ },
+ {
+  "date": "2000-12-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 29.94,
+  "amount": 3748
+ },
+ {
+  "date": "2000-12-15",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 32.94,
+  "amount": 601
+ },
+ {
+  "date": "2000-12-22",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 33.56,
+  "amount": 803
+ },
+ {
+  "date": "2000-12-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.55,
+  "amount": 1133
+ },
+ {
+  "date": "2001-01-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 29.72,
+  "amount": 3925
+ },
+ {
+  "date": "2001-01-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.14,
+  "amount": 1449
+ },
+ {
+  "date": "2001-02-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 29.83,
+  "amount": 1006
+ },
+ {
+  "date": "2001-02-16",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 30.22,
+  "amount": 3088
+ },
+ {
+  "date": "2001-03-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 28.06,
+  "amount": 2721
+ },
+ {
+  "date": "2001-03-16",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 31.09,
+  "amount": 1359
+ },
+ {
+  "date": "2001-03-23",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 32.37,
+  "amount": 903
+ },
+ {
+  "date": "2001-03-30",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 33.04,
+  "amount": 1133
+ },
+ {
+  "date": "2001-04-06",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 26.69,
+  "amount": 3925
+ },
+ {
+  "date": "2001-04-13",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.22,
+  "amount": 1601
+ },
+ {
+  "date": "2001-05-04",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 26.77,
+  "amount": 1054
+ },
+ {
+  "date": "2001-05-11",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.75,
+  "amount": 1721
+ },
+ {
+  "date": "2001-05-18",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 29.86,
+  "amount": 1538
+ },
+ {
+  "date": "2001-06-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 29.91,
+  "amount": 1935
+ },
+ {
+  "date": "2001-06-15",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 28.5,
+  "amount": 2176
+ },
+ {
+  "date": "2001-06-22",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.8,
+  "amount": 903
+ },
+ {
+  "date": "2001-06-29",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.4,
+  "amount": 1133
+ },
+ {
+  "date": "2001-07-06",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 26.57,
+  "amount": 4156
+ },
+ {
+  "date": "2001-07-13",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.63,
+  "amount": 1601
+ },
+ {
+  "date": "2001-08-10",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 28.02,
+  "amount": 1054
+ },
+ {
+  "date": "2001-08-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.55,
+  "amount": 3259
+ },
+ {
+  "date": "2001-08-31",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.09,
+  "amount": 817
+ },
+ {
+  "date": "2001-09-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.26,
+  "amount": 900
+ },
+ {
+  "date": "2001-09-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.99,
+  "amount": 4942
+ },
+ {
+  "date": "2001-09-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 17.66,
+  "amount": 903
+ },
+ {
+  "date": "2001-09-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 17.78,
+  "amount": 1247
+ },
+ {
+  "date": "2001-10-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.46,
+  "amount": 4156
+ },
+ {
+  "date": "2001-10-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.89,
+  "amount": 1601
+ },
+ {
+  "date": "2001-11-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.46,
+  "amount": 1054
+ },
+ {
+  "date": "2001-11-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.21,
+  "amount": 5995
+ },
+ {
+  "date": "2001-11-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 19.7,
+  "amount": 2801
+ },
+ {
+  "date": "2001-12-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.34,
+  "amount": 3074
+ },
+ {
+  "date": "2001-12-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 20.51,
+  "amount": 1756
+ },
+ {
+  "date": "2001-12-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 20.37,
+  "amount": 903
+ },
+ {
+  "date": "2001-12-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 20.44,
+  "amount": 1247
+ },
+ {
+  "date": "2002-01-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.94,
+  "amount": 4515
+ },
+ {
+  "date": "2002-01-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.08,
+  "amount": 1601
+ },
+ {
+  "date": "2002-02-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.63,
+  "amount": 1054
+ },
+ {
+  "date": "2002-02-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.58,
+  "amount": 3281
+ },
+ {
+  "date": "2002-03-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.9,
+  "amount": 900
+ },
+ {
+  "date": "2002-03-22",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.22,
+  "amount": 4587
+ },
+ {
+  "date": "2002-03-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.59,
+  "amount": 1247
+ },
+ {
+  "date": "2002-04-12",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 27.4,
+  "amount": 6306
+ },
+ {
+  "date": "2002-05-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 27.04,
+  "amount": 1084
+ },
+ {
+  "date": "2002-05-17",
+  "ticker": "NKE",
+  "action": "DIV_REINVEST",
+  "price": 6.8,
+  "amount": 3502
+ },
+ {
+  "date": "2002-06-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.68,
+  "amount": 931
+ },
+ {
+  "date": "2002-06-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.24,
+  "amount": 3623
+ },
+ {
+  "date": "2002-06-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.74,
+  "amount": 967
+ },
+ {
+  "date": "2002-06-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.11,
+  "amount": 1247
+ },
+ {
+  "date": "2002-07-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 18.74,
+  "amount": 4659
+ },
+ {
+  "date": "2002-07-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 17.74,
+  "amount": 1792
+ },
+ {
+  "date": "2002-08-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 14.04,
+  "amount": 1084
+ },
+ {
+  "date": "2002-08-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 16.43,
+  "amount": 3502
+ },
+ {
+  "date": "2002-09-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 15.69,
+  "amount": 1953
+ },
+ {
+  "date": "2002-09-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 15.61,
+  "amount": 2601
+ },
+ {
+  "date": "2002-09-20",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 14.87,
+  "amount": 967
+ },
+ {
+  "date": "2002-09-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 14.94,
+  "amount": 1303
+ },
+ {
+  "date": "2002-10-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 13.95,
+  "amount": 4659
+ },
+ {
+  "date": "2002-10-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 15.86,
+  "amount": 1792
+ },
+ {
+  "date": "2002-11-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 17.09,
+  "amount": 1084
+ },
+ {
+  "date": "2002-11-15",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 17.75,
+  "amount": 6476
+ },
+ {
+  "date": "2002-11-29",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 18.74,
+  "amount": 842
+ },
+ {
+  "date": "2002-12-06",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 17.4,
+  "amount": 2157
+ },
+ {
+  "date": "2002-12-13",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 17.38,
+  "amount": 4646
+ },
+ {
+  "date": "2002-12-20",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 15.55,
+  "amount": 967
+ },
+ {
+  "date": "2002-12-27",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 15.75,
+  "amount": 1247
+ },
+ {
+  "date": "2003-01-03",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 16.65,
+  "amount": 4873
+ },
+ {
+  "date": "2003-01-10",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 17.33,
+  "amount": 1792
+ },
+ {
+  "date": "2003-02-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.7,
+  "amount": 1084
+ },
+ {
+  "date": "2003-02-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.62,
+  "amount": 3525
+ },
+ {
+  "date": "2003-03-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 13.7,
+  "amount": 4994
+ },
+ {
+  "date": "2003-03-21",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 14.03,
+  "amount": 1161
+ },
+ {
+  "date": "2003-03-28",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 14.46,
+  "amount": 1303
+ },
+ {
+  "date": "2003-04-04",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 15.8,
+  "amount": 5017
+ },
+ {
+  "date": "2003-04-11",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 15.7,
+  "amount": 1868
+ },
+ {
+  "date": "2003-05-09",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.64,
+  "amount": 1114
+ },
+ {
+  "date": "2003-05-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 24.24,
+  "amount": 3824
+ },
+ {
+  "date": "2003-06-20",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.02,
+  "amount": 6217
+ },
+ {
+  "date": "2003-06-27",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.76,
+  "amount": 1303
+ },
+ {
+  "date": "2003-07-04",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.04,
+  "amount": 5613
+ },
+ {
+  "date": "2003-07-18",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.39,
+  "amount": 1868
+ },
+ {
+  "date": "2003-08-08",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 17.78,
+  "amount": 1178
+ },
+ {
+  "date": "2003-08-15",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 17.86,
+  "amount": 3855
+ },
+ {
+  "date": "2003-10-17",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 45.75,
+  "amount": 15294
+ },
+ {
+  "date": "2003-11-07",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 45.6,
+  "amount": 1240
+ },
+ {
+  "date": "2003-11-14",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 45.22,
+  "amount": 9971
+ },
+ {
+  "date": "2003-11-28",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.65,
+  "amount": 926
+ },
+ {
+  "date": "2003-12-05",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.91,
+  "amount": 1430
+ },
+ {
+  "date": "2003-12-19",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.1,
+  "amount": 7304
+ },
+ {
+  "date": "2003-12-26",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.96,
+  "amount": 1360
+ },
+ {
+  "date": "2004-01-02",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.43,
+  "amount": 5971
+ },
+ {
+  "date": "2004-01-16",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 46.68,
+  "amount": 1899
+ },
+ {
+  "date": "2004-02-06",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.77,
+  "amount": 1360
+ },
+ {
+  "date": "2004-02-20",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.8,
+  "amount": 3887
+ },
+ {
+  "date": "2004-03-12",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 45.74,
+  "amount": 5890
+ },
+ {
+  "date": "2004-03-19",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 45.76,
+  "amount": 1677
+ },
+ {
+  "date": "2004-03-26",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 47.71,
+  "amount": 1360
+ },
+ {
+  "date": "2004-04-02",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 19.25,
+  "amount": 5971
+ },
+ {
+  "date": "2004-04-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.82,
+  "amount": 26056
+ },
+ {
+  "date": "2004-05-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.8,
+  "amount": 1531
+ },
+ {
+  "date": "2004-05-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.59,
+  "amount": 4272
+ },
+ {
+  "date": "2004-05-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.89,
+  "amount": 1677
+ },
+ {
+  "date": "2004-06-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 30.19,
+  "amount": 6631
+ },
+ {
+  "date": "2004-06-25",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 19.57,
+  "amount": 1360
+ },
+ {
+  "date": "2004-07-02",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 26.12,
+  "amount": 6317
+ },
+ {
+  "date": "2004-07-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.17,
+  "amount": 2202
+ },
+ {
+  "date": "2004-08-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.64,
+  "amount": 1531
+ },
+ {
+  "date": "2004-08-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.26,
+  "amount": 4316
+ },
+ {
+  "date": "2004-08-20",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 21.87,
+  "amount": 1677
+ },
+ {
+  "date": "2004-09-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.07,
+  "amount": 1737
+ },
+ {
+  "date": "2004-09-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.01,
+  "amount": 4894
+ },
+ {
+  "date": "2004-09-17",
+  "ticker": "KO",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 20.22,
+  "amount": 20833
+ },
+ {
+  "date": "2004-10-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.22,
+  "amount": 6368
+ },
+ {
+  "date": "2004-10-08",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 48.73,
+  "amount": 1843
+ },
+ {
+  "date": "2004-10-15",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 48.99,
+  "amount": 2202
+ },
+ {
+  "date": "2004-11-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 50.87,
+  "amount": 1531
+ },
+ {
+  "date": "2004-11-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 51.93,
+  "amount": 12884
+ },
+ {
+  "date": "2004-11-26",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 50.45,
+  "amount": 1181
+ },
+ {
+  "date": "2004-12-03",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 50.77,
+  "amount": 1737
+ },
+ {
+  "date": "2004-12-10",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 51.71,
+  "amount": 8055
+ },
+ {
+  "date": "2004-12-17",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 51.72,
+  "amount": 1677
+ },
+ {
+  "date": "2004-12-31",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 51.94,
+  "amount": 1587
+ },
+ {
+  "date": "2005-01-07",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 20.69,
+  "amount": 6983
+ },
+ {
+  "date": "2005-01-14",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 20.49,
+  "amount": 2202
+ },
+ {
+  "date": "2005-02-04",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 21.25,
+  "amount": 1531
+ },
+ {
+  "date": "2005-02-11",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 21.43,
+  "amount": 4386
+ },
+ {
+  "date": "2005-03-11",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 21.17,
+  "amount": 7859
+ },
+ {
+  "date": "2005-03-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 45.77,
+  "amount": 1935
+ },
+ {
+  "date": "2005-04-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 31.86,
+  "amount": 8546
+ },
+ {
+  "date": "2005-04-15",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 30.1,
+  "amount": 2329
+ },
+ {
+  "date": "2005-05-06",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 30.12,
+  "amount": 1837
+ },
+ {
+  "date": "2005-05-13",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 29.88,
+  "amount": 4826
+ },
+ {
+  "date": "2005-05-20",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 54.42,
+  "amount": 1935
+ },
+ {
+  "date": "2005-06-10",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 29.11,
+  "amount": 8116
+ },
+ {
+  "date": "2005-07-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.75,
+  "amount": 8891
+ },
+ {
+  "date": "2005-07-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.7,
+  "amount": 2329
+ },
+ {
+  "date": "2005-08-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.07,
+  "amount": 1845
+ },
+ {
+  "date": "2005-08-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.82,
+  "amount": 2007
+ },
+ {
+  "date": "2005-08-19",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.38,
+  "amount": 4754
+ },
+ {
+  "date": "2005-09-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.43,
+  "amount": 2043
+ },
+ {
+  "date": "2005-09-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.78,
+  "amount": 4597
+ },
+ {
+  "date": "2005-09-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.58,
+  "amount": 1476
+ },
+ {
+  "date": "2005-09-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.69,
+  "amount": 1870
+ },
+ {
+  "date": "2005-10-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.56,
+  "amount": 7568
+ },
+ {
+  "date": "2005-10-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.17,
+  "amount": 2329
+ },
+ {
+  "date": "2005-11-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.66,
+  "amount": 14737
+ },
+ {
+  "date": "2005-11-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.71,
+  "amount": 2820
+ },
+ {
+  "date": "2005-12-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.67,
+  "amount": 3519
+ },
+ {
+  "date": "2005-12-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.81,
+  "amount": 10032
+ },
+ {
+  "date": "2005-12-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.21,
+  "amount": 1935
+ },
+ {
+  "date": "2005-12-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 23.65,
+  "amount": 1870
+ },
+ {
+  "date": "2006-01-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 24.66,
+  "amount": 7927
+ },
+ {
+  "date": "2006-01-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 25.35,
+  "amount": 2329
+ },
+ {
+  "date": "2006-02-10",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 20.55,
+  "amount": 1845
+ },
+ {
+  "date": "2006-02-17",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 21.27,
+  "amount": 2152
+ },
+ {
+  "date": "2006-02-24",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 21.26,
+  "amount": 2820
+ },
+ {
+  "date": "2006-03-10",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 21.25,
+  "amount": 9920
+ },
+ {
+  "date": "2006-03-24",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 20.85,
+  "amount": 2167
+ },
+ {
+  "date": "2006-03-31",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 57.85,
+  "amount": 1870
+ },
+ {
+  "date": "2006-04-07",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 20.24,
+  "amount": 7927
+ },
+ {
+  "date": "2006-04-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 51.0,
+  "amount": 2595
+ },
+ {
+  "date": "2006-05-05",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 20.38,
+  "amount": 2230
+ },
+ {
+  "date": "2006-05-12",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 20.3,
+  "amount": 2152
+ },
+ {
+  "date": "2006-05-19",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 34.03,
+  "amount": 2167
+ },
+ {
+  "date": "2006-05-26",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 32.92,
+  "amount": 3204
+ },
+ {
+  "date": "2006-06-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 32.93,
+  "amount": 8549
+ },
+ {
+  "date": "2006-06-16",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 32.85,
+  "amount": 1727
+ },
+ {
+  "date": "2006-06-30",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 33.97,
+  "amount": 3740
+ },
+ {
+  "date": "2006-07-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 33.68,
+  "amount": 8865
+ },
+ {
+  "date": "2006-07-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 38.97,
+  "amount": 2626
+ },
+ {
+  "date": "2006-08-11",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 34.72,
+  "amount": 4397
+ },
+ {
+  "date": "2006-08-18",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 63.0,
+  "amount": 2167
+ },
+ {
+  "date": "2006-08-25",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 65.2,
+  "amount": 3204
+ },
+ {
+  "date": "2006-09-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 40.48,
+  "amount": 6692
+ },
+ {
+  "date": "2006-09-15",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 68.21,
+  "amount": 3584
+ },
+ {
+  "date": "2006-09-29",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 66.44,
+  "amount": 2380
+ },
+ {
+  "date": "2006-10-06",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 68.32,
+  "amount": 8865
+ },
+ {
+  "date": "2006-11-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 41.28,
+  "amount": 2626
+ },
+ {
+  "date": "2006-11-10",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 70.8,
+  "amount": 19320
+ },
+ {
+  "date": "2006-11-24",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 61.5,
+  "amount": 5820
+ },
+ {
+  "date": "2006-12-15",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 71.27,
+  "amount": 20605
+ },
+ {
+  "date": "2006-12-29",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 69.94,
+  "amount": 2380
+ },
+ {
+  "date": "2007-01-05",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 70.02,
+  "amount": 9224
+ },
+ {
+  "date": "2007-03-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 42.11,
+  "amount": 10979
+ },
+ {
+  "date": "2007-03-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 63.17,
+  "amount": 10865
+ },
+ {
+  "date": "2007-03-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 56.04,
+  "amount": 4732
+ },
+ {
+  "date": "2007-03-30",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 42.71,
+  "amount": 2380
+ },
+ {
+  "date": "2007-04-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 42.72,
+  "amount": 9237
+ },
+ {
+  "date": "2007-06-22",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 64.65,
+  "amount": 30548
+ },
+ {
+  "date": "2007-07-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 34.01,
+  "amount": 14942
+ },
+ {
+  "date": "2007-08-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.24,
+  "amount": 3051
+ },
+ {
+  "date": "2007-08-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.91,
+  "amount": 5599
+ },
+ {
+  "date": "2007-08-24",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.84,
+  "amount": 3546
+ },
+ {
+  "date": "2007-08-31",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.6,
+  "amount": 4598
+ },
+ {
+  "date": "2007-09-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.56,
+  "amount": 6587
+ },
+ {
+  "date": "2007-09-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.38,
+  "amount": 4451
+ },
+ {
+  "date": "2007-09-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 34.65,
+  "amount": 3174
+ },
+ {
+  "date": "2007-10-05",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 15.09,
+  "amount": 9669
+ },
+ {
+  "date": "2007-10-12",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 24.91,
+  "amount": 2893
+ },
+ {
+  "date": "2007-11-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.02,
+  "amount": 3051
+ },
+ {
+  "date": "2007-11-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.25,
+  "amount": 28654
+ },
+ {
+  "date": "2007-11-23",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.24,
+  "amount": 3546
+ },
+ {
+  "date": "2007-11-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.04,
+  "amount": 6491
+ },
+ {
+  "date": "2007-12-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.35,
+  "amount": 15125
+ },
+ {
+  "date": "2007-12-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.99,
+  "amount": 6109
+ },
+ {
+  "date": "2007-12-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.28,
+  "amount": 3174
+ },
+ {
+  "date": "2008-01-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.16,
+  "amount": 10739
+ },
+ {
+  "date": "2008-01-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 30.35,
+  "amount": 2911
+ },
+ {
+  "date": "2008-02-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.93,
+  "amount": 3051
+ },
+ {
+  "date": "2008-02-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.49,
+  "amount": 3150
+ },
+ {
+  "date": "2008-02-22",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.89,
+  "amount": 3546
+ },
+ {
+  "date": "2008-02-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.41,
+  "amount": 6376
+ },
+ {
+  "date": "2008-03-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 30.46,
+  "amount": 7494
+ },
+ {
+  "date": "2008-03-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 30.46,
+  "amount": 13059
+ },
+ {
+  "date": "2008-03-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.38,
+  "amount": 3174
+ },
+ {
+  "date": "2008-04-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.52,
+  "amount": 7549
+ },
+ {
+  "date": "2008-04-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 30.04,
+  "amount": 6414
+ },
+ {
+  "date": "2008-05-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 49.95,
+  "amount": 3487
+ },
+ {
+  "date": "2008-05-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 48.56,
+  "amount": 6271
+ },
+ {
+  "date": "2008-05-23",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 45.45,
+  "amount": 3930
+ },
+ {
+  "date": "2008-06-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 44.11,
+  "amount": 18849
+ },
+ {
+  "date": "2008-06-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 44.68,
+  "amount": 5341
+ },
+ {
+  "date": "2008-06-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.2,
+  "amount": 3174
+ },
+ {
+  "date": "2008-07-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 30.08,
+  "amount": 9365
+ },
+ {
+  "date": "2008-07-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 29.1,
+  "amount": 6564
+ },
+ {
+  "date": "2008-08-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 39.17,
+  "amount": 3487
+ },
+ {
+  "date": "2008-08-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.08,
+  "amount": 6271
+ },
+ {
+  "date": "2008-08-22",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.6,
+  "amount": 3930
+ },
+ {
+  "date": "2008-08-29",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 39.68,
+  "amount": 6376
+ },
+ {
+  "date": "2008-09-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 40.52,
+  "amount": 12473
+ },
+ {
+  "date": "2008-09-12",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 35.48,
+  "amount": 5341
+ },
+ {
+  "date": "2008-09-26",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 29.73,
+  "amount": 3514
+ },
+ {
+  "date": "2008-10-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 28.26,
+  "amount": 12832
+ },
+ {
+  "date": "2008-10-10",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 27.3,
+  "amount": 3224
+ },
+ {
+  "date": "2008-11-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 22.08,
+  "amount": 3487
+ },
+ {
+  "date": "2008-11-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 19.37,
+  "amount": 3465
+ },
+ {
+  "date": "2008-11-21",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 21.18,
+  "amount": 3930
+ },
+ {
+  "date": "2008-11-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 19.64,
+  "amount": 10618
+ },
+ {
+  "date": "2008-12-05",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 24.44,
+  "amount": 12876
+ },
+ {
+  "date": "2008-12-12",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 19.34,
+  "amount": 16033
+ },
+ {
+  "date": "2008-12-26",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 17.7,
+  "amount": 3514
+ },
+ {
+  "date": "2009-01-02",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 19.95,
+  "amount": 9723
+ },
+ {
+  "date": "2009-01-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 18.83,
+  "amount": 4019
+ },
+ {
+  "date": "2009-01-16",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 17.01,
+  "amount": 3224
+ },
+ {
+  "date": "2009-02-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 17.75,
+  "amount": 3487
+ },
+ {
+  "date": "2009-02-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 15.74,
+  "amount": 3465
+ },
+ {
+  "date": "2009-02-20",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 12.15,
+  "amount": 3930
+ },
+ {
+  "date": "2009-02-27",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 11.06,
+  "amount": 8501
+ },
+ {
+  "date": "2009-03-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 10.64,
+  "amount": 8279
+ },
+ {
+  "date": "2009-03-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 12.66,
+  "amount": 14130
+ },
+ {
+  "date": "2009-03-27",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 12.81,
+  "amount": 3514
+ },
+ {
+  "date": "2009-04-03",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 15.16,
+  "amount": 14477
+ },
+ {
+  "date": "2009-04-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 19.53,
+  "amount": 3582
+ },
+ {
+  "date": "2009-05-08",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 49.58,
+  "amount": 4010
+ },
+ {
+  "date": "2009-05-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 34.81,
+  "amount": 7045
+ },
+ {
+  "date": "2009-05-22",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 32.18,
+  "amount": 4187
+ },
+ {
+  "date": "2009-06-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 54.15,
+  "amount": 17007
+ },
+ {
+  "date": "2009-06-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 52.88,
+  "amount": 10550
+ },
+ {
+  "date": "2009-06-26",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 57.23,
+  "amount": 3514
+ },
+ {
+  "date": "2009-07-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 31.44,
+  "amount": 9229
+ },
+ {
+  "date": "2009-07-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 31.71,
+  "amount": 9492
+ },
+ {
+  "date": "2009-08-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 56.27,
+  "amount": 4010
+ },
+ {
+  "date": "2009-08-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 54.5,
+  "amount": 7350
+ },
+ {
+  "date": "2009-08-21",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 55.91,
+  "amount": 4187
+ },
+ {
+  "date": "2009-08-28",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 56.24,
+  "amount": 8672
+ },
+ {
+  "date": "2009-09-04",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 56.14,
+  "amount": 13334
+ },
+ {
+  "date": "2009-09-11",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 54.23,
+  "amount": 5952
+ },
+ {
+  "date": "2009-09-25",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 16.5,
+  "amount": 3514
+ },
+ {
+  "date": "2009-10-02",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 56.61,
+  "amount": 4925
+ },
+ {
+  "date": "2009-10-09",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 56.68,
+  "amount": 10213
+ },
+ {
+  "date": "2009-10-23",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 16.61,
+  "amount": 3582
+ },
+ {
+  "date": "2010-02-05",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 26.33,
+  "amount": 81139
+ },
+ {
+  "date": "2010-02-26",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 26.64,
+  "amount": 17976
+ },
+ {
+  "date": "2010-03-12",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 26.83,
+  "amount": 25036
+ },
+ {
+  "date": "2010-04-23",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 24.17,
+  "amount": 22773
+ },
+ {
+  "date": "2010-05-07",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 23.84,
+  "amount": 4708
+ },
+ {
+  "date": "2010-05-14",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 23.24,
+  "amount": 7844
+ },
+ {
+  "date": "2010-05-28",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 62.89,
+  "amount": 14576
+ },
+ {
+  "date": "2010-06-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 37.71,
+  "amount": 14320
+ },
+ {
+  "date": "2010-06-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 39.89,
+  "amount": 7263
+ },
+ {
+  "date": "2010-06-25",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 44.85,
+  "amount": 3514
+ },
+ {
+  "date": "2010-07-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.38,
+  "amount": 9510
+ },
+ {
+  "date": "2010-07-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.69,
+  "amount": 6486
+ },
+ {
+  "date": "2010-07-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.55,
+  "amount": 4253
+ },
+ {
+  "date": "2010-08-06",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 24.41,
+  "amount": 4708
+ },
+ {
+  "date": "2010-08-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 41.54,
+  "amount": 7949
+ },
+ {
+  "date": "2010-08-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.35,
+  "amount": 14576
+ },
+ {
+  "date": "2010-09-03",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 24.35,
+  "amount": 14320
+ },
+ {
+  "date": "2010-09-10",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 41.22,
+  "amount": 7263
+ },
+ {
+  "date": "2010-10-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.14,
+  "amount": 8337
+ },
+ {
+  "date": "2010-10-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 37.94,
+  "amount": 11579
+ },
+ {
+  "date": "2010-10-15",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 39.55,
+  "amount": 4417
+ },
+ {
+  "date": "2010-11-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 65.11,
+  "amount": 4708
+ },
+ {
+  "date": "2010-11-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 64.42,
+  "amount": 4050
+ },
+ {
+  "date": "2010-11-26",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 22.31,
+  "amount": 19145
+ },
+ {
+  "date": "2010-12-03",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 22.51,
+  "amount": 15191
+ },
+ {
+  "date": "2010-12-10",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 22.78,
+  "amount": 19058
+ },
+ {
+  "date": "2010-12-31",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 22.94,
+  "amount": 3854
+ },
+ {
+  "date": "2011-01-07",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 23.0,
+  "amount": 16316
+ },
+ {
+  "date": "2011-01-14",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 22.5,
+  "amount": 5103
+ },
+ {
+  "date": "2011-02-11",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 22.06,
+  "amount": 8758
+ },
+ {
+  "date": "2011-02-25",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 63.42,
+  "amount": 15663
+ },
+ {
+  "date": "2011-03-04",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 63.47,
+  "amount": 10487
+ },
+ {
+  "date": "2011-03-11",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 64.14,
+  "amount": 17669
+ },
+ {
+  "date": "2011-04-01",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 65.09,
+  "amount": 8516
+ },
+ {
+  "date": "2011-04-08",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 28.39,
+  "amount": 11654
+ },
+ {
+  "date": "2011-04-15",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 28.41,
+  "amount": 5711
+ },
+ {
+  "date": "2011-05-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 56.18,
+  "amount": 5754
+ },
+ {
+  "date": "2011-05-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 53.18,
+  "amount": 8924
+ },
+ {
+  "date": "2011-05-27",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 54.12,
+  "amount": 15919
+ },
+ {
+  "date": "2011-06-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 39.4,
+  "amount": 11091
+ },
+ {
+  "date": "2011-06-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 38.37,
+  "amount": 7722
+ },
+ {
+  "date": "2011-06-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 38.23,
+  "amount": 5109
+ },
+ {
+  "date": "2011-07-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 39.72,
+  "amount": 13843
+ },
+ {
+  "date": "2011-07-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 39.22,
+  "amount": 7005
+ },
+ {
+  "date": "2011-07-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 38.75,
+  "amount": 5711
+ },
+ {
+  "date": "2011-08-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.03,
+  "amount": 5754
+ },
+ {
+  "date": "2011-08-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.65,
+  "amount": 9083
+ },
+ {
+  "date": "2011-08-26",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.16,
+  "amount": 4870
+ },
+ {
+  "date": "2011-09-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.46,
+  "amount": 27249
+ },
+ {
+  "date": "2011-09-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 31.29,
+  "amount": 4002
+ },
+ {
+  "date": "2011-09-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 32.51,
+  "amount": 3720
+ },
+ {
+  "date": "2011-09-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 29.0,
+  "amount": 4080
+ },
+ {
+  "date": "2011-10-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.0,
+  "amount": 16994
+ },
+ {
+  "date": "2011-10-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 33.39,
+  "amount": 5711
+ },
+ {
+  "date": "2011-11-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 36.12,
+  "amount": 10675
+ },
+ {
+  "date": "2011-11-25",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 34.07,
+  "amount": 4870
+ },
+ {
+  "date": "2011-12-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 36.94,
+  "amount": 34424
+ },
+ {
+  "date": "2011-12-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 36.65,
+  "amount": 9230
+ },
+ {
+  "date": "2011-12-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 34.75,
+  "amount": 19806
+ },
+ {
+  "date": "2011-12-30",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 47.17,
+  "amount": 4080
+ },
+ {
+  "date": "2012-01-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 48.39,
+  "amount": 17195
+ },
+ {
+  "date": "2012-01-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.54,
+  "amount": 5711
+ },
+ {
+  "date": "2012-02-10",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 63.69,
+  "amount": 5754
+ },
+ {
+  "date": "2012-02-17",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 62.68,
+  "amount": 4968
+ },
+ {
+  "date": "2012-02-24",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 63.32,
+  "amount": 4870
+ },
+ {
+  "date": "2012-03-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 49.56,
+  "amount": 24905
+ },
+ {
+  "date": "2012-03-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 63.94,
+  "amount": 15594
+ },
+ {
+  "date": "2012-03-16",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 64.73,
+  "amount": 4037
+ },
+ {
+  "date": "2012-04-06",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 64.92,
+  "amount": 21923
+ },
+ {
+  "date": "2012-04-13",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 63.98,
+  "amount": 6067
+ },
+ {
+  "date": "2012-05-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 47.79,
+  "amount": 17420
+ },
+ {
+  "date": "2012-05-25",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 47.28,
+  "amount": 5476
+ },
+ {
+  "date": "2012-06-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.07,
+  "amount": 31218
+ },
+ {
+  "date": "2012-06-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.69,
+  "amount": 4392
+ },
+ {
+  "date": "2012-06-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.65,
+  "amount": 4037
+ },
+ {
+  "date": "2012-06-29",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.4,
+  "amount": 4080
+ },
+ {
+  "date": "2012-07-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 44.93,
+  "amount": 18332
+ },
+ {
+  "date": "2012-07-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 44.71,
+  "amount": 6067
+ },
+ {
+  "date": "2012-08-10",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 87.9,
+  "amount": 12250
+ },
+ {
+  "date": "2012-08-17",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 88.17,
+  "amount": 5964
+ },
+ {
+  "date": "2012-08-24",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 89.54,
+  "amount": 5476
+ },
+ {
+  "date": "2012-08-31",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 89.49,
+  "amount": 26052
+ },
+ {
+  "date": "2012-09-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 91.3,
+  "amount": 5353
+ },
+ {
+  "date": "2012-09-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 92.14,
+  "amount": 8428
+ },
+ {
+  "date": "2012-09-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 47.93,
+  "amount": 4307
+ },
+ {
+  "date": "2012-10-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 49.12,
+  "amount": 18332
+ },
+ {
+  "date": "2012-10-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.4,
+  "amount": 6067
+ },
+ {
+  "date": "2012-11-09",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 55.52,
+  "amount": 6975
+ },
+ {
+  "date": "2012-11-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.95,
+  "amount": 6355
+ },
+ {
+  "date": "2012-11-23",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.86,
+  "amount": 5476
+ },
+ {
+  "date": "2012-11-30",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 55.99,
+  "amount": 24456
+ },
+ {
+  "date": "2012-12-07",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 56.75,
+  "amount": 44273
+ },
+ {
+  "date": "2012-12-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 57.27,
+  "amount": 16638
+ },
+ {
+  "date": "2013-01-04",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 69.45,
+  "amount": 11349
+ },
+ {
+  "date": "2013-01-11",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 36.99,
+  "amount": 3471
+ },
+ {
+  "date": "2013-02-08",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 23.8,
+  "amount": 6975
+ },
+ {
+  "date": "2013-02-15",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 37.42,
+  "amount": 6454
+ },
+ {
+  "date": "2013-02-22",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 37.72,
+  "amount": 5476
+ },
+ {
+  "date": "2013-03-15",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 24.08,
+  "amount": 52023
+ },
+ {
+  "date": "2013-04-19",
+  "ticker": "ITW",
+  "action": "DIV_REINVEST",
+  "price": 60.78,
+  "amount": 26623
+ },
+ {
+  "date": "2013-06-21",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 54.0,
+  "amount": 73161
+ },
+ {
+  "date": "2013-08-09",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 32.99,
+  "amount": 43012
+ },
+ {
+  "date": "2013-08-16",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 32.5,
+  "amount": 7009
+ },
+ {
+  "date": "2013-08-23",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 31.89,
+  "amount": 5924
+ },
+ {
+  "date": "2013-08-30",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 33.33,
+  "amount": 22963
+ },
+ {
+  "date": "2013-09-06",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 33.8,
+  "amount": 13714
+ },
+ {
+  "date": "2013-09-13",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 35.01,
+  "amount": 9384
+ },
+ {
+  "date": "2013-09-27",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 79.5,
+  "amount": 4944
+ },
+ {
+  "date": "2013-10-04",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 79.06,
+  "amount": 20822
+ },
+ {
+  "date": "2013-10-11",
+  "ticker": "ABT",
+  "action": "DIV_REINVEST",
+  "price": 34.0,
+  "amount": 3662
+ },
+ {
+  "date": "2013-11-08",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 33.09,
+  "amount": 8108
+ },
+ {
+  "date": "2013-11-15",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 33.63,
+  "amount": 7351
+ },
+ {
+  "date": "2013-11-22",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 33.78,
+  "amount": 5924
+ },
+ {
+  "date": "2013-11-29",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 33.64,
+  "amount": 19794
+ },
+ {
+  "date": "2013-12-06",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 82.69,
+  "amount": 20514
+ },
+ {
+  "date": "2013-12-13",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 81.0,
+  "amount": 43894
+ },
+ {
+  "date": "2013-12-27",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 82.91,
+  "amount": 4944
+ },
+ {
+  "date": "2014-01-03",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 82.28,
+  "amount": 14300
+ },
+ {
+  "date": "2014-01-10",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 82.37,
+  "amount": 12859
+ },
+ {
+  "date": "2014-02-07",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 80.6,
+  "amount": 8108
+ },
+ {
+  "date": "2014-02-14",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 78.09,
+  "amount": 7351
+ },
+ {
+  "date": "2014-02-21",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 78.88,
+  "amount": 5924
+ },
+ {
+  "date": "2014-02-28",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 79.52,
+  "amount": 24925
+ },
+ {
+  "date": "2014-03-07",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 81.73,
+  "amount": 13686
+ },
+ {
+  "date": "2014-03-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 63.66,
+  "amount": 19894
+ },
+ {
+  "date": "2014-03-28",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 38.66,
+  "amount": 4944
+ },
+ {
+  "date": "2014-04-04",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 97.01,
+  "amount": 21380
+ },
+ {
+  "date": "2014-04-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 65.37,
+  "amount": 5779
+ },
+ {
+  "date": "2014-05-16",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 25.54,
+  "amount": 23695
+ },
+ {
+  "date": "2014-05-23",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.5,
+  "amount": 6284
+ },
+ {
+  "date": "2014-05-30",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 25.59,
+  "amount": 25104
+ },
+ {
+  "date": "2014-06-06",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 25.67,
+  "amount": 17706
+ },
+ {
+  "date": "2014-06-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.33,
+  "amount": 10329
+ },
+ {
+  "date": "2014-06-27",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.36,
+  "amount": 4944
+ },
+ {
+  "date": "2014-07-04",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 25.36,
+  "amount": 15021
+ },
+ {
+  "date": "2014-07-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 67.26,
+  "amount": 13782
+ },
+ {
+  "date": "2014-08-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.58,
+  "amount": 16682
+ },
+ {
+  "date": "2014-08-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 63.82,
+  "amount": 7866
+ },
+ {
+  "date": "2014-08-22",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.75,
+  "amount": 6284
+ },
+ {
+  "date": "2014-08-29",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.02,
+  "amount": 25104
+ },
+ {
+  "date": "2014-09-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.98,
+  "amount": 17706
+ },
+ {
+  "date": "2014-09-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.3,
+  "amount": 10329
+ },
+ {
+  "date": "2014-09-26",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.67,
+  "amount": 5710
+ },
+ {
+  "date": "2014-10-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.46,
+  "amount": 23025
+ },
+ {
+  "date": "2014-10-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.67,
+  "amount": 5779
+ },
+ {
+  "date": "2014-11-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 65.11,
+  "amount": 9416
+ },
+ {
+  "date": "2014-11-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 63.74,
+  "amount": 9419
+ },
+ {
+  "date": "2014-11-21",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 65.77,
+  "amount": 6284
+ },
+ {
+  "date": "2014-11-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.81,
+  "amount": 21179
+ },
+ {
+  "date": "2014-12-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 63.61,
+  "amount": 24972
+ },
+ {
+  "date": "2014-12-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.15,
+  "amount": 56114
+ },
+ {
+  "date": "2014-12-26",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.61,
+  "amount": 5710
+ },
+ {
+  "date": "2015-01-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.52,
+  "amount": 15235
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.17,
+  "amount": 8004
+ },
+ {
+  "date": "2015-01-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.35,
+  "amount": 6304
+ },
+ {
+  "date": "2015-02-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 57.35,
+  "amount": 9416
+ },
+ {
+  "date": "2015-02-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.68,
+  "amount": 10680
+ },
+ {
+  "date": "2015-02-20",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.74,
+  "amount": 6284
+ },
+ {
+  "date": "2015-02-27",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.33,
+  "amount": 27479
+ },
+ {
+  "date": "2015-03-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 57.1,
+  "amount": 8102
+ },
+ {
+  "date": "2015-03-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 56.23,
+  "amount": 31081
+ },
+ {
+  "date": "2015-03-27",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 56.59,
+  "amount": 14502
+ },
+ {
+  "date": "2015-04-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 56.99,
+  "amount": 14447
+ },
+ {
+  "date": "2015-04-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.4,
+  "amount": 6304
+ },
+ {
+  "date": "2015-05-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 59.3,
+  "amount": 17618
+ },
+ {
+  "date": "2015-05-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.2,
+  "amount": 11794
+ },
+ {
+  "date": "2015-05-22",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 81.25,
+  "amount": 6732
+ },
+ {
+  "date": "2015-05-29",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.24,
+  "amount": 27479
+ },
+ {
+  "date": "2015-06-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 59.12,
+  "amount": 20752
+ },
+ {
+  "date": "2015-06-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.7,
+  "amount": 11607
+ },
+ {
+  "date": "2015-06-26",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 55.56,
+  "amount": 16664
+ },
+ {
+  "date": "2015-07-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 55.26,
+  "amount": 37558
+ },
+ {
+  "date": "2015-07-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 54.3,
+  "amount": 6304
+ },
+ {
+  "date": "2015-08-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 50.02,
+  "amount": 17618
+ },
+ {
+  "date": "2015-08-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 50.34,
+  "amount": 13039
+ },
+ {
+  "date": "2015-08-21",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.36,
+  "amount": 6732
+ },
+ {
+  "date": "2015-08-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 47.72,
+  "amount": 16187
+ },
+ {
+  "date": "2015-09-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.82,
+  "amount": 32044
+ },
+ {
+  "date": "2015-09-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.52,
+  "amount": 11607
+ },
+ {
+  "date": "2015-09-25",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 43.04,
+  "amount": 17429
+ },
+ {
+  "date": "2015-10-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.02,
+  "amount": 6443
+ },
+ {
+  "date": "2015-10-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.95,
+  "amount": 8952
+ },
+ {
+  "date": "2015-10-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 45.48,
+  "amount": 6304
+ },
+ {
+  "date": "2015-11-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.32,
+  "amount": 10200
+ },
+ {
+  "date": "2015-11-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.85,
+  "amount": 14500
+ },
+ {
+  "date": "2015-11-20",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 50.02,
+  "amount": 6732
+ },
+ {
+  "date": "2015-11-27",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 50.0,
+  "amount": 22350
+ },
+ {
+  "date": "2015-12-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.51,
+  "amount": 41075
+ },
+ {
+  "date": "2015-12-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 44.99,
+  "amount": 30553
+ },
+ {
+  "date": "2015-12-25",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.26,
+  "amount": 10954
+ },
+ {
+  "date": "2016-01-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 47.3,
+  "amount": 6475
+ },
+ {
+  "date": "2016-01-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 43.8,
+  "amount": 15610
+ },
+ {
+  "date": "2016-01-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 43.09,
+  "amount": 6829
+ },
+ {
+  "date": "2016-02-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 47.06,
+  "amount": 10200
+ },
+ {
+  "date": "2016-02-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.02,
+  "amount": 16162
+ },
+ {
+  "date": "2016-02-19",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 49.28,
+  "amount": 6732
+ },
+ {
+  "date": "2016-02-26",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 48.83,
+  "amount": 16949
+ },
+ {
+  "date": "2016-03-04",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 59.0,
+  "amount": 21601
+ },
+ {
+  "date": "2016-03-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 59.57,
+  "amount": 34109
+ },
+ {
+  "date": "2016-03-25",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 60.28,
+  "amount": 10954
+ },
+ {
+  "date": "2016-04-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 60.62,
+  "amount": 13133
+ },
+ {
+  "date": "2016-04-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 59.8,
+  "amount": 9339
+ },
+ {
+  "date": "2016-04-15",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 62.59,
+  "amount": 6829
+ },
+ {
+  "date": "2016-05-06",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 63.98,
+  "amount": 10636
+ },
+ {
+  "date": "2016-05-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 64.07,
+  "amount": 24127
+ },
+ {
+  "date": "2016-05-20",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 63.59,
+  "amount": 7181
+ },
+ {
+  "date": "2016-06-03",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 65.94,
+  "amount": 53268
+ },
+ {
+  "date": "2016-06-10",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 63.67,
+  "amount": 12441
+ },
+ {
+  "date": "2016-07-01",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 60.69,
+  "amount": 23030
+ },
+ {
+  "date": "2016-07-08",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 62.16,
+  "amount": 36237
+ },
+ {
+  "date": "2016-07-15",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 63.99,
+  "amount": 6829
+ },
+ {
+  "date": "2016-08-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 95.75,
+  "amount": 10636
+ },
+ {
+  "date": "2016-08-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 97.1,
+  "amount": 24127
+ },
+ {
+  "date": "2016-08-19",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 95.87,
+  "amount": 7181
+ },
+ {
+  "date": "2016-09-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 94.42,
+  "amount": 53268
+ },
+ {
+  "date": "2016-09-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 93.64,
+  "amount": 6712
+ },
+ {
+  "date": "2016-09-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 51.19,
+  "amount": 5729
+ },
+ {
+  "date": "2016-09-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 92.49,
+  "amount": 20047
+ },
+ {
+  "date": "2016-10-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 51.77,
+  "amount": 17921
+ },
+ {
+  "date": "2016-10-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 49.69,
+  "amount": 6829
+ },
+ {
+  "date": "2016-11-11",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 101.39,
+  "amount": 27655
+ },
+ {
+  "date": "2016-11-18",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 102.26,
+  "amount": 7181
+ },
+ {
+  "date": "2016-12-02",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 100.71,
+  "amount": 61821
+ },
+ {
+  "date": "2016-12-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 104.72,
+  "amount": 41983
+ },
+ {
+  "date": "2016-12-23",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 105.09,
+  "amount": 12395
+ },
+ {
+  "date": "2016-12-30",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 104.63,
+  "amount": 7652
+ },
+ {
+  "date": "2017-01-06",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 103.46,
+  "amount": 18351
+ },
+ {
+  "date": "2017-01-13",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 101.55,
+  "amount": 6961
+ },
+ {
+  "date": "2017-02-10",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 40.62,
+  "amount": 10636
+ },
+ {
+  "date": "2017-02-17",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 41.23,
+  "amount": 17019
+ },
+ {
+  "date": "2017-02-24",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 41.67,
+  "amount": 25082
+ },
+ {
+  "date": "2017-03-03",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 42.18,
+  "amount": 25184
+ },
+ {
+  "date": "2017-03-10",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 42.03,
+  "amount": 39875
+ },
+ {
+  "date": "2017-03-24",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 42.32,
+  "amount": 12395
+ },
+ {
+  "date": "2017-03-31",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 42.41,
+  "amount": 7652
+ },
+ {
+  "date": "2017-04-07",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 42.69,
+  "amount": 18351
+ },
+ {
+  "date": "2017-04-14",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 52.12,
+  "amount": 6961
+ },
+ {
+  "date": "2017-05-05",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 188.98,
+  "amount": 11159
+ },
+ {
+  "date": "2017-05-12",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 181.38,
+  "amount": 24739
+ },
+ {
+  "date": "2017-05-26",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 173.58,
+  "amount": 7540
+ },
+ {
+  "date": "2017-06-02",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 173.96,
+  "amount": 62008
+ },
+ {
+  "date": "2017-06-09",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 179.53,
+  "amount": 7218
+ },
+ {
+  "date": "2017-06-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 105.37,
+  "amount": 7435
+ },
+ {
+  "date": "2017-06-30",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 185.15,
+  "amount": 7652
+ },
+ {
+  "date": "2017-07-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 103.59,
+  "amount": 58907
+ },
+ {
+  "date": "2017-07-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 104.79,
+  "amount": 6961
+ },
+ {
+  "date": "2017-08-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 101.4,
+  "amount": 36764
+ },
+ {
+  "date": "2017-08-25",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.4,
+  "amount": 7540
+ },
+ {
+  "date": "2017-09-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.81,
+  "amount": 62008
+ },
+ {
+  "date": "2017-09-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 97.09,
+  "amount": 7218
+ },
+ {
+  "date": "2017-09-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.1,
+  "amount": 7435
+ },
+ {
+  "date": "2017-09-29",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 109.12,
+  "amount": 22443
+ },
+ {
+  "date": "2017-10-06",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 110.01,
+  "amount": 19451
+ },
+ {
+  "date": "2017-10-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.13,
+  "amount": 6961
+ },
+ {
+  "date": "2017-11-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 61.39,
+  "amount": 12026
+ },
+ {
+  "date": "2017-11-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.26,
+  "amount": 17865
+ },
+ {
+  "date": "2017-11-24",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 102.79,
+  "amount": 7540
+ },
+ {
+  "date": "2017-12-08",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 45.33,
+  "amount": 118828
+ },
+ {
+  "date": "2018-02-02",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 114.46,
+  "amount": 49896
+ },
+ {
+  "date": "2018-02-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 111.93,
+  "amount": 12026
+ },
+ {
+  "date": "2018-02-16",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 111.06,
+  "amount": 18009
+ },
+ {
+  "date": "2018-02-23",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 110.94,
+  "amount": 7540
+ },
+ {
+  "date": "2018-03-02",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 109.43,
+  "amount": 47698
+ },
+ {
+  "date": "2018-03-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 112.75,
+  "amount": 36897
+ },
+ {
+  "date": "2018-03-16",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 110.36,
+  "amount": 8859
+ },
+ {
+  "date": "2018-03-23",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 92.62,
+  "amount": 13260
+ },
+ {
+  "date": "2018-03-30",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 91.0,
+  "amount": 9182
+ },
+ {
+  "date": "2018-04-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.19,
+  "amount": 20185
+ },
+ {
+  "date": "2018-04-13",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 93.6,
+  "amount": 7354
+ },
+ {
+  "date": "2018-05-11",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 97.15,
+  "amount": 38805
+ },
+ {
+  "date": "2018-05-25",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 100.31,
+  "amount": 8079
+ },
+ {
+  "date": "2018-06-01",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 100.12,
+  "amount": 71858
+ },
+ {
+  "date": "2018-06-08",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 103.21,
+  "amount": 8738
+ },
+ {
+  "date": "2018-06-15",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 105.38,
+  "amount": 8859
+ },
+ {
+  "date": "2018-06-29",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 69.44,
+  "amount": 9182
+ },
+ {
+  "date": "2018-07-06",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 107.76,
+  "amount": 65058
+ },
+ {
+  "date": "2018-07-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 69.31,
+  "amount": 7354
+ },
+ {
+  "date": "2018-08-10",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 29.88,
+  "amount": 20649
+ },
+ {
+  "date": "2018-08-17",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 161.68,
+  "amount": 18272
+ },
+ {
+  "date": "2018-08-24",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 160.48,
+  "amount": 8079
+ },
+ {
+  "date": "2018-08-31",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 44.57,
+  "amount": 56578
+ },
+ {
+  "date": "2018-09-07",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 165.07,
+  "amount": 16828
+ },
+ {
+  "date": "2018-09-14",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 158.14,
+  "amount": 18092
+ },
+ {
+  "date": "2018-09-28",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 110.71,
+  "amount": 11772
+ },
+ {
+  "date": "2018-10-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 108.19,
+  "amount": 21633
+ },
+ {
+  "date": "2018-10-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 71.42,
+  "amount": 7354
+ },
+ {
+  "date": "2018-11-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 67.01,
+  "amount": 12777
+ },
+ {
+  "date": "2018-11-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 68.46,
+  "amount": 18605
+ },
+ {
+  "date": "2018-11-23",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.62,
+  "amount": 8079
+ },
+ {
+  "date": "2018-11-30",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 68.86,
+  "amount": 70677
+ },
+ {
+  "date": "2018-12-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.55,
+  "amount": 56986
+ },
+ {
+  "date": "2018-12-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.72,
+  "amount": 10004
+ },
+ {
+  "date": "2018-12-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 59.75,
+  "amount": 26186
+ },
+ {
+  "date": "2019-01-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.17,
+  "amount": 22281
+ },
+ {
+  "date": "2019-01-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 61.69,
+  "amount": 8405
+ },
+ {
+  "date": "2019-02-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.92,
+  "amount": 12777
+ },
+ {
+  "date": "2019-02-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 68.31,
+  "amount": 20386
+ },
+ {
+  "date": "2019-02-22",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 68.75,
+  "amount": 8079
+ },
+ {
+  "date": "2019-03-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 68.06,
+  "amount": 57388
+ },
+ {
+  "date": "2019-03-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 67.44,
+  "amount": 10004
+ },
+ {
+  "date": "2019-03-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 68.79,
+  "amount": 45530
+ },
+ {
+  "date": "2019-03-22",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.48,
+  "amount": 14413
+ },
+ {
+  "date": "2019-03-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 112.51,
+  "amount": 11772
+ },
+ {
+  "date": "2019-04-05",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 46.55,
+  "amount": 22281
+ },
+ {
+  "date": "2019-04-12",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 47.0,
+  "amount": 8405
+ },
+ {
+  "date": "2019-05-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.64,
+  "amount": 21674
+ },
+ {
+  "date": "2019-05-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 63.9,
+  "amount": 21671
+ },
+ {
+  "date": "2019-05-24",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.53,
+  "amount": 8528
+ },
+ {
+  "date": "2019-05-31",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.58,
+  "amount": 40275
+ },
+ {
+  "date": "2019-06-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.63,
+  "amount": 45402
+ },
+ {
+  "date": "2019-06-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.68,
+  "amount": 19861
+ },
+ {
+  "date": "2019-06-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.71,
+  "amount": 11772
+ },
+ {
+  "date": "2019-07-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.85,
+  "amount": 69822
+ },
+ {
+  "date": "2019-07-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 65.69,
+  "amount": 8405
+ },
+ {
+  "date": "2019-08-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.29,
+  "amount": 21674
+ },
+ {
+  "date": "2019-08-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 58.55,
+  "amount": 23588
+ },
+ {
+  "date": "2019-08-23",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 57.28,
+  "amount": 8528
+ },
+ {
+  "date": "2019-08-30",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 59.59,
+  "amount": 40275
+ },
+ {
+  "date": "2019-09-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 63.78,
+  "amount": 45402
+ },
+ {
+  "date": "2019-09-13",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 129.54,
+  "amount": 19861
+ },
+ {
+  "date": "2019-09-27",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 129.38,
+  "amount": 28163
+ },
+ {
+  "date": "2019-10-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 64.45,
+  "amount": 23702
+ },
+ {
+  "date": "2019-10-11",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 116.39,
+  "amount": 8405
+ },
+ {
+  "date": "2019-11-08",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 192.64,
+  "amount": 13529
+ },
+ {
+  "date": "2019-11-15",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 194.28,
+  "amount": 25223
+ },
+ {
+  "date": "2019-11-22",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 191.89,
+  "amount": 8880
+ },
+ {
+  "date": "2019-11-29",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 117.26,
+  "amount": 54204
+ },
+ {
+  "date": "2019-12-06",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 194.68,
+  "amount": 53547
+ },
+ {
+  "date": "2019-12-13",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 197.88,
+  "amount": 43498
+ },
+ {
+  "date": "2019-12-27",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 196.91,
+  "amount": 28163
+ },
+ {
+  "date": "2020-01-03",
+  "ticker": "MCD",
+  "action": "DIV_REINVEST",
+  "price": 202.33,
+  "amount": 25229
+ },
+ {
+  "date": "2020-01-24",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 135.9,
+  "amount": 9456
+ },
+ {
+  "date": "2020-02-07",
+  "ticker": "GWW",
+  "action": "DIV_REINVEST",
+  "price": 298.17,
+  "amount": 13529
+ },
+ {
+  "date": "2020-02-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 139.54,
+  "amount": 25223
+ },
+ {
+  "date": "2020-02-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 133.01,
+  "amount": 8880
+ },
+ {
+  "date": "2020-02-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 66.3,
+  "amount": 45301
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 50.36,
+  "amount": 17610
+ },
+ {
+  "date": "2020-03-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.96,
+  "amount": 52279
+ },
+ {
+  "date": "2020-03-20",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 38.08,
+  "amount": 8299
+ },
+ {
+  "date": "2020-03-27",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 46.63,
+  "amount": 28163
+ },
+ {
+  "date": "2020-04-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 49.39,
+  "amount": 25229
+ },
+ {
+  "date": "2020-04-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 50.92,
+  "amount": 9456
+ },
+ {
+  "date": "2020-05-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 56.02,
+  "amount": 21893
+ },
+ {
+  "date": "2020-05-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 56.42,
+  "amount": 27251
+ },
+ {
+  "date": "2020-05-22",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 55.87,
+  "amount": 9441
+ },
+ {
+  "date": "2020-05-29",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 60.4,
+  "amount": 45301
+ },
+ {
+  "date": "2020-06-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 132.21,
+  "amount": 49517
+ },
+ {
+  "date": "2020-06-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.27,
+  "amount": 21627
+ },
+ {
+  "date": "2020-06-26",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 61.38,
+  "amount": 29316
+ },
+ {
+  "date": "2020-07-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.51,
+  "amount": 25229
+ },
+ {
+  "date": "2020-07-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 62.35,
+  "amount": 9456
+ },
+ {
+  "date": "2020-08-07",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 101.62,
+  "amount": 14444
+ },
+ {
+  "date": "2020-08-14",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 97.55,
+  "amount": 36941
+ },
+ {
+  "date": "2020-08-21",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 99.33,
+  "amount": 9441
+ },
+ {
+  "date": "2020-08-28",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 101.59,
+  "amount": 45301
+ },
+ {
+  "date": "2020-09-04",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 60.14,
+  "amount": 49900
+ },
+ {
+  "date": "2020-09-18",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 98.17,
+  "amount": 21627
+ },
+ {
+  "date": "2020-09-25",
+  "ticker": "AXP",
+  "action": "DIV_REINVEST",
+  "price": 98.82,
+  "amount": 16719
+ },
+ {
+  "date": "2020-10-02",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 49.38,
+  "amount": 23519
+ },
+ {
+  "date": "2020-10-16",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 144.32,
+  "amount": 25583
+ },
+ {
+  "date": "2020-11-06",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 146.08,
+  "amount": 14444
+ },
+ {
+  "date": "2020-11-20",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 143.87,
+  "amount": 38648
+ },
+ {
+  "date": "2020-11-27",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 144.68,
+  "amount": 36656
+ },
+ {
+  "date": "2021-01-15",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 48.7,
+  "amount": 160341
+ },
+ {
+  "date": "2021-02-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 133.87,
+  "amount": 43372
+ },
+ {
+  "date": "2021-02-19",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 131.99,
+  "amount": 10247
+ },
+ {
+  "date": "2021-02-26",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 130.62,
+  "amount": 48538
+ },
+ {
+  "date": "2021-03-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 132.13,
+  "amount": 20038
+ },
+ {
+  "date": "2021-03-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 133.03,
+  "amount": 57427
+ },
+ {
+  "date": "2021-03-19",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 137.8,
+  "amount": 8452
+ },
+ {
+  "date": "2021-03-26",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 45.56,
+  "amount": 16719
+ },
+ {
+  "date": "2021-04-02",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.48,
+  "amount": 39646
+ },
+ {
+  "date": "2021-04-16",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.57,
+  "amount": 11820
+ },
+ {
+  "date": "2021-05-07",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.94,
+  "amount": 24016
+ },
+ {
+  "date": "2021-05-14",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.3,
+  "amount": 28928
+ },
+ {
+  "date": "2021-05-21",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 47.25,
+  "amount": 10754
+ },
+ {
+  "date": "2021-05-28",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 47.34,
+  "amount": 48538
+ },
+ {
+  "date": "2021-06-04",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.97,
+  "amount": 55468
+ },
+ {
+  "date": "2021-06-11",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.85,
+  "amount": 23710
+ },
+ {
+  "date": "2021-06-25",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.03,
+  "amount": 18161
+ },
+ {
+  "date": "2021-07-02",
+  "ticker": "WMT",
+  "action": "DIV_REINVEST",
+  "price": 46.7,
+  "amount": 40095
+ },
+ {
+  "date": "2021-07-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 172.95,
+  "amount": 11820
+ },
+ {
+  "date": "2021-08-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 176.72,
+  "amount": 15293
+ },
+ {
+  "date": "2021-08-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 179.09,
+  "amount": 38628
+ },
+ {
+  "date": "2021-08-20",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 177.66,
+  "amount": 10754
+ },
+ {
+  "date": "2021-08-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 179.98,
+  "amount": 22180
+ },
+ {
+  "date": "2021-09-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 181.0,
+  "amount": 81825
+ },
+ {
+  "date": "2021-09-10",
+  "ticker": "SYY",
+  "action": "DIV_REINVEST",
+  "price": 76.87,
+  "amount": 11777
+ },
+ {
+  "date": "2021-09-17",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 54.06,
+  "amount": 11933
+ },
+ {
+  "date": "2021-09-24",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 53.61,
+  "amount": 18161
+ },
+ {
+  "date": "2021-10-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 93.64,
+  "amount": 24981
+ },
+ {
+  "date": "2021-10-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 94.18,
+  "amount": 16128
+ },
+ {
+  "date": "2021-10-15",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 53.94,
+  "amount": 11820
+ },
+ {
+  "date": "2021-11-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 176.87,
+  "amount": 15293
+ },
+ {
+  "date": "2021-11-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 158.43,
+  "amount": 29727
+ },
+ {
+  "date": "2021-11-19",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 94.44,
+  "amount": 10754
+ },
+ {
+  "date": "2021-12-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 90.94,
+  "amount": 120523
+ },
+ {
+  "date": "2021-12-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 92.33,
+  "amount": 22869
+ },
+ {
+  "date": "2021-12-24",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 92.17,
+  "amount": 18161
+ },
+ {
+  "date": "2021-12-31",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 91.76,
+  "amount": 14362
+ },
+ {
+  "date": "2022-01-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 95.3,
+  "amount": 26747
+ },
+ {
+  "date": "2022-01-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 151.94,
+  "amount": 12345
+ },
+ {
+  "date": "2022-02-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 93.97,
+  "amount": 46216
+ },
+ {
+  "date": "2022-02-18",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 92.77,
+  "amount": 10754
+ },
+ {
+  "date": "2022-02-25",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 92.92,
+  "amount": 28196
+ },
+ {
+  "date": "2022-03-04",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 91.64,
+  "amount": 46350
+ },
+ {
+  "date": "2022-03-11",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 92.32,
+  "amount": 64840
+ },
+ {
+  "date": "2022-03-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 138.62,
+  "amount": 9876
+ },
+ {
+  "date": "2022-03-25",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 138.72,
+  "amount": 18161
+ },
+ {
+  "date": "2022-04-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 138.58,
+  "amount": 24981
+ },
+ {
+  "date": "2022-04-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 93.18,
+  "amount": 19503
+ },
+ {
+  "date": "2022-04-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 93.97,
+  "amount": 12345
+ },
+ {
+  "date": "2022-05-06",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 84.41,
+  "amount": 26113
+ },
+ {
+  "date": "2022-05-13",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 84.45,
+  "amount": 32348
+ },
+ {
+  "date": "2022-05-20",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 84.97,
+  "amount": 11465
+ },
+ {
+  "date": "2022-06-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 90.25,
+  "amount": 114890
+ },
+ {
+  "date": "2022-06-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 85.28,
+  "amount": 13170
+ },
+ {
+  "date": "2022-06-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 78.65,
+  "amount": 12844
+ },
+ {
+  "date": "2022-06-24",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 82.49,
+  "amount": 19602
+ },
+ {
+  "date": "2022-07-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 80.36,
+  "amount": 44937
+ },
+ {
+  "date": "2022-07-15",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 79.36,
+  "amount": 12345
+ },
+ {
+  "date": "2022-08-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 90.03,
+  "amount": 16237
+ },
+ {
+  "date": "2022-08-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 88.84,
+  "amount": 43894
+ },
+ {
+  "date": "2022-08-19",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 86.25,
+  "amount": 11465
+ },
+ {
+  "date": "2022-09-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 81.75,
+  "amount": 114890
+ },
+ {
+  "date": "2022-09-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 85.56,
+  "amount": 13170
+ },
+ {
+  "date": "2022-09-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 79.6,
+  "amount": 12844
+ },
+ {
+  "date": "2022-09-23",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 73.14,
+  "amount": 19602
+ },
+ {
+  "date": "2022-09-30",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 75.54,
+  "amount": 15422
+ },
+ {
+  "date": "2022-10-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 78.37,
+  "amount": 11071
+ },
+ {
+  "date": "2022-10-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 80.07,
+  "amount": 31848
+ },
+ {
+  "date": "2022-11-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 94.28,
+  "amount": 52332
+ },
+ {
+  "date": "2022-11-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 97.58,
+  "amount": 11465
+ },
+ {
+  "date": "2022-12-02",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 95.93,
+  "amount": 133417
+ },
+ {
+  "date": "2022-12-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 94.66,
+  "amount": 25705
+ },
+ {
+  "date": "2022-12-23",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 88.01,
+  "amount": 19602
+ },
+ {
+  "date": "2022-12-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 86.88,
+  "amount": 15422
+ },
+ {
+  "date": "2023-01-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 94.77,
+  "amount": 30574
+ },
+ {
+  "date": "2023-01-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 99.4,
+  "amount": 13396
+ },
+ {
+  "date": "2023-02-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 86.91,
+  "amount": 16237
+ },
+ {
+  "date": "2023-02-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 85.44,
+  "amount": 47656
+ },
+ {
+  "date": "2023-03-03",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 87.15,
+  "amount": 81747
+ },
+ {
+  "date": "2023-03-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 81.9,
+  "amount": 58538
+ },
+ {
+  "date": "2023-03-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 82.27,
+  "amount": 23480
+ },
+ {
+  "date": "2023-03-24",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 82.74,
+  "amount": 19602
+ },
+ {
+  "date": "2023-03-31",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 87.24,
+  "amount": 15422
+ },
+ {
+  "date": "2023-04-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 84.45,
+  "amount": 33575
+ },
+ {
+  "date": "2023-04-14",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 86.58,
+  "amount": 13396
+ },
+ {
+  "date": "2023-05-05",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 83.81,
+  "amount": 27611
+ },
+ {
+  "date": "2023-05-12",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 83.12,
+  "amount": 38163
+ },
+ {
+  "date": "2023-05-19",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 81.71,
+  "amount": 12073
+ },
+ {
+  "date": "2023-06-02",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 82.19,
+  "amount": 126783
+ },
+ {
+  "date": "2023-06-09",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 84.07,
+  "amount": 15829
+ },
+ {
+  "date": "2023-06-16",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 87.41,
+  "amount": 13427
+ },
+ {
+  "date": "2023-06-23",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 88.7,
+  "amount": 19890
+ },
+ {
+  "date": "2023-06-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 90.5,
+  "amount": 15422
+ },
+ {
+  "date": "2023-07-07",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 88.1,
+  "amount": 33801
+ },
+ {
+  "date": "2023-07-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 85.56,
+  "amount": 13396
+ },
+ {
+  "date": "2023-08-11",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 88.81,
+  "amount": 67070
+ },
+ {
+  "date": "2023-08-25",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 84.16,
+  "amount": 12073
+ },
+ {
+  "date": "2023-09-01",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 81.64,
+  "amount": 126783
+ },
+ {
+  "date": "2023-09-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 82.52,
+  "amount": 15829
+ },
+ {
+  "date": "2023-09-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 85.02,
+  "amount": 13427
+ },
+ {
+  "date": "2023-09-22",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 81.01,
+  "amount": 19890
+ },
+ {
+  "date": "2023-09-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 81.67,
+  "amount": 16481
+ },
+ {
+  "date": "2023-10-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 84.7,
+  "amount": 33801
+ },
+ {
+  "date": "2023-10-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 85.71,
+  "amount": 13396
+ },
+ {
+  "date": "2023-11-10",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 86.6,
+  "amount": 17559
+ },
+ {
+  "date": "2023-11-17",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 88.79,
+  "amount": 52018
+ },
+ {
+  "date": "2023-12-01",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 88.91,
+  "amount": 145694
+ },
+ {
+  "date": "2023-12-08",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 89.72,
+  "amount": 41679
+ },
+ {
+  "date": "2023-12-22",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 167.68,
+  "amount": 19890
+ },
+ {
+  "date": "2023-12-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 90.29,
+  "amount": 16481
+ },
+ {
+  "date": "2024-01-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 169.11,
+  "amount": 33801
+ },
+ {
+  "date": "2024-01-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 167.27,
+  "amount": 14446
+ },
+ {
+  "date": "2024-02-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 170.61,
+  "amount": 17559
+ },
+ {
+  "date": "2024-02-16",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 166.32,
+  "amount": 53430
+ },
+ {
+  "date": "2024-03-01",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 165.37,
+  "amount": 90607
+ },
+ {
+  "date": "2024-03-08",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 164.73,
+  "amount": 63707
+ },
+ {
+  "date": "2024-03-15",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 171.26,
+  "amount": 25162
+ },
+ {
+  "date": "2024-03-22",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 172.6,
+  "amount": 19890
+ },
+ {
+  "date": "2024-03-29",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 172.98,
+  "amount": 16481
+ },
+ {
+  "date": "2024-04-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 169.58,
+  "amount": 37551
+ },
+ {
+  "date": "2024-04-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 166.95,
+  "amount": 14446
+ },
+ {
+  "date": "2024-05-10",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 151.22,
+  "amount": 30357
+ },
+ {
+  "date": "2024-05-17",
+  "ticker": "JNJ",
+  "action": "DIV_REINVEST",
+  "price": 151.27,
+  "amount": 54186
+ },
+ {
+  "date": "2024-05-31",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 171.23,
+  "amount": 109942
+ },
+ {
+  "date": "2024-06-07",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 165.9,
+  "amount": 31577
+ },
+ {
+  "date": "2024-06-14",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 166.14,
+  "amount": 31886
+ },
+ {
+  "date": "2024-06-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.04,
+  "amount": 36660
+ },
+ {
+  "date": "2024-07-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 97.37,
+  "amount": 58875
+ },
+ {
+  "date": "2024-07-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 96.87,
+  "amount": 14446
+ },
+ {
+  "date": "2024-08-09",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 85.95,
+  "amount": 19353
+ },
+ {
+  "date": "2024-08-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 90.82,
+  "amount": 52361
+ },
+ {
+  "date": "2024-08-30",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 90.38,
+  "amount": 59252
+ },
+ {
+  "date": "2024-09-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 88.34,
+  "amount": 96059
+ },
+ {
+  "date": "2024-09-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 91.85,
+  "amount": 31886
+ },
+ {
+  "date": "2024-09-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 96.19,
+  "amount": 37837
+ },
+ {
+  "date": "2024-10-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 92.39,
+  "amount": 37777
+ },
+ {
+  "date": "2024-10-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 96.62,
+  "amount": 14446
+ },
+ {
+  "date": "2024-11-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 100.86,
+  "amount": 19353
+ },
+ {
+  "date": "2024-11-15",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 158.33,
+  "amount": 41593
+ },
+ {
+  "date": "2024-11-29",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 163.05,
+  "amount": 141836
+ },
+ {
+  "date": "2024-12-06",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 159.47,
+  "amount": 33629
+ },
+ {
+  "date": "2024-12-13",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 156.02,
+  "amount": 56342
+ },
+ {
+  "date": "2024-12-27",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 151.72,
+  "amount": 20179
+ },
+ {
+  "date": "2025-01-03",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 146.27,
+  "amount": 55436
+ },
+ {
+  "date": "2025-01-17",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 148.25,
+  "amount": 15497
+ },
+ {
+  "date": "2025-02-07",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 144.35,
+  "amount": 19353
+ },
+ {
+  "date": "2025-02-14",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 143.39,
+  "amount": 41593
+ },
+ {
+  "date": "2025-02-21",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 153.85,
+  "amount": 13274
+ },
+ {
+  "date": "2025-02-28",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 117.17,
+  "amount": 68427
+ },
+ {
+  "date": "2025-03-07",
+  "ticker": "EMR",
+  "action": "DIV_REINVEST",
+  "price": 111.83,
+  "amount": 35931
+ },
+ {
+  "date": "2025-03-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 99.36,
+  "amount": 81388
+ },
+ {
+  "date": "2025-03-21",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 100.18,
+  "amount": 12433
+ },
+ {
+  "date": "2025-03-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.7,
+  "amount": 37837
+ },
+ {
+  "date": "2025-04-04",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 83.3,
+  "amount": 42278
+ },
+ {
+  "date": "2025-04-18",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 84.0,
+  "amount": 15497
+ },
+ {
+  "date": "2025-05-09",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 131.68,
+  "amount": 33768
+ },
+ {
+  "date": "2025-05-16",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 131.79,
+  "amount": 42071
+ },
+ {
+  "date": "2025-05-30",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 130.91,
+  "amount": 82343
+ },
+ {
+  "date": "2025-06-06",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 129.96,
+  "amount": 86449
+ },
+ {
+  "date": "2025-06-13",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 131.41,
+  "amount": 34388
+ },
+ {
+  "date": "2025-06-27",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 132.04,
+  "amount": 64971
+ },
+ {
+  "date": "2025-07-04",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 134.45,
+  "amount": 42956
+ },
+ {
+  "date": "2025-07-18",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 141.7,
+  "amount": 15497
+ },
+ {
+  "date": "2025-08-08",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 144.87,
+  "amount": 21335
+ },
+ {
+  "date": "2025-08-22",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 68.93,
+  "amount": 54504
+ },
+ {
+  "date": "2025-08-29",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 68.99,
+  "amount": 13916
+ },
+ {
+  "date": "2025-09-05",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 141.71,
+  "amount": 157715
+ },
+ {
+  "date": "2025-09-12",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 140.64,
+  "amount": 34894
+ },
+ {
+  "date": "2025-09-26",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 140.17,
+  "amount": 20467
+ },
+ {
+  "date": "2025-10-03",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 139.7,
+  "amount": 31154
+ },
+ {
+  "date": "2025-10-10",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 110.27,
+  "amount": 30755
+ },
+ {
+  "date": "2025-10-17",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 68.44,
+  "amount": 15497
+ },
+ {
+  "date": "2025-11-07",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 142.62,
+  "amount": 21335
+ },
+ {
+  "date": "2025-11-14",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 105.69,
+  "amount": 44222
+ },
+ {
+  "date": "2025-11-28",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 106.77,
+  "amount": 100497
+ },
+ {
+  "date": "2025-12-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 107.63,
+  "amount": 91963
+ },
+ {
+  "date": "2025-12-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 110.49,
+  "amount": 76099
+ },
+ {
+  "date": "2025-12-26",
+  "ticker": "KO",
+  "action": "DIV_REINVEST",
+  "price": 70.16,
+  "amount": 20467
+ },
+ {
+  "date": "2026-01-02",
+  "ticker": "PEP",
+  "action": "DIV_REINVEST",
+  "price": 139.92,
+  "amount": 61909
+ },
+ {
+  "date": "2026-01-16",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 111.2,
+  "amount": 16548
+ },
+ {
+  "date": "2026-02-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 107.13,
+  "amount": 21335
+ },
+ {
+  "date": "2026-02-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 105.45,
+  "amount": 44222
+ },
+ {
+  "date": "2026-02-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 104.33,
+  "amount": 46985
+ },
+ {
+  "date": "2026-03-06",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 101.66,
+  "amount": 83595
+ },
+ {
+  "date": "2026-03-13",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.66,
+  "amount": 85412
+ },
+ {
+  "date": "2026-03-20",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 97.95,
+  "amount": 13121
+ },
+ {
+  "date": "2026-03-27",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 94.32,
+  "amount": 20467
+ },
+ {
+  "date": "2026-04-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 96.28,
+  "amount": 66785
+ },
+ {
+  "date": "2026-04-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 106.3,
+  "amount": 16548
+ },
+ {
+  "date": "2026-05-08",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 104.72,
+  "amount": 36627
+ },
+ {
+  "date": "2026-05-15",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 103.91,
+  "amount": 44222
+ },
+ {
+  "date": "2026-05-29",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 102.85,
+  "amount": 47413
+ },
+ {
+  "date": "2026-06-05",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.87,
+  "amount": 133035
+ },
+ {
+  "date": "2026-06-12",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 101.69,
+  "amount": 37799
+ },
+ {
+  "date": "2026-06-26",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 98.63,
+  "amount": 20755
+ },
+ {
+  "date": "2026-07-03",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 97.41,
+  "amount": 115118
+ },
+ {
+  "date": "2026-07-17",
+  "ticker": "DIS",
+  "action": "DIV_REINVEST",
+  "price": 96.41,
+  "amount": 16548
+ }
+]

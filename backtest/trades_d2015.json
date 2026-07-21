@@ -1,0 +1,2721 @@
+[
+ {
+  "date": "2015-01-09",
+  "ticker": "AAPL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 27.31,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "BKNG",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 42.08,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "QCOM",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 74.42,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "CTSH",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 54.12,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "AME",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 49.72,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "KLAC",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 6.71,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "EW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 22.19,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "DG",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 68.12,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "ECL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 100.76,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "MNST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 19.51,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "MA",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 84.44,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "TMO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 128.5,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "TSCO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 15.98,
+  "amount": 20833
+ },
+ {
+  "date": "2015-01-09",
+  "ticker": "DLTR",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 69.46,
+  "amount": 20833
+ },
+ {
+  "date": "2015-02-06",
+  "ticker": "FAST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 10.59,
+  "amount": 20833
+ },
+ {
+  "date": "2015-02-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 66.35,
+  "amount": 90
+ },
+ {
+  "date": "2015-02-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 70.88,
+  "amount": 155
+ },
+ {
+  "date": "2015-02-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 71.52,
+  "amount": 42
+ },
+ {
+  "date": "2015-03-06",
+  "ticker": "QCOM",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 71.51,
+  "amount": 20833
+ },
+ {
+  "date": "2015-03-06",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 6.14,
+  "amount": 20833
+ },
+ {
+  "date": "2015-03-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 71.51,
+  "amount": 188
+ },
+ {
+  "date": "2015-03-13",
+  "ticker": "BKNG",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 46.31,
+  "amount": 20833
+ },
+ {
+  "date": "2015-03-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 68.64,
+  "amount": 62
+ },
+ {
+  "date": "2015-04-03",
+  "ticker": "FAST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 10.26,
+  "amount": 20833
+ },
+ {
+  "date": "2015-04-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 69.16,
+  "amount": 107
+ },
+ {
+  "date": "2015-04-24",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 68.24,
+  "amount": 280
+ },
+ {
+  "date": "2015-05-01",
+  "ticker": "QCOM",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 68.42,
+  "amount": 20833
+ },
+ {
+  "date": "2015-05-01",
+  "ticker": "KLAC",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 6.03,
+  "amount": 20833
+ },
+ {
+  "date": "2015-05-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 69.41,
+  "amount": 99
+ },
+ {
+  "date": "2015-05-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 71.06,
+  "amount": 550
+ },
+ {
+  "date": "2015-05-29",
+  "ticker": "FAST",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 10.38,
+  "amount": 20833
+ },
+ {
+  "date": "2015-06-05",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 68.26,
+  "amount": 431
+ },
+ {
+  "date": "2015-06-12",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 67.03,
+  "amount": 130
+ },
+ {
+  "date": "2015-06-19",
+  "ticker": "BKNG",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 46.34,
+  "amount": 20833
+ },
+ {
+  "date": "2015-06-19",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 66.88,
+  "amount": 67
+ },
+ {
+  "date": "2015-07-03",
+  "ticker": "ECL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 111.9,
+  "amount": 20833
+ },
+ {
+  "date": "2015-07-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 62.73,
+  "amount": 39
+ },
+ {
+  "date": "2015-07-24",
+  "ticker": "AAPL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 30.69,
+  "amount": 20833
+ },
+ {
+  "date": "2015-07-24",
+  "ticker": "AME",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 52.01,
+  "amount": 20833
+ },
+ {
+  "date": "2015-07-24",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 30.69,
+  "amount": 420
+ },
+ {
+  "date": "2015-08-07",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 29.93,
+  "amount": 189
+ },
+ {
+  "date": "2015-08-14",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 29.29,
+  "amount": 570
+ },
+ {
+  "date": "2015-08-21",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 90.68,
+  "amount": 20833
+ },
+ {
+  "date": "2015-08-21",
+  "ticker": "TMO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 121.67,
+  "amount": 20833
+ },
+ {
+  "date": "2015-08-21",
+  "ticker": "TSCO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 17.12,
+  "amount": 20833
+ },
+ {
+  "date": "2015-08-21",
+  "ticker": "DLTR",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 76.35,
+  "amount": 20833
+ },
+ {
+  "date": "2015-08-28",
+  "ticker": "ECL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 109.14,
+  "amount": 20833
+ },
+ {
+  "date": "2015-09-04",
+  "ticker": "EW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 22.68,
+  "amount": 20833
+ },
+ {
+  "date": "2015-09-04",
+  "ticker": "DG",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 72.56,
+  "amount": 20833
+ },
+ {
+  "date": "2015-09-04",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 27.32,
+  "amount": 436
+ },
+ {
+  "date": "2015-09-11",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 28.83,
+  "amount": 316
+ },
+ {
+  "date": "2015-09-18",
+  "ticker": "AAPL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 28.8,
+  "amount": 20833
+ },
+ {
+  "date": "2015-09-18",
+  "ticker": "AME",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 52.17,
+  "amount": 20833
+ },
+ {
+  "date": "2015-09-18",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 28.8,
+  "amount": 130
+ },
+ {
+  "date": "2015-09-25",
+  "ticker": "CTSH",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 61.29,
+  "amount": 20833
+ },
+ {
+  "date": "2015-10-02",
+  "ticker": "MNST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 22.32,
+  "amount": 20833
+ },
+ {
+  "date": "2015-10-09",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 27.9,
+  "amount": 76
+ },
+ {
+  "date": "2015-10-16",
+  "ticker": "TMO",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 129.03,
+  "amount": 20833
+ },
+ {
+  "date": "2015-10-16",
+  "ticker": "TSCO",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 17.04,
+  "amount": 20833
+ },
+ {
+  "date": "2015-10-16",
+  "ticker": "DLTR",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 63.46,
+  "amount": 20833
+ },
+ {
+  "date": "2015-10-23",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 28.82,
+  "amount": 420
+ },
+ {
+  "date": "2015-10-30",
+  "ticker": "DG",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 67.77,
+  "amount": 20833
+ },
+ {
+  "date": "2015-11-06",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 30.14,
+  "amount": 293
+ },
+ {
+  "date": "2015-11-13",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 28.55,
+  "amount": 667
+ },
+ {
+  "date": "2015-11-27",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 48.54,
+  "amount": 436
+ },
+ {
+  "date": "2015-12-04",
+  "ticker": "CTSH",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 62.96,
+  "amount": 20833
+ },
+ {
+  "date": "2015-12-04",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 29.57,
+  "amount": 110
+ },
+ {
+  "date": "2015-12-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 47.46,
+  "amount": 279
+ },
+ {
+  "date": "2015-12-25",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 26.7,
+  "amount": 198
+ },
+ {
+  "date": "2016-01-08",
+  "ticker": "MA",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 89.89,
+  "amount": 20833
+ },
+ {
+  "date": "2016-01-08",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 24.63,
+  "amount": 91
+ },
+ {
+  "date": "2016-01-15",
+  "ticker": "MNST",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 23.52,
+  "amount": 20833
+ },
+ {
+  "date": "2016-01-29",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 24.11,
+  "amount": 450
+ },
+ {
+  "date": "2016-02-05",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 23.75,
+  "amount": 302
+ },
+ {
+  "date": "2016-02-12",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 23.5,
+  "amount": 518
+ },
+ {
+  "date": "2016-02-19",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 24.22,
+  "amount": 150
+ },
+ {
+  "date": "2016-03-04",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 25.47,
+  "amount": 443
+ },
+ {
+  "date": "2016-03-11",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 25.63,
+  "amount": 279
+ },
+ {
+  "date": "2016-03-18",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 26.48,
+  "amount": 110
+ },
+ {
+  "date": "2016-03-25",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 26.3,
+  "amount": 225
+ },
+ {
+  "date": "2016-04-08",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 27.25,
+  "amount": 135
+ },
+ {
+  "date": "2016-04-22",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 26.27,
+  "amount": 450
+ },
+ {
+  "date": "2016-05-06",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 23.2,
+  "amount": 345
+ },
+ {
+  "date": "2016-05-13",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 23.47,
+  "amount": 697
+ },
+ {
+  "date": "2016-05-27",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 25.09,
+  "amount": 489
+ },
+ {
+  "date": "2016-06-10",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 24.33,
+  "amount": 74
+ },
+ {
+  "date": "2016-06-17",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 23.77,
+  "amount": 539
+ },
+ {
+  "date": "2016-07-08",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 24.25,
+  "amount": 135
+ },
+ {
+  "date": "2016-07-22",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 24.33,
+  "amount": 450
+ },
+ {
+  "date": "2016-08-05",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 59.71,
+  "amount": 362
+ },
+ {
+  "date": "2016-08-12",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 58.2,
+  "amount": 697
+ },
+ {
+  "date": "2016-09-02",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 58.36,
+  "amount": 489
+ },
+ {
+  "date": "2016-09-16",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 53.32,
+  "amount": 613
+ },
+ {
+  "date": "2016-10-07",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 50.35,
+  "amount": 135
+ },
+ {
+  "date": "2016-10-21",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 49.71,
+  "amount": 450
+ },
+ {
+  "date": "2016-10-28",
+  "ticker": "EW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 32.05,
+  "amount": 20833
+ },
+ {
+  "date": "2016-11-04",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 112.87,
+  "amount": 362
+ },
+ {
+  "date": "2016-11-11",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 113.98,
+  "amount": 717
+ },
+ {
+  "date": "2016-12-02",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 54.02,
+  "amount": 599
+ },
+ {
+  "date": "2016-12-16",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 56.26,
+  "amount": 294
+ },
+ {
+  "date": "2016-12-23",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 118.76,
+  "amount": 225
+ },
+ {
+  "date": "2017-01-06",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 118.84,
+  "amount": 156
+ },
+ {
+  "date": "2017-02-03",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 52.98,
+  "amount": 480
+ },
+ {
+  "date": "2017-02-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 54.0,
+  "amount": 899
+ },
+ {
+  "date": "2017-02-24",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.22,
+  "amount": 180
+ },
+ {
+  "date": "2017-03-03",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 56.44,
+  "amount": 504
+ },
+ {
+  "date": "2017-03-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 58.64,
+  "amount": 74
+ },
+ {
+  "date": "2017-03-17",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.55,
+  "amount": 330
+ },
+ {
+  "date": "2017-04-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 56.32,
+  "amount": 390
+ },
+ {
+  "date": "2017-04-28",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 53.74,
+  "amount": 480
+ },
+ {
+  "date": "2017-05-12",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.32,
+  "amount": 937
+ },
+ {
+  "date": "2017-05-19",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.67,
+  "amount": 370
+ },
+ {
+  "date": "2017-05-26",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.52,
+  "amount": 574
+ },
+ {
+  "date": "2017-06-16",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 56.82,
+  "amount": 405
+ },
+ {
+  "date": "2017-07-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.35,
+  "amount": 390
+ },
+ {
+  "date": "2017-07-28",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 52.88,
+  "amount": 480
+ },
+ {
+  "date": "2017-08-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 52.72,
+  "amount": 987
+ },
+ {
+  "date": "2017-08-18",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 51.92,
+  "amount": 370
+ },
+ {
+  "date": "2017-09-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 52.05,
+  "amount": 608
+ },
+ {
+  "date": "2017-09-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 52.19,
+  "amount": 405
+ },
+ {
+  "date": "2017-10-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 52.49,
+  "amount": 390
+ },
+ {
+  "date": "2017-10-27",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 54.57,
+  "amount": 480
+ },
+ {
+  "date": "2017-11-10",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 67.89,
+  "amount": 400
+ },
+ {
+  "date": "2017-11-17",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 69.89,
+  "amount": 958
+ },
+ {
+  "date": "2017-12-01",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 69.41,
+  "amount": 628
+ },
+ {
+  "date": "2017-12-08",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 68.79,
+  "amount": 110
+ },
+ {
+  "date": "2017-12-15",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 70.4,
+  "amount": 319
+ },
+ {
+  "date": "2018-02-02",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 39.12,
+  "amount": 967
+ },
+ {
+  "date": "2018-02-09",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 130.16,
+  "amount": 404
+ },
+ {
+  "date": "2018-02-16",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 131.49,
+  "amount": 587
+ },
+ {
+  "date": "2018-02-23",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 131.99,
+  "amount": 426
+ },
+ {
+  "date": "2018-03-02",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 129.95,
+  "amount": 628
+ },
+ {
+  "date": "2018-03-16",
+  "ticker": "MNST",
+  "action": "DIV_REINVEST",
+  "price": 29.32,
+  "amount": 506
+ },
+ {
+  "date": "2018-04-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 53.12,
+  "amount": 177
+ },
+ {
+  "date": "2018-04-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.73,
+  "amount": 261
+ },
+ {
+  "date": "2018-04-27",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 51.11,
+  "amount": 556
+ },
+ {
+  "date": "2018-05-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.23,
+  "amount": 1214
+ },
+ {
+  "date": "2018-05-25",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 75.78,
+  "amount": 456
+ },
+ {
+  "date": "2018-06-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 58.61,
+  "amount": 708
+ },
+ {
+  "date": "2018-06-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 59.86,
+  "amount": 506
+ },
+ {
+  "date": "2018-07-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.84,
+  "amount": 177
+ },
+ {
+  "date": "2018-07-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 58.39,
+  "amount": 261
+ },
+ {
+  "date": "2018-07-27",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 87.99,
+  "amount": 601
+ },
+ {
+  "date": "2018-08-10",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 75.91,
+  "amount": 468
+ },
+ {
+  "date": "2018-08-17",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 73.63,
+  "amount": 747
+ },
+ {
+  "date": "2018-08-24",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 76.13,
+  "amount": 458
+ },
+ {
+  "date": "2018-09-07",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 76.07,
+  "amount": 726
+ },
+ {
+  "date": "2018-09-14",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 76.65,
+  "amount": 506
+ },
+ {
+  "date": "2018-10-05",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 76.15,
+  "amount": 438
+ },
+ {
+  "date": "2018-10-26",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 62.48,
+  "amount": 601
+ },
+ {
+  "date": "2018-11-09",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 56.72,
+  "amount": 468
+ },
+ {
+  "date": "2018-11-16",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.88,
+  "amount": 747
+ },
+ {
+  "date": "2018-11-23",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.25,
+  "amount": 458
+ },
+ {
+  "date": "2018-12-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 55.99,
+  "amount": 921
+ },
+ {
+  "date": "2018-12-14",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.62,
+  "amount": 366
+ },
+ {
+  "date": "2019-01-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 57.5,
+  "amount": 495
+ },
+ {
+  "date": "2019-02-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 49.61,
+  "amount": 646
+ },
+ {
+  "date": "2019-02-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 50.29,
+  "amount": 468
+ },
+ {
+  "date": "2019-02-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 51.98,
+  "amount": 747
+ },
+ {
+  "date": "2019-02-22",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 53.12,
+  "amount": 458
+ },
+ {
+  "date": "2019-03-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 53.53,
+  "amount": 798
+ },
+ {
+  "date": "2019-03-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 56.6,
+  "amount": 546
+ },
+ {
+  "date": "2019-04-12",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 56.95,
+  "amount": 522
+ },
+ {
+  "date": "2019-05-03",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 72.96,
+  "amount": 646
+ },
+ {
+  "date": "2019-05-10",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 46.43,
+  "amount": 493
+ },
+ {
+  "date": "2019-05-17",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 45.77,
+  "amount": 747
+ },
+ {
+  "date": "2019-05-24",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 44.74,
+  "amount": 488
+ },
+ {
+  "date": "2019-06-07",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 71.13,
+  "amount": 819
+ },
+ {
+  "date": "2019-06-14",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 71.02,
+  "amount": 546
+ },
+ {
+  "date": "2019-07-12",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 65.86,
+  "amount": 522
+ },
+ {
+  "date": "2019-07-26",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 66.4,
+  "amount": 661
+ },
+ {
+  "date": "2019-08-09",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 62.46,
+  "amount": 501
+ },
+ {
+  "date": "2019-08-16",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 61.22,
+  "amount": 747
+ },
+ {
+  "date": "2019-08-23",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 60.0,
+  "amount": 495
+ },
+ {
+  "date": "2019-09-13",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 64.33,
+  "amount": 1365
+ },
+ {
+  "date": "2019-10-11",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 60.61,
+  "amount": 522
+ },
+ {
+  "date": "2019-10-25",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 60.46,
+  "amount": 661
+ },
+ {
+  "date": "2019-11-08",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 188.84,
+  "amount": 501
+ },
+ {
+  "date": "2019-11-15",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 73.95,
+  "amount": 846
+ },
+ {
+  "date": "2019-11-22",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 182.06,
+  "amount": 505
+ },
+ {
+  "date": "2019-12-06",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 185.2,
+  "amount": 989
+ },
+ {
+  "date": "2019-12-13",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 185.98,
+  "amount": 387
+ },
+ {
+  "date": "2020-01-10",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 191.41,
+  "amount": 571
+ },
+ {
+  "date": "2020-01-31",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 73.22,
+  "amount": 751
+ },
+ {
+  "date": "2020-02-07",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 76.38,
+  "amount": 501
+ },
+ {
+  "date": "2020-02-14",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 88.68,
+  "amount": 267
+ },
+ {
+  "date": "2020-02-21",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 77.15,
+  "amount": 1108
+ },
+ {
+  "date": "2020-03-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 77.47,
+  "amount": 819
+ },
+ {
+  "date": "2020-03-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 75.81,
+  "amount": 623
+ },
+ {
+  "date": "2020-04-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 71.58,
+  "amount": 607
+ },
+ {
+  "date": "2020-05-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 75.64,
+  "amount": 751
+ },
+ {
+  "date": "2020-05-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 80.56,
+  "amount": 533
+ },
+ {
+  "date": "2020-05-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 75.77,
+  "amount": 846
+ },
+ {
+  "date": "2020-05-22",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 78.7,
+  "amount": 529
+ },
+ {
+  "date": "2020-06-05",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 57.82,
+  "amount": 899
+ },
+ {
+  "date": "2020-06-12",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 64.96,
+  "amount": 623
+ },
+ {
+  "date": "2020-07-10",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 68.3,
+  "amount": 607
+ },
+ {
+  "date": "2020-07-31",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 66.49,
+  "amount": 751
+ },
+ {
+  "date": "2020-09-18",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 88.02,
+  "amount": 3521
+ },
+ {
+  "date": "2020-10-16",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 66.71,
+  "amount": 607
+ },
+ {
+  "date": "2020-10-30",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 64.9,
+  "amount": 751
+ },
+ {
+  "date": "2021-01-29",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 194.61,
+  "amount": 5364
+ },
+ {
+  "date": "2021-02-05",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 193.82,
+  "amount": 1374
+ },
+ {
+  "date": "2021-02-19",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 206.54,
+  "amount": 1581
+ },
+ {
+  "date": "2021-03-05",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 116.36,
+  "amount": 899
+ },
+ {
+  "date": "2021-03-12",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 191.96,
+  "amount": 678
+ },
+ {
+  "date": "2021-05-07",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 74.82,
+  "amount": 2120
+ },
+ {
+  "date": "2021-05-14",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 130.15,
+  "amount": 896
+ },
+ {
+  "date": "2021-05-21",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 131.46,
+  "amount": 691
+ },
+ {
+  "date": "2021-06-04",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 134.34,
+  "amount": 948
+ },
+ {
+  "date": "2021-06-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 134.62,
+  "amount": 678
+ },
+ {
+  "date": "2021-07-02",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 210.8,
+  "amount": 394
+ },
+ {
+  "date": "2021-07-09",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 141.43,
+  "amount": 312
+ },
+ {
+  "date": "2021-07-30",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 87.13,
+  "amount": 841
+ },
+ {
+  "date": "2021-08-06",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 87.32,
+  "amount": 574
+ },
+ {
+  "date": "2021-08-13",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 88.14,
+  "amount": 1045
+ },
+ {
+  "date": "2021-08-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 142.09,
+  "amount": 691
+ },
+ {
+  "date": "2021-09-03",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 92.81,
+  "amount": 961
+ },
+ {
+  "date": "2021-09-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 142.68,
+  "amount": 550
+ },
+ {
+  "date": "2021-09-17",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 133.6,
+  "amount": 129
+ },
+ {
+  "date": "2021-10-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 126.55,
+  "amount": 706
+ },
+ {
+  "date": "2021-10-29",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 133.04,
+  "amount": 841
+ },
+ {
+  "date": "2021-11-05",
+  "ticker": "MNST",
+  "action": "DIV_REINVEST",
+  "price": 45.81,
+  "amount": 574
+ },
+ {
+  "date": "2021-11-12",
+  "ticker": "MNST",
+  "action": "DIV_REINVEST",
+  "price": 46.03,
+  "amount": 1045
+ },
+ {
+  "date": "2021-11-19",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 93.6,
+  "amount": 691
+ },
+ {
+  "date": "2021-12-03",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 84.58,
+  "amount": 973
+ },
+ {
+  "date": "2021-12-10",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 89.45,
+  "amount": 569
+ },
+ {
+  "date": "2021-12-17",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 88.42,
+  "amount": 129
+ },
+ {
+  "date": "2022-01-14",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 216.03,
+  "amount": 741
+ },
+ {
+  "date": "2022-02-04",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 186.69,
+  "amount": 1505
+ },
+ {
+  "date": "2022-02-11",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 182.91,
+  "amount": 1045
+ },
+ {
+  "date": "2022-02-18",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 178.64,
+  "amount": 1029
+ },
+ {
+  "date": "2022-03-04",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 158.53,
+  "amount": 973
+ },
+ {
+  "date": "2022-03-11",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 165.03,
+  "amount": 608
+ },
+ {
+  "date": "2022-03-18",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 170.72,
+  "amount": 148
+ },
+ {
+  "date": "2022-04-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 136.69,
+  "amount": 863
+ },
+ {
+  "date": "2022-04-29",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 165.62,
+  "amount": 931
+ },
+ {
+  "date": "2022-05-06",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 163.81,
+  "amount": 600
+ },
+ {
+  "date": "2022-05-13",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 159.34,
+  "amount": 1045
+ },
+ {
+  "date": "2022-05-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 131.6,
+  "amount": 340
+ },
+ {
+  "date": "2022-05-27",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 166.03,
+  "amount": 689
+ },
+ {
+  "date": "2022-06-03",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 169.82,
+  "amount": 1079
+ },
+ {
+  "date": "2022-06-10",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 152.79,
+  "amount": 268
+ },
+ {
+  "date": "2022-06-17",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 120.99,
+  "amount": 505
+ },
+ {
+  "date": "2022-07-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 123.53,
+  "amount": 516
+ },
+ {
+  "date": "2022-07-08",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 154.27,
+  "amount": 347
+ },
+ {
+  "date": "2022-07-29",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 167.05,
+  "amount": 931
+ },
+ {
+  "date": "2022-08-05",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 164.71,
+  "amount": 600
+ },
+ {
+  "date": "2022-08-12",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 176.56,
+  "amount": 1294
+ },
+ {
+  "date": "2022-08-19",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 169.13,
+  "amount": 1029
+ },
+ {
+  "date": "2022-09-02",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 128.48,
+  "amount": 1086
+ },
+ {
+  "date": "2022-09-16",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 124.95,
+  "amount": 786
+ },
+ {
+  "date": "2022-10-07",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 141.49,
+  "amount": 863
+ },
+ {
+  "date": "2022-10-28",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 119.21,
+  "amount": 931
+ },
+ {
+  "date": "2022-11-04",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 106.69,
+  "amount": 600
+ },
+ {
+  "date": "2022-11-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 121.43,
+  "amount": 1294
+ },
+ {
+  "date": "2022-11-18",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 148.32,
+  "amount": 1029
+ },
+ {
+  "date": "2022-12-02",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 150.45,
+  "amount": 1115
+ },
+ {
+  "date": "2022-12-09",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 119.05,
+  "amount": 268
+ },
+ {
+  "date": "2022-12-16",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 114.53,
+  "amount": 543
+ },
+ {
+  "date": "2022-12-30",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 109.94,
+  "amount": 516
+ },
+ {
+  "date": "2023-01-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 115.34,
+  "amount": 404
+ },
+ {
+  "date": "2023-02-03",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 151.69,
+  "amount": 1051
+ },
+ {
+  "date": "2023-02-10",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 147.89,
+  "amount": 1894
+ },
+ {
+  "date": "2023-02-17",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 127.72,
+  "amount": 365
+ },
+ {
+  "date": "2023-02-24",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 124.34,
+  "amount": 771
+ },
+ {
+  "date": "2023-03-03",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 123.6,
+  "amount": 1133
+ },
+ {
+  "date": "2023-03-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 115.19,
+  "amount": 305
+ },
+ {
+  "date": "2023-03-17",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 120.73,
+  "amount": 578
+ },
+ {
+  "date": "2023-04-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 123.0,
+  "amount": 404
+ },
+ {
+  "date": "2023-04-14",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 120.16,
+  "amount": 554
+ },
+ {
+  "date": "2023-04-28",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 116.8,
+  "amount": 1051
+ },
+ {
+  "date": "2023-05-12",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 103.62,
+  "amount": 1920
+ },
+ {
+  "date": "2023-05-19",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 105.86,
+  "amount": 365
+ },
+ {
+  "date": "2023-05-26",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 110.35,
+  "amount": 771
+ },
+ {
+  "date": "2023-06-02",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 115.62,
+  "amount": 1259
+ },
+ {
+  "date": "2023-06-09",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 119.11,
+  "amount": 305
+ },
+ {
+  "date": "2023-06-16",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 136.22,
+  "amount": 578
+ },
+ {
+  "date": "2023-07-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 115.94,
+  "amount": 404
+ },
+ {
+  "date": "2023-07-14",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 163.16,
+  "amount": 554
+ },
+ {
+  "date": "2023-07-28",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 170.59,
+  "amount": 1051
+ },
+ {
+  "date": "2023-08-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 114.61,
+  "amount": 1920
+ },
+ {
+  "date": "2023-08-18",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 110.1,
+  "amount": 365
+ },
+ {
+  "date": "2023-08-25",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 110.32,
+  "amount": 771
+ },
+ {
+  "date": "2023-09-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 115.39,
+  "amount": 1294
+ },
+ {
+  "date": "2023-09-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 113.14,
+  "amount": 883
+ },
+ {
+  "date": "2023-10-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 110.88,
+  "amount": 963
+ },
+ {
+  "date": "2023-10-27",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 106.46,
+  "amount": 1051
+ },
+ {
+  "date": "2023-11-10",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 117.94,
+  "amount": 626
+ },
+ {
+  "date": "2023-11-17",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 121.11,
+  "amount": 1444
+ },
+ {
+  "date": "2023-11-24",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 125.48,
+  "amount": 1136
+ },
+ {
+  "date": "2023-12-01",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 134.69,
+  "amount": 1324
+ },
+ {
+  "date": "2023-12-08",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 127.22,
+  "amount": 1446
+ },
+ {
+  "date": "2023-12-15",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 129.98,
+  "amount": 609
+ },
+ {
+  "date": "2024-01-12",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 134.64,
+  "amount": 1058
+ },
+ {
+  "date": "2024-02-02",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 136.16,
+  "amount": 1171
+ },
+ {
+  "date": "2024-02-09",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 135.21,
+  "amount": 626
+ },
+ {
+  "date": "2024-02-16",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 182.31,
+  "amount": 1821
+ },
+ {
+  "date": "2024-02-23",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 181.16,
+  "amount": 823
+ },
+ {
+  "date": "2024-03-01",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 175.1,
+  "amount": 1324
+ },
+ {
+  "date": "2024-03-08",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 172.75,
+  "amount": 919
+ },
+ {
+  "date": "2024-03-15",
+  "ticker": "AAPL",
+  "action": "DIV_REINVEST",
+  "price": 173.72,
+  "amount": 629
+ },
+ {
+  "date": "2024-04-12",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 69.26,
+  "amount": 1070
+ },
+ {
+  "date": "2024-04-26",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 66.94,
+  "amount": 1171
+ },
+ {
+  "date": "2024-05-10",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 66.98,
+  "amount": 660
+ },
+ {
+  "date": "2024-05-17",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 68.76,
+  "amount": 1834
+ },
+ {
+  "date": "2024-05-24",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 68.32,
+  "amount": 823
+ },
+ {
+  "date": "2024-05-31",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 66.15,
+  "amount": 1406
+ },
+ {
+  "date": "2024-06-07",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 65.94,
+  "amount": 577
+ },
+ {
+  "date": "2024-06-14",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 64.26,
+  "amount": 534
+ },
+ {
+  "date": "2024-06-21",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 68.34,
+  "amount": 436
+ },
+ {
+  "date": "2024-07-12",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 71.53,
+  "amount": 1070
+ },
+ {
+  "date": "2024-07-26",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 103.93,
+  "amount": 1171
+ },
+ {
+  "date": "2024-08-09",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 164.48,
+  "amount": 660
+ },
+ {
+  "date": "2024-08-16",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 98.78,
+  "amount": 1444
+ },
+ {
+  "date": "2024-08-23",
+  "ticker": "DLTR",
+  "action": "DIV_REINVEST",
+  "price": 97.0,
+  "amount": 420
+ },
+ {
+  "date": "2024-08-30",
+  "ticker": "DG",
+  "action": "DIV_REINVEST",
+  "price": 82.97,
+  "amount": 823
+ },
+ {
+  "date": "2024-09-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 158.19,
+  "amount": 1987
+ },
+ {
+  "date": "2024-09-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 167.73,
+  "amount": 534
+ },
+ {
+  "date": "2024-09-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 168.92,
+  "amount": 436
+ },
+ {
+  "date": "2024-10-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 169.98,
+  "amount": 1076
+ },
+ {
+  "date": "2024-10-25",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 170.27,
+  "amount": 1171
+ },
+ {
+  "date": "2024-11-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 170.91,
+  "amount": 660
+ },
+ {
+  "date": "2024-11-15",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 160.5,
+  "amount": 1692
+ },
+ {
+  "date": "2024-11-22",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 156.79,
+  "amount": 420
+ },
+ {
+  "date": "2024-11-29",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 158.53,
+  "amount": 823
+ },
+ {
+  "date": "2024-12-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 159.51,
+  "amount": 2374
+ },
+ {
+  "date": "2024-12-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 158.53,
+  "amount": 193
+ },
+ {
+  "date": "2024-12-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 152.89,
+  "amount": 497
+ },
+ {
+  "date": "2025-01-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 156.98,
+  "amount": 1147
+ },
+ {
+  "date": "2025-01-31",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 172.93,
+  "amount": 1291
+ },
+ {
+  "date": "2025-02-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 167.96,
+  "amount": 660
+ },
+ {
+  "date": "2025-02-21",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 165.43,
+  "amount": 2126
+ },
+ {
+  "date": "2025-02-28",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 157.17,
+  "amount": 861
+ },
+ {
+  "date": "2025-03-07",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 161.22,
+  "amount": 2137
+ },
+ {
+  "date": "2025-03-14",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 156.58,
+  "amount": 591
+ },
+ {
+  "date": "2025-03-21",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 156.82,
+  "amount": 497
+ },
+ {
+  "date": "2025-04-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 139.25,
+  "amount": 1147
+ },
+ {
+  "date": "2025-04-25",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 148.56,
+  "amount": 1321
+ },
+ {
+  "date": "2025-05-09",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 145.18,
+  "amount": 686
+ },
+ {
+  "date": "2025-05-16",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 152.5,
+  "amount": 1892
+ },
+ {
+  "date": "2025-05-23",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 145.38,
+  "amount": 434
+ },
+ {
+  "date": "2025-05-30",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 145.2,
+  "amount": 861
+ },
+ {
+  "date": "2025-06-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 149.24,
+  "amount": 2264
+ },
+ {
+  "date": "2025-06-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 154.72,
+  "amount": 591
+ },
+ {
+  "date": "2025-06-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 151.32,
+  "amount": 497
+ },
+ {
+  "date": "2025-07-11",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 157.46,
+  "amount": 1147
+ },
+ {
+  "date": "2025-08-01",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 148.19,
+  "amount": 1321
+ },
+ {
+  "date": "2025-08-08",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 147.56,
+  "amount": 686
+ },
+ {
+  "date": "2025-08-15",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 70.0,
+  "amount": 1892
+ },
+ {
+  "date": "2025-08-22",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 72.37,
+  "amount": 442
+ },
+ {
+  "date": "2025-08-29",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 72.25,
+  "amount": 861
+ },
+ {
+  "date": "2025-09-05",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 71.82,
+  "amount": 2302
+ },
+ {
+  "date": "2025-09-12",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 69.17,
+  "amount": 591
+ },
+ {
+  "date": "2025-09-19",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 66.94,
+  "amount": 497
+ },
+ {
+  "date": "2025-10-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 153.59,
+  "amount": 1147
+ },
+ {
+  "date": "2025-10-31",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 72.88,
+  "amount": 1321
+ },
+ {
+  "date": "2025-11-07",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 73.2,
+  "amount": 686
+ },
+ {
+  "date": "2025-11-14",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 72.62,
+  "amount": 1892
+ },
+ {
+  "date": "2025-11-21",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 190.72,
+  "amount": 479
+ },
+ {
+  "date": "2025-11-28",
+  "ticker": "BKNG",
+  "action": "DIV_REINVEST",
+  "price": 196.59,
+  "amount": 861
+ },
+ {
+  "date": "2025-12-05",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 257.15,
+  "amount": 2690
+ },
+ {
+  "date": "2025-12-12",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 261.11,
+  "amount": 213
+ },
+ {
+  "date": "2025-12-26",
+  "ticker": "ECL",
+  "action": "DIV_REINVEST",
+  "price": 265.52,
+  "amount": 566
+ },
+ {
+  "date": "2026-01-09",
+  "ticker": "TSCO",
+  "action": "DIV_REINVEST",
+  "price": 51.51,
+  "amount": 1225
+ },
+ {
+  "date": "2026-01-30",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 151.59,
+  "amount": 1441
+ },
+ {
+  "date": "2026-02-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 137.34,
+  "amount": 686
+ },
+ {
+  "date": "2026-02-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 142.88,
+  "amount": 2402
+ },
+ {
+  "date": "2026-02-27",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 142.36,
+  "amount": 904
+ },
+ {
+  "date": "2026-03-06",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 135.69,
+  "amount": 2405
+ },
+ {
+  "date": "2026-03-13",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 129.82,
+  "amount": 647
+ },
+ {
+  "date": "2026-03-20",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 129.9,
+  "amount": 568
+ },
+ {
+  "date": "2026-04-10",
+  "ticker": "QCOM",
+  "action": "DIV_REINVEST",
+  "price": 128.06,
+  "amount": 1225
+ },
+ {
+  "date": "2026-05-01",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 52.43,
+  "amount": 1441
+ },
+ {
+  "date": "2026-05-08",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 51.68,
+  "amount": 712
+ },
+ {
+  "date": "2026-05-15",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 47.13,
+  "amount": 2290
+ },
+ {
+  "date": "2026-05-22",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 52.75,
+  "amount": 540
+ },
+ {
+  "date": "2026-05-29",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 55.76,
+  "amount": 904
+ },
+ {
+  "date": "2026-06-05",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 53.21,
+  "amount": 2496
+ },
+ {
+  "date": "2026-06-12",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 52.17,
+  "amount": 647
+ },
+ {
+  "date": "2026-06-19",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 43.7,
+  "amount": 568
+ },
+ {
+  "date": "2026-07-10",
+  "ticker": "CTSH",
+  "action": "DIV_REINVEST",
+  "price": 42.57,
+  "amount": 1225
+ }
+]
