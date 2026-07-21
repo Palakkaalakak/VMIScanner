@@ -101,7 +101,9 @@ def _load_checkpoint(out_path: str) -> dict:
 
 
 def _write_payload(out_path: str, universe_total: int, included_total: int,
-                    excluded_rows: list, results: list, t0: float):
+                    excluded_rows: list, results: list, t0: float,
+                    universe_label: str = "S&P 500 + Dow Jones 30 "
+                                          "(Wikipedia constituents, merged)"):
     great = [r for r in results if not r.get("error") and r.get("is_great")]
     near = [r for r in results if not r.get("error") and not r.get("is_great") and r.get("n_fail", 99) <= 1]
     errors = [r for r in results if r.get("error")]
@@ -110,7 +112,7 @@ def _write_payload(out_path: str, universe_total: int, included_total: int,
         "criteria_version": "VMI fundamentals only (no valuation/TA) — "
                             "5y window for ROE/margins (explicit in docs), "
                             "10y default elsewhere (docs ambiguous/silent)",
-        "universe": "S&P 500 + Dow Jones 30 (Wikipedia constituents, merged)",
+        "universe": universe_label,
         "universe_size": universe_total,
         "included_after_exclusion": included_total,
         "excluded_count": len(excluded_rows),
@@ -264,11 +266,13 @@ def main():
                       f"({already_done + done_new}/{len(included)} total, "
                       f"{great} great so far, {time.time()-t0:.0f}s elapsed this run)")
             if done_new % args.checkpoint_every == 0:
-                _write_payload(out_path, universe_total, len(included), excluded_rows, results, t0)
+                _write_payload(out_path, universe_total, len(included), excluded_rows, results, t0,
+                               universe_label)
                 print(f"  [checkpoint written to {out_path}]")
 
     results.sort(key=lambda r: (-r.get("score", 0), r.get("n_fail", 99), r["ticker"]))
-    payload = _write_payload(out_path, universe_total, len(included), excluded_rows, results, t0)
+    payload = _write_payload(out_path, universe_total, len(included), excluded_rows, results, t0,
+                             universe_label)
 
     print(f"\n=== DONE (this run: {time.time()-t0:.0f}s) ===")
     print(f"Great businesses (0 fails): {payload['counts']['great']}")
