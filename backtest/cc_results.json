@@ -99,6 +99,24 @@
    "settle_paid": 317987166,
    "net_cc_income": 43876391
   },
+  "g20_lowbeta": {
+   "cagr_pct": 15.46,
+   "final": 190933416,
+   "maxdd_pct": 38.3,
+   "n_cc_stocks": 9,
+   "prem_collected": 150176788,
+   "settle_paid": 132269669,
+   "net_cc_income": 17907119
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 15.46,
+   "final": 190933416,
+   "maxdd_pct": 38.3,
+   "n_cc_stocks": 9,
+   "prem_collected": 150176788,
+   "settle_paid": 132269669,
+   "net_cc_income": 17907119
+  },
   "none": {
    "cagr_pct": 13.04,
    "final": 87930169,
@@ -208,6 +226,24 @@
    "prem_collected": 95608896,
    "settle_paid": 103205649,
    "net_cc_income": -7596753
+  },
+  "g20_lowbeta": {
+   "cagr_pct": 13.97,
+   "final": 61719767,
+   "maxdd_pct": 43.1,
+   "n_cc_stocks": 7,
+   "prem_collected": 21706770,
+   "settle_paid": 20734082,
+   "net_cc_income": 972688
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 13.97,
+   "final": 61719767,
+   "maxdd_pct": 43.1,
+   "n_cc_stocks": 7,
+   "prem_collected": 21706770,
+   "settle_paid": 20734082,
+   "net_cc_income": 972688
   },
   "none": {
    "cagr_pct": 13.13,
@@ -319,6 +355,24 @@
    "settle_paid": 92680692,
    "net_cc_income": -4278494
   },
+  "g20_lowbeta": {
+   "cagr_pct": 17.06,
+   "final": 65278800,
+   "maxdd_pct": 34.2,
+   "n_cc_stocks": 11,
+   "prem_collected": 52869585,
+   "settle_paid": 55043071,
+   "net_cc_income": -2173486
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 17.22,
+   "final": 67708355,
+   "maxdd_pct": 34.1,
+   "n_cc_stocks": 12,
+   "prem_collected": 73822092,
+   "settle_paid": 78521554,
+   "net_cc_income": -4699462
+  },
   "none": {
    "cagr_pct": 15.96,
    "final": 50790008,
@@ -428,6 +482,24 @@
    "prem_collected": 16303134,
    "settle_paid": 15698160,
    "net_cc_income": 604974
+  },
+  "g20_lowbeta": {
+   "cagr_pct": 14.3,
+   "final": 17754396,
+   "maxdd_pct": 37.8,
+   "n_cc_stocks": 8,
+   "prem_collected": 9135540,
+   "settle_paid": 8627165,
+   "net_cc_income": 508375
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 14.58,
+   "final": 18696875,
+   "maxdd_pct": 37.3,
+   "n_cc_stocks": 9,
+   "prem_collected": 14205928,
+   "settle_paid": 13350893,
+   "net_cc_income": 855035
   },
   "none": {
    "cagr_pct": 13.56,
@@ -539,6 +611,24 @@
    "settle_paid": 10915216,
    "net_cc_income": 1330138
   },
+  "g20_lowbeta": {
+   "cagr_pct": 17.89,
+   "final": 15166350,
+   "maxdd_pct": 32.5,
+   "n_cc_stocks": 8,
+   "prem_collected": 6818572,
+   "settle_paid": 6484882,
+   "net_cc_income": 333690
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 17.89,
+   "final": 15166350,
+   "maxdd_pct": 32.5,
+   "n_cc_stocks": 8,
+   "prem_collected": 6818572,
+   "settle_paid": 6484882,
+   "net_cc_income": 333690
+  },
   "none": {
    "cagr_pct": 17.68,
    "final": 14722792,
@@ -649,6 +739,24 @@
    "settle_paid": 5451451,
    "net_cc_income": -85281
   },
+  "g20_lowbeta": {
+   "cagr_pct": 17.57,
+   "final": 6450033,
+   "maxdd_pct": 29.4,
+   "n_cc_stocks": 6,
+   "prem_collected": 1553722,
+   "settle_paid": 1371652,
+   "net_cc_income": 182070
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 18.1,
+   "final": 6796136,
+   "maxdd_pct": 29.0,
+   "n_cc_stocks": 8,
+   "prem_collected": 2479115,
+   "settle_paid": 2139107,
+   "net_cc_income": 340008
+  },
   "none": {
    "cagr_pct": 16.82,
    "final": 5992952,
@@ -758,6 +866,24 @@
    "prem_collected": 2545801,
    "settle_paid": 3301980,
    "net_cc_income": -756179
+  },
+  "g20_lowbeta": {
+   "cagr_pct": 27.41,
+   "final": 4846467,
+   "maxdd_pct": 23.6,
+   "n_cc_stocks": 9,
+   "prem_collected": 1004644,
+   "settle_paid": 974669,
+   "net_cc_income": 29975
+  },
+  "g25_lowbeta": {
+   "cagr_pct": 27.41,
+   "final": 4846467,
+   "maxdd_pct": 23.6,
+   "n_cc_stocks": 9,
+   "prem_collected": 1004644,
+   "settle_paid": 974669,
+   "net_cc_income": 29975
   },
   "none": {
    "cagr_pct": 26.16,
