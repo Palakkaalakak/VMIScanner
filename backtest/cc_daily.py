@@ -257,7 +257,7 @@ def main():
                         index_col=0, parse_dates=True).loc[:END]
     dv_df = pd.read_csv(os.path.join(HERE, "daily_divs.csv"),
                         index_col=0, parse_dates=True) \
-        .reindex(px_df.index).fillna(0.0)
+        .reindex(index=px_df.index, columns=px_df.columns).fillna(0.0)
     sma_df = px_df.rolling(200).mean()
     rv = px_df.pct_change(fill_method=None).rolling(126).std() \
         * math.sqrt(252)
