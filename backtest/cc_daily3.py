@@ -85,8 +85,13 @@ def k_for_d1(S, sig, r, T, d1):
 
 
 def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
-        roll_delta=0.80, tp=None, slow_mo=False, initial=INITIAL):
-    """gate: 'always' | 'overval' (p>=IV) ; tp: capture fraction or None."""
+        roll_delta=0.80, tp=None, slow_mo=False, initial=INITIAL,
+        hot_delta=None, hot_g=0.20, hot_mo=None):
+    """gate: 'always' | 'overval' (p>=IV) ; tp: capture fraction or None.
+    hot_delta: if set, stocks with book growth > hot_g (or, if hot_mo is
+    set, trailing-12m price gain > hot_mo, recomputed daily) get calls at
+    this smaller delta (further OTM = more room to run) instead of being
+    skipped."""
     dates, px, dv, sma, sig_m, rfd, exp_map, ti, mo12 = (
         D["dates"], D["px"], D["dv"], D["sma"], D["sig"], D["rf"],
         D["exp_map"], D["ti"], D["mo12"])
