@@ -216,46 +216,58 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 if sig > 0 and (cov_of(t) + sh.get(t, 0)) > 0:
                     sell_short(t, p, sig, r, i)
 
-        # ---- manage long calls ----
+        # ---- manage long calls (lot by lot) ----
         for t in list(lc):
             p = px[i, ti[t]]
             if np.isnan(p):
                 continue
             sig = sig_m[i, ti[t]]
-            K, e, cov, cost = lc[t]
-            days_left = (dates[min(e, nD - 1)] - d).days
-            # hammer cut-loss: pair value dropped to 50% of what we paid
+            # hammer cut-loss: whole-position value at 50% of total cost
             if style == "hammer" and not np.isnan(sig) and sig > 0:
-                T = max(days_left, 0) / 365.0
-                val = bs_call(p, K, sig, r, T) * cov
+                tot_val = tot_cost = 0.0
+                for (K, e, cov, cost) in lc[t]:
+                    T = max((dates[min(e, nD - 1)] - d).days, 0) / 365.0
+                    tot_val += bs_call(p, K, sig, r, T) * cov
+                    tot_cost += cost
                 sc = 0.0
                 if t in oc:
                     Ks, es, cs, prs = oc[t]
                     Ts = max((dates[min(es, nD - 1)] - d).days, 0) / 365.0
                     sc = bs_call(p, Ks, sig, r, Ts) * cs
-                if val - sc <= 0.5 * cost - 1e-9:
+                if tot_val - sc <= 0.5 * tot_cost - 1e-9:
                     if t in oc:
                         close_short(t, sc)
-                    close_long(t, i, r)
+                    while t in lc:
+                        close_lot(t, 0, i, r)
                     stopped[t] = True
                     n_cutloss += 1
                     continue
-            if days_left <= ROLL_LONG_AT:
+            # roll / convert lots nearing expiry
+            j = 0
+            while t in lc and j < len(lc[t]):
+                K, e, cov, cost = lc[t][j]
+                days_left = (dates[min(e, nD - 1)] - d).days
+                if days_left > ROLL_LONG_AT:
+                    j += 1
+                    continue
                 if convert:
-                    val, cov_, _ = close_long(t, i, r)
+                    val, cov_, _ = close_lot(t, j, i, r)
                     take = min(cov_, cash / p if p > 0 else 0)
                     sh[t] = sh.get(t, 0.0) + take
                     cash -= take * p
                     n_convert += 1
-                    if t in oc and take < cov_ * 0.999:   # trim coverage
-                        oc[t][2] = min(oc[t][2], take + cov_of(t))
                 else:
                     if np.isnan(sig) or sig <= 0:
+                        j += 1
                         continue
-                    close_long(t, i, r)
-                    open_long(t, p, sig, r, i,
-                              budget=tranche if full_tranche else None)
+                    val, cov_, _ = close_lot(t, j, i, r)
+                    # re-establish the SAME notional exposure
+                    budget = val if full_tranche else cov_ * p
+                    open_long(t, p, sig, r, i, budget)
                     n_longroll += 1
+            # trim short coverage if longs shrank
+            if t in oc:
+                oc[t][2] = min(oc[t][2], cov_of(t) + sh.get(t, 0.0))
 
         # ---- hammer re-entry after cut-loss ----
         for t in list(stopped):
@@ -265,7 +277,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
             if np.isnan(p) or np.isnan(s) or np.isnan(sig) or sig <= 0:
                 continue
             if p > s:                       # neutral-to-bullish again
-                if open_long(t, p, sig, r, i):
+                if open_long(t, p, sig, r, i, tranche):
                     del stopped[t]
 
         # ---- open short calls where uncovered ----
@@ -296,12 +308,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 s = sma[i, ti[t]]
                 trigger = (not np.isnan(s) and p <= s * 1.01
                            and p < iv_at(t, i))
-            if not trigger or cash < tranche * (1.0 if full_tranche else 0.35):
+            if not trigger or free_cash() < tranche:
                 continue
             sig = sig_m[i, ti[t]]
             if np.isnan(sig) or sig <= 0:
                 continue
-            if open_long(t, p, sig, r, i):
+            if open_long(t, p, sig, r, i, tranche):
                 tr[t] = ntr + 1
                 last_add[t] = d
 
@@ -309,9 +321,10 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         if pool > 0:
             cash += pool          # premiums land in cash first
             pool = 0.0
-        # deploy excess cash beyond the tranche reserve into extra coverage
+        # deploy excess free cash beyond a reserve into extra coverage
         reserve = tranche * 2     # keep dry powder for pending tranches
-        if cash > reserve * 1.5:
+        fc = free_cash()
+        if fc > reserve * 1.5:
             best, bt = 9e9, None
             for t in iv0:
                 if t in stopped:
@@ -327,9 +340,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 p = px[i, ti[bt]]
                 sig = sig_m[i, ti[bt]]
                 if not np.isnan(sig) and sig > 0:
-                    spend = cash - reserve
-                    open_long(bt, p, sig, r, i,
-                              budget=spend if full_tranche else spend)
+                    open_long(bt, p, sig, r, i, fc - reserve)
 
         # ---- mark ----
         mv = cash + pool
@@ -338,12 +349,13 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 p = px[i, ti[t]]
                 if not np.isnan(p):
                     mv += s_ * p
-        for t, (K, e, cov, _) in lc.items():
+        for t, lots in lc.items():
             p = px[i, ti[t]]
             if np.isnan(p):
                 continue
-            T = max((dates[min(e, nD - 1)] - d).days, 0) / 365.0
-            mv += bs_call(p, K, sig_m[i, ti[t]], r, T) * cov
+            for (K, e, cov, _) in lots:
+                T = max((dates[min(e, nD - 1)] - d).days, 0) / 365.0
+                mv += bs_call(p, K, sig_m[i, ti[t]], r, T) * cov
         for t, (K, e, c, _) in oc.items():
             p = px[i, ti[t]]
             if np.isnan(p):
