@@ -1,0 +1,453 @@
+[
+ {
+  "date": "2010-01-08",
+  "ticker": "AAPL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 6.29,
+  "amount": 20833,
+  "pct_of_iv": 23
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "GOOGL",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 14.93,
+  "amount": 20833,
+  "pct_of_iv": 28
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "MSFT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 22.81,
+  "amount": 20833,
+  "pct_of_iv": 58
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "QCOM",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 32.73,
+  "amount": 20833,
+  "pct_of_iv": 75
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "SYK",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 44.97,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "UNH",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 25.34,
+  "amount": 20833,
+  "pct_of_iv": 31
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "BDX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 45.18,
+  "amount": 20833,
+  "pct_of_iv": 40
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "TJX",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 7.76,
+  "amount": 20833,
+  "pct_of_iv": 48
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "ROST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 9.55,
+  "amount": 20833,
+  "pct_of_iv": 44
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "MCD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 39.77,
+  "amount": 20833,
+  "pct_of_iv": 50
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "NKE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 12.97,
+  "amount": 20833,
+  "pct_of_iv": 92
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "WMT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 12.9,
+  "amount": 20833,
+  "pct_of_iv": 49
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "UNP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 23.71,
+  "amount": 20833,
+  "pct_of_iv": 50
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "DHR",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 15.62,
+  "amount": 20833,
+  "pct_of_iv": 63
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "ADP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 25.2,
+  "amount": 20833,
+  "pct_of_iv": 57
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "GIS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 19.85,
+  "amount": 20833,
+  "pct_of_iv": 52
+ },
+ {
+  "date": "2010-01-08",
+  "ticker": "CHD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 11.8,
+  "amount": 20833,
+  "pct_of_iv": 81
+ },
+ {
+  "date": "2010-01-22",
+  "ticker": "FAST",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 3.51,
+  "amount": 20833,
+  "pct_of_iv": 99
+ },
+ {
+  "date": "2010-03-05",
+  "ticker": "QCOM",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 25.75,
+  "amount": 20833,
+  "pct_of_iv": 58
+ },
+ {
+  "date": "2010-04-23",
+  "ticker": "UNH",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 23.0,
+  "amount": 20833,
+  "pct_of_iv": 28
+ },
+ {
+  "date": "2010-04-30",
+  "ticker": "GOOGL",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 13.04,
+  "amount": 20833,
+  "pct_of_iv": 23
+ },
+ {
+  "date": "2010-04-30",
+  "ticker": "QCOM",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 25.7,
+  "amount": 20833,
+  "pct_of_iv": 57
+ },
+ {
+  "date": "2010-05-07",
+  "ticker": "MSFT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 21.09,
+  "amount": 20833,
+  "pct_of_iv": 52
+ },
+ {
+  "date": "2010-05-07",
+  "ticker": "WMT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 12.59,
+  "amount": 20833,
+  "pct_of_iv": 47
+ },
+ {
+  "date": "2010-05-14",
+  "ticker": "BDX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 42.71,
+  "amount": 20833,
+  "pct_of_iv": 36
+ },
+ {
+  "date": "2010-05-21",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 24.01,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2010-06-04",
+  "ticker": "SYK",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 41.31,
+  "amount": 20833,
+  "pct_of_iv": 47
+ },
+ {
+  "date": "2010-06-25",
+  "ticker": "GOOGL",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 11.72,
+  "amount": 20833,
+  "pct_of_iv": 21
+ },
+ {
+  "date": "2010-06-25",
+  "ticker": "UNH",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 22.58,
+  "amount": 20833,
+  "pct_of_iv": 27
+ },
+ {
+  "date": "2010-07-02",
+  "ticker": "MSFT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 17.47,
+  "amount": 20833,
+  "pct_of_iv": 42
+ },
+ {
+  "date": "2010-07-02",
+  "ticker": "NKE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 13.67,
+  "amount": 20833,
+  "pct_of_iv": 93
+ },
+ {
+  "date": "2010-07-02",
+  "ticker": "WMT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 11.56,
+  "amount": 20833,
+  "pct_of_iv": 42
+ },
+ {
+  "date": "2010-07-02",
+  "ticker": "DHR",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 14.58,
+  "amount": 20833,
+  "pct_of_iv": 56
+ },
+ {
+  "date": "2010-07-02",
+  "ticker": "CHD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 12.43,
+  "amount": 20833,
+  "pct_of_iv": 82
+ },
+ {
+  "date": "2010-07-09",
+  "ticker": "BDX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 40.2,
+  "amount": 20833,
+  "pct_of_iv": 34
+ },
+ {
+  "date": "2010-07-16",
+  "ticker": "TJX",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 8.35,
+  "amount": 20833,
+  "pct_of_iv": 49
+ },
+ {
+  "date": "2010-07-16",
+  "ticker": "UNP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 24.19,
+  "amount": 20833,
+  "pct_of_iv": 48
+ },
+ {
+  "date": "2010-07-16",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 24.65,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "2010-07-30",
+  "ticker": "SYK",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 38.96,
+  "amount": 20833,
+  "pct_of_iv": 43
+ },
+ {
+  "date": "2010-07-30",
+  "ticker": "GIS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 19.55,
+  "amount": 20833,
+  "pct_of_iv": 49
+ },
+ {
+  "date": "2010-08-06",
+  "ticker": "ROST",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 10.71,
+  "amount": 20833,
+  "pct_of_iv": 47
+ },
+ {
+  "date": "2010-08-27",
+  "ticker": "DHR",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 14.61,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "2010-08-27",
+  "ticker": "CHD",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 12.08,
+  "amount": 20833,
+  "pct_of_iv": 79
+ },
+ {
+  "date": "2010-09-10",
+  "ticker": "TJX",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 8.35,
+  "amount": 20833,
+  "pct_of_iv": 48
+ },
+ {
+  "date": "2010-11-12",
+  "ticker": "GIS",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 20.56,
+  "amount": 20833,
+  "pct_of_iv": 51
+ },
+ {
+  "date": "2011-02-04",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 48.4,
+  "amount": 20833,
+  "pct_of_iv": 57
+ },
+ {
+  "date": "2011-03-25",
+  "ticker": "NKE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 15.45,
+  "amount": 20833,
+  "pct_of_iv": 100
+ },
+ {
+  "date": "2012-04-27",
+  "ticker": "WMT",
+  "action": "SELL",
+  "price": 14.84,
+  "amount": 75258
+ },
+ {
+  "date": "2012-04-27",
+  "ticker": "GIS",
+  "action": "BUY_REPL",
+  "price": 23.37,
+  "amount": 75258
+ },
+ {
+  "date": "2025-05-23",
+  "ticker": "UNH",
+  "action": "SELL",
+  "price": 285.83,
+  "amount": 757631
+ },
+ {
+  "date": "2025-05-23",
+  "ticker": "CHD",
+  "action": "BUY_REPL",
+  "price": 94.7,
+  "amount": 757631
+ }
+]

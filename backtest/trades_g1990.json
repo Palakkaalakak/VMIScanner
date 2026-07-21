@@ -1,0 +1,439 @@
+[
+ {
+  "date": "1990-01-05",
+  "ticker": "WMT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.18,
+  "amount": 20833,
+  "pct_of_iv": 68
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "HD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.02,
+  "amount": 20833,
+  "pct_of_iv": 61
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "DIS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 6.84,
+  "amount": 20833,
+  "pct_of_iv": 71
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "NKE",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 0.61,
+  "amount": 20833,
+  "pct_of_iv": 41
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "MCD",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 4.11,
+  "amount": 20833,
+  "pct_of_iv": 59
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "KO",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 2.02,
+  "amount": 20833,
+  "pct_of_iv": 92
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "PEP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 4.2,
+  "amount": 20833,
+  "pct_of_iv": 69
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "SYY",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.74,
+  "amount": 20833,
+  "pct_of_iv": 76
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "JNJ",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 3.19,
+  "amount": 20833,
+  "pct_of_iv": 87
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "ABT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.59,
+  "amount": 20833,
+  "pct_of_iv": 71
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "MDT",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 1.23,
+  "amount": 20833,
+  "pct_of_iv": 62
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "ADP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 2.5,
+  "amount": 20833,
+  "pct_of_iv": 92
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "GWW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 9.27,
+  "amount": 20833,
+  "pct_of_iv": 78
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "EMR",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 3.81,
+  "amount": 20833,
+  "pct_of_iv": 74
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "ITW",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 2.79,
+  "amount": 20833,
+  "pct_of_iv": 79
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "AXP",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 4.77,
+  "amount": 20833,
+  "pct_of_iv": 63
+ },
+ {
+  "date": "1990-01-05",
+  "ticker": "GIS",
+  "action": "BUY",
+  "tranche": 1,
+  "price": 2.38,
+  "amount": 20833,
+  "pct_of_iv": 77
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "DIS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 6.48,
+  "amount": 20833,
+  "pct_of_iv": 66
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.76,
+  "amount": 20833,
+  "pct_of_iv": 61
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "SYY",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.5,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "AXP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.83,
+  "amount": 20833,
+  "pct_of_iv": 50
+ },
+ {
+  "date": "1990-03-02",
+  "ticker": "GIS",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 2.18,
+  "amount": 20833,
+  "pct_of_iv": 69
+ },
+ {
+  "date": "1990-03-23",
+  "ticker": "ABT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.49,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "1990-03-23",
+  "ticker": "MDT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.1,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "1990-04-20",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.79,
+  "amount": 20833,
+  "pct_of_iv": 53
+ },
+ {
+  "date": "1990-04-27",
+  "ticker": "DIS",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 6.48,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "1990-04-27",
+  "ticker": "AXP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 3.81,
+  "amount": 20833,
+  "pct_of_iv": 49
+ },
+ {
+  "date": "1990-07-20",
+  "ticker": "MCD",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 4.03,
+  "amount": 20833,
+  "pct_of_iv": 55
+ },
+ {
+  "date": "1990-07-27",
+  "ticker": "GWW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 9.69,
+  "amount": 20833,
+  "pct_of_iv": 77
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 2.56,
+  "amount": 20833,
+  "pct_of_iv": 89
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "EMR",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.5,
+  "amount": 20833,
+  "pct_of_iv": 65
+ },
+ {
+  "date": "1990-08-03",
+  "ticker": "ITW",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 3.03,
+  "amount": 20833,
+  "pct_of_iv": 82
+ },
+ {
+  "date": "1990-08-17",
+  "ticker": "SYY",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 1.76,
+  "amount": 20833,
+  "pct_of_iv": 73
+ },
+ {
+  "date": "1990-08-31",
+  "ticker": "NKE",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 0.73,
+  "amount": 20833,
+  "pct_of_iv": 46
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "WMT",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.3,
+  "amount": 20833,
+  "pct_of_iv": 71
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "HD",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 1.27,
+  "amount": 20833,
+  "pct_of_iv": 72
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "KO",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 2.03,
+  "amount": 20833,
+  "pct_of_iv": 87
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "PEP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 4.36,
+  "amount": 20833,
+  "pct_of_iv": 67
+ },
+ {
+  "date": "1990-09-21",
+  "ticker": "GWW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 8.12,
+  "amount": 20833,
+  "pct_of_iv": 64
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "ADP",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 2.59,
+  "amount": 20833,
+  "pct_of_iv": 88
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "EMR",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 3.25,
+  "amount": 20833,
+  "pct_of_iv": 59
+ },
+ {
+  "date": "1990-09-28",
+  "ticker": "ITW",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 2.84,
+  "amount": 20833,
+  "pct_of_iv": 75
+ },
+ {
+  "date": "1990-10-26",
+  "ticker": "NKE",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 0.6,
+  "amount": 20833,
+  "pct_of_iv": 37
+ },
+ {
+  "date": "1991-01-04",
+  "ticker": "WMT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 1.46,
+  "amount": 20833,
+  "pct_of_iv": 77
+ },
+ {
+  "date": "1991-01-04",
+  "ticker": "ABT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 1.9,
+  "amount": 20833,
+  "pct_of_iv": 77
+ },
+ {
+  "date": "1992-04-24",
+  "ticker": "MDT",
+  "action": "ADD",
+  "tranche": 3,
+  "price": 2.38,
+  "amount": 20833,
+  "pct_of_iv": 97
+ },
+ {
+  "date": "1993-01-29",
+  "ticker": "JNJ",
+  "action": "ADD",
+  "tranche": 2,
+  "price": 4.9,
+  "amount": 20833,
+  "pct_of_iv": 100
+ },
+ {
+  "date": "2012-04-27",
+  "ticker": "WMT",
+  "action": "SELL",
+  "price": 14.84,
+  "amount": 712847
+ },
+ {
+  "date": "2012-04-27",
+  "ticker": "GIS",
+  "action": "BUY_REPL",
+  "price": 23.37,
+  "amount": 712847
+ }
+]

@@ -1,0 +1,289 @@
+{
+ "1990": {
+  "rf": 0.0794,
+  "growth": {
+   "label": "1990 growth",
+   "final": 69353844,
+   "total_return_pct": 6835.4,
+   "cagr_pct": 12.31,
+   "years": 36.53,
+   "n_corrections_7pct": 26,
+   "max_drawdown_pct": 38.4
+  },
+  "benchmark": {
+   "label": "1990 ^GSPC",
+   "final": 21038694,
+   "total_return_pct": 2003.9,
+   "cagr_pct": 8.7,
+   "years": 36.53,
+   "n_corrections_7pct": 19,
+   "max_drawdown_pct": 56.4
+  },
+  "bench_ticker": "^GSPC",
+  "cash_end": 20833,
+  "final_holdings": {
+   "HD": 12241133,
+   "DIS": 913886,
+   "NKE": 4243766,
+   "MCD": 4211344,
+   "KO": 1691123,
+   "PEP": 2069222,
+   "SYY": 3049667,
+   "JNJ": 2684609,
+   "ABT": 3862505,
+   "MDT": 3719747,
+   "ADP": 6251947,
+   "GWW": 9549196,
+   "EMR": 2434325,
+   "ITW": 5893503,
+   "AXP": 5370789,
+   "GIS": 1146250
+  }
+ },
+ "1995": {
+  "rf": 0.0788,
+  "growth": {
+   "label": "1995 growth",
+   "final": 37101205,
+   "total_return_pct": 3610.1,
+   "cagr_pct": 12.15,
+   "years": 31.53,
+   "n_corrections_7pct": 20,
+   "max_drawdown_pct": 44.1
+  },
+  "benchmark": {
+   "label": "1995 SPY",
+   "final": 27946111,
+   "total_return_pct": 2694.6,
+   "cagr_pct": 11.14,
+   "years": 31.53,
+   "n_corrections_7pct": 14,
+   "max_drawdown_pct": 54.6
+  },
+  "bench_ticker": "SPY",
+  "cash_end": 20833,
+  "final_holdings": {
+   "MSFT": 8448402,
+   "INTC": 1864550,
+   "ORCL": 3337559,
+   "HD": 3791330,
+   "NKE": 1119340,
+   "DIS": 458572,
+   "MCD": 1706627,
+   "SYY": 1538972,
+   "JNJ": 825593,
+   "MDT": 431294,
+   "ADP": 1222791,
+   "GWW": 4900414,
+   "AXP": 3115469,
+   "GIS": 629511,
+   "KO": 477870,
+   "CL": 2986113,
+   "UNH": 225962
+  }
+ },
+ "2000": {
+  "rf": 0.065,
+  "growth": {
+   "label": "2000 growth",
+   "final": 49814496,
+   "total_return_pct": 4881.4,
+   "cagr_pct": 15.88,
+   "years": 26.52,
+   "n_corrections_7pct": 22,
+   "max_drawdown_pct": 34.1
+  },
+  "benchmark": {
+   "label": "2000 SPY",
+   "final": 8697379,
+   "total_return_pct": 769.7,
+   "cagr_pct": 8.5,
+   "years": 26.52,
+   "n_corrections_7pct": 13,
+   "max_drawdown_pct": 54.4
+  },
+  "bench_ticker": "SPY",
+  "cash_end": 20833,
+  "final_holdings": {
+   "TJX": 5819648,
+   "ROST": 9466767,
+   "AZO": 7393284,
+   "ORLY": 11694073,
+   "NKE": 768831,
+   "SYY": 579317,
+   "ITW": 1080316,
+   "DHR": 2999609,
+   "LOW": 1606881,
+   "CVS": 610646,
+   "TGT": 477804,
+   "DLTR": 810461,
+   "CHD": 2484646,
+   "SBUX": 1713249,
+   "SYK": 1607811,
+   "GPC": 680318
+  }
+ },
+ "2005": {
+  "rf": 0.0423,
+  "growth": {
+   "label": "2005 growth",
+   "final": 12245733,
+   "total_return_pct": 1124.6,
+   "cagr_pct": 12.34,
+   "years": 21.52,
+   "n_corrections_7pct": 13,
+   "max_drawdown_pct": 36.3
+  },
+  "benchmark": {
+   "label": "2005 SPY",
+   "final": 9300478,
+   "total_return_pct": 830.0,
+   "cagr_pct": 10.92,
+   "years": 21.52,
+   "n_corrections_7pct": 9,
+   "max_drawdown_pct": 54.6
+  },
+  "bench_ticker": "SPY",
+  "cash_end": 20833,
+  "final_holdings": {
+   "QCOM": 460247,
+   "MSFT": 1393801,
+   "SYK": 522723,
+   "BDX": 328237,
+   "JNJ": 297725,
+   "LOW": 645150,
+   "HD": 901076,
+   "TJX": 2149829,
+   "ROST": 2629145,
+   "SYY": 260666,
+   "MO": 387169,
+   "DHR": 1158023,
+   "UPS": 191135,
+   "AXP": 651083,
+   "CL": 116119,
+   "GIS": 132772
+  }
+ },
+ "2010": {
+  "rf": 0.0385,
+  "growth": {
+   "label": "2010 growth",
+   "final": 10847267,
+   "total_return_pct": 984.7,
+   "cagr_pct": 15.52,
+   "years": 16.52,
+   "n_corrections_7pct": 9,
+   "max_drawdown_pct": 33.0
+  },
+  "benchmark": {
+   "label": "2010 SPY",
+   "final": 8693055,
+   "total_return_pct": 769.3,
+   "cagr_pct": 13.99,
+   "years": 16.52,
+   "n_corrections_7pct": 10,
+   "max_drawdown_pct": 31.8
+  },
+  "bench_ticker": "SPY",
+  "cash_end": 20833,
+  "final_holdings": {
+   "AAPL": 1081756,
+   "GOOGL": 1653955,
+   "MSFT": 1218308,
+   "QCOM": 387565,
+   "SYK": 479440,
+   "BDX": 226649,
+   "TJX": 1185565,
+   "ROST": 963557,
+   "MCD": 255421,
+   "NKE": 194667,
+   "UNP": 515438,
+   "DHR": 842365,
+   "ADP": 648194,
+   "GIS": 121014,
+   "CHD": 782356,
+   "FAST": 270184
+  }
+ },
+ "2015": {
+  "rf": 0.0212,
+  "growth": {
+   "label": "2015 growth",
+   "final": 6396631,
+   "total_return_pct": 539.7,
+   "cagr_pct": 17.48,
+   "years": 11.52,
+   "n_corrections_7pct": 10,
+   "max_drawdown_pct": 28.0
+  },
+  "benchmark": {
+   "label": "2015 SPY",
+   "final": 4405643,
+   "total_return_pct": 340.6,
+   "cagr_pct": 13.74,
+   "years": 11.52,
+   "n_corrections_7pct": 7,
+   "max_drawdown_pct": 31.8
+  },
+  "bench_ticker": "SPY",
+  "cash_end": 62500,
+  "final_holdings": {
+   "AAPL": 807951,
+   "BKNG": 258745,
+   "QCOM": 206929,
+   "CTSH": 53964,
+   "AME": 309876,
+   "KLAC": 2592740,
+   "EW": 214941,
+   "DG": 131388,
+   "ECL": 180054,
+   "MNST": 281487,
+   "MA": 411563,
+   "TMO": 268768,
+   "TSCO": 135190,
+   "DLTR": 113483,
+   "FAST": 367053
+  }
+ },
+ "2020": {
+  "rf": 0.018799999999999997,
+  "growth": {
+   "label": "2020 growth",
+   "final": 4593791,
+   "total_return_pct": 359.4,
+   "cagr_pct": 26.36,
+   "years": 6.52,
+   "n_corrections_7pct": 11,
+   "max_drawdown_pct": 25.4
+  },
+  "benchmark": {
+   "label": "2020 SPY",
+   "final": 2503579,
+   "total_return_pct": 150.4,
+   "cagr_pct": 15.12,
+   "years": 6.52,
+   "n_corrections_7pct": 4,
+   "max_drawdown_pct": 31.8
+  },
+  "bench_ticker": "SPY",
+  "cash_end": 20833,
+  "final_holdings": {
+   "ANET": 836186,
+   "ULTA": 122946,
+   "LRCX": 889244,
+   "KLAC": 876599,
+   "AMAT": 636661,
+   "TSCO": 77253,
+   "ORLY": 206060,
+   "CBOE": 172171,
+   "MA": 122405,
+   "ICE": 106372,
+   "CPRT": 82124,
+   "ADP": 117913,
+   "LHX": 100141,
+   "EW": 74638,
+   "BR": 93074,
+   "SYK": 59171
+  }
+ }
+}

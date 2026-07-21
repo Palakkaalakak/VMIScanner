@@ -66,8 +66,11 @@ def load_growth_book(year):
 
 
 def main():
+    # weekly_deep was fetched per-ticker -> week-start weekdays differ by
+    # ticker; resample to one common Friday grid so every row has all names
     px_deep = pd.read_csv(os.path.join(HERE, "weekly_deep.csv"),
-                          index_col=0, parse_dates=True).loc[:END]
+                          index_col=0, parse_dates=True) \
+        .resample("W-FRI").last().loc[:END]
     px_2000 = pd.read_csv(os.path.join(HERE, "weekly_adj_2026.csv"),
                           index_col=0, parse_dates=True).loc[:END]
     px_vint = pd.read_csv(os.path.join(HERE, "weekly_vintage.csv"),
