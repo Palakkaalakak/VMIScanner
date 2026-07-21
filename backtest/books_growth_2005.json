@@ -1,0 +1,163 @@
+{
+ "vintage": 2005,
+ "date": "2005-01-03",
+ "rf": 0.0423,
+ "mrp": 0.04,
+ "sector_cap": 4,
+ "growth_book": {
+  "QCOM": {
+   "pe": 30,
+   "g": 0.2,
+   "beta": 0.91,
+   "ocf_mult": 1.3,
+   "moat": "licensing lock + barriers (CDMA IP)",
+   "sector": "Information Technology",
+   "anti_bubble": false
+  },
+  "MSFT": {
+   "pe": 22,
+   "g": 0.12,
+   "beta": 0.84,
+   "ocf_mult": 1.3,
+   "moat": "switching costs + network",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "UNH": {
+   "pe": 19,
+   "g": 0.25,
+   "beta": 0.45,
+   "ocf_mult": 1.3,
+   "moat": "scale (largest managed-care network)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "SYK": {
+   "pe": 29,
+   "g": 0.2,
+   "beta": 0.63,
+   "ocf_mult": 1.2,
+   "moat": "switching costs (orthopedics)",
+   "sector": "Health Care",
+   "anti_bubble": false
+  },
+  "BDX": {
+   "pe": 19,
+   "g": 0.1,
+   "beta": 0.35,
+   "ocf_mult": 1.35,
+   "moat": "scale + switching costs (med consumables)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "JNJ": {
+   "pe": 21,
+   "g": 0.12,
+   "beta": 0.48,
+   "ocf_mult": 1.15,
+   "moat": "brand + diversified scale",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "LOW": {
+   "pe": 21,
+   "g": 0.18,
+   "beta": 1.16,
+   "ocf_mult": 1.2,
+   "moat": "scale duopoly (home improvement)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "HD": {
+   "pe": 19,
+   "g": 0.12,
+   "beta": 1.23,
+   "ocf_mult": 1.2,
+   "moat": "scale duopoly",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "TJX": {
+   "pe": 16,
+   "g": 0.12,
+   "beta": 0.81,
+   "ocf_mult": 1.3,
+   "moat": "scale + buying network (off-price)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "ROST": {
+   "pe": 17,
+   "g": 0.14,
+   "beta": 0.8,
+   "ocf_mult": 1.25,
+   "moat": "scale (off-price)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "WMT": {
+   "pe": 21,
+   "g": 0.11,
+   "beta": 0.93,
+   "ocf_mult": 1.25,
+   "moat": "scale + distribution",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "SYY": {
+   "pe": 24,
+   "g": 0.12,
+   "beta": 0.58,
+   "ocf_mult": 1.2,
+   "moat": "scale (foodservice)",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "MO": {
+   "pe": 13,
+   "g": 0.08,
+   "beta": 0.41,
+   "ocf_mult": 1.15,
+   "moat": "brand monopoly + pricing power",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "DHR": {
+   "pe": 22,
+   "g": 0.15,
+   "beta": 0.89,
+   "ocf_mult": 1.3,
+   "moat": "DBS system + niche instrument barriers",
+   "sector": "Industrials",
+   "anti_bubble": true
+  },
+  "UPS": {
+   "pe": 29,
+   "g": 0.1,
+   "beta": 0.35,
+   "ocf_mult": 1.4,
+   "moat": "network density (parcel duopoly)",
+   "sector": "Industrials",
+   "anti_bubble": false
+  },
+  "AXP": {
+   "pe": 19,
+   "g": 0.12,
+   "beta": 1.47,
+   "ocf_mult": 1.2,
+   "moat": "brand + closed-loop network",
+   "sector": "Financials",
+   "anti_bubble": true
+  }
+ },
+ "anti_bubble_count": 13,
+ "sector_mix": {
+  "Information Technology": 2,
+  "Health Care": 4,
+  "Consumer Discretionary": 4,
+  "Consumer Staples": 3,
+  "Industrials": 2,
+  "Financials": 1
+ },
+ "note": "hand-built era book (pre-SEC-XBRL); era-documented PE/g, computed betas, Adam wide-moat review, no hindsight"
+}

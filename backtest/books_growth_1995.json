@@ -1,0 +1,163 @@
+{
+ "vintage": 1995,
+ "date": "1995-01-03",
+ "rf": 0.0788,
+ "mrp": 0.04,
+ "sector_cap": 4,
+ "growth_book": {
+  "MSFT": {
+   "pe": 25,
+   "g": 0.3,
+   "beta": 1.09,
+   "ocf_mult": 1.25,
+   "moat": "switching costs + network (Windows/Office)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "INTC": {
+   "pe": 10,
+   "g": 0.3,
+   "beta": 1.8,
+   "ocf_mult": 1.35,
+   "moat": "scale + barriers (x86 near-monopoly)",
+   "sector": "Information Technology",
+   "anti_bubble": true
+  },
+  "ORCL": {
+   "pe": 30,
+   "g": 0.3,
+   "beta": 1.17,
+   "ocf_mult": 1.2,
+   "moat": "switching costs (enterprise DB)",
+   "sector": "Information Technology",
+   "anti_bubble": false
+  },
+  "UNH": {
+   "pe": 19,
+   "g": 0.35,
+   "beta": 1.73,
+   "ocf_mult": 1.3,
+   "moat": "scale (managed-care network)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "HD": {
+   "pe": 24,
+   "g": 0.25,
+   "beta": 1.65,
+   "ocf_mult": 1.15,
+   "moat": "scale + category-killer barriers",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "NKE": {
+   "pe": 13,
+   "g": 0.15,
+   "beta": 1.46,
+   "ocf_mult": 1.1,
+   "moat": "brand (athletic)",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "DIS": {
+   "pe": 21,
+   "g": 0.15,
+   "beta": 1.27,
+   "ocf_mult": 1.3,
+   "moat": "brand monopoly",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "MCD": {
+   "pe": 16,
+   "g": 0.12,
+   "beta": 1.18,
+   "ocf_mult": 1.5,
+   "moat": "brand + franchising",
+   "sector": "Consumer Discretionary",
+   "anti_bubble": true
+  },
+  "WMT": {
+   "pe": 19,
+   "g": 0.2,
+   "beta": 1.33,
+   "ocf_mult": 1.2,
+   "moat": "scale + distribution",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "KO": {
+   "pe": 22,
+   "g": 0.13,
+   "beta": 1.06,
+   "ocf_mult": 1.2,
+   "moat": "brand monopoly",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "SYY": {
+   "pe": 18,
+   "g": 0.14,
+   "beta": 1.01,
+   "ocf_mult": 1.2,
+   "moat": "scale (foodservice)",
+   "sector": "Consumer Staples",
+   "anti_bubble": true
+  },
+  "JNJ": {
+   "pe": 16,
+   "g": 0.11,
+   "beta": 1.14,
+   "ocf_mult": 1.15,
+   "moat": "brand + diversified scale",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "MDT": {
+   "pe": 19,
+   "g": 0.15,
+   "beta": 1.3,
+   "ocf_mult": 1.2,
+   "moat": "switching costs (implantables)",
+   "sector": "Health Care",
+   "anti_bubble": true
+  },
+  "ADP": {
+   "pe": 20,
+   "g": 0.13,
+   "beta": 1.24,
+   "ocf_mult": 1.25,
+   "moat": "switching costs (payroll)",
+   "sector": "Industrials",
+   "anti_bubble": true
+  },
+  "GWW": {
+   "pe": 15,
+   "g": 0.1,
+   "beta": 0.98,
+   "ocf_mult": 1.15,
+   "moat": "scale (MRO distribution)",
+   "sector": "Industrials",
+   "anti_bubble": true
+  },
+  "AXP": {
+   "pe": 11,
+   "g": 0.1,
+   "beta": 1.54,
+   "ocf_mult": 1.2,
+   "moat": "brand + closed-loop network",
+   "sector": "Financials",
+   "anti_bubble": true
+  }
+ },
+ "anti_bubble_count": 15,
+ "sector_mix": {
+  "Information Technology": 3,
+  "Health Care": 3,
+  "Consumer Discretionary": 4,
+  "Consumer Staples": 3,
+  "Industrials": 2,
+  "Financials": 1
+ },
+ "note": "hand-built era book (pre-SEC-XBRL); era-documented PE/g, computed betas, Adam wide-moat review, no hindsight"
+}
