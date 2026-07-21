@@ -20,7 +20,7 @@ ADHOC_PATH = "/tmp/adhoc_scan.json"
 st.set_page_config(page_title="VMI Great Business Scanner", page_icon="📈",
                    layout="wide")
 st.title("📈 VMI Great Business Scanner")
-st.caption("S&P 500 · fundamentals-only checklist · SEC Company Facts primary, "
+st.caption("S&P 500 + Dow Jones 30 (toggle) · fundamentals-only checklist · SEC Company Facts primary, "
            "Yahoo + macrotrends fallbacks · trend/average checks require the "
            "full 20y window by default (toggle allows 20/15/10y any-pass) · "
            "IV = v13 sector-calibrated 20y DCF (StockOracle-matched: per-sector "
@@ -68,6 +68,11 @@ with st.sidebar:
         help="ON: a trend/average check passes if the 5y window alone "
              "passes. OFF (default): 5y alone yields WARN — a long "
              "window must pass.")
+    include_dow = st.toggle(
+        "Include Dow Jones 30", value=True,
+        help="ON (default): scan universe = S&P 500 merged with the current "
+             "Dow Jones Industrial Average 30 components (duplicates removed). "
+             "OFF: S&P 500 only.")
     fresh = st.checkbox("Force fresh data (ignore cache)", value=False)
     rescore = st.checkbox("Re-score all tickers (no resume)", value=True)
 
@@ -77,15 +82,19 @@ with st.sidebar:
             a.append("--any-long-window")
         if accept_5y:
             a.append("--accept-5y-alone")
+        if not include_dow:
+            a.append("--no-dow")
         return a
 
-    if st.button("🚀 Run full S&P 500 scan", type="primary", use_container_width=True):
+    scan_label = "S&P 500 + Dow 30" if include_dow else "S&P 500"
+    if st.button(f"🚀 Run full {scan_label} scan", type="primary",
+                 use_container_width=True):
         args = _common_args()
         if fresh:
             args.append("--no-cache")
         if rescore:
             args.append("--no-resume")
-        run_scan(args, "full S&P 500 scan (~1.5 min)")
+        run_scan(args, f"full {scan_label} scan (~1.5 min)")
 
     st.divider()
     st.subheader("Scan specific tickers")
@@ -169,7 +178,7 @@ with tab_scan:
                 st.rerun()
             ts = adhoc.get("generated_at", "")[:19].replace("T", " ")
             st.caption(f"Scanned {ts} UTC · these results are shown here only — "
-                       "they are NOT merged into the main S&P 500 table below.")
+                       "they are NOT merged into the main scan table below.")
             ok_rows = [r for r in adhoc_rows if not r.get("error")]
             if ok_rows:
                 summary = pd.DataFrame([{
@@ -190,7 +199,8 @@ with tab_scan:
             st.divider()
 
     if not os.path.exists(RESULTS_PATH):
-        st.info("No results yet — hit **Run full S&P 500 scan** in the sidebar.")
+        st.info("No results yet — hit **Run full scan** in the sidebar "
+                "(S&P 500 + Dow 30 by default).")
         st.stop()
 
     with open(RESULTS_PATH) as f:
@@ -205,7 +215,8 @@ with tab_scan:
     m5.metric("Excluded", data.get("excluded_count", 0),
               help="ETFs / banks / REITs — VMI exception rules need data we don't have")
     st.caption(f"Last scan: {data.get('generated_at', '')[:19].replace('T', ' ')} UTC "
-               f"· universe {data.get('universe_size', '?')} tickers")
+               f"· universe {data.get('universe_size', '?')} tickers "
+               f"({data.get('universe', 'S&P 500')})")
 
     rows = [r for r in data["results"] if not r.get("error")]
 
