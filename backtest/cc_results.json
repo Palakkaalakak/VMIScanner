@@ -54,6 +54,24 @@
    "settle_paid": 317987166,
    "net_cc_income": 43876391
   },
+  "g<=25": {
+   "cagr_pct": 17.01,
+   "final": 310842263,
+   "maxdd_pct": 38.4,
+   "n_cc_stocks": 15,
+   "prem_collected": 383077174,
+   "settle_paid": 339307204,
+   "net_cc_income": 43769970
+  },
+  "g<=30": {
+   "cagr_pct": 17.08,
+   "final": 317201972,
+   "maxdd_pct": 38.4,
+   "n_cc_stocks": 16,
+   "prem_collected": 406060585,
+   "settle_paid": 361467211,
+   "net_cc_income": 44593374
+  },
   "lowbeta_half": {
    "cagr_pct": 15.36,
    "final": 185112791,
@@ -62,6 +80,24 @@
    "prem_collected": 142728072,
    "settle_paid": 125272992,
    "net_cc_income": 17455080
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 16.16,
+   "final": 238098851,
+   "maxdd_pct": 38.3,
+   "n_cc_stocks": 12,
+   "prem_collected": 230119341,
+   "settle_paid": 201904286,
+   "net_cc_income": 28215055
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 16.91,
+   "final": 300598948,
+   "maxdd_pct": 38.4,
+   "n_cc_stocks": 14,
+   "prem_collected": 361863557,
+   "settle_paid": 317987166,
+   "net_cc_income": 43876391
   },
   "none": {
    "cagr_pct": 13.04,
@@ -128,6 +164,24 @@
    "settle_paid": 42510937,
    "net_cc_income": 1904992
   },
+  "g<=25": {
+   "cagr_pct": 14.74,
+   "final": 76406704,
+   "maxdd_pct": 38.0,
+   "n_cc_stocks": 12,
+   "prem_collected": 50455918,
+   "settle_paid": 48595998,
+   "net_cc_income": 1859920
+  },
+  "g<=30": {
+   "cagr_pct": 14.64,
+   "final": 74156121,
+   "maxdd_pct": 36.5,
+   "n_cc_stocks": 15,
+   "prem_collected": 94034629,
+   "settle_paid": 100206442,
+   "net_cc_income": -6171813
+  },
   "lowbeta_half": {
    "cagr_pct": 13.69,
    "final": 57046446,
@@ -136,6 +190,24 @@
    "prem_collected": 32852280,
    "settle_paid": 32432709,
    "net_cc_income": 419571
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 14.74,
+   "final": 76406704,
+   "maxdd_pct": 38.0,
+   "n_cc_stocks": 12,
+   "prem_collected": 50455918,
+   "settle_paid": 48595998,
+   "net_cc_income": 1859920
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 15.01,
+   "final": 82232177,
+   "maxdd_pct": 36.4,
+   "n_cc_stocks": 14,
+   "prem_collected": 95608896,
+   "settle_paid": 103205649,
+   "net_cc_income": -7596753
   },
   "none": {
    "cagr_pct": 13.13,
@@ -202,6 +274,24 @@
    "settle_paid": 60870865,
    "net_cc_income": -2082832
   },
+  "g<=25": {
+   "cagr_pct": 17.96,
+   "final": 79970176,
+   "maxdd_pct": 34.5,
+   "n_cc_stocks": 15,
+   "prem_collected": 103012634,
+   "settle_paid": 107641017,
+   "net_cc_income": -4628383
+  },
+  "g<=30": {
+   "cagr_pct": 18.05,
+   "final": 81492605,
+   "maxdd_pct": 34.9,
+   "n_cc_stocks": 16,
+   "prem_collected": 108837796,
+   "settle_paid": 113691939,
+   "net_cc_income": -4854143
+  },
   "lowbeta_half": {
    "cagr_pct": 16.88,
    "final": 62584574,
@@ -210,6 +300,24 @@
    "prem_collected": 45449410,
    "settle_paid": 47826150,
    "net_cc_income": -2376740
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 17.27,
+   "final": 68363797,
+   "maxdd_pct": 34.3,
+   "n_cc_stocks": 12,
+   "prem_collected": 58788033,
+   "settle_paid": 60870865,
+   "net_cc_income": -2082832
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 17.71,
+   "final": 75491505,
+   "maxdd_pct": 33.9,
+   "n_cc_stocks": 14,
+   "prem_collected": 88402198,
+   "settle_paid": 92680692,
+   "net_cc_income": -4278494
   },
   "none": {
    "cagr_pct": 15.96,
@@ -276,6 +384,24 @@
    "settle_paid": 18276714,
    "net_cc_income": 981557
   },
+  "g<=25": {
+   "cagr_pct": 15.41,
+   "final": 21876831,
+   "maxdd_pct": 36.2,
+   "n_cc_stocks": 16,
+   "prem_collected": 24905032,
+   "settle_paid": 23597753,
+   "net_cc_income": 1307279
+  },
+  "g<=30": {
+   "cagr_pct": 15.41,
+   "final": 21876831,
+   "maxdd_pct": 36.2,
+   "n_cc_stocks": 16,
+   "prem_collected": 24905032,
+   "settle_paid": 23597753,
+   "net_cc_income": 1307279
+  },
   "lowbeta_half": {
    "cagr_pct": 14.38,
    "final": 18021866,
@@ -284,6 +410,24 @@
    "prem_collected": 11315753,
    "settle_paid": 10471235,
    "net_cc_income": 844518
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 14.41,
+   "final": 18125142,
+   "maxdd_pct": 37.5,
+   "n_cc_stocks": 12,
+   "prem_collected": 13900512,
+   "settle_paid": 13702445,
+   "net_cc_income": 198067
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 14.8,
+   "final": 19500185,
+   "maxdd_pct": 37.2,
+   "n_cc_stocks": 14,
+   "prem_collected": 16303134,
+   "settle_paid": 15698160,
+   "net_cc_income": 604974
   },
   "none": {
    "cagr_pct": 13.56,
@@ -350,6 +494,24 @@
    "settle_paid": 10915216,
    "net_cc_income": 1330138
   },
+  "g<=25": {
+   "cagr_pct": 18.39,
+   "final": 16263848,
+   "maxdd_pct": 32.4,
+   "n_cc_stocks": 14,
+   "prem_collected": 12245354,
+   "settle_paid": 10915216,
+   "net_cc_income": 1330138
+  },
+  "g<=30": {
+   "cagr_pct": 17.87,
+   "final": 15119296,
+   "maxdd_pct": 31.8,
+   "n_cc_stocks": 15,
+   "prem_collected": 15182310,
+   "settle_paid": 15146357,
+   "net_cc_income": 35953
+  },
   "lowbeta_half": {
    "cagr_pct": 17.47,
    "final": 14302600,
@@ -358,6 +520,24 @@
    "prem_collected": 8770437,
    "settle_paid": 9736373,
    "net_cc_income": -965936
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 17.92,
+   "final": 15222924,
+   "maxdd_pct": 32.6,
+   "n_cc_stocks": 12,
+   "prem_collected": 10025305,
+   "settle_paid": 9188748,
+   "net_cc_income": 836557
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 18.39,
+   "final": 16263848,
+   "maxdd_pct": 32.4,
+   "n_cc_stocks": 14,
+   "prem_collected": 12245354,
+   "settle_paid": 10915216,
+   "net_cc_income": 1330138
   },
   "none": {
    "cagr_pct": 17.68,
@@ -424,6 +604,24 @@
    "settle_paid": 4471638,
    "net_cc_income": -243199
   },
+  "g<=25": {
+   "cagr_pct": 18.15,
+   "final": 6828571,
+   "maxdd_pct": 28.6,
+   "n_cc_stocks": 14,
+   "prem_collected": 5366170,
+   "settle_paid": 5451451,
+   "net_cc_income": -85281
+  },
+  "g<=30": {
+   "cagr_pct": 17.69,
+   "final": 6525156,
+   "maxdd_pct": 29.4,
+   "n_cc_stocks": 16,
+   "prem_collected": 6918765,
+   "settle_paid": 7114553,
+   "net_cc_income": -195788
+  },
   "lowbeta_half": {
    "cagr_pct": 17.27,
    "final": 6267128,
@@ -432,6 +630,24 @@
    "prem_collected": 2691724,
    "settle_paid": 2560457,
    "net_cc_income": 131267
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 17.48,
+   "final": 6393869,
+   "maxdd_pct": 28.9,
+   "n_cc_stocks": 12,
+   "prem_collected": 4375681,
+   "settle_paid": 4608634,
+   "net_cc_income": -232953
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 18.15,
+   "final": 6828571,
+   "maxdd_pct": 28.6,
+   "n_cc_stocks": 14,
+   "prem_collected": 5366170,
+   "settle_paid": 5451451,
+   "net_cc_income": -85281
   },
   "none": {
    "cagr_pct": 16.82,
@@ -498,6 +714,24 @@
    "settle_paid": 3233914,
    "net_cc_income": -794696
   },
+  "g<=25": {
+   "cagr_pct": 24.18,
+   "final": 4101410,
+   "maxdd_pct": 23.4,
+   "n_cc_stocks": 13,
+   "prem_collected": 2439218,
+   "settle_paid": 3233914,
+   "net_cc_income": -794696
+  },
+  "g<=30": {
+   "cagr_pct": 24.62,
+   "final": 4195283,
+   "maxdd_pct": 22.8,
+   "n_cc_stocks": 14,
+   "prem_collected": 2545801,
+   "settle_paid": 3301980,
+   "net_cc_income": -756179
+  },
   "lowbeta_half": {
    "cagr_pct": 26.85,
    "final": 4710816,
@@ -506,6 +740,24 @@
    "prem_collected": 1079423,
    "settle_paid": 1179407,
    "net_cc_income": -99984
+  },
+  "ex_top4_growth": {
+   "cagr_pct": 23.47,
+   "final": 3951096,
+   "maxdd_pct": 24.5,
+   "n_cc_stocks": 12,
+   "prem_collected": 2275035,
+   "settle_paid": 3114507,
+   "net_cc_income": -839472
+  },
+  "ex_top2_growth": {
+   "cagr_pct": 24.62,
+   "final": 4195283,
+   "maxdd_pct": 22.8,
+   "n_cc_stocks": 14,
+   "prem_collected": 2545801,
+   "settle_paid": 3301980,
+   "net_cc_income": -756179
   },
   "none": {
    "cagr_pct": 26.16,
