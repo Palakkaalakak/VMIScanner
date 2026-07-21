@@ -30,8 +30,22 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BETAS = json.load(open(os.path.join(HERE, "deep_betas.json")))
-# computed separately on the same aligned weekly grid (see deep_betas run)
-BETAS.setdefault("2010-01-04", {})["BDX"] = 0.47
+
+
+def _beta(t, vd, years=5):
+    """5y weekly beta vs ^GSPC ending at vintage date (aligned grid)."""
+    import numpy as np
+    import pandas as pd
+    px = pd.read_csv(os.path.join(HERE, "weekly_deep.csv"),
+                     index_col=0, parse_dates=True)
+    W = px.resample("W-FRI").last()
+    end = pd.Timestamp(vd)
+    start = end - pd.DateOffset(years=years)
+    df = pd.concat([W[t].loc[start:end].pct_change(fill_method=None),
+                    W["^GSPC"].loc[start:end].pct_change(fill_method=None)],
+                   axis=1).dropna()
+    return round(float(np.cov(df.iloc[:, 0], df.iloc[:, 1])[0, 1]
+                       / np.var(df.iloc[:, 1])), 2)
 
 # ticker: (era trailing PE, era-known growth, sector, moat note, ocf_mult)
 B1990 = {
@@ -135,7 +149,10 @@ def main():
         assert all(v[0] <= 50 for v in bk.values())
         book = {}
         for t, (pe, g, sec, moat, m) in bk.items():
-            beta = BETAS[vd][t]
+            beta = BETAS.get(vd, {}).get(t)
+            if beta is None:
+                beta = _beta(t, vd)
+                BETAS.setdefault(vd, {})[t] = beta
             book[t] = {"pe": pe, "g": g, "beta": beta, "ocf_mult": m,
                        "moat": moat, "sector": sec, "anti_bubble": pe <= 25}
         out = {"vintage": year, "date": vd, "rf": RF[year], "mrp": .04,
@@ -147,6 +164,8 @@ def main():
         json.dump(out, open(os.path.join(
             HERE, f"books_growth_{year}.json"), "w"), indent=1)
         print(f"{year}: 16 stocks, anti-bubble {ab}/16, sectors {dict(secs)}")
+    json.dump(BETAS, open(os.path.join(HERE, "deep_betas.json"), "w"),
+              indent=1)
 
 
 if __name__ == "__main__":
