@@ -99,6 +99,9 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
     cap = initial / N16
     tranche = cap / 3.0
     d1c = ND.inv_cdf(tgt_delta)
+    d1_hot = ND.inv_cdf(hot_delta) if hot_delta else None
+    hot_static = {t for t, v in book.items() if v[1] > hot_g} \
+        if (hot_delta and hot_mo is None) else set()
     anchor = dates[0]
     iv0, g_iv = {}, {}
     for t, (pe, g, b, m) in book.items():
@@ -136,7 +139,14 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
         nonlocal pool, c_gross
         e = exp_map[i]
         T = max((dates[min(e, nD - 1)] - dates[i]).days, 1) / 365.0
-        K = k_for_d1(p, sig, r, T, d1c)
+        dd1 = d1c
+        if d1_hot is not None:
+            if hot_mo is not None:
+                if not np.isnan(mo12[i, ti[t]]) and mo12[i, ti[t]] > hot_mo:
+                    dd1 = d1_hot
+            elif t in hot_static:
+                dd1 = d1_hot
+        K = k_for_d1(p, sig, r, T, dd1)
         pr = bs_call(p, K, sig, r, T)
         pool += pr * sh[t]
         c_gross += pr * sh[t]
@@ -343,6 +353,15 @@ def main():
                 ("all_roll90", allset,  "always", .90, None, False),
                 ("all_tp80_roll90", allset, "always", .90, .80, False),
             ]
+            # hot-stock treatment: don't skip the rockets, write FURTHER
+            # OTM on them (smaller delta = more room to run)
+            hot_cfgs = [
+                # (name, hot_delta, hot_g, hot_mo, roll, tp)
+                ("hot25g20",    .25, .20, None, .80, None),
+                ("hot15g20",    .15, .20, None, .80, None),
+                ("hot25mo30",   .25, .20, .30,  .80, None),
+                ("hot25g20_tp90", .25, .20, None, .80, .90),
+            ]
             vout = {}
             for name, cset, gate, rd, tp, smo in cfgs:
                 ser, meta = run(arr, book, RF[year], cset, .42, gate,
@@ -352,6 +371,12 @@ def main():
                               "final": round(ser.iloc[-1]), **meta}
                 if name in ("none", "all"):
                     curves[f"{year}_{bname}_{name}"] = ser
+            for name, hd, hg, hm, rd, tp in hot_cfgs:
+                ser, meta = run(arr, book, RF[year], allset, .42, "always",
+                                rd, tp, False, INITIAL, hd, hg, hm)
+                c, dd, sp = stats_of(ser, rfa)
+                vout[name] = {"cagr": c, "dd": dd, "sharpe": sp,
+                              "final": round(ser.iloc[-1]), **meta}
             out[f"{year}_{bname}"] = vout
             b = vout["none"]["cagr"]
             print(f"{year} {bname:6} base {b}%: " + " ".join(
