@@ -254,7 +254,9 @@ def stats_of(ser, rf_ann):
 
 def main():
     px_df = pd.read_csv(os.path.join(HERE, "daily_unadj.csv"),
-                        index_col=0, parse_dates=True).loc[:END]
+                        index_col=0, parse_dates=True).loc[:END] \
+        .dropna(how="all")
+    px_df = px_df.ffill(limit=5)   # bridge single-day gaps; IPO NaNs stay
     dv_df = pd.read_csv(os.path.join(HERE, "daily_divs.csv"),
                         index_col=0, parse_dates=True) \
         .reindex(index=px_df.index, columns=px_df.columns).fillna(0.0)
