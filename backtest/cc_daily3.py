@@ -124,6 +124,13 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
     oc = {}    # t -> [K, exp_i, cov, prem_total]
     c_gross = c_back = 0.0
     cc_win = cc_loss = 0
+    div_total = 0.0
+    # richer accounting: per close-reason and per-stock
+    why = {"expired_otm": [0, 0.0, 0.0],   # [count, prem_in, cost_out]
+           "expired_itm": [0, 0.0, 0.0],
+           "rolled":      [0, 0.0, 0.0],
+           "profit_take": [0, 0.0, 0.0]}
+    per_stock = {t: [0, 0, 0.0, 0.0] for t in iv0}  # [n, n_loss, prem, cost]
     eq = np.empty(nD)
 
     def can_write(t, i, p):
@@ -152,7 +159,7 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
         c_gross += pr * sh[t]
         oc[t] = [K, e, sh[t], pr * sh[t]]
 
-    def close_call(t, cost):
+    def close_call(t, cost, reason):
         nonlocal pool, c_back, cc_win, cc_loss
         prem = oc[t][3]
         pool -= cost
@@ -161,6 +168,15 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
             cc_loss += 1
         else:
             cc_win += 1
+        w = why[reason]
+        w[0] += 1
+        w[1] += prem
+        w[2] += cost
+        s = per_stock[t]
+        s[0] += 1
+        s[1] += 1 if cost > prem else 0
+        s[2] += prem
+        s[3] += cost
         del oc[t]
 
     for i in range(nD):
@@ -171,6 +187,7 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
                 x = dv[i, ti[t]]
                 if x > 0:
                     pool += sh[t] * x
+                    div_total += sh[t] * x
 
         # ---- manage open calls ----
         for t in list(oc):
@@ -182,19 +199,20 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
                 continue
             sig = sig_m[i, ti[t]]
             if i >= e:                                   # expiry
-                close_call(t, (p - K) * cov if p > K else 0.0)
+                close_call(t, (p - K) * cov if p > K else 0.0,
+                           "expired_itm" if p > K else "expired_otm")
                 if sig > 0 and can_write(t, i, p):
                     sell_call(t, p, sig, r, i)
                 continue
             T = (dates[e if e < nD else nD - 1] - d).days / 365.0
             val = bs_call(p, K, sig, r, T)
             if call_delta(p, K, sig, r, T) > roll_delta:   # roll trigger
-                close_call(t, val * cov)
+                close_call(t, val * cov, "rolled")
                 if sig > 0 and can_write(t, i, p):
                     sell_call(t, p, sig, r, i)
                 continue
             if tp is not None and val * cov <= (1 - tp) * pr:  # profit-take
-                close_call(t, val * cov)
+                close_call(t, val * cov, "profit_take")
                 if sig > 0 and can_write(t, i, p):
                     sell_call(t, p, sig, r, i)
 
@@ -271,7 +289,17 @@ def run(D, book, rf, cc_set, tgt_delta=0.42, gate="always",
             if c_gross else 0.0,
             "calls_total": tot, "calls_profitable": cc_win,
             "calls_unprofitable": cc_loss,
-            "unprofitable_pct": round(100 * cc_loss / tot, 1) if tot else 0.0}
+            "unprofitable_pct": round(100 * cc_loss / tot, 1) if tot else 0.0,
+            "dividends": round(div_total),
+            "by_reason": {k: {"n": v[0], "premium_in": round(v[1]),
+                              "paid_out": round(v[2]),
+                              "net": round(v[1] - v[2])}
+                          for k, v in why.items()},
+            "by_stock": {t: {"n": v[0], "n_loss": v[1],
+                             "premium_in": round(v[2]),
+                             "paid_out": round(v[3]),
+                             "net": round(v[2] - v[3])}
+                         for t, v in per_stock.items() if v[0] > 0}}
     return ser, meta
 
 
