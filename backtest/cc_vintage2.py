@@ -94,7 +94,9 @@ def strike_for_delta(S, sig, r, T, delta):
 
 
 def run(px, dv, sma, vol, uplift, rfr, dates, book, rf, cc_set, label,
-        gate="sma", tgt_delta=0.42):
+        gate="sma", tgt_delta=0.42, haircut=0.0):
+    # haircut: transaction friction -- sell at (1-h)*BS, buy back at
+    # (1+h)*BS (bid-ask spread sensitivity, reported as a range)
     anchor = dates[0]
     iv0, g_iv = {}, {}
     for t, (pe, g, b, m) in book.items():
@@ -124,7 +126,7 @@ def run(px, dv, sma, vol, uplift, rfr, dates, book, rf, cc_set, label,
     def sell_new(t, p, sig, r_now, i):
         nonlocal pool, prem_tot, n_opens, prem_pct_sum
         K = strike_for_delta(p, sig, r_now, T_YR, tgt_delta)
-        prem_ps = bs_call(p, K, sig, r_now, T_YR)
+        prem_ps = bs_call(p, K, sig, r_now, T_YR) * (1.0 - haircut)
         pool += prem_ps * sh[t]
         prem_tot += prem_ps * sh[t]
         n_opens += 1
@@ -167,7 +169,7 @@ def run(px, dv, sma, vol, uplift, rfr, dates, book, rf, cc_set, label,
                 # Scenario 3 (deep ITM) or Scenario 2 (ITM near expiry):
                 # buy-to-close at BS value, sell-to-open new call now
                 bb = bs_call(p, K, sig if not np.isnan(sig) else 0.0,
-                             r_now, T_rem) * cov
+                             r_now, T_rem) * cov * (1.0 + haircut)
                 pool -= bb
                 buyback_tot += bb
                 del open_cc[t]
@@ -294,12 +296,18 @@ def main():
             ("g20_lowbeta|always", g20lb, "always", 0.42),
             ("lowbeta_half|always", lowbeta8, "always", 0.42),
         ]
+        frictions = [("g25_lowbeta|always_h5", g25lb, "always", 0.42, .05),
+                     ("g25_lowbeta|always_h10", g25lb, "always", 0.42, .10),
+                     ("all|always_h5", set(book), "always", 0.42, .05),
+                     ("all|always_h10", set(book), "always", 0.42, .10)]
         vout = {"none": {
             "cagr_pct": base[str(year)]["growth"]["cagr_pct"],
             "final": base[str(year)]["growth"]["final"]}}
-        for name, cset, gate, tdel in configs:
+        for name, cset, gate, tdel, *h in configs + frictions:
+            hc = h[0] if h else 0.0
             ser, meta = run(px, dv, sma, vol, uplift, rfr, dates, book,
-                            RF[year], cset, f"{year} {name}", gate, tdel)
+                            RF[year], cset, f"{year} {name}", gate, tdel,
+                            haircut=hc)
             st = stats(ser, f"{year} {name}")
             vout[name] = {"cagr_pct": st["cagr_pct"], "final": st["final"],
                           "maxdd_pct": st["max_drawdown_pct"],
