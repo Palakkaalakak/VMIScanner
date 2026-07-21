@@ -205,6 +205,11 @@ def main():
         top2g = set(sorted(gs, key=lambda t: -gs[t])[:2])
         configs["ex_top4_growth"] = set(book) - top4g
         configs["ex_top2_growth"] = set(book) - top2g
+        med_b = sorted(betas.values())[len(betas) // 2]
+        configs["g20_lowbeta"] = {t for t in book
+                                  if gs[t] <= .20 and betas[t] <= med_b}
+        configs["g25_lowbeta"] = {t for t in book
+                                  if gs[t] <= .25 and betas[t] <= med_b}
         vout = {}
         for name, cset in configs.items():
             ser, prem, settle = run(px, dv, sma, vol, rfr, dates, book,
