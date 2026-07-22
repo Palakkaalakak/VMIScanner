@@ -243,11 +243,18 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                     n_cutloss += 1
                     continue
             # roll / convert lots nearing expiry
+            # Snapshot lot count: lots re-opened TODAY by open_long are
+            # appended at the end and must NOT be reprocessed in the same
+            # pass (prevents endless same-day roll churn).
             j = 0
-            while t in lc and j < len(lc[t]):
+            n_lots_now = len(lc.get(t, []))
+            while t in lc and j < min(n_lots_now, len(lc[t])):
                 K, e, cov, cost = lc[t][j]
                 days_left = (dates[min(e, nD - 1)] - d).days
-                if days_left > ROLL_LONG_AT:
+                # e >= nD: true expiry lies beyond the data window -- nothing
+                # to roll (prevents endless same-day re-rolls in the final
+                # weeks of the sample)
+                if days_left > ROLL_LONG_AT or e >= nD:
                     j += 1
                     continue
                 if convert:
