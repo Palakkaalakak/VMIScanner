@@ -424,11 +424,25 @@ def main():
     px_df, dv_df, sma_df, sig_df, mo12, rf_daily = prepare()
     books = load_books3()
     out, curves = {}, {}
+    # resume from a previous partial run (only books that already contain
+    # the full current config set are kept)
+    N_CFG = 10          # stock_cc + 9 pmcc configs
+    respath = os.path.join(HERE, "pmcc_results.json")
+    if os.path.exists(respath):
+        try:
+            prev = json.load(open(respath))
+            out = {k: v for k, v in prev.items() if len(v) >= N_CFG}
+            if out:
+                print("resuming, done:", list(out), flush=True)
+        except Exception:
+            pass
     for year, start in VINTAGES.items():
         arr = arrays_for(year, start, px_df, dv_df, sma_df, sig_df,
                          mo12, rf_daily)
         rfa = rf_daily.loc[start:].fillna(RF[year])
         for bname, book in books[year].items():
+            if f"{year}_{bname}" in out:
+                continue
             allset = set(book)
             vout = {}
             # reference: stock + CC (identical to cc_daily3 'all')
@@ -457,6 +471,10 @@ def main():
             print(f"{year} {bname:6}: " + " ".join(
                 f"{n}:{v['cagr']:.2f}%/dd{v['dd']:.0f}"
                 for n, v in vout.items()), flush=True)
+            # incremental save -- survive sandbox resets
+            json.dump(out, open(os.path.join(HERE,
+                                             "pmcc_results.json"), "w"),
+                      indent=1)
 
     json.dump(out, open(os.path.join(HERE, "pmcc_results.json"), "w"),
               indent=1)
