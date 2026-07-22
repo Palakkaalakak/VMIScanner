@@ -58,11 +58,19 @@ ROLL_SHORT_DELTA = 0.80
 
 
 def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
-             tech_reentry=False, initial=INITIAL):
-    """tech_reentry: at 30 DTE the long is SOLD (not rolled immediately);
+             tech_reentry=False, lev=1.0, initial=INITIAL):
+    """lev: leverage multiple on notional. Each tranche of `budget` dollars
+    buys call exposure on lev*budget/p shares (capped by what the budget
+    can actually pay in premium). lev=1 -> share-equivalent (no leverage);
+    higher lev -> more exposure per dollar; full_tranche -> maximum (the
+    entire budget is spent on premium). Short calls scale automatically
+    because they are written on the full call coverage.
+    tech_reentry: at 30 DTE the long is SOLD (not rolled immediately);
     the freed money waits in cash and a new long call is only bought when
     price is back above the 200-day SMA (uptrend, per the DS PDF's trend
     filter). No hindsight -- the SMA is known each day."""
+    if full_tranche:
+        lev = float("inf")
     dates, px, dv, sma, sig_m, rfd, ti = (
         D["dates"], D["px"], D["dv"], D["sma"], D["sig"], D["rf"], D["ti"])
     nD = len(dates)
@@ -130,15 +138,14 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         prc = bs_call(p, K, sig, r, T)
         if prc <= 0:
             return False
-        cov = (budget / prc) if full_tranche else (budget / p)
+        cov_max = budget / prc             # most exposure the budget can buy
+        cov = cov_max if math.isinf(lev) else min(lev * budget / p, cov_max)
         cost = prc * cov
-        if cost > budget + 1e-9:           # deep-ITM call pricier than stock
-            cov = budget / prc
-            cost = prc * cov
         cash -= cost
         long_paid += cost
-        if not full_tranche:
-            backing[t] = backing.get(t, 0.0) + (budget - cost)
+        # lock the unspent remainder of the tranche so it cannot be
+        # double-spent elsewhere (the tranche's capital stays committed)
+        backing[t] = backing.get(t, 0.0) + max(budget - cost, 0.0)
         lc.setdefault(t, []).append([K, e, cov, cost])
         return True
 
@@ -151,7 +158,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         val = bs_call(p, K, sig_m[i, ti[t]], r, T) * cov
         cash += val
         long_recv += val
-        if not full_tranche and t in backing:
+        if t in backing:
             tot = sum(l[2] for l in lc[t])
             rel = backing[t] * (cov / tot) if tot > 0 else backing[t]
             backing[t] -= rel
@@ -279,8 +286,11 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                         j += 1
                         continue
                     val, cov_, _ = close_lot(t, j, i, r)
-                    # re-establish the SAME notional exposure
-                    budget = val if full_tranche else cov_ * p
+                    # re-establish the SAME notional exposure at this lev
+                    if math.isinf(lev):
+                        budget = val
+                    else:
+                        budget = cov_ * p / lev
                     open_long(t, p, sig, r, i, budget)
                     n_longroll += 1
             # trim short coverage if longs shrank
@@ -426,14 +436,18 @@ def main():
             c, dd, sp = stats_of(ser, rfa)
             vout["stock_cc"] = {"cagr": c, "dd": dd, "sharpe": sp,
                                 "final": round(ser.iloc[-1])}
-            for name, style, conv, ft, tech in [
-                    ("ds1", "ds1", False, False, False),
-                    ("ds1_convert", "ds1", True, False, False),
-                    ("ds1_tech", "ds1", False, False, True),
-                    ("hammer", "hammer", False, False, False),
-                    ("ds1_full", "ds1", False, True, False)]:
+            for name, style, conv, ft, tech, lev in [
+                    ("ds1", "ds1", False, False, False, 1.0),
+                    ("ds1_convert", "ds1", True, False, False, 1.0),
+                    ("ds1_lev2", "ds1", False, False, False, 2.0),
+                    ("ds1_lev3", "ds1", False, False, False, 3.0),
+                    ("ds1_lev2_conv", "ds1", True, False, False, 2.0),
+                    ("ds1_lev3_conv", "ds1", True, False, False, 3.0),
+                    ("hammer", "hammer", False, False, False, 1.0),
+                    ("hammer_lev2", "hammer", False, False, False, 2.0),
+                    ("ds1_full", "ds1", False, True, False, 1.0)]:
                 ser, meta = run_pmcc(arr, book, RF[year], style, conv, ft,
-                                     tech_reentry=tech)
+                                     tech_reentry=tech, lev=lev)
                 c, dd, sp = stats_of(ser, rfa)
                 vout[name] = {"cagr": c, "dd": dd, "sharpe": sp,
                               "final": round(ser.iloc[-1]), **meta}
