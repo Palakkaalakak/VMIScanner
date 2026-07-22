@@ -96,6 +96,10 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         iv0[t] = col[ok[0]] * dcf_factor(g, b, rf) * m / pe
         g_iv[t] = min(g, 0.10)
     iv_grow = {t: math.log(1 + g_iv[t]) / 365.25 for t in iv0}
+    if pmcc_set is None:
+        pmcc_set = set(iv0)          # PMCC on everything
+    else:
+        pmcc_set = {t for t in pmcc_set if t in iv0}
 
     def iv_at(t, i):
         return iv0[t] * math.exp(iv_grow[t] * (dates[i] - anchor).days)
@@ -326,9 +330,9 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 if open_long(t, p, sig, r, i, tranche):
                     del stopped[t]
 
-        # ---- open short calls where uncovered ----
+        # ---- open short calls where uncovered (PMCC names only) ----
         for t in iv0:
-            if t in oc:
+            if t in oc or t not in pmcc_set:
                 continue
             c = cov_of(t) + sh.get(t, 0.0)
             if c <= 0:
@@ -355,6 +359,15 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 trigger = (not np.isnan(s) and p <= s * 1.01
                            and p < iv_at(t, i))
             if not trigger or free_cash() < tranche:
+                continue
+            if t not in pmcc_set:
+                # fast grower: plain shares, no options at all
+                buy = min(tranche, free_cash())
+                if buy > 0 and p > 0:
+                    sh[t] = sh.get(t, 0.0) + buy / p
+                    cash -= buy
+                    tr[t] = ntr + 1
+                    last_add[t] = d
                 continue
             sig = sig_m[i, ti[t]]
             if np.isnan(sig) or sig <= 0:
@@ -384,9 +397,16 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                     best, bt = p / ivd, t
             if bt is not None:
                 p = px[i, ti[bt]]
-                sig = sig_m[i, ti[bt]]
-                if not np.isnan(sig) and sig > 0:
-                    open_long(bt, p, sig, r, i, fc - reserve)
+                if bt not in pmcc_set:
+                    # fast grower: reinvest as plain shares
+                    buy = fc - reserve
+                    if buy > 0 and p > 0:
+                        sh[bt] = sh.get(bt, 0.0) + buy / p
+                        cash -= buy
+                else:
+                    sig = sig_m[i, ti[bt]]
+                    if not np.isnan(sig) and sig > 0:
+                        open_long(bt, p, sig, r, i, fc - reserve)
 
         # ---- mark ----
         mv = cash + pool
@@ -429,8 +449,8 @@ def main():
     out, curves = {}, {}
     # resume from a previous partial run (only books that already contain
     # the full current config set are kept)
-    N_CFG = 10          # stock_cc + 9 pmcc configs
-    respath = os.path.join(HERE, "pmcc_results.json")
+    N_CFG = 5           # stock_cc + 4 pmcc configs
+    respath = os.path.join(HERE, "pmcc_cc_results.json")
     if os.path.exists(respath):
         try:
             prev = json.load(open(respath))
@@ -453,22 +473,30 @@ def main():
             c, dd, sp = stats_of(ser, rfa)
             vout["stock_cc"] = {"cagr": c, "dd": dd, "sharpe": sp,
                                 "final": round(ser.iloc[-1])}
-            for name, style, conv, ft, tech, lev in [
-                    ("ds1", "ds1", False, False, False, 1.0),
-                    ("ds1_convert", "ds1", True, False, False, 1.0),
-                    ("ds1_lev2", "ds1", False, False, False, 2.0),
-                    ("ds1_lev3", "ds1", False, False, False, 3.0),
-                    ("ds1_lev2_conv", "ds1", True, False, False, 2.0),
-                    ("ds1_lev3_conv", "ds1", True, False, False, 3.0),
-                    ("hammer", "hammer", False, False, False, 1.0),
-                    ("hammer_lev2", "hammer", False, False, False, 2.0),
-                    ("ds1_full", "ds1", False, True, False, 1.0)]:
+            # CC-viable = slow/stable growers (g <= 15%); fast growers are
+            # held as plain shares with no options in the pmcc_cc configs
+            cc_viable = {t for t, (pe, g, b_, m) in book.items()
+                         if g <= 0.15}
+            for name, style, conv, ft, tech, lev, pset in [
+                    # natural option leverage, PMCC only on CC-viable names
+                    ("pmcc_cc_nat", "ds1", False, True, False, 1.0,
+                     cc_viable),
+                    # same but convert longs to shares at 30 DTE
+                    ("pmcc_cc_nat_conv", "ds1", True, True, False, 1.0,
+                     cc_viable),
+                    # unlevered comparison on the same split
+                    ("pmcc_cc_1x", "ds1", False, False, False, 1.0,
+                     cc_viable),
+                    # natural leverage on EVERYTHING (old ds1_full)
+                    ("pmcc_all_nat", "ds1", False, True, False, 1.0,
+                     None)]:
                 ser, meta = run_pmcc(arr, book, RF[year], style, conv, ft,
-                                     tech_reentry=tech, lev=lev)
+                                     tech_reentry=tech, lev=lev,
+                                     pmcc_set=pset)
                 c, dd, sp = stats_of(ser, rfa)
                 vout[name] = {"cagr": c, "dd": dd, "sharpe": sp,
                               "final": round(ser.iloc[-1]), **meta}
-                if name in ("ds1", "hammer"):
+                if name in ("pmcc_cc_nat", "pmcc_cc_nat_conv"):
                     curves[f"{year}_{bname}_{name}"] = ser
             out[f"{year}_{bname}"] = vout
             print(f"{year} {bname:6}: " + " ".join(
@@ -476,12 +504,12 @@ def main():
                 for n, v in vout.items()), flush=True)
             # incremental save -- survive sandbox resets
             json.dump(out, open(os.path.join(HERE,
-                                             "pmcc_results.json"), "w"),
+                                             "pmcc_cc_results.json"), "w"),
                       indent=1)
 
-    json.dump(out, open(os.path.join(HERE, "pmcc_results.json"), "w"),
+    json.dump(out, open(os.path.join(HERE, "pmcc_cc_results.json"), "w"),
               indent=1)
-    pd.DataFrame(curves).to_csv(os.path.join(HERE, "pmcc_curves.csv"))
+    pd.DataFrame(curves).to_csv(os.path.join(HERE, "pmcc_cc_curves.csv"))
 
 
 if __name__ == "__main__":
