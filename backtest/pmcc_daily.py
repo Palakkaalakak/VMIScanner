@@ -426,12 +426,14 @@ def main():
             c, dd, sp = stats_of(ser, rfa)
             vout["stock_cc"] = {"cagr": c, "dd": dd, "sharpe": sp,
                                 "final": round(ser.iloc[-1])}
-            for name, style, conv, ft in [
-                    ("ds1", "ds1", False, False),
-                    ("ds1_convert", "ds1", True, False),
-                    ("hammer", "hammer", False, False),
-                    ("ds1_full", "ds1", False, True)]:
-                ser, meta = run_pmcc(arr, book, RF[year], style, conv, ft)
+            for name, style, conv, ft, tech in [
+                    ("ds1", "ds1", False, False, False),
+                    ("ds1_convert", "ds1", True, False, False),
+                    ("ds1_tech", "ds1", False, False, True),
+                    ("hammer", "hammer", False, False, False),
+                    ("ds1_full", "ds1", False, True, False)]:
+                ser, meta = run_pmcc(arr, book, RF[year], style, conv, ft,
+                                     tech_reentry=tech)
                 c, dd, sp = stats_of(ser, rfa)
                 vout[name] = {"cagr": c, "dd": dd, "sharpe": sp,
                               "final": round(ser.iloc[-1]), **meta}
