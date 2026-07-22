@@ -58,7 +58,7 @@ ROLL_SHORT_DELTA = 0.80
 
 
 def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
-             tech_reentry=False, lev=1.0, initial=INITIAL):
+             tech_reentry=False, lev=1.0, pmcc_set=None, initial=INITIAL):
     """lev: leverage multiple on notional. Each tranche of `budget` dollars
     buys call exposure on lev*budget/p shares (capped by what the budget
     can actually pay in premium). lev=1 -> share-equivalent (no leverage);
@@ -68,7 +68,10 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     tech_reentry: at 30 DTE the long is SOLD (not rolled immediately);
     the freed money waits in cash and a new long call is only bought when
     price is back above the 200-day SMA (uptrend, per the DS PDF's trend
-    filter). No hindsight -- the SMA is known each day."""
+    filter). No hindsight -- the SMA is known each day.
+    pmcc_set: tickers traded via PMCC; all OTHER book tickers are bought
+    as PLAIN SHARES with NO calls at all (the 'CC-viable only' rule --
+    fast growers stay untouched shares). None = PMCC on everything."""
     if full_tranche:
         lev = float("inf")
     dates, px, dv, sma, sig_m, rfd, ti = (
