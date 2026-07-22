@@ -58,7 +58,11 @@ ROLL_SHORT_DELTA = 0.80
 
 
 def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
-             initial=INITIAL):
+             tech_reentry=False, initial=INITIAL):
+    """tech_reentry: at 30 DTE the long is SOLD (not rolled immediately);
+    the freed money waits in cash and a new long call is only bought when
+    price is back above the 200-day SMA (uptrend, per the DS PDF's trend
+    filter). No hindsight -- the SMA is known each day."""
     dates, px, dv, sma, sig_m, rfd, ti = (
         D["dates"], D["px"], D["dv"], D["sma"], D["sig"], D["rf"], D["ti"])
     nD = len(dates)
@@ -90,6 +94,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
 
     lc = {}                    # t -> list of lots [K, exp_i, cov, cost]
     backing = {}               # t -> reserved cash behind the notional
+    waiting = {}               # tech_reentry: t -> reserved $ awaiting uptrend
     sh = {t: 0.0 for t in iv0}  # real shares (after conversion)
     oc = {}                    # t -> [K, exp_i, cov, prem]      short calls
     stopped = {}               # hammer cut-loss parking: t -> True
@@ -107,7 +112,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         return sum(l[2] for l in lc.get(t, []))
 
     def free_cash():
-        return cash - sum(backing.values())
+        return cash - sum(backing.values()) - sum(waiting.values())
 
     def open_long(t, p, sig, r, i, budget):
         """Buy delta-LONG_D calls with `budget` dollars of NOTIONAL.
@@ -263,6 +268,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                     sh[t] = sh.get(t, 0.0) + take
                     cash -= take * p
                     n_convert += 1
+                elif tech_reentry:
+                    # sell the lot; park its notional until uptrend returns
+                    val, cov_, _ = close_lot(t, j, i, r)
+                    park = min(cov_ * p, max(cash - sum(backing.values())
+                                             - sum(waiting.values()), 0.0))
+                    waiting[t] = waiting.get(t, 0.0) + park
                 else:
                     if np.isnan(sig) or sig <= 0:
                         j += 1
@@ -275,6 +286,21 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
             # trim short coverage if longs shrank
             if t in oc:
                 oc[t][2] = min(oc[t][2], cov_of(t) + sh.get(t, 0.0))
+
+        # ---- tech re-entry: buy the long back when p > 200d SMA ----
+        if tech_reentry:
+            for t in list(waiting):
+                p = px[i, ti[t]]
+                s = sma[i, ti[t]]
+                sig = sig_m[i, ti[t]]
+                if np.isnan(p) or np.isnan(s) or np.isnan(sig) or sig <= 0:
+                    continue
+                if p > s:
+                    budget = waiting.pop(t)
+                    if open_long(t, p, sig, r, i, budget):
+                        n_longroll += 1
+                    else:
+                        waiting[t] = budget
 
         # ---- hammer re-entry after cut-loss ----
         for t in list(stopped):
