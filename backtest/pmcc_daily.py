@@ -470,7 +470,7 @@ def main():
     out, curves = {}, {}
     # resume from a previous partial run (only books that already contain
     # the full current config set are kept)
-    N_CFG = 5           # stock_cc + 4 pmcc configs
+    N_CFG = 6           # stock_cc + 5 pmcc configs
     respath = os.path.join(HERE, "pmcc_cc_results.json")
     if os.path.exists(respath):
         try:
