@@ -58,7 +58,8 @@ ROLL_SHORT_DELTA = 0.80
 
 
 def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
-             tech_reentry=False, lev=1.0, pmcc_set=None, initial=INITIAL):
+             tech_reentry=False, lev=1.0, pmcc_set=None,
+             half_pyramid=False, initial=INITIAL):
     """lev: leverage multiple on notional. Each tranche of `budget` dollars
     buys call exposure on lev*budget/p shares (capped by what the budget
     can actually pay in premium). lev=1 -> share-equivalent (no leverage);
@@ -71,7 +72,10 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     filter). No hindsight -- the SMA is known each day.
     pmcc_set: tickers traded via PMCC; all OTHER book tickers are bought
     as PLAIN SHARES with NO calls at all (the 'CC-viable only' rule --
-    fast growers stay untouched shares). None = PMCC on everything."""
+    fast growers stay untouched shares). None = PMCC on everything.
+    half_pyramid: on each roll the new long call covers only the SAME
+    number of shares as the old one (no pyramiding); the roll profit
+    stays in cash and is recycled by the normal reinvest logic."""
     if full_tranche:
         lev = float("inf")
     dates, px, dv, sma, sig_m, rfd, ti = (
@@ -293,13 +297,30 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                         j += 1
                         continue
                     val, cov_, _ = close_lot(t, j, i, r)
-                    # re-establish the SAME notional exposure at this lev
-                    if math.isinf(lev):
-                        budget = val
+                    if half_pyramid:
+                        # rebuy a call on the SAME share count; profit
+                        # (val - cost of that call) simply stays in cash
+                        e2 = exp_i(i, long_dte)
+                        T2 = max((dates[min(e2, nD - 1)] - d).days,
+                                 1) / 365.0
+                        K2 = k_for_d1(p, sig, r, T2, d1_long)
+                        prc2 = bs_call(p, K2, sig, r, T2)
+                        if prc2 > 0:
+                            cov2 = min(cov_, max(free_cash(), 0.0) / prc2)
+                            cost2 = prc2 * cov2
+                            cash -= cost2
+                            long_paid += cost2
+                            lc.setdefault(t, []).append(
+                                [K2, e2, cov2, cost2])
+                        n_longroll += 1
                     else:
-                        budget = cov_ * p / lev
-                    open_long(t, p, sig, r, i, budget)
-                    n_longroll += 1
+                        # re-establish the SAME notional at this lev
+                        if math.isinf(lev):
+                            budget = val
+                        else:
+                            budget = cov_ * p / lev
+                        open_long(t, p, sig, r, i, budget)
+                        n_longroll += 1
             # trim short coverage if longs shrank
             if t in oc:
                 oc[t][2] = min(oc[t][2], cov_of(t) + sh.get(t, 0.0))
@@ -489,10 +510,16 @@ def main():
                      cc_viable),
                     # natural leverage on EVERYTHING (old ds1_full)
                     ("pmcc_all_nat", "ds1", False, True, False, 1.0,
-                     None)]:
+                     None),
+                    # half-pyramid: rolls keep original exposure, profit
+                    # banked; VMI reinvest logic redeploys it at value
+                    ("pmcc_cc_halfpyr", "ds1", False, True, False, 1.0,
+                     cc_viable)]:
                 ser, meta = run_pmcc(arr, book, RF[year], style, conv, ft,
                                      tech_reentry=tech, lev=lev,
-                                     pmcc_set=pset)
+                                     pmcc_set=pset,
+                                     half_pyramid=(name
+                                                   == "pmcc_cc_halfpyr"))
                 c, dd, sp = stats_of(ser, rfa)
                 vout[name] = {"cagr": c, "dd": dd, "sharpe": sp,
                               "final": round(ser.iloc[-1]), **meta}
