@@ -93,6 +93,21 @@ def render():
                "the dotcom crash AND the GFC, without a single valuation-"
                "driven sell.")
 
+    if cc_stats:
+        with st.container(border=True):
+            st.markdown("**➕ Same books, but selling covered calls on the "
+                        "CC-viable names** — monthly ~Δ0.42 calls sold only "
+                        "on stocks with growth ≤ 15%; fast growers held "
+                        "untouched (no calls).")
+            c1, c2 = st.columns(2)
+            for col, k in ((c1, "growth"), (c2, "defensive")):
+                s = cc_stats[k]
+                col.metric(NICE[k + "_cc"],
+                           f"${s['final']:,.0f}",
+                           f"{s['cagr_pct']}% CAGR · max DD "
+                           f"{s['max_dd_pct']}% · calls on "
+                           f"{len(s['cc_names'])}/16 names")
+
     sub = st.tabs(["📈 Equity curves", "🕯️ Candles", "📊 Year by year",
                    "🧱 Holdings & contribution", "🔍 Stock charts",
                    "📜 Trade log", "🌊 Corrections", "🧪 Method & caveats"])
@@ -104,7 +119,25 @@ def render():
                               help="Log scale shows compounding consistency — "
                                    "straight line = constant CAGR.")
         norm = c2.toggle("Normalize to 1.0", value=False)
-        df = pd.DataFrame({NICE[k]: eq[k] for k in ("defensive", "growth", "spy")})
+        keys = ["defensive", "growth", "spy"]
+        colors = ["#1f77b4", "#2ca02c", "#888888"]
+        has_cc = "defensive_cc" in eq and "growth_cc" in eq
+        show_cc = False
+        if has_cc:
+            show_cc = st.toggle(
+                "Overlay: sell covered calls on the CC-viable names",
+                value=True,
+                help="Same books, same value-gated entries — but monthly "
+                     "~delta-0.42 calls are sold on every stock whose growth "
+                     "is ≤ 15% (all 16 defensive names; 9 of 16 growth "
+                     "names). Fast growers are held as plain shares with no "
+                     "calls.")
+            if show_cc:
+                keys = ["defensive", "defensive_cc", "growth", "growth_cc",
+                        "spy"]
+                colors = ["#1f77b4", "#7fbfef", "#2ca02c", "#98df8a",
+                          "#888888"]
+        df = pd.DataFrame({NICE[k]: eq[k] for k in keys})
         if norm:
             df = df / df.iloc[0]
         try:
@@ -119,8 +152,7 @@ def render():
                 x="Date:T", y=y,
                 color=alt.Color("Portfolio:N",
                                 scale=alt.Scale(domain=list(df.columns),
-                                                range=["#1f77b4", "#2ca02c",
-                                                       "#888888"])),
+                                                range=colors)),
                 tooltip=["Date:T", "Portfolio:N",
                          alt.Tooltip("Value:Q", format=",.0f")])
                 .properties(height=430).interactive())
@@ -128,6 +160,19 @@ def render():
         except Exception:
             st.line_chart(df, height=430)
         st.caption("Hover for values · drag to zoom · double-click to reset.")
+        if has_cc and show_cc and cc_stats:
+            st.caption(
+                "**Covered-call variant note:** the CC curves are a "
+                "day-by-day simulation on unadjusted prices with dividends "
+                "credited as cash and Black-Scholes call pricing at each "
+                "stock's realized volatility, while the base curves use "
+                "adjusted prices (dividends auto-reinvested). Same "
+                "economics, slightly different bookkeeping — so compare "
+                "each CC curve to the index and to its own start, not "
+                "penny-for-penny against its base twin. Growth book calls "
+                "were sold on: "
+                + ", ".join(cc_stats["growth"]["cc_names"])
+                + ". The other 7 fast growers were held call-free.")
         with st.expander("Static charts with correction shading"):
             _img("portfolio_growth_line.png")
             _img("portfolio_defensive_line.png")
@@ -141,7 +186,8 @@ def render():
 
     # ---------------- 3. annual returns ----------------
     with sub[2]:
-        yr = pd.DataFrame({k: eq[k].resample("YE").last() for k in eq})
+        yr = pd.DataFrame({k: eq[k].resample("YE").last()
+                           for k in ("defensive", "growth", "spy")})
         yr.loc[pd.Timestamp("1999-12-31")] = 1_000_000.0
         yr = (yr.sort_index().pct_change().dropna() * 100).round(1)
         yr.index = yr.index.year
