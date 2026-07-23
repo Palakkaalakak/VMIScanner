@@ -1,0 +1,57 @@
+{
+  "defensive": {
+    "cc_names": [
+      "ABT",
+      "BDX",
+      "BMY",
+      "CL",
+      "CLX",
+      "GD",
+      "GIS",
+      "HRL",
+      "HSY",
+      "JNJ",
+      "KMB",
+      "MCD",
+      "MRK",
+      "PEP",
+      "PG",
+      "UNH"
+    ],
+    "cc": {
+      "final": 144272388,
+      "cagr_pct": 20.62,
+      "max_dd_pct": -24.3,
+      "cagr_2000_2013": 23.09,
+      "cagr_2013_2026": 17.93
+    },
+    "plain": {
+      "final": 14646129,
+      "cagr_pct": 10.65,
+      "max_dd_pct": -37.7,
+      "cagr_2000_2013": 11.33,
+      "cagr_2013_2026": 9.9
+    },
+    "pmcc": {
+      "final": 187316929415,
+      "cagr_pct": 58.04,
+      "max_dd_pct": -36.9,
+      "cagr_2000_2013": 69.23,
+      "cagr_2013_2026": 46.46
+    },
+    "pmcc_hp": {
+      "final": 42227911978,
+      "cagr_pct": 49.41,
+      "max_dd_pct": -65.9,
+      "cagr_2000_2013": 56.27,
+      "cagr_2013_2026": 42.13
+    },
+    "pmcc_conv": {
+      "final": 254371790,
+      "cagr_pct": 23.22,
+      "max_dd_pct": -24.0,
+      "cagr_2000_2013": 26.66,
+      "cagr_2013_2026": 19.5
+    }
+  }
+}
