@@ -38,6 +38,8 @@ from . import macrotrends, sec, yahoo
 from .finviz import fetch_growth_estimates
 from .sp500 import fetch_sp500
 from .dowjones import fetch_dowjones
+from .nasdaq100 import fetch_nasdaq100
+from .extras import fetch_extras
 
 # repo_root/public/data — served by the Hono dashboard at /data/scan_results.json
 OUT_DIR = os.path.join(
@@ -144,6 +146,15 @@ def main():
                      help="merge Dow Jones 30 components into the universe (default on)")
     ap.add_argument("--no-dow", dest="include_dow", action="store_false",
                      help="scan the S&P 500 only, without the Dow Jones 30")
+    ap.add_argument("--include-ndx", dest="include_ndx", action="store_true",
+                     default=True,
+                     help="merge Nasdaq-100 constituents into the universe (default on)")
+    ap.add_argument("--no-ndx", dest="include_ndx", action="store_false")
+    ap.add_argument("--include-extras", dest="include_extras", action="store_true",
+                     default=True,
+                     help="merge curated non-index quality names (MELI, POOL, "
+                          "CNSWF, DSGX, NVO, ASML, ...) into the universe (default on)")
+    ap.add_argument("--no-extras", dest="include_extras", action="store_false")
     ap.add_argument("--workers", type=int, default=8,
                      help="parallel fetch workers (SEC fair-access allows 10 req/s)")
     ap.add_argument("--no-macrotrends", dest="allow_macrotrends", action="store_false",
@@ -189,13 +200,35 @@ def main():
                       f"{len(added)} not already in S&P500 (merged)")
             except Exception as e:
                 print(f"  !! DJIA fetch failed ({e}) — continuing with S&P500 only")
+        if args.include_ndx:
+            print("Step 1c: fetching Nasdaq-100 constituents (stockanalysis.com)...")
+            try:
+                ndx = fetch_nasdaq100(use_cache=use_cache)
+                seen = {m["ticker"] for m in universe}
+                added = [m for m in ndx if m["ticker"] not in seen]
+                universe.extend(added)
+                print(f"  -> {len(ndx)} NDX constituents, "
+                      f"{len(added)} not already in universe (merged)")
+            except Exception as e:
+                print(f"  !! NDX fetch failed ({e}) — continuing without it")
+        if args.include_extras:
+            extras = fetch_extras()
+            seen = {m["ticker"] for m in universe}
+            added = [m for m in extras if m["ticker"] not in seen]
+            universe.extend(added)
+            print(f"Step 1d: curated extras (non-index quality: MELI, POOL, "
+                  f"CNSWF, DSGX, NVO, ASML, ...): {len(extras)} names, "
+                  f"{len(added)} new (merged)")
         universe_total = len(universe)
-        universe_label = ("S&P 500 + Dow Jones 30 (Wikipedia constituents, merged)"
-                          if args.include_dow
-                          else "S&P 500 (Wikipedia constituents)")
-        print(f"  -> universe: {universe_total} tickers"
-              + (" (S&P500 + Dow Jones 30)" if args.include_dow
-                 else " (S&P500 only)"))
+        parts = ["S&P 500"]
+        if args.include_dow:
+            parts.append("Dow Jones 30")
+        if args.include_ndx:
+            parts.append("Nasdaq-100")
+        if args.include_extras:
+            parts.append("curated extras (ADRs/ex-index quality)")
+        universe_label = " + ".join(parts) + " (merged)"
+        print(f"  -> universe: {universe_total} tickers ({universe_label})")
 
     # ---- Step 2: FREE exclusion filter (no network calls) ----
     included = []
