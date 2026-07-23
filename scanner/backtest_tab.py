@@ -15,7 +15,9 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BT = os.path.join(REPO_ROOT, "backtest")
 CHARTS = os.path.join(BT, "charts")
 
-NICE = {"defensive": "🛡️ Defensive", "growth": "🚀 Growth", "spy": "S&P 500 (SPY)"}
+NICE = {"defensive": "🛡️ Defensive", "growth": "🚀 Growth", "spy": "S&P 500 (SPY)",
+        "defensive_cc": "🛡️ Defensive + covered calls",
+        "growth_cc": "🚀 Growth + covered calls"}
 
 
 @st.cache_data(show_spinner=False)
@@ -23,11 +25,18 @@ def _load():
     eq = {k: pd.read_csv(os.path.join(BT, f"eq_{k}.csv"), index_col=0,
                          parse_dates=True).iloc[:, 0]
           for k in ("defensive", "growth", "spy")}
+    for k in ("defensive", "growth"):
+        p = os.path.join(BT, f"eq_{k}_cc.csv")
+        if os.path.exists(p):
+            eq[k + "_cc"] = pd.read_csv(p, index_col=0,
+                                        parse_dates=True).iloc[:, 0]
     stats = json.load(open(os.path.join(BT, "stats2.json")))
     trades = json.load(open(os.path.join(BT, "trades.json")))
+    cc_path = os.path.join(BT, "stats_cc_2000_2013.json")
+    cc_stats = json.load(open(cc_path)) if os.path.exists(cc_path) else None
     ret_path = os.path.join(CHARTS, "stock_returns.csv")
     stock_ret = pd.read_csv(ret_path) if os.path.exists(ret_path) else None
-    return eq, stats, trades, stock_ret
+    return eq, stats, trades, stock_ret, cc_stats
 
 
 def _img(name, caption=None, subdir=None):
@@ -58,7 +67,7 @@ def render():
                 "`python backtest/simulate2.py` then `python backtest/plot_suite.py`.")
         return
 
-    eq, stats, trades, stock_ret = _load()
+    eq, stats, trades, stock_ret, cc_stats = _load()
 
     st.markdown("### 🕰️ VMI 2000–2013 backtest — standing in January 2000")
     st.caption(
