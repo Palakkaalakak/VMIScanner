@@ -1,38 +1,235 @@
 {
-  "generated": "2026-07-23 (rev 2 - anti-bubble bedrock, bottom-heavy)",
-  "source": "public/data/scan_results.json (scan of 2026-07-22, 443 names, 191 greats)",
-  "selection_rules": {
-    "workflow": "scanner DCF first, manual moat verification second (per user instruction)",
-    "structure": "bottom-heavy on the 2026 Anti-Bubble Bedrock pyramid: Healthcare > Financial toll booths > SaaS/vertical software > Comms > Consumer compounders > Industrial services > Specialty materials",
-    "valuation": "buy only below intrinsic value; all 16 picks below IV -> tranche 1 today",
-    "moat": "sustainable competitive advantage only - no price/quality knife-fights (INTC/AMD class explicitly rejected)",
-    "ai_exposure": "bedrock tiers are the AI-bubble-resilient core; MSFT and META kept (they are in the bedrock image) but no pure AI-infra names",
-    "options_rule": "proj EPS growth g <= 15% -> PMCC; g > 15% -> plain shares, never cap a hyper-grower",
-    "materials_tier": "ZERO allocation - LIN 1.0% / ECL -9.3% / SHW 1.5% discount = at/above fair value, Tier-3 'wait for the discount' per the pyramid",
-    "not_in_scanner_benched": ["NVO", "CNSWF", "DSGX", "MELI", "POOL", "MKTX"],
-    "excluded_as_data_suspect": ["WDAY disc 80.5", "DPZ 91.2", "YUM 88.1", "MNST 92.2", "HSY 93.3", "DG 83.1", "ZTS 70.7 (borderline)", "RL/MU/DECK/GRMN/CTSH/IT from rev-1"],
-    "dropped_from_rev1_to_go_bottom_heavy": ["UNP", "CMG", "ULTA", "MLM", "ADI", "GOOG", "AJG (GM 99.7% data oddity)", "VMC", "CRH", "LHX", "PCAR", "CMI", "EME"]
-  },
-  "sizing": "6.25% of current account value max spent per name, 3 tranches, adds at 200d SMA x1.01 while under IV, >=56 days apart, never trim winners",
-  "portfolio": [
-    {"ticker": "VEEV", "tier": "1 Healthcare", "type": "PMCC",  "g5": 11.85, "discount_pct": 29.7, "price": 189.24, "iv": 269.38, "moat": "Pharma CRM/quality-cloud standard; regulated-industry switching costs; GM 76%"},
-    {"ticker": "VRTX", "tier": "1 Healthcare", "type": "PMCC",  "g5": 11.20, "discount_pct": 16.4, "price": 481.38, "iv": 575.54, "moat": "Cystic-fibrosis franchise monopoly (patent + biology moat); GM 86%"},
-    {"ticker": "REGN", "tier": "1 Healthcare", "type": "PMCC",  "g5": 11.26, "discount_pct": 34.3, "price": 680.16, "iv": 1035.64, "moat": "Eylea/Dupixent antibody engine; GM 94%; out-of-favour = the pyramid's arrow"},
-    {"ticker": "TMO",  "tier": "1 Healthcare", "type": "PMCC",  "g5": 9.57,  "discount_pct": 10.3, "price": 526.43, "iv": 586.95, "moat": "Life-science tools razor-and-blade; embedded in every lab workflow; GM 57%"},
-    {"ticker": "LLY",  "tier": "1 Healthcare", "type": "PLAIN", "g5": 29.14, "discount_pct": 11.3, "price": 1172.70, "iv": 1321.98, "moat": "GLP-1 duopoly with Novo; manufacturing scale is the moat; GM 83%"},
-    {"ticker": "ICE",  "tier": "1 Financial toll booth", "type": "PMCC",  "g5": 11.64, "discount_pct": 18.8, "price": 138.67, "iv": 170.83, "moat": "Exchange network effect (NYSE, futures) + mortgage-tech data lock-in"},
-    {"ticker": "SPGI", "tier": "1 Financial toll booth", "type": "PMCC",  "g5": 11.67, "discount_pct": 16.8, "price": 431.29, "iv": 518.54, "moat": "Ratings oligopoly + index licensing; regulatory moat; GM 70%"},
-    {"ticker": "MA",   "tier": "1 Financial toll booth", "type": "PLAIN", "g5": 15.91, "discount_pct": 4.2,  "price": 542.20, "iv": 565.95, "moat": "Payments network duopoly with Visa; strongest network effect in the book"},
-    {"ticker": "ADBE", "tier": "1 SaaS/vertical", "type": "PMCC",  "g5": 14.49, "discount_pct": 57.2, "price": 228.08, "iv": 533.32, "moat": "Creative-suite standard, format/workflow switching costs; GM 89%; cheap BECAUSE of AI fear - the value bet"},
-    {"ticker": "INTU", "tier": "1 SaaS/vertical", "type": "PLAIN", "g5": 15.28, "discount_pct": 58.3, "price": 291.00, "iv": 698.15, "moat": "TurboTax/QuickBooks ecosystem lock-in; GM 98%; g a hair over 15 -> shares"},
-    {"ticker": "MSFT", "tier": "1 SaaS/vertical", "type": "PLAIN", "g5": 18.65, "discount_pct": 33.5, "price": 398.55, "iv": 598.97, "moat": "Enterprise OS/Office/Azure switching costs; in the bedrock image; AI-adjacent but diversified"},
-    {"ticker": "META", "tier": "2 Comms", "type": "PLAIN", "g5": 20.15, "discount_pct": 33.4, "price": 642.84, "iv": 965.30, "moat": "3.4B-user social graph network effect; GM 82%; AI-capex-heavy but ad moat is the cash engine"},
-    {"ticker": "NFLX", "tier": "2 Comms", "type": "PLAIN", "g5": 21.52, "discount_pct": 24.0, "price": 68.93, "iv": 90.75, "moat": "Streaming scale + content flywheel (post 10:1 split price)"},
-    {"ticker": "CPRT", "tier": "2 Consumer compounder", "type": "PMCC",  "g5": 5.18,  "discount_pct": 51.3, "price": 27.20, "iv": 55.89, "moat": "Salvage-auction land+network duopoly (with IAA); GM 88%; near-impossible to replicate yards"},
-    {"ticker": "ROST", "tier": "2 Consumer compounder", "type": "PMCC",  "g5": 12.52, "discount_pct": 21.5, "price": 232.23, "iv": 295.84, "moat": "Off-price buying-scale duopoly with TJX; recession-resistant; 2000-book veteran"},
-    {"ticker": "VRSK", "tier": "3 Industrial services", "type": "PMCC",  "g5": 10.72, "discount_pct": 46.0, "price": 195.25, "iv": 361.43, "moat": "Insurance data monopoly - contributory database competitors cannot rebuild; GM 70%"}
+ "generated": "2026-07-23 (rev 3 - universe expanded: +NDX +curated extras)",
+ "source": "public/data/scan_results.json (scan of 2026-07-23, 540-ticker universe: S&P500 + Dow30 + Nasdaq-100 + curated extras, 203 greats)",
+ "selection_rules": {
+  "workflow": "scanner DCF first, manual moat verification second (per user instruction)",
+  "structure": "bottom-heavy on the 2026 Anti-Bubble Bedrock pyramid: Healthcare > Financial toll booths > SaaS/vertical software > Comms > Consumer compounders > Industrial services > Specialty materials",
+  "valuation": "buy only below intrinsic value; all 16 picks below IV -> tranche 1 today",
+  "moat": "sustainable competitive advantage only - no price/quality knife-fights (INTC/AMD class explicitly rejected)",
+  "ai_exposure": "bedrock tiers are the AI-bubble-resilient core; MSFT and META kept (they are in the bedrock image) but no pure AI-infra names",
+  "options_rule": "proj EPS growth g <= 15% -> PMCC; g > 15% -> plain shares, never cap a hyper-grower",
+  "materials_tier": "ZERO allocation - LIN 1.0% / ECL -9.3% / SHW 1.5% discount = at/above fair value, Tier-3 'wait for the discount' per the pyramid",
+  "not_in_scanner_benched": [
+   "NVO",
+   "CNSWF",
+   "DSGX",
+   "MELI",
+   "POOL",
+   "MKTX"
   ],
-  "tier_weights": {"healthcare": 5, "fin_toll_booths": 3, "saas_vertical": 3, "comms": 2, "consumer": 2, "industrial_services": 1, "materials": 0},
-  "counts": {"pmcc": 10, "plain": 6, "ai_adjacent": 2},
-  "action_today": "All 16 below IV -> open tranche 1 in every name now. PMCC names: deep-ITM ~delta-0.80 LEAPS (spend <= 6.25% of account value on premium), sell ~delta-0.42 monthlies, roll shorts at delta 0.80. Plain names: shares, 1/3 of the 6.25% slot. Adds: 200d SMA x1.01 while under IV, >=56 days apart."
+  "excluded_as_data_suspect": [
+   "WDAY disc 80.5",
+   "DPZ 91.2",
+   "YUM 88.1",
+   "MNST 92.2",
+   "HSY 93.3",
+   "DG 83.1",
+   "ZTS 70.7 (borderline)",
+   "RL/MU/DECK/GRMN/CTSH/IT from rev-1"
+  ],
+  "dropped_from_rev1_to_go_bottom_heavy": [
+   "UNP",
+   "CMG",
+   "ULTA",
+   "MLM",
+   "ADI",
+   "GOOG",
+   "AJG (GM 99.7% data oddity)",
+   "VMC",
+   "CRH",
+   "LHX",
+   "PCAR",
+   "CMI",
+   "EME"
+  ],
+  "universe": "540-ticker merged universe (S&P500 + Dow30 + NDX + curated extras); scanner greats only",
+  "new_universe_verdicts": {
+   "POOL": "GREAT, 34.6% discount, g 7.0 -> ADDED (replaces ROST: same-tier, wider discount, deeper moat)",
+   "DSGX": "GREAT, 36.6% discount, g 17.8 -> plain-share candidate; SaaS tier already full (ADBE/INTU/MSFT) - first reserve",
+   "HEI": "GREAT, 55.5% discount, g 16.8 -> strong reserve; VRSK kept for industrial-services slot (data monopoly > parts aftermarket)",
+   "MELI": "NEAR-MISS not great (ROIC 5y-only WARN) -> benched per rules; g 25.5, disc 49.9 noted",
+   "CNSWF": "near-miss (margin/ROE/current-ratio WARNs) + Yahoo data has no DCF inputs -> no buy per rules",
+   "NVO": "FAILS current ratio + negative long-term estimate; 95.2% discount is an artifact -> excluded",
+   "TSM/ASML": "great but pure AI-infra - excluded from focus per anti-bubble instruction",
+   "SAP/AZN/TTC/GGG/CHE/WSO": "great, on the reserve bench"
+  }
+ },
+ "sizing": "6.25% of current account value max spent per name, 3 tranches, adds at 200d SMA x1.01 while under IV, >=56 days apart, never trim winners",
+ "portfolio": [
+  {
+   "ticker": "VEEV",
+   "tier": "1 Healthcare",
+   "type": "PMCC",
+   "g5": 11.85,
+   "discount_pct": 29.7,
+   "price": 189.24,
+   "iv": 269.38,
+   "moat": "Pharma CRM/quality-cloud standard; regulated-industry switching costs; GM 76%"
+  },
+  {
+   "ticker": "VRTX",
+   "tier": "1 Healthcare",
+   "type": "PMCC",
+   "g5": 11.2,
+   "discount_pct": 16.4,
+   "price": 481.38,
+   "iv": 575.54,
+   "moat": "Cystic-fibrosis franchise monopoly (patent + biology moat); GM 86%"
+  },
+  {
+   "ticker": "REGN",
+   "tier": "1 Healthcare",
+   "type": "PMCC",
+   "g5": 11.26,
+   "discount_pct": 34.3,
+   "price": 680.16,
+   "iv": 1035.64,
+   "moat": "Eylea/Dupixent antibody engine; GM 94%; out-of-favour = the pyramid's arrow"
+  },
+  {
+   "ticker": "TMO",
+   "tier": "1 Healthcare",
+   "type": "PMCC",
+   "g5": 9.57,
+   "discount_pct": 10.3,
+   "price": 526.43,
+   "iv": 586.95,
+   "moat": "Life-science tools razor-and-blade; embedded in every lab workflow; GM 57%"
+  },
+  {
+   "ticker": "LLY",
+   "tier": "1 Healthcare",
+   "type": "PLAIN",
+   "g5": 29.14,
+   "discount_pct": 11.3,
+   "price": 1172.7,
+   "iv": 1321.98,
+   "moat": "GLP-1 duopoly with Novo; manufacturing scale is the moat; GM 83%"
+  },
+  {
+   "ticker": "ICE",
+   "tier": "1 Financial toll booth",
+   "type": "PMCC",
+   "g5": 11.64,
+   "discount_pct": 18.8,
+   "price": 138.67,
+   "iv": 170.83,
+   "moat": "Exchange network effect (NYSE, futures) + mortgage-tech data lock-in"
+  },
+  {
+   "ticker": "SPGI",
+   "tier": "1 Financial toll booth",
+   "type": "PMCC",
+   "g5": 11.67,
+   "discount_pct": 16.8,
+   "price": 431.29,
+   "iv": 518.54,
+   "moat": "Ratings oligopoly + index licensing; regulatory moat; GM 70%"
+  },
+  {
+   "ticker": "MA",
+   "tier": "1 Financial toll booth",
+   "type": "PLAIN",
+   "g5": 15.91,
+   "discount_pct": 4.2,
+   "price": 542.2,
+   "iv": 565.95,
+   "moat": "Payments network duopoly with Visa; strongest network effect in the book"
+  },
+  {
+   "ticker": "ADBE",
+   "tier": "1 SaaS/vertical",
+   "type": "PMCC",
+   "g5": 14.49,
+   "discount_pct": 57.2,
+   "price": 228.08,
+   "iv": 533.32,
+   "moat": "Creative-suite standard, format/workflow switching costs; GM 89%; cheap BECAUSE of AI fear - the value bet"
+  },
+  {
+   "ticker": "INTU",
+   "tier": "1 SaaS/vertical",
+   "type": "PLAIN",
+   "g5": 15.28,
+   "discount_pct": 58.3,
+   "price": 291.0,
+   "iv": 698.15,
+   "moat": "TurboTax/QuickBooks ecosystem lock-in; GM 98%; g a hair over 15 -> shares"
+  },
+  {
+   "ticker": "MSFT",
+   "tier": "1 SaaS/vertical",
+   "type": "PLAIN",
+   "g5": 18.65,
+   "discount_pct": 33.5,
+   "price": 398.55,
+   "iv": 598.97,
+   "moat": "Enterprise OS/Office/Azure switching costs; in the bedrock image; AI-adjacent but diversified"
+  },
+  {
+   "ticker": "META",
+   "tier": "2 Comms",
+   "type": "PLAIN",
+   "g5": 20.15,
+   "discount_pct": 33.4,
+   "price": 642.84,
+   "iv": 965.3,
+   "moat": "3.4B-user social graph network effect; GM 82%; AI-capex-heavy but ad moat is the cash engine"
+  },
+  {
+   "ticker": "NFLX",
+   "tier": "2 Comms",
+   "type": "PLAIN",
+   "g5": 21.52,
+   "discount_pct": 24.0,
+   "price": 68.93,
+   "iv": 90.75,
+   "moat": "Streaming scale + content flywheel (post 10:1 split price)"
+  },
+  {
+   "ticker": "CPRT",
+   "tier": "2 Consumer compounder",
+   "type": "PMCC",
+   "g5": 5.18,
+   "discount_pct": 51.3,
+   "price": 27.2,
+   "iv": 55.89,
+   "moat": "Salvage-auction land+network duopoly (with IAA); GM 88%; near-impossible to replicate yards"
+  },
+  {
+   "ticker": "POOL",
+   "tier": "2 Consumer compounder",
+   "type": "PMCC",
+   "g5": 6.99,
+   "discount_pct": 34.6,
+   "price": 182.31,
+   "iv": 278.64,
+   "moat": "Pool-supplies distribution near-monopoly (~5x largest rival); dense branch network + repair/maintenance recurring demand; GM 30%"
+  },
+  {
+   "ticker": "VRSK",
+   "tier": "3 Industrial services",
+   "type": "PMCC",
+   "g5": 10.72,
+   "discount_pct": 46.0,
+   "price": 195.25,
+   "iv": 361.43,
+   "moat": "Insurance data monopoly - contributory database competitors cannot rebuild; GM 70%"
+  }
+ ],
+ "tier_weights": {
+  "healthcare": 5,
+  "fin_toll_booths": 3,
+  "saas_vertical": 3,
+  "comms": 2,
+  "consumer": 2,
+  "industrial_services": 1,
+  "materials": 0
+ },
+ "counts": {
+  "pmcc": 10,
+  "plain": 6,
+  "ai_adjacent": 2
+ },
+ "action_today": "All 16 below IV -> open tranche 1 in every name now. PMCC names: deep-ITM ~delta-0.80 LEAPS (spend <= 6.25% of account value on premium), sell ~delta-0.42 monthlies, roll shorts at delta 0.80. Plain names: shares, 1/3 of the 6.25% slot. Adds: 200d SMA x1.01 while under IV, >=56 days apart."
 }
