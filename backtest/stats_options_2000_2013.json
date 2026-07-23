@@ -1,0 +1,117 @@
+{
+  "defensive": {
+    "cc_names": [
+      "ABT",
+      "BDX",
+      "BMY",
+      "CL",
+      "CLX",
+      "GD",
+      "GIS",
+      "HRL",
+      "HSY",
+      "JNJ",
+      "KMB",
+      "MCD",
+      "MRK",
+      "PEP",
+      "PG",
+      "UNH"
+    ],
+    "plain_names": [],
+    "pmcc": {
+      "final": 88719262729,
+      "cagr_pct": 126.02,
+      "max_dd_pct": -75.6,
+      "meta": {
+        "short_net": 210395960465023,
+        "long_net_decay": 212946832415653,
+        "dividends": 0,
+        "long_rolls": 29842,
+        "converts": 0
+      }
+    },
+    "pmcc_hp": {
+      "final": 77892261337,
+      "cagr_pct": 123.93,
+      "max_dd_pct": -90.2,
+      "meta": {
+        "short_net": 322383705498046,
+        "long_net_decay": 333024687313702,
+        "dividends": 0,
+        "long_rolls": 79563,
+        "converts": 0
+      }
+    },
+    "pmcc_conv": {
+      "final": 23420457,
+      "cagr_pct": 25.32,
+      "max_dd_pct": -72.6,
+      "meta": {
+        "short_net": 129690376,
+        "long_net_decay": -16689575,
+        "dividends": 44835199,
+        "long_rolls": 0,
+        "converts": 532
+      }
+    }
+  },
+  "growth": {
+    "cc_names": [
+      "AZO",
+      "CHD",
+      "CVS",
+      "ITW",
+      "NKE",
+      "ROST",
+      "SYY",
+      "TGT",
+      "TJX"
+    ],
+    "plain_names": [
+      "CAH",
+      "DHR",
+      "DLTR",
+      "LOW",
+      "ORLY",
+      "SBUX",
+      "SYK"
+    ],
+    "pmcc": {
+      "final": 228196755,
+      "cagr_pct": 47.5,
+      "max_dd_pct": -59.7,
+      "meta": {
+        "short_net": 7910230645,
+        "long_net_decay": 4272854533,
+        "dividends": 1160527845,
+        "long_rolls": 7102,
+        "converts": 0
+      }
+    },
+    "pmcc_hp": {
+      "final": 80074999,
+      "cagr_pct": 36.85,
+      "max_dd_pct": -53.2,
+      "meta": {
+        "short_net": 78435231,
+        "long_net_decay": -10035661,
+        "dividends": 32303940,
+        "long_rolls": 10967,
+        "converts": 0
+      }
+    },
+    "pmcc_conv": {
+      "final": 72914407,
+      "cagr_pct": 35.93,
+      "max_dd_pct": -32.5,
+      "meta": {
+        "short_net": 177884584,
+        "long_net_decay": -22256192,
+        "dividends": 50673426,
+        "long_rolls": 0,
+        "converts": 227
+      }
+    }
+  }
+}
