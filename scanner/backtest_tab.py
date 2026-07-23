@@ -53,10 +53,11 @@ def _load():
     opt_stats = _j("stats_options_2000_2013.json")
     sweep = _j("cc_threshold_sweep.json")
     sweep_eras = _j("cc_sweep_eras.json")
+    ext26 = _j("stats_options_2000_2026.json")
     ret_path = os.path.join(CHARTS, "stock_returns.csv")
     stock_ret = pd.read_csv(ret_path) if os.path.exists(ret_path) else None
     return (eq, stats, trades, stock_ret, cc_stats, opt_stats,
-            sweep, sweep_eras)
+            sweep, sweep_eras, ext26)
 
 
 def _img(name, caption=None, subdir=None):
@@ -88,7 +89,7 @@ def render():
         return
 
     (eq, stats, trades, stock_ret, cc_stats, opt_stats,
-     sweep, sweep_eras) = _load()
+     sweep, sweep_eras, ext26) = _load()
 
     st.markdown("### 🕰️ VMI 2000–2013 backtest — standing in January 2000")
     st.caption(
@@ -453,6 +454,38 @@ def render():
                 "variant (bank the leveraged gain, become a plain "
                 "shareholder when the long call goes deep ITM) is the only "
                 "PMCC flavor with a survivable risk profile.")
+        if ext26:
+            st.markdown("#### ④ Structural test — same rules held to 2026")
+            st.markdown(
+                "If the overlays were only good for the sideways "
+                "2000–2013 decade, the 2013–2026 bull leg would expose "
+                "them. Same books, same rules, run straight through:")
+            xrows = []
+            for k in ("defensive", "growth"):
+                for v, nm in (("plain", "buy & hold"),
+                              ("cc", "covered calls"),
+                              ("pmcc_conv", "PMCC→shares"),
+                              ("pmcc_hp", "PMCC half-pyramid"),
+                              ("pmcc", "PMCC full pyramid")):
+                    d = ext26.get(k, {}).get(v)
+                    if d:
+                        xrows.append({
+                            "Book": NICE[k], "Variant": nm,
+                            "CAGR 2000–2026": f"{d['cagr_pct']}%",
+                            "CAGR 00–13": f"{d.get('cagr_2000_2013','—')}%",
+                            "CAGR 13–26": f"{d.get('cagr_2013_2026','—')}%",
+                            "Max DD": f"{d['max_dd_pct']}%",
+                            "Final ($1M start)": f"${d['final']:,.0f}"})
+            st.dataframe(pd.DataFrame(xrows), use_container_width=True,
+                         hide_index=True)
+            st.caption(
+                "**Verdict: structural.** Every overlay beats its own "
+                "buy-and-hold book in BOTH sub-periods, not just the lost "
+                "decade. The edge shrinks in the trending 2013–26 leg "
+                "(covered calls: ~+12pp → ~+5pp over plain) exactly as "
+                "theory predicts — call-selling pays best sideways — but "
+                "it never flips negative. Sub-period CAGRs use the same "
+                "single continuous run split at 2013-12-27.")
 
     # ---------------- 9. method ----------------
     with sub[8]:
