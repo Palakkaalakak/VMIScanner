@@ -49,9 +49,10 @@ def main():
     D = arrays_for(2000, START, px_df, dv_df, sma_df, sig_df, mo12, rf_daily)
     rf = RF[2000]
 
-    # ---------- 1. threshold sweep ----------
+    # ---------- 1. threshold sweep (skip if already saved) ----------
+    SKIP_SWEEP = os.path.exists(os.path.join(HERE, "cc_threshold_sweep.json"))
     sweep = {}
-    for key, book in BOOKS.items():
+    for key, book in ({} if SKIP_SWEEP else BOOKS).items():
         sweep[key] = {}
         for thr in (0.10, 0.12, 0.14, 0.15, 0.16, 0.18, 0.20, 0.25, 9.99):
             cset = {t for t, (pe, g, b, m) in book.items() if g <= thr}
@@ -62,14 +63,20 @@ def main():
             print(f"sweep {key} g<={thr:.2f} n={len(cset):2d} "
                   f"CAGR {s['cagr_pct']:6.2f}%  DD {s['max_dd_pct']:6.1f}%",
                   flush=True)
-    with open(os.path.join(HERE, "cc_threshold_sweep.json"), "w") as f:
-        json.dump(sweep, f, indent=2)
+    if not SKIP_SWEEP:
+        with open(os.path.join(HERE, "cc_threshold_sweep.json"), "w") as f:
+            json.dump(sweep, f, indent=2)
 
     # ---------- 2. PMCC on both books ----------
     stats = {}
-    variants = [("pmcc",      dict(full_tranche=True)),
-                ("pmcc_hp",   dict(full_tranche=True, half_pyramid=True)),
-                ("pmcc_conv", dict(full_tranche=True, convert=True))]
+    # spend_cap=True: allocation rule enforced on PREMIUM DOLLARS SPENT --
+    # cumulative new capital per name capped at 6.25% of initial, exactly
+    # like the stock book (exposure may exceed that; spend may not).
+    variants = [("pmcc",      dict(full_tranche=True, spend_cap=True)),
+                ("pmcc_hp",   dict(full_tranche=True, half_pyramid=True,
+                                   spend_cap=True)),
+                ("pmcc_conv", dict(full_tranche=True, convert=True,
+                                   spend_cap=True))]
     for key, book in BOOKS.items():
         cset = {t for t, (pe, g, b, m) in book.items() if g <= 0.15}
         stats[key] = {"cc_names": sorted(cset),

@@ -59,7 +59,7 @@ ROLL_SHORT_DELTA = 0.80
 
 def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
              tech_reentry=False, lev=1.0, pmcc_set=None,
-             half_pyramid=False, initial=INITIAL):
+             half_pyramid=False, spend_cap=False, initial=INITIAL):
     """lev: leverage multiple on notional. Each tranche of `budget` dollars
     buys call exposure on lev*budget/p shares (capped by what the budget
     can actually pay in premium). lev=1 -> share-equivalent (no leverage);
@@ -75,7 +75,13 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     fast growers stay untouched shares). None = PMCC on everything.
     half_pyramid: on each roll the new long call covers only the SAME
     number of shares as the old one (no pyramiding); the roll profit
-    stays in cash and is recycled by the normal reinvest logic."""
+    stays in cash and is recycled by the normal reinvest logic.
+    spend_cap: enforce the stock-book allocation rule on NEW capital --
+    cumulative fresh dollars committed to any one name (tranches +
+    reinvest adds) may never exceed cap = initial/16 (6.25%). Rolls that
+    merely recycle a position's own sale proceeds do NOT count (same as
+    a stock position growing past 6.25% by itself, which is never
+    trimmed)."""
     if full_tranche:
         lev = float("inf")
     dates, px, dv, sma, sig_m, rfd, ti = (
@@ -130,10 +136,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     def cov_of(t):
         return sum(l[2] for l in lc.get(t, []))
 
+    spent = {}          # t -> cumulative NEW capital committed (spend_cap)
+
     def free_cash():
         return cash - sum(backing.values()) - sum(waiting.values())
 
-    def open_long(t, p, sig, r, i, budget):
+    def open_long(t, p, sig, r, i, budget, new_capital=True):
         """Buy delta-LONG_D calls with `budget` dollars of NOTIONAL.
         Non-full mode: cov = budget/p shares of exposure; the unspent part
         of the budget is locked as backing (no re-use = no leverage).
@@ -141,6 +149,8 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         nonlocal cash, long_paid, n_longroll
         avail = free_cash()
         budget = min(budget, avail)
+        if spend_cap and new_capital:
+            budget = min(budget, cap - spent.get(t, 0.0))
         if budget <= 0:
             return False
         e = exp_i(i, long_dte)
@@ -157,6 +167,8 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         # lock the unspent remainder of the tranche so it cannot be
         # double-spent elsewhere (the tranche's capital stays committed)
         backing[t] = backing.get(t, 0.0) + max(budget - cost, 0.0)
+        if spend_cap and new_capital:
+            spent[t] = spent.get(t, 0.0) + budget
         lc.setdefault(t, []).append([K, e, cov, cost])
         return True
 
@@ -319,7 +331,9 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                             budget = val
                         else:
                             budget = cov_ * p / lev
-                        open_long(t, p, sig, r, i, budget)
+                        # roll recycles the lot's own proceeds -> not new $
+                        open_long(t, p, sig, r, i, budget,
+                                  new_capital=False)
                         n_longroll += 1
             # trim short coverage if longs shrank
             if t in oc:
@@ -335,7 +349,8 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                     continue
                 if p > s:
                     budget = waiting.pop(t)
-                    if open_long(t, p, sig, r, i, budget):
+                    if open_long(t, p, sig, r, i, budget,
+                                 new_capital=False):
                         n_longroll += 1
                     else:
                         waiting[t] = budget
@@ -348,7 +363,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
             if np.isnan(p) or np.isnan(s) or np.isnan(sig) or sig <= 0:
                 continue
             if p > s:                       # neutral-to-bullish again
-                if open_long(t, p, sig, r, i, tranche):
+                if open_long(t, p, sig, r, i, tranche, new_capital=False):
                     del stopped[t]
 
         # ---- open short calls where uncovered (PMCC names only) ----
@@ -384,9 +399,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
             if t not in pmcc_set:
                 # fast grower: plain shares, no options at all
                 buy = min(tranche, free_cash())
+                if spend_cap:
+                    buy = min(buy, cap - spent.get(t, 0.0))
                 if buy > 0 and p > 0:
                     sh[t] = sh.get(t, 0.0) + buy / p
                     cash -= buy
+                    spent[t] = spent.get(t, 0.0) + buy
                     tr[t] = ntr + 1
                     last_add[t] = d
                 continue
@@ -421,9 +439,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 if bt not in pmcc_set:
                     # fast grower: reinvest as plain shares
                     buy = fc - reserve
+                    if spend_cap:
+                        buy = min(buy, cap - spent.get(bt, 0.0))
                     if buy > 0 and p > 0:
                         sh[bt] = sh.get(bt, 0.0) + buy / p
                         cash -= buy
+                        spent[bt] = spent.get(bt, 0.0) + buy
                 else:
                     sig = sig_m[i, ti[bt]]
                     if not np.isnan(sig) and sig > 0:
