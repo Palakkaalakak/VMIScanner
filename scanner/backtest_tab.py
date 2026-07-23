@@ -133,7 +133,8 @@ def render():
     sub = st.tabs(["📈 Equity curves", "🕯️ Candles", "📊 Year by year",
                    "🧱 Holdings & contribution", "🔍 Stock charts",
                    "📜 Trade log", "🌊 Corrections",
-                   "🎯 Options overlays", "🧪 Method & caveats"])
+                   "🎯 Options overlays", "🛒 Today's portfolio (2026)",
+                   "🧪 Method & caveats"])
 
     # ---------------- 1. equity curves (interactive) ----------------
     with sub[0]:
@@ -489,6 +490,58 @@ def render():
 
     # ---------------- 9. method ----------------
     with sub[8]:
+        _pf_path = os.path.join(BT, "portfolio_2026.json")
+        pf = (json.load(open(_pf_path))
+              if os.path.exists(_pf_path) else None)
+        if not pf:
+            st.info("Run the portfolio selection to generate "
+                    "`backtest/portfolio_2026.json`.")
+        else:
+            st.markdown("#### The 2026 book — 16 wide-moat greats, "
+                        "picked from the live scanner "
+                        f"({pf['source'].split('(')[1].rstrip(')')})")
+            st.caption("Same VMI rules that ran the backtests: scanner "
+                       "'great business' pass → manual moat check → buy "
+                       "only below intrinsic value → g ≤ 15% gets the "
+                       "PMCC overlay, faster growers stay plain shares. "
+                       "AI-linked exposure deliberately limited to 2 of "
+                       "16 names (ADI, GOOG) — reduced, not excluded.")
+            rows = pf["portfolio"]
+            pdf = pd.DataFrame([{
+                "Ticker": r["ticker"],
+                "Strategy": ("🎯 PMCC" if r["type"] == "PMCC"
+                             else "📈 Plain shares"),
+                "Proj. EPS growth %": r["g5"],
+                "Price $": r["price"],
+                "Intrinsic value $": r["iv"],
+                "Discount %": r["discount_pct"],
+                "Moat (manually verified)": r["moat"],
+            } for r in rows])
+            st.dataframe(pdf, use_container_width=True, hide_index=True,
+                         height=620)
+            c = pf["counts"]
+            st.success(f"**Action today:** all 16 names trade below "
+                       f"intrinsic value → open **tranche 1 in every "
+                       f"name now**. {c['pmcc']} PMCC names (buy "
+                       f"deep-ITM Δ0.80 LEAPS, spend ≤ 6.25% of account "
+                       f"value on premium, sell Δ0.42 monthlies, roll "
+                       f"shorts at Δ0.80) · {c['plain']} plain-share "
+                       f"names (⅓ of the 6.25% slot now). Adds: 200-day "
+                       f"SMA ×1.01 while under IV, ≥ 56 days apart. "
+                       f"Never trim winners.")
+            st.warning("**Data honesty:** several scanner names showed "
+                       "discounts above 80% (RL, MU, DECK, HSY, MNST, "
+                       "GRMN, DG, CTSH, IT) — those intrinsic values "
+                       "look like projection/split artifacts, so they "
+                       "were **excluded** rather than trusted. ADBE and "
+                       "INTU are cheap partly *because* the market "
+                       "fears AI disruption — that is the value bet, "
+                       "stated openly. All prices/IVs are from the "
+                       "2026-07-22 scan; re-check before placing "
+                       "orders.")
+
+    # ---------------- 10. method & caveats ----------------
+    with sub[9]:
         st.markdown("""
 #### The rules (set in January 2000, never changed)
 1. **Universe** — wide-moat great businesses, **zero dotcom/tech/telecom**.
