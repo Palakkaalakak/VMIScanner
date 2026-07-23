@@ -1,0 +1,57 @@
+{
+  "defensive": {
+    "final": 18209174,
+    "cagr_pct": 23.09,
+    "max_dd_pct": -17.0,
+    "cc_names": [
+      "ABT",
+      "BDX",
+      "BMY",
+      "CL",
+      "CLX",
+      "GD",
+      "GIS",
+      "HRL",
+      "HSY",
+      "JNJ",
+      "KMB",
+      "MCD",
+      "MRK",
+      "PEP",
+      "PG",
+      "UNH"
+    ],
+    "plain_names": [],
+    "call_net": 60338376,
+    "dividends": 28120305,
+    "calls_total": 4988
+  },
+  "growth": {
+    "final": 18677846,
+    "cagr_pct": 23.31,
+    "max_dd_pct": -29.5,
+    "cc_names": [
+      "AZO",
+      "CHD",
+      "CVS",
+      "ITW",
+      "NKE",
+      "ROST",
+      "SYY",
+      "TGT",
+      "TJX"
+    ],
+    "plain_names": [
+      "CAH",
+      "DHR",
+      "DLTR",
+      "LOW",
+      "ORLY",
+      "SBUX",
+      "SYK"
+    ],
+    "call_net": 24737710,
+    "dividends": 8902251,
+    "calls_total": 2825
+  }
+}
