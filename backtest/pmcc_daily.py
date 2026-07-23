@@ -78,10 +78,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     stays in cash and is recycled by the normal reinvest logic.
     spend_cap: enforce the stock-book allocation rule on NEW capital --
     cumulative fresh dollars committed to any one name (tranches +
-    reinvest adds) may never exceed cap = initial/16 (6.25%). Rolls that
-    merely recycle a position's own sale proceeds do NOT count (same as
-    a stock position growing past 6.25% by itself, which is never
-    trimmed)."""
+    reinvest adds) may never exceed 6.25% of CURRENT account value
+    (yesterday's mark -- no hindsight). The cap grows with the account,
+    so premium income is always reinvestable; it never dead-piles as
+    cash. Rolls that merely recycle a position's own sale proceeds do
+    NOT count, and a position that outgrows 6.25% by itself is never
+    trimmed."""
     if full_tranche:
         lev = float("inf")
     dates, px, dv, sma, sig_m, rfd, ti = (
@@ -137,6 +139,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         return sum(l[2] for l in lc.get(t, []))
 
     spent = {}          # t -> cumulative NEW capital committed (spend_cap)
+    cur_cap = cap       # 6.25% of current account value, updated daily
 
     def free_cash():
         return cash - sum(backing.values()) - sum(waiting.values())
@@ -150,7 +153,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
         avail = free_cash()
         budget = min(budget, avail)
         if spend_cap and new_capital:
-            budget = min(budget, cap - spent.get(t, 0.0))
+            budget = min(budget, cur_cap - spent.get(t, 0.0))
         if budget <= 0:
             return False
         e = exp_i(i, long_dte)
@@ -400,7 +403,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                 # fast grower: plain shares, no options at all
                 buy = min(tranche, free_cash())
                 if spend_cap:
-                    buy = min(buy, cap - spent.get(t, 0.0))
+                    buy = min(buy, cur_cap - spent.get(t, 0.0))
                 if buy > 0 and p > 0:
                     sh[t] = sh.get(t, 0.0) + buy / p
                     cash -= buy
@@ -440,7 +443,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
                     # fast grower: reinvest as plain shares
                     buy = fc - reserve
                     if spend_cap:
-                        buy = min(buy, cap - spent.get(bt, 0.0))
+                        buy = min(buy, cur_cap - spent.get(bt, 0.0))
                     if buy > 0 and p > 0:
                         sh[bt] = sh.get(bt, 0.0) + buy / p
                         cash -= buy
