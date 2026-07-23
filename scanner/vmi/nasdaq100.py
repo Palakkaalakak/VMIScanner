@@ -26,31 +26,36 @@ def fetch_nasdaq100(use_cache: bool = True,
                     cache_max_age: float = 86400 * 7) -> List[Dict]:
     """Fetch current Nasdaq-100 constituents from stockanalysis.com."""
     page = get(LIST_URL, use_cache=use_cache, cache_max_age=cache_max_age)
-    # Rows render as <a href="/stocks/meli/">MELI</a></td><td>Company.
-    pairs = re.findall(
-        r'href="/stocks/([a-z0-9.\-]+)/"[^>]*>[^<]*</a>\s*</td>\s*<td[^>]*>([^<]*)',
-        page)
+    # Scope to the constituents table body — page nav also contains
+    # /stocks/... links (SCREENER, COMPARE, ...) we must not pick up.
+    tbl = re.search(r"<tbody[^>]*>(.*?)</tbody>", page, re.S)
+    if not tbl:
+        raise RuntimeError("Nasdaq-100 list table not found "
+                           "(page layout changed?)")
+    body = tbl.group(1)
     out: List[Dict] = []
     seen = set()
-    if pairs and len(pairs) >= 50:
-        for slug, company in pairs:
-            t = slug.upper().replace(".", "-")
-            if t in seen:
-                continue
-            seen.add(t)
-            out.append({"ticker": t, "company": company.strip(),
-                        "sector": "", "sub_industry": "", "industry": "",
-                        "country": "", "market_cap": ""})
-    else:
-        # Fallback: ticker links only, no company names.
-        for slug in re.findall(r'href="/stocks/([a-z0-9.\-]+)/"', page):
-            t = slug.upper().replace(".", "-")
-            if t in seen:
-                continue
-            seen.add(t)
-            out.append({"ticker": t, "company": "", "sector": "",
-                        "sub_industry": "", "industry": "",
-                        "country": "", "market_cap": ""})
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", body, re.S):
+        m = re.search(r'href="/stocks/([a-z0-9.\-]+)/"[^>]*>', row)
+        if not m:
+            continue
+        t = m.group(1).upper().replace(".", "-")
+        if t in seen:
+            continue
+        seen.add(t)
+        tds = [re.sub(r"<[^>]+>", "", x).strip()
+               for x in re.findall(r"<td[^>]*>(.*?)</td>", row, re.S)]
+        # Layout: rank | ticker | company | ... — company is the first
+        # cell after the ticker cell that is non-numeric text.
+        company = ""
+        for cell in tds:
+            if cell and cell.upper() != t and not re.match(
+                    r"^[\d$%,.\-+ ]+$", cell):
+                company = cell
+                break
+        out.append({"ticker": t, "company": company, "sector": "",
+                    "sub_industry": "", "industry": "",
+                    "country": "", "market_cap": ""})
     if len(out) < 90:
         raise RuntimeError(
             f"Nasdaq-100 parse suspicious: only {len(out)} rows")
