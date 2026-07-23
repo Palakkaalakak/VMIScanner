@@ -221,6 +221,11 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
     for i in range(nD):
         d = dates[i]
         r = rfd[i]
+        # spend cap = 6.25% of CURRENT account value (yesterday's mark,
+        # no hindsight); grows with the account so premiums stay
+        # reinvestable instead of dead-piling as cash
+        if spend_cap and i > 0:
+            cur_cap = max(cap, eq[i - 1] / N16)
         # cash interest (daily, T-bill-ish = DGS10 path, consistent w/ rest)
         if cash > 0:
             inc = cash * r / 252
@@ -486,7 +491,7 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
             "long_rolls": n_longroll, "converts": n_convert,
             "cutlosses": n_cutloss,
             # spend-cap audit: proves the 6.25% new-capital rule held
-            "cap_per_name": round(cap),
+            "cap_per_name": round(cur_cap),
             "max_spent_per_name": round(max(spent.values())) if spent else 0,
             "names_at_cap": sum(1 for v in spent.values()
                                 if v >= cap * 0.999)}
