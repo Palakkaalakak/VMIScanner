@@ -497,18 +497,24 @@ def render():
             st.info("Run the portfolio selection to generate "
                     "`backtest/portfolio_2026.json`.")
         else:
-            st.markdown("#### The 2026 book — 16 wide-moat greats, "
-                        "picked from the live scanner "
+            st.markdown("#### The 2026 Anti-Bubble Bedrock book — 16 "
+                        "wide-moat greats, picked from the live scanner "
                         f"({pf['source'].split('(')[1].rstrip(')')})")
-            st.caption("Same VMI rules that ran the backtests: scanner "
-                       "'great business' pass → manual moat check → buy "
-                       "only below intrinsic value → g ≤ 15% gets the "
-                       "PMCC overlay, faster growers stay plain shares. "
-                       "AI-linked exposure deliberately limited to 2 of "
-                       "16 names (ADI, GOOG) — reduced, not excluded.")
+            st.caption("Workflow: scanner DCF first → manual moat "
+                       "verification second. Bottom-heavy on the "
+                       "bedrock pyramid — Healthcare (5) › Financial "
+                       "toll booths (3) › SaaS/vertical software (3) › "
+                       "Comms (2) › Consumer compounders (2) › "
+                       "Industrial services (1) › Materials (0 — LIN/"
+                       "ECL/SHW at fair value, Tier-3 'wait for the "
+                       "discount'). No commodity knife-fighters "
+                       "(INTC/AMD class rejected — no sustainable "
+                       "advantage). g ≤ 15% gets the PMCC overlay; "
+                       "faster growers stay plain shares.")
             rows = pf["portfolio"]
             pdf = pd.DataFrame([{
                 "Ticker": r["ticker"],
+                "Bedrock tier": r.get("tier", ""),
                 "Strategy": ("🎯 PMCC" if r["type"] == "PMCC"
                              else "📈 Plain shares"),
                 "Proj. EPS growth %": r["g5"],
@@ -529,16 +535,21 @@ def render():
                        f"names (⅓ of the 6.25% slot now). Adds: 200-day "
                        f"SMA ×1.01 while under IV, ≥ 56 days apart. "
                        f"Never trim winners.")
-            st.warning("**Data honesty:** several scanner names showed "
-                       "discounts above 80% (RL, MU, DECK, HSY, MNST, "
-                       "GRMN, DG, CTSH, IT) — those intrinsic values "
-                       "look like projection/split artifacts, so they "
-                       "were **excluded** rather than trusted. ADBE and "
-                       "INTU are cheap partly *because* the market "
-                       "fears AI disruption — that is the value bet, "
-                       "stated openly. All prices/IVs are from the "
-                       "2026-07-22 scan; re-check before placing "
-                       "orders.")
+            st.warning("**Data honesty:** scanner names with discounts "
+                       "above ~80% (WDAY, DPZ, YUM, MNST, HSY, DG, RL, "
+                       "MU, DECK, GRMN, CTSH, IT) look like projection/"
+                       "split artifacts and were **excluded** rather "
+                       "than trusted; ZTS (70.7%) also benched as "
+                       "borderline. NVO, CNSWF and DSGX from the "
+                       "bedrock image are not in the scanner universe "
+                       "— no DCF, no buy (rules first). ADBE and INTU "
+                       "are cheap partly *because* the market fears AI "
+                       "disruption — that is the value bet, stated "
+                       "openly. MSFT/META are the only AI-adjacent "
+                       "names, kept because they sit in the bedrock "
+                       "with diversified cash engines. All prices/IVs "
+                       "from the 2026-07-22 scan; re-check before "
+                       "placing orders.")
 
     # ---------------- 10. method & caveats ----------------
     with sub[9]:
