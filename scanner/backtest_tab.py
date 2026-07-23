@@ -328,4 +328,188 @@ def render():
 
     # ---------------- 7. corrections ----------------
     with sub[6]:
-        st.caption("Every peak-to-trough decline of *
+        st.caption("Every peak-to-trough decline of **7%+**, with how long the "
+                   "fall took and how long recovery took.")
+        for k in ("growth", "defensive", "spy"):
+            df = _corrections_df(stats, k)
+            worst = df["Depth %"].min() if not df.empty else 0
+            st.markdown(f"**{NICE[k]}** — {len(df)} corrections, "
+                        f"worst {worst:.1f}%")
+            if not df.empty:
+                st.dataframe(
+                    df.style.format({"Depth %": "{:+.1f}%"})
+                      .background_gradient(subset=["Depth %"], cmap="Reds_r"),
+                    use_container_width=True)
+        _img("drawdown_compare.png",
+             "Underwater chart — SPY spent most of the 14 years below a prior "
+             "peak; the VMI books recovered far faster")
+
+    # ---------------- 8. options overlays ----------------
+    with sub[7]:
+        if not (cc_stats or opt_stats):
+            st.info("Run `python backtest/cc_2000_2013.py` and "
+                    "`python backtest/options_2000_2013.py` to generate the "
+                    "options-overlay artifacts.")
+        if cc_stats:
+            st.markdown("#### ① Covered calls on the CC-viable names")
+            st.markdown(
+                "**The rule (repeatable, no hindsight):** sell monthly "
+                "~Δ0.42 calls only on names whose *book growth rate* "
+                "g ≤ 15%; hold faster growers untouched. The growth input "
+                "is the same era-documented figure already used by the DCF "
+                "— no new data needed.")
+            rows = []
+            for k in ("defensive", "growth"):
+                base = stats[k]
+                s = cc_stats[k]
+                rows.append({
+                    "Book": NICE[k],
+                    "Plain CAGR": f"{base['cagr_pct']}%",
+                    "With CC CAGR": f"{s['cagr_pct']}%",
+                    "Plain final": f"${base['final_value']:,.0f}",
+                    "With CC final": f"${s['final']:,.0f}",
+                    "CC max DD": f"{s['max_dd_pct']}%",
+                    "Calls on": f"{len(s['cc_names'])}/16"})
+            st.dataframe(pd.DataFrame(rows), use_container_width=True,
+                         hide_index=True)
+            st.caption(
+                "Growth-book names that got calls: "
+                + ", ".join(cc_stats["growth"]["cc_names"])
+                + " · held call-free: "
+                + ", ".join(cc_stats["growth"]["plain_names"]) + ".")
+        if sweep:
+            st.markdown("#### ② Is the 15% cutoff cherry-picked? "
+                        "(threshold sweep)")
+            st.markdown(
+                "Same 2000–2013 sim with the cutoff moved. **Honest "
+                "verdict: in THIS window, selling calls on everything was "
+                "better** — 2000–2013 was a sideways market, covered "
+                "calls’ best weather. The cutoff is there for trending "
+                "markets, where capping a compounder costs more than the "
+                "premium collected.")
+            sw_rows = []
+            for thr, d in sweep["growth"].items():
+                lab = "all 16" if float(thr) > 1 else f"g ≤ {float(thr):.0%}"
+                sw_rows.append({"Cutoff": lab, "Names with calls": d["n_cc"],
+                                "CAGR": f"{d['cagr_pct']}%",
+                                "Max DD": f"{d['max_dd_pct']}%"})
+            st.dataframe(pd.DataFrame(sw_rows), use_container_width=True,
+                         hide_index=True)
+            st.caption("Growth book, 2000–2013. The defensive book is "
+                       "insensitive — all 16 names are already ≤ 15%.")
+        if sweep_eras:
+            st.markdown("**Cross-era check (Dow-style books held to "
+                        "2026):** CAGR by cutoff")
+            er_rows = []
+            for yr_, d in sweep_eras.items():
+                r = {"Start": yr_}
+                for thr, v in d.items():
+                    lab = ("all" if float(thr) > 1
+                           else f"g≤{float(thr):.0%}")
+                    r[lab] = f"{v['cagr_pct']}%"
+                er_rows.append(r)
+            st.dataframe(pd.DataFrame(er_rows), use_container_width=True,
+                         hide_index=True)
+            st.caption(
+                "The pattern repeats in every era on these value books — "
+                "more calls, more return — because IV-gated entries buy "
+                "cheap, rarely-runaway names. The cutoff matters most when "
+                "the book holds true hyper-growers (SBUX/DLTR/ORLY at "
+                "22–27% growth).")
+        if opt_stats:
+            st.markdown("#### ③ PMCC instead of shares (leveraged)")
+            st.markdown(
+                "Same allocation rules — **6.25% per name in dollars "
+                "SPENT** (not exposure), 3 tranches, 56-day gaps, IV-gated "
+                "— but CC-viable names are held as deep-ITM (Δ0.80) LEAPS "
+                "calls with monthly short calls on top. A delta-80 call "
+                "costs ~20–25% of the stock, so each dollar controls "
+                "~4–5× the shares. **The leverage remains**: on a $1M "
+                "account you may spend at most $62.5k buying any one "
+                "name's calls — that $62.5k controls ~$250–300k of stock "
+                "— and if the position then grows past 6.25% of the "
+                "account on its own, it is NEVER trimmed (audited: all 16 "
+                "names hit exactly the $62.5k spend cap; none was cut "
+                "back).")
+            prows = []
+            for k in ("defensive", "growth"):
+                for v, nm in (("pmcc", "full pyramid"),
+                              ("pmcc_hp", "half-pyramid"),
+                              ("pmcc_conv", "convert→shares")):
+                    d = opt_stats.get(k, {}).get(v)
+                    if d:
+                        prows.append({
+                            "Book": NICE[k], "Variant": nm,
+                            "CAGR": f"{d['cagr_pct']}%",
+                            "Max DD": f"{d['max_dd_pct']}%",
+                            "Final": f"${d['final']:,.0f}"})
+            if prows:
+                st.dataframe(pd.DataFrame(prows), use_container_width=True,
+                             hide_index=True)
+            st.warning(
+                "Leverage cuts both ways: drawdowns run −30% to −90%, and "
+                "Black-Scholes pricing understates real-world spreads, "
+                "assignment risk and margin calls. The convert→shares "
+                "variant (bank the leveraged gain, become a plain "
+                "shareholder when the long call goes deep ITM) is the only "
+                "PMCC flavor with a survivable risk profile.")
+
+    # ---------------- 9. method ----------------
+    with sub[8]:
+        st.markdown("""
+#### The rules (set in January 2000, never changed)
+1. **Universe** — wide-moat great businesses, **zero dotcom/tech/telecom**.
+   Defensive book: healthcare + staples franchises. Growth book: proven
+   high-growth concepts (TJX, ROST, AZO, ORLY, SBUX, DHR, …).
+2. **Valuation gate** — course-style 20-year DCF: base flow ≈ trailing EPS ×
+   OCF-conversion; years 1–10 at analyst-era growth g, years 11–20 at 4%,
+   **no terminal value**; discount rate = 6.5% (Jan-2000 10y Treasury) +
+   β × 4% market-risk premium. **Buy only below intrinsic value.**
+3. **Position sizing** — $1M per account, 16 names, 6.25% cap, bought in
+   three tranches (~$20.8k each).
+4. **Adds only at support** — tranches 2–3 require price ≤ 40-week SMA
+   (weekly timeframe) **and** still under IV, minimum 8 weeks apart.
+5. **Sell only on business deterioration/fraud** — BMY (2002 channel-stuffing)
+   → PFE; UNH (2006 options backdating) → KO; CAH (2004 SEC probe) → GPC.
+   MRK was **held** through Vioxx (product withdrawal ≠ fraud).
+   Proceeds redeployed the same week.
+6. IV refreshed continuously, growing at min(g, 10%)/yr.
+
+#### Honest caveats
+- Jan-2000 P/E, growth, beta and OCF-conversion inputs are **documented-era
+  approximations**, not point-in-time database values.
+- The defensive tilt is the one allowed piece of hindsight; ticker survival
+  itself carries survivorship bias (FDO was unavailable → SYK).
+- Adjusted prices mean dividends are reinvested per-stock.
+- Scandal-sell dates use the actual news dates.
+- UNH is the strategy's honest cost: sold on the backdating scandal, it went
+  on to be a 9× stock — the rule still made sense *ex ante*.
+
+#### Options overlays — method
+- **Covered calls**: monthly ~Δ0.42 calls, rolled when Δ reaches 0.80,
+  written only on names with book growth g ≤ 15% (the CC-viable rule).
+  Premiums are reinvested into the cheapest below-IV book stock.
+- **PMCC**: Δ0.80 LEAPS (~150 DTE) instead of shares on CC-viable names,
+  Δ0.42 short calls (~35 DTE) on top; long rolled at 30 DTE. New capital
+  per name is capped at 6.25% of initial *in premium dollars spent* —
+  the cap limits what you PAY, not what you control. $62.5k of premium
+  buys calls on ~$250–300k of stock (the leverage remains), and once the
+  position outgrows 6.25% of the account by itself it is never trimmed —
+  exactly mirroring how a stock position is never cut for outgrowing its
+  weight. Rolls recycle a lot's own sale proceeds and do not count as new
+  capital.
+- **Pricing caveat**: real options history does not exist back to 2000, so
+  all option prices are **Black-Scholes at each stock's realized
+  volatility**. This ignores bid/ask spreads, early assignment, the vol
+  smile and margin — treat PMCC numbers as upper bounds, not
+  expectations.
+- **Bookkeeping caveat**: overlay sims run on unadjusted prices with cash
+  dividends credited explicitly; the base curves use adjusted prices
+  (dividends auto-reinvested). Same economics — compare shapes and
+  end-points, not pennies.
+- **PMCC forfeits dividends** on the option-held names — that, not time
+  decay, is its structural cost on these dividend-heavy books.
+""")
+        st.caption("Artifacts: `backtest/simulate2.py` (engine) · "
+                   "`trades.json` (structured log) · `stats2.json` · "
+                   "`charts/` (48 charts) — all committed to the repo.")
