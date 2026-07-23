@@ -424,13 +424,13 @@ def render():
                 "— but CC-viable names are held as deep-ITM (Δ0.80) LEAPS "
                 "calls with monthly short calls on top. A delta-80 call "
                 "costs ~20–25% of the stock, so each dollar controls "
-                "~4–5× the shares. **The leverage remains**: on a $1M "
-                "account you may spend at most $62.5k buying any one "
-                "name's calls — that $62.5k controls ~$250–300k of stock "
-                "— and if the position then grows past 6.25% of the "
-                "account on its own, it is NEVER trimmed (audited: all 16 "
-                "names hit exactly the $62.5k spend cap; none was cut "
-                "back).")
+                "~4–5× the shares. **The leverage remains**: you may "
+                "spend at most 6.25% of the CURRENT account value buying "
+                "any one name's calls (on $1M that's $62.5k controlling "
+                "~$250–300k of stock). The cap grows with the account, so "
+                "**all premium income is reinvested** — it never "
+                "dead-piles as cash — and a position that outgrows 6.25% "
+                "on its own is NEVER trimmed.")
             prows = []
             for k in ("defensive", "growth"):
                 for v, nm in (("pmcc", "full pyramid"),
@@ -491,12 +491,15 @@ def render():
   Premiums are reinvested into the cheapest below-IV book stock.
 - **PMCC**: Δ0.80 LEAPS (~150 DTE) instead of shares on CC-viable names,
   Δ0.42 short calls (~35 DTE) on top; long rolled at 30 DTE. New capital
-  per name is capped at 6.25% of initial *in premium dollars spent* —
-  the cap limits what you PAY, not what you control. $62.5k of premium
-  buys calls on ~$250–300k of stock (the leverage remains), and once the
-  position outgrows 6.25% of the account by itself it is never trimmed —
-  exactly mirroring how a stock position is never cut for outgrowing its
-  weight. Rolls recycle a lot's own sale proceeds and do not count as new
+  per name is capped at 6.25% of the *current account value*, in premium
+  dollars spent — the cap limits what you PAY, not what you control
+  ($62.5k of premium buys calls on ~$250–300k of stock; the leverage
+  remains). Because the cap grows with the account, every dollar of
+  premium income is reinvestable — premiums land in cash, count in the
+  account value, and are redeployed into the cheapest below-IV name.
+  Once a position outgrows 6.25% by itself it is never trimmed — exactly
+  mirroring how a stock position is never cut for outgrowing its weight.
+  Rolls recycle a lot's own sale proceeds and do not count as new
   capital.
 - **Pricing caveat**: real options history does not exist back to 2000, so
   all option prices are **Black-Scholes at each stock's realized
