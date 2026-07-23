@@ -481,7 +481,12 @@ def run_pmcc(D, book, rf, style="ds1", convert=False, full_tranche=False,
             "long_net_decay": round(long_paid - long_recv),
             "dividends": round(div_total), "interest": round(interest),
             "long_rolls": n_longroll, "converts": n_convert,
-            "cutlosses": n_cutloss}
+            "cutlosses": n_cutloss,
+            # spend-cap audit: proves the 6.25% new-capital rule held
+            "cap_per_name": round(cap),
+            "max_spent_per_name": round(max(spent.values())) if spent else 0,
+            "names_at_cap": sum(1 for v in spent.values()
+                                if v >= cap * 0.999)}
     return ser, meta
 
 
