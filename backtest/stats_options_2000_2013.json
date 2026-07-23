@@ -20,39 +20,39 @@
     ],
     "plain_names": [],
     "pmcc": {
-      "final": 88719262729,
-      "cagr_pct": 126.02,
-      "max_dd_pct": -75.6,
+      "final": 24975824,
+      "cagr_pct": 25.9,
+      "max_dd_pct": -47.0,
       "meta": {
-        "short_net": 210395960465023,
-        "long_net_decay": 212946832415653,
+        "short_net": 18565433,
+        "long_net_decay": 1000000,
         "dividends": 0,
-        "long_rolls": 29842,
+        "long_rolls": 3595,
         "converts": 0
       }
     },
     "pmcc_hp": {
-      "final": 77892261337,
-      "cagr_pct": 123.93,
-      "max_dd_pct": -90.2,
+      "final": 15217771,
+      "cagr_pct": 21.51,
+      "max_dd_pct": -14.3,
       "meta": {
-        "short_net": 322383705498046,
-        "long_net_decay": 333024687313702,
+        "short_net": 33340947,
+        "long_net_decay": 1164923,
         "dividends": 0,
-        "long_rolls": 79563,
+        "long_rolls": 3595,
         "converts": 0
       }
     },
     "pmcc_conv": {
-      "final": 23420457,
-      "cagr_pct": 25.32,
-      "max_dd_pct": -72.6,
+      "final": 9956444,
+      "cagr_pct": 17.88,
+      "max_dd_pct": -17.1,
       "meta": {
-        "short_net": 129690376,
-        "long_net_decay": -16689575,
-        "dividends": 44835199,
+        "short_net": 14591209,
+        "long_net_decay": -157085,
+        "dividends": 4186865,
         "long_rolls": 0,
-        "converts": 532
+        "converts": 46
       }
     }
   },
@@ -78,39 +78,39 @@
       "SYK"
     ],
     "pmcc": {
-      "final": 228196755,
-      "cagr_pct": 47.5,
-      "max_dd_pct": -59.7,
+      "final": 9584308,
+      "cagr_pct": 17.56,
+      "max_dd_pct": -17.6,
       "meta": {
-        "short_net": 7910230645,
-        "long_net_decay": 4272854533,
-        "dividends": 1160527845,
-        "long_rolls": 7102,
+        "short_net": 18360892,
+        "long_net_decay": 562500,
+        "dividends": 1003552,
+        "long_rolls": 1964,
         "converts": 0
       }
     },
     "pmcc_hp": {
-      "final": 80074999,
-      "cagr_pct": 36.85,
-      "max_dd_pct": -53.2,
+      "final": 23857701,
+      "cagr_pct": 25.49,
+      "max_dd_pct": -16.9,
       "meta": {
-        "short_net": 78435231,
-        "long_net_decay": -10035661,
-        "dividends": 32303940,
-        "long_rolls": 10967,
+        "short_net": 47576538,
+        "long_net_decay": -35739297,
+        "dividends": 1003552,
+        "long_rolls": 1964,
         "converts": 0
       }
     },
     "pmcc_conv": {
-      "final": 72914407,
-      "cagr_pct": 35.93,
-      "max_dd_pct": -32.5,
+      "final": 17471872,
+      "cagr_pct": 22.72,
+      "max_dd_pct": -22.3,
       "meta": {
-        "short_net": 177884584,
-        "long_net_decay": -22256192,
-        "dividends": 50673426,
+        "short_net": 25066542,
+        "long_net_decay": -40822,
+        "dividends": 4462017,
         "long_rolls": 0,
-        "converts": 227
+        "converts": 25
       }
     }
   }

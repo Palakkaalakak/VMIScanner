@@ -17,7 +17,13 @@ CHARTS = os.path.join(BT, "charts")
 
 NICE = {"defensive": "🛡️ Defensive", "growth": "🚀 Growth", "spy": "S&P 500 (SPY)",
         "defensive_cc": "🛡️ Defensive + covered calls",
-        "growth_cc": "🚀 Growth + covered calls"}
+        "growth_cc": "🚀 Growth + covered calls",
+        "defensive_pmcc": "🛡️ Defensive PMCC (full pyramid)",
+        "growth_pmcc": "🚀 Growth PMCC (full pyramid)",
+        "defensive_pmcc_hp": "🛡️ Defensive PMCC (half-pyramid)",
+        "growth_pmcc_hp": "🚀 Growth PMCC (half-pyramid)",
+        "defensive_pmcc_conv": "🛡️ Defensive PMCC→shares",
+        "growth_pmcc_conv": "🚀 Growth PMCC→shares"}
 
 
 @st.cache_data(show_spinner=False)
@@ -30,13 +36,27 @@ def _load():
         if os.path.exists(p):
             eq[k + "_cc"] = pd.read_csv(p, index_col=0,
                                         parse_dates=True).iloc[:, 0]
+    for k in ("defensive", "growth"):
+        for v in ("pmcc", "pmcc_hp", "pmcc_conv"):
+            p = os.path.join(BT, f"eq_{k}_{v}.csv")
+            if os.path.exists(p):
+                eq[f"{k}_{v}"] = pd.read_csv(p, index_col=0,
+                                             parse_dates=True).iloc[:, 0]
     stats = json.load(open(os.path.join(BT, "stats2.json")))
     trades = json.load(open(os.path.join(BT, "trades.json")))
-    cc_path = os.path.join(BT, "stats_cc_2000_2013.json")
-    cc_stats = json.load(open(cc_path)) if os.path.exists(cc_path) else None
+
+    def _j(name):
+        p = os.path.join(BT, name)
+        return json.load(open(p)) if os.path.exists(p) else None
+
+    cc_stats = _j("stats_cc_2000_2013.json")
+    opt_stats = _j("stats_options_2000_2013.json")
+    sweep = _j("cc_threshold_sweep.json")
+    sweep_eras = _j("cc_sweep_eras.json")
     ret_path = os.path.join(CHARTS, "stock_returns.csv")
     stock_ret = pd.read_csv(ret_path) if os.path.exists(ret_path) else None
-    return eq, stats, trades, stock_ret, cc_stats
+    return (eq, stats, trades, stock_ret, cc_stats, opt_stats,
+            sweep, sweep_eras)
 
 
 def _img(name, caption=None, subdir=None):
@@ -67,7 +87,8 @@ def render():
                 "`python backtest/simulate2.py` then `python backtest/plot_suite.py`.")
         return
 
-    eq, stats, trades, stock_ret, cc_stats = _load()
+    (eq, stats, trades, stock_ret, cc_stats, opt_stats,
+     sweep, sweep_eras) = _load()
 
     st.markdown("### 🕰️ VMI 2000–2013 backtest — standing in January 2000")
     st.caption(
@@ -110,7 +131,8 @@ def render():
 
     sub = st.tabs(["📈 Equity curves", "🕯️ Candles", "📊 Year by year",
                    "🧱 Holdings & contribution", "🔍 Stock charts",
-                   "📜 Trade log", "🌊 Corrections", "🧪 Method & caveats"])
+                   "📜 Trade log", "🌊 Corrections",
+                   "🎯 Options overlays", "🧪 Method & caveats"])
 
     # ---------------- 1. equity curves (interactive) ----------------
     with sub[0]:
@@ -137,6 +159,20 @@ def render():
                         "spy"]
                 colors = ["#1f77b4", "#7fbfef", "#2ca02c", "#98df8a",
                           "#888888"]
+        has_pmcc = "defensive_pmcc" in eq
+        if has_pmcc:
+            show_pmcc = st.toggle(
+                "Overlay: PMCC (deep-ITM long calls instead of shares, "
+                "leveraged)", value=False,
+                help="Same value/tranche rules, but CC-viable names are "
+                     "held via delta-80 LEAPS calls with monthly short "
+                     "calls on top (natural ~4-5\u00d7 leverage). Spend per name "
+                     "capped at 6.25% of capital \u2014 in dollars spent, not "
+                     "exposure. WARNING: huge drawdowns.")
+            if show_pmcc:
+                keys = keys[:-1] + ["defensive_pmcc_conv", "growth_pmcc",
+                                    "spy"]
+                colors = colors[:-1] + ["#d62728", "#ff7f0e", "#888888"]
         df = pd.DataFrame({NICE[k]: eq[k] for k in keys})
         if norm:
             df = df / df.iloc[0]
@@ -186,8 +222,14 @@ def render():
 
     # ---------------- 3. annual returns ----------------
     with sub[2]:
+        yr_keys = ["defensive", "growth", "spy"]
+        if "defensive_cc" in eq and st.toggle(
+                "Include covered-call variants", value=False,
+                key="bt_yr_cc"):
+            yr_keys = ["defensive", "defensive_cc", "growth", "growth_cc",
+                       "spy"]
         yr = pd.DataFrame({k: eq[k].resample("YE").last()
-                           for k in ("defensive", "growth", "spy")})
+                           for k in yr_keys})
         yr.loc[pd.Timestamp("1999-12-31")] = 1_000_000.0
         yr = (yr.sort_index().pct_change().dropna() * 100).round(1)
         yr.index = yr.index.year
