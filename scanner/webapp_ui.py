@@ -13,19 +13,32 @@ from datetime import datetime, timezone
 import pandas as pd
 import streamlit as st
 
+try:
+    from scanner.i18n import tr
+except ImportError:
+    from i18n import tr
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_PATH = os.path.join(REPO_ROOT, "public", "data", "scan_results.json")
 ADHOC_PATH = "/tmp/adhoc_scan.json"
 
 st.set_page_config(page_title="VMI Great Business Scanner", page_icon="📈",
                    layout="wide")
-st.title("📈 VMI Great Business Scanner")
-st.caption("S&P 500 + Dow Jones 30 (toggle) · fundamentals-only checklist · SEC Company Facts primary, "
+
+with st.sidebar:
+    _it = st.toggle(tr("🇮🇹 Italiano"), value=(st.session_state.get("lang") == "it"),
+                    key="lang_toggle",
+                    help="OFF: English (default) · ON: Italiano — traduzione "
+                         "con terminologia finanziaria italiana corretta")
+    st.session_state["lang"] = "it" if _it else "en"
+
+st.title(tr("📈 VMI Great Business Scanner"))
+st.caption(tr("S&P 500 + Dow Jones 30 (toggle) · fundamentals-only checklist · SEC Company Facts primary, "
            "Yahoo + macrotrends fallbacks · trend/average checks require the "
            "full 20y window by default (toggle allows 20/15/10y any-pass) · "
            "IV = v13 sector-calibrated 20y DCF (StockOracle-matched: per-sector "
            "base-flow blend + fitted growth model, CAPM discount, + net cash; "
-           "no terminal value · 36/36 calibration tickers within ±7%)")
+           "no terminal value · 36/36 calibration tickers within ±7%)"))
 
 
 def run_scan(extra_args: list, label: str):
@@ -57,24 +70,24 @@ def run_scan(extra_args: list, label: str):
 
 
 with st.sidebar:
-    st.header("Run scanner")
+    st.header(tr("Run scanner"))
     any_window = st.toggle(
-        "Allow 20/15/10y any-pass", value=False,
+        tr("Allow 20/15/10y any-pass"), value=False,
         help="OFF (default): trend/average checks must pass on the FULL "
              "20-year window. ON: the older lenient rule — pass if ANY of "
              "the 20y/15y/10y windows passes.")
     accept_5y = st.toggle(
-        "Accept 5y-only passes", value=False,
+        tr("Accept 5y-only passes"), value=False,
         help="ON: a trend/average check passes if the 5y window alone "
              "passes. OFF (default): 5y alone yields WARN — a long "
              "window must pass.")
     include_dow = st.toggle(
-        "Include Dow Jones 30", value=True,
+        tr("Include Dow Jones 30"), value=True,
         help="ON (default): scan universe = S&P 500 merged with the current "
              "Dow Jones Industrial Average 30 components (duplicates removed). "
              "OFF: S&P 500 only.")
-    fresh = st.checkbox("Force fresh data (ignore cache)", value=False)
-    rescore = st.checkbox("Re-score all tickers (no resume)", value=True)
+    fresh = st.checkbox(tr("Force fresh data (ignore cache)"), value=False)
+    rescore = st.checkbox(tr("Re-score all tickers (no resume)"), value=True)
 
     def _common_args():
         a = []
@@ -97,9 +110,9 @@ with st.sidebar:
         run_scan(args, f"full {scan_label} scan (~1.5 min)")
 
     st.divider()
-    st.subheader("Scan specific tickers")
-    tickers_in = st.text_input("Comma-separated tickers", placeholder="AAPL, CNSWF, EVVTY")
-    if st.button("Scan tickers", use_container_width=True) and tickers_in.strip():
+    st.subheader(tr("Scan specific tickers"))
+    tickers_in = st.text_input(tr("Comma-separated tickers"), placeholder="AAPL, CNSWF, EVVTY")
+    if st.button(tr("Scan tickers"), use_container_width=True) and tickers_in.strip():
         args = (["--tickers", tickers_in.replace(" ", ""), "--no-resume",
                  "--out", ADHOC_PATH] + _common_args())
         st.session_state["show_adhoc"] = True
@@ -116,14 +129,14 @@ def _render_ticker_detail(r):
         return
     if m.get("intrinsic_value") is not None:
         d1, d2, d3, d4 = st.columns(4)
-        d1.metric("Price", f"${m.get('price'):,.2f}" if m.get("price") else "—")
-        d2.metric("Intrinsic value (DCF)", f"${m['intrinsic_value']:,.2f}")
+        d1.metric(tr("Price"), f"${m.get('price'):,.2f}" if m.get("price") else "—")
+        d2.metric(tr("Intrinsic value (DCF)"), f"${m['intrinsic_value']:,.2f}")
         disc = m.get("discount_pct")
         disc_txt = ("—" if disc is None
                     else f"({abs(disc):.1f}%)" if disc < 0 else f"{disc:.1f}%")
-        d3.metric("Discount", disc_txt,
+        d3.metric(tr("Discount"), disc_txt,
                   help="x% = trading below intrinsic value; (x%) = premium above IV")
-        d4.metric("DCF growth used", f"{m.get('dcf_growth_used', 0):.1f}%/yr")
+        d4.metric(tr("DCF growth used"), f"{m.get('dcf_growth_used', 0):.1f}%/yr")
     checks = pd.DataFrame([{
         "Check": ch["name"],
         "Status": {"PASS": "✅ PASS", "FAIL": "❌ FAIL",
@@ -151,7 +164,7 @@ div[data-testid="stTabs"] > div > div[role="tablist"] button[aria-selected="true
     background: #e8f0fe; border-bottom: 4px solid #1a73e8;
 }
 </style>""", unsafe_allow_html=True)
-tab_scan, tab_bt = st.tabs(["🔎 Scanner", "🕰️ Backtest 2000–2013"])
+tab_scan, tab_bt = st.tabs([tr("🔎 Scanner"), tr("🕰️ Backtest 2000–2013")])
 
 with tab_bt:
     try:
@@ -173,7 +186,7 @@ with tab_scan:
         if adhoc_rows:
             hdr, btn = st.columns([5, 1])
             hdr.subheader("🎯 Specific-ticker scan results")
-            if btn.button("Dismiss", key="dismiss_adhoc"):
+            if btn.button(tr("Dismiss"), key="dismiss_adhoc"):
                 st.session_state["show_adhoc"] = False
                 st.rerun()
             ts = adhoc.get("generated_at", "")[:19].replace("T", " ")
@@ -199,8 +212,8 @@ with tab_scan:
             st.divider()
 
     if not os.path.exists(RESULTS_PATH):
-        st.info("No results yet — hit **Run full scan** in the sidebar "
-                "(S&P 500 + Dow 30 by default).")
+        st.info(tr("No results yet — hit **Run full scan** in the sidebar "
+                "(S&P 500 + Dow 30 by default)."))
         st.stop()
 
     with open(RESULTS_PATH) as f:
@@ -208,11 +221,11 @@ with tab_scan:
 
     c = data.get("counts", {})
     m1, m2, m3, m4, m5 = st.columns(5)
-    m1.metric("✅ Great", c.get("great", 0))
-    m2.metric("🟡 Near miss (1 fail)", c.get("near_miss", 0))
-    m3.metric("❌ Failed", c.get("failed", 0))
-    m4.metric("Errors", c.get("errors", 0))
-    m5.metric("Excluded", data.get("excluded_count", 0),
+    m1.metric(tr("✅ Great"), c.get("great", 0))
+    m2.metric(tr("🟡 Near miss (1 fail)"), c.get("near_miss", 0))
+    m3.metric(tr("❌ Failed"), c.get("failed", 0))
+    m4.metric(tr("Errors"), c.get("errors", 0))
+    m5.metric(tr("Excluded"), data.get("excluded_count", 0),
               help="ETFs / banks / REITs — VMI exception rules need data we don't have")
     st.caption(f"Last scan: {data.get('generated_at', '')[:19].replace('T', ' ')} UTC "
                f"· universe {data.get('universe_size', '?')} tickers "
@@ -284,10 +297,10 @@ with tab_scan:
 
     # ---- Base filters -----------------------------------------------------
     fc1, fc2, fc3 = st.columns([2, 2, 3])
-    verdict_f = fc1.multiselect("Verdict", ["✅ GREAT", "🟡 NEAR", "❌ FAIL"],
+    verdict_f = fc1.multiselect(tr("Verdict"), ["✅ GREAT", "🟡 NEAR", "❌ FAIL"],
                                 default=["✅ GREAT"])
-    sector_f = fc2.multiselect("Sector", sorted(x for x in df["Sector"].unique() if x))
-    search = fc3.text_input("Search ticker / company")
+    sector_f = fc2.multiselect(tr("Sector"), sorted(x for x in df["Sector"].unique() if x))
+    search = fc3.text_input(tr("Search ticker / company"))
 
     view = df[df["Verdict"].isin(verdict_f)] if verdict_f else df
     if sector_f:
@@ -303,11 +316,11 @@ with tab_scan:
         if col not in ("Ticker", "Company", "Sector", "Verdict", "Source")
         and pd.api.types.is_numeric_dtype(df[col]))
 
-    with st.expander("🔧 Custom filters & sorting (all known data)", expanded=False):
-        st.caption("Stack any number of numeric filters on top of the verdict "
+    with st.expander(tr("🔧 Custom filters & sorting (all known data)"), expanded=False):
+        st.caption(tr("Stack any number of numeric filters on top of the verdict "
                    "filter above. Blank rows in the data (NA) are **kept** by "
-                   "default — NA never disqualifies — untick to drop them.")
-        n_filters = st.number_input("Number of custom filters", 0, 8, 0)
+                   "default — NA never disqualifies — untick to drop them."))
+        n_filters = st.number_input(tr("Number of custom filters"), 0, 8, 0)
         for i in range(int(n_filters)):
             f1, f2, f3, f4 = st.columns([3, 2, 2, 2])
             field = f1.selectbox(f"Field #{i+1}", numeric_fields, key=f"ff{i}")
@@ -316,7 +329,7 @@ with tab_scan:
             hi_default = float(col_data.max()) if len(col_data) else 0.0
             lo = f2.number_input("Min", value=lo_default, key=f"lo{i}")
             hi = f3.number_input("Max", value=hi_default, key=f"hi{i}")
-            keep_na = f4.checkbox("Keep NA", value=True, key=f"na{i}")
+            keep_na = f4.checkbox(tr("Keep NA"), value=True, key=f"na{i}")
             mask = (view[field] >= lo) & (view[field] <= hi)
             if keep_na:
                 mask = mask | view[field].isna()
@@ -324,7 +337,7 @@ with tab_scan:
 
         st.divider()
         s1, s2 = st.columns([3, 2])
-        sort_by = s1.selectbox("Sort by", ["(none)"] + numeric_fields
+        sort_by = s1.selectbox(tr("Sort by"), ["(none)"] + numeric_fields
                                + ["Ticker", "Company", "Sector"])
         sort_dir = s2.radio("Direction", ["Descending", "Ascending"],
                             horizontal=True)
@@ -333,7 +346,7 @@ with tab_scan:
                                     na_position="last")
 
         show_all_cols = st.checkbox(
-            "Show ALL data columns in the table (CAGRs, projections, …)",
+            tr("Show ALL data columns in the table (CAGRs, projections, …)"),
             value=False)
 
     st.caption(f"{len(view)} stocks shown · you can also click any column header "
@@ -342,10 +355,10 @@ with tab_scan:
     table = view if show_all_cols else view[MAIN_COLS]
     st.dataframe(table.reset_index(drop=True), use_container_width=True, height=460)
 
-    st.subheader("Check detail")
-    pick = st.selectbox("Ticker", [""] + view["Ticker"].tolist())
+    st.subheader(tr("Check detail"))
+    pick = st.selectbox(tr("Ticker"), [""] + view["Ticker"].tolist())
     if pick:
         r = next(x for x in rows if x["ticker"] == pick)
         _render_ticker_detail(r)
-        st.caption("NA = data not reported by the source or check not applicable "
-                   "to this company type — NA never disqualifies a stock.")
+        st.caption(tr("NA = data not reported by the source or check not applicable "
+                   "to this company type — NA never disqualifies a stock."))
