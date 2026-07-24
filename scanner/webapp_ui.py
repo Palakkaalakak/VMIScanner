@@ -101,7 +101,7 @@ with st.sidebar:
 
     scan_label = "S&P 500 + Dow 30" if include_dow else "S&P 500"
     if st.button(f"🚀 Run full {scan_label} scan", type="primary",
-                 use_container_width=True):
+                 width="stretch"):
         args = _common_args()
         if fresh:
             args.append("--no-cache")
@@ -112,7 +112,7 @@ with st.sidebar:
     st.divider()
     st.subheader(tr("Scan specific tickers"))
     tickers_in = st.text_input(tr("Comma-separated tickers"), placeholder="AAPL, CNSWF, EVVTY")
-    if st.button(tr("Scan tickers"), use_container_width=True) and tickers_in.strip():
+    if st.button(tr("Scan tickers"), width="stretch") and tickers_in.strip():
         args = (["--tickers", tickers_in.replace(" ", ""), "--no-resume",
                  "--out", ADHOC_PATH] + _common_args())
         st.session_state["show_adhoc"] = True
@@ -143,7 +143,7 @@ def _render_ticker_detail(r):
                    "WARN": "⚠️ WARN", "NA": "➖ NA"}.get(ch["status"], ch["status"]),
         "Value": ch.get("value", ""), "Note": ch.get("detail", ""),
     } for ch in r.get("checks", [])])
-    st.dataframe(checks, use_container_width=True, height=530)
+    st.dataframe(checks, width="stretch", height=530)
 
 
 def _verdict(r):
@@ -219,7 +219,7 @@ with tab_scan:
                     "Discount %": (r.get("metrics") or {}).get("discount_pct"),
                     "Source": r.get("data_source", ""),
                 } for r in ok_rows])
-                st.dataframe(summary, use_container_width=True, hide_index=True,
+                st.dataframe(summary, width="stretch", hide_index=True,
                              column_config={
                                  "Price $": st.column_config.NumberColumn(format="dollar"),
                                  "Intrinsic Value $": st.column_config.NumberColumn(format="dollar"),
@@ -377,7 +377,7 @@ with tab_scan:
                   "ascending/descending · Discount % > 0 = below intrinsic "
                   "value, < 0 = premium").replace("{n}", str(len(view))))
     table = view if show_all_cols else view[MAIN_COLS]
-    st.dataframe(table.reset_index(drop=True), use_container_width=True,
+    st.dataframe(table.reset_index(drop=True), width="stretch",
                  height=460, column_config=_COL_CONFIG, hide_index=True)
 
     st.subheader(tr("Check detail"))

@@ -75,14 +75,14 @@ def _table(df, money=(), pct=(), height=None):
     for c in pct:
         if c in df.columns:
             cfg[c] = st.column_config.NumberColumn(format="%.2f%%")
-    st.dataframe(df, use_container_width=True, hide_index=True,
+    st.dataframe(df, width="stretch", hide_index=True,
                  column_config=cfg, height=height)
 
 
 def _img(name, caption=None, subdir=None):
     p = os.path.join(CHARTS, subdir, name) if subdir else os.path.join(CHARTS, name)
     if os.path.exists(p):
-        st.image(p, caption=caption, use_container_width=True)
+        st.image(p, caption=caption, width="stretch")
     else:
         st.caption(f"(chart not found: {name})")
 
@@ -226,7 +226,7 @@ def render():
                 tooltip=["Date:T", "Portfolio:N",
                          alt.Tooltip("Value:Q", format=",.0f")])
                 .properties(height=430).interactive())
-            st.altair_chart(ch, use_container_width=True)
+            st.altair_chart(ch, width="stretch")
         except Exception:
             st.line_chart(df, height=430)
         st.caption(tr("Hover for values · drag to zoom · double-click to reset."))
@@ -282,7 +282,7 @@ def render():
         st.dataframe(
             yr.style.format("{:+.1f}%")
               .map(lambda v: "color:#c62828" if v < 0 else "color:#2e7d32"),
-            use_container_width=True)
+            width="stretch")
         _img("annual_returns.png", "Same data, labeled bar chart")
         _img("rolling_cagr.png",
              "Rolling 3-year CAGR — the growth account never had a negative "
@@ -309,7 +309,7 @@ def render():
                                 "Px 2000": "{:.2f}", "Px 2013": "{:.2f}"},
                                na_rep="— (sold)")
                  .background_gradient(subset=["Final value $"], cmap="Greens"),
-                use_container_width=True, height=600)
+                width="stretch", height=600)
             top = t.iloc[0]
             st.caption(f"Biggest winner: **{top['Ticker']}** — "
                        f"${top['Invested $']:,.0f} invested became "
@@ -341,7 +341,7 @@ def render():
             tick, acct2 = pick.split("_")
             tt = [x for x in trades[acct2]["trades"] if x["ticker"] == tick]
             if tt:
-                st.dataframe(pd.DataFrame(tt), use_container_width=True)
+                st.dataframe(pd.DataFrame(tt), width="stretch")
 
     # ---------------- 6. trade log ----------------
     with sub[5]:
@@ -357,7 +357,7 @@ def render():
         c.metric(tr("Scandal sells"), int(n_sell))
         d.metric(tr("Total capital deployed"),
                  f"${tl[tl['action'] != 'SELL']['amount'].sum():,.0f}")
-        st.dataframe(tl, use_container_width=True, height=520,
+        st.dataframe(tl, width="stretch", height=520,
                      hide_index=True,
                      column_config={
                          "amount": st.column_config.NumberColumn(
@@ -383,7 +383,7 @@ def render():
                 st.dataframe(
                     df.style.format({"Depth %": "{:+.1f}%"})
                       .background_gradient(subset=["Depth %"], cmap="Reds_r"),
-                    use_container_width=True)
+                    width="stretch")
         _img("drawdown_compare.png",
              "Underwater chart — SPY spent most of the 14 years below a prior "
              "peak; the VMI books recovered far faster")
