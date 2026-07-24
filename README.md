@@ -141,3 +141,40 @@ to force fresh data.
 - **Status**: Dashboard built and tested locally; not yet deployed to Cloudflare
 - **Tech Stack**: Hono + TypeScript (frontend shell) + Python 3 scanner (data pipeline) + Tailwind CSS (CDN)
 - **Last Updated**: 2026-07-15
+
+## Publishing / Deployment (Streamlit app)
+
+The dashboard is a standard Streamlit app — the easiest free public host is
+**Streamlit Community Cloud**:
+
+1. Push this repo to GitHub (already at `Palakkaalakak/VMIScanner`).
+2. Go to https://share.streamlit.io → "New app" → pick the repo,
+   branch `main`, main file **`scanner/webapp_ui.py`**.
+3. Python dependencies are read automatically from **`requirements.txt`**;
+   the theme comes from **`.streamlit/config.toml`**.
+4. Done — you get a permanent `https://<name>.streamlit.app` URL.
+
+Self-hosting alternative (any Linux box):
+```bash
+pip install -r requirements.txt
+streamlit run scanner/webapp_ui.py --server.port 8501 --server.headless true
+```
+
+Notes for public deployment:
+- The **"Run full scan"** button shells out to the scanner and `git push`es
+  results — on a public host you may want to hide the sidebar controls or
+  fork a read-only variant (the app renders fine from the committed
+  `public/data/scan_results.json` + `backtest/` artifacts without ever
+  scanning).
+- Language toggle (🇮🇹) at the top of the sidebar: English default,
+  full Italian translation with correct financial terminology.
+- All tables sort numerically by clicking column headers (values are kept
+  numeric; formatting is display-only via `column_config`).
+
+## Data integrity policy
+Every number shown is derived from committed artifacts (`backtest/*.json`,
+`backtest/eq*.csv`, `public/data/scan_results.json`) — a cross-check script
+verifies stats↔curve consistency (final values, CAGRs, sub-period CAGRs,
+max drawdowns). No invented numbers: anything unavailable renders as NA/N‑D.
+
+**Last audited**: 2026-07-24 — 0 discrepancies across 34 artifact pairs.
