@@ -75,8 +75,9 @@ def _table(df, money=(), pct=(), height=None):
     for c in pct:
         if c in df.columns:
             cfg[c] = st.column_config.NumberColumn(format="%.2f%%")
+    kwargs = {"height": height} if height is not None else {}
     st.dataframe(df, width="stretch", hide_index=True,
-                 column_config=cfg, height=height)
+                 column_config=cfg, **kwargs)
 
 
 def _img(name, caption=None, subdir=None):
