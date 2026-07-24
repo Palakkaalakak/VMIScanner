@@ -280,6 +280,41 @@ IT = {
     "🛡️ Defensive + PMCC": "🛡️ Difensivo + PMCC",
     "🚀 Growth + PMCC": "🚀 Crescita + PMCC",
 
+    # ---------- table headers (options tab, sortable numeric tables) ----------
+    "Book": "Conto",
+    "Plain CAGR %": "CAGR solo azioni %",
+    "With CC CAGR %": "CAGR con CC %",
+    "Plain final $": "Finale solo azioni $",
+    "With CC final $": "Finale con CC $",
+    "CC max DD %": "Max drawdown CC %",
+    "Calls on": "Call vendute su",
+    "Cutoff": "Soglia",
+    "Names with calls": "Titoli con call",
+    "CAGR %": "CAGR %",
+    "Max DD %": "Max drawdown %",
+    "Start": "Inizio",
+    "Variant": "Variante",
+    "Final $": "Valore finale $",
+    "CAGR 2000–26 %": "CAGR 2000–26 %",
+    "CAGR 00–13 %": "CAGR 00–13 %",
+    "CAGR 13–26 %": "CAGR 13–26 %",
+    "Final ($1M start)": "Finale (partenza 1 M$)",
+    "buy & hold": "buy & hold",
+    "covered calls": "covered call",
+    "PMCC→shares": "PMCC→azioni",
+    "PMCC half-pyramid": "PMCC mezza piramide",
+    "PMCC full pyramid": "PMCC piramide completa",
+    "full pyramid": "piramide completa",
+    "half-pyramid": "mezza piramide",
+    "convert→shares": "conversione→azioni",
+    "Direction": "Direzione",
+    "{n} stocks shown · click any column header to sort "
+    "ascending/descending · Discount % > 0 = below intrinsic "
+    "value, < 0 = premium":
+        "{n} titoli mostrati · clicca l'intestazione di una colonna per "
+        "ordinare in modo crescente/decrescente · Sconto % > 0 = sotto il "
+        "valore intrinseco, < 0 = a premio",
+
     # ---------- shared ----------
     "Dismiss": "Chiudi",
     "NA": "N/D",

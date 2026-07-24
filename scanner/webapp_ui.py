@@ -203,7 +203,11 @@ with tab_scan:
                     "Discount %": (r.get("metrics") or {}).get("discount_pct"),
                     "Source": r.get("data_source", ""),
                 } for r in ok_rows])
-                st.dataframe(summary, use_container_width=True)
+                st.dataframe(summary, use_container_width=True, hide_index=True,
+                             column_config={
+                                 "Price $": st.column_config.NumberColumn(format="dollar"),
+                                 "Intrinsic Value $": st.column_config.NumberColumn(format="dollar"),
+                                 "Discount %": st.column_config.NumberColumn(format="%.1f%%")})
             for r in sorted(adhoc_rows, key=lambda x: x["ticker"]):
                 with st.expander(f"{r['ticker']} — "
                                  f"{_verdict(r) if not r.get('error') else '⚠️ ERROR'}",
@@ -280,20 +284,22 @@ with tab_scan:
     df = pd.DataFrame([_row(r) for r in rows])
 
 
-    def _fmt_disc(v):
-        if v is None or pd.isna(v):
-            return ""
-        return f"({abs(v):.1f}%)" if v < 0 else f"{v:.1f}%"
-
-
-    if "Discount %" in df.columns:
-        df["Discount"] = df["Discount %"].map(_fmt_disc)
-
-    # Main visible columns (the CAGR/projection columns were removed per request;
-    # replaced by Price / Intrinsic Value / Discount).
+    # Main visible columns. "Discount %" stays NUMERIC so that clicking the
+    # column header sorts by value (a formatted string would sort
+    # alphabetically — that was the old "seemingly random" ordering).
     MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
-                 "Score", "Price $", "Intrinsic Value $", "Discount", "Source"]
+                 "Score", "Price $", "Intrinsic Value $", "Discount %",
+                 "Source"]
     MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
+
+    _COL_CONFIG = {
+        "Price $": st.column_config.NumberColumn(format="dollar"),
+        "Intrinsic Value $": st.column_config.NumberColumn(format="dollar"),
+        "Discount %": st.column_config.NumberColumn(
+            format="%.1f%%",
+            help="Positive = trading below intrinsic value; "
+                 "negative = premium above IV"),
+    }
 
     # ---- Base filters -----------------------------------------------------
     fc1, fc2, fc3 = st.columns([2, 2, 3])
@@ -339,21 +345,24 @@ with tab_scan:
         s1, s2 = st.columns([3, 2])
         sort_by = s1.selectbox(tr("Sort by"), ["(none)"] + numeric_fields
                                + ["Ticker", "Company", "Sector"])
-        sort_dir = s2.radio("Direction", ["Descending", "Ascending"],
+        sort_dir = s2.radio(tr("Direction"),
+                            [tr("Descending"), tr("Ascending")],
                             horizontal=True)
         if sort_by != "(none)":
-            view = view.sort_values(sort_by, ascending=(sort_dir == "Ascending"),
-                                    na_position="last")
+            view = view.sort_values(
+                sort_by, ascending=(sort_dir == tr("Ascending")),
+                na_position="last", kind="mergesort")
 
         show_all_cols = st.checkbox(
             tr("Show ALL data columns in the table (CAGRs, projections, …)"),
             value=False)
 
-    st.caption(f"{len(view)} stocks shown · you can also click any column header "
-               "to sort · Discount shows % below IV; (x%) in parentheses = premium "
-               "above IV · sort by the numeric 'Discount %' field in custom filters")
+    st.caption(tr("{n} stocks shown · click any column header to sort "
+                  "ascending/descending · Discount % > 0 = below intrinsic "
+                  "value, < 0 = premium").replace("{n}", str(len(view))))
     table = view if show_all_cols else view[MAIN_COLS]
-    st.dataframe(table.reset_index(drop=True), use_container_width=True, height=460)
+    st.dataframe(table.reset_index(drop=True), use_container_width=True,
+                 height=460, column_config=_COL_CONFIG, hide_index=True)
 
     st.subheader(tr("Check detail"))
     pick = st.selectbox(tr("Ticker"), [""] + view["Ticker"].tolist())

@@ -65,6 +65,20 @@ def _load():
             sweep, sweep_eras, ext26)
 
 
+def _table(df, money=(), pct=(), height=None):
+    """Sortable dataframe: values stay NUMERIC (real click-sorting),
+    formatting applied at display time via column_config."""
+    cfg = {}
+    for c in money:
+        if c in df.columns:
+            cfg[c] = st.column_config.NumberColumn(format="dollar")
+    for c in pct:
+        if c in df.columns:
+            cfg[c] = st.column_config.NumberColumn(format="%.2f%%")
+    st.dataframe(df, use_container_width=True, hide_index=True,
+                 column_config=cfg, height=height)
+
+
 def _img(name, caption=None, subdir=None):
     p = os.path.join(CHARTS, subdir, name) if subdir else os.path.join(CHARTS, name)
     if os.path.exists(p):
@@ -253,12 +267,13 @@ def render():
         yr.loc[pd.Timestamp("1999-12-31")] = 1_000_000.0
         yr = (yr.sort_index().pct_change().dropna() * 100).round(1)
         yr.index = yr.index.year
-        yr.columns = [NICE[k] for k in yr.columns]  # keep EN keys for wins calc
+        yr.columns = [NICE[k] for k in yr.columns]  # EN keys for the wins calc
         wins_g = int((yr["🚀 Growth"] > yr["S&P 500 (SPY)"]).sum())
         wins_d = int((yr["🛡️ Defensive"] > yr["S&P 500 (SPY)"]).sum())
         neg_g = int((yr["🚀 Growth"] < 0).sum())
         neg_d = int((yr["🛡️ Defensive"] < 0).sum())
         neg_s = int((yr["S&P 500 (SPY)"] < 0).sum())
+        yr.columns = [tr(c) for c in yr.columns]  # display translated
         a, b, c = st.columns(3)
         a.metric(tr("Years growth beat SPY"), f"{wins_g} / {len(yr)}")
         b.metric(tr("Years defensive beat SPY"), f"{wins_d} / {len(yr)}")
@@ -312,7 +327,7 @@ def render():
         if not opts:
             st.info(tr("No per-stock charts found — run backtest/plot_suite.py."))
         else:
-            labels = {o: f"{o.split('_')[0]}  ({NICE[o.split('_')[1]]})"
+            labels = {o: f"{o.split('_')[0]}  ({tr(NICE[o.split('_')[1]])})"
                       for o in opts}
             pick = st.selectbox(tr("Pick a holding"), opts,
                                 format_func=lambda o: labels[o],
@@ -383,15 +398,17 @@ def render():
                 base = stats[k]
                 s = cc_stats[k]
                 rows.append({
-                    "Book": tr(NICE[k]),
-                    "Plain CAGR": f"{base['cagr_pct']}%",
-                    "With CC CAGR": f"{s['cagr_pct']}%",
-                    "Plain final": f"${base['final_value']:,.0f}",
-                    "With CC final": f"${s['final']:,.0f}",
-                    "CC max DD": f"{s['max_dd_pct']}%",
-                    "Calls on": f"{len(s['cc_names'])}/16"})
-            st.dataframe(pd.DataFrame(rows), use_container_width=True,
-                         hide_index=True)
+                    tr("Book"): tr(NICE[k]),
+                    tr("Plain CAGR %"): base["cagr_pct"],
+                    tr("With CC CAGR %"): s["cagr_pct"],
+                    tr("Plain final $"): base["final_value"],
+                    tr("With CC final $"): s["final"],
+                    tr("CC max DD %"): s["max_dd_pct"],
+                    tr("Calls on"): f"{len(s['cc_names'])}/16"})
+            _table(pd.DataFrame(rows),
+                   money=(tr("Plain final $"), tr("With CC final $")),
+                   pct=(tr("Plain CAGR %"), tr("With CC CAGR %"),
+                        tr("CC max DD %")))
             st.caption(
                 tr("Growth-book names that got calls: ")
                 + ", ".join(cc_stats["growth"]["cc_names"])
@@ -410,11 +427,12 @@ def render():
             sw_rows = []
             for thr, d in sweep["growth"].items():
                 lab = "all 16" if float(thr) > 1 else f"g ≤ {float(thr):.0%}"
-                sw_rows.append({"Cutoff": lab, "Names with calls": d["n_cc"],
-                                "CAGR": f"{d['cagr_pct']}%",
-                                "Max DD": f"{d['max_dd_pct']}%"})
-            st.dataframe(pd.DataFrame(sw_rows), use_container_width=True,
-                         hide_index=True)
+                sw_rows.append({tr("Cutoff"): lab,
+                                tr("Names with calls"): d["n_cc"],
+                                tr("CAGR %"): d["cagr_pct"],
+                                tr("Max DD %"): d["max_dd_pct"]})
+            _table(pd.DataFrame(sw_rows),
+                   pct=(tr("CAGR %"), tr("Max DD %")))
             st.caption(tr("Growth book, 2000–2013. The defensive book is "
                        "insensitive — all 16 names are already ≤ 15%."))
         if sweep_eras:
@@ -422,14 +440,14 @@ def render():
                         "2026):** CAGR by cutoff")
             er_rows = []
             for yr_, d in sweep_eras.items():
-                r = {"Start": yr_}
+                r = {tr("Start"): yr_}
                 for thr, v in d.items():
                     lab = ("all" if float(thr) > 1
                            else f"g≤{float(thr):.0%}")
-                    r[lab] = f"{v['cagr_pct']}%"
+                    r[lab + " CAGR %"] = v["cagr_pct"]
                 er_rows.append(r)
-            st.dataframe(pd.DataFrame(er_rows), use_container_width=True,
-                         hide_index=True)
+            _er_df = pd.DataFrame(er_rows)
+            _table(_er_df, pct=[c for c in _er_df.columns if c.endswith("%")])
             st.caption(
                 tr("The pattern repeats in every era on these value books — "
                 "more calls, more return — because IV-gated entries buy "
@@ -459,13 +477,14 @@ def render():
                     d = opt_stats.get(k, {}).get(v)
                     if d:
                         prows.append({
-                            "Book": tr(NICE[k]), "Variant": nm,
-                            "CAGR": f"{d['cagr_pct']}%",
-                            "Max DD": f"{d['max_dd_pct']}%",
-                            "Final": f"${d['final']:,.0f}"})
+                            tr("Book"): tr(NICE[k]),
+                            tr("Variant"): tr(nm),
+                            tr("CAGR %"): d["cagr_pct"],
+                            tr("Max DD %"): d["max_dd_pct"],
+                            tr("Final $"): d["final"]})
             if prows:
-                st.dataframe(pd.DataFrame(prows), use_container_width=True,
-                             hide_index=True)
+                _table(pd.DataFrame(prows), money=(tr("Final $"),),
+                       pct=(tr("CAGR %"), tr("Max DD %")))
             st.warning(
                 "Leverage cuts both ways: drawdowns run −30% to −90%, and "
                 "Black-Scholes pricing understates real-world spreads, "
@@ -489,14 +508,16 @@ def render():
                     d = ext26.get(k, {}).get(v)
                     if d:
                         xrows.append({
-                            "Book": tr(NICE[k]), "Variant": nm,
-                            "CAGR 2000–2026": f"{d['cagr_pct']}%",
-                            "CAGR 00–13": f"{d.get('cagr_2000_2013','—')}%",
-                            "CAGR 13–26": f"{d.get('cagr_2013_2026','—')}%",
-                            "Max DD": f"{d['max_dd_pct']}%",
-                            "Final ($1M start)": f"${d['final']:,.0f}"})
-            st.dataframe(pd.DataFrame(xrows), use_container_width=True,
-                         hide_index=True)
+                            tr("Book"): tr(NICE[k]),
+                            tr("Variant"): tr(nm),
+                            tr("CAGR 2000–26 %"): d["cagr_pct"],
+                            tr("CAGR 00–13 %"): d.get("cagr_2000_2013"),
+                            tr("CAGR 13–26 %"): d.get("cagr_2013_2026"),
+                            tr("Max DD %"): d["max_dd_pct"],
+                            tr("Final ($1M start)"): d["final"]})
+            _table(pd.DataFrame(xrows), money=(tr("Final ($1M start)"),),
+                   pct=(tr("CAGR 2000–26 %"), tr("CAGR 00–13 %"),
+                        tr("CAGR 13–26 %"), tr("Max DD %")))
             st.caption(
                 tr("**Verdict: structural.** Every overlay beats its own "
                 "buy-and-hold book in BOTH sub-periods, not just the lost "
@@ -532,17 +553,18 @@ def render():
             rows = pf["portfolio"]
             pdf = pd.DataFrame([{
                 "Ticker": r["ticker"],
-                "Bedrock tier": r.get("tier", ""),
-                "Strategy": ("🎯 PMCC" if r["type"] == "PMCC"
-                             else "📈 Plain shares"),
-                "Proj. EPS growth %": r["g5"],
-                "Price $": r["price"],
-                "Intrinsic value $": r["iv"],
-                "Discount %": r["discount_pct"],
-                "Moat (manually verified)": r["moat"],
+                tr("Bedrock tier"): r.get("tier", ""),
+                tr("Strategy"): ("🎯 PMCC" if r["type"] == "PMCC"
+                             else tr("📈 Plain shares")),
+                tr("Proj. EPS growth %"): r["g5"],
+                tr("Price $"): r["price"],
+                tr("Intrinsic value $"): r["iv"],
+                tr("Discount %"): r["discount_pct"],
+                tr("Moat (manually verified)"): r["moat"],
             } for r in rows])
-            st.dataframe(pdf, use_container_width=True, hide_index=True,
-                         height=620)
+            _table(pdf, money=(tr("Price $"), tr("Intrinsic value $")),
+                   pct=(tr("Proj. EPS growth %"), tr("Discount %")),
+                   height=620)
             c = pf["counts"]
             st.success(f"**Action today:** all 16 names trade below "
                        f"intrinsic value → open **tranche 1 in every "
