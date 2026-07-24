@@ -11,6 +11,11 @@ import os
 import pandas as pd
 import streamlit as st
 
+try:
+    from scanner.i18n import tr
+except ImportError:
+    from i18n import tr
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BT = os.path.join(REPO_ROOT, "backtest")
 CHARTS = os.path.join(BT, "charts")
@@ -84,8 +89,8 @@ def _corrections_df(stats, acct):
 
 def render():
     if not os.path.exists(os.path.join(BT, "stats2.json")):
-        st.info("No backtest artifacts found in `backtest/` — run "
-                "`python backtest/simulate2.py` then `python backtest/plot_suite.py`.")
+        st.info(tr("No backtest artifacts found in `backtest/` — run "
+                "`python backtest/simulate2.py` then `python backtest/plot_suite.py`."))
         return
 
     (eq, stats, trades, stock_ret, cc_stats, opt_stats,
@@ -93,18 +98,18 @@ def render():
 
     st.markdown("### 🕰️ VMI 2000–2013 backtest — standing in January 2000")
     st.caption(
-        "Two $1M accounts, 16 wide-moat non-dotcom businesses each, "
+        tr("Two $1M accounts, 16 wide-moat non-dotcom businesses each, "
         "**DCF-gated entries only** (course-style 20y DCF, rf 6.5%, β×4% MRP), "
         "tranche adds only at the 40-week SMA while under IV, "
         "sells **only** on fraud/scandal (BMY→PFE, UNH→KO, CAH→GPC). "
         "The single allowed piece of hindsight: a defensive sector tilt for "
-        "the lost decade. Dividends reinvested via adjusted prices.")
+        "the lost decade. Dividends reinvested via adjusted prices."))
 
     # ---------- headline metrics ----------
     cols = st.columns(3)
     for col, k in zip(cols, ("growth", "defensive", "spy")):
         s = stats[k]
-        col.metric(NICE[k],
+        col.metric(tr(NICE[k]),
                    f"${s['final_value']:,.0f}",
                    f"+{s['total_return_pct']}% · {s['cagr_pct']}% CAGR",
                    delta_color="normal" if k != "spy" else "off")
@@ -124,32 +129,32 @@ def render():
             c1, c2 = st.columns(2)
             for col, k in ((c1, "growth"), (c2, "defensive")):
                 s = cc_stats[k]
-                col.metric(NICE[k + "_cc"],
+                col.metric(tr(NICE[k + "_cc"]),
                            f"${s['final']:,.0f}",
                            f"{s['cagr_pct']}% CAGR · max DD "
                            f"{s['max_dd_pct']}% · calls on "
                            f"{len(s['cc_names'])}/16 names")
 
-    sub = st.tabs(["📈 Equity curves", "🕯️ Candles", "📊 Year by year",
-                   "🧱 Holdings & contribution", "🔍 Stock charts",
-                   "📜 Trade log", "🌊 Corrections",
-                   "🎯 Options overlays", "🛒 Today's portfolio (2026)",
-                   "🧪 Method & caveats"])
+    sub = st.tabs([tr("📈 Equity curves"), tr("🕯️ Candles"), tr("📊 Year by year"),
+                   tr("🧱 Holdings & contribution"), tr("🔍 Stock charts"),
+                   tr("📜 Trade log"), tr("🌊 Corrections"),
+                   tr("🎯 Options overlays"), tr("🛒 Today's portfolio (2026)"),
+                   tr("🧪 Method & caveats")])
 
     # ---------------- 1. equity curves (interactive) ----------------
     with sub[0]:
         c1, c2 = st.columns([1, 1])
-        log_scale = c1.toggle("Log scale", value=False,
+        log_scale = c1.toggle(tr("Log scale"), value=False,
                               help="Log scale shows compounding consistency — "
                                    "straight line = constant CAGR.")
-        norm = c2.toggle("Normalize to 1.0", value=False)
+        norm = c2.toggle(tr("Normalize to 1.0"), value=False)
         keys = ["defensive", "growth", "spy"]
         colors = ["#1f77b4", "#2ca02c", "#888888"]
         has_cc = "defensive_cc" in eq and "growth_cc" in eq
         show_cc = False
         if has_cc:
             show_cc = st.toggle(
-                "Overlay: sell covered calls on the CC-viable names",
+                tr("Overlay: sell covered calls on the CC-viable names"),
                 value=True,
                 help="Same books, same value-gated entries — but monthly "
                      "~delta-0.42 calls are sold on every stock whose growth "
@@ -164,8 +169,8 @@ def render():
         has_pmcc = "defensive_pmcc" in eq
         if has_pmcc:
             show_pmcc = st.toggle(
-                "Overlay: PMCC (deep-ITM long calls instead of shares, "
-                "leveraged)", value=False,
+                tr("Overlay: PMCC (deep-ITM long calls instead of shares, "
+                "leveraged)"), value=False,
                 help="Same value/tranche rules, but CC-viable names are "
                      "held via delta-80 LEAPS calls with monthly short "
                      "calls on top (natural ~4-5\u00d7 leverage). Spend per name "
@@ -175,7 +180,7 @@ def render():
                 keys = keys[:-1] + ["defensive_pmcc_conv", "growth_pmcc",
                                     "spy"]
                 colors = colors[:-1] + ["#d62728", "#ff7f0e", "#888888"]
-        df = pd.DataFrame({NICE[k]: eq[k] for k in keys})
+        df = pd.DataFrame({tr(NICE[k]): eq[k] for k in keys})
         if norm:
             df = df / df.iloc[0]
         try:
@@ -197,10 +202,10 @@ def render():
             st.altair_chart(ch, use_container_width=True)
         except Exception:
             st.line_chart(df, height=430)
-        st.caption("Hover for values · drag to zoom · double-click to reset.")
+        st.caption(tr("Hover for values · drag to zoom · double-click to reset."))
         if has_cc and show_cc and cc_stats:
             st.caption(
-                "**Covered-call variant note:** the CC curves are a "
+                tr("**Covered-call variant note:** the CC curves are a "
                 "day-by-day simulation on unadjusted prices with dividends "
                 "credited as cash and Black-Scholes call pricing at each "
                 "stock's realized volatility, while the base curves use "
@@ -208,17 +213,17 @@ def render():
                 "economics, slightly different bookkeeping — so compare "
                 "each CC curve to the index and to its own start, not "
                 "penny-for-penny against its base twin. Growth book calls "
-                "were sold on: "
+                "were sold on: ")
                 + ", ".join(cc_stats["growth"]["cc_names"])
                 + ". The other 7 fast growers were held call-free.")
-        with st.expander("Static charts with correction shading"):
+        with st.expander(tr("Static charts with correction shading")):
             _img("portfolio_growth_line.png")
             _img("portfolio_defensive_line.png")
 
     # ---------------- 2. candles ----------------
     with sub[1]:
-        st.caption("Portfolio equity resampled into **monthly OHLC candles** — "
-                   "green/red months show the path, not just the endpoint.")
+        st.caption(tr("Portfolio equity resampled into **monthly OHLC candles** — "
+                   "green/red months show the path, not just the endpoint."))
         _img("portfolio_growth_candles.png")
         _img("portfolio_defensive_candles.png")
 
@@ -226,7 +231,7 @@ def render():
     with sub[2]:
         yr_keys = ["defensive", "growth", "spy"]
         if "defensive_cc" in eq and st.toggle(
-                "Include covered-call variants", value=False,
+                tr("Include covered-call variants"), value=False,
                 key="bt_yr_cc"):
             yr_keys = ["defensive", "defensive_cc", "growth", "growth_cc",
                        "spy"]
@@ -235,16 +240,16 @@ def render():
         yr.loc[pd.Timestamp("1999-12-31")] = 1_000_000.0
         yr = (yr.sort_index().pct_change().dropna() * 100).round(1)
         yr.index = yr.index.year
-        yr.columns = [NICE[k] for k in yr.columns]
+        yr.columns = [NICE[k] for k in yr.columns]  # keep EN keys for wins calc
         wins_g = int((yr["🚀 Growth"] > yr["S&P 500 (SPY)"]).sum())
         wins_d = int((yr["🛡️ Defensive"] > yr["S&P 500 (SPY)"]).sum())
         neg_g = int((yr["🚀 Growth"] < 0).sum())
         neg_d = int((yr["🛡️ Defensive"] < 0).sum())
         neg_s = int((yr["S&P 500 (SPY)"] < 0).sum())
         a, b, c = st.columns(3)
-        a.metric("Years growth beat SPY", f"{wins_g} / {len(yr)}")
-        b.metric("Years defensive beat SPY", f"{wins_d} / {len(yr)}")
-        c.metric("Negative years (G / D / SPY)", f"{neg_g} / {neg_d} / {neg_s}")
+        a.metric(tr("Years growth beat SPY"), f"{wins_g} / {len(yr)}")
+        b.metric(tr("Years defensive beat SPY"), f"{wins_d} / {len(yr)}")
+        c.metric(tr("Negative years (G / D / SPY)"), f"{neg_g} / {neg_d} / {neg_s}")
         st.bar_chart(yr, height=340)
         st.dataframe(
             yr.style.format("{:+.1f}%")
@@ -257,8 +262,8 @@ def render():
 
     # ---------------- 4. holdings & contribution ----------------
     with sub[3]:
-        acct = st.radio("Account", ["growth", "defensive"], horizontal=True,
-                        format_func=lambda k: NICE[k], key="bt_hold_acct")
+        acct = st.radio(tr("Account"), ["growth", "defensive"], horizontal=True,
+                        format_func=lambda k: tr(NICE[k]), key="bt_hold_acct")
         if stock_ret is not None:
             t = stock_ret[stock_ret["account"] == acct].copy()
             t = t.sort_values("final_value", ascending=False)
@@ -292,19 +297,19 @@ def render():
         files = sorted(os.listdir(stock_dir)) if os.path.isdir(stock_dir) else []
         opts = [f[:-4] for f in files if f.endswith(".png")]
         if not opts:
-            st.info("No per-stock charts found — run backtest/plot_suite.py.")
+            st.info(tr("No per-stock charts found — run backtest/plot_suite.py."))
         else:
             labels = {o: f"{o.split('_')[0]}  ({NICE[o.split('_')[1]]})"
                       for o in opts}
-            pick = st.selectbox("Pick a holding", opts,
+            pick = st.selectbox(tr("Pick a holding"), opts,
                                 format_func=lambda o: labels[o],
                                 index=opts.index("ROST_growth")
                                 if "ROST_growth" in opts else 0)
             _img(pick + ".png", subdir="stocks")
-            st.caption("Monthly candles · orange = 40-week SMA · purple dashed "
+            st.caption(tr("Monthly candles · orange = 40-week SMA · purple dashed "
                        "= DCF intrinsic value · ▲ green = buy/add at support "
                        "under IV · ▼ red = scandal sell · blue ▲ = replacement "
-                       "buy · bottom panel = your position value.")
+                       "buy · bottom panel = your position value."))
             tick, acct2 = pick.split("_")
             tt = [x for x in trades[acct2]["trades"] if x["ticker"] == tick]
             if tt:
@@ -312,30 +317,30 @@ def render():
 
     # ---------------- 6. trade log ----------------
     with sub[5]:
-        acct = st.radio("Account", ["growth", "defensive"], horizontal=True,
-                        format_func=lambda k: NICE[k], key="bt_log_acct")
+        acct = st.radio(tr("Account"), ["growth", "defensive"], horizontal=True,
+                        format_func=lambda k: tr(NICE[k]), key="bt_log_acct")
         tl = pd.DataFrame(trades[acct]["trades"])
         n_buy = (tl["action"] == "BUY").sum()
         n_add = (tl["action"] == "ADD").sum()
         n_sell = (tl["action"] == "SELL").sum()
         a, b, c, d = st.columns(4)
-        a.metric("Initial buys", int(n_buy))
-        b.metric("Support adds", int(n_add))
-        c.metric("Scandal sells", int(n_sell))
-        d.metric("Total capital deployed",
+        a.metric(tr("Initial buys"), int(n_buy))
+        b.metric(tr("Support adds"), int(n_add))
+        c.metric(tr("Scandal sells"), int(n_sell))
+        d.metric(tr("Total capital deployed"),
                  f"${tl[tl['action'] != 'SELL']['amount'].sum():,.0f}")
         st.dataframe(tl, use_container_width=True, height=520)
-        st.caption("`pct_of_iv` = purchase price as % of that day's DCF "
-                   "intrinsic value — every entry was made below IV.")
+        st.caption(tr("`pct_of_iv` = purchase price as % of that day's DCF "
+                   "intrinsic value — every entry was made below IV."))
 
     # ---------------- 7. corrections ----------------
     with sub[6]:
-        st.caption("Every peak-to-trough decline of **7%+**, with how long the "
-                   "fall took and how long recovery took.")
+        st.caption(tr("Every peak-to-trough decline of **7%+**, with how long the "
+                   "fall took and how long recovery took."))
         for k in ("growth", "defensive", "spy"):
             df = _corrections_df(stats, k)
             worst = df["Depth %"].min() if not df.empty else 0
-            st.markdown(f"**{NICE[k]}** — {len(df)} corrections, "
+            st.markdown(f"**{tr(NICE[k])}** — {len(df)} corrections, "
                         f"worst {worst:.1f}%")
             if not df.empty:
                 st.dataframe(
@@ -349,9 +354,9 @@ def render():
     # ---------------- 8. options overlays ----------------
     with sub[7]:
         if not (cc_stats or opt_stats):
-            st.info("Run `python backtest/cc_2000_2013.py` and "
+            st.info(tr("Run `python backtest/cc_2000_2013.py` and "
                     "`python backtest/options_2000_2013.py` to generate the "
-                    "options-overlay artifacts.")
+                    "options-overlay artifacts."))
         if cc_stats:
             st.markdown("#### ① Covered calls on the CC-viable names")
             st.markdown(
@@ -365,7 +370,7 @@ def render():
                 base = stats[k]
                 s = cc_stats[k]
                 rows.append({
-                    "Book": NICE[k],
+                    "Book": tr(NICE[k]),
                     "Plain CAGR": f"{base['cagr_pct']}%",
                     "With CC CAGR": f"{s['cagr_pct']}%",
                     "Plain final": f"${base['final_value']:,.0f}",
@@ -375,7 +380,7 @@ def render():
             st.dataframe(pd.DataFrame(rows), use_container_width=True,
                          hide_index=True)
             st.caption(
-                "Growth-book names that got calls: "
+                tr("Growth-book names that got calls: ")
                 + ", ".join(cc_stats["growth"]["cc_names"])
                 + " · held call-free: "
                 + ", ".join(cc_stats["growth"]["plain_names"]) + ".")
@@ -397,8 +402,8 @@ def render():
                                 "Max DD": f"{d['max_dd_pct']}%"})
             st.dataframe(pd.DataFrame(sw_rows), use_container_width=True,
                          hide_index=True)
-            st.caption("Growth book, 2000–2013. The defensive book is "
-                       "insensitive — all 16 names are already ≤ 15%.")
+            st.caption(tr("Growth book, 2000–2013. The defensive book is "
+                       "insensitive — all 16 names are already ≤ 15%."))
         if sweep_eras:
             st.markdown("**Cross-era check (Dow-style books held to "
                         "2026):** CAGR by cutoff")
@@ -413,11 +418,11 @@ def render():
             st.dataframe(pd.DataFrame(er_rows), use_container_width=True,
                          hide_index=True)
             st.caption(
-                "The pattern repeats in every era on these value books — "
+                tr("The pattern repeats in every era on these value books — "
                 "more calls, more return — because IV-gated entries buy "
                 "cheap, rarely-runaway names. The cutoff matters most when "
                 "the book holds true hyper-growers (SBUX/DLTR/ORLY at "
-                "22–27% growth).")
+                "22–27% growth)."))
         if opt_stats:
             st.markdown("#### ③ PMCC instead of shares (leveraged)")
             st.markdown(
@@ -441,7 +446,7 @@ def render():
                     d = opt_stats.get(k, {}).get(v)
                     if d:
                         prows.append({
-                            "Book": NICE[k], "Variant": nm,
+                            "Book": tr(NICE[k]), "Variant": nm,
                             "CAGR": f"{d['cagr_pct']}%",
                             "Max DD": f"{d['max_dd_pct']}%",
                             "Final": f"${d['final']:,.0f}"})
@@ -471,7 +476,7 @@ def render():
                     d = ext26.get(k, {}).get(v)
                     if d:
                         xrows.append({
-                            "Book": NICE[k], "Variant": nm,
+                            "Book": tr(NICE[k]), "Variant": nm,
                             "CAGR 2000–2026": f"{d['cagr_pct']}%",
                             "CAGR 00–13": f"{d.get('cagr_2000_2013','—')}%",
                             "CAGR 13–26": f"{d.get('cagr_2013_2026','—')}%",
@@ -480,13 +485,13 @@ def render():
             st.dataframe(pd.DataFrame(xrows), use_container_width=True,
                          hide_index=True)
             st.caption(
-                "**Verdict: structural.** Every overlay beats its own "
+                tr("**Verdict: structural.** Every overlay beats its own "
                 "buy-and-hold book in BOTH sub-periods, not just the lost "
                 "decade. The edge shrinks in the trending 2013–26 leg "
                 "(covered calls: ~+12pp → ~+5pp over plain) exactly as "
                 "theory predicts — call-selling pays best sideways — but "
                 "it never flips negative. Sub-period CAGRs use the same "
-                "single continuous run split at 2013-12-27.")
+                "single continuous run split at 2013-12-27."))
 
     # ---------------- 9. method ----------------
     with sub[8]:
@@ -494,13 +499,13 @@ def render():
         pf = (json.load(open(_pf_path))
               if os.path.exists(_pf_path) else None)
         if not pf:
-            st.info("Run the portfolio selection to generate "
-                    "`backtest/portfolio_2026.json`.")
+            st.info(tr("Run the portfolio selection to generate "
+                    "`backtest/portfolio_2026.json`."))
         else:
             st.markdown("#### The 2026 Anti-Bubble Bedrock book — 16 "
                         "wide-moat greats, picked from the live scanner "
                         f"({pf['source'].split('(')[1].rstrip(')')})")
-            st.caption("Workflow: scanner DCF first → manual moat "
+            st.caption(tr("Workflow: scanner DCF first → manual moat "
                        "verification second. Bottom-heavy on the "
                        "bedrock pyramid — Healthcare (5) › Financial "
                        "toll booths (3) › SaaS/vertical software (3) › "
@@ -510,7 +515,7 @@ def render():
                        "discount'). No commodity knife-fighters "
                        "(INTC/AMD class rejected — no sustainable "
                        "advantage). g ≤ 15% gets the PMCC overlay; "
-                       "faster growers stay plain shares.")
+                       "faster growers stay plain shares."))
             rows = pf["portfolio"]
             pdf = pd.DataFrame([{
                 "Ticker": r["ticker"],
@@ -613,6 +618,6 @@ def render():
 - **PMCC forfeits dividends** on the option-held names — that, not time
   decay, is its structural cost on these dividend-heavy books.
 """)
-        st.caption("Artifacts: `backtest/simulate2.py` (engine) · "
+        st.caption(tr("Artifacts: `backtest/simulate2.py` (engine) · "
                    "`trades.json` (structured log) · `stats2.json` · "
-                   "`charts/` (48 charts) — all committed to the repo.")
+                   "`charts/` (48 charts) — all committed to the repo."))
