@@ -315,6 +315,25 @@ IT = {
         "ordinare in modo crescente/decrescente · Sconto % > 0 = sotto il "
         "valore intrinseco, < 0 = a premio",
 
+    # ---------- footers / disclaimers ----------
+    "⚠️ Educational research only — not investment advice. "
+    "Backtest option prices are Black-Scholes estimates (real "
+    "options history does not exist back to 2000); past "
+    "performance does not guarantee future results.":
+        "⚠️ Solo ricerca a scopo didattico — non è consulenza finanziaria. "
+        "I prezzi delle opzioni nel backtest sono stime Black-Scholes (lo "
+        "storico reale delle opzioni non esiste fino al 2000); i rendimenti "
+        "passati non garantiscono risultati futuri.",
+    "⚠️ Educational research only — not investment advice. "
+    "Data from free public sources (SEC XBRL, Yahoo, "
+    "Macrotrends, Finviz) and may contain errors; verify "
+    "before trading. DCF values are model outputs, not price "
+    "targets.":
+        "⚠️ Solo ricerca a scopo didattico — non è consulenza finanziaria. "
+        "Dati da fonti pubbliche gratuite (SEC XBRL, Yahoo, Macrotrends, "
+        "Finviz), possono contenere errori; verifica prima di operare. "
+        "I valori DCF sono output di un modello, non target di prezzo.",
+
     # ---------- shared ----------
     "Dismiss": "Chiudi",
     "NA": "N/D",

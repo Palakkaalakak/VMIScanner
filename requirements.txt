@@ -1,0 +1,7 @@
+streamlit>=1.60
+pandas>=2.0
+yfinance>=0.2
+matplotlib>=3.8
+mplfinance>=0.12
+altair>=5.0
+requests>=2.31

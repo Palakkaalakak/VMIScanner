@@ -357,7 +357,16 @@ def render():
         c.metric(tr("Scandal sells"), int(n_sell))
         d.metric(tr("Total capital deployed"),
                  f"${tl[tl['action'] != 'SELL']['amount'].sum():,.0f}")
-        st.dataframe(tl, use_container_width=True, height=520)
+        st.dataframe(tl, use_container_width=True, height=520,
+                     hide_index=True,
+                     column_config={
+                         "amount": st.column_config.NumberColumn(
+                             "amount $", format="dollar"),
+                         "price": st.column_config.NumberColumn(
+                             format="%.2f"),
+                         "pct_of_iv": st.column_config.NumberColumn(
+                             format="%.1f%%"),
+                     })
         st.caption(tr("`pct_of_iv` = purchase price as % of that day's DCF "
                    "intrinsic value — every entry was made below IV."))
 
@@ -656,3 +665,9 @@ def render():
         st.caption(tr("Artifacts: `backtest/simulate2.py` (engine) · "
                    "`trades.json` (structured log) · `stats2.json` · "
                    "`charts/` (48 charts) — all committed to the repo."))
+
+    st.divider()
+    st.caption(tr("⚠️ Educational research only — not investment advice. "
+                  "Backtest option prices are Black-Scholes estimates (real "
+                  "options history does not exist back to 2000); past "
+                  "performance does not guarantee future results."))

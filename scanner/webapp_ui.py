@@ -156,6 +156,7 @@ def _verdict(r):
 # Big, obvious tab buttons (default streamlit tabs are easy to miss).
 st.markdown("""
 <style>
+/* top-level tabs: big, obvious */
 div[data-testid="stTabs"] > div > div[role="tablist"] button[role="tab"] {
     font-size: 1.25rem; font-weight: 700; padding: 0.9rem 1.6rem;
     background: #f0f2f6; border-radius: 10px 10px 0 0; margin-right: 6px;
@@ -163,6 +164,21 @@ div[data-testid="stTabs"] > div > div[role="tablist"] button[role="tab"] {
 div[data-testid="stTabs"] > div > div[role="tablist"] button[aria-selected="true"] {
     background: #e8f0fe; border-bottom: 4px solid #1a73e8;
 }
+/* nested tabs stay compact */
+div[data-testid="stTabs"] div[data-testid="stTabs"] button[role="tab"] {
+    font-size: 0.95rem; font-weight: 600; padding: 0.45rem 0.9rem;
+    background: transparent; border-radius: 8px 8px 0 0; margin-right: 2px;
+}
+div[data-testid="stTabs"] div[data-testid="stTabs"] button[aria-selected="true"] {
+    background: #f4f6fa; border-bottom: 3px solid #1a73e8;
+}
+/* metric cards */
+div[data-testid="stMetric"] {
+    background: #f8fafc; border: 1px solid #e5eaf1; border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+}
+/* tighten page padding a touch */
+section.main > div.block-container { padding-top: 1.4rem; }
 </style>""", unsafe_allow_html=True)
 tab_scan, tab_bt = st.tabs([tr("🔎 Scanner"), tr("🕰️ Backtest 2000–2013")])
 
@@ -371,3 +387,10 @@ with tab_scan:
         _render_ticker_detail(r)
         st.caption(tr("NA = data not reported by the source or check not applicable "
                    "to this company type — NA never disqualifies a stock."))
+
+    st.divider()
+    st.caption(tr("⚠️ Educational research only — not investment advice. "
+                  "Data from free public sources (SEC XBRL, Yahoo, "
+                  "Macrotrends, Finviz) and may contain errors; verify "
+                  "before trading. DCF values are model outputs, not price "
+                  "targets."))
