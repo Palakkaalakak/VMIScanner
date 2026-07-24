@@ -214,6 +214,17 @@ IT = {
         "Strategia: vendita di covered call sui titoli idonei alle CC",
     "Overlay: PMCC (deep-ITM long calls instead of shares, leveraged)":
         "Strategia: PMCC (call lunghe deep-ITM al posto delle azioni, con leva finanziaria)",
+    "PMCC variant (same variant on both books)":
+        "Variante PMCC (stessa variante su entrambi i conti)",
+    "Full pyramid (max leverage)": "Piramide completa (leva massima)",
+    "Half-pyramid": "Mezza piramide",
+    "Convert→shares (survivable)": "Conversione→azioni (rischio sostenibile)",
+    "Both books are drawn with the SAME PMCC variant "
+    "so the chart matches the options-tab table "
+    "apples-to-apples.":
+        "Entrambi i conti sono tracciati con la STESSA variante PMCC, "
+        "così il grafico corrisponde alla tabella della scheda opzioni "
+        "in un confronto omogeneo.",
     "Growth book, 2000–2013. The defensive book is insensitive — all 16 names "
     "are already ≤ 15%.":
         "Conto Crescita, 2000–2013. Il conto Difensivo non ne risente — tutti i 16 titoli "

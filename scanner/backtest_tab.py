@@ -177,7 +177,20 @@ def render():
                      "capped at 6.25% of capital \u2014 in dollars spent, not "
                      "exposure. WARNING: huge drawdowns.")
             if show_pmcc:
-                keys = keys[:-1] + ["defensive_pmcc_conv", "growth_pmcc",
+                _pmcc_var_lab = {
+                    "pmcc": "Full pyramid (max leverage)",
+                    "pmcc_hp": "Half-pyramid",
+                    "pmcc_conv": "Convert→shares (survivable)"}
+                _pmcc_avail = [v for v in _pmcc_var_lab
+                               if f"defensive_{v}" in eq and f"growth_{v}" in eq]
+                pv = st.radio(tr("PMCC variant (same variant on both books)"),
+                              _pmcc_avail,
+                              format_func=lambda k: tr(_pmcc_var_lab[k]),
+                              horizontal=True, key="bt_pmcc_var")
+                st.caption(tr("Both books are drawn with the SAME PMCC variant "
+                              "so the chart matches the options-tab table "
+                              "apples-to-apples."))
+                keys = keys[:-1] + [f"defensive_{pv}", f"growth_{pv}",
                                     "spy"]
                 colors = colors[:-1] + ["#d62728", "#ff7f0e", "#888888"]
         df = pd.DataFrame({tr(NICE[k]): eq[k] for k in keys})
