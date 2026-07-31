@@ -604,6 +604,49 @@ def render():
                        "from the 2026-07-22 scan; re-check before "
                        "placing orders.")
 
+        st.divider()
+        st.markdown(tr("#### 🔄 2026-07-31 rotation buy list — two "
+                       "16-name books, built exactly like the 2000 "
+                       "account"))
+        _bl_path = os.path.join(BT, "buylist_2026-07-31.json")
+        if os.path.exists(_bl_path):
+            bl = json.load(open(_bl_path))
+            st.caption(tr("Scan: ") + bl["scan"])
+            st.caption(tr("Rules: ") + bl["rules"])
+            for key, title in (("defensive_book", "🛡️ Defensive book"),
+                               ("growth_book", "🚀 Growth book")):
+                st.markdown(tr(f"**{title}**"))
+                bdf = pd.DataFrame([{
+                    "Ticker": r["ticker"],
+                    tr("Strategy"): ("🎯 PMCC" if r["strategy"] == "PMCC"
+                                     else tr("📈 Plain shares")),
+                    tr("Proj. EPS growth %"): r["proj_growth_pct"],
+                    tr("Price $"): r["price"],
+                    tr("Intrinsic value $"): r["intrinsic_value"],
+                    tr("Discount %"): r["discount_pct"],
+                    tr("Moat (manually verified)"): r["moat"],
+                } for r in bl[key]])
+                _table(bdf, money=(tr("Price $"), tr("Intrinsic value $")),
+                       pct=(tr("Proj. EPS growth %"), tr("Discount %")),
+                       height=620)
+            st.info("**NVO manual override:** " + bl["nvo_audit"])
+            st.caption(tr("Watch-only (not buyable today): ")
+                       + ", ".join(f"{k} — {v}"
+                                   for k, v in bl["watch_only"].items()))
+            st.caption(tr("Reserves below IV: ")
+                       + ", ".join(r["ticker"]
+                                   for r in bl["reserves_below_iv"]))
+            wl = os.path.join(os.path.dirname(BT), "public", "data",
+                              "watchlist_2026-07-31.txt")
+            if os.path.exists(wl):
+                st.download_button(tr("⬇️ TradingView watchlist (.txt)"),
+                                   open(wl).read(),
+                                   file_name="watchlist_2026-07-31.txt",
+                                   mime="text/plain")
+        else:
+            st.info(tr("buylist_2026-07-31.json not found — run "
+                       "scanner/build_buylist_0731.py"))
+
     # ---------------- 10. method & caveats ----------------
     with sub[9]:
         st.markdown("""
