@@ -169,22 +169,22 @@
    "moat": "Best 5G spectrum position; churn lowest in industry"
   },
   {
-   "ticker": "INTU",
-   "strategy": "shares",
-   "proj_growth_pct": 15.27,
-   "price": 310.5,
-   "intrinsic_value": 701.82,
-   "discount_pct": 55.8,
-   "moat": "TurboTax/QuickBooks - tax-code complexity is the moat"
+   "ticker": "VEEV",
+   "strategy": "PMCC",
+   "proj_growth_pct": 11.85,
+   "price": 198.0,
+   "intrinsic_value": 270.65,
+   "discount_pct": 26.8,
+   "moat": "Healthcare-vertical SaaS monopoly (CRM/Vault); regulatory-validation lock-in resists AI disruption"
   },
   {
-   "ticker": "ADBE",
+   "ticker": "BR",
    "strategy": "PMCC",
-   "proj_growth_pct": 14.49,
-   "price": 243.69,
-   "intrinsic_value": 537.44,
-   "discount_pct": 54.7,
-   "moat": "Creative Cloud standard; file-format lock-in (PSD/AI/PDF)"
+   "proj_growth_pct": 9.99,
+   "price": 154.77,
+   "intrinsic_value": 339.05,
+   "discount_pct": 54.4,
+   "moat": "Proxy/shareholder-communications regulated monopoly - pure financial toll booth"
   },
   {
    "ticker": "TYL",
@@ -322,11 +322,6 @@
    "moat": "Fluid-handling niches, pricing power"
   },
   {
-   "ticker": "BR",
-   "discount_pct": 54.4,
-   "moat": "Proxy/shareholder-comms monopoly"
-  },
-  {
    "ticker": "PAYX",
    "discount_pct": 53.7,
    "moat": "SMB payroll switching costs"
@@ -415,11 +410,6 @@
    "ticker": "MA",
    "discount_pct": 3.7,
    "moat": "Payments duopoly toll booth"
-  },
-  {
-   "ticker": "VEEV",
-   "discount_pct": 26.8,
-   "moat": "Life-sciences CRM/vault monopoly"
   }
  ],
  "excluded": {
@@ -458,6 +448,10 @@
    "KMI",
    "IT",
    "AKAM"
+  ],
+  "user_veto_ai_disruption": [
+   "ADBE",
+   "INTU"
   ]
  }
 }

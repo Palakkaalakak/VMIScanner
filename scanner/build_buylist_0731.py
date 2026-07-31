@@ -13,7 +13,7 @@ SCAN = os.path.join(BASE, "public", "data", "scan_results.json")
 OUT = os.path.join(BASE, "backtest", "buylist_2026-07-31.json")
 
 DEFENSIVE = ["ZTS","RMD","REGN","JNJ","CHE","AZN","MDT","BSX","NVO","PEP","NOC","HII","GD","CME","ADP","UNP"]
-GROWTH = ["META","TMUS","INTU","ADBE","TYL","DSGX","HEI","AJG","CPRT","POOL","CBOE","ULTA","CMG","LLY","ADI","SPGI"]
+GROWTH = ["META","TMUS","VEEV","BR","TYL","DSGX","HEI","AJG","CPRT","POOL","CBOE","ULTA","CMG","LLY","ADI","SPGI"]
 WATCH_ONLY = {
     "MSFT": "Flipped above intrinsic value on fresh scan (447 vs 440) - wait for pullback",
     "VRTX": "Slipped to near-miss on fresh data (FCF/ROE warns) - re-check next scan",
@@ -23,7 +23,7 @@ WATCH_ONLY = {
     "MELI": "Near-miss: ROIC history only 5y (young float) - quality is real, data too short",
     "GOOG": "IV = $8,276 this scan = projection data bug - do not trust discount",
 }
-RESERVES = ["AOS","TTC","GGG","BR","PAYX","SNA","NKE","CTVA","LHX","CRH","NDSN","IEX","DHR","WSO","VMC","ITW","PCAR","FDS","SAP","ICE","TJX","MA","VEEV"]
+RESERVES = ["AOS","TTC","GGG","PAYX","SNA","NKE","CTVA","LHX","CRH","NDSN","IEX","DHR","WSO","VMC","ITW","PCAR","FDS","SAP","ICE","TJX","MA"]
 
 MOATS = {
     "ZTS": "Pet-med #1; vets prescribe by brand; R&D scale (sanity-check 70% disc before sizing)",
@@ -44,8 +44,7 @@ MOATS = {
     "UNP": "Western rail duopoly; irreplaceable right-of-way",
     "META": "3.4B user network effect; ad auction scale",
     "TMUS": "Best 5G spectrum position; churn lowest in industry",
-    "INTU": "TurboTax/QuickBooks - tax-code complexity is the moat",
-    "ADBE": "Creative Cloud standard; file-format lock-in (PSD/AI/PDF)",
+    "BR": "Proxy/shareholder-communications regulated monopoly - pure financial toll booth",
     "TYL": "Local-gov software; decades-long switching costs",
     "DSGX": "Logistics network effect; 90% recurring revenue",
     "HEI": "FAA-approval moat on aircraft parts aftermarket",
@@ -59,7 +58,7 @@ MOATS = {
     "ADI": "Analog design moat - 10y+ product lives, sticky sockets (allowed AI-adjacent quota name)",
     "SPGI": "Ratings duopoly + index licensing (S&P 500 itself)",
     "AOS": "Water-heater brand + replacement cycle", "TTC": "Turf-care brand + dealer network",
-    "GGG": "Fluid-handling niches, pricing power", "BR": "Proxy/shareholder-comms monopoly",
+    "GGG": "Fluid-handling niches, pricing power",
     "PAYX": "SMB payroll switching costs", "SNA": "Brand + franchisee van network + financing",
     "NKE": "Global athletic brand (turnaround watch)", "CTVA": "Seed/crop-protection duopoly",
     "LHX": "Defense comms prime", "CRH": "Aggregates local monopolies",
@@ -69,7 +68,7 @@ MOATS = {
     "PCAR": "Truck brand + parts annuity", "FDS": "Financial data sticky terminals",
     "SAP": "ERP switching costs", "ICE": "Exchange + mortgage-data toll booth",
     "TJX": "Off-price treasure-hunt scale", "MA": "Payments duopoly toll booth",
-    "VEEV": "Life-sciences CRM/vault monopoly",
+    "VEEV": "Healthcare-vertical SaaS monopoly (CRM/Vault); regulatory-validation lock-in resists AI disruption",
 }
 
 d = json.load(open(SCAN))
@@ -122,6 +121,7 @@ payload = {
     "excluded": {
         "ai_bubble_per_pyramid": ["NVDA","AVGO","ASML","TSM","MU","TER","NXPI","TXN","KEYS","TEL","FIX","EME","JCI"],
         "artifact_iv_disc_gt_75": ["BF-B","EQT","DECK","PHM","DHI","GOOG","GOOGL","MU","CHD","TSM","HSY","GLOB","DG","ED","CTSH","ACN","KMI","IT","AKAM"],
+        "user_veto_ai_disruption": ["ADBE","INTU"],
     },
 }
 
