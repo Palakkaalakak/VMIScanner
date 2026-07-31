@@ -1,0 +1,463 @@
+{
+ "generated": "2026-07-31",
+ "scan": "fresh no-cache 2026-07-31, 540-ticker universe (S&P500 + Dow30 + NDX + curated extras), 151 clean greats, 117 below IV",
+ "rules": "2000-account structure: max 6.25% of current account value per name, 3 tranches, adds at 200d SMA x1.01 while under IV and >=56d apart, never trim. PMCC (delta-0.80 LEAPS, sell delta-0.42 monthlies, roll at delta-0.80) if proj growth <=15%; plain shares if >15%.",
+ "defensive_book": [
+  {
+   "ticker": "ZTS",
+   "strategy": "PMCC",
+   "proj_growth_pct": 7.45,
+   "price": 76.42,
+   "intrinsic_value": 256.87,
+   "discount_pct": 70.2,
+   "moat": "Pet-med #1; vets prescribe by brand; R&D scale (sanity-check 70% disc before sizing)"
+  },
+  {
+   "ticker": "RMD",
+   "strategy": "PMCC",
+   "proj_growth_pct": 11.56,
+   "price": 209.0,
+   "intrinsic_value": 542.11,
+   "discount_pct": 61.4,
+   "moat": "Sleep-apnea duopoly (vs Philips, still crippled); mask razor-blade model"
+  },
+  {
+   "ticker": "REGN",
+   "strategy": "PMCC",
+   "proj_growth_pct": 13.92,
+   "price": 734.0,
+   "intrinsic_value": 1468.01,
+   "discount_pct": 50.0,
+   "moat": "Eylea/Dupixent biologics; VelocImmune discovery engine"
+  },
+  {
+   "ticker": "JNJ",
+   "strategy": "PMCC",
+   "proj_growth_pct": 9.95,
+   "price": 257.57,
+   "intrinsic_value": 498.95,
+   "discount_pct": 48.4,
+   "moat": "Diversified pharma+medtech; AAA-grade balance sheet; 60y dividend record"
+  },
+  {
+   "ticker": "CHE",
+   "strategy": "PMCC",
+   "proj_growth_pct": 10.82,
+   "price": 534.79,
+   "intrinsic_value": 1002.83,
+   "discount_pct": 46.7,
+   "moat": "VITAS hospice + Roto-Rooter - two boring monopolies in one ticker"
+  },
+  {
+   "ticker": "AZN",
+   "strategy": "PMCC",
+   "proj_growth_pct": 11.78,
+   "price": 171.0,
+   "intrinsic_value": 237.58,
+   "discount_pct": 28.0,
+   "moat": "Oncology pipeline depth; EM distribution few peers match"
+  },
+  {
+   "ticker": "MDT",
+   "strategy": "PMCC",
+   "proj_growth_pct": 7.92,
+   "price": 85.5,
+   "intrinsic_value": 117.31,
+   "discount_pct": 27.1,
+   "moat": "Largest pure-play medtech; surgeon training lock-in"
+  },
+  {
+   "ticker": "BSX",
+   "strategy": "PMCC",
+   "proj_growth_pct": 7.14,
+   "price": 45.73,
+   "intrinsic_value": 64.35,
+   "discount_pct": 28.9,
+   "moat": "Cardio device duopolies; category killer in electrophysiology"
+  },
+  {
+   "ticker": "NVO",
+   "strategy": "PMCC",
+   "proj_growth_pct": -0.92,
+   "price": 50.98,
+   "intrinsic_value": null,
+   "discount_pct": null,
+   "moat": "GLP-1 duopoly with LLY; insulin century-long franchise; DKK cost base",
+   "note": "manual override - scanner disc 95.9% is DKK/USD artifact; real P/E ~14x"
+  },
+  {
+   "ticker": "PEP",
+   "strategy": "PMCC",
+   "proj_growth_pct": 5.16,
+   "price": 139.42,
+   "intrinsic_value": 335.41,
+   "discount_pct": 58.4,
+   "moat": "Snacks (Frito-Lay) is the moat, not soda; DSD distribution machine"
+  },
+  {
+   "ticker": "NOC",
+   "strategy": "PMCC",
+   "proj_growth_pct": 7.68,
+   "price": 538.03,
+   "intrinsic_value": 1237.6,
+   "discount_pct": 56.5,
+   "moat": "B-21 + nuclear triad prime; classified-program lock-in"
+  },
+  {
+   "ticker": "HII",
+   "strategy": "shares",
+   "proj_growth_pct": 15.63,
+   "price": 328.18,
+   "intrinsic_value": 856.62,
+   "discount_pct": 61.7,
+   "moat": "ONLY builder of US nuclear carriers - literal monopoly"
+  },
+  {
+   "ticker": "GD",
+   "strategy": "PMCC",
+   "proj_growth_pct": 8.86,
+   "price": 384.5,
+   "intrinsic_value": 542.63,
+   "discount_pct": 29.1,
+   "moat": "Gulfstream + submarines; backlog measured in decades"
+  },
+  {
+   "ticker": "CME",
+   "strategy": "PMCC",
+   "proj_growth_pct": 7.37,
+   "price": 267.87,
+   "intrinsic_value": 402.63,
+   "discount_pct": 33.5,
+   "moat": "Rates/commodities futures monopoly; clearing network effect"
+  },
+  {
+   "ticker": "ADP",
+   "strategy": "PMCC",
+   "proj_growth_pct": 9.44,
+   "price": 262.01,
+   "intrinsic_value": 584.61,
+   "discount_pct": 55.2,
+   "moat": "Payroll = highest switching-cost SaaS before SaaS existed"
+  },
+  {
+   "ticker": "UNP",
+   "strategy": "PMCC",
+   "proj_growth_pct": 10.37,
+   "price": 289.92,
+   "intrinsic_value": 472.28,
+   "discount_pct": 38.6,
+   "moat": "Western rail duopoly; irreplaceable right-of-way"
+  }
+ ],
+ "growth_book": [
+  {
+   "ticker": "META",
+   "strategy": "shares",
+   "proj_growth_pct": 19.11,
+   "price": 544.29,
+   "intrinsic_value": 925.31,
+   "discount_pct": 41.2,
+   "moat": "3.4B user network effect; ad auction scale"
+  },
+  {
+   "ticker": "TMUS",
+   "strategy": "shares",
+   "proj_growth_pct": 19.7,
+   "price": 173.09,
+   "intrinsic_value": 297.8,
+   "discount_pct": 41.9,
+   "moat": "Best 5G spectrum position; churn lowest in industry"
+  },
+  {
+   "ticker": "INTU",
+   "strategy": "shares",
+   "proj_growth_pct": 15.27,
+   "price": 310.5,
+   "intrinsic_value": 701.82,
+   "discount_pct": 55.8,
+   "moat": "TurboTax/QuickBooks - tax-code complexity is the moat"
+  },
+  {
+   "ticker": "ADBE",
+   "strategy": "PMCC",
+   "proj_growth_pct": 14.49,
+   "price": 243.69,
+   "intrinsic_value": 537.44,
+   "discount_pct": 54.7,
+   "moat": "Creative Cloud standard; file-format lock-in (PSD/AI/PDF)"
+  },
+  {
+   "ticker": "TYL",
+   "strategy": "shares",
+   "proj_growth_pct": 15.81,
+   "price": 316.8,
+   "intrinsic_value": 580.14,
+   "discount_pct": 45.4,
+   "moat": "Local-gov software; decades-long switching costs"
+  },
+  {
+   "ticker": "DSGX",
+   "strategy": "shares",
+   "proj_growth_pct": 17.83,
+   "price": 74.26,
+   "intrinsic_value": 104.07,
+   "discount_pct": 28.6,
+   "moat": "Logistics network effect; 90% recurring revenue"
+  },
+  {
+   "ticker": "HEI",
+   "strategy": "shares",
+   "proj_growth_pct": 16.77,
+   "price": 364.38,
+   "intrinsic_value": 763.1,
+   "discount_pct": 52.3,
+   "moat": "FAA-approval moat on aircraft parts aftermarket"
+  },
+  {
+   "ticker": "AJG",
+   "strategy": "shares",
+   "proj_growth_pct": 16.18,
+   "price": 245.0,
+   "intrinsic_value": 513.66,
+   "discount_pct": 52.3,
+   "moat": "Insurance brokerage scale + tuck-in M&A machine"
+  },
+  {
+   "ticker": "CPRT",
+   "strategy": "PMCC",
+   "proj_growth_pct": 5.18,
+   "price": 29.56,
+   "intrinsic_value": 56.03,
+   "discount_pct": 47.2,
+   "moat": "Salvage-auction duopoly; land + insurer relationships"
+  },
+  {
+   "ticker": "POOL",
+   "strategy": "PMCC",
+   "proj_growth_pct": 6.32,
+   "price": 190.68,
+   "intrinsic_value": 280.61,
+   "discount_pct": 32.0,
+   "moat": "Pool-supply distribution monopoly; 120k contractor relationships"
+  },
+  {
+   "ticker": "CBOE",
+   "strategy": "PMCC",
+   "proj_growth_pct": 14.8,
+   "price": 296.7,
+   "intrinsic_value": 711.09,
+   "discount_pct": 58.3,
+   "moat": "Monopoly on SPX/VIX options - the volatility toll booth"
+  },
+  {
+   "ticker": "ULTA",
+   "strategy": "PMCC",
+   "proj_growth_pct": 11.16,
+   "price": 516.73,
+   "intrinsic_value": 856.88,
+   "discount_pct": 39.7,
+   "moat": "Beauty category killer; loyalty program 44M members"
+  },
+  {
+   "ticker": "CMG",
+   "strategy": "PMCC",
+   "proj_growth_pct": 10.63,
+   "price": 38.2,
+   "intrinsic_value": 56.93,
+   "discount_pct": 32.9,
+   "moat": "Only scaled fast-casual with food-with-integrity brand"
+  },
+  {
+   "ticker": "LLY",
+   "strategy": "shares",
+   "proj_growth_pct": 29.15,
+   "price": 1150.0,
+   "intrinsic_value": 1294.57,
+   "discount_pct": 11.2,
+   "moat": "GLP-1 duopoly (tirzepatide leads on efficacy); Alzheimer's optionality"
+  },
+  {
+   "ticker": "ADI",
+   "strategy": "shares",
+   "proj_growth_pct": 30.6,
+   "price": 371.91,
+   "intrinsic_value": 544.39,
+   "discount_pct": 31.7,
+   "moat": "Analog design moat - 10y+ product lives, sticky sockets (allowed AI-adjacent quota name)"
+  },
+  {
+   "ticker": "SPGI",
+   "strategy": "PMCC",
+   "proj_growth_pct": 11.26,
+   "price": 419.65,
+   "intrinsic_value": 443.0,
+   "discount_pct": 5.3,
+   "moat": "Ratings duopoly + index licensing (S&P 500 itself)"
+  }
+ ],
+ "nvo_audit": "Scanner fails audited: (1) current ratio 0.74-0.94 for a decade = structural rebate liabilities, benign at 53-79% ROE - not short-term; (2) analyst LT growth -0.92%/yr is a real GLP-1-competition forward view vs +16.7%/yr actual 2019-25 revenue CAGR - real, not noise; (3) the 95.9% scanner discount is a DKK-financials vs USD-ADR currency artifact - manual math: EPS ~23 DKK = ~$3.60, P/E ~14x. Verdict: include as PMCC (cap the upside you're least sure of).",
+ "watch_only": {
+  "MSFT": "Flipped above intrinsic value on fresh scan (447 vs 440) - wait for pullback",
+  "VRTX": "Slipped to near-miss on fresh data (FCF/ROE warns) - re-check next scan",
+  "TMO": "Slipped to near-miss on fresh data - re-check next scan",
+  "NFLX": "Slipped to near-miss (CFO/FCF warns) - re-check next scan",
+  "VRSK": "NI warn but 45% discount - first re-entry candidate when warn clears",
+  "MELI": "Near-miss: ROIC history only 5y (young float) - quality is real, data too short",
+  "GOOG": "IV = $8,276 this scan = projection data bug - do not trust discount"
+ },
+ "reserves_below_iv": [
+  {
+   "ticker": "AOS",
+   "discount_pct": 65.1,
+   "moat": "Water-heater brand + replacement cycle"
+  },
+  {
+   "ticker": "TTC",
+   "discount_pct": 56.1,
+   "moat": "Turf-care brand + dealer network"
+  },
+  {
+   "ticker": "GGG",
+   "discount_pct": 54.7,
+   "moat": "Fluid-handling niches, pricing power"
+  },
+  {
+   "ticker": "BR",
+   "discount_pct": 54.4,
+   "moat": "Proxy/shareholder-comms monopoly"
+  },
+  {
+   "ticker": "PAYX",
+   "discount_pct": 53.7,
+   "moat": "SMB payroll switching costs"
+  },
+  {
+   "ticker": "SNA",
+   "discount_pct": 58.1,
+   "moat": "Brand + franchisee van network + financing"
+  },
+  {
+   "ticker": "NKE",
+   "discount_pct": 44.6,
+   "moat": "Global athletic brand (turnaround watch)"
+  },
+  {
+   "ticker": "CTVA",
+   "discount_pct": 41.5,
+   "moat": "Seed/crop-protection duopoly"
+  },
+  {
+   "ticker": "LHX",
+   "discount_pct": 37.1,
+   "moat": "Defense comms prime"
+  },
+  {
+   "ticker": "CRH",
+   "discount_pct": 33.3,
+   "moat": "Aggregates local monopolies"
+  },
+  {
+   "ticker": "NDSN",
+   "discount_pct": 31.8,
+   "moat": "Precision dispensing niches"
+  },
+  {
+   "ticker": "IEX",
+   "discount_pct": 26.9,
+   "moat": "Niche fluidics roll-up"
+  },
+  {
+   "ticker": "DHR",
+   "discount_pct": 20.6,
+   "moat": "Bioprocessing razor-blade"
+  },
+  {
+   "ticker": "WSO",
+   "discount_pct": 21.7,
+   "moat": "HVAC distribution scale"
+  },
+  {
+   "ticker": "VMC",
+   "discount_pct": 19.6,
+   "moat": "Aggregates - quarries can't be replicated"
+  },
+  {
+   "ticker": "ITW",
+   "discount_pct": 20.2,
+   "moat": "80/20 niche dominance"
+  },
+  {
+   "ticker": "PCAR",
+   "discount_pct": 37.1,
+   "moat": "Truck brand + parts annuity"
+  },
+  {
+   "ticker": "FDS",
+   "discount_pct": 13.1,
+   "moat": "Financial data sticky terminals"
+  },
+  {
+   "ticker": "SAP",
+   "discount_pct": 11.1,
+   "moat": "ERP switching costs"
+  },
+  {
+   "ticker": "ICE",
+   "discount_pct": 15.1,
+   "moat": "Exchange + mortgage-data toll booth"
+  },
+  {
+   "ticker": "TJX",
+   "discount_pct": 8.5,
+   "moat": "Off-price treasure-hunt scale"
+  },
+  {
+   "ticker": "MA",
+   "discount_pct": 3.7,
+   "moat": "Payments duopoly toll booth"
+  },
+  {
+   "ticker": "VEEV",
+   "discount_pct": 26.8,
+   "moat": "Life-sciences CRM/vault monopoly"
+  }
+ ],
+ "excluded": {
+  "ai_bubble_per_pyramid": [
+   "NVDA",
+   "AVGO",
+   "ASML",
+   "TSM",
+   "MU",
+   "TER",
+   "NXPI",
+   "TXN",
+   "KEYS",
+   "TEL",
+   "FIX",
+   "EME",
+   "JCI"
+  ],
+  "artifact_iv_disc_gt_75": [
+   "BF-B",
+   "EQT",
+   "DECK",
+   "PHM",
+   "DHI",
+   "GOOG",
+   "GOOGL",
+   "MU",
+   "CHD",
+   "TSM",
+   "HSY",
+   "GLOB",
+   "DG",
+   "ED",
+   "CTSH",
+   "ACN",
+   "KMI",
+   "IT",
+   "AKAM"
+  ]
+ }
+}
