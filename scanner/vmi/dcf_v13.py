@@ -340,6 +340,16 @@ def compute_iv(*, sector: str, industry: str, shares: float,
     _g5 = g5 if g5 is not None else _cagr5(ocf_series)
     _eny = eny if eny is not None else 0.0
     _ety = ety if ety is not None else 0.0
+    # One-time-item whipsaw guard: analyst "EPS this Y" massively up with
+    # "EPS next Y" negative (e.g. AMZN 2026: +75% this / -16% next after the
+    # Anthropic-stake gain) sits far outside the calibration envelope, where
+    # eps_next_y was always >= +3.6% (inputs2.json domain). The concave
+    # sqrt terms then explode g. Replace the distorted PAIR with their
+    # 2-year compound annualized rate — pure arithmetic on the same two
+    # analyst numbers, no new constants; identity when both years are normal.
+    if _ety > 0 > _eny and (1 + _ety / 100) * (1 + _eny / 100) > 0:
+        ann2 = (((1 + _ety / 100) * (1 + _eny / 100)) ** 0.5 - 1) * 100
+        _eny = _ety = ann2
     ocfC = _cagr5(ocf_series)
     fcfC = _cagr5(fcfs)
     rev0 = rev_series[0] if rev_series and rev_series[0] is not None else None
