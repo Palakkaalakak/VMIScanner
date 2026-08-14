@@ -274,6 +274,21 @@ with tab_scan:
         "proj_eps_next_5y": "Proj EPS 5y %/yr",
         "proj_eps_next_y": "Proj EPS next-Y %",
         "eps_past_5y": "EPS past 5y %/yr",
+        "intrinsic_value_direct": "Direct IV $",
+        "discount_pct_direct": "Direct Discount %",
+        "ttm_roe": "ROE TTM %", "ttm_roic": "ROIC TTM %",
+        "ttm_roa": "ROA TTM %", "ttm_pe": "PE TTM",
+        "ttm_fwd_pe": "Fwd PE", "ttm_peg": "PEG",
+        "ttm_fcf_yield": "FCF yield TTM %", "ttm_div_yield": "Div yield %",
+        "ttm_current_ratio": "Current ratio",
+        "ttm_debt_equity": "Debt/Equity", "ttm_debt_ebitda": "Debt/EBITDA",
+        "ttm_interest_coverage": "Interest coverage",
+        "ttm_z_score": "Altman Z", "ttm_f_score": "Piotroski F",
+        "ttm_eps_growth_3y": "EPS growth 3y %",
+        "sort_financial_strength": "Financial strength (0-100)",
+        "sort_predictability": "Predictability (0-100)",
+        "sort_profitability": "Profitability (0-100)",
+        "sort_growth": "Growth (0-100)",
     }
 
     all_metric_keys = sorted({k for r in rows for k in (r.get("metrics") or {})})
@@ -300,12 +315,31 @@ with tab_scan:
     df = pd.DataFrame([_row(r) for r in rows])
 
 
+    # Valuation mode toggle: refined (calibrated blend, 36/36 within ±7%
+    # of StockOracle) vs direct (raw analyst 3-5y growth + TTM EPS into
+    # the same DCF-20yr — no corrections; median abs error ~35% vs
+    # StockOracle across the 39 calibration names).
+    iv_direct = st.toggle(
+        tr("Direct DCF valuation (raw analyst 3-5y growth + TTM EPS — "
+           "no calibrated blend/corrections)"),
+        value=False,
+        help=tr("OFF = refined formula fitted to match StockOracle/Adam's "
+                "values (36/36 calibration names within ±7%). ON = plain "
+                "DCF: analyst 3-5y EPS growth and TTM EPS plugged straight "
+                "into the 20-yr DCF with no adjustments — transparent but "
+                "much less accurate vs StockOracle (median error ~35%)."))
+    _iv_col = "Direct IV $" if iv_direct and "Direct IV $" in df.columns \
+        else "Intrinsic Value $"
+    _dc_col = "Direct Discount %" if iv_direct \
+        and "Direct Discount %" in df.columns else "Discount %"
+
     # Main visible columns. "Discount %" stays NUMERIC so that clicking the
     # column header sorts by value (a formatted string would sort
     # alphabetically — that was the old "seemingly random" ordering).
     MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
-                 "Score", "Price $", "Intrinsic Value $", "Discount %",
-                 "Source"]
+                 "Score", "Price $", _iv_col, _dc_col,
+                 "Financial strength (0-100)", "Predictability (0-100)",
+                 "Profitability (0-100)", "Growth (0-100)", "Source"]
     MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
 
     _COL_CONFIG = {
@@ -315,6 +349,28 @@ with tab_scan:
             format="%.1f%%",
             help="Positive = trading below intrinsic value; "
                  "negative = premium above IV"),
+        "Direct IV $": st.column_config.NumberColumn(
+            format="dollar",
+            help="Plain DCF: analyst 3-5y growth + TTM EPS, no "
+                 "calibrated corrections"),
+        "Direct Discount %": st.column_config.NumberColumn(
+            format="%.1f%%",
+            help="Discount vs the direct (uncalibrated) DCF value"),
+        "Financial strength (0-100)": st.column_config.NumberColumn(
+            format="%.0f",
+            help="Avg of Altman Z (10=full), interest coverage (50=full), "
+                 "current ratio (3=full), low Debt/EBITDA (0=full)"),
+        "Predictability (0-100)": st.column_config.NumberColumn(
+            format="%.0f",
+            help="Fraction of up-years in revenue and net income history"),
+        "Profitability (0-100)": st.column_config.NumberColumn(
+            format="%.0f",
+            help="Avg of ROE (50=full), ROIC (50=full), net margin "
+                 "(40=full) — S&P Global TTM values"),
+        "Growth (0-100)": st.column_config.NumberColumn(
+            format="%.0f",
+            help="Avg of 5y revenue CAGR, 5y NI CAGR, analyst 3-5y EPS "
+                 "growth (40%/yr = full marks each)"),
     }
 
     # ---- Base filters -----------------------------------------------------
