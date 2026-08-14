@@ -375,3 +375,38 @@ def compute_iv(*, sector: str, industry: str, shares: float,
     base_desc = "+".join(f"{c}:{w}" for c, w in mix.items())
     return {"iv_ps": iv_ps, "g_pct": g_pct, "disc_pct": disc * 100,
             "base_desc": base_desc, "sector_group": grp}
+
+
+def compute_iv_direct(*, shares: float, beta: Optional[float],
+                      g5: Optional[float],
+                      ocf_series: List[Optional[float]],
+                      cash: float, sti: float, std: float, ltd: float,
+                      ttm_ocf: Optional[float] = None
+                      ) -> Optional[Dict[str, float]]:
+    """DIRECT StockOracle-style DCF: NO fitted blend, no sector terms.
+
+    Plugs the analyst "projected 3-5y EPS growth" (finviz eps_next_5y, the
+    same field StockOracle displays) straight into the verified DCF-20yr
+    structure (Lesson 5 Visa calculator): TTM operating cash flow per share
+    compounded at g for years 1-10, then 4% for years 11-20, no terminal
+    value, CAPM discount (Rf 3.608% + beta x MRP 2.728%), plus net cash,
+    minus debt. Nothing else.
+    """
+    if not shares or shares <= 0 or g5 is None:
+        return None
+    base = ttm_ocf if ttm_ocf is not None and ttm_ocf > 0 else (
+        ocf_series[0] if ocf_series and ocf_series[0] and ocf_series[0] > 0
+        else None)
+    if base is None:
+        return None
+    base_ps = base / shares
+    b = beta if beta is not None else 1.0
+    disc = (RF + b * MRP) / 100.0
+    g1 = g5 / 100.0
+    pv, f = 0.0, base_ps
+    for yr in range(1, 21):
+        f *= 1 + (g1 if yr <= 10 else 0.04)
+        pv += f / (1 + disc) ** yr
+    iv_ps = pv - ((std or 0) + (ltd or 0)) / shares \
+        + ((cash or 0) + (sti or 0)) / shares
+    return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100}
