@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T15:14:23.364492+00:00",
+ "generated_at": "2026-08-14T16:14:50.882048+00:00",
  "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
  "universe": "S&P 500 + Dow Jones 30 + Nasdaq-100 + curated extras (ADRs/ex-index quality) (merged)",
  "universe_size": 540,
@@ -7,7 +7,7 @@
  "excluded_count": 60,
  "counts": {
   "great": 151,
-  "near_miss": 245,
+  "near_miss": 246,
   "failed": 84,
   "errors": 0
  },
@@ -31836,6 +31836,129 @@
    "exclusion_reason": ""
   },
   {
+   "ticker": "FERG",
+   "company": "Ferguson Enterprises",
+   "sector": "Industrials",
+   "industry": "Building Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 85.0,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "NA",
+     "value": null,
+     "detail": "only 4 annual value(s) of revenue history available \u2014 this test needs \u22655; NA never disqualifies"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "NA",
+     "value": null,
+     "detail": "only 4 annual value(s) of net income history available \u2014 this test needs \u22655; NA never disqualifies"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "NA",
+     "value": null,
+     "detail": "only 4 annual value(s) of operating cash flow history available \u2014 this test needs \u22655; NA never disqualifies"
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 4y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 30.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 6.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 36.4%, latest 31.8%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 22.4%, latest 21.4%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.68",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.40",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "10.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 5.0% vs sales 1.7%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +11.7%/yr, next-Y +11.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.024994917658773153,
+    "rev_cagr_10y": 0.024994917658773153,
+    "rev_cagr_15y": 0.024994917658773153,
+    "ni_cagr_5y": -0.043663208183284286,
+    "ni_cagr_10y": -0.043663208183284286,
+    "ni_cagr_15y": -0.043663208183284286,
+    "cfo_cagr_10y": 0.18418470450297786,
+    "proj_eps_next_5y": 11.65,
+    "proj_eps_next_y": 10.96,
+    "eps_past_5y": null,
+    "price": 246.72,
+    "intrinsic_value": 206.55,
+    "dcf_growth_used": 9.6,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.66,
+    "discount_pct": -19.4
+   },
+   "moat_hints": {
+    "gross_margin": "30.7%",
+    "operating_margin": "8.5%",
+    "roic_persistence": "ROIC \u2265 15% every year for 3y \u2014 strong moat signal",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
    "ticker": "PLTR",
    "company": "Palantir Technologies",
    "sector": "Information Technology",
@@ -59223,5 +59346,5 @@
    "exclusion_reason": ""
   }
  ],
- "elapsed_seconds": 171.5
+ "elapsed_seconds": 0.0
 }
