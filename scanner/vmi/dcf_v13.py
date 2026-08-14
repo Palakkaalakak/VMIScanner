@@ -379,24 +379,32 @@ def compute_iv(*, sector: str, industry: str, shares: float,
 
 def compute_iv_direct(*, shares: float, beta: Optional[float],
                       g5: Optional[float],
-                      ocf_series: List[Optional[float]],
+                      ni_series: List[Optional[float]],
                       cash: float, sti: float, std: float, ltd: float,
-                      ttm_ocf: Optional[float] = None
+                      ttm_ni: Optional[float] = None
                       ) -> Optional[Dict[str, float]]:
     """DIRECT StockOracle-style DCF: NO fitted blend, no sector terms.
 
-    Plugs the analyst "projected 3-5y EPS growth" (finviz eps_next_5y, the
-    same field StockOracle displays) straight into the verified DCF-20yr
-    structure (Lesson 5 Visa calculator): TTM operating cash flow per share
+    Plugs the analyst "projected 3-5y EPS growth" (finviz eps_next_5y — the
+    closest FREE analog to StockOracle's proprietary S&P Global figure;
+    e.g. MSFT 18.35% vs their 21.02%) straight into the verified DCF-20yr
+    structure (Lesson 5 Visa calculator): TTM EPS (net income / shares)
     compounded at g for years 1-10, then 4% for years 11-20, no terminal
     value, CAPM discount (Rf 3.608% + beta x MRP 2.728%), plus net cash,
     minus debt. Nothing else.
+
+    Base-flow choice is evidence-driven, not preference: reversing
+    StockOracle's Base IV at its displayed growth across the 39 calibration
+    names, an EPS base fits best for 19/39 (OCF 10, fwd-EPS 10); MSFT error
+    -3.0% with EPS vs +29% with OCF. Full-set validation of this direct
+    mode vs StockOracle: median abs error ~35%, only 9/39 within +/-20%
+    (the refined blend is 36/36 within +/-7%). Intentionally unprotected -
+    it shows what raw inputs say with zero massaging.
     """
     if not shares or shares <= 0 or g5 is None:
         return None
-    base = ttm_ocf if ttm_ocf is not None and ttm_ocf > 0 else (
-        ocf_series[0] if ocf_series and ocf_series[0] and ocf_series[0] > 0
-        else None)
+    base = ttm_ni if ttm_ni is not None and ttm_ni > 0 else next(
+        (v for v in ni_series if v is not None and v > 0), None)
     if base is None:
         return None
     base_ps = base / shares

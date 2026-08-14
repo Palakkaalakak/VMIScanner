@@ -1055,6 +1055,97 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         res.metrics["intrinsic_value"] = None
         res.metrics["discount_pct"] = None
 
+    # ---------------- DIRECT DCF (no calibrated blend) -------------------
+    # Raw analyst 3-5y growth + TTM EPS straight into the same DCF-20yr
+    # structure. See compute_iv_direct docstring for the evidence behind
+    # the EPS base choice and its ~35% median error vs StockOracle.
+    try:
+        from .dcf_v13 import compute_iv_direct as _civ_d
+        _ttm_ni = (ttm or {}).get("ni") if shares else None
+        _ivd = _civ_d(shares=shares, beta=beta, g5=g5,
+                      ni_series=ni or [],
+                      cash=_latest_bal("cash") or 0,
+                      sti=_latest_bal("shortTermInvestments") or 0,
+                      std=_latest_bal("shortTermDebt") or 0,
+                      ltd=_latest_bal("longTermDebt") or 0,
+                      ttm_ni=_ttm_ni) if shares else None
+    except Exception:
+        _ivd = None
+    if _ivd is not None:
+        _ivd_ps = _ivd["iv_ps"]
+        res.metrics["intrinsic_value_direct"] = round(_ivd_ps, 2)
+        if price and _ivd_ps > 0:
+            res.metrics["discount_pct_direct"] = round(
+                (_ivd_ps - price) / _ivd_ps * 100, 1)
+        else:
+            res.metrics["discount_pct_direct"] = None
+    else:
+        res.metrics["intrinsic_value_direct"] = None
+        res.metrics["discount_pct_direct"] = None
+
+    # ---------------- TTM statistics (S&P Global via stockanalysis.com) --
+    # Same data family StockOracle displays: MSFT ROE 34.04 exact match,
+    # PE 27.68 vs 27.69, FCF yield 1.82 vs 1.81. Stored as ttm_* metrics.
+    _st = {}
+    try:
+        from .stockanalysis import fetch_statistics as _sa_stats
+        _st = _sa_stats(res.ticker) or {}
+    except Exception:
+        _st = {}
+    for _k in ("roe", "roic", "roa", "pe", "fwd_pe", "peg", "fcf_yield",
+               "div_yield", "current_ratio", "debt_equity", "debt_ebitda",
+               "interest_coverage", "z_score", "f_score", "eps_growth_3y"):
+        if _st.get(_k) is not None:
+            res.metrics[f"ttm_{_k}"] = _st[_k]
+
+    # ---------------- Sort scores (0-100, equal weight, no fitted params) -
+    # Each component is a documented public metric capped at a stated
+    # full-marks level, then averaged. No invented weights.
+    def _cap01(v, cap):
+        if v is None:
+            return None
+        return max(0.0, min(1.0, v / cap))
+
+    def _avgp(parts):
+        ps = [p for p in parts if p is not None]
+        return round(sum(ps) / len(ps) * 100, 1) if ps else None
+
+    def _updown(series):
+        s = [v for v in _oldest_first(series) if v is not None]
+        if len(s) < 4:
+            return None
+        ups = sum(1 for a, b in zip(s, s[1:]) if b > a)
+        return ups / (len(s) - 1)
+
+    # Financial strength: Altman Z (10=full), interest coverage (50=full),
+    # current ratio (3=full), low debt/EBITDA (0=full, >=5 = zero).
+    _de = _st.get("debt_ebitda")
+    res.metrics["sort_financial_strength"] = _avgp([
+        _cap01(_st.get("z_score"), 10),
+        _cap01(_st.get("interest_coverage"), 50),
+        _cap01(_st.get("current_ratio"), 3),
+        (5 - min(_de, 5)) / 5 if _de is not None else None])
+
+    # Predictability: fraction of positive YoY changes in revenue and NI.
+    res.metrics["sort_predictability"] = _avgp([
+        _updown(rev), _updown(ni)])
+
+    # Profitability (ROE + ROIC packaged in, per request): ROE (50=full),
+    # ROIC (50=full), net margin (40=full) — S&P TTM values.
+    res.metrics["sort_profitability"] = _avgp([
+        _cap01(_st.get("roe"), 50),
+        _cap01(_st.get("roic"), 50),
+        _cap01(_st.get("profit_margin"), 40)])
+
+    # Growth: 5y revenue CAGR, 5y NI CAGR (stored as fractions -> x100),
+    # analyst 3-5y EPS growth. 40%/yr = full marks each.
+    _rc5 = res.metrics.get("rev_cagr_5y")
+    _nc5 = res.metrics.get("ni_cagr_5y")
+    res.metrics["sort_growth"] = _avgp([
+        _cap01(_rc5 * 100, 40) if _rc5 is not None else None,
+        _cap01(_nc5 * 100, 40) if _nc5 is not None else None,
+        _cap01(g5, 40)])
+
     # ---------------- Moat hints (informational only — user decides) ----
     gm_latest = _oldest_first(gm)[-1] if _oldest_first(gm) else None
     om = _first_present(_series(rat, "operatingMargin"), _series(inc, "operatingMargin"))
