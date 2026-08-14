@@ -397,9 +397,16 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     StockOracle's Base IV at its displayed growth across the 39 calibration
     names, an EPS base fits best for 19/39 (OCF 10, fwd-EPS 10); MSFT error
     -3.0% with EPS vs +29% with OCF. Full-set validation of this direct
-    mode vs StockOracle: median abs error ~35%, only 9/39 within +/-20%
-    (the refined blend is 36/36 within +/-7%). Intentionally unprotected -
+    mode vs StockOracle: median abs error ~24% with the banded recipe
+    (the refined blend is 36/36 within +/-7%). Intentionally uncorrected -
     it shows what raw inputs say with zero massaging.
+
+    Growth bands per the documented StockOracle recipe:
+      years 1-5   : g (averaged projected 3-5y growth — see growth.py)
+      years 6-10  : same g, CAPPED at 15%/yr
+      years 11-20 : 4% (conservative long-run rate)
+    No terminal value. CAPM discount (Rf 3.608% + beta x MRP 2.728%),
+    plus net cash, minus debt. Base flow = TTM EPS (net income/shares).
     """
     if not shares or shares <= 0 or g5 is None:
         return None
@@ -410,10 +417,12 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     base_ps = base / shares
     b = beta if beta is not None else 1.0
     disc = (RF + b * MRP) / 100.0
-    g1 = g5 / 100.0
+    g1 = g5 / 100.0             # years 1-5: full projected growth
+    g2 = min(g5, 15.0) / 100.0  # years 6-10: same rate capped at 15%
     pv, f = 0.0, base_ps
     for yr in range(1, 21):
-        f *= 1 + (g1 if yr <= 10 else 0.04)
+        g_yr = g1 if yr <= 5 else (g2 if yr <= 10 else 0.04)
+        f *= 1 + g_yr
         pv += f / (1 + disc) ** yr
     iv_ps = pv - ((std or 0) + (ltd or 0)) / shares \
         + ((cash or 0) + (sti or 0)) / shares

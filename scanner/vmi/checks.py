@@ -1056,13 +1056,23 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         res.metrics["discount_pct"] = None
 
     # ---------------- DIRECT DCF (no calibrated blend) -------------------
-    # Raw analyst 3-5y growth + TTM EPS straight into the same DCF-20yr
-    # structure. See compute_iv_direct docstring for the evidence behind
-    # the EPS base choice and its ~35% median error vs StockOracle.
+    # Growth = AVERAGE of providers per the StockOracle recipe (GuruFocus
+    # + Finviz + Zacks + stockanalysis consensus; GuruFocus/Zacks are
+    # currently 403-blocked server-side but auto-join the average if they
+    # unblock — see scanner/vmi/growth.py). Bands: yrs 1-5 at g, yrs 6-10
+    # at min(g, 15%), yrs 11-20 at 4%. TTM EPS base.
+    try:
+        from .growth import projected_growth as _proj_g
+        _g_avg, _g_src = _proj_g(res.ticker, g5)
+    except Exception:
+        _g_avg, _g_src = g5, "finviz"
+    res.metrics["direct_growth_used"] = (
+        round(_g_avg, 2) if _g_avg is not None else None)
+    res.metrics["direct_growth_sources"] = _g_src
     try:
         from .dcf_v13 import compute_iv_direct as _civ_d
         _ttm_ni = (ttm or {}).get("ni") if shares else None
-        _ivd = _civ_d(shares=shares, beta=beta, g5=g5,
+        _ivd = _civ_d(shares=shares, beta=beta, g5=_g_avg,
                       ni_series=ni or [],
                       cash=_latest_bal("cash") or 0,
                       sti=_latest_bal("shortTermInvestments") or 0,
@@ -1092,6 +1102,87 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         _st = _sa_stats(res.ticker) or {}
     except Exception:
         _st = {}
+
+    # FALLBACK CHAIN so stats are never NA just because one site failed:
+    #   1. stockanalysis.com /statistics  (S&P Global — preferred)
+    #   2. Yahoo Finance (yfinance .info) — market-data driven
+    #   3. Computed from SEC XBRL filings already in hand
+    # Every fallback value is still a published or arithmetic-derived
+    # figure — nothing invented.
+    def _fill(key, val):
+        if _st.get(key) is None and val is not None:
+            try:
+                v = float(val)
+            except (TypeError, ValueError):
+                return
+            if v == v:  # not NaN
+                _st[key] = round(v, 3)
+
+    if any(_st.get(k) is None for k in (
+            "roe", "roic", "pe", "fwd_pe", "peg", "div_yield", "fcf_yield",
+            "current_ratio", "debt_equity", "z_score",
+            "interest_coverage", "debt_ebitda")):
+        # ---- Tier 2: Yahoo Finance ----
+        try:
+            import yfinance as _yf
+            _yi = _yf.Ticker(res.ticker).info or {}
+            _fill("roe", (_yi.get("returnOnEquity") or 0) * 100
+                  if _yi.get("returnOnEquity") is not None else None)
+            _fill("roa", (_yi.get("returnOnAssets") or 0) * 100
+                  if _yi.get("returnOnAssets") is not None else None)
+            _fill("pe", _yi.get("trailingPE"))
+            _fill("fwd_pe", _yi.get("forwardPE"))
+            _fill("peg", _yi.get("trailingPegRatio"))
+            _fill("div_yield", _yi.get("dividendYield"))
+            _fill("current_ratio", _yi.get("currentRatio"))
+            _fill("quick_ratio", _yi.get("quickRatio"))
+            _fill("debt_equity", (_yi.get("debtToEquity") or 0) / 100
+                  if _yi.get("debtToEquity") is not None else None)
+            _fill("profit_margin", (_yi.get("profitMargins") or 0) * 100
+                  if _yi.get("profitMargins") is not None else None)
+            _fill("operating_margin", (_yi.get("operatingMargins") or 0)
+                  * 100 if _yi.get("operatingMargins") is not None else None)
+            _fill("gross_margin", (_yi.get("grossMargins") or 0) * 100
+                  if _yi.get("grossMargins") is not None else None)
+            if (_yi.get("freeCashflow") and _yi.get("marketCap")):
+                _fill("fcf_yield",
+                      _yi["freeCashflow"] / _yi["marketCap"] * 100)
+        except Exception:
+            pass
+        # ---- Tier 3: computed from SEC XBRL already fetched ----
+        try:
+            _ni0 = next((v for v in (ni or []) if v is not None), None)
+            _eq0 = _latest_bal("equity")
+            if _ni0 and _eq0:
+                _fill("roe", _ni0 / _eq0 * 100)
+            _p_ttm = (ttm or {}).get("ni") or _ni0
+            if price and shares and _p_ttm and _p_ttm > 0:
+                _fill("pe", price * shares / _p_ttm)
+            _ltd0 = _latest_bal("longTermDebt") or 0
+            _std0 = _latest_bal("shortTermDebt") or 0
+            _ebitda_s = _series(inc, "ebitda")
+            _ebitda0 = next((v for v in (_ebitda_s or [])
+                             if v is not None), None)
+            if _ebitda0 and _ebitda0 > 0:
+                _fill("debt_ebitda", (_ltd0 + _std0) / _ebitda0)
+            _ie_s = _series(inc, "income_statement_interest_expense")
+            _ie0 = next((v for v in (_ie_s or []) if v), None)
+            _ebit_s = _series(inc, "ebit")
+            _ebit0 = next((v for v in (_ebit_s or [])
+                           if v is not None), None)
+            if _ebit0 and _ie0:
+                _fill("interest_coverage", abs(_ebit0 / _ie0))
+            if _eq0:
+                _fill("debt_equity", (_ltd0 + _std0) / _eq0)
+            _ocf0 = next((v for v in (ocf or []) if v is not None), None)
+            _cap_s = _series(cf, "capex")
+            _cap0 = next((v for v in (_cap_s or []) if v is not None), 0)
+            if _ocf0 and price and shares:
+                _fill("fcf_yield",
+                      (_ocf0 - (_cap0 or 0)) / (price * shares) * 100)
+        except Exception:
+            pass
+
     for _k in ("roe", "roic", "roa", "pe", "fwd_pe", "peg", "fcf_yield",
                "div_yield", "current_ratio", "debt_equity", "debt_ebitda",
                "interest_coverage", "z_score", "f_score", "eps_growth_3y"):

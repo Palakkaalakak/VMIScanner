@@ -276,6 +276,8 @@ with tab_scan:
         "eps_past_5y": "EPS past 5y %/yr",
         "intrinsic_value_direct": "Direct IV $",
         "discount_pct_direct": "Direct Discount %",
+        "direct_growth_used": "Direct growth used %",
+        "direct_growth_sources": "Direct growth sources",
         "ttm_roe": "ROE TTM %", "ttm_roic": "ROIC TTM %",
         "ttm_roa": "ROA TTM %", "ttm_pe": "PE TTM",
         "ttm_fwd_pe": "Fwd PE", "ttm_peg": "PEG",
