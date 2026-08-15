@@ -1014,24 +1014,24 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     price = g.get("price")
     shares = g.get("shares_outstanding")
     beta = g.get("beta")
-    # Implied-shares correction (user-attested 2026-08-15, overrides doc):
-    # Adam's calculator uses IMPLIED shares outstanding — ALL share classes
-    # combined (e.g. GOOGL class A + GOOG class C ≈ 12.2B, not the 5.87B
-    # class-A count finviz reports; META similarly omits class B). Where
-    # market-cap/price implies >10% more shares than finviz's listed-class
-    # figure, use the implied total. Data-derived (Yahoo marketCap/lastPrice),
-    # no invented numbers; graceful fallback to finviz on any fetch failure.
-    if shares:
-        try:
-            import yfinance as _yf_sh
-            _fi = _yf_sh.Ticker(res.ticker).fast_info
-            _imp_sh = _fi["marketCap"] / _fi["lastPrice"]
-            if _imp_sh and _imp_sh > shares * 1.10:
+    # Implied-shares (user-attested 2026-08-15, from the course videos —
+    # overrides doc): Adam ALWAYS uses implied shares outstanding — ALL
+    # share classes combined (e.g. GOOGL class A + GOOG class C ≈ 12.2B,
+    # not the 5.87B class-A count finviz reports; META similarly omits
+    # class B). Implied total = marketCap / lastPrice (Yahoo) — used
+    # unconditionally whenever available, no threshold. Data-derived, no
+    # invented numbers; graceful fallback to finviz on any fetch failure.
+    try:
+        import yfinance as _yf_sh
+        _fi = _yf_sh.Ticker(res.ticker).fast_info
+        _imp_sh = _fi["marketCap"] / _fi["lastPrice"]
+        if _imp_sh and _imp_sh > 0:
+            if shares:
                 res.metrics["shares_finviz_listed_class"] = round(shares)
-                res.metrics["shares_implied_total"] = round(_imp_sh)
-                shares = _imp_sh
-        except Exception:
-            pass
+            res.metrics["shares_implied_total"] = round(_imp_sh)
+            shares = _imp_sh
+    except Exception:
+        pass
     res.metrics["price"] = price
 
     def _latest_bal(key):
