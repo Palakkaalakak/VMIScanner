@@ -126,4 +126,5 @@ IS the model's input format — zero glue code beyond the HTTP call.
 - `rubric_system_prompt.md` — Adam's rubric as the system prompt (consensus forbidden)
 - `build_dataset.py` — builds gold/contrastive/silver_prompts (run: `python3 -m ai_moat.build_dataset`)
 - `dataset/` — the JSONL outputs (chat-messages format, axolotl/unsloth/llama-factory ready)
-- TODO next session: `gen_silver.py` (teacher loop) and `train_qlora.py` (full script)
+- `gen_silver.py` — teacher loop (LM Studio/OpenAI-compatible, resumable)
+- `train_qlora.py` — full unsloth QLoRA script with built-in held-out eval

@@ -1,0 +1,186 @@
+"""QLoRA fine-tune of Qwen2.5-14B-Instruct on the 3-tier moat dataset.
+Sized for an RTX 5070 Ti (12GB VRAM) + 16GB RAM. 100% free stack.
+
+What it does:
+  1. Loads the free pre-quantized 4-bit base (auto-downloads ~9GB once).
+  2. Builds the training mix: gold x6 + contrastive x4 + silver x1,
+     HOLDING OUT eval tickers (never trained on) for the trust gate.
+  3. Trains a rank-64 LoRA adapter (~2-4h).
+  4. Saves the adapter + runs the held-out eval so you see immediately
+     whether the model reasons (downgrades corrupted evidence) or memorized.
+
+Setup on your PC (once):
+  pip install unsloth            # pulls torch/transformers/peft/trl/bitsandbytes
+
+Run (from the repo root):
+  python ai_moat/train_qlora.py                 # full run
+  python ai_moat/train_qlora.py --base 7b       # fallback if 14B OOMs
+  python ai_moat/train_qlora.py --eval-only     # re-run the eval on a saved adapter
+
+After training, quantize for LM Studio (see TRAINING.md step 4/5):
+  merged fp16 -> llama.cpp convert -> Q5_K_M GGUF (~9.9GB, fits fully in VRAM).
+
+OOM ladder (apply in order): --seq 1536, then --rank 32, then --base 7b.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import random
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DS = os.path.join(HERE, "dataset")
+OUTDIR = os.path.join(HERE, "outputs")
+
+# Held-out gold tickers — the trust gate. Never trained on.
+EVAL_GOLD = {"META", "TSLA", "AMZN", "INTC", "ZM"}
+# Held-out contrastive tickers — must DOWNGRADE despite famous names.
+EVAL_CONTRASTIVE = {"MSFT", "GOOGL", "AAPL"}
+
+BASES = {
+    "14b": "unsloth/Qwen2.5-14B-Instruct-bnb-4bit",
+    "7b": "unsloth/Qwen2.5-7B-Instruct-bnb-4bit",
+}
+
+
+def load_jsonl(name):
+    p = os.path.join(DS, name)
+    if not os.path.exists(p):
+        return []
+    return [json.loads(l) for l in open(p, encoding="utf-8")]
+
+
+def build_mix():
+    gold = load_jsonl("gold.jsonl")
+    contr = load_jsonl("contrastive.jsonl")
+    silver = load_jsonl("silver.jsonl")
+    if not gold:
+        raise SystemExit("dataset/gold.jsonl missing — run: "
+                         "python3 -m ai_moat.build_dataset")
+    if not silver:
+        print("WARNING: dataset/silver.jsonl is empty — run gen_silver.py "
+              "first for full quality. Training on gold+contrastive only.")
+
+    train, eval_rows = [], []
+    for r in gold:
+        (eval_rows if r["ticker"] in EVAL_GOLD else train).append(
+            {**r, "_repeat": 6})
+    for r in contr:
+        (eval_rows if r["ticker"] in EVAL_CONTRASTIVE else train).append(
+            {**r, "_repeat": 4})
+    for r in silver:
+        if r["ticker"] not in EVAL_GOLD | EVAL_CONTRASTIVE:
+            train.append({**r, "_repeat": 1})
+
+    expanded = []
+    for r in train:
+        expanded.extend([r] * r["_repeat"])
+    random.seed(42)
+    random.shuffle(expanded)
+    print(f"train rows (after repeats): {len(expanded)}  "
+          f"(gold {sum(1 for r in train if r['tier']=='gold')}, "
+          f"contrastive {sum(1 for r in train if r['tier']=='contrastive')}, "
+          f"silver {sum(1 for r in train if r['tier']=='silver')})  "
+          f"| held-out eval rows: {len(eval_rows)}")
+    return expanded, eval_rows
+
+
+def run_eval(model, tokenizer, eval_rows, max_new=900):
+    """Trust gate: print model answers on held-out rows for human review."""
+    from unsloth import FastLanguageModel
+    FastLanguageModel.for_inference(model)
+    print("\n" + "=" * 70)
+    print("HELD-OUT EVAL — verify by hand (TRAINING.md step 5):")
+    print("  gold rows must match Adam; contrastive rows MUST downgrade.")
+    print("=" * 70)
+    for r in eval_rows:
+        msgs = r["messages"][:2]          # system + user only
+        ids = tokenizer.apply_chat_template(
+            msgs, tokenize=True, add_generation_prompt=True,
+            return_tensors="pt").to(model.device)
+        out = model.generate(input_ids=ids, max_new_tokens=max_new,
+                             temperature=0.2, do_sample=True)
+        text = tokenizer.decode(out[0][ids.shape[1]:],
+                                skip_special_tokens=True)
+        print(f"\n----- {r['ticker']} [{r['tier']}] -----")
+        print(text[:1200])
+        expected = r["messages"][2]["content"].splitlines()[0]
+        print(f">>> EXPECTED: {expected}")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--base", choices=list(BASES), default="14b")
+    ap.add_argument("--seq", type=int, default=2048)
+    ap.add_argument("--rank", type=int, default=64)
+    ap.add_argument("--epochs", type=int, default=3)
+    ap.add_argument("--eval-only", action="store_true")
+    args = ap.parse_args()
+
+    from unsloth import FastLanguageModel     # import late: needs GPU
+    from datasets import Dataset
+    from trl import SFTTrainer, SFTConfig
+
+    train_rows, eval_rows = build_mix()
+
+    adapter_dir = os.path.join(OUTDIR, f"moat-{args.base}-lora")
+    if args.eval_only:
+        model, tokenizer = FastLanguageModel.from_pretrained(
+            adapter_dir, max_seq_length=args.seq, load_in_4bit=True)
+        run_eval(model, tokenizer, eval_rows)
+        return
+
+    model, tokenizer = FastLanguageModel.from_pretrained(
+        BASES[args.base], max_seq_length=args.seq, load_in_4bit=True)
+    model = FastLanguageModel.get_peft_model(
+        model, r=args.rank, lora_alpha=args.rank,
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
+                        "gate_proj", "up_proj", "down_proj"],
+        lora_dropout=0.0, bias="none",
+        use_gradient_checkpointing="unsloth",   # what makes 14B fit in 12GB
+        random_state=42)
+
+    def to_text(row):
+        return {"text": tokenizer.apply_chat_template(
+            row["messages"], tokenize=False, add_generation_prompt=False)}
+
+    ds = Dataset.from_list(train_rows).map(to_text,
+                                           remove_columns=["messages", "tier",
+                                                           "ticker", "_repeat"])
+
+    trainer = SFTTrainer(
+        model=model, tokenizer=tokenizer, train_dataset=ds,
+        dataset_text_field="text",
+        args=SFTConfig(
+            output_dir=adapter_dir,
+            per_device_train_batch_size=1,
+            gradient_accumulation_steps=16,      # effective batch 16
+            num_train_epochs=args.epochs,
+            learning_rate=1e-4,
+            lr_scheduler_type="cosine",
+            warmup_ratio=0.05,
+            logging_steps=5,
+            save_strategy="epoch",
+            bf16=True,
+            optim="paged_adamw_8bit",
+            max_seq_length=args.seq,
+            seed=42,
+        ))
+    trainer.train()
+    model.save_pretrained(adapter_dir)
+    tokenizer.save_pretrained(adapter_dir)
+    print(f"\nadapter saved -> {adapter_dir}")
+
+    run_eval(model, tokenizer, eval_rows)
+
+    print("\nNEXT (TRAINING.md steps 4-5): merge + quantize for LM Studio:")
+    print(f"  python -c \"from unsloth import FastLanguageModel; "
+          f"m,t=FastLanguageModel.from_pretrained('{adapter_dir}'); "
+          f"m.save_pretrained_merged('{OUTDIR}/moat-{args.base}-merged', t, "
+          f"save_method='merged_16bit')\"")
+    print("  then llama.cpp: convert_hf_to_gguf.py + llama-quantize Q5_K_M")
+
+
+if __name__ == "__main__":
+    main()
