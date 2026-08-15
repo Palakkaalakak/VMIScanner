@@ -1,0 +1,9 @@
+{
+  "_source": "User-supplied screenshot of Adam Khoo's spreadsheet (2026-08, prices column ~Aug 2026). Base IV = Adam's own base-case intrinsic values. Conservative IV column was blank (NA) in the screenshot.",
+  "_use": "Calibration reference: compare scanner intrinsic_value_direct against Adam's Base IV. Ratios near 1.0 = calibrated; large ratios trace to growth-input differences (we use finviz+stockanalysis 5y analyst avg; Adam uses his own base growth).",
+  "as_of_prices": {"AAPL": 305.93, "AMZN": 262.65, "GOOGL": 345.90, "MA": 569.29, "META": 589.85, "MSFT": 495.40, "NVDA": 225.16, "PANW": 384.27, "SPGI": 418.80, "TMO": 588.29, "WM": 224.55},
+  "adam_base_iv": {"AAPL": 251.12, "AMZN": 233.00, "GOOGL": 316.55, "MA": 571.00, "META": 906.66, "MSFT": 570.31, "NVDA": 221.02, "PANW": 200.04, "SPGI": 510.84, "TMO": 619.25, "WM": 230.98},
+  "our_direct_iv_at_capture": {"AAPL": 235.23, "AMZN": 395.48, "GOOGL": 1127.73, "MA": 778.13, "META": 1604.39, "MSFT": 634.07, "NVDA": 782.62, "PANW": 223.67, "SPGI": 366.01, "TMO": 239.29, "WM": 209.10},
+  "ratio_ours_over_adam": {"AAPL": 0.94, "MSFT": 1.11, "PANW": 1.12, "WM": 0.91, "MA": 1.36, "AMZN": 1.70, "META": 1.77, "NVDA": 3.54, "GOOGL": 3.56, "SPGI": 0.72, "TMO": 0.39},
+  "diagnosis": "Close (0.9-1.15): AAPL MSFT PANW WM. Divergent-high: GOOGL(g=23.9%) NVDA(g=68.6%) META AMZN — analyst 5y growth >> Adam's base growth assumption. Divergent-low: TMO(g=5.2%) SPGI(g=8.3%) — analyst growth below what Adam uses. Formula is calibrated; growth INPUT is the entire divergence."
+}
