@@ -145,6 +145,28 @@ def _render_ticker_detail(r):
     } for ch in r.get("checks", [])])
     st.dataframe(checks, width="stretch", height=530)
 
+    # ---- Moat evidence card (course Step 3: human judges, we assemble) --
+    mh = r.get("moat_hints") or {}
+    if mh:
+        mes = m.get("moat_evidence_score")
+        title = tr("🏰 Moat evidence card")
+        if mes is not None:
+            title += f" — quantitative evidence {mes:.0f}/100"
+        with st.expander(title, expanded=False):
+            if m.get("moat_no_moat_industry"):
+                st.warning(mh.get("industry_warning",
+                                  "Structurally no-moat industry"))
+            _order = [("pricing_power", "💰 Pricing power"),
+                      ("roic_persistence", "🛡️ ROIC persistence"),
+                      ("margin_durability", "📈 Margin durability"),
+                      ("growth_consistency", "🔁 Growth consistency"),
+                      ("self_financing", "🏦 Self-financing")]
+            rows = [{"Evidence": lbl, "Reading": mh[k]}
+                    for k, lbl in _order if k in mh]
+            if rows:
+                st.table(pd.DataFrame(rows))
+            st.info(mh.get("human_checklist", ""))
+
 
 def _verdict(r):
     if r.get("is_great"):
@@ -294,6 +316,10 @@ with tab_scan:
         "psg_verdict": "PSG verdict",
         "cfo_vs_ni_pct": "CFO vs NI deviation %",
         "cfo_fcf_substitute_ok": "CFO-for-FCF OK (within 20% of NI)",
+        "moat_evidence_score": "Moat evidence score (0-100)",
+        "moat_no_moat_industry": "No-moat industry (course avoid-list)",
+        "moat_gm_trend_pp": "Gross margin trend pp (3y avg vs decade start)",
+        "moat_om_trend_pp": "Op margin trend pp (3y avg vs decade start)",
         "ttm_roe": "ROE TTM %", "ttm_roic": "ROIC TTM %",
         "ttm_roa": "ROA TTM %", "ttm_pe": "PE TTM",
         "ttm_fwd_pe": "Fwd PE", "ttm_peg": "PEG",
