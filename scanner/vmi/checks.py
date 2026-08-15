@@ -1350,32 +1350,128 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         _cap01(_nc5 * 100, 40) if _nc5 is not None else None,
         _cap01(g5, 40)])
 
-    # ---------------- Moat hints (informational only — user decides) ----
-    gm_latest = _oldest_first(gm)[-1] if _oldest_first(gm) else None
-    om = _first_present(_series(rat, "operatingMargin"), _series(inc, "operatingMargin"))
-    om_latest = _oldest_first(om)[-1] if _oldest_first(om) else None
+    # ------------- Moat evidence card (doc Step 3 + Pillar 5) -----------
+    # The doc: moats leave fingerprints in the numbers — "able to increase
+    # revenue and income consistently, consistently growing CFO, positive
+    # FCF." Every component below is one of Adam's own stated tells; the
+    # final ≥3-of-5 sources call (brand / switching costs / network effect
+    # / barriers to entry / economies of scale) stays HUMAN. This card
+    # assembles maximum evidence for that judgment.
+    gm_of = _oldest_first(gm)
+    gm_latest = gm_of[-1] if gm_of else None
+    om = _first_present(_series(rat, "operatingMargin"),
+                        _series(inc, "operatingMargin"))
+    om_of = _oldest_first(om)
+    om_latest = om_of[-1] if om_of else None
     buyback = _series(rat, "buybackyield")
     bb_avg = _avg(buyback, WINDOW_5Y)
-    roic_all_high = None
     rvals = [v for v in roic_w if v is not None]
-    if rvals:
-        roic_all_high = all(v >= 15 for v in rvals)
+    fcf_s = _pos_years = None
+    try:
+        fcf_s = [v for v in (_series(cf, "fcf") or []) if v is not None]
+        if fcf_s:
+            _pos_years = sum(1 for v in fcf_s[:10] if v > 0)
+    except Exception:
+        pass
+
+    # Component 1 — pricing power (doc's explicit wide-moat test: raise
+    # prices yearly without losing customers → shows as high, NON-ERODING
+    # gross margin). Score: level (50% = full) x erosion haircut.
+    _c_price = None
+    if gm_latest is not None:
+        _c_price = _cap01(gm_latest, 50)
+        if len(gm_of) >= 6:
+            _gm_old = sum(gm_of[:3]) / 3       # oldest 3y avg
+            _gm_new = sum(gm_of[-3:]) / 3      # newest 3y avg
+            res.metrics["moat_gm_trend_pp"] = round(_gm_new - _gm_old, 1)
+            if _gm_new < _gm_old - 3:          # eroding > 3pp = haircut
+                _c_price *= 0.5
+
+    # Component 2 — ROIC persistence (excess returns competition failed
+    # to compete away — the single best quantitative moat proxy).
+    _c_roic = (sum(1 for v in rvals if v >= 15) / len(rvals)
+               if rvals else None)
+
+    # Component 3 — operating-margin durability (Intel-style moat decay
+    # detector: newest 3y avg vs oldest 3y avg).
+    _c_omtrend = None
+    if len(om_of) >= 6:
+        _om_old = sum(om_of[:3]) / 3
+        _om_new = sum(om_of[-3:]) / 3
+        res.metrics["moat_om_trend_pp"] = round(_om_new - _om_old, 1)
+        _c_omtrend = 1.0 if _om_new >= _om_old else max(
+            0.0, 1.0 - (_om_old - _om_new) / max(_om_old, 1e-9))
+
+    # Component 4 — growth consistency (doc: strong moat ⇒ consistent
+    # revenue AND income up-years).
+    _c_cons = _avgp([_updown(rev), _updown(ni)])
+    _c_cons = _c_cons / 100 if _c_cons is not None else None
+
+    # Component 5 — self-financing (Pillar 6: grows organically, positive
+    # FCF years + buybacks rather than dilution).
+    _c_self = None
+    if _pos_years is not None and fcf_s:
+        _c_self = _pos_years / min(len(fcf_s), 10)
+        if bb_avg is not None and bb_avg < -1:   # >1%/yr dilution
+            _c_self *= 0.6
+
+    res.metrics["moat_evidence_score"] = _avgp(
+        [_c_price, _c_roic, _c_omtrend, _c_cons, _c_self])
+
+    # Structurally no-moat industries (doc's explicit avoid-list).
+    _NO_MOAT_WORDS = ("airline", "auto manufactur", "oil & gas", "coal",
+                      "shipping", "marine", "construction", "steel",
+                      "aluminum", "chemical", "paper", "gold", "silver",
+                      "copper", "agricultur", "real estate - dev")
+    _ind_l = (res.industry or "").lower()
+    res.metrics["moat_no_moat_industry"] = any(
+        w in _ind_l for w in _NO_MOAT_WORDS)
+
     hints = {}
     if gm_latest is not None:
-        hints["gross_margin"] = f"{gm_latest:.1f}%" + (
-            " (high — pricing power?)" if gm_latest >= 50 else "")
-    if om_latest is not None:
-        hints["operating_margin"] = f"{om_latest:.1f}%" + (
-            " (high)" if om_latest >= 25 else "")
-    if roic_all_high is not None:
-        hints["roic_persistence"] = (f"ROIC ≥ 15% every year for {len(rvals)}y — strong moat signal"
-                                     if roic_all_high else f"ROIC not uniformly ≥ 15% over {len(rvals)}y")
-    if bb_avg is not None:
-        hints["buybacks"] = (f"avg buyback yield {bb_avg:.1f}%/yr — self-financing, "
-                             "shareholder friendly" if bb_avg > 0.5
-                             else f"avg buyback/dilution {bb_avg:.1f}%/yr")
-    hints["verdict"] = ("Moat assessment left to user discretion per VMI — "
-                        "check brand, switching costs, network effect, "
-                        "barriers to entry, economies of scale")
+        hints["pricing_power"] = (
+            f"gross margin {gm_latest:.1f}%"
+            + (" — high, pricing-power territory (doc: can it raise "
+               "prices yearly without losing share?)" if gm_latest >= 50
+               else " — below the 50% pricing-power tell")
+            + (f"; 3y-avg trend {res.metrics.get('moat_gm_trend_pp'):+.1f}pp"
+               f" vs decade start" if res.metrics.get("moat_gm_trend_pp")
+               is not None else ""))
+    if rvals:
+        _nhi = sum(1 for v in rvals if v >= 15)
+        hints["roic_persistence"] = (
+            f"ROIC ≥ 15% in {_nhi}/{len(rvals)} years"
+            + (" — competitors have failed to compete these returns away"
+               if _nhi == len(rvals) else
+               " — excess returns not fully defended"))
+    if res.metrics.get("moat_om_trend_pp") is not None:
+        _tr = res.metrics["moat_om_trend_pp"]
+        hints["margin_durability"] = (
+            f"operating margin {om_latest:.1f}%, {_tr:+.1f}pp vs decade "
+            f"start" + (" — expanding (moat strengthening)" if _tr > 1
+                        else " — ERODING (Intel-style decay warning)"
+                        if _tr < -3 else " — stable"))
+    if _c_cons is not None:
+        hints["growth_consistency"] = (
+            f"revenue/income up-years {int(_c_cons * 100)}% — doc: strong "
+            "moats show as consistent growth")
+    if _pos_years is not None:
+        hints["self_financing"] = (
+            f"FCF positive {_pos_years}/{min(len(fcf_s), 10)} of last 10y"
+            + (f", avg buyback yield {bb_avg:.1f}%/yr" if bb_avg is not None
+               else ""))
+    if res.metrics.get("moat_no_moat_industry"):
+        hints["industry_warning"] = (
+            "⚠️ STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list "
+            "(commodities, airlines, autos, shipping, construction, "
+            "oil & gas) — moat claim needs extraordinary evidence")
+    hints["human_checklist"] = (
+        "YOUR CALL — need ≥3 of 5 sources: ① brand monopoly ② switching "
+        "costs ③ network effect ④ barriers to entry (patents/regulation) "
+        "⑤ economies of scale. Plus the pricing-power test, and the "
+        "talent-dependency warning: if the moat depends on one "
+        "irreplaceable person (key-man risk), the doc says that is "
+        "DANGEROUS — 'once you lose the talent, the whole business is "
+        "gone.' Numbers cannot see this; only you can.")
     res.moat_hints = hints
     return res
