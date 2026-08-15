@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-08-15T16:11:09.618308+00:00",
+ "generated_at": "2026-08-15T16:11:52.588698+00:00",
  "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
  "universe": "S&P 500 + Dow Jones 30 + Nasdaq-100 + curated extras (ADRs/ex-index quality) (merged)",
  "universe_size": 540,
  "included_after_exclusion": 480,
  "excluded_count": 60,
  "counts": {
-  "great": 33,
-  "near_miss": 47,
-  "failed": 20,
+  "great": 42,
+  "near_miss": 61,
+  "failed": 22,
   "errors": 0
  },
  "excluded": [
@@ -17032,7 +17032,4175 @@
    "error": "",
    "excluded": false,
    "exclusion_reason": ""
+  },
+  {
+   "ticker": "CTSH",
+   "company": "Cognizant",
+   "sector": "Information Technology",
+   "industry": "IT Consulting & Other Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.2% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 10.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 17.3%, latest 14.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.2%, latest 15.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.14",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.14",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "1.3%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 6.3% vs sales 5.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.7%/yr, next-Y +9.7%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.0334221483668693,
+    "rev_cagr_10y": 0.05102884800513818,
+    "rev_cagr_15y": 0.09244850358400569,
+    "ni_cagr_5y": 0.010706561672956694,
+    "ni_cagr_10y": 0.04102046563772599,
+    "ni_cagr_15y": 0.06835888191810313,
+    "cfo_cagr_10y": 0.06432782351366728,
+    "proj_eps_next_5y": 9.68,
+    "proj_eps_next_y": 9.74,
+    "eps_past_5y": 12.13,
+    "price": 58.79,
+    "intrinsic_value": 267.52,
+    "dcf_growth_used": 16.4,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 5.84,
+    "discount_pct": 78.0,
+    "direct_growth_used": 8.23,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 134.19,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 121.12,
+    "intrinsic_value_doomsday": 109.71,
+    "direct_growth_low": 6.78,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 56.2,
+    "ttm_roe": 14.924,
+    "ttm_roic": 14.782,
+    "ttm_roa": 10.735,
+    "ttm_pe": 12.664,
+    "ttm_fwd_pe": 9.7,
+    "ttm_peg": 1.226,
+    "ttm_fcf_yield": 9.811,
+    "ttm_div_yield": 2.245,
+    "ttm_current_ratio": 2.182,
+    "ttm_debt_equity": 0.14,
+    "ttm_debt_ebitda": 0.49,
+    "ttm_interest_coverage": 97.778,
+    "ttm_z_score": 5.91,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 9.23,
+    "peg_adam": 1.54,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.96,
+    "fair_value_ps": 91.7,
+    "pb_avg_5y": 2.89,
+    "fair_value_pb": 96.01,
+    "rev_growth_proj": 3.7,
+    "psg": 0.34,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 30.8,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 80.5,
+    "sort_predictability": 71.4,
+    "sort_profitability": 28.4,
+    "sort_growth": 11.7,
+    "moat_om_trend_pp": -3.8,
+    "moat_evidence_score": 85.2,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 9/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 16.1%, -3.8pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 71% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "COHR",
+   "company": "Coherent Corp.",
+   "sector": "Information Technology",
+   "industry": "Electronic Components",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 77.3,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 1,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "20.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "20.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "WARN",
+     "value": "-0.7% CAGR",
+     "detail": "Trend passes once a SINGLE distorted year is excluded \u2014 likely temporary (working-capital swing, M&A/litigation cash outflow, tax timing). Review that year manually; underlying trend intact"
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "2/10 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 37.5%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 11.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 5.5%, latest 7.4%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.3%, latest 1.2%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.43",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 24.0% vs sales 24.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +48.8%/yr, next-Y +49.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.2103708585437527,
+    "rev_cagr_10y": 0.24760124954561546,
+    "rev_cagr_15y": 0.20610274261709893,
+    "ni_cagr_5y": 0.3607963559640628,
+    "ni_cagr_10y": 0.26759362013733345,
+    "ni_cagr_15y": 0.20333947208516534,
+    "cfo_cagr_10y": -0.04346682662462331,
+    "proj_eps_next_5y": 48.77,
+    "proj_eps_next_y": 49.92,
+    "eps_past_5y": 11.7,
+    "price": 325.83,
+    "intrinsic_value": 16.01,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 9.45,
+    "discount_pct": -1935.3,
+    "direct_growth_used": 41.44,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 272.11,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 210.15,
+    "intrinsic_value_doomsday": 210.15,
+    "direct_growth_low": 34.1,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -19.7,
+    "ttm_roe": 7.981,
+    "ttm_roic": 6.744,
+    "ttm_roa": 3.393,
+    "ttm_pe": 79.085,
+    "ttm_fwd_pe": 35.205,
+    "ttm_peg": 0.661,
+    "ttm_fcf_yield": -1.604,
+    "ttm_current_ratio": 2.427,
+    "ttm_debt_equity": 0.32,
+    "ttm_debt_ebitda": 2.39,
+    "ttm_interest_coverage": 4.738,
+    "ttm_z_score": 4.1,
+    "ttm_f_score": 7.0,
+    "peg_adam": 1.91,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.72,
+    "fair_value_ps": 135.19,
+    "pb_avg_5y": 2.42,
+    "fair_value_pb": 134.93,
+    "rev_growth_proj": 23.84,
+    "psg": 0.38,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": -90.1,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 45.9,
+    "sort_predictability": 71.4,
+    "sort_profitability": 19.2,
+    "sort_growth": 80.9,
+    "moat_gm_trend_pp": -1.8,
+    "moat_om_trend_pp": -7.2,
+    "moat_evidence_score": 53.0,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 37.5% \u2014 below the 50% pricing-power tell; 3y-avg trend -1.8pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/8 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 2.0%, -7.2pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 71% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 8/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "COIN",
+   "company": "Coinbase",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "financial",
+   "data_source": "sec",
+   "score": 50.0,
+   "is_great": false,
+   "n_pass": 2,
+   "n_fail": 2,
+   "n_warn": 5,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "54.2% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "Profitability improving on a smoothed long-term basis but not yet meeting the mature-company consistency test (growth-stage)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": null,
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "2/7 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 17.6%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.2%, latest 8.5%",
+     "detail": "Average clears 12% (19.9%) once ONE outlier year (-48.1%) is excluded \u2014 likely a temporary distortion (impairment/M&A charge, one-off loss, equity swing from buybacks). Review that year manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 28.4%, latest 11.1%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 10.1% vs sales 41.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +5.4%/yr, next-Y +224.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.02168248264317696,
+    "rev_cagr_10y": 0.542220540647949,
+    "rev_cagr_15y": 0.542220540647949,
+    "ni_cagr_5y": -0.23207259287777526,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": null,
+    "proj_eps_next_5y": 5.39,
+    "proj_eps_next_y": 224.86,
+    "eps_past_5y": 52.26,
+    "price": 148.47,
+    "intrinsic_value": 27.79,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "ni:0.24+fwdni:0.76",
+    "dcf_sector_group": "fin-net",
+    "dcf_discount_rate": 12.72,
+    "discount_pct": -434.3,
+    "direct_growth_used": -10.1,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 46.21,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 46.21,
+    "intrinsic_value_doomsday": 48.86,
+    "direct_growth_low": -10.1,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -221.3,
+    "ttm_roe": -7.847,
+    "ttm_roic": 4.06,
+    "ttm_roa": 1.116,
+    "ttm_pe": 26.241,
+    "ttm_fwd_pe": 130.408,
+    "ttm_peg": 8.372,
+    "ttm_fcf_yield": 4.375,
+    "ttm_current_ratio": 2.423,
+    "ttm_debt_equity": 0.51,
+    "ttm_debt_ebitda": 9.53,
+    "ttm_interest_coverage": 4.985,
+    "ttm_z_score": 4.03,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 2.02,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 8.49,
+    "fair_value_ps": 273.62,
+    "pb_avg_5y": 5.36,
+    "fair_value_pb": 355.67,
+    "rev_growth_proj": -7.33,
+    "cfo_vs_ni_pct": 36.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 32.8,
+    "sort_predictability": 66.7,
+    "sort_profitability": 2.7,
+    "sort_growth": 4.5,
+    "moat_om_trend_pp": -4.2,
+    "moat_evidence_score": 64.4,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 2/5 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 20.0%, -4.2pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 66% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 5/7 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CL",
+   "company": "Colgate-Palmolive",
+   "sector": "Consumer Staples",
+   "industry": "Household Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 88.5,
+   "is_great": false,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "1.4% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "-0.9% CAGR",
+     "detail": "Profitability improving on a smoothed long-term basis but not yet meeting the mature-company consistency test (growth-stage)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 60.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 10.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 40.5%, latest 37.0%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.83",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.99",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "4.6%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 1.9% vs sales 3.3%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +6.0%/yr, next-Y +6.1%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.040024162271868224,
+    "rev_cagr_10y": 0.03317000226351463,
+    "rev_cagr_15y": 0.014186079420337006,
+    "ni_cagr_5y": -0.003947598236138328,
+    "ni_cagr_10y": -0.014926072408607105,
+    "ni_cagr_15y": -0.009330638974902161,
+    "cfo_cagr_10y": 0.03275466748851952,
+    "proj_eps_next_5y": 5.98,
+    "proj_eps_next_y": 6.08,
+    "eps_past_5y": -3.47,
+    "price": 91.95,
+    "intrinsic_value": 1256.99,
+    "dcf_growth_used": 39.4,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.51,
+    "discount_pct": 92.7,
+    "direct_growth_used": 6.79,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 89.32,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 83.72,
+    "intrinsic_value_doomsday": 75.78,
+    "direct_growth_low": 5.98,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -2.9,
+    "ttm_roe": 267.367,
+    "ttm_roic": 45.561,
+    "ttm_roa": 15.838,
+    "ttm_pe": 36.282,
+    "ttm_fwd_pe": 23.389,
+    "ttm_peg": 4.407,
+    "ttm_fcf_yield": 5.263,
+    "ttm_div_yield": 2.306,
+    "ttm_current_ratio": 1.026,
+    "ttm_debt_equity": 13.88,
+    "ttm_debt_ebitda": 1.53,
+    "ttm_interest_coverage": 17.091,
+    "ttm_z_score": 6.91,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 6.0,
+    "peg_adam": 5.35,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.6,
+    "fair_value_ps": 91.97,
+    "pb_avg_5y": 107.07,
+    "fair_value_pb": 7.25,
+    "rev_growth_proj": 4.2,
+    "psg": 0.86,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 109.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 51.7,
+    "sort_predictability": 60.7,
+    "sort_profitability": 71.8,
+    "sort_growth": 8.3,
+    "moat_gm_trend_pp": 1.6,
+    "moat_om_trend_pp": -2.7,
+    "moat_evidence_score": 89.7,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 60.1% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +1.6pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 10/10 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 16.2%, -2.7pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 60% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CMCSA",
+   "company": "Comcast",
+   "sector": "Communication Services",
+   "industry": "Cable & Satellite",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 87.5,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.8% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "11.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 16.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 15.9%, latest 20.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.0%, latest 8.7%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.88",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.52",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "13.1%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 6.4% vs sales 4.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "WARN",
+     "value": "next-5Y -3.2%/yr but next-Y +3.2%",
+     "detail": "Long-term estimate negative while next year positive \u2014 review"
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.0153699728268617,
+    "rev_cagr_10y": 0.048556638193517854,
+    "rev_cagr_15y": 0.058458434246010604,
+    "ni_cagr_5y": 0.0901556138626527,
+    "ni_cagr_10y": 0.09719852005444474,
+    "ni_cagr_15y": 0.11868202408094675,
+    "cfo_cagr_10y": 0.061322663247228126,
+    "proj_eps_next_5y": -3.25,
+    "proj_eps_next_y": 3.17,
+    "eps_past_5y": 18.8,
+    "price": 26.18,
+    "intrinsic_value": 27.47,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-net",
+    "dcf_discount_rate": 5.44,
+    "discount_pct": 4.7,
+    "direct_growth_used": -1.73,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 42.01,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 42.01,
+    "intrinsic_value_doomsday": 43.6,
+    "direct_growth_low": -1.73,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 37.7,
+    "ttm_roe": 11.488,
+    "ttm_roic": 8.148,
+    "ttm_roa": 4.308,
+    "ttm_pe": 8.475,
+    "ttm_fwd_pe": 7.446,
+    "ttm_fcf_yield": 21.997,
+    "ttm_div_yield": 5.042,
+    "ttm_current_ratio": 0.796,
+    "ttm_debt_equity": 1.0,
+    "ttm_debt_ebitda": 2.56,
+    "ttm_interest_coverage": 4.162,
+    "ttm_z_score": 1.4,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": -3.29,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 1.34,
+    "fair_value_ps": 46.92,
+    "pb_avg_5y": 1.82,
+    "fair_value_pb": 49.75,
+    "rev_growth_proj": 0.72,
+    "psg": 1.04,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 62.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 24.4,
+    "sort_predictability": 78.6,
+    "sort_profitability": 20.6,
+    "sort_growth": 8.8,
+    "moat_om_trend_pp": -1.6,
+    "moat_evidence_score": 70.1,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 1/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 16.7%, -1.6pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 78% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "FIX",
+   "company": "Comfort Systems USA",
+   "sector": "Industrials",
+   "industry": "Construction & Engineering",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": true,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "15.5% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": null,
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "30.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 24.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 11.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 17.1%, latest 41.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.6%, latest 64.5%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.21",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.11",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 20.1% vs sales 9.4%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +37.7%/yr, next-Y +22.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.311797554089682,
+    "rev_cagr_10y": 0.21021949203525847,
+    "rev_cagr_15y": 0.15458307434756424,
+    "ni_cagr_5y": 0.634271014798899,
+    "ni_cagr_10y": 0.35847679589175896,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.3298681759833688,
+    "proj_eps_next_5y": 37.73,
+    "proj_eps_next_y": 22.61,
+    "eps_past_5y": 47.85,
+    "price": 1774.06,
+    "intrinsic_value": 2560.67,
+    "dcf_growth_used": 29.1,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 8.16,
+    "discount_pct": 30.7,
+    "direct_growth_used": 51.5,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 7531.48,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 4783.79,
+    "intrinsic_value_doomsday": 4783.79,
+    "direct_growth_low": 37.73,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 76.4,
+    "ttm_roe": 55.292,
+    "ttm_roic": 76.72,
+    "ttm_roa": 17.039,
+    "ttm_pe": 43.657,
+    "ttm_fwd_pe": 33.527,
+    "ttm_peg": 0.745,
+    "ttm_fcf_yield": 3.465,
+    "ttm_div_yield": 0.203,
+    "ttm_current_ratio": 1.214,
+    "ttm_debt_equity": 0.11,
+    "ttm_debt_ebitda": 0.16,
+    "ttm_interest_coverage": 196.515,
+    "ttm_z_score": 7.4,
+    "ttm_f_score": 8.0,
+    "ttm_eps_growth_3y": 36.75,
+    "peg_adam": 0.85,
+    "peg_verdict": "cheap (<1)",
+    "ps_avg_5y": 1.86,
+    "fair_value_ps": 481.15,
+    "pb_avg_5y": 7.3,
+    "fair_value_pb": 507.62,
+    "rev_growth_proj": 33.39,
+    "psg": 0.21,
+    "psg_verdict": "fair (0.2-0.3)",
+    "cfo_vs_ni_pct": 149.4,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 77.8,
+    "sort_predictability": 89.3,
+    "sort_profitability": 77.3,
+    "sort_growth": 90.8,
+    "moat_gm_trend_pp": 5.3,
+    "moat_om_trend_pp": 10.5,
+    "moat_evidence_score": 83.5,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 24.1% \u2014 below the 50% pricing-power tell; 3y-avg trend +5.3pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 8/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 14.4%, +10.5pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 89% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "COP",
+   "company": "ConocoPhillips",
+   "sector": "Energy",
+   "industry": "Oil & Gas Exploration & Production",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "commodity",
+   "data_source": "sec",
+   "score": 66.7,
+   "is_great": false,
+   "n_pass": 4,
+   "n_fail": 1,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "WARN",
+     "value": "10.6% CAGR (5y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-3.1% CAGR",
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "0.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 56.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 15.4%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 21.1%, latest 12.4%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing EBIT; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -0.1% vs sales 11.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +16.7%/yr, next-Y -11.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.10635650108124706,
+    "rev_cagr_10y": 0.09085713137780393,
+    "rev_cagr_15y": -0.015175638804032943,
+    "ni_cagr_5y": -0.0028279156281948437,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": -0.031123590653778677,
+    "cfo_cagr_10y": 0.1817797087930879,
+    "proj_eps_next_5y": 16.7,
+    "proj_eps_next_y": -10.97,
+    "eps_past_5y": null,
+    "price": 126.78,
+    "intrinsic_value": 836.88,
+    "dcf_growth_used": 16.6,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 3.91,
+    "discount_pct": 84.9,
+    "direct_growth_used": 14.17,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 430.82,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 356.26,
+    "intrinsic_value_doomsday": 295.1,
+    "direct_growth_low": 11.64,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 70.6,
+    "ttm_roe": 14.18,
+    "ttm_roic": 11.63,
+    "ttm_roa": 7.533,
+    "ttm_pe": 16.845,
+    "ttm_fwd_pe": 13.026,
+    "ttm_peg": 0.868,
+    "ttm_fcf_yield": 6.608,
+    "ttm_div_yield": 2.65,
+    "ttm_current_ratio": 1.542,
+    "ttm_debt_equity": 0.36,
+    "ttm_debt_ebitda": 0.85,
+    "ttm_interest_coverage": 18.643,
+    "ttm_z_score": 3.1,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 17.09,
+    "peg_adam": 1.19,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 2.09,
+    "fair_value_ps": 90.16,
+    "pb_avg_5y": 2.35,
+    "fair_value_pb": 126.08,
+    "rev_growth_proj": 9.26,
+    "psg": 0.32,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 174.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 50.7,
+    "sort_predictability": 46.4,
+    "sort_profitability": 29.2,
+    "sort_growth": 22.8,
+    "moat_gm_trend_pp": -1.5,
+    "moat_evidence_score": 78.8,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 56.9% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -1.5pp vs decade start",
+    "growth_consistency": "revenue/income up-years 46% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 9/10 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ED",
+   "company": "Consolidated Edison",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 81.8,
+   "is_great": true,
+   "n_pass": 7,
+   "n_fail": 0,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.0% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "7/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 11.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 8.6%, latest 8.4%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 6.1%, latest 4.7%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.02",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "25.7%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 9.9% vs sales 3.9%",
+     "detail": "Excess receivables growth traces to a SINGLE step-change year \u2014 signature of an acquisition adding acquired receivables, not channel stuffing. Verify the M&A year, then judge organically"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +6.6%/yr, next-Y +6.3%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.06095199328306733,
+    "rev_cagr_10y": 0.03907226408446607,
+    "rev_cagr_15y": 0.02019770376360497,
+    "ni_cagr_5y": 0.10722964662854362,
+    "ni_cagr_10y": 0.055419636528699856,
+    "ni_cagr_15y": 0.04710639473461398,
+    "cfo_cagr_10y": 0.03707478476840964,
+    "proj_eps_next_5y": 6.61,
+    "proj_eps_next_y": 6.26,
+    "eps_past_5y": 11.45,
+    "price": 108.8,
+    "intrinsic_value": 546.92,
+    "dcf_growth_used": 16.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 4.32,
+    "discount_pct": 80.1,
+    "direct_growth_used": 8.41,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 60.46,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 44.96,
+    "intrinsic_value_doomsday": 34.48,
+    "direct_growth_low": 6.61,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -80.0,
+    "ttm_roe": 8.962,
+    "ttm_roic": 4.566,
+    "ttm_roa": 3.237,
+    "ttm_pe": 17.877,
+    "ttm_fwd_pe": 17.449,
+    "ttm_peg": 2.736,
+    "ttm_fcf_yield": -2.142,
+    "ttm_div_yield": 3.263,
+    "ttm_current_ratio": 1.268,
+    "ttm_debt_equity": 1.1,
+    "ttm_debt_ebitda": 4.54,
+    "ttm_interest_coverage": 2.933,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 6.7,
+    "peg_adam": 2.13,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.13,
+    "fair_value_ps": 98.56,
+    "pb_avg_5y": 1.5,
+    "fair_value_pb": 98.16,
+    "rev_growth_proj": 5.02,
+    "psg": 0.47,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 95.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 19.1,
+    "sort_predictability": 57.1,
+    "sort_profitability": 19.5,
+    "sort_growth": 19.5,
+    "moat_om_trend_pp": 0.6,
+    "moat_evidence_score": 46.8,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 17.2%, +0.6pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 57% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 3/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "STZ",
+   "company": "Constellation Brands",
+   "sector": "Consumer Staples",
+   "industry": "Distillers & Vintners",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 88.5,
+   "is_great": false,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 51.6%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 18.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 15.3%, latest 20.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.6%, latest 11.0%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.08",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.28",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "13.5%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -1.2% vs sales 2.5%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +3.8%/yr",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.008901822229522072,
+    "rev_cagr_10y": 0.024949533325321793,
+    "rev_cagr_15y": 0.08335901029212889,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": 0.010995755281620667,
+    "ni_cagr_15y": 0.09985170146324784,
+    "cfo_cagr_10y": 0.051671979598084006,
+    "proj_eps_next_5y": 3.81,
+    "proj_eps_next_y": null,
+    "eps_past_5y": 0.84,
+    "price": 139.18,
+    "intrinsic_value": 2189.91,
+    "dcf_growth_used": 32.4,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.73,
+    "discount_pct": 93.6,
+    "direct_growth_used": 6.12,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 120.06,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 92.06,
+    "intrinsic_value_doomsday": 83.7,
+    "direct_growth_low": 3.81,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -15.9,
+    "ttm_roe": 23.69,
+    "ttm_roic": 11.929,
+    "ttm_roa": 8.574,
+    "ttm_pe": 13.287,
+    "ttm_fwd_pe": 11.753,
+    "ttm_peg": 3.446,
+    "ttm_fcf_yield": 7.718,
+    "ttm_div_yield": 2.96,
+    "ttm_current_ratio": 0.913,
+    "ttm_debt_equity": 1.23,
+    "ttm_debt_ebitda": 2.89,
+    "ttm_interest_coverage": 8.728,
+    "ttm_z_score": 2.91,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 3.72,
+    "peg_adam": 2.17,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.92,
+    "fair_value_ps": 208.27,
+    "pb_avg_5y": 4.06,
+    "fair_value_pb": 190.68,
+    "rev_growth_proj": 0.63,
+    "psg": 4.18,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 59.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 29.8,
+    "sort_predictability": 75.0,
+    "sort_profitability": 40.5,
+    "sort_growth": 5.9,
+    "moat_gm_trend_pp": 15.5,
+    "moat_om_trend_pp": -4.3,
+    "moat_evidence_score": 71.7,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 51.6% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +15.5pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 29.8%, -4.3pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 75% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CEG",
+   "company": "Constellation Energy",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 70.8,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 0,
+   "n_warn": 7,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "WARN",
+     "value": "7.1% CAGR (5y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "5/6 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 10.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.0%, latest 16.0%",
+     "detail": "Average clears 12% (12.4%) once ONE outlier year (-1.8%) is excluded \u2014 likely a temporary distortion (impairment/M&A charge, one-off loss, equity swing from buybacks). Review that year manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 7.7%, latest 11.2%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.53",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.83",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "12.1%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 26.4% vs sales 7.1%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +21.9%/yr, next-Y +11.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.07054986555236664,
+    "rev_cagr_10y": 0.06693285925576009,
+    "rev_cagr_15y": 0.06693285925576009,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": 0.3153371633113502,
+    "ni_cagr_15y": 0.3153371633113502,
+    "cfo_cagr_10y": 0.48637750273664015,
+    "proj_eps_next_5y": 21.94,
+    "proj_eps_next_y": 10.96,
+    "eps_past_5y": 32.58,
+    "price": 282.5,
+    "intrinsic_value": 451.46,
+    "dcf_growth_used": 17.6,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.64,
+    "discount_pct": 37.4,
+    "direct_growth_used": 29.24,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 374.94,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 282.2,
+    "intrinsic_value_doomsday": 247.13,
+    "direct_growth_low": 21.94,
+    "mos_verdict": "below base IV only",
+    "discount_pct_direct": 24.7,
+    "ttm_roe": 15.055,
+    "ttm_roic": 7.433,
+    "ttm_roa": 3.888,
+    "ttm_pe": 27.353,
+    "ttm_fwd_pe": 23.251,
+    "ttm_peg": 1.511,
+    "ttm_fcf_yield": 0.295,
+    "ttm_div_yield": 0.604,
+    "ttm_current_ratio": 1.455,
+    "ttm_debt_equity": 0.76,
+    "ttm_debt_ebitda": 3.04,
+    "ttm_interest_coverage": 6.01,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 21.51,
+    "peg_adam": 0.94,
+    "peg_verdict": "cheap (<1)",
+    "ps_avg_5y": 2.49,
+    "fair_value_ps": 158.67,
+    "pb_avg_5y": 4.6,
+    "fair_value_pb": 187.93,
+    "rev_growth_proj": 13.05,
+    "psg": 0.34,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 81.4,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 33.2,
+    "sort_predictability": 60.0,
+    "sort_profitability": 24.2,
+    "sort_growth": 36.2,
+    "moat_om_trend_pp": 14.1,
+    "moat_evidence_score": 49.2,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 1/5 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 13.6%, +14.1pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 60% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 1/6 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "COO",
+   "company": "Cooper Companies (The)",
+   "sector": "Health Care",
+   "industry": "Health Care Supplies",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 84.6,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.4% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 65.5%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 9.2%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 12.2%, latest 4.6%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 9.0%, latest 4.3%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.89",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.32",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "12.6%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 12.3% vs sales 8.5%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.6%/yr, next-Y +8.1%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08781711901508404,
+    "rev_cagr_10y": 0.08481964646409956,
+    "rev_cagr_15y": 0.08354438124820485,
+    "ni_cagr_5y": -0.4026641284607255,
+    "ni_cagr_10y": 0.035492709046157866,
+    "ni_cagr_15y": 0.055742414701341,
+    "cfo_cagr_10y": 0.05081549268597696,
+    "proj_eps_next_5y": 9.64,
+    "proj_eps_next_y": 8.11,
+    "eps_past_5y": 9.3,
+    "price": 76.17,
+    "intrinsic_value": 31.31,
+    "dcf_growth_used": -0.5,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 5.87,
+    "discount_pct": -143.3,
+    "direct_growth_used": -11.55,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 6.18,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 6.18,
+    "intrinsic_value_doomsday": 8.71,
+    "direct_growth_low": -11.55,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -1133.3,
+    "ttm_roe": 2.853,
+    "ttm_roic": 2.626,
+    "ttm_roa": 2.519,
+    "ttm_pe": 64.299,
+    "ttm_fwd_pe": 16.104,
+    "ttm_peg": 1.957,
+    "ttm_fcf_yield": 3.834,
+    "ttm_current_ratio": 1.274,
+    "ttm_debt_equity": 0.33,
+    "ttm_debt_ebitda": 2.89,
+    "ttm_interest_coverage": 5.389,
+    "ttm_z_score": 3.46,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 9.61,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 4.83,
+    "fair_value_ps": 101.45,
+    "pb_avg_5y": 2.23,
+    "fair_value_pb": 94.28,
+    "rev_growth_proj": 8.06,
+    "psg": 0.45,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 154.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 32.5,
+    "sort_predictability": 71.4,
+    "sort_profitability": 8.3,
+    "sort_growth": 15.4,
+    "moat_gm_trend_pp": 2.9,
+    "moat_om_trend_pp": -2.1,
+    "moat_evidence_score": 74.0,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 65.5% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +2.9pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 1/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 16.7%, -2.1pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 71% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CPRT",
+   "company": "Copart",
+   "sector": "Industrials",
+   "industry": "Diversified Support Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "12.7% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "17.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "15.4% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 33.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 26.1%, latest 16.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 24.3%, latest 20.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "8.42",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "long-term debt not reported by this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 12.4% vs sales 15.5%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +5.2%/yr, next-Y +5.7%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.14617997146712813,
+    "rev_cagr_10y": 0.15519441850842686,
+    "rev_cagr_15y": 0.1269249206285612,
+    "ni_cagr_5y": 0.13469193938242463,
+    "ni_cagr_10y": 0.2143437894048934,
+    "ni_cagr_15y": 0.17295314050031751,
+    "cfo_cagr_10y": 0.206400366727586,
+    "proj_eps_next_5y": 5.18,
+    "proj_eps_next_y": 5.69,
+    "eps_past_5y": 16.72,
+    "price": 31.61,
+    "intrinsic_value": 58.16,
+    "dcf_growth_used": 12.6,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.36,
+    "discount_pct": 45.6,
+    "direct_growth_used": 7.73,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 30.08,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 25.57,
+    "intrinsic_value_doomsday": 23.94,
+    "direct_growth_low": 5.18,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -5.1,
+    "ttm_roe": 17.607,
+    "ttm_roic": 29.979,
+    "ttm_roa": 11.336,
+    "ttm_pe": 19.632,
+    "ttm_fwd_pe": 19.332,
+    "ttm_peg": 1.79,
+    "ttm_fcf_yield": 4.576,
+    "ttm_current_ratio": 7.613,
+    "ttm_debt_equity": 0.01,
+    "ttm_debt_ebitda": 0.05,
+    "ttm_interest_coverage": 25.736,
+    "ttm_z_score": 32.11,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 5.2,
+    "peg_adam": 2.54,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 10.77,
+    "fair_value_ps": 54.05,
+    "pb_avg_5y": 6.98,
+    "fair_value_pb": 69.29,
+    "rev_growth_proj": 11.52,
+    "psg": 0.55,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 8.6,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 87.6,
+    "sort_predictability": 89.3,
+    "sort_profitability": 59.6,
+    "sort_growth": 27.7,
+    "moat_gm_trend_pp": 4.1,
+    "moat_om_trend_pp": 7.9,
+    "moat_evidence_score": 97.9,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 87.5% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +4.1pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 9/9 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 36.5%, +7.9pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 89% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "GLW",
+   "company": "Corning Inc.",
+   "sector": "Information Technology",
+   "industry": "Electronic Components",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 69.2,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 4,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.0% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-4.0% CAGR",
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-1.2% CAGR ()",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 10.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 9.0%, latest 13.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 5.7%, latest 10.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.59",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.17",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "11.1%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 7.2% vs sales 5.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +33.0%/yr, next-Y +31.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.026400164092109657,
+    "rev_cagr_10y": 0.058242176724110584,
+    "rev_cagr_15y": 0.05003523031328938,
+    "ni_cagr_5y": -0.043406341103562895,
+    "ni_cagr_10y": -0.08905755514895275,
+    "ni_cagr_15y": -0.03977122302446434,
+    "cfo_cagr_10y": 0.0067354622992672475,
+    "proj_eps_next_5y": 32.99,
+    "proj_eps_next_y": 31.77,
+    "eps_past_5y": 27.86,
+    "price": 165.99,
+    "intrinsic_value": 158.6,
+    "dcf_growth_used": 22.3,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 6.8,
+    "discount_pct": -4.7,
+    "direct_growth_used": 24.04,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 198.88,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 137.79,
+    "intrinsic_value_doomsday": 108.01,
+    "direct_growth_low": 15.1,
+    "mos_verdict": "below base IV only",
+    "discount_pct_direct": 16.5,
+    "ttm_roe": 16.813,
+    "ttm_roic": 11.271,
+    "ttm_roa": 5.367,
+    "ttm_pe": 76.573,
+    "ttm_fwd_pe": 44.829,
+    "ttm_peg": 1.476,
+    "ttm_fcf_yield": 1.675,
+    "ttm_div_yield": 0.675,
+    "ttm_current_ratio": 1.813,
+    "ttm_debt_equity": 0.71,
+    "ttm_debt_ebitda": 2.18,
+    "ttm_interest_coverage": 7.42,
+    "ttm_z_score": 4.6,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 32.56,
+    "peg_adam": 3.18,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.83,
+    "fair_value_ps": 48.75,
+    "pb_avg_5y": 3.34,
+    "fair_value_pb": 43.52,
+    "rev_growth_proj": 6.42,
+    "psg": 1.5,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 145.3,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 44.4,
+    "sort_predictability": 57.1,
+    "sort_profitability": 28.1,
+    "sort_growth": 29.7,
+    "moat_gm_trend_pp": -9.8,
+    "moat_om_trend_pp": -7.9,
+    "moat_evidence_score": 49.8,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 36.0% \u2014 below the 50% pricing-power tell; 3y-avg trend -9.8pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 14.6%, -7.9pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 57% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CPAY",
+   "company": "Corpay",
+   "sector": "Financials",
+   "industry": "Transaction & Payment Processing Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "financial",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "14.2% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "12.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "18.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 23.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 23.9%, latest 27.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 15.4%, latest 12.1%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 4.7% vs sales 8.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +19.5%/yr, next-Y +14.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.07214532043412714,
+    "rev_cagr_10y": 0.08083973909659115,
+    "rev_cagr_15y": 0.14178820927274183,
+    "ni_cagr_5y": 0.02897301225376947,
+    "ni_cagr_10y": 0.041774649899328775,
+    "ni_cagr_15y": 0.1209964768868721,
+    "cfo_cagr_10y": 0.09186392105609209,
+    "proj_eps_next_5y": 19.5,
+    "proj_eps_next_y": 14.19,
+    "eps_past_5y": 13.14,
+    "price": 417.6,
+    "intrinsic_value": 691.1,
+    "dcf_growth_used": 12.8,
+    "dcf_base_flow": "ni:0.24+fwdni:0.76",
+    "dcf_sector_group": "fin-net",
+    "dcf_discount_rate": 6.04,
+    "discount_pct": 39.6,
+    "direct_growth_used": 17.17,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 479.38,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 418.5,
+    "intrinsic_value_doomsday": 297.04,
+    "direct_growth_low": 14.84,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 12.9,
+    "ttm_roe": 29.215,
+    "ttm_roic": 14.547,
+    "ttm_roa": 6.316,
+    "ttm_pe": 25.44,
+    "ttm_fwd_pe": 14.308,
+    "ttm_peg": 1.043,
+    "ttm_fcf_yield": 5.975,
+    "ttm_current_ratio": 0.972,
+    "ttm_debt_equity": 2.75,
+    "ttm_debt_ebitda": 3.8,
+    "ttm_interest_coverage": 5.615,
+    "ttm_z_score": 1.52,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 19.76,
+    "peg_adam": 1.48,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 5.28,
+    "fair_value_ps": 363.9,
+    "pb_avg_5y": 6.07,
+    "fair_value_pb": 359.22,
+    "rev_growth_proj": 13.41,
+    "psg": 0.45,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 72.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 20.7,
+    "sort_predictability": 82.1,
+    "sort_profitability": 48.1,
+    "sort_growth": 24.7,
+    "moat_gm_trend_pp": -3.9,
+    "moat_om_trend_pp": -2.3,
+    "moat_evidence_score": 65.4,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 95.7% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -3.9pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/5 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 44.0%, -2.3pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 82% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CTVA",
+   "company": "Corteva",
+   "sector": "Materials",
+   "industry": "Fertilizers & Agricultural Chemicals",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "commodity",
+   "data_source": "sec",
+   "score": 83.3,
+   "is_great": true,
+   "n_pass": 6,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": null,
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "32.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "2/8 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 47.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 6.3%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 1.8%, latest 4.5%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing EBIT; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 4.2% vs sales 2.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +11.3%/yr, next-Y +10.7%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.026786816228229204,
+    "rev_cagr_10y": 0.028568710822397314,
+    "rev_cagr_15y": 0.028568710822397314,
+    "ni_cagr_5y": -0.11194907569053214,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.3218596899062811,
+    "proj_eps_next_5y": 11.35,
+    "proj_eps_next_y": 10.69,
+    "eps_past_5y": 12.11,
+    "price": 76.68,
+    "intrinsic_value": 145.62,
+    "dcf_growth_used": 10.6,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.11,
+    "discount_pct": 47.3,
+    "direct_growth_used": 6.5,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 21.57,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 16.08,
+    "intrinsic_value_doomsday": 15.77,
+    "direct_growth_low": 1.65,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -255.5,
+    "ttm_roe": 4.256,
+    "ttm_roic": 7.798,
+    "ttm_roa": 4.546,
+    "ttm_pe": 47.639,
+    "ttm_fwd_pe": 19.404,
+    "ttm_peg": 1.805,
+    "ttm_fcf_yield": 1.229,
+    "ttm_div_yield": 0.939,
+    "ttm_current_ratio": 1.516,
+    "ttm_debt_equity": 0.19,
+    "ttm_debt_ebitda": 1.09,
+    "ttm_interest_coverage": 17.331,
+    "ttm_z_score": 2.69,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 10.99,
+    "peg_adam": 7.33,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.3,
+    "fair_value_ps": 59.92,
+    "pb_avg_5y": 1.56,
+    "fair_value_pb": 56.55,
+    "rev_growth_proj": 2.97,
+    "psg": 0.99,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 10.7,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 47.6,
+    "sort_predictability": 64.3,
+    "sort_profitability": 12.8,
+    "sort_growth": 11.7,
+    "moat_gm_trend_pp": 8.2,
+    "moat_evidence_score": 78.0,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 47.3% \u2014 below the 50% pricing-power tell; 3y-avg trend +8.2pp vs decade start",
+    "growth_consistency": "revenue/income up-years 64% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 6/8 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CSGP",
+   "company": "CoStar Group",
+   "sector": "Real Estate",
+   "industry": "Real Estate Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "property",
+   "data_source": "sec",
+   "score": 75.0,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 0,
+   "n_warn": 5,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "20.0% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "-5.1% CAGR",
+     "detail": "Trend passes once a SINGLE distorted year is excluded \u2014 likely a temporary one-off (M&A/integration charges, impairment, legal settlement, tax one-off). Review that year manually; underlying trend intact"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "21.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 78.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 0.2%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 3.9%, latest 0.1%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.1%, latest -0.2%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to property companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to property companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to property companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 19.1% vs sales 16.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +35.5%/yr, next-Y +25.4%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.1368179493250763,
+    "rev_cagr_10y": 0.16246829909013427,
+    "rev_cagr_15y": 0.20039401720406214,
+    "ni_cagr_5y": -0.6067163158451186,
+    "ni_cagr_10y": -0.2423308379716801,
+    "ni_cagr_15y": -0.051412652974944906,
+    "cfo_cagr_10y": 0.08838602404789242,
+    "proj_eps_next_5y": 35.52,
+    "proj_eps_next_y": 25.41,
+    "eps_past_5y": -51.08,
+    "price": 32.38,
+    "intrinsic_value": 40.39,
+    "dcf_growth_used": 14.7,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.71,
+    "discount_pct": 19.8,
+    "direct_growth_used": 15.41,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 28.43,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 28.43,
+    "intrinsic_value_doomsday": 23.33,
+    "direct_growth_low": 15.41,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -13.9,
+    "ttm_roe": 0.894,
+    "ttm_roic": 0.718,
+    "ttm_roa": 0.466,
+    "ttm_pe": 182.797,
+    "ttm_fwd_pe": 20.955,
+    "ttm_peg": 0.57,
+    "ttm_fcf_yield": 1.73,
+    "ttm_current_ratio": 2.214,
+    "ttm_debt_equity": 0.15,
+    "ttm_debt_ebitda": 2.64,
+    "ttm_interest_coverage": 3.08,
+    "ttm_z_score": 7.94,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 36.69,
+    "peg_adam": 11.86,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 12.9,
+    "fair_value_ps": 103.47,
+    "pb_avg_5y": 4.44,
+    "fair_value_pb": 91.38,
+    "rev_growth_proj": 13.95,
+    "psg": 0.29,
+    "psg_verdict": "fair (0.2-0.3)",
+    "cfo_vs_ni_pct": 7000.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 51.6,
+    "sort_predictability": 82.1,
+    "sort_profitability": 2.8,
+    "sort_growth": 41.0,
+    "moat_gm_trend_pp": 11.9,
+    "moat_om_trend_pp": -6.4,
+    "moat_evidence_score": 61.0,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 78.9% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +11.9pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin -2.2%, -6.4pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 82% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 9/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "COST",
+   "company": "Costco",
+   "sector": "Consumer Staples",
+   "industry": "Consumer Staples Merchandise Retail",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "10.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 12.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 2.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 22.6%, latest 27.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 26.0%, latest 37.5%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.03",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.45",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "1.2%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 11.0% vs sales 9.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +11.1%/yr, next-Y +10.5%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08868248129197176,
+    "rev_cagr_10y": 0.09793324780350932,
+    "rev_cagr_15y": 0.08570127368015923,
+    "ni_cagr_5y": 0.1277515999100538,
+    "ni_cagr_10y": 0.14737942990827158,
+    "ni_cagr_15y": 0.1300717070546349,
+    "cfo_cagr_10y": 0.16816365023162771,
+    "proj_eps_next_5y": 11.13,
+    "proj_eps_next_y": 10.52,
+    "eps_past_5y": 15.09,
+    "price": 961.1,
+    "intrinsic_value": 700.66,
+    "dcf_growth_used": 8.3,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 5.95,
+    "discount_pct": -37.2,
+    "direct_growth_used": 11.97,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 558.72,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 526.99,
+    "intrinsic_value_doomsday": 447.34,
+    "direct_growth_low": 11.13,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -72.0,
+    "ttm_roe": 29.152,
+    "ttm_roic": 38.435,
+    "ttm_roa": 8.666,
+    "ttm_pe": 48.343,
+    "ttm_fwd_pe": 43.86,
+    "ttm_peg": 4.056,
+    "ttm_fcf_yield": 2.066,
+    "ttm_div_yield": 0.612,
+    "ttm_current_ratio": 1.072,
+    "ttm_debt_equity": 0.25,
+    "ttm_debt_ebitda": 0.58,
+    "ttm_interest_coverage": 76.884,
+    "ttm_z_score": 9.13,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 11.09,
+    "peg_adam": 4.04,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.22,
+    "fair_value_ps": 760.09,
+    "pb_avg_5y": 12.63,
+    "fair_value_pb": 830.37,
+    "rev_growth_proj": 9.01,
+    "psg": 0.17,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 85.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 78.9,
+    "sort_predictability": 96.4,
+    "sort_profitability": 47.6,
+    "sort_growth": 27.3,
+    "moat_gm_trend_pp": 2.0,
+    "moat_om_trend_pp": 0.7,
+    "moat_evidence_score": 84.4,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 12.8% \u2014 below the 50% pricing-power tell; 3y-avg trend +2.0pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 10/10 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 3.8%, +0.7pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 96% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CRWD",
+   "company": "CrowdStrike",
+   "sector": "Information Technology",
+   "industry": "Systems Software",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 81.8,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 0,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "58.8% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": null,
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "2/9 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 74.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest -3.4%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): only 1 annual value(s) of computable ROIC years available \u2014 this test needs \u22656; NA never disqualifies; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.77",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 46.8% vs sales 52.6%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +29.1%/yr, next-Y +26.4%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.3493363696519898,
+    "rev_cagr_10y": 0.5884027934193152,
+    "rev_cagr_15y": 0.5884027934193152,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": null,
+    "proj_eps_next_5y": 29.13,
+    "proj_eps_next_y": 26.45,
+    "eps_past_5y": -8.78,
+    "price": 216.95,
+    "intrinsic_value": 92.9,
+    "dcf_growth_used": 20.9,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 7.05,
+    "discount_pct": -133.5,
+    "direct_growth_used": 28.98,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 92.4,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 91.92,
+    "intrinsic_value_doomsday": 90.3,
+    "direct_growth_low": 28.83,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -134.8,
+    "ttm_roe": -0.249,
+    "ttm_roic": -31.875,
+    "ttm_roa": -1.003,
+    "ttm_fwd_pe": 166.169,
+    "ttm_peg": 5.868,
+    "ttm_fcf_yield": 0.681,
+    "ttm_current_ratio": 1.531,
+    "ttm_debt_equity": 0.18,
+    "ttm_debt_ebitda": 8.1,
+    "ttm_interest_coverage": -5.849,
+    "ttm_z_score": 10.98,
+    "ttm_f_score": 3.0,
+    "ttm_eps_growth_3y": 30.02,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 21.42,
+    "fair_value_ps": 101.04,
+    "pb_avg_5y": 27.26,
+    "fair_value_pb": 118.35,
+    "rev_growth_proj": 32.58,
+    "psg": 1.41,
+    "psg_verdict": "overvalued (>0.3)",
+    "sort_financial_strength": 37.8,
+    "sort_predictability": 68.8,
+    "sort_profitability": 0.0,
+    "sort_growth": 80.1,
+    "moat_gm_trend_pp": 11.7,
+    "moat_om_trend_pp": 62.0,
+    "moat_evidence_score": 69.3,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 74.7% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +11.7pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/1 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin -6.1%, +62.0pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 68% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 7/9 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CRH",
+   "company": "CRH plc",
+   "sector": "Materials",
+   "industry": "Construction Materials",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": true,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.8% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "20.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "10.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 9y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 10.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 13.0%, latest 15.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 11.8%, latest 11.4%",
+     "detail": "10-12%: below the 12-15% target but at/above the course's own 10% screen floor \u2014 review flag, not a hard fail"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.74",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.31",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "11.8%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -0.5% vs sales 8.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +10.6%/yr, next-Y +12.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.06410929667394982,
+    "rev_cagr_10y": 0.046903006523111745,
+    "rev_cagr_15y": 0.05751893195749336,
+    "ni_cagr_5y": 0.09296361386662988,
+    "ni_cagr_10y": 0.1450431563832255,
+    "ni_cagr_15y": 0.19969911185944023,
+    "cfo_cagr_10y": 0.11586931108592946,
+    "proj_eps_next_5y": 10.61,
+    "proj_eps_next_y": 12.19,
+    "eps_past_5y": 30.98,
+    "price": 97.15,
+    "intrinsic_value": 155.15,
+    "dcf_growth_used": 9.1,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.88,
+    "discount_pct": 37.4,
+    "direct_growth_used": 11.36,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 122.68,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 115.09,
+    "intrinsic_value_doomsday": 95.02,
+    "direct_growth_low": 10.61,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 20.8,
+    "ttm_roe": 15.812,
+    "ttm_roic": 9.768,
+    "ttm_roa": 6.061,
+    "ttm_pe": 17.123,
+    "ttm_fwd_pe": 15.907,
+    "ttm_peg": 1.337,
+    "ttm_fcf_yield": 4.28,
+    "ttm_div_yield": 1.606,
+    "ttm_current_ratio": 1.579,
+    "ttm_debt_equity": 0.78,
+    "ttm_debt_ebitda": 2.35,
+    "ttm_interest_coverage": 6.405,
+    "ttm_z_score": 3.08,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 10.42,
+    "peg_adam": 1.51,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.53,
+    "fair_value_ps": 85.89,
+    "pb_avg_5y": 2.28,
+    "fair_value_pb": 82.42,
+    "rev_growth_proj": 6.34,
+    "psg": 0.27,
+    "psg_verdict": "fair (0.2-0.3)",
+    "cfo_vs_ni_pct": 44.4,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 37.3,
+    "sort_predictability": 83.9,
+    "sort_profitability": 25.3,
+    "sort_growth": 21.9,
+    "moat_gm_trend_pp": 2.6,
+    "moat_om_trend_pp": 6.1,
+    "moat_evidence_score": 71.2,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 36.1% \u2014 below the 50% pricing-power tell; 3y-avg trend +2.6pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/4 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 14.5%, +6.1pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 83% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CSX",
+   "company": "CSX Corporation",
+   "sector": "Industrials",
+   "industry": "Rail Transportation",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 83.3,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 1,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "1.3% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 20.5%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 24.2%, latest 22.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 13.7%, latest 11.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.81",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.93",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "18.3%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 3.7% vs sales 2.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +16.0%/yr, next-Y +13.3%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.02997037612986131,
+    "rev_cagr_10y": 0.027191892741114776,
+    "rev_cagr_15y": 0.01279050388055869,
+    "ni_cagr_5y": -0.06505682398535784,
+    "ni_cagr_10y": 0.059724486243373676,
+    "ni_cagr_15y": 0.032190466946046215,
+    "cfo_cagr_10y": 0.04738764891220959,
+    "proj_eps_next_5y": 15.98,
+    "proj_eps_next_y": 13.34,
+    "eps_past_5y": 5.15,
+    "price": 50.16,
+    "intrinsic_value": 60.26,
+    "dcf_growth_used": 13.2,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.88,
+    "discount_pct": 16.8,
+    "direct_growth_used": 9.8,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 27.38,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 14.18,
+    "intrinsic_value_doomsday": 12.99,
+    "direct_growth_low": 3.61,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -83.2,
+    "ttm_roe": 24.357,
+    "ttm_roic": 12.402,
+    "ttm_roa": 7.383,
+    "ttm_pe": 29.0,
+    "ttm_fwd_pe": 23.417,
+    "ttm_peg": 1.924,
+    "ttm_fcf_yield": 3.009,
+    "ttm_div_yield": 1.116,
+    "ttm_current_ratio": 0.82,
+    "ttm_debt_equity": 1.38,
+    "ttm_debt_ebitda": 2.8,
+    "ttm_interest_coverage": 6.112,
+    "ttm_z_score": 2.45,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 15.97,
+    "peg_adam": 2.96,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 4.96,
+    "fair_value_ps": 37.76,
+    "pb_avg_5y": 5.43,
+    "fair_value_pb": 38.64,
+    "rev_growth_proj": 3.94,
+    "psg": 1.67,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 84.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 27.0,
+    "sort_predictability": 50.0,
+    "sort_profitability": 43.0,
+    "sort_growth": 15.8,
+    "moat_om_trend_pp": 6.0,
+    "moat_evidence_score": 70.0,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 3/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 32.1%, +6.0pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 50% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CMI",
+   "company": "Cummins",
+   "sector": "Industrials",
+   "industry": "Construction Machinery & Heavy Transportation Equipment",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": false,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "8.1% CAGR (5y)",
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 25.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 8.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 24.4%, latest 23.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 22.9%, latest 18.4%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.76",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.32",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "9.1%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.3% vs sales 3.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +19.5%/yr, next-Y +16.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08808546349323532,
+    "rev_cagr_10y": 0.07535913918340298,
+    "rev_cagr_15y": 0.04554772065478674,
+    "ni_cagr_5y": 0.08118127869902647,
+    "ni_cagr_10y": 0.0819016226941407,
+    "ni_cagr_15y": 0.03033671977670438,
+    "cfo_cagr_10y": 0.07186223192170771,
+    "proj_eps_next_5y": 19.53,
+    "proj_eps_next_y": 16.95,
+    "eps_past_5y": 11.29,
+    "price": 631.26,
+    "intrinsic_value": 867.36,
+    "dcf_growth_used": 16.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.96,
+    "discount_pct": 27.2,
+    "direct_growth_used": 17.1,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 910.17,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 814.72,
+    "intrinsic_value_doomsday": 646.39,
+    "direct_growth_low": 14.67,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 30.6,
+    "ttm_roe": 21.114,
+    "ttm_roic": 15.663,
+    "ttm_roa": 6.997,
+    "ttm_pe": 32.266,
+    "ttm_fwd_pe": 19.136,
+    "ttm_peg": 1.5,
+    "ttm_fcf_yield": 3.874,
+    "ttm_div_yield": 1.394,
+    "ttm_current_ratio": 1.727,
+    "ttm_debt_equity": 0.6,
+    "ttm_debt_ebitda": 1.58,
+    "ttm_interest_coverage": 12.187,
+    "ttm_z_score": 4.5,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 19.32,
+    "peg_adam": 1.89,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.4,
+    "fair_value_ps": 342.81,
+    "pb_avg_5y": 3.91,
+    "fair_value_pb": 351.18,
+    "rev_growth_proj": 9.45,
+    "psg": 0.27,
+    "psg_verdict": "fair (0.2-0.3)",
+    "cfo_vs_ni_pct": 57.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 48.8,
+    "sort_predictability": 46.4,
+    "sort_profitability": 31.0,
+    "sort_growth": 30.4,
+    "moat_gm_trend_pp": -0.5,
+    "moat_om_trend_pp": -4.0,
+    "moat_evidence_score": 69.5,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 25.3% \u2014 below the 50% pricing-power tell; 3y-avg trend -0.5pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 8/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 12.0%, -4.0pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 46% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "CVS",
+   "company": "CVS Health",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 69.2,
+   "is_great": false,
+   "n_pass": 6,
+   "n_fail": 1,
+   "n_warn": 6,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "-4.7% CAGR",
+     "detail": "Trend passes once a SINGLE distorted year is excluded \u2014 likely a temporary one-off (M&A/integration charges, impairment, legal settlement, tax one-off). Review that year manually; underlying trend intact"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.4% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 45.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 0.4%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 9.7%, latest 2.4%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.7%, latest 3.0%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.84",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "FAIL",
+     "value": "6.53",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "29.3%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 14.1% vs sales 9.5%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +12.9%/yr, next-Y +7.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08314756942627577,
+    "rev_cagr_10y": 0.09508667814577842,
+    "rev_cagr_15y": 0.09911250150520123,
+    "ni_cagr_5y": -0.31437839003734347,
+    "ni_cagr_10y": -0.1151525573624681,
+    "ni_cagr_15y": -0.04678733259864132,
+    "cfo_cagr_10y": 0.00534086538657097,
+    "proj_eps_next_5y": 12.89,
+    "proj_eps_next_y": 6.95,
+    "eps_past_5y": -23.94,
+    "price": 97.16,
+    "intrinsic_value": 54.39,
+    "dcf_growth_used": -3.0,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 5.16,
+    "discount_pct": -78.6,
+    "direct_growth_used": 7.67,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": -8.77,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": -18.25,
+    "intrinsic_value_doomsday": -18.97,
+    "direct_growth_low": 2.44,
+    "discount_pct_direct": null,
+    "ttm_roe": 6.205,
+    "ttm_roic": 7.166,
+    "ttm_roa": 2.968,
+    "ttm_pe": 25.458,
+    "ttm_fwd_pe": 11.923,
+    "ttm_peg": 1.127,
+    "ttm_fcf_yield": 9.462,
+    "ttm_div_yield": 2.738,
+    "ttm_current_ratio": 0.866,
+    "ttm_debt_equity": 0.96,
+    "ttm_debt_ebitda": 3.87,
+    "ttm_interest_coverage": 3.919,
+    "ttm_z_score": 2.43,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 12.92,
+    "peg_adam": 3.32,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 0.31,
+    "fair_value_ps": 96.62,
+    "pb_avg_5y": 1.38,
+    "fair_value_pb": 81.35,
+    "rev_growth_proj": 7.5,
+    "psg": 0.04,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 736.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 20.9,
+    "sort_predictability": 85.7,
+    "sort_profitability": 9.9,
+    "sort_growth": 17.7,
+    "moat_gm_trend_pp": 24.2,
+    "moat_om_trend_pp": -3.6,
+    "moat_evidence_score": 63.2,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 45.0% \u2014 below the 50% pricing-power tell; 3y-avg trend +24.2pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 1.2%, -3.6pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 85% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "DHR",
+   "company": "Danaher Corporation",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 84.6,
+   "is_great": true,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.1% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 59.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 14.7%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.9%, latest 6.9%",
+     "detail": "10-12%: between the course's Finviz floor (>10%) and the 12-15% target"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.6%, latest 6.0%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.87",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.39",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "3.7%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 2.3% vs sales 4.3%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.3%/yr, next-Y +9.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.002367072041700946,
+    "rev_cagr_10y": 0.04256695981312353,
+    "rev_cagr_15y": 0.0306912526751697,
+    "ni_cagr_5y": -0.13424770953855625,
+    "ni_cagr_10y": 0.039339865743453606,
+    "ni_cagr_15y": 0.03702827112571838,
+    "cfo_cagr_10y": 0.06891804168064963,
+    "proj_eps_next_5y": 9.34,
+    "proj_eps_next_y": 9.23,
+    "eps_past_5y": 0.65,
+    "price": 202.45,
+    "intrinsic_value": 243.7,
+    "dcf_growth_used": 10.7,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 5.74,
+    "discount_pct": 16.9,
+    "direct_growth_used": 1.13,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 84.91,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 84.91,
+    "intrinsic_value_doomsday": 83.26,
+    "direct_growth_low": 1.13,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -138.4,
+    "ttm_roe": 7.605,
+    "ttm_roic": 6.44,
+    "ttm_roa": 3.949,
+    "ttm_pe": 36.056,
+    "ttm_fwd_pe": 22.877,
+    "ttm_peg": 2.594,
+    "ttm_fcf_yield": 3.841,
+    "ttm_div_yield": 0.79,
+    "ttm_current_ratio": 1.651,
+    "ttm_debt_equity": 0.53,
+    "ttm_debt_ebitda": 3.34,
+    "ttm_interest_coverage": 18.825,
+    "ttm_z_score": 3.45,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 9.56,
+    "peg_adam": 31.93,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 7.48,
+    "fair_value_ps": 261.53,
+    "pb_avg_5y": 3.74,
+    "fair_value_pb": 279.24,
+    "rev_growth_proj": 1.21,
+    "psg": 4.78,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 83.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 40.1,
+    "sort_predictability": 64.3,
+    "sort_profitability": 22.7,
+    "sort_growth": 7.8,
+    "moat_gm_trend_pp": 8.0,
+    "moat_om_trend_pp": 3.5,
+    "moat_evidence_score": 72.9,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 59.1% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +8.0pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 19.1%, +3.5pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 64% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "DRI",
+   "company": "Darden Restaurants",
+   "sector": "Consumer Discretionary",
+   "industry": "Restaurants",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 92.3,
+   "is_great": false,
+   "n_pass": 12,
+   "n_fail": 1,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.7% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 20.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 9.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 29.5%, latest 54.7%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 23.4%, latest 38.2%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.31",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.76",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "6.8%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 6.2% vs sales 7.0%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +8.4%/yr, next-Y +9.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08224734612279683,
+    "rev_cagr_10y": 0.07025931166814181,
+    "rev_cagr_15y": 0.06702451337895887,
+    "ni_cagr_5y": 0.06083878892496797,
+    "ni_cagr_10y": 0.10808938242740829,
+    "ni_cagr_15y": 0.06878216835754936,
+    "cfo_cagr_10y": 0.08139554076099742,
+    "proj_eps_next_5y": 8.4,
+    "proj_eps_next_y": 9.95,
+    "eps_past_5y": 16.79,
+    "price": 225.26,
+    "intrinsic_value": 495.88,
+    "dcf_growth_used": 12.0,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 5.24,
+    "discount_pct": 54.6,
+    "direct_growth_used": 8.6,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 240.84,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 237.1,
+    "intrinsic_value_doomsday": 206.48,
+    "direct_growth_low": 8.4,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 6.5,
+    "ttm_roe": 53.718,
+    "ttm_roic": 13.703,
+    "ttm_roa": 7.722,
+    "ttm_pe": 21.577,
+    "ttm_fwd_pe": 19.982,
+    "ttm_peg": 2.242,
+    "ttm_fcf_yield": 4.357,
+    "ttm_div_yield": 2.877,
+    "ttm_current_ratio": 0.314,
+    "ttm_debt_equity": 3.65,
+    "ttm_debt_ebitda": 3.09,
+    "ttm_interest_coverage": 8.009,
+    "ttm_z_score": 2.53,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 8.19,
+    "peg_adam": 2.51,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.76,
+    "fair_value_ps": 203.47,
+    "pb_avg_5y": 8.96,
+    "fair_value_pb": 173.29,
+    "rev_growth_proj": 7.29,
+    "psg": 0.27,
+    "psg_verdict": "fair (0.2-0.3)",
+    "cfo_vs_ni_pct": 53.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 22.5,
+    "sort_predictability": 78.6,
+    "sort_profitability": 50.1,
+    "sort_growth": 18.9,
+    "moat_gm_trend_pp": 1.0,
+    "moat_om_trend_pp": 5.9,
+    "moat_evidence_score": 81.8,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 20.3% \u2014 below the 50% pricing-power tell; 3y-avg trend +1.0pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 9/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 12.0%, +5.9pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 78% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "DDOG",
+   "company": "Datadog",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 90.9,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "55.4% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "71.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 9y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 80.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 3.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing LT debt; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "3.38",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "long-term debt not reported by this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 44.7% vs sales 50.3%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +20.8%/yr, next-Y +17.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.3509910794106461,
+    "rev_cagr_10y": 0.554015002719485,
+    "rev_cagr_15y": 0.554015002719485,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.7180864754381153,
+    "proj_eps_next_5y": 20.82,
+    "proj_eps_next_y": 16.97,
+    "eps_past_5y": null,
+    "price": 255.46,
+    "intrinsic_value": 124.88,
+    "dcf_growth_used": 14.8,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 7.65,
+    "discount_pct": -104.6,
+    "direct_growth_used": 40.07,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 291.99,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 151.89,
+    "intrinsic_value_doomsday": 133.67,
+    "direct_growth_low": 20.82,
+    "mos_verdict": "below base IV only",
+    "discount_pct_direct": 12.5,
+    "ttm_roe": 4.696,
+    "ttm_roic": 2.912,
+    "ttm_roa": 0.18,
+    "ttm_pe": 516.54,
+    "ttm_fwd_pe": 96.502,
+    "ttm_peg": 3.601,
+    "ttm_fcf_yield": 1.289,
+    "ttm_current_ratio": 3.205,
+    "ttm_debt_equity": 0.29,
+    "ttm_debt_ebitda": 8.13,
+    "ttm_interest_coverage": 1.688,
+    "ttm_z_score": 11.27,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 22.13,
+    "peg_adam": 12.89,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 23.74,
+    "fair_value_ps": 243.25,
+    "pb_avg_5y": 24.05,
+    "fair_value_pb": 268.44,
+    "rev_growth_proj": 34.16,
+    "psg": 0.73,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 1040.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 50.8,
+    "sort_predictability": 68.8,
+    "sort_profitability": 8.8,
+    "sort_growth": 69.9,
+    "moat_gm_trend_pp": 4.2,
+    "moat_om_trend_pp": 4.4,
+    "moat_evidence_score": 92.2,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 80.0% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +4.2pp vs decade start",
+    "margin_durability": "operating margin -1.3%, +4.4pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 68% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 9/9 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
   }
  ],
- "elapsed_seconds": 181.8
+ "elapsed_seconds": 224.8
 }
