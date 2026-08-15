@@ -131,15 +131,18 @@ def yahoo_growth(ticker: str) -> Optional[float]:
 
 def projected_growth(ticker: str,
                      finviz_g5: Optional[float]
-                     ) -> Tuple[Optional[float], str]:
+                     ) -> Tuple[Optional[float], Optional[float], str]:
     """Averaged projected 3-5y EPS growth per the StockOracle recipe.
 
-    Returns (growth_pct, sources_used). Averages every PRIMARY provider
-    that answers (GuruFocus + Finviz + Zacks). The stockanalysis.com
-    forecast CAGR ALWAYS joins the average when available (it is analyst
-    consensus arithmetic, same family as the primaries, and catches
-    stale finviz values — e.g. MU: finviz 172.8 vs consensus 69.8).
-    Yahoo is last-resort only.
+    Returns (growth_avg_pct, growth_lowest_pct, sources_used).
+    Averages every PRIMARY provider that answers (GuruFocus + Finviz +
+    Zacks). The stockanalysis.com forecast CAGR ALWAYS joins the average
+    when available (analyst consensus arithmetic, same family as the
+    primaries; catches stale finviz values — e.g. MU: finviz 172.8 vs
+    consensus 69.8). Yahoo is last-resort only.
+
+    growth_lowest feeds Adam's CONSERVATIVE / DOOMSDAY margin-of-safety
+    cases (§4.9: conservative uses "the lowest of the 3 sites").
     """
     parts = [("finviz", finviz_g5),
              ("gurufocus", gurufocus_growth(ticker)),
@@ -148,8 +151,49 @@ def projected_growth(ticker: str,
     avail = [(n, v) for n, v in parts if v is not None]
     if avail:
         g = sum(v for _, v in avail) / len(avail)
-        return g, "+".join(n for n, _ in avail)
+        g_low = min(v for _, v in avail)
+        return g, g_low, "+".join(n for n, _ in avail)
     v = yahoo_growth(ticker)
     if v is not None:
-        return v, "yahoo"
-    return None, "none"
+        return v, v, "yahoo"
+    return None, None, "none"
+
+
+def sa_forecast_revenue_growth(ticker: str) -> Optional[float]:
+    """Analyst REVENUE estimate CAGR from stockanalysis.com's /forecast
+    annual table (first -> last positive estimate). Feeds Adam's PSG
+    ratio (Lesson 5 §10.4: PSG = P/S ÷ projected revenue growth %).
+    Pure arithmetic on published analyst numbers."""
+    try:
+        from .stockanalysis import _decode_node, get as _sa_get
+        root = _decode_node(json.loads(_sa_get(
+            f"https://stockanalysis.com/stocks/{ticker.lower()}"
+            f"/forecast/__data.json")))
+    except Exception:  # noqa: BLE001
+        return None
+    best: Optional[float] = None
+
+    def visit(o):
+        nonlocal best
+        if isinstance(o, dict):
+            if isinstance(o.get("revenue"), list) and isinstance(
+                    o.get("dates"), list):
+                dates, rev = o["dates"], o["revenue"]
+                if (len(dates) >= 3 and
+                        all(isinstance(d, str) for d in dates)):
+                    yrs = [d[:4] for d in dates]
+                    if len(set(yrs)) == len(yrs):  # annual, not quarterly
+                        pr = [(d, r) for d, r in zip(dates, rev)
+                              if isinstance(r, (int, float)) and r > 0]
+                        if len(pr) >= 2:
+                            (d0, r0), (d1, r1) = pr[0], pr[-1]
+                            n = int(d1[:4]) - int(d0[:4])
+                            if n >= 1:
+                                best = ((r1 / r0) ** (1 / n) - 1) * 100
+            for v in o.values():
+                visit(v)
+        elif isinstance(o, list):
+            for v in o:
+                visit(v)
+    visit(root)
+    return best

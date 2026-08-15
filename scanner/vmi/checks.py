@@ -1063,9 +1063,9 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     # at min(g, 15%), yrs 11-20 at 4%. TTM EPS base.
     try:
         from .growth import projected_growth as _proj_g
-        _g_avg, _g_src = _proj_g(res.ticker, g5)
+        _g_avg, _g_low, _g_src = _proj_g(res.ticker, g5)
     except Exception:
-        _g_avg, _g_src = g5, "finviz"
+        _g_avg, _g_low, _g_src = g5, g5, "finviz"
     res.metrics["direct_growth_used"] = (
         round(_g_avg, 2) if _g_avg is not None else None)
     res.metrics["direct_growth_sources"] = _g_src
@@ -1081,13 +1081,30 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
                       sti=_latest_bal("shortTermInvestments") or 0,
                       std=_latest_bal("shortTermDebt") or 0,
                       ltd=_latest_bal("longTermDebt") or 0,
-                      ttm_ni=_ttm_ni) if shares else None
+                      ttm_ni=_ttm_ni, g_low=_g_low) if shares else None
     except Exception:
         _ivd = None
     if _ivd is not None:
         _ivd_ps = _ivd["iv_ps"]
         res.metrics["intrinsic_value_direct"] = round(_ivd_ps, 2)
         res.metrics["direct_base_flow"] = _ivd.get("base_desc")
+        # Margin-of-safety ladder (§4.9): base / conservative / doomsday.
+        _ivc = _ivd.get("iv_conservative")
+        _ivdm = _ivd.get("iv_doomsday")
+        res.metrics["intrinsic_value_conservative"] = (
+            round(_ivc, 2) if _ivc is not None else None)
+        res.metrics["intrinsic_value_doomsday"] = (
+            round(_ivdm, 2) if _ivdm is not None else None)
+        res.metrics["direct_growth_low"] = (
+            round(_ivd["g_low_pct"], 2)
+            if _ivd.get("g_low_pct") is not None else None)
+        if price and _ivdm and _ivdm > 0 and _ivc:
+            res.metrics["mos_verdict"] = (
+                "below doomsday IV — strong margin of safety"
+                if price < _ivdm else
+                "below conservative IV" if price < _ivc else
+                "below base IV only" if price < _ivd_ps else
+                "above base IV")
         if price and _ivd_ps > 0:
             res.metrics["discount_pct_direct"] = round(
                 (_ivd_ps - price) / _ivd_ps * 100, 1)
@@ -1193,6 +1210,91 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         if _st.get(_k) is not None:
             res.metrics[f"ttm_{_k}"] = _st[_k]
 
+    # ---------------- Lesson 5 extra methods (doc §3, §8, §10, §11) ------
+    # PEG screen (§3.2, Adam's rule): PEG = trailing PE ÷ projected
+    # growth%. ≤1.5 reasonable, <1 cheap, >1.5 expensive. Screening
+    # tool only — Adam never values on PEG. Uses the same averaged
+    # multi-provider growth as the direct DCF.
+    _pe_now = _st.get("pe")
+    if _pe_now and _g_avg and _g_avg > 0:
+        _peg_a = _pe_now / _g_avg
+        res.metrics["peg_adam"] = round(_peg_a, 2)
+        res.metrics["peg_verdict"] = (
+            "cheap (<1)" if _peg_a < 1 else
+            "reasonable (<=1.5)" if _peg_a <= 1.5 else
+            "expensive (>1.5)")
+    else:
+        res.metrics["peg_adam"] = None
+        res.metrics["peg_verdict"] = None
+
+    # 5y-average P/S and P/B fair values (§8.5, §10.2) from the S&P
+    # Global historical ratio table (row 0 = TTM, rows 1-5 = last FYs).
+    #   Fair value (P/S) = 5y avg P/S × current revenue per share
+    #   Fair value (P/B) = 5y avg P/B × current book value per share
+    # P/S is Adam's method for cyclicals; P/B for banks/REITs/distressed
+    # (scanner excludes financials, so P/B here is informational).
+    _ps_hist = _pb_hist = None
+    _ttm_rev = None
+    try:
+        from .stockanalysis import fetch_statement as _sa_fetch2
+        _ratT = _sa_fetch2(res.ticker, "ratios")
+        if _ratT:
+            _dk = _ratT.get("datekey") or []
+            _skip = 1 if (_dk and _dk[0] == "TTM") else 0
+            _ps_hist = [v for v in (_ratT.get("ps") or [])[_skip:_skip + 5]
+                        if isinstance(v, (int, float)) and v > 0]
+            _pb_hist = [v for v in (_ratT.get("pb") or [])[_skip:_skip + 5]
+                        if isinstance(v, (int, float)) and v > 0]
+        _incT = _sa_fetch2(res.ticker, "income")
+        if _incT and (_incT.get("datekey") or [""])[0] == "TTM":
+            _ttm_rev = (_incT.get("revenue") or [None])[0]
+    except Exception:
+        pass
+    if _ttm_rev is None and rev:
+        _ttm_rev = rev[0]  # latest annual revenue (SEC, newest-first)
+    _eq_now = _latest_bal("equity")
+    _bvps = (_eq_now / shares) if (_eq_now and shares) else None
+
+    if shares and _ttm_rev and _ps_hist and len(_ps_hist) >= 3:
+        _ps_avg = sum(_ps_hist) / len(_ps_hist)
+        res.metrics["ps_avg_5y"] = round(_ps_avg, 2)
+        res.metrics["fair_value_ps"] = round(
+            _ps_avg * _ttm_rev / shares, 2)
+    if _bvps and _pb_hist and len(_pb_hist) >= 3:
+        _pb_avg = sum(_pb_hist) / len(_pb_hist)
+        res.metrics["pb_avg_5y"] = round(_pb_avg, 2)
+        res.metrics["fair_value_pb"] = round(_pb_avg * _bvps, 2)
+
+    # PSG ratio (§10.4) for speculative growth: P/S ÷ projected revenue
+    # growth%. <0.2 undervalued, 0.2-0.3 fair, >0.3 overvalued.
+    _ps_now = (price / (_ttm_rev / shares)
+               if (price and _ttm_rev and shares) else None)
+    try:
+        from .growth import sa_forecast_revenue_growth as _rev_g
+        _rg = _rev_g(res.ticker)
+    except Exception:
+        _rg = None
+    res.metrics["rev_growth_proj"] = (
+        round(_rg, 2) if _rg is not None else None)
+    if _ps_now and _rg and _rg > 0:
+        _psg = _ps_now / _rg
+        res.metrics["psg"] = round(_psg, 2)
+        res.metrics["psg_verdict"] = (
+            "undervalued (<0.2)" if _psg < 0.2 else
+            "fair (0.2-0.3)" if _psg <= 0.3 else
+            "overvalued (>0.3)")
+
+    # CFO-substitute rule (§11.3): CFO may stand in for FCF only when it
+    # is within 20% of net income (Apple: CFO 135,472 vs NI 117,777).
+    _ttm_d = ttm if (shares and isinstance(locals().get("ttm"), dict)) \
+        else {}
+    _cfo_now = _ttm_d.get("ocf") or (ocf[0] if ocf else None)
+    _ni_now = _ttm_d.get("ni") or (ni[0] if ni else None)
+    if _cfo_now and _ni_now and _ni_now > 0:
+        _dev = (_cfo_now - _ni_now) / _ni_now * 100
+        res.metrics["cfo_vs_ni_pct"] = round(_dev, 1)
+        res.metrics["cfo_fcf_substitute_ok"] = bool(_dev <= 20)
+
     # ---------------- Sort scores (0-100, equal weight, no fitted params) -
     # Each component is a documented public metric capped at a stated
     # full-marks level, then averaged. No invented weights.
@@ -1202,8 +1304,15 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         return max(0.0, min(1.0, v / cap))
 
     def _avgp(parts):
+        # Require at least HALF the intended components (min 2) so one
+        # lucky metric can't mint a 100 on its own — a stock with only
+        # interest coverage available used to score 100 on financial
+        # strength from that single capped input.
         ps = [p for p in parts if p is not None]
-        return round(sum(ps) / len(ps) * 100, 1) if ps else None
+        need = max(2, (len(parts) + 1) // 2) if len(parts) > 1 else 1
+        if len(ps) < need:
+            return None
+        return round(sum(ps) / len(ps) * 100, 1)
 
     def _updown(series):
         s = [v for v in _oldest_first(series) if v is not None]
