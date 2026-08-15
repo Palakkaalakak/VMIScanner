@@ -1102,8 +1102,12 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         return ((v[-1] / v[0]) ** (1.0 / (len(v) - 1)) - 1) * 100
     _rc10 = _rev_cagr(rev, 10)
     _rc5 = _rev_cagr(rev, 5)
-    _hist_g = max(x for x in (_rc10, _rc5) if x is not None) \
-        if (_rc10 is not None or _rc5 is not None) else None
+    # Anchor on the 10-YEAR revenue CAGR (full cycle including pre-hype
+    # years); the 5y window is used only when 10y history is missing.
+    # Rationale: for bubble names the recent 5y window IS the hype
+    # (NVDA 5y rev CAGR 68% vs 10y 47%) — a full-cycle anchor is the
+    # whole point of the filter.
+    _hist_g = _rc10 if _rc10 is not None else _rc5
     _g_raw = _g_avg
     if _g_avg is not None and _hist_g is not None and _g_avg > _hist_g:
         _g_avg = _hist_g
