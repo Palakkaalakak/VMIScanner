@@ -492,6 +492,17 @@ class ScanResult:
         "Positive projected growth",
     )
 
+    # Adam's "Heavenly Queens" — super-excellent compounders per Adam Khoo's
+    # own portfolio spreadsheet (user-attested 2026-08-15 from a screenshot
+    # of Adam's sheet; user attestation of Adam's verdicts OVERRIDES the
+    # master document where they differ). Review-flag WARNs never demote
+    # these names from GREAT; hard FAILs still would (data can still
+    # override if a business genuinely breaks).
+    ADAM_HEAVENLY_QUEENS = frozenset({
+        "AAPL", "AMZN", "GOOGL", "MA", "META", "MSFT",
+        "NVDA", "PANW", "SPGI", "TMO", "WM",
+    })
+
     @property
     def is_great(self) -> bool:
         """Great business = zero hard FAILs anywhere, at most 2 review
@@ -500,6 +511,12 @@ class ScanResult:
         enough applicable checks for a meaningful verdict."""
         if self.n_fail != 0 or self.applicable < 8:
             return False
+        # Heavenly Queens: Adam holds/grades these as super-excellent
+        # compounders. Zero hard FAILs (already established above) is
+        # sufficient — review-flag WARNs (5y-only clearance, receivables
+        # inspection notes, lumpy-capex FCF years) don't demote them.
+        if self.ticker in self.ADAM_HEAVENLY_QUEENS:
+            return True
         # "Growth-stage transition" / "10-12% band" WARNs on ROE/ROIC are
         # judgment flags we ourselves softened from FAIL because the
         # historical average is unrepresentative (e.g. TMO post-acquisition,
