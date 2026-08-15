@@ -3,47 +3,388 @@
   "_grading_scale": "verdict: wide | narrow | none | wide_weak (passes but Adam concedes weak spots) | none_or_narrow (avoided, disruptable) | lost_moat (had one, decayed). score10 given only where Adam stated it. source_scores per the 5 sources only where the doc gives a per-source breakdown.",
   "_scoring_rule": "\"If a company has got at least THREE out of these FIVE moat sources, then I would want to invest in the company.\" (doc line ~4396)",
   "key_man_rule": "\"once you lose the talent, the whole business is gone\" — key-man dependence is a moat weakness. Validates avoiding businesses whose value collapses if one person leaves.",
-  "no_moat_industries": ["commodity companies", "airlines", "auto manufacturers", "property developers", "construction companies", "shipping companies", "oil & gas companies"],
+  "no_moat_industries": [
+    "commodity companies",
+    "airlines",
+    "auto manufacturers",
+    "property developers",
+    "construction companies",
+    "shipping companies",
+    "oil & gas companies"
+  ],
   "labels": [
-    {"ticker": "META", "verdict": "wide", "score10": 9, "source_scores": {"brand_pricing": 9, "switching": 8, "network": 10, "barriers": 9, "scale": 9}, "adam_reasoning": "Largest global social media and digital advertising ecosystem (Facebook, Instagram, WhatsApp, Messenger, Threads). ~3.5B of ~6B internet users use a Meta product (~60%). No competitor (Twitter/X, Snapchat, Reddit) comes close. Network effect 10/10.", "doc_line": 4433},
-    {"ticker": "ZM", "verdict": "narrow", "score10": 6, "source_scores": {"brand_pricing": 6, "switching": 6, "network": 6, "barriers": 5, "scale": 5}, "adam_reasoning": "Growing well during the pandemic, 'but I felt that although Zoom was growing, it didn't have a very strong moat. It could easily be disrupted by bigger competitors like Microsoft and Google.' Barriers 5/10: bigger competitors can always replicate a similar platform. Switching 6/10: you can easily switch to another platform. NOT BOUGHT — 'I don't often invest in 6 out of 10.'", "doc_line": 4448},
-    {"ticker": "BYND", "verdict": "none", "score10": 2, "source_scores": null, "adam_reasoning": "No pricing power, no brand loyalty, no barriers to entry, no switching costs, no network effect, low economies of scale. 'No moat is the most dangerous.' AVOIDED; subsequently collapsed.", "doc_line": 4459},
-    {"ticker": "PYPL", "verdict": "none_or_narrow", "score10": null, "source_scores": null, "adam_reasoning": "'Although PayPal was gaining traction, it was getting popular, it was growing, but I felt that the business itself could be easily disrupted and replaced by much stronger competitors. And good thing I didn't buy it, because after going up initially, these shares have collapsed and I still wouldn't buy it.'", "doc_line": 4461},
-    {"ticker": "GOOGL", "verdict": "wide", "score10": 9, "source_scores": {"brand_pricing": null, "switching": null, "network": 10, "barriers": 10, "scale": null}, "adam_reasoning": "Near-perfect across all five sources; network effect and barriers to entry both 10/10. Brand monopoly: 'we say Google this, Google that, not Bing this.' YouTube = top-of-mind free video. Search/Gemini flywheel: more usage → smarter searches → more powerful AI. Weak spot conceded: Google Cloud a 'distant third' behind AWS and Azure.", "doc_line": 5697},
-    {"ticker": "MSFT", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Clean pass — THREE of the five sources demonstrated: brand monopoly (top-of-mind office software), switching costs, network effect. Barriers to entry and economies of scale not separately argued. Long-run chart 'always goes up.'", "doc_line": 5698},
-    {"ticker": "AMZN", "verdict": "wide_weak", "score10": null, "source_scores": null, "adam_reasoning": "'At least two or three' sources. Brand monopoly YES (e-commerce + cloud top-of-mind). Barriers YES (Prime same-day delivery — scale lets them do it faster/cheaper than anyone). Scale YES ('you bet'). Network effect 'maybe not' — explicitly declined. Switching costs SPLIT BY SEGMENT: NO for individual e-commerce shoppers (can buy on Alibaba tomorrow, eBay next day), YES for AWS enterprise (expensive and difficult to migrate to Azure). AWS 33% cloud share Q2 2020, clear leader. Weakest of the three big-tech verdicts.", "doc_line": 5455},
-    {"ticker": "TSLA", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Pricing-power test FAILED: cannot raise car prices annually without losing share; heavy EV competition from China; 'not only can they not raise their price, they have to keep cutting their price, they have to keep discounting.' → narrow moat, not wide. Also in a structurally no-moat industry (auto manufacturers).", "doc_line": 4405},
-    {"ticker": "NFLX", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's wide-moat reference list. Brand monopoly: top-of-mind for paid online video. Long-run chart 'always goes up.'", "doc_line": 4465},
-    {"ticker": "NVDA", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's wide-moat reference list.", "doc_line": 4465},
-    {"ticker": "MA", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's wide-moat reference list. Also his MOS-ladder valuation walkthrough subject (a business he considers predictable enough to DCF three ways).", "doc_line": 4465},
-    {"ticker": "V", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's wide-moat reference list.", "doc_line": 4465},
-    {"ticker": "SPGI", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's wide-moat reference list (S&P Global).", "doc_line": 4465},
-    {"ticker": "AAPL", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Wide-moat reference list + the canonical switching-cost case: ecosystem/iCloud = 'Hotel California — you can check out but you can never leave.' Watch + iPhone + MacBook + iPad + home devices all synced; a better, cheaper Samsung phone still wouldn't be bought because it can't sync. iMessage network effect in the US. Brand monopoly.", "doc_line": 4390},
-    {"ticker": "CSCO", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list.", "doc_line": 4466},
-    {"ticker": "FDX", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list.", "doc_line": 4466},
-    {"ticker": "EXPE", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list.", "doc_line": 4466},
-    {"ticker": "DOW", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list (commodity chemicals — also touches his no-moat commodity-industry rule).", "doc_line": 4466},
-    {"ticker": "AA", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list (Alcoa, commodity aluminum).", "doc_line": 4466},
-    {"ticker": "CVX", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Narrow-moat reference list; oil & gas is also on his no-moat-industry list — narrow is the ceiling.", "doc_line": 4466},
-    {"ticker": "SLB", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list (oilfield services).", "doc_line": 4466},
-    {"ticker": "XOM", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Narrow-moat reference list; oil & gas industry caveat applies.", "doc_line": 4466},
-    {"ticker": "SHEL", "verdict": "narrow", "score10": null, "source_scores": null, "adam_reasoning": "Named on Adam's narrow-moat reference list (Royal Dutch Shell).", "doc_line": 4466},
-    {"ticker": "INTC", "verdict": "lost_moat", "score10": null, "source_scores": null, "adam_reasoning": "Moat-decay canon: had a wide moat, lost it. Moats are not permanent — the decay check exists because of Intel and GE.", "doc_line": 4470},
-    {"ticker": "GE", "verdict": "lost_moat", "score10": null, "source_scores": null, "adam_reasoning": "Moat-decay canon: former industrial titan whose moat eroded. Paired with Intel as the standing warning that wide moats must be re-verified.", "doc_line": 4470},
-    {"ticker": "KO", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named as a brand-monopoly example (source 1): loyalty strong enough to keep buying despite price rises and cheaper competitors.", "doc_line": 4390},
-    {"ticker": "MCD", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Brand-monopoly example: top-of-mind 'food anywhere/anytime when everything is closed.' Long-run chart 'always goes up.'", "doc_line": 4390},
-    {"ticker": "NKE", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Named as a brand-monopoly example (source 1).", "doc_line": 4390},
-    {"ticker": "NOW", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Switching-cost exemplar (source 2): enterprise software embedded into all workflows; subscription lock-in for years.", "doc_line": 4391},
-    {"ticker": "CRM", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Switching-cost exemplar (source 2): Salesforce embedded into all workflows.", "doc_line": 4391},
-    {"ticker": "PANW", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Switching-cost exemplar (source 2): cybersecurity integrated into the entire company; switching is risky and difficult.", "doc_line": 4391},
-    {"ticker": "CRWD", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Switching-cost exemplar (source 2): cybersecurity vendor lock-in.", "doc_line": 4391},
-    {"ticker": "FTNT", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Switching-cost exemplar (source 2): cybersecurity vendor lock-in.", "doc_line": 4391},
-    {"ticker": "MELI", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Network-effect exemplar (source 3): the marketplace flywheel in Latin America — sellers and buyers must be there.", "doc_line": 4392},
-    {"ticker": "BABA", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Network-effect exemplar (source 3) in China.", "doc_line": 4392},
-    {"ticker": "PDD", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Network-effect exemplar (source 3) in China (Pinduoduo).", "doc_line": 4392},
-    {"ticker": "PLTR", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Barriers-to-entry exemplar (source 4): regulatory moat — needs very high-level security clearance with the US military/Pentagon, so new competitors can't enter.", "doc_line": 4393},
-    {"ticker": "LMT", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Barriers-to-entry exemplar (source 4): Pentagon security-clearance regulatory moat.", "doc_line": 4393},
-    {"ticker": "WMT", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Economies-of-scale exemplar (source 5): so big that competing is almost impossible — bulk buying, efficiency, fixed costs spread over a huge base.", "doc_line": 4394},
-    {"ticker": "COST", "verdict": "wide", "score10": null, "source_scores": null, "adam_reasoning": "Economies-of-scale exemplar (source 5).", "doc_line": 4394}
-  ]
+    {
+      "ticker": "META",
+      "verdict": "wide",
+      "score10": 9,
+      "source_scores": {
+        "brand_pricing": 9,
+        "switching": 8,
+        "network": 10,
+        "barriers": 9,
+        "scale": 9
+      },
+      "adam_reasoning": "Largest global social media and digital advertising ecosystem (Facebook, Instagram, WhatsApp, Messenger, Threads). ~3.5B of ~6B internet users use a Meta product (~60%). No competitor (Twitter/X, Snapchat, Reddit) comes close. Network effect 10/10.",
+      "doc_line": 4433
+    },
+    {
+      "ticker": "ZM",
+      "verdict": "narrow",
+      "score10": 6,
+      "source_scores": {
+        "brand_pricing": 6,
+        "switching": 6,
+        "network": 6,
+        "barriers": 5,
+        "scale": 5
+      },
+      "adam_reasoning": "Growing well during the pandemic, 'but I felt that although Zoom was growing, it didn't have a very strong moat. It could easily be disrupted by bigger competitors like Microsoft and Google.' Barriers 5/10: bigger competitors can always replicate a similar platform. Switching 6/10: you can easily switch to another platform. NOT BOUGHT — 'I don't often invest in 6 out of 10.'",
+      "doc_line": 4448
+    },
+    {
+      "ticker": "BYND",
+      "verdict": "none",
+      "score10": 2,
+      "source_scores": null,
+      "adam_reasoning": "No pricing power, no brand loyalty, no barriers to entry, no switching costs, no network effect, low economies of scale. 'No moat is the most dangerous.' AVOIDED; subsequently collapsed.",
+      "doc_line": 4459
+    },
+    {
+      "ticker": "PYPL",
+      "verdict": "none_or_narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "'Although PayPal was gaining traction, it was getting popular, it was growing, but I felt that the business itself could be easily disrupted and replaced by much stronger competitors. And good thing I didn't buy it, because after going up initially, these shares have collapsed and I still wouldn't buy it.'",
+      "doc_line": 4461
+    },
+    {
+      "ticker": "GOOGL",
+      "verdict": "wide",
+      "score10": 9,
+      "source_scores": {
+        "brand_pricing": null,
+        "switching": null,
+        "network": 10,
+        "barriers": 10,
+        "scale": null
+      },
+      "adam_reasoning": "Near-perfect across all five sources; network effect and barriers to entry both 10/10. Brand monopoly: 'we say Google this, Google that, not Bing this.' YouTube = top-of-mind free video. Search/Gemini flywheel: more usage → smarter searches → more powerful AI. Weak spot conceded: Google Cloud a 'distant third' behind AWS and Azure.",
+      "doc_line": 5697
+    },
+    {
+      "ticker": "MSFT",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Clean pass — THREE of the five sources demonstrated: brand monopoly (top-of-mind office software), switching costs, network effect. Barriers to entry and economies of scale not separately argued. Long-run chart 'always goes up.'",
+      "doc_line": 5698
+    },
+    {
+      "ticker": "AMZN",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "'At least two or three' sources. Brand monopoly YES (e-commerce + cloud top-of-mind). Barriers YES (Prime same-day delivery — scale lets them do it faster/cheaper than anyone). Scale YES ('you bet'). Network effect 'maybe not' — explicitly declined. Switching costs SPLIT BY SEGMENT: NO for individual e-commerce shoppers (can buy on Alibaba tomorrow, eBay next day), YES for AWS enterprise (expensive and difficult to migrate to Azure). AWS 33% cloud share Q2 2020, clear leader. Weakest of the three big-tech verdicts. [USER OVERRIDE 2026-08-15: Adam holds AMZN as a Heavenly Queen — a super-excellent, practically unshakeable compounder. The doc's 'weakest of the three' nuance describes source-by-source scoring detail, not the final grade: final grade is WIDE, invest-grade.]",
+      "doc_line": 5455
+    },
+    {
+      "ticker": "TSLA",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Pricing-power test FAILED: cannot raise car prices annually without losing share; heavy EV competition from China; 'not only can they not raise their price, they have to keep cutting their price, they have to keep discounting.' → narrow moat, not wide. Also in a structurally no-moat industry (auto manufacturers).",
+      "doc_line": 4405
+    },
+    {
+      "ticker": "NFLX",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's wide-moat reference list. Brand monopoly: top-of-mind for paid online video. Long-run chart 'always goes up.'",
+      "doc_line": 4465
+    },
+    {
+      "ticker": "NVDA",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's wide-moat reference list.",
+      "doc_line": 4465
+    },
+    {
+      "ticker": "MA",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's wide-moat reference list. Also his MOS-ladder valuation walkthrough subject (a business he considers predictable enough to DCF three ways).",
+      "doc_line": 4465
+    },
+    {
+      "ticker": "V",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's wide-moat reference list.",
+      "doc_line": 4465
+    },
+    {
+      "ticker": "SPGI",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's wide-moat reference list (S&P Global).",
+      "doc_line": 4465
+    },
+    {
+      "ticker": "AAPL",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Wide-moat reference list + the canonical switching-cost case: ecosystem/iCloud = 'Hotel California — you can check out but you can never leave.' Watch + iPhone + MacBook + iPad + home devices all synced; a better, cheaper Samsung phone still wouldn't be bought because it can't sync. iMessage network effect in the US. Brand monopoly.",
+      "doc_line": 4390
+    },
+    {
+      "ticker": "CSCO",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list.",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "FDX",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list.",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "EXPE",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list.",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "DOW",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list (commodity chemicals — also touches his no-moat commodity-industry rule).",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "AA",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list (Alcoa, commodity aluminum).",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "CVX",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Narrow-moat reference list; oil & gas is also on his no-moat-industry list — narrow is the ceiling.",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "SLB",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list (oilfield services).",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "XOM",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Narrow-moat reference list; oil & gas industry caveat applies.",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "SHEL",
+      "verdict": "narrow",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named on Adam's narrow-moat reference list (Royal Dutch Shell).",
+      "doc_line": 4466
+    },
+    {
+      "ticker": "INTC",
+      "verdict": "lost_moat",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Moat-decay canon: had a wide moat, lost it. Moats are not permanent — the decay check exists because of Intel and GE.",
+      "doc_line": 4470
+    },
+    {
+      "ticker": "GE",
+      "verdict": "lost_moat",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Moat-decay canon: former industrial titan whose moat eroded. Paired with Intel as the standing warning that wide moats must be re-verified.",
+      "doc_line": 4470
+    },
+    {
+      "ticker": "KO",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named as a brand-monopoly example (source 1): loyalty strong enough to keep buying despite price rises and cheaper competitors.",
+      "doc_line": 4390
+    },
+    {
+      "ticker": "MCD",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Brand-monopoly example: top-of-mind 'food anywhere/anytime when everything is closed.' Long-run chart 'always goes up.'",
+      "doc_line": 4390
+    },
+    {
+      "ticker": "NKE",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Named as a brand-monopoly example (source 1).",
+      "doc_line": 4390
+    },
+    {
+      "ticker": "NOW",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Switching-cost exemplar (source 2): enterprise software embedded into all workflows; subscription lock-in for years.",
+      "doc_line": 4391
+    },
+    {
+      "ticker": "CRM",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Switching-cost exemplar (source 2): Salesforce embedded into all workflows.",
+      "doc_line": 4391
+    },
+    {
+      "ticker": "PANW",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Switching-cost exemplar (source 2): cybersecurity integrated into the entire company; switching is risky and difficult.",
+      "doc_line": 4391
+    },
+    {
+      "ticker": "CRWD",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Switching-cost exemplar (source 2): cybersecurity vendor lock-in.",
+      "doc_line": 4391
+    },
+    {
+      "ticker": "FTNT",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Switching-cost exemplar (source 2): cybersecurity vendor lock-in.",
+      "doc_line": 4391
+    },
+    {
+      "ticker": "MELI",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Network-effect exemplar (source 3): the marketplace flywheel in Latin America — sellers and buyers must be there.",
+      "doc_line": 4392
+    },
+    {
+      "ticker": "BABA",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Network-effect exemplar (source 3) in China.",
+      "doc_line": 4392
+    },
+    {
+      "ticker": "PDD",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Network-effect exemplar (source 3) in China (Pinduoduo).",
+      "doc_line": 4392
+    },
+    {
+      "ticker": "PLTR",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Barriers-to-entry exemplar (source 4): regulatory moat — needs very high-level security clearance with the US military/Pentagon, so new competitors can't enter.",
+      "doc_line": 4393
+    },
+    {
+      "ticker": "LMT",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Barriers-to-entry exemplar (source 4): Pentagon security-clearance regulatory moat.",
+      "doc_line": 4393
+    },
+    {
+      "ticker": "WMT",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Economies-of-scale exemplar (source 5): so big that competing is almost impossible — bulk buying, efficiency, fixed costs spread over a huge base.",
+      "doc_line": 4394
+    },
+    {
+      "ticker": "COST",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Economies-of-scale exemplar (source 5).",
+      "doc_line": 4394
+    },
+    {
+      "ticker": "TMO",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Heavenly Queen per Adam's portfolio spreadsheet (user-attested). Life-sciences tools/instruments compounder.",
+      "doc_line": null,
+      "label_source": "user_attestation_2026-08-15"
+    },
+    {
+      "ticker": "WM",
+      "verdict": "wide",
+      "score10": null,
+      "source_scores": null,
+      "adam_reasoning": "Heavenly Queen per Adam's portfolio spreadsheet (user-attested). Waste collection — route-density economies of scale and regulatory landfill barriers.",
+      "doc_line": null,
+      "label_source": "user_attestation_2026-08-15"
+    }
+  ],
+  "heavenly_queens": {
+    "_source": "User attestation 2026-08-15 from a screenshot of Adam Khoo's own portfolio spreadsheet. USER ATTESTATION OF ADAM'S VERDICTS OVERRIDES THE MASTER DOCUMENT where they differ.",
+    "tickers": [
+      "AAPL",
+      "AMZN",
+      "GOOGL",
+      "MA",
+      "META",
+      "MSFT",
+      "NVDA",
+      "PANW",
+      "SPGI",
+      "TMO",
+      "WM"
+    ],
+    "meaning": "Super-excellent compounders, practically unshakeable. All are invest-grade wide-moat businesses in Adam's live portfolio."
+  }
 }
