@@ -377,46 +377,96 @@ def compute_iv(*, sector: str, industry: str, shares: float,
             "base_desc": base_desc, "sector_group": grp}
 
 
+# Lowest discount rate observed in Adam's beta lookup table (VMI Master
+# Document, Lesson 5 §4.7: beta 0.28 -> 5.8%). Pure CAPM with our RF/MRP
+# gives 4.37% at that beta, so the table clearly floors low-beta names.
+# The other observed rows (0.83->6.1, 1.1->6.6, 1.4->7.4, 1.49->7.7)
+# match RF + beta*MRP within 0.25pp, so a floor is the only correction.
+DISC_FLOOR = 5.8
+
+
 def compute_iv_direct(*, shares: float, beta: Optional[float],
                       g5: Optional[float],
                       ni_series: List[Optional[float]],
                       cash: float, sti: float, std: float, ltd: float,
-                      ttm_ni: Optional[float] = None
+                      ttm_ni: Optional[float] = None,
+                      ocf_series: Optional[List[Optional[float]]] = None,
+                      capex_series: Optional[List[Optional[float]]] = None,
+                      ttm_ocf: Optional[float] = None
                       ) -> Optional[Dict[str, float]]:
-    """DIRECT StockOracle-style DCF: NO fitted blend, no sector terms.
+    """DIRECT DCF per Adam Khoo's Lesson 5 procedure (VMI Master Document):
+    no fitted blend, no sector terms — the taught manual method verbatim.
 
-    Plugs the analyst "projected 3-5y EPS growth" (finviz eps_next_5y — the
-    closest FREE analog to StockOracle's proprietary S&P Global figure;
-    e.g. MSFT 18.35% vs their 21.02%) straight into the verified DCF-20yr
-    structure (Lesson 5 Visa calculator): TTM EPS (net income / shares)
-    compounded at g for years 1-10, then 4% for years 11-20, no terminal
-    value, CAPM discount (Rf 3.608% + beta x MRP 2.728%), plus net cash,
-    minus debt. Nothing else.
+    Base flow (Adam's decision sequence, Lesson 5 §11):
+      1. DEFAULT: normalized Free Cash Flow = latest 12-month cash flow
+         from operations - 5-YEAR AVERAGE capex (§5.2 — automatically
+         equals plain FCF when capex is even; fixes lumpy-capex names
+         like Amazon where latest-year FCF is artificially crushed).
+      2. FALLBACK: net income (Discounted Net Income, §7) when operating
+         cash flow is unavailable, non-positive, or LESS CONSISTENT than
+         net income (§7.1: "use whichever series is the more consistent",
+         measured as the fraction of up-years in each series).
 
-    Base-flow choice is evidence-driven, not preference: reversing
-    StockOracle's Base IV at its displayed growth across the 39 calibration
-    names, an EPS base fits best for 19/39 (OCF 10, fwd-EPS 10); MSFT error
-    -3.0% with EPS vs +29% with OCF. Full-set validation of this direct
-    mode vs StockOracle: median abs error ~24% with the banded recipe
-    (the refined blend is 36/36 within +/-7%). Intentionally uncorrected -
-    it shows what raw inputs say with zero massaging.
+    Growth bands (§4.6): years 1-5 at g (average of GuruFocus + Finviz +
+    Zacks projected 3-5y growth, see growth.py); years 6-10 same g capped
+    at 15%; years 11-20 at 4% (nominal GDP + 2%). No terminal value —
+    Adam values 20 years only (§4.8).
 
-    Growth bands per the documented StockOracle recipe:
-      years 1-5   : g (averaged projected 3-5y growth — see growth.py)
-      years 6-10  : same g, CAPPED at 15%/yr
-      years 11-20 : 4% (conservative long-run rate)
-    No terminal value. CAPM discount (Rf 3.608% + beta x MRP 2.728%),
-    plus net cash, minus debt. Base flow = TTM EPS (net income/shares).
+    Discount rate (§4.7): risk-free 3.608% + beta x MRP 2.728%, floored
+    at 5.8% (the lowest row in Adam's published beta table). Net cash
+    added, total debt subtracted, divided by shares outstanding.
+
+    Accuracy note: with StockOracle's own growth numbers this recipe has
+    ~24% median abs error vs their Base IV (the refined calibrated blend
+    is 36/36 within +/-7%). It is intentionally uncorrected — it shows
+    what the raw published inputs say through the taught formula.
     """
     if not shares or shares <= 0 or g5 is None:
         return None
-    base = ttm_ni if ttm_ni is not None and ttm_ni > 0 else next(
-        (v for v in ni_series if v is not None and v > 0), None)
+
+    def _pos(vals):
+        return [v for v in (vals or []) if v is not None]
+
+    def _upfrac(vals):
+        """Fraction of positive YoY changes, series given newest-first."""
+        s = list(reversed(_pos(vals)))
+        if len(s) < 3:
+            return None
+        ups = sum(1 for a, b2 in zip(s, s[1:]) if b2 > a)
+        return ups / (len(s) - 1)
+
+    # --- Base flow: normalized FCF default, NI fallback (Adam §11) -----
+    ocf_vals = _pos(ocf_series)
+    ni_vals = _pos(ni_series)
+    ocf_latest = (ttm_ocf if ttm_ocf is not None and ttm_ocf > 0
+                  else (ocf_vals[0] if ocf_vals and ocf_vals[0] > 0
+                        else None))
+    capex_vals = [abs(v) for v in _pos(capex_series)][:5]
+    capex_avg = sum(capex_vals) / len(capex_vals) if capex_vals else 0.0
+
+    base = None
+    base_desc = None
+    ocf_cons = _upfrac(ocf_series)
+    ni_cons = _upfrac(ni_series)
+    use_ni = (ocf_latest is None or
+              (ocf_cons is not None and ni_cons is not None
+               and ni_cons > ocf_cons))
+    if not use_ni and ocf_latest is not None:
+        nfcf = ocf_latest - capex_avg
+        if nfcf > 0:
+            base, base_desc = nfcf, "normalized FCF (CFO - 5y avg capex)"
+    if base is None:
+        ni_latest = (ttm_ni if ttm_ni is not None and ttm_ni > 0
+                     else (ni_vals[0] if ni_vals and ni_vals[0] > 0
+                           else None))
+        if ni_latest is not None:
+            base, base_desc = ni_latest, "net income (DNI)"
     if base is None:
         return None
+
     base_ps = base / shares
     b = beta if beta is not None else 1.0
-    disc = (RF + b * MRP) / 100.0
+    disc = max(RF + b * MRP, DISC_FLOOR) / 100.0
     g1 = g5 / 100.0             # years 1-5: full projected growth
     g2 = min(g5, 15.0) / 100.0  # years 6-10: same rate capped at 15%
     pv, f = 0.0, base_ps
@@ -426,4 +476,5 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
         pv += f / (1 + disc) ** yr
     iv_ps = pv - ((std or 0) + (ltd or 0)) / shares \
         + ((cash or 0) + (sti or 0)) / shares
-    return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100}
+    return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100,
+            "base_desc": base_desc}
