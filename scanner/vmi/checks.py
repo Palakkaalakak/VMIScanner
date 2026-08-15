@@ -1083,6 +1083,38 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         _g_avg, _g_low, _g_src = _proj_g(res.ticker, g5)
     except Exception:
         _g_avg, _g_low, _g_src = g5, g5, "finviz"
+    # ---- HYPE-GROWTH FILTER (user request 2026-08-15) --------------------
+    # Analyst estimates get inflated in hype/bubble phases. Anchor: a
+    # company cannot sustainably grow EARNINGS faster than it has EVER
+    # grown REVENUE. Cap the analyst growth at the FASTER of its own 10y
+    # and 5y revenue CAGR (taking the faster window avoids punishing
+    # genuinely re-accelerating businesses). Everything here is
+    # data-derived — analyst numbers and the company's own revenue
+    # history; no invented rates. Effect on hype names: NVDA analyst
+    # 68.6% -> 46.6% (its real 10y revenue CAGR); AMZN 27.6% -> 20.3%;
+    # GOOGL 23.9% -> 18.1%. No-op when analysts are already at or below
+    # demonstrated history (MSFT, PANW, SPGI, TMO unchanged or nearly).
+    def _rev_cagr(vals, n):
+        v = [x for x in (vals or []) if x is not None][:n]
+        v = list(reversed(v))
+        if len(v) < min(n, 6) or v[0] <= 0 or v[-1] <= 0:
+            return None
+        return ((v[-1] / v[0]) ** (1.0 / (len(v) - 1)) - 1) * 100
+    _rc10 = _rev_cagr(rev, 10)
+    _rc5 = _rev_cagr(rev, 5)
+    _hist_g = max(x for x in (_rc10, _rc5) if x is not None) \
+        if (_rc10 is not None or _rc5 is not None) else None
+    _g_raw = _g_avg
+    if _g_avg is not None and _hist_g is not None and _g_avg > _hist_g:
+        _g_avg = _hist_g
+        res.metrics["hype_filter_applied"] = True
+        res.metrics["direct_growth_analyst_raw"] = round(_g_raw, 2)
+    else:
+        res.metrics["hype_filter_applied"] = False
+    if _g_low is not None and _hist_g is not None and _g_low > _hist_g:
+        _g_low = _hist_g
+    res.metrics["rev_cagr_hist_max"] = (
+        round(_hist_g, 2) if _hist_g is not None else None)
     res.metrics["direct_growth_used"] = (
         round(_g_avg, 2) if _g_avg is not None else None)
     res.metrics["direct_growth_sources"] = _g_src

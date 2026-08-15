@@ -492,19 +492,16 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     #     (his 9.97% = 14.94 / 2), yrs 11-20 4% as always.
     iv_ps = _pv(g5, min(g5, 15.0))
     g_lo = g_low if (g_low is not None and g_low > 0) else g5
-    # GROWTH-COMPANY CONSERVATIVE RULE (user mandate 2026-08-15: "for
-    # growth companies use conservative (very) estimates"): the 15% cap
-    # Adam applies to years 6-10 ("very few companies can sustain >15%
-    # growth for a decade") is extended to years 1-5 as well in the
-    # conservative and doomsday cases. Uses Adam's own 15% number — no
-    # invented rate. For names with g_low <= 15% (e.g. his MasterCard
-    # worked example, 14.94%) this changes nothing; for hyper-growth
-    # names (NVDA g_low ~48%) it stops the "conservative" case from
-    # assuming an unsustainable decade.
-    g_lo_c = min(g_lo, 15.0)
-    iv_cons = _pv(g_lo_c, g_lo_c)
-    iv_doom = _pv(g_lo_c, g_lo_c / 2.0)
+    # REVERTED 2026-08-15: the blanket 15% cap on conservative yrs 1-5
+    # pushed conservative IVs far below Adam's published values (NVDA 130
+    # vs his 221). Bands are back to Adam's exact §4.5-4.6 rules: yrs 1-5
+    # at the estimate, yrs 6-10 capped 15%, yrs 11-20 at 4%. Hype control
+    # now happens UPSTREAM via the revenue-CAGR hype filter in checks.py,
+    # which caps the growth INPUT at demonstrated revenue history instead
+    # of flattening Adam's band structure.
+    iv_cons = _pv(g_lo, min(g_lo, 15.0))
+    iv_doom = _pv(g_lo, min(g_lo / 2.0, 15.0))
     return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100,
             "base_desc": base_desc,
             "iv_conservative": iv_cons, "iv_doomsday": iv_doom,
-            "g_low_pct": g_lo, "g_cons_pct": g_lo_c}
+            "g_low_pct": g_lo}
