@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-08-15T16:04:46.193188+00:00",
+ "generated_at": "2026-08-15T16:05:30.697556+00:00",
  "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
  "universe": "S&P 500 + Dow Jones 30 + Nasdaq-100 + curated extras (ADRs/ex-index quality) (merged)",
  "universe_size": 540,
  "included_after_exclusion": 480,
  "excluded_count": 60,
  "counts": {
-  "great": 67,
-  "near_miss": 115,
-  "failed": 43,
+  "great": 80,
+  "near_miss": 123,
+  "failed": 47,
   "errors": 0
  },
  "excluded": [
@@ -36479,7 +36479,4018 @@
    "error": "",
    "excluded": false,
    "exclusion_reason": ""
+  },
+  {
+   "ticker": "ICE",
+   "company": "Intercontinental Exchange",
+   "sector": "Financials",
+   "industry": "Financial Exchanges & Data",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "financial",
+   "data_source": "sec",
+   "score": 83.3,
+   "is_great": true,
+   "n_pass": 6,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "17.5% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "14.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "14.4% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 26.2%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.8%, latest 11.5%",
+     "detail": "10-12%: between the course's Finviz floor (>10%) and the 12-15% target"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 8.3%, latest 8.2%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 8.0% vs sales 8.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +12.4%/yr, next-Y +8.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08359780675006889,
+    "rev_cagr_10y": 0.08689824923144251,
+    "rev_cagr_15y": 0.17468040713239574,
+    "ni_cagr_5y": -0.049301360283685924,
+    "ni_cagr_10y": 0.09792315386201023,
+    "ni_cagr_15y": 0.1430500309825169,
+    "cfo_cagr_10y": 0.08985984188905705,
+    "proj_eps_next_5y": 12.39,
+    "proj_eps_next_y": 8.56,
+    "eps_past_5y": 8.9,
+    "price": 154.73,
+    "intrinsic_value": 191.54,
+    "dcf_growth_used": 11.4,
+    "dcf_base_flow": "ni:0.24+fwdni:0.76",
+    "dcf_sector_group": "fin-net",
+    "dcf_discount_rate": 6.15,
+    "discount_pct": 19.2,
+    "direct_growth_used": 6.07,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 142.59,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 142.59,
+    "intrinsic_value_doomsday": 127.53,
+    "direct_growth_low": 6.07,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -8.5,
+    "ttm_roe": 14.094,
+    "ttm_roic": 8.614,
+    "ttm_roa": 2.172,
+    "ttm_pe": 21.844,
+    "ttm_fwd_pe": 18.737,
+    "ttm_peg": 1.461,
+    "ttm_fcf_yield": 5.846,
+    "ttm_div_yield": 1.344,
+    "ttm_current_ratio": 1.012,
+    "ttm_debt_equity": 0.69,
+    "ttm_debt_ebitda": 3.02,
+    "ttm_interest_coverage": 6.882,
+    "ttm_z_score": 0.74,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 12.21,
+    "peg_adam": 3.6,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 9.27,
+    "fair_value_ps": 208.92,
+    "pb_avg_5y": 3.01,
+    "fair_value_pb": 154.91,
+    "rev_growth_proj": 9.02,
+    "psg": 0.76,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 66.3,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 23.6,
+    "sort_predictability": 78.6,
+    "sort_profitability": 47.0,
+    "sort_growth": 17.3
+   },
+   "moat_hints": {
+    "operating_margin": "39.0% (high)",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 6y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "IP",
+   "company": "International Paper",
+   "sector": "Materials",
+   "industry": "Paper & Plastic Packaging Products & Materials",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 63.6,
+   "is_great": false,
+   "n_pass": 6,
+   "n_fail": 3,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-0.7% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "Profitability improving on a smoothed long-term basis but not yet meeting the mature-company consistency test (growth-stage)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-3.2% CAGR ()",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "1/10 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 29.6%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest -14.9%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 14.1%, latest -23.7%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): only 5 annual value(s) of computable ROIC years available \u2014 this test needs \u22656; NA never disqualifies; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.28",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "21.9%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 3.2% vs sales 2.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-Y est +119.1% (no 5Y estimate)",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.0510930063472812,
+    "rev_cagr_10y": 0.021622486702844723,
+    "rev_cagr_15y": -0.006884550918865862,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": -0.04113029350742614,
+    "proj_eps_next_5y": null,
+    "proj_eps_next_y": 119.06,
+    "eps_past_5y": null,
+    "price": 40.74,
+    "intrinsic_value": 0.15,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.09,
+    "discount_pct": -26937.3,
+    "direct_growth_used": -22.45,
+    "direct_growth_sources": "stockanalysis",
+    "intrinsic_value_direct": -7.48,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": -7.48,
+    "intrinsic_value_doomsday": -5.8,
+    "direct_growth_low": -22.45,
+    "discount_pct_direct": null,
+    "ttm_roe": -16.479,
+    "ttm_roic": 4.276,
+    "ttm_roa": 1.591,
+    "ttm_fwd_pe": 17.617,
+    "ttm_peg": 0.489,
+    "ttm_fcf_yield": 2.28,
+    "ttm_div_yield": 4.541,
+    "ttm_current_ratio": 1.098,
+    "ttm_debt_equity": 0.69,
+    "ttm_debt_ebitda": 2.26,
+    "ttm_interest_coverage": 1.873,
+    "ttm_z_score": 1.54,
+    "ttm_f_score": 6.0,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 0.87,
+    "fair_value_ps": 38.95,
+    "pb_avg_5y": 1.73,
+    "fair_value_pb": 48.39,
+    "rev_growth_proj": 4.88,
+    "psg": 0.19,
+    "psg_verdict": "undervalued (<0.2)",
+    "sort_financial_strength": 27.6,
+    "sort_predictability": 42.9,
+    "sort_profitability": 2.9,
+    "sort_growth": null
+   },
+   "moat_hints": {
+    "gross_margin": "29.6%",
+    "operating_margin": "11.4%",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "IFF",
+   "company": "International Flavors & Fragrances",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "commodity",
+   "data_source": "sec",
+   "score": 50.0,
+   "is_great": false,
+   "n_pass": 4,
+   "n_fail": 4,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "10.1% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": null,
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/9 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.2%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "FAIL",
+     "value": "latest -3.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 9.4%, latest -2.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 7.4%, latest -1.7%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 60.4% vs sales 15.5%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +2.7%/yr, next-Y +16.3%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.03272074236331557,
+    "rev_cagr_10y": 0.1381258596039654,
+    "rev_cagr_15y": 0.10127775513001724,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.10201919416516825,
+    "proj_eps_next_5y": 2.69,
+    "proj_eps_next_y": 16.31,
+    "eps_past_5y": null,
+    "price": 84.18,
+    "intrinsic_value": -7.24,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.2,
+    "discount_pct": null,
+    "direct_growth_used": 6.1,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 24.61,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 13.96,
+    "intrinsic_value_doomsday": 12.51,
+    "direct_growth_low": 2.69,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -242.0,
+    "ttm_roe": -5.548,
+    "ttm_roic": 4.681,
+    "ttm_roa": 2.27,
+    "ttm_pe": 77.54,
+    "ttm_fwd_pe": 24.633,
+    "ttm_peg": 5.969,
+    "ttm_fcf_yield": 2.523,
+    "ttm_div_yield": 1.901,
+    "ttm_current_ratio": 2.061,
+    "ttm_debt_equity": 0.45,
+    "ttm_debt_ebitda": 2.98,
+    "ttm_interest_coverage": 4.979,
+    "ttm_z_score": 1.55,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 3.01,
+    "peg_adam": 12.71,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.14,
+    "fair_value_ps": 91.34,
+    "pb_avg_5y": 1.5,
+    "fair_value_pb": 83.17,
+    "rev_growth_proj": -8.24,
+    "sort_financial_strength": 33.6,
+    "sort_predictability": 55.2,
+    "sort_profitability": 5.3,
+    "sort_growth": 3.4
+   },
+   "moat_hints": {
+    "gross_margin": "36.2%",
+    "operating_margin": "-3.5%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 9y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "INTU",
+   "company": "Intuit",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "12.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 20.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 30.2%, latest 19.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 52.7%, latest 17.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.36",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.17",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "4.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 19.3% vs sales 16.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +15.2%/yr, next-Y +14.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.1824368498871769,
+    "rev_cagr_10y": 0.16690822176071274,
+    "rev_cagr_15y": 0.12890066218501017,
+    "ni_cagr_5y": 0.1703816854983533,
+    "ni_cagr_10y": 0.16496504133539225,
+    "ni_cagr_15y": 0.137909752083075,
+    "cfo_cagr_10y": 0.17445543844397693,
+    "proj_eps_next_5y": 15.23,
+    "proj_eps_next_y": 14.83,
+    "eps_past_5y": 14.6,
+    "price": 345.66,
+    "intrinsic_value": 695.43,
+    "dcf_growth_used": 9.9,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 6.31,
+    "discount_pct": 50.3,
+    "direct_growth_used": 15.63,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 501.2,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 492.95,
+    "intrinsic_value_doomsday": 389.62,
+    "direct_growth_low": 15.23,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 31.0,
+    "ttm_roe": 22.496,
+    "ttm_roic": 20.634,
+    "ttm_roa": 9.465,
+    "ttm_pe": 21.14,
+    "ttm_fwd_pe": 12.931,
+    "ttm_peg": 0.857,
+    "ttm_fcf_yield": 8.202,
+    "ttm_div_yield": 1.389,
+    "ttm_current_ratio": 1.453,
+    "ttm_debt_equity": 0.33,
+    "ttm_debt_ebitda": 1.05,
+    "ttm_interest_coverage": 23.465,
+    "ttm_z_score": 7.52,
+    "ttm_f_score": 8.0,
+    "ttm_eps_growth_3y": 15.13,
+    "peg_adam": 1.35,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 11.57,
+    "fair_value_ps": 794.53,
+    "pb_avg_5y": 10.35,
+    "fair_value_pb": 743.44,
+    "rev_growth_proj": 17.27,
+    "psg": 0.29,
+    "psg_verdict": "fair (0.2-0.3)",
+    "cfo_vs_ni_pct": 103.9,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 62.4,
+    "sort_predictability": 92.9,
+    "sort_profitability": 47.0,
+    "sort_growth": 42.1
+   },
+   "moat_hints": {
+    "gross_margin": "97.7% (high \u2014 pricing power?)",
+    "operating_margin": "26.1% (high)",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ISRG",
+   "company": "Intuitive Surgical",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "11.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 66.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 28.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 14.9%, latest 16.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing LT debt; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "4.87",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "long-term debt not reported by this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 15.1% vs sales 15.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +15.1%/yr, next-Y +11.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.15223026940429696,
+    "rev_cagr_10y": 0.15711621121723285,
+    "rev_cagr_15y": 0.13276451937978573,
+    "ni_cagr_5y": 0.13771616771847106,
+    "ni_cagr_10y": 0.16219925509002664,
+    "ni_cagr_15y": 0.13334414536353623,
+    "cfo_cagr_10y": 0.1206657075513966,
+    "proj_eps_next_5y": 15.06,
+    "proj_eps_next_y": 11.88,
+    "eps_past_5y": 21.79,
+    "price": 394.51,
+    "intrinsic_value": 318.54,
+    "dcf_growth_used": 20.1,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 7.65,
+    "discount_pct": -23.8,
+    "direct_growth_used": 14.71,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 271.16,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 264.93,
+    "intrinsic_value_doomsday": 216.97,
+    "direct_growth_low": 14.36,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -45.5,
+    "ttm_roe": 17.423,
+    "ttm_roic": 21.892,
+    "ttm_roa": 10.512,
+    "ttm_pe": 45.239,
+    "ttm_fwd_pe": 34.917,
+    "ttm_peg": 2.222,
+    "ttm_fcf_yield": 2.312,
+    "ttm_current_ratio": 4.963,
+    "ttm_debt_equity": 0.0,
+    "ttm_debt_ebitda": 0.0,
+    "ttm_z_score": 42.45,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 15.12,
+    "peg_adam": 3.08,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 19.29,
+    "fair_value_ps": 548.47,
+    "pb_avg_5y": 10.1,
+    "fair_value_pb": 508.49,
+    "rev_growth_proj": 15.57,
+    "psg": 0.89,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 29.8,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 100.0,
+    "sort_predictability": 78.6,
+    "sort_profitability": 49.9,
+    "sort_growth": 36.7
+   },
+   "moat_hints": {
+    "gross_margin": "66.0% (high \u2014 pricing power?)",
+    "operating_margin": "29.3% (high)",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "IQV",
+   "company": "IQVIA",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 83.3,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 1,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "22.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 8.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 20.1%, latest 20.9%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 20.1%, latest 10.0%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.75",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "4.17",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "25.8%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 8.0% vs sales 10.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +10.7%/yr, next-Y +11.1%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.04126930851357491,
+    "rev_cagr_10y": 0.10181781220712116,
+    "rev_cagr_15y": 0.09940212279191352,
+    "ni_cagr_5y": 0.08928229686545386,
+    "ni_cagr_10y": 0.38611962509401376,
+    "ni_cagr_15y": 0.13130816560183,
+    "cfo_cagr_10y": 0.1333865432045802,
+    "proj_eps_next_5y": 10.65,
+    "proj_eps_next_y": 11.1,
+    "eps_past_5y": 40.52,
+    "price": 236.66,
+    "intrinsic_value": 155.55,
+    "dcf_growth_used": 4.3,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 6.8,
+    "discount_pct": -52.1,
+    "direct_growth_used": 10.04,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 229.61,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 216.23,
+    "intrinsic_value_doomsday": 177.27,
+    "direct_growth_low": 9.42,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -3.1,
+    "ttm_roe": 22.818,
+    "ttm_roic": 9.802,
+    "ttm_roa": 5.061,
+    "ttm_pe": 29.301,
+    "ttm_fwd_pe": 17.35,
+    "ttm_peg": 1.515,
+    "ttm_fcf_yield": 5.607,
+    "ttm_current_ratio": 0.706,
+    "ttm_debt_equity": 2.58,
+    "ttm_debt_ebitda": 5.07,
+    "ttm_interest_coverage": 3.073,
+    "ttm_z_score": 1.93,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 10.86,
+    "peg_adam": 2.92,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.8,
+    "fair_value_ps": 277.71,
+    "pb_avg_5y": 6.82,
+    "fair_value_pb": 269.44,
+    "rev_growth_proj": 4.65,
+    "psg": 0.51,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 107.3,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 12.2,
+    "sort_predictability": 82.1,
+    "sort_profitability": 28.5,
+    "sort_growth": 19.8
+   },
+   "moat_hints": {
+    "operating_margin": "13.4%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "JBHT",
+   "company": "J.B. Hunt",
+   "sector": "Industrials",
+   "industry": "Cargo Ground Transportation",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 91.7,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.2% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 5.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 27.7%, latest 16.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.5%, latest 15.1%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.83",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.49",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "4.2%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.0% vs sales 6.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +25.6%/yr, next-Y +29.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.0034946445237546975,
+    "rev_cagr_10y": 0.06947765126117411,
+    "rev_cagr_15y": 0.07211041176137245,
+    "ni_cagr_5y": -0.05830990594187646,
+    "ni_cagr_10y": 0.036820378536522425,
+    "ni_cagr_15y": 0.062213017924179104,
+    "cfo_cagr_10y": 0.07793461435597249,
+    "proj_eps_next_5y": 25.55,
+    "proj_eps_next_y": 29.59,
+    "eps_past_5y": 5.26,
+    "price": 279.71,
+    "intrinsic_value": 273.28,
+    "dcf_growth_used": 6.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 7.13,
+    "discount_pct": -2.4,
+    "direct_growth_used": 13.7,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 112.27,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 39.89,
+    "intrinsic_value_doomsday": 38.52,
+    "direct_growth_low": 1.85,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -149.1,
+    "ttm_roe": 18.448,
+    "ttm_roic": 14.183,
+    "ttm_roa": 7.38,
+    "ttm_pe": 39.675,
+    "ttm_fwd_pe": 31.58,
+    "ttm_peg": 1.371,
+    "ttm_fcf_yield": 4.186,
+    "ttm_div_yield": 0.644,
+    "ttm_current_ratio": 1.255,
+    "ttm_debt_equity": 0.38,
+    "ttm_debt_ebitda": 0.61,
+    "ttm_interest_coverage": 13.653,
+    "ttm_z_score": 6.07,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 25.47,
+    "peg_adam": 2.9,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.51,
+    "fair_value_ps": 193.06,
+    "pb_avg_5y": 5.26,
+    "fair_value_pb": 199.72,
+    "rev_growth_proj": 2.35,
+    "psg": 0.93,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 166.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 54.4,
+    "sort_predictability": 75.0,
+    "sort_profitability": 26.2,
+    "sort_growth": 21.3
+   },
+   "moat_hints": {
+    "operating_margin": "7.2%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "JBL",
+   "company": "Jabil",
+   "sector": "Information Technology",
+   "industry": "Electronic Manufacturing Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 87.5,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "4.0% CAGR",
+     "detail": "Net income choppy but OPERATING income consistently rising (20y) \u2014 course-approved fallback (one-off items)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "3/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 8.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 2.2%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 22.8%, latest 43.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 18.8%, latest 35.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.00",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.55",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 7.8% vs sales 8.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +28.0%/yr, next-Y +31.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.004384600809504091,
+    "rev_cagr_10y": 0.055341273631296595,
+    "rev_cagr_15y": 0.043049043040045865,
+    "ni_cagr_5y": -0.014312991589923385,
+    "ni_cagr_10y": 0.11132485570752104,
+    "ni_cagr_15y": 0.03967537148240341,
+    "cfo_cagr_10y": 0.06682816142739689,
+    "proj_eps_next_5y": 27.96,
+    "proj_eps_next_y": 31.65,
+    "eps_past_5y": 76.36,
+    "price": 363.1,
+    "intrinsic_value": 188.46,
+    "dcf_growth_used": 2.0,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 7.24,
+    "discount_pct": -92.7,
+    "direct_growth_used": 21.7,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 341.2,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 263.6,
+    "intrinsic_value_doomsday": 208.44,
+    "direct_growth_low": 15.43,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -6.4,
+    "ttm_roe": 65.876,
+    "ttm_roic": 31.945,
+    "ttm_roa": 5.011,
+    "ttm_pe": 45.383,
+    "ttm_fwd_pe": 22.982,
+    "ttm_peg": 0.806,
+    "ttm_fcf_yield": 3.432,
+    "ttm_div_yield": 0.088,
+    "ttm_current_ratio": 0.981,
+    "ttm_debt_equity": 2.97,
+    "ttm_debt_ebitda": 1.57,
+    "ttm_interest_coverage": 10.429,
+    "ttm_z_score": 2.73,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 27.59,
+    "peg_adam": 2.09,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 0.43,
+    "fair_value_ps": 122.54,
+    "pb_avg_5y": 6.89,
+    "fair_value_pb": 99.45,
+    "rev_growth_proj": 3.65,
+    "psg": 0.35,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 182.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 37.4,
+    "sort_predictability": 60.7,
+    "sort_profitability": 56.8,
+    "sort_growth": 23.7
+   },
+   "moat_hints": {
+    "gross_margin": "8.9%",
+    "operating_margin": "4.0%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "JKHY",
+   "company": "Jack Henry & Associates",
+   "sector": "Financials",
+   "industry": "Transaction & Payment Processing Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "financial",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 42.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 19.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 21.0%, latest 21.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 21.7%, latest 21.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 2.5% vs sales 6.4%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +8.1%/yr, next-Y +5.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.07810349995475585,
+    "rev_cagr_10y": 0.06438547536931183,
+    "rev_cagr_15y": 0.06630426740980577,
+    "ni_cagr_5y": 0.09983487246022049,
+    "ni_cagr_10y": 0.06953566985753667,
+    "ni_cagr_15y": 0.08938037820450373,
+    "cfo_cagr_10y": 0.06420232423134009,
+    "proj_eps_next_5y": 8.08,
+    "proj_eps_next_y": 5.89,
+    "eps_past_5y": 10.1,
+    "price": 153.31,
+    "intrinsic_value": 180.59,
+    "dcf_growth_used": 8.8,
+    "dcf_base_flow": "ni:0.24+fwdni:0.76",
+    "dcf_sector_group": "fin-net",
+    "dcf_discount_rate": 5.11,
+    "discount_pct": 15.1,
+    "direct_growth_used": 9.4,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 160.25,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 145.69,
+    "intrinsic_value_doomsday": 129.07,
+    "direct_growth_low": 8.08,
+    "mos_verdict": "below base IV only",
+    "discount_pct_direct": 4.3,
+    "ttm_roe": 24.892,
+    "ttm_roic": 22.45,
+    "ttm_roa": 13.664,
+    "ttm_pe": 21.413,
+    "ttm_fwd_pe": 22.251,
+    "ttm_peg": 2.342,
+    "ttm_fcf_yield": 6.68,
+    "ttm_div_yield": 1.592,
+    "ttm_current_ratio": 1.744,
+    "ttm_debt_equity": 0.06,
+    "ttm_debt_ebitda": 0.19,
+    "ttm_interest_coverage": 118.815,
+    "ttm_z_score": 11.4,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 8.92,
+    "peg_adam": 2.28,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 6.1,
+    "fair_value_ps": 203.51,
+    "pb_avg_5y": 7.8,
+    "fair_value_pb": 233.37,
+    "rev_growth_proj": 7.56,
+    "psg": 0.61,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 72.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 88.6,
+    "sort_predictability": 92.9,
+    "sort_profitability": 48.8,
+    "sort_growth": 21.6
+   },
+   "moat_hints": {
+    "gross_margin": "42.7%",
+    "operating_margin": "23.9%",
+    "roic_persistence": "ROIC \u2265 15% every year for 10y \u2014 strong moat signal",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "J",
+   "company": "Jacobs Solutions",
+   "sector": "Industrials",
+   "industry": "Construction & Engineering",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 79.2,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 0,
+   "n_warn": 5,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "1.1% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": "-1.0% CAGR",
+     "detail": "Net income choppy but OPERATING income consistently rising (20y) \u2014 course-approved fallback (one-off items)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 24.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 2.4%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 9.1%, latest 7.9%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.9%, latest 11.2%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.30",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "16.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 3.9% vs sales 1.0%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +16.1%/yr, next-Y +14.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.03879411636834118,
+    "rev_cagr_10y": 0.010359289016541817,
+    "rev_cagr_15y": 0.010580172522209885,
+    "ni_cagr_5y": -0.11750105431198132,
+    "ni_cagr_10y": 0.035997062633683186,
+    "ni_cagr_15y": -0.00956944311127561,
+    "cfo_cagr_10y": 0.0010623597928141049,
+    "proj_eps_next_5y": 16.11,
+    "proj_eps_next_y": 14.24,
+    "eps_past_5y": -3.7,
+    "price": 144.66,
+    "intrinsic_value": 125.26,
+    "dcf_growth_used": 7.7,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.52,
+    "discount_pct": -15.5,
+    "direct_growth_used": 9.81,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 127.63,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 77.79,
+    "intrinsic_value_doomsday": 73.5,
+    "direct_growth_low": 3.51,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -13.3,
+    "ttm_roe": 7.998,
+    "ttm_roic": 8.449,
+    "ttm_roa": 4.551,
+    "ttm_pe": 47.859,
+    "ttm_fwd_pe": 18.062,
+    "ttm_peg": 1.264,
+    "ttm_fcf_yield": 3.807,
+    "ttm_div_yield": 0.995,
+    "ttm_current_ratio": 1.287,
+    "ttm_debt_equity": 1.25,
+    "ttm_debt_ebitda": 3.44,
+    "ttm_interest_coverage": 5.1,
+    "ttm_z_score": 2.83,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 15.23,
+    "peg_adam": 4.88,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.48,
+    "fair_value_ps": 151.86,
+    "pb_avg_5y": 2.89,
+    "fair_value_pb": 89.84,
+    "rev_growth_proj": 1.36,
+    "psg": 1.04,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 154.3,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 28.2,
+    "sort_predictability": 60.7,
+    "sort_profitability": 12.9,
+    "sort_growth": 13.4
+   },
+   "moat_hints": {
+    "gross_margin": "24.8%",
+    "operating_margin": "7.2%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "JNJ",
+   "company": "Johnson & Johnson",
+   "sector": "Health Care",
+   "industry": "Pharmaceuticals",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 11,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.7% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 67.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 28.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 23.5%, latest 32.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): only 4 annual value(s) of computable ROIC years available \u2014 this test needs \u22656; NA never disqualifies; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.03",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 4.4% vs sales 3.0%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.7%/yr, next-Y +10.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.045817259042368,
+    "rev_cagr_10y": 0.03047842885071317,
+    "rev_cagr_15y": 0.02681736676389912,
+    "ni_cagr_5y": 0.06445591350623081,
+    "ni_cagr_10y": 0.0551058028340925,
+    "ni_cagr_15y": 0.0755243250613411,
+    "cfo_cagr_10y": 0.03020231527604267,
+    "proj_eps_next_5y": 9.72,
+    "proj_eps_next_y": 10.04,
+    "eps_past_5y": 14.9,
+    "price": 260.35,
+    "intrinsic_value": 499.74,
+    "dcf_growth_used": 17.1,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 4.24,
+    "discount_pct": 47.9,
+    "direct_growth_used": 9.72,
+    "direct_growth_sources": "finviz",
+    "intrinsic_value_direct": 233.26,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 233.26,
+    "intrinsic_value_doomsday": 199.25,
+    "direct_growth_low": 9.72,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -11.6,
+    "ttm_roe": 25.742,
+    "ttm_roic": 19.918,
+    "ttm_roa": 8.595,
+    "ttm_pe": 30.179,
+    "ttm_fwd_pe": 23.183,
+    "ttm_peg": 2.847,
+    "ttm_fcf_yield": 3.545,
+    "ttm_div_yield": 2.059,
+    "ttm_current_ratio": 1.089,
+    "ttm_debt_equity": 0.58,
+    "ttm_debt_ebitda": 1.4,
+    "ttm_interest_coverage": 26.799,
+    "ttm_z_score": 4.74,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 12.44,
+    "peg_adam": 3.1,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 5.03,
+    "fair_value_ps": 196.73,
+    "pb_avg_5y": 5.72,
+    "fair_value_pb": 193.56,
+    "rev_growth_proj": null,
+    "cfo_vs_ni_pct": 3.0,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 52.3,
+    "sort_predictability": 71.4,
+    "sort_profitability": 48.3,
+    "sort_growth": 17.3
+   },
+   "moat_hints": {
+    "gross_margin": "67.9% (high \u2014 pricing power?)",
+    "operating_margin": "29.0% (high)",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "JCI",
+   "company": "Johnson Controls",
+   "sector": "Industrials",
+   "industry": "Building Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 90.0,
+   "is_great": true,
+   "n_pass": 8,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.4%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 13.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 13.5%, latest 25.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): only 3 annual value(s) of computable ROIC years available \u2014 this test needs \u22656; NA never disqualifies; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.93",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -0.2% vs sales 1.4%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +23.3%/yr, next-Y +19.1%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.0007613896640809026,
+    "rev_cagr_10y": 0.013912214725735117,
+    "rev_cagr_15y": 0.06280089425105762,
+    "ni_cagr_5y": 0.19074783544973317,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": 0.13840649205053435,
+    "cfo_cagr_10y": 0.032931189954904294,
+    "proj_eps_next_5y": 23.29,
+    "proj_eps_next_y": 19.1,
+    "eps_past_5y": 26.74,
+    "price": 153.64,
+    "intrinsic_value": 171.97,
+    "dcf_growth_used": 20.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 7.18,
+    "discount_pct": 10.7,
+    "direct_growth_used": 19.64,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 83.55,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 70.22,
+    "intrinsic_value_doomsday": 53.7,
+    "direct_growth_low": 16.0,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -83.9,
+    "ttm_roe": 14.332,
+    "ttm_roic": 12.793,
+    "ttm_roa": 5.402,
+    "ttm_pe": 43.599,
+    "ttm_fwd_pe": 26.574,
+    "ttm_peg": 1.298,
+    "ttm_fcf_yield": 1.783,
+    "ttm_div_yield": 1.041,
+    "ttm_current_ratio": 1.0,
+    "ttm_debt_equity": 0.7,
+    "ttm_debt_ebitda": 2.19,
+    "ttm_interest_coverage": 16.986,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 23.21,
+    "peg_adam": 2.22,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.12,
+    "fair_value_ps": 82.75,
+    "pb_avg_5y": 3.02,
+    "fair_value_pb": 64.53,
+    "rev_growth_proj": 1.55,
+    "psg": 2.55,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": -38.3,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 41.2,
+    "sort_predictability": 67.9,
+    "sort_profitability": 30.0,
+    "sort_growth": 35.3
+   },
+   "moat_hints": {
+    "gross_margin": "36.4%",
+    "operating_margin": "8.9%",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KVUE",
+   "company": "Kenvue",
+   "sector": "Consumer Staples",
+   "industry": "Personal Care Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 62.5,
+   "is_great": false,
+   "n_pass": 4,
+   "n_fail": 1,
+   "n_warn": 7,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "WARN",
+     "value": "0.1% CAGR (5y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-8.3% CAGR",
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "WARN",
+     "value": "60.1% CAGR (5y)",
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 5y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 58.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 9.7%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 11.9%, latest 13.7%",
+     "detail": "10-12%: between the course's Finviz floor (>10%) and the 12-15% target"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 11.0%, latest 10.9%",
+     "detail": "10-12%: below the 12-15% target but at/above the course's own 10% screen floor \u2014 review flag, not a hard fail"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.96",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "long-term debt not reported by this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "17.3%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 3.9% vs sales 0.4%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +7.0%/yr, next-Y +5.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.001160460167521693,
+    "rev_cagr_10y": 0.001160460167521693,
+    "rev_cagr_15y": 0.001160460167521693,
+    "ni_cagr_5y": -0.08289735100267703,
+    "ni_cagr_10y": -0.08289735100267703,
+    "ni_cagr_15y": -0.08289735100267703,
+    "cfo_cagr_10y": 0.6014777069306825,
+    "proj_eps_next_5y": 7.01,
+    "proj_eps_next_y": 5.94,
+    "eps_past_5y": null,
+    "price": 19.2,
+    "intrinsic_value": 113.94,
+    "dcf_growth_used": 27.6,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.78,
+    "discount_pct": 83.1,
+    "direct_growth_used": 7.01,
+    "direct_growth_sources": "finviz",
+    "intrinsic_value_direct": 16.6,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 16.6,
+    "intrinsic_value_doomsday": 14.52,
+    "direct_growth_low": 7.01,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -15.7,
+    "ttm_roe": 15.581,
+    "ttm_roic": 12.35,
+    "ttm_roa": 6.992,
+    "ttm_pe": 22.588,
+    "ttm_fwd_pe": 15.81,
+    "ttm_peg": 1.295,
+    "ttm_fcf_yield": 5.19,
+    "ttm_div_yield": 4.375,
+    "ttm_current_ratio": 1.005,
+    "ttm_debt_equity": 0.82,
+    "ttm_debt_ebitda": 2.44,
+    "ttm_interest_coverage": 7.089,
+    "ttm_z_score": 2.23,
+    "ttm_f_score": 8.0,
+    "ttm_eps_growth_3y": 6.83,
+    "peg_adam": 3.22,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.51,
+    "fair_value_ps": 19.74,
+    "pb_avg_5y": 3.67,
+    "fair_value_pb": 20.57,
+    "rev_growth_proj": null,
+    "cfo_vs_ni_pct": 58.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 30.3,
+    "sort_predictability": 37.5,
+    "sort_profitability": 27.6,
+    "sort_growth": 5.9
+   },
+   "moat_hints": {
+    "gross_margin": "58.1% (high \u2014 pricing power?)",
+    "operating_margin": "16.0%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 2y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KDP",
+   "company": "Keurig Dr Pepper",
+   "sector": "Consumer Staples",
+   "industry": "Soft Drinks & Non-alcoholic Beverages",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 75.0,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 1,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.5% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 54.2%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 12.5%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 13.7%, latest 8.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.5%, latest 7.4%",
+     "detail": "10-12%: below the 12-15% target but at/above the course's own 10% screen floor \u2014 review flag, not a hard fail"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.64",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.23",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 16.8% vs sales 12.0%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.9%/yr, next-Y +10.5%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.06964864133122317,
+    "rev_cagr_10y": 0.16289377543910755,
+    "rev_cagr_15y": 0.07544812232547349,
+    "ni_cagr_5y": -0.007898302026220105,
+    "ni_cagr_10y": 0.2085441515796309,
+    "ni_cagr_15y": 0.08976677835446534,
+    "cfo_cagr_10y": 0.014503371131838527,
+    "proj_eps_next_5y": 9.87,
+    "proj_eps_next_y": 10.53,
+    "eps_past_5y": 10.36,
+    "price": 31.44,
+    "intrinsic_value": 154.02,
+    "dcf_growth_used": 28.7,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.73,
+    "discount_pct": 79.6,
+    "direct_growth_used": 5.12,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 16.7,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 8.68,
+    "intrinsic_value_doomsday": 8.58,
+    "direct_growth_low": 0.37,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -88.3,
+    "ttm_roe": 5.1,
+    "ttm_roic": 4.575,
+    "ttm_roa": 3.378,
+    "ttm_pe": 31.772,
+    "ttm_fwd_pe": 12.878,
+    "ttm_peg": 1.355,
+    "ttm_fcf_yield": 4.604,
+    "ttm_div_yield": 2.926,
+    "ttm_current_ratio": 0.479,
+    "ttm_debt_equity": 1.0,
+    "ttm_debt_ebitda": 6.63,
+    "ttm_interest_coverage": 3.679,
+    "ttm_z_score": 0.76,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 10.08,
+    "peg_adam": 6.21,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.2,
+    "fair_value_ps": 39.05,
+    "pb_avg_5y": 1.84,
+    "fair_value_pb": 34.56,
+    "rev_growth_proj": 15.71,
+    "psg": 0.16,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 21.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 7.7,
+    "sort_predictability": 75.0,
+    "sort_profitability": 12.4,
+    "sort_growth": 14.0
+   },
+   "moat_hints": {
+    "gross_margin": "54.2% (high \u2014 pricing power?)",
+    "operating_margin": "21.5%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 9y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KEYS",
+   "company": "Keysight Technologies",
+   "sector": "Information Technology",
+   "industry": "Electronic Equipment & Instruments",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 62.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 15.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 23.1%, latest 14.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 17.5%, latest 10.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.35",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.52",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 8.9% vs sales 7.0%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +23.1%/yr, next-Y +16.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.021270773810326604,
+    "rev_cagr_10y": 0.07022975219443728,
+    "rev_cagr_15y": 0.053129487926329544,
+    "ni_cagr_5y": -0.012538091303059273,
+    "ni_cagr_10y": 0.10899722039913406,
+    "ni_cagr_15y": 0.05307320015156658,
+    "cfo_cagr_10y": 0.14394950800532325,
+    "proj_eps_next_5y": 23.14,
+    "proj_eps_next_y": 16.65,
+    "eps_past_5y": 8.17,
+    "price": 357.82,
+    "intrinsic_value": 358.47,
+    "dcf_growth_used": 18.5,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 6.94,
+    "discount_pct": 0.2,
+    "direct_growth_used": 15.89,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 261.25,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 158.69,
+    "intrinsic_value_doomsday": 139.33,
+    "direct_growth_low": 8.64,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -37.0,
+    "ttm_roe": 18.174,
+    "ttm_roic": 14.528,
+    "ttm_roa": 6.039,
+    "ttm_pe": 57.585,
+    "ttm_fwd_pe": 32.935,
+    "ttm_peg": 1.694,
+    "ttm_fcf_yield": 2.219,
+    "ttm_current_ratio": 1.903,
+    "ttm_debt_equity": 0.44,
+    "ttm_debt_ebitda": 1.82,
+    "ttm_interest_coverage": 9.782,
+    "ttm_z_score": 5.88,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 23.52,
+    "peg_adam": 3.62,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 5.49,
+    "fair_value_ps": 172.92,
+    "pb_avg_5y": 6.26,
+    "fair_value_pb": 215.71,
+    "rev_growth_proj": 6.9,
+    "psg": 1.65,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 75.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 51.3,
+    "sort_predictability": 66.7,
+    "sort_profitability": 36.2,
+    "sort_growth": 21.1
+   },
+   "moat_hints": {
+    "gross_margin": "62.1% (high \u2014 pricing power?)",
+    "operating_margin": "16.3%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KMB",
+   "company": "Kimberly-Clark",
+   "sector": "Consumer Staples",
+   "industry": "Household Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 76.9,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 2,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-1.7% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "1.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "WARN",
+     "value": "0.4% CAGR (5y)",
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 36.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 12.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 27.1%, latest 22.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.75",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.05",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "8.4%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -1.5% vs sales -1.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +2.2%/yr, next-Y +0.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.04093595892938373,
+    "rev_cagr_10y": -0.011713889111891751,
+    "rev_cagr_15y": -0.016787422216522074,
+    "ni_cagr_5y": 0.027382721980482527,
+    "ni_cagr_10y": -0.007669296395810488,
+    "ni_cagr_15y": 0.017234667140497484,
+    "cfo_cagr_10y": -0.01671756568582683,
+    "proj_eps_next_5y": 2.24,
+    "proj_eps_next_y": 0.17,
+    "eps_past_5y": -2.45,
+    "price": 110.39,
+    "intrinsic_value": 379.55,
+    "dcf_growth_used": 16.3,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.37,
+    "discount_pct": 70.9,
+    "direct_growth_used": 3.77,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 80.85,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 70.42,
+    "intrinsic_value_doomsday": 67.58,
+    "direct_growth_low": 2.24,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -36.5,
+    "ttm_roe": 104.913,
+    "ttm_roic": 25.35,
+    "ttm_roa": 10.195,
+    "ttm_pe": 21.859,
+    "ttm_fwd_pe": 15.537,
+    "ttm_peg": 6.603,
+    "ttm_fcf_yield": 4.957,
+    "ttm_div_yield": 4.638,
+    "ttm_current_ratio": 0.909,
+    "ttm_debt_equity": 3.49,
+    "ttm_debt_ebitda": 1.74,
+    "ttm_interest_coverage": 12.208,
+    "ttm_z_score": 3.42,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 1.61,
+    "peg_adam": 5.8,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.36,
+    "fair_value_ps": 116.49,
+    "pb_avg_5y": 46.91,
+    "fair_value_pb": 211.88,
+    "rev_growth_proj": -3.04,
+    "cfo_vs_ni_pct": 64.9,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 38.5,
+    "sort_predictability": 53.6,
+    "sort_profitability": 60.1,
+    "sort_growth": 4.1
+   },
+   "moat_hints": {
+    "gross_margin": "36.0%",
+    "operating_margin": "14.3%",
+    "roic_persistence": "ROIC \u2265 15% every year for 10y \u2014 strong moat signal",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KLAC",
+   "company": "KLA Corporation",
+   "sector": "Information Technology",
+   "industry": "Semiconductor Materials & Equipment",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 95.5,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "10.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "14.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "11.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 61.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 35.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 74.1%, latest 76.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): only 1 annual value(s) of computable ROIC years available \u2014 this test needs \u22656; NA never disqualifies; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.88",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "2.6%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 19.7% vs sales 16.3%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +26.7%/yr, next-Y +21.5%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.10187834901564918,
+    "rev_cagr_10y": 0.16332275875211777,
+    "rev_cagr_15y": 0.10945898084912575,
+    "ni_cagr_5y": 0.09814708638358827,
+    "ni_cagr_10y": 0.20145568826556937,
+    "ni_cagr_15y": 0.14165456354240114,
+    "cfo_cagr_10y": 0.16116166101807727,
+    "proj_eps_next_5y": 26.66,
+    "proj_eps_next_y": 21.47,
+    "eps_past_5y": 22.32,
+    "price": 203.72,
+    "intrinsic_value": 147.01,
+    "dcf_growth_used": 18.3,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 7.62,
+    "discount_pct": -38.6,
+    "direct_growth_used": 23.26,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 154.41,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 135.16,
+    "intrinsic_value_doomsday": 115.33,
+    "direct_growth_low": 19.86,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -31.9,
+    "ttm_roe": 87.496,
+    "ttm_roic": 66.745,
+    "ttm_roa": 20.8,
+    "ttm_pe": 55.661,
+    "ttm_fwd_pe": 37.391,
+    "ttm_peg": 1.748,
+    "ttm_fcf_yield": 1.415,
+    "ttm_div_yield": 0.452,
+    "ttm_current_ratio": 2.876,
+    "ttm_debt_equity": 0.97,
+    "ttm_debt_ebitda": 1.01,
+    "ttm_interest_coverage": 19.901,
+    "ttm_z_score": 12.01,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 27.48,
+    "peg_adam": 2.39,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 12.32,
+    "fair_value_ps": 127.69,
+    "pb_avg_5y": 35.42,
+    "fair_value_pb": 171.68,
+    "rev_growth_proj": 14.46,
+    "psg": 1.36,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": -14.2,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 78.9,
+    "sort_predictability": 75.0,
+    "sort_profitability": 96.3,
+    "sort_growth": 38.9
+   },
+   "moat_hints": {
+    "gross_margin": "61.3% (high \u2014 pricing power?)",
+    "operating_margin": "26.4% (high)",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KMI",
+   "company": "Kinder Morgan",
+   "sector": "Energy",
+   "industry": "Oil & Gas Storage & Transportation",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "commodity",
+   "data_source": "sec",
+   "score": 88.9,
+   "is_great": true,
+   "n_pass": 7,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.7% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "12.4% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": "latest 48.9%",
+     "detail": "only 2 annual value(s) of gross margin (needs COGS split) available \u2014 this test needs \u22654; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 20.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 5.1%, latest 9.8%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 4.1%, latest 6.0%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 0.0% vs sales -2.6%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +8.5%/yr, next-Y +0.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.015070461335057406,
+    "rev_cagr_10y": 0.017035253422321484,
+    "rev_cagr_15y": 0.0474586051962691,
+    "ni_cagr_5y": 0.1440358264413586,
+    "ni_cagr_10y": 0.17643760714370438,
+    "ni_cagr_15y": 0.12411805111336904,
+    "cfo_cagr_10y": 0.024518208206717018,
+    "proj_eps_next_5y": 8.49,
+    "proj_eps_next_y": 0.63,
+    "eps_past_5y": 96.4,
+    "price": 32.82,
+    "intrinsic_value": 153.89,
+    "dcf_growth_used": 21.7,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.11,
+    "discount_pct": 78.7,
+    "direct_growth_used": 11.44,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 42.42,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 31.45,
+    "intrinsic_value_doomsday": 25.9,
+    "direct_growth_low": 8.49,
+    "mos_verdict": "below base IV only",
+    "discount_pct_direct": 22.6,
+    "ttm_roe": 10.991,
+    "ttm_roic": 6.235,
+    "ttm_roa": 4.453,
+    "ttm_pe": 21.168,
+    "ttm_fwd_pe": 22.328,
+    "ttm_peg": 2.344,
+    "ttm_fcf_yield": 3.633,
+    "ttm_div_yield": 3.626,
+    "ttm_current_ratio": 0.458,
+    "ttm_debt_equity": 0.99,
+    "ttm_debt_ebitda": 4.12,
+    "ttm_interest_coverage": 2.976,
+    "ttm_z_score": 1.2,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 8.73,
+    "peg_adam": 1.85,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.9,
+    "fair_value_ps": 19.83,
+    "pb_avg_5y": 1.48,
+    "fair_value_pb": 20.84,
+    "rev_growth_proj": 1.93,
+    "psg": 2.48,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 114.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 12.7,
+    "sort_predictability": 53.6,
+    "sort_profitability": 27.6,
+    "sort_growth": 19.1
+   },
+   "moat_hints": {
+    "gross_margin": "48.9%",
+    "operating_margin": "31.1% (high)",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KHC",
+   "company": "Kraft Heinz",
+   "sector": "Consumer Staples",
+   "industry": "Packaged Foods & Meats",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 57.7,
+   "is_great": false,
+   "n_pass": 6,
+   "n_fail": 4,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": null,
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 33.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "FAIL",
+     "value": "latest -23.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 2.2%, latest -14.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 2.8%, latest -8.6%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.15",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "-5.22",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "18.5%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 10.5% vs sales -0.5%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "WARN",
+     "value": "next-5Y -6.5%/yr but next-Y +0.8%",
+     "detail": "Long-term estimate negative while next year positive \u2014 review"
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.010731375942426236,
+    "rev_cagr_10y": -0.004928063891508128,
+    "rev_cagr_15y": 0.06558194686566088,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.2750326781607608,
+    "proj_eps_next_5y": -6.48,
+    "proj_eps_next_y": 0.82,
+    "eps_past_5y": null,
+    "price": 25.51,
+    "intrinsic_value": 13.95,
+    "dcf_growth_used": -9.0,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 3.83,
+    "discount_pct": -82.9,
+    "direct_growth_used": -13.87,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": -0.19,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": -0.19,
+    "intrinsic_value_doomsday": 2.24,
+    "direct_growth_low": -13.87,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": null,
+    "ttm_roe": -8.76,
+    "ttm_roic": 8.053,
+    "ttm_roa": 3.63,
+    "ttm_fwd_pe": 12.774,
+    "ttm_peg": 5.271,
+    "ttm_fcf_yield": 12.615,
+    "ttm_div_yield": 6.272,
+    "ttm_current_ratio": 1.061,
+    "ttm_debt_equity": 0.53,
+    "ttm_debt_ebitda": 3.15,
+    "ttm_interest_coverage": 4.93,
+    "ttm_z_score": 0.85,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": -5.54,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 1.56,
+    "fair_value_ps": 32.79,
+    "pb_avg_5y": 0.85,
+    "fair_value_pb": 29.69,
+    "rev_growth_proj": -1.12,
+    "sort_financial_strength": 22.7,
+    "sort_predictability": 50.0,
+    "sort_profitability": 5.4,
+    "sort_growth": 0.0
+   },
+   "moat_hints": {
+    "gross_margin": "33.3%",
+    "operating_margin": "-18.7%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "KR",
+   "company": "Kroger",
+   "sector": "Consumer Staples",
+   "industry": "Food Retail",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 86.4,
+   "is_great": false,
+   "n_pass": 8,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 0.7%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 26.1%, latest 17.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 12.1%, latest 8.7%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "0.80",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.04",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 3.2% vs sales 2.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +6.7%/yr, next-Y +6.3%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.017233986449983085,
+    "rev_cagr_10y": 0.027816763161704783,
+    "rev_cagr_15y": 0.0357673930154907,
+    "ni_cagr_5y": -0.11483562337195563,
+    "ni_cagr_10y": -0.07119364407711681,
+    "ni_cagr_15y": 0.0380912142847607,
+    "cfo_cagr_10y": 0.061517802943532596,
+    "proj_eps_next_5y": 6.69,
+    "proj_eps_next_y": 6.32,
+    "eps_past_5y": -13.99,
+    "price": 56.69,
+    "intrinsic_value": 85.24,
+    "dcf_growth_used": -6.0,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.7,
+    "discount_pct": 33.5,
+    "direct_growth_used": 12.55,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 152.43,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 91.77,
+    "intrinsic_value_doomsday": 80.85,
+    "direct_growth_low": 6.69,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 62.8,
+    "ttm_roe": 13.779,
+    "ttm_roic": 14.438,
+    "ttm_roa": 5.771,
+    "ttm_pe": 34.701,
+    "ttm_fwd_pe": 10.78,
+    "ttm_peg": 1.516,
+    "ttm_fcf_yield": 8.154,
+    "ttm_div_yield": 2.752,
+    "ttm_current_ratio": 0.791,
+    "ttm_debt_equity": 3.73,
+    "ttm_debt_ebitda": 2.7,
+    "ttm_interest_coverage": 5.637,
+    "ttm_z_score": 4.6,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 6.73,
+    "peg_adam": 2.77,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 0.25,
+    "fair_value_ps": 59.88,
+    "pb_avg_5y": 4.31,
+    "fair_value_pb": 41.69,
+    "rev_growth_proj": 1.85,
+    "psg": 0.13,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 582.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 32.4,
+    "sort_predictability": 71.4,
+    "sort_profitability": 19.4,
+    "sort_growth": 7.0
+   },
+   "moat_hints": {
+    "gross_margin": "22.4%",
+    "operating_margin": "1.3%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "LHX",
+   "company": "L3Harris",
+   "sector": "Industrials",
+   "industry": "Aerospace & Defense",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 91.7,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "10.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 9y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 25.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 7.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 12.8%, latest 7.7%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 9.3%, latest 6.1%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.08",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "3.46",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.3% vs sales 15.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +13.6%/yr, next-Y +15.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.04049551456287226,
+    "rev_cagr_10y": 0.1514828408145945,
+    "rev_cagr_15y": 0.10281149455329319,
+    "ni_cagr_5y": 0.07636597675266321,
+    "ni_cagr_10y": 0.18580664654773282,
+    "ni_cagr_15y": 0.06928217961468608,
+    "cfo_cagr_10y": 0.13579457327819666,
+    "proj_eps_next_5y": 13.55,
+    "proj_eps_next_y": 15.0,
+    "eps_past_5y": 10.46,
+    "price": 291.82,
+    "intrinsic_value": 446.78,
+    "dcf_growth_used": 14.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.03,
+    "discount_pct": 34.7,
+    "direct_growth_used": 13.55,
+    "direct_growth_sources": "finviz",
+    "intrinsic_value_direct": 211.56,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 211.56,
+    "intrinsic_value_doomsday": 159.77,
+    "direct_growth_low": 13.55,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -37.9,
+    "ttm_roe": 9.34,
+    "ttm_roic": 8.098,
+    "ttm_roa": 4.384,
+    "ttm_pe": 29.486,
+    "ttm_fwd_pe": 23.566,
+    "ttm_peg": 1.094,
+    "ttm_fcf_yield": 5.167,
+    "ttm_div_yield": 1.713,
+    "ttm_current_ratio": 1.184,
+    "ttm_debt_equity": 0.53,
+    "ttm_debt_ebitda": 2.55,
+    "ttm_interest_coverage": 5.271,
+    "ttm_z_score": 2.51,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 12.94,
+    "peg_adam": 2.18,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.24,
+    "fair_value_ps": 256.6,
+    "pb_avg_5y": 2.27,
+    "fair_value_pb": 237.91,
+    "rev_growth_proj": null,
+    "cfo_vs_ni_pct": 119.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 31.0,
+    "sort_predictability": 60.7,
+    "sort_profitability": 18.4,
+    "sort_growth": 21.0
+   },
+   "moat_hints": {
+    "gross_margin": "25.9%",
+    "operating_margin": "9.0%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 9y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "LH",
+   "company": "Labcorp",
+   "sector": "Health Care",
+   "industry": "Health Care Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 95.8,
+   "is_great": true,
+   "n_pass": 11,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.8% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 28.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 6.3%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 14.3%, latest 10.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing pretax income; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.42",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.46",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "13.7%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.2% vs sales 4.4%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.5%/yr, next-Y +8.4%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.015173262425945966,
+    "rev_cagr_10y": 0.04439524428505481,
+    "rev_cagr_15y": 0.06816505079627677,
+    "ni_cagr_5y": -0.22076763485216722,
+    "ni_cagr_10y": 0.02339613096236781,
+    "ni_cagr_15y": 0.03804033419653008,
+    "cfo_cagr_10y": 0.03563111312319944,
+    "proj_eps_next_5y": 9.48,
+    "proj_eps_next_y": 8.37,
+    "eps_past_5y": -8.01,
+    "price": 318.13,
+    "intrinsic_value": 175.07,
+    "dcf_growth_used": 0.3,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 5.98,
+    "discount_pct": -81.7,
+    "direct_growth_used": -0.67,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 112.16,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 112.16,
+    "intrinsic_value_doomsday": 113.77,
+    "direct_growth_low": -0.67,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -183.7,
+    "ttm_roe": 11.728,
+    "ttm_roic": 8.669,
+    "ttm_roa": 5.527,
+    "ttm_pe": 26.343,
+    "ttm_fwd_pe": 16.802,
+    "ttm_peg": 1.781,
+    "ttm_fcf_yield": 4.477,
+    "ttm_div_yield": 0.905,
+    "ttm_current_ratio": 1.796,
+    "ttm_debt_equity": 0.79,
+    "ttm_debt_ebitda": 2.61,
+    "ttm_interest_coverage": 7.121,
+    "ttm_z_score": 3.17,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 8.91,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 1.72,
+    "fair_value_ps": 296.62,
+    "pb_avg_5y": 2.44,
+    "fair_value_pb": 260.32,
+    "rev_growth_proj": 2.34,
+    "psg": 0.79,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 86.9,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 38.4,
+    "sort_predictability": 67.9,
+    "sort_profitability": 19.4,
+    "sort_growth": 9.2
+   },
+   "moat_hints": {
+    "gross_margin": "28.8%",
+    "operating_margin": "9.9%",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "LRCX",
+   "company": "Lam Research",
+   "sector": "Information Technology",
+   "industry": "Semiconductor Materials & Equipment",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "16.7% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "30.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "19.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 50.5%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 31.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 36.6%, latest 58.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 38.4%, latest 67.9%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.63",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.43",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 13.8% vs sales 12.6%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +32.6%/yr, next-Y +23.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.07763630759811702,
+    "rev_cagr_10y": 0.12554643561924728,
+    "rev_cagr_15y": 0.16726471331224713,
+    "ni_cagr_5y": 0.12072915790106542,
+    "ni_cagr_10y": 0.17531311039647823,
+    "ni_cagr_15y": 0.3083392105251479,
+    "cfo_cagr_10y": 0.12500254218651397,
+    "proj_eps_next_5y": 32.64,
+    "proj_eps_next_y": 23.86,
+    "eps_past_5y": 16.46,
+    "price": 332.36,
+    "intrinsic_value": 285.62,
+    "dcf_growth_used": 22.1,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 8.74,
+    "discount_pct": -16.4,
+    "direct_growth_used": 28.06,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 267.94,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 226.55,
+    "intrinsic_value_doomsday": 205.67,
+    "direct_growth_low": 23.48,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -24.0,
+    "ttm_roe": 65.066,
+    "ttm_roic": 70.065,
+    "ttm_roa": 22.841,
+    "ttm_pe": 57.701,
+    "ttm_fwd_pe": 35.134,
+    "ttm_peg": 1.314,
+    "ttm_fcf_yield": 1.176,
+    "ttm_div_yield": 0.313,
+    "ttm_current_ratio": 2.629,
+    "ttm_debt_equity": 0.33,
+    "ttm_debt_ebitda": 0.47,
+    "ttm_interest_coverage": 52.267,
+    "ttm_z_score": 17.9,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 33.35,
+    "peg_adam": 2.06,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 8.96,
+    "fair_value_ps": 166.56,
+    "pb_avg_5y": 17.37,
+    "fair_value_pb": 173.26,
+    "rev_growth_proj": 15.07,
+    "psg": 1.19,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": -19.4,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 94.6,
+    "sort_predictability": 78.6,
+    "sort_profitability": 92.7,
+    "sort_growth": 43.7
+   },
+   "moat_hints": {
+    "gross_margin": "50.5% (high \u2014 pricing power?)",
+    "operating_margin": "35.3% (high)",
+    "roic_persistence": "ROIC \u2265 15% every year for 10y \u2014 strong moat signal",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "LVS",
+   "company": "Las Vegas Sands",
+   "sector": "Consumer Discretionary",
+   "industry": "Casinos & Gaming",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 77.3,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 1,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "WARN",
+     "value": "32.4% CAGR (5y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": "0.9% CAGR ()",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "3/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 12.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 28.6%, latest 102.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 15.3%, latest 19.2%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.14",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "24.7%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -0.5% vs sales 1.5%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +7.6%/yr, next-Y +12.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.3241586222889401,
+    "rev_cagr_10y": 0.014748369746636403,
+    "rev_cagr_15y": 0.023442269521166015,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": -0.0034895140958615123,
+    "ni_cagr_15y": 0.0030025818838419482,
+    "cfo_cagr_10y": -0.0318145414019253,
+    "proj_eps_next_5y": 7.63,
+    "proj_eps_next_y": 12.81,
+    "eps_past_5y": null,
+    "price": 46.23,
+    "intrinsic_value": 44.53,
+    "dcf_growth_used": -2.0,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-net",
+    "dcf_discount_rate": 5.82,
+    "discount_pct": -3.8,
+    "direct_growth_used": 6.07,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 62.22,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 53.65,
+    "intrinsic_value_doomsday": 49.03,
+    "direct_growth_low": 4.52,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 25.7,
+    "ttm_roe": 122.869,
+    "ttm_roic": 19.805,
+    "ttm_roa": 9.549,
+    "ttm_pe": 17.931,
+    "ttm_fwd_pe": 13.966,
+    "ttm_peg": 1.404,
+    "ttm_fcf_yield": 9.028,
+    "ttm_div_yield": 2.596,
+    "ttm_current_ratio": 0.997,
+    "ttm_debt_equity": 17.04,
+    "ttm_debt_ebitda": 3.22,
+    "ttm_interest_coverage": 4.225,
+    "ttm_z_score": 2.75,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 8.75,
+    "peg_adam": 2.95,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 5.2,
+    "fair_value_ps": 104.38,
+    "pb_avg_5y": 13.28,
+    "fair_value_pb": 32.59,
+    "rev_growth_proj": 26.66,
+    "psg": 0.09,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 129.4,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 26.2,
+    "sort_predictability": 60.7,
+    "sort_profitability": 57.0,
+    "sort_growth": 50.1
+   },
+   "moat_hints": {
+    "operating_margin": "21.6%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "LDOS",
+   "company": "Leidos",
+   "sector": "Industrials",
+   "industry": "Diversified Support Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": false,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.2% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "35.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 17.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 8.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 13.5%, latest 29.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 12.7%, latest 19.1%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.70",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.93",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "11.6%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.6% vs sales 10.4%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +5.1%/yr, next-Y +3.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.05870046658478967,
+    "rev_cagr_10y": 0.10363132434736322,
+    "rev_cagr_15y": 0.07216830031528798,
+    "ni_cagr_5y": 0.1775880677858288,
+    "ni_cagr_10y": 0.21879586075743074,
+    "ni_cagr_15y": 0.0751575027411524,
+    "cfo_cagr_10y": 0.16317088533928947,
+    "proj_eps_next_5y": 5.06,
+    "proj_eps_next_y": 3.22,
+    "eps_past_5y": 20.63,
+    "price": 143.83,
+    "intrinsic_value": 556.59,
+    "dcf_growth_used": 16.1,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.24,
+    "discount_pct": 74.2,
+    "direct_growth_used": 5.06,
+    "direct_growth_sources": "finviz",
+    "intrinsic_value_direct": 283.21,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 283.21,
+    "intrinsic_value_doomsday": 260.8,
+    "direct_growth_low": 5.06,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 49.2,
+    "ttm_roe": 27.781,
+    "ttm_roic": 14.248,
+    "ttm_roa": 8.91,
+    "ttm_pe": 13.43,
+    "ttm_fwd_pe": 11.83,
+    "ttm_peg": 2.131,
+    "ttm_fcf_yield": 11.984,
+    "ttm_div_yield": 1.196,
+    "ttm_current_ratio": 1.629,
+    "ttm_debt_equity": 1.23,
+    "ttm_debt_ebitda": 2.57,
+    "ttm_interest_coverage": 9.327,
+    "ttm_z_score": 3.44,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 5.28,
+    "peg_adam": 2.65,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.08,
+    "fair_value_ps": 147.64,
+    "pb_avg_5y": 3.76,
+    "fair_value_pb": 147.29,
+    "rev_growth_proj": null,
+    "cfo_vs_ni_pct": 58.8,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 39.0,
+    "sort_predictability": 71.4,
+    "sort_profitability": 34.5,
+    "sort_growth": 23.9
+   },
+   "moat_hints": {
+    "gross_margin": "17.7%",
+    "operating_margin": "12.3%",
+    "roic_persistence": "ROIC not uniformly \u2265 15% over 10y",
+    "verdict": "Moat assessment left to user discretion per VMI \u2014 check brand, switching costs, network effect, barriers to entry, economies of scale"
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
   }
  ],
- "elapsed_seconds": 401.2
+ "elapsed_seconds": 445.7
 }
