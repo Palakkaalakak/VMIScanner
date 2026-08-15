@@ -278,6 +278,7 @@ with tab_scan:
         "discount_pct_direct": "Direct Discount %",
         "direct_growth_used": "Direct growth used %",
         "direct_growth_sources": "Direct growth sources",
+        "direct_base_flow": "Direct base flow",
         "ttm_roe": "ROE TTM %", "ttm_roic": "ROIC TTM %",
         "ttm_roa": "ROA TTM %", "ttm_pe": "PE TTM",
         "ttm_fwd_pe": "Fwd PE", "ttm_peg": "PEG",

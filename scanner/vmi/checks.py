@@ -1074,6 +1074,9 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         _ttm_ni = (ttm or {}).get("ni") if shares else None
         _ivd = _civ_d(shares=shares, beta=beta, g5=_g_avg,
                       ni_series=ni or [],
+                      ocf_series=ocf or [],
+                      capex_series=_series(cf, "capex") or [],
+                      ttm_ocf=(ttm or {}).get("ocf"),
                       cash=_latest_bal("cash") or 0,
                       sti=_latest_bal("shortTermInvestments") or 0,
                       std=_latest_bal("shortTermDebt") or 0,
@@ -1084,6 +1087,7 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     if _ivd is not None:
         _ivd_ps = _ivd["iv_ps"]
         res.metrics["intrinsic_value_direct"] = round(_ivd_ps, 2)
+        res.metrics["direct_base_flow"] = _ivd.get("base_desc")
         if price and _ivd_ps > 0:
             res.metrics["discount_pct_direct"] = round(
                 (_ivd_ps - price) / _ivd_ps * 100, 1)
