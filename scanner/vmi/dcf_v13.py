@@ -392,7 +392,8 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
                       ttm_ni: Optional[float] = None,
                       ocf_series: Optional[List[Optional[float]]] = None,
                       capex_series: Optional[List[Optional[float]]] = None,
-                      ttm_ocf: Optional[float] = None
+                      ttm_ocf: Optional[float] = None,
+                      g_low: Optional[float] = None
                       ) -> Optional[Dict[str, float]]:
     """DIRECT DCF per Adam Khoo's Lesson 5 procedure (VMI Master Document):
     no fitted blend, no sector terms — the taught manual method verbatim.
@@ -467,14 +468,33 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     base_ps = base / shares
     b = beta if beta is not None else 1.0
     disc = max(RF + b * MRP, DISC_FLOOR) / 100.0
-    g1 = g5 / 100.0             # years 1-5: full projected growth
-    g2 = min(g5, 15.0) / 100.0  # years 6-10: same rate capped at 15%
-    pv, f = 0.0, base_ps
-    for yr in range(1, 21):
-        g_yr = g1 if yr <= 5 else (g2 if yr <= 10 else 0.04)
-        f *= 1 + g_yr
-        pv += f / (1 + disc) ** yr
-    iv_ps = pv - ((std or 0) + (ltd or 0)) / shares \
-        + ((cash or 0) + (sti or 0)) / shares
+    net_adj = (((cash or 0) + (sti or 0))
+               - ((std or 0) + (ltd or 0))) / shares
+
+    def _pv(g1_pct: float, g2_pct: float) -> float:
+        """20-yr PV: yrs 1-5 at g1, yrs 6-10 at g2, yrs 11-20 at 4%."""
+        pv, f = 0.0, base_ps
+        for yr in range(1, 21):
+            g_yr = (g1_pct if yr <= 5 else
+                    (g2_pct if yr <= 10 else 4.0)) / 100.0
+            f *= 1 + g_yr
+            pv += f / (1 + disc) ** yr
+        return pv + net_adj
+
+    # Margin-of-safety ladder (Adam §4.9, MasterCard worked example
+    # $655.97 / $600 / $545.50):
+    #   BASE:         yrs 1-5 avg of provider estimates, yrs 6-10 capped 15%
+    #   CONSERVATIVE: yrs 1-5 LOWEST provider estimate; Adam uses the
+    #     FactSet long-term growth rate for yrs 6-10 (paywalled), so we
+    #     use min(lowest, 15%) — an upper bound of his conservative case,
+    #     documented deviation, no invented number.
+    #   DOOMSDAY:     yrs 1-5 lowest estimate, yrs 6-10 = HALF of it
+    #     (his 9.97% = 14.94 / 2), yrs 11-20 4% as always.
+    iv_ps = _pv(g5, min(g5, 15.0))
+    g_lo = g_low if (g_low is not None and g_low > 0) else g5
+    iv_cons = _pv(g_lo, min(g_lo, 15.0))
+    iv_doom = _pv(g_lo, min(g_lo / 2.0, 15.0))
     return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100,
-            "base_desc": base_desc}
+            "base_desc": base_desc,
+            "iv_conservative": iv_cons, "iv_doomsday": iv_doom,
+            "g_low_pct": g_lo}
