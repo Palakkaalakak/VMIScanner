@@ -128,3 +128,52 @@ IS the model's input format — zero glue code beyond the HTTP call.
 - `dataset/` — the JSONL outputs (chat-messages format, axolotl/unsloth/llama-factory ready)
 - `gen_silver.py` — teacher loop (LM Studio/OpenAI-compatible, resumable)
 - `train_qlora.py` — full unsloth QLoRA script with built-in held-out eval
+
+---
+
+## PC Safety — researched, not guessed (2026-08-16)
+
+**Question: can any of this crash/damage the PC? Short answer: it cannot damage
+hardware; the only real risk is an out-of-memory (OOM) freeze, and every step
+below has a specific mitigation. Sources: unsloth official requirements docs,
+LM Studio docs/blog (v0.3.14 guardrails), r/LocalLLaMA OOM reports.**
+
+### Teacher phase (Qwen2.5-32B Q3_K_M, 15.95GB in LM Studio)
+- The GGUF does NOT fit 12GB VRAM; LM Studio splits it: ~10-11GB in VRAM,
+  the remaining ~5-6GB + context (KV cache) in system RAM.
+- **Researched requirement: ≥16GB free system RAM for the overflow; 32GB
+  total strongly recommended** (LM Studio low-VRAM guidance). A reported
+  failure mode on Reddit: RAM fills, whole system freezes for minutes before
+  the app OOMs. Mitigations, in order:
+  1. In LM Studio: Settings → Hardware → keep **"Model loading guardrails"
+     ON** (default "Balanced") — LM Studio then refuses/auto-trims loads
+     that would exceed memory instead of freezing the machine.
+  2. Set **context length to 4096** when loading the model (our prompts are
+     ~2-3k tokens; default 32k contexts balloon the KV cache into RAM).
+  3. Close browsers/games while the overnight run goes (frees both RAM and
+     VRAM).
+  4. If your machine has 16GB RAM total (not 32): load with GPU offload
+     slider reduced OR use a smaller teacher
+     (Qwen2.5-32B **Q2_K** ~12.3GB, or 14B-Instruct Q6 as teacher-lite).
+- Worst case if you ignore all this: a freeze + app crash, requiring a
+  reboot. No data loss (gen_silver.py flushes after every answer and
+  resumes), no hardware damage.
+
+### Student phase (14B QLoRA in unsloth)
+- **Official unsloth table: 14B QLoRA minimum = 8.5GB VRAM** — your 12GB
+  card has ~3.5GB headroom. Our script already uses every documented
+  OOM-avoidance lever: `load_in_4bit`, batch size 1 (unsloth's own #1 OOM
+  fix), gradient accumulation 16, `use_gradient_checkpointing="unsloth"`,
+  `paged_adamw_8bit` (spills optimizer state to RAM safely).
+- If it still OOMs (long samples can spike KV memory): the built-in ladder
+  is `--seq 3072` → `--rank 32` → `--base 7b` (7B QLoRA = 5GB min, trivial
+  fit). CUDA OOM in PyTorch just kills the python process with an error —
+  it does not hang the machine the way system-RAM exhaustion does.
+- Disk: base model download ~9GB + adapter ~1GB + merged fp16 ~28GB +
+  final GGUF ~10GB → **keep ~50GB free** during the merge step; the merged
+  fp16 can be deleted right after quantization.
+
+### Duration expectations (so nothing looks "stuck")
+- Teacher: 443 prompts × 1-3 min ≈ one overnight run (resumable).
+- Training: 3 epochs × ~500 effective rows on a 12GB card ≈ 2-5 hours.
+- Quantization: ~20-40 min CPU-bound.
