@@ -1220,6 +1220,23 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     res.metrics["direct_growth_used"] = (
         round(_g_avg, 2) if _g_avg is not None else None)
     res.metrics["direct_growth_sources"] = _g_src
+    # ---- VALUATION METHOD ROUTING (master doc §2 table + §11 sequence,
+    # 2026-08-16 user instruction): pick the method Adam teaches for the
+    # company TYPE instead of one-size-fits-all DCF.
+    #   standard/commodity/property : DCF on normalized FCF (§4-5, §11)
+    #   financial (insurer/broker/AM): Discounted NET INCOME (§7, BLK ex.)
+    #   bank                         : P/B × BVPS primary (§8, BAC ex.);
+    #                                  DNI computed as secondary
+    #   reit                         : P/NAV (≈ P/B × BVPS) primary (§9);
+    #                                  DCF not meaningful (capex = property)
+    _force_ni = ctype in ("financial", "bank")
+    res.metrics["valuation_method"] = {
+        "bank": "P/B (5y avg × BVPS) primary; DNI secondary [§8]",
+        "reit": "P/NAV (5y avg P/B × BVPS) + dividend yield ≥5% [§9]",
+        "financial": "Discounted Net Income [§7]",
+        "commodity": "DCF (normalized FCF); P/S cross-check for cyclicals [§10]",
+        "property": "DCF (normalized FCF); P/B cross-check [§8]",
+    }.get(ctype, "DCF 20y on normalized FCF [§4-5]")
     try:
         from .dcf_v13 import compute_iv_direct as _civ_d
         _ttm_ni = (ttm or {}).get("ni") if shares else None
@@ -1232,7 +1249,8 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
                       sti=_latest_bal("shortTermInvestments") or 0,
                       std=_latest_bal("shortTermDebt") or 0,
                       ltd=_latest_bal("longTermDebt") or 0,
-                      ttm_ni=_ttm_ni, g_low=_g_low) if shares else None
+                      ttm_ni=_ttm_ni, g_low=_g_low,
+                      force_ni=_force_ni) if shares else None
     except Exception:
         _ivd = None
     if _ivd is not None:
@@ -1267,9 +1285,19 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
                 (_ivd_ps - price) / _ivd_ps * 100, 1)
         else:
             res.metrics["discount_pct_direct"] = None
+        # Terminal (perpetuity) DCF — comparison metric only. The Piranha
+        # Profits team's published WM sheet (230.98) uses this method
+        # (reverse-engineered + reproduced to the cent 2026-08-16), even
+        # though the master doc says Adam himself doesn't teach it. Kept
+        # as a separate metric so team-report comparisons are possible
+        # without changing Adam's taught 20-year headline.
+        _ivt = _ivd.get("iv_terminal")
+        res.metrics["intrinsic_value_terminal"] = (
+            round(_ivt, 2) if _ivt is not None else None)
     else:
         res.metrics["intrinsic_value_direct"] = None
         res.metrics["discount_pct_direct"] = None
+        res.metrics["intrinsic_value_terminal"] = None
 
     # ---------------- TTM statistics (S&P Global via stockanalysis.com) --
     # Same data family StockOracle displays: MSFT ROE 34.04 exact match,
