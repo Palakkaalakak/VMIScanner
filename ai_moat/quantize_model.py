@@ -5,10 +5,24 @@ Runs the full pipeline with ONE command on your PC:
                (needs ~30GB free disk for a 14B; done on CPU RAM+disk,
                so 16GB system RAM is fine — it streams shards).
   2. CONVERT : llama.cpp's convert_hf_to_gguf.py -> fp16 GGUF (~28GB for 14B).
-  3. QUANTIZE: llama-quantize -> Q5_K_M GGUF (~9.9GB for 14B — fits fully
+  3. IMATRIX : (best practice, auto for Q4 and below) computes an
+               importance matrix over OUR OWN moat dataset — domain-perfect
+               calibration — so the quantizer protects the weights that
+               matter most for moat analysis. Skipped gracefully if the
+               llama-imatrix binary isn't available (Q5_K_M is already in
+               the quality-safe zone without it; see evidence below).
+  4. QUANTIZE: llama-quantize -> Q5_K_M GGUF (~9.9GB for 14B — fits fully
                in your 12GB VRAM for fast inference). Q4_K_M (~8.5GB) also
                supported via --quant.
-  4. CLEANUP : deletes the huge fp16 intermediates (keep with --keep-fp16).
+  5. CLEANUP : deletes the huge fp16 intermediates (keep with --keep-fp16).
+
+Quality evidence (Quesma study, Qwen 27B-class, July 2026 — KL divergence,
+top-1 agreement, AIME-120, blind-judged output duels):
+  - Q4_K_M and above: statistically indistinguishable from full BF16.
+  - 3-bit: borderline (Q3_K_M ok-ish, Q3_K_S drops hard).
+  - 2-bit: genuinely worse (loses ~19/20 blind quality duels).
+  => Our Q5_K_M default is comfortably in the safe zone; imatrix is a
+     belt-and-braces extra that matters most at Q4 and below.
 
 llama.cpp is acquired AUTOMATICALLY: the script git-clones it next to the
 outputs folder and pip-installs its conversion requirements. llama-quantize
@@ -104,10 +118,52 @@ def try_build_quantize(llama_dir: str) -> str | None:
             "-DLLAMA_BUILD_TESTS=OFF", "-DLLAMA_BUILD_EXAMPLES=OFF",
             "-DCMAKE_BUILD_TYPE=Release"])
         sh(["cmake", "--build", build, "--config", "Release",
-            "-j", "--target", "llama-quantize"])
+            "-j", "--target", "llama-quantize", "llama-imatrix"])
     except subprocess.CalledProcessError:
         return None
     return find_llama_quantize(None, llama_dir)
+
+
+def find_imatrix_bin(quant_bin: str) -> str | None:
+    """llama-imatrix normally sits next to llama-quantize."""
+    d = os.path.dirname(quant_bin)
+    for name in ("llama-imatrix", "llama-imatrix.exe"):
+        c = os.path.join(d, name)
+        if os.path.exists(c):
+            return c
+    return shutil.which("llama-imatrix")
+
+
+def build_calibration_text(out_path: str) -> bool:
+    """Concatenate our own dataset (gold + contrastive + silver) into a
+    calibration corpus. Using the EXACT domain text the model will serve
+    is the best possible imatrix calibration — better than generic wiki
+    text, because the importance scores reflect moat-analysis usage."""
+    import json as _json
+    ds_dir = os.path.join(HERE, "dataset")
+    chunks: list[str] = []
+    for fn in ("gold.jsonl", "contrastive.jsonl", "silver.jsonl",
+               "silver_prompts.jsonl"):
+        p = os.path.join(ds_dir, fn)
+        if not os.path.exists(p):
+            continue
+        with open(p, encoding="utf-8") as f:
+            for line in f:
+                try:
+                    row = _json.loads(line)
+                except Exception:
+                    continue
+                for k in ("prompt", "completion", "text", "response"):
+                    v = row.get(k)
+                    if isinstance(v, str) and v.strip():
+                        chunks.append(v.strip())
+    text = "\n\n".join(chunks)
+    if len(text) < 5000:   # not enough domain text — let caller fall back
+        return False
+    # cap for speed: ~400k chars is plenty for a stable imatrix
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(text[:400_000])
+    return True
 
 
 def merge_adapter(base_key: str, adapter_dir: str, merged_dir: str) -> None:
@@ -140,6 +196,15 @@ def main():
                          "llama-quantize.exe from a release zip)")
     ap.add_argument("--keep-fp16", action="store_true",
                     help="keep the huge fp16 intermediates (default: delete)")
+    ap.add_argument("--imatrix", dest="imatrix", action="store_true",
+                    default=None,
+                    help="force importance-matrix calibration on "
+                         "(default: auto — on for Q4_K_M and below)")
+    ap.add_argument("--no-imatrix", dest="imatrix", action="store_false",
+                    help="skip imatrix even for Q4 quants")
+    ap.add_argument("--ngl", type=int, default=99,
+                    help="GPU layers for the imatrix pass (99=all; set 0 "
+                         "for CPU-only builds)")
     args = ap.parse_args()
 
     adapter_dir = args.adapter or os.path.join(OUTDIR,
@@ -189,10 +254,36 @@ def main():
         print(f"deleting merged fp16 dir to free disk: {merged_dir}")
         shutil.rmtree(merged_dir, ignore_errors=True)
 
-    # ---- step 3: quantize ----
-    sh([quant_bin, fp16_gguf, out_gguf, args.quant])
+    # ---- step 3: importance matrix (best-practice calibration) ----
+    # Auto policy: imatrix ON for <=4-bit (where it matters most), OFF for
+    # Q5_K_M+ (already in the quality-safe zone) unless forced via --imatrix.
+    want_imatrix = args.imatrix
+    if want_imatrix is None:
+        want_imatrix = args.quant in ("Q4_K_M",)
+    imatrix_file = os.path.join(OUTDIR, f"moat-{args.base}-imatrix.gguf")
+    imatrix_args: list[str] = []
+    if want_imatrix:
+        im_bin = find_imatrix_bin(quant_bin)
+        calib = os.path.join(OUTDIR, "imatrix_calibration.txt")
+        if im_bin is None:
+            print("NOTE: llama-imatrix binary not found — skipping imatrix "
+                  "(quality still fine at Q4_K_M+; grab the binary from the "
+                  "same llama.cpp release zip to enable it).")
+        elif not build_calibration_text(calib):
+            print("NOTE: not enough dataset text for calibration — "
+                  "skipping imatrix.")
+        else:
+            if not os.path.exists(imatrix_file):
+                print("computing importance matrix over our own moat "
+                      "dataset (domain-perfect calibration)...")
+                sh([im_bin, "-m", fp16_gguf, "-f", calib,
+                    "-o", imatrix_file, "-ngl", str(args.ngl)])
+            imatrix_args = ["--imatrix", imatrix_file]
 
-    # ---- step 4: cleanup ----
+    # ---- step 4: quantize ----
+    sh([quant_bin, *imatrix_args, fp16_gguf, out_gguf, args.quant])
+
+    # ---- step 5: cleanup ----
     if not args.keep_fp16:
         print(f"deleting fp16 GGUF to free disk: {fp16_gguf}")
         os.remove(fp16_gguf)
