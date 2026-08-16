@@ -151,7 +151,7 @@ Skim 3-4 answers. Do they talk about actual moats (switching costs,
 network effects, brands) with numbers from the evidence? Good. Garbage?
 Stop and tell me.
 
-### Step 2.3 — Teach the Student (~2-4 hours, GPU fans will spin)
+### Step 2.3 — Teach the Student (~1-2 hours, GPU fans will spin)
 ```powershell
 pip install unsloth
 python ai_moat/train_qlora.py
@@ -228,9 +228,22 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 |---|---|---|---|
 | Textbook | `python -m ai_moat.build_dataset` | seconds | nothing |
 | Silver lessons | `python ai_moat/gen_silver.py` | ~1-1.5h | LM Studio running |
-| Teaching | `python ai_moat/train_qlora.py` | ~2-4h | 12GB GPU, ~20GB disk |
+| Teaching | `python ai_moat/train_qlora.py` | ~1-2h (packing on) | 12GB GPU, ~20GB disk |
 | Packaging | `python ai_moat/quantize_model.py` | ~30-60min | ~56GB disk briefly |
-| **Total** | | **~4-7h, mostly unattended** | |
+| **Total** | | **~2.5-4h, hands-on time ~15 min** | |
+
+### ⚡ Fast path (if you're impatient)
+- **Your attention is only needed for ~15 minutes total** — the rest is
+  the machine working while you do something else. Start gen_silver
+  before dinner, start teaching before bed, quantize with morning coffee.
+- `python ai_moat/train_qlora.py --epochs 2` — cuts teaching ~33%;
+  fine if held-out accuracy still passes (the exam tells you).
+- `python ai_moat/quantize_model.py --quant Q4_K_M` is NOT faster
+  (it adds the imatrix pass) — Q5_K_M default is already the quick one.
+- gen_silver `--workers 3` if your GPU isn't maxed (watch tok/s; if it
+  drops per-worker, go back to 2).
+- What NOT to cut: the held-out exam, the gold tier, or the system
+  prompt. Those are the difference between an analyst and a parrot.
 
 *Companion docs: `TRAINING.md` (technical detail), `rubric_system_prompt.md`
 (the rubric itself). This guide supersedes nothing — it's the map.*

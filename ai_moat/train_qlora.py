@@ -178,6 +178,9 @@ def main():
             bf16=True,
             optim="paged_adamw_8bit",
             max_seq_length=args.seq,
+            packing=True,   # SPEED: our lessons are short; packing fills
+                            # each 2048-token window instead of padding it
+                            # -> ~2-3x fewer training steps, same learning.
             seed=42,
         ))
     trainer.train()

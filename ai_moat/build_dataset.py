@@ -58,7 +58,7 @@ ACTION_MAP = {
 
 def load_scan() -> dict:
     """Return {ticker: row} from scan_results.json (results is a list of rows)."""
-    with open(SCAN) as f:
+    with open(SCAN, encoding="utf-8") as f:
         d = json.load(f)
     rows = d["results"] if isinstance(d, dict) else d
     out = {}
@@ -179,9 +179,9 @@ def main():
     args = ap.parse_args()
 
     os.makedirs(OUTDIR, exist_ok=True)
-    with open(SYSPROMPT) as f:
+    with open(SYSPROMPT, encoding="utf-8") as f:
         system = f.read()
-    with open(LABELS) as f:
+    with open(LABELS, encoding="utf-8") as f:
         labels = json.load(f)["labels"]
     scan = load_scan()
 
@@ -252,7 +252,7 @@ def main():
 
     def dump(name, items):
         p = os.path.join(OUTDIR, name)
-        with open(p, "w") as f:
+        with open(p, "w", encoding="utf-8") as f:
             for it in items:
                 f.write(json.dumps(it, ensure_ascii=False) + "\n")
         return p
