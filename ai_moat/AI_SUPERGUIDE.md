@@ -109,6 +109,29 @@ cd VMIScanner
 pip install requests
 ```
 
+### Step 1.6 — (optional) HuggingFace token for faster downloads
+A free HF token lifts rate limits on the one-time model downloads.
+Drop it in a git-ignored file — the scripts pick it up automatically:
+```powershell
+Set-Content ai_moat/.hf_token "hf_your_token_here"
+```
+That file never leaves your PC (it's in .gitignore).
+
+### Updating the project later (NO re-clone needed!)
+Whenever I push fixes, just run this inside the VMIScanner folder:
+```powershell
+git pull
+```
+That's it — git downloads only what changed (seconds, not minutes) and
+keeps your local files: `.hf_token`, generated datasets, trained
+adapters, GGUFs. If git ever complains about local changes:
+```powershell
+git stash        # shelve your local edits
+git pull         # update
+git stash pop    # put your edits back (optional)
+```
+Never delete + re-clone — you'd lose your outputs folder.
+
 ✅ **Setup done. You never repeat Part 1.**
 
 ---

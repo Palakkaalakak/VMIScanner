@@ -182,6 +182,12 @@ def merge_adapter(base_key: str, adapter_dir: str, merged_dir: str) -> None:
 
 
 def main():
+    try:                                       # HF token (faster downloads)
+        from ai_moat.hf_auth import load_hf_token
+    except ImportError:                        # run as plain script
+        from hf_auth import load_hf_token
+    load_hf_token()
+
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", choices=list(BASES), default="qwen3-14b",
                     help="which base you trained (matches train_qlora.py)")
