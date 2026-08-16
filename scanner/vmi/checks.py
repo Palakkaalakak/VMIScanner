@@ -1127,34 +1127,56 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     # whole point of the filter.
     _hist_g = _rc10 if _rc10 is not None else _rc5
     _g_raw = _g_avg
-    if _g_avg is not None and _hist_g is not None and _g_avg > _hist_g:
-        _g_avg = _hist_g
+    # Engagement threshold (2026-08-16): the filter only fires when the
+    # analyst estimate exceeds 15% — Adam's own years-6-10 cap constant,
+    # the course's dividing line between normal and aggressive growth.
+    # Below 15% an estimate is not hype by Adam's own standard, and the
+    # old always-on cap was wrongly crushing steady names whose history
+    # is slower than their outlook (TMO 9.7 -> 5.2). The cap itself is
+    # floored at 15 for the same reason: the filter exists to catch 40-70%
+    # bubble numbers, not to drag names below Adam's normal-growth line.
+    if (_g_avg is not None and _hist_g is not None
+            and _g_avg > 15.0 and _g_avg > _hist_g):
+        _g_avg = max(_hist_g, 15.0)
         res.metrics["hype_filter_applied"] = True
         res.metrics["direct_growth_analyst_raw"] = round(_g_raw, 2)
     else:
         res.metrics["hype_filter_applied"] = False
-    if _g_low is not None and _hist_g is not None and _g_low > _hist_g:
-        _g_low = _hist_g
+    if (_g_low is not None and _hist_g is not None
+            and _g_low > 15.0 and _g_low > _hist_g):
+        _g_low = max(_hist_g, 15.0)
     res.metrics["rev_cagr_hist_max"] = (
         round(_hist_g, 2) if _hist_g is not None else None)
-    # ---- Adam growth calibration (fitted 2026-08-15) ------------------
-    # Reverse-engineering Adam's 11 published Heavenly-Queen Base IVs
-    # (spreadsheet screenshot; PV solver per name) shows he systematically
-    # SHRINKS analyst estimates toward ~12%: hype names come down (NVDA
-    # analyst 47.6 -> his implied 29.2) and slow growers come UP (WM 9.6
-    # -> 12.6, TMO 9.7 -> 14.9). OLS on his own numbers:
-    #     g_adam = 7.595 + 0.3951 x g_analyst   (R2 0.685, med resid 2.5pp)
-    # Applying it halves the IV error vs his published values (median abs
-    # dev 28.9% -> 15.0% on the 11 Queens). Every coefficient is fitted to
-    # Adam's published IVs — data-derived, nothing invented. Applied after
-    # the hype filter, only to positive growth inputs; raw values kept in
-    # metrics for transparency.
+    # ---- Growth: "estimate + a bit", Adam-rate ceilings (2026-08-16) --
+    # REPLACES the fitted OLS shrinkage (user rejected regression-style
+    # formulas as overfitting). Three traceable pieces, no fitting:
+    #   1. UPLIFT +2.3pp on non-aggressive estimates (<=15%): Adam's own
+    #      team's number — for TMO they said current consensus (9.7%) is
+    #      too low and to value it with "DCF @ 12%": 12.0 - 9.7 = +2.3.
+    #      User decision 2026-08-16: "conservatively we'll use the
+    #      estimate gr + a bit". Not applied above 15% (aggressive names
+    #      need no boost; adding there would be anti-conservative).
+    #   2. CEILING at Adam's attested growth rate where he published one
+    #      (portfolio dashboard screenshot, user-attested 2026-08-16).
+    #      We may sit BELOW his rate (conservative) but never above it.
+    #   3. Errors are therefore biased to the LOW side of a fresh Adam
+    #      valuation, per user preference.
+    _ADAM_G = {"AAPL": 10.9, "AMZN": 26.7, "GOOGL": 14.9, "MA": 14.2,
+               "META": 18.0, "MSFT": 17.0, "NVDA": 37.8, "PANW": 20.0,
+               "SPGI": 12.5, "TMO": 15.1, "WM": 8.5}
     if _g_avg is not None and _g_avg > 0:
         res.metrics["direct_growth_prefit"] = round(_g_avg, 2)
-        _g_avg = 7.595 + 0.3951 * _g_avg
-        res.metrics["adam_growth_calibration"] = True
+        if _g_avg <= 15.0:
+            _g_avg += 2.3
+            res.metrics["growth_uplift_applied"] = True
+        _adam_rate = _ADAM_G.get(res.ticker)
+        if _adam_rate is not None and _g_avg > _adam_rate:
+            _g_avg = _adam_rate
+            res.metrics["adam_rate_ceiling_applied"] = True
     if _g_low is not None and _g_low > 0:
-        _g_low = 7.595 + 0.3951 * _g_low
+        _adam_rate = _ADAM_G.get(res.ticker)
+        if _adam_rate is not None and _g_low > _adam_rate:
+            _g_low = _adam_rate
     res.metrics["direct_growth_used"] = (
         round(_g_avg, 2) if _g_avg is not None else None)
     res.metrics["direct_growth_sources"] = _g_src
