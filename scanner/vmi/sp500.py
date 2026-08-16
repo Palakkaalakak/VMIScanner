@@ -31,6 +31,42 @@ from .http import get
 # rendered-HTML endpoint serves the identical table without issue.
 WIKI_URL = "https://en.wikipedia.org/api/rest_v1/page/html/List_of_S%26P_500_companies"
 
+# FALLBACK universe source (added 2026-08-16 after Wikipedia started
+# returning HTTP 429 to the sandbox IP): the `datasets/s-and-p-500-companies`
+# GitHub dataset is itself scraped from the SAME Wikipedia constituents
+# table, exposes the SAME GICS Sector / Sub-Industry columns, and is
+# served from raw.githubusercontent.com which does not rate-limit us.
+CSV_FALLBACK_URL = ("https://raw.githubusercontent.com/datasets/"
+                    "s-and-p-500-companies/main/data/constituents.csv")
+
+
+def _fetch_sp500_csv_fallback() -> List[Dict]:
+    """Parse the GitHub constituents CSV into the same row shape as
+    the Wikipedia scraper. Used only when the Wikipedia fetch fails."""
+    import csv
+    import io
+    text = get(CSV_FALLBACK_URL, use_cache=True, cache_max_age=86400 * 7,
+               domain_hint="github")
+    out: List[Dict] = []
+    for r in csv.DictReader(io.StringIO(text)):
+        ticker = (r.get("Symbol") or "").strip()
+        if not re.fullmatch(r"[A-Z][A-Z0-9.\-]{0,6}", ticker):
+            continue
+        sub = (r.get("GICS Sub-Industry") or "").strip()
+        out.append({
+            "ticker": ticker.replace(".", "-"),
+            "company": (r.get("Security") or "").strip(),
+            "sector": (r.get("GICS Sector") or "").strip(),
+            "sub_industry": sub,
+            "headquarters": (r.get("Headquarters Location") or "").strip(),
+            "industry": sub,  # alias for classify(), same as wiki path
+            "country": "USA",
+            "market_cap": "",
+        })
+    if len(out) < 400:
+        raise RuntimeError(f"CSV fallback looks broken: only {len(out)} rows")
+    return out
+
 
 def _clean(cell: str) -> str:
     return html.unescape(re.sub(r"<[^>]+>", "", cell)).strip()
@@ -45,8 +81,14 @@ def fetch_sp500(use_cache: bool = True, cache_max_age: float = 86400 * 7) -> Lis
     which is a cleaner exclusion signal than Finviz's free-text industry
     string.
     """
-    html = get(WIKI_URL, use_cache=use_cache, cache_max_age=cache_max_age,
-               domain_hint="wikipedia")
+    try:
+        html = get(WIKI_URL, use_cache=use_cache, cache_max_age=cache_max_age,
+                   domain_hint="wikipedia")
+    except Exception as e:
+        # Wikipedia rate-limits (429) or blocks this IP sometimes — fall
+        # back to the GitHub CSV mirror of the SAME constituents table.
+        print(f"  Wikipedia universe fetch failed ({e}); using GitHub CSV fallback")
+        return _fetch_sp500_csv_fallback()
     i = html.find('id="constituents"')
     if i == -1:
         raise RuntimeError("Wikipedia constituents table not found (page layout changed?)")
