@@ -263,11 +263,16 @@ def main():
               f"{out_path}, {len(todo)} remaining")
 
     results = list(prior_by_ticker.values())
-    # Preserve excluded_rows across resumes without duplicating.
+    # Preserve excluded_rows across resumes without duplicating — but DROP
+    # stale entries whose company_type is no longer excluded (e.g. the 60
+    # bank/REIT rows carried over from checkpoints made before the
+    # 2026-08-16 valuation-routing change) or that were actually scanned.
     if prior.get("excluded"):
         seen_excl = {r["ticker"] for r in excluded_rows}
         for r in prior["excluded"]:
-            if r["ticker"] not in seen_excl:
+            if (r["ticker"] not in seen_excl
+                    and r.get("company_type") in EXCLUDED_TYPES
+                    and r["ticker"] not in prior_by_ticker):
                 excluded_rows.append(r)
                 seen_excl.add(r["ticker"])
 
@@ -316,7 +321,7 @@ def main():
     print(f"Great businesses (0 fails): {payload['counts']['great']}")
     print(f"Near misses (1 fail):       {payload['counts']['near_miss']}")
     print(f"Errors:                     {payload['counts']['errors']}")
-    print(f"Excluded (reit/fin/prop/commodity): {payload['excluded_count']}")
+    print(f"Excluded (ETFs only — banks/REITs are scanned): {payload['excluded_count']}")
     print(f"Output: {out_path}")
     return 0
 
