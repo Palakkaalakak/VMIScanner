@@ -509,7 +509,35 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     # compare them against his fresh valuations without changing the
     # taught default.
     iv_ps_g2_23 = _pv(g5, min(g5 * 2.0 / 3.0, 15.0))
+
+    # ---- TERMINAL (perpetuity) DCF — COMPARISON METRIC ONLY -----------
+    # Discovered 2026-08-16 by reverse-engineering the Piranha Profits
+    # team's published WM valuation (230.98): they used "Discounted Free
+    # Cash Flow (Terminal) — Base Case": FCF grows at g1 yrs 1-5, g2 yrs
+    # 6-10, then a 4% Gordon perpetuity terminal value
+    #   TV = FCF11 / (disc - 4%),  FCF11 = FCF10 * 1.04,
+    # DISCOUNTED THROUGH YEAR 11 (verified to the cent: stages
+    # 28.68 + 33.32 + 227.19 = 230.98 with their exact inputs).
+    # IMPORTANT HONESTY NOTE: the master doc (line ~2743) says this
+    # perpetuity method "does exist and is auto-calculated on StockOracle,
+    # but Adam does not use or teach it" — yet his own team's published WM
+    # sheet IS this method. We therefore expose it as an ADDITIONAL metric
+    # for comparing against team reports, while Adam's taught 20-year
+    # method stays the headline iv_ps. The terminal stage typically
+    # dominates (98% of WM's 230.98), which is exactly why Adam teaches
+    # the 20-year cut instead. Guard: only meaningful when disc > 4%.
+    iv_terminal = None
+    if disc > 0.04:
+        g2t = min(g5, 15.0) / 100.0
+        pv, f = 0.0, base_ps
+        for yr in range(1, 11):
+            f *= 1 + (g5 / 100.0 if yr <= 5 else g2t)
+            pv += f / (1 + disc) ** yr
+        tv = f * 1.04 / (disc - 0.04) / (1 + disc) ** 11
+        iv_terminal = pv + tv + net_adj
+
     return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100,
             "base_desc": base_desc,
             "iv_conservative": iv_cons, "iv_doomsday": iv_doom,
-            "g_low_pct": g_lo, "iv_ps_g2_23": iv_ps_g2_23}
+            "g_low_pct": g_lo, "iv_ps_g2_23": iv_ps_g2_23,
+            "iv_terminal": iv_terminal}
