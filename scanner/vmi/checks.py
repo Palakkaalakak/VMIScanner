@@ -1450,6 +1450,102 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         res.metrics["pb_avg_5y"] = round(_pb_avg, 2)
         res.metrics["fair_value_pb"] = round(_pb_avg * _bvps, 2)
 
+    # ---------------- Bank / REIT type-specific checks & valuation -------
+    # (2026-08-16 user instruction: include banks/REITs with their own
+    # methods instead of excluding them.)
+    if ctype in ("bank", "reit"):
+        # Dividend yield — REITs: ≥5% rule (§9.3, "look for at least 5%");
+        # banks: 4.5-5% healthy zone (§8.7 UOB example bought ~5% yield).
+        _dy = None
+        try:
+            _dy_hist = [v for v in (_ratT.get("dividendyield") or [])
+                        if isinstance(v, (int, float))]
+            _dy = _dy_hist[0] if _dy_hist else None
+            if _dy is not None and _dy < 1:      # fractional form
+                _dy *= 100
+        except Exception:
+            _dy = None
+        if _dy is None:
+            add("Dividend yield (bank/REIT)", NA, None,
+                "Dividend yield not reported by the data source; "
+                "NA never disqualifies")
+        elif ctype == "reit":
+            if _dy >= 5.0:
+                add("Dividend yield ≥ 5% (REIT)", PASS, f"{_dy:.1f}%")
+            elif _dy >= 3.5:
+                add("Dividend yield ≥ 5% (REIT)", WARN, f"{_dy:.1f}%",
+                    "Below Adam's ≥5% REIT yield rule (§9.3) — only worth it "
+                    "if DPU growth is high; review the distribution history")
+            else:
+                add("Dividend yield ≥ 5% (REIT)", FAIL, f"{_dy:.1f}%",
+                    "Well below the ≥5% REIT yield floor (§9.3)")
+        else:  # bank
+            if _dy >= 3.0:
+                add("Dividend yield (bank)", PASS, f"{_dy:.1f}%",
+                    "Healthy payer; Adam's SG-bank buy zone is 4.5-5% (§8.7) "
+                    "— US banks typically pay less, ≥3% treated as pass")
+            else:
+                add("Dividend yield (bank)", WARN, f"{_dy:.1f}%",
+                    "Low for a bank — Adam screens bank income via yield "
+                    "(§8.7); verify payout policy and buybacks")
+
+        # Gearing (REIT <45% regulatory/§9.5; banks: leverage is the model,
+        # so gearing is informational-only via CET1 note below).
+        _tot_assets = _latest_bal("assets")
+        _tot_debt = _latest_bal("debt")
+        if ctype == "reit":
+            if _tot_assets and _tot_debt is not None and _tot_assets > 0:
+                _gear = _tot_debt / _tot_assets * 100
+                res.metrics["reit_gearing_pct"] = round(_gear, 1)
+                if _gear < 45.0:
+                    add("Gearing < 45% (REIT)", PASS, f"{_gear:.1f}%")
+                elif _gear < 50.0:
+                    add("Gearing < 45% (REIT)", WARN, f"{_gear:.1f}%",
+                        "At/above Adam's 45% comfort line (§9.5) — check "
+                        "interest coverage and refinancing schedule")
+                else:
+                    add("Gearing < 45% (REIT)", FAIL, f"{_gear:.1f}%")
+            else:
+                add("Gearing < 45% (REIT)", NA, None,
+                    "Total debt/assets not reported; NA never disqualifies")
+        else:  # bank — CET1 >10% / NPL <5% (§8.4) need regulatory filings
+            add("Bank capital quality (CET1/NPL)", NA, None,
+                "CET1 ratio (>10%) and NPL ratio (<5%) per §8.4 come from "
+                "regulatory filings not in our free data — VERIFY MANUALLY "
+                "before buying any bank; NA never disqualifies")
+
+        # PRIMARY valuation for banks/REITs = 5y avg P/B × current BVPS
+        # (§8.5 BAC 1.24×38.44=47.67; §9.4 Ascendas 1.32×2.27=2.99 — for
+        # REITs BVPS ≈ NAV/share, so P/B ≈ P/NAV on reported books).
+        _fv_pb = res.metrics.get("fair_value_pb")
+        if _fv_pb:
+            res.metrics["intrinsic_value_primary"] = _fv_pb
+            res.metrics["intrinsic_value_primary_method"] = (
+                "P/NAV: 5y avg P/B × BVPS (§9)" if ctype == "reit"
+                else "P/B: 5y avg × BVPS (§8)")
+            if price and _fv_pb > 0:
+                res.metrics["discount_pct_primary"] = round(
+                    (_fv_pb - price) / _fv_pb * 100, 1)
+            # REIT premium rule (§9.4): ≤1.2× NAV fair, up to 1.5× only
+            # with high DPU growth.
+            if ctype == "reit" and _bvps and price:
+                _pnav_now = price / _bvps
+                res.metrics["p_nav_current"] = round(_pnav_now, 2)
+                res.metrics["p_nav_verdict"] = (
+                    "≤1.2× NAV — within Adam's buy rule" if _pnav_now <= 1.2
+                    else "1.2-1.5× NAV — only if DPU growth is high (§9.4)"
+                    if _pnav_now <= 1.5 else "above 1.5× NAV — expensive")
+    else:
+        # Standard/financial: headline stays the (routed) DCF/DNI value.
+        _ivp = res.metrics.get("intrinsic_value_direct")
+        if _ivp:
+            res.metrics["intrinsic_value_primary"] = _ivp
+            res.metrics["intrinsic_value_primary_method"] = (
+                "Discounted Net Income (§7)" if ctype == "financial"
+                else "DCF 20y (§4-5)")
+            res.metrics["discount_pct_primary"] = res.metrics.get(
+                "discount_pct_direct")
+
     # PSG ratio (§10.4) for speculative growth: P/S ÷ projected revenue
     # growth%. <0.2 undervalued, 0.2-0.3 fair, >0.3 overvalued.
     _ps_now = (price / (_ttm_rev / shares)
