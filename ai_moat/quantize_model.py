@@ -127,7 +127,7 @@ def merge_adapter(base_key: str, adapter_dir: str, merged_dir: str) -> None:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", choices=list(BASES), default="14b",
+    ap.add_argument("--base", choices=list(BASES), default="qwen3-14b",
                     help="which base you trained (matches train_qlora.py)")
     ap.add_argument("--quant", default="Q5_K_M",
                     choices=["Q5_K_M", "Q4_K_M", "Q6_K", "Q8_0"],
