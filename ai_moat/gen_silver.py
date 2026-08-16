@@ -24,9 +24,15 @@ to system RAM -> 1-3 tok/s -> ~16h even for a handful of prompts. Fixes:
    those (~150 prompts instead of ~440). Override with --all if ever needed.
 
 3. THINKING SUPPRESSED: Qwen3-series models think by default (hundreds of
-   hidden tokens per answer). We request non-thinking mode and strip any
-   <think> blocks. Override with --thinking if you want it (3-5x slower,
-   marginal quality gain on this structured task).
+   hidden tokens per answer). We suppress it TWO ways, because LM Studio
+   builds have been seen ignoring the API flag:
+     a) chat_template_kwargs {"enable_thinking": false}  (the API way)
+     b) "/no_think" appended to the user message — Qwen3's in-band soft
+        switch, honoured by the chat template itself, works everywhere.
+   Without this the model burns the ENTIRE max_tokens budget inside
+   reasoning_content, content comes back empty, and every ticker fails
+   the format gate. Override with --thinking if you want reasoning
+   (3-5x slower, marginal quality gain on this structured task).
 
 4. PARALLEL WORKERS: --workers 2 (default) keeps the GPU saturated while
    HTTP round-trips happen. LM Studio queues them safely.
@@ -92,9 +98,21 @@ def chat(base_url: str, model: str, messages: list, max_tokens: int,
         "max_tokens": max_tokens,
     }
     if not thinking:
-        # Understood by LM Studio / llama-server for Qwen3-family templates;
-        # harmless no-op for models that don't support it.
+        # Belt: understood by llama-server for Qwen3-family templates —
+        # but some LM Studio builds IGNORE it (observed: content="" with
+        # 798/800 tokens in reasoning_content, finish_reason=length).
         body["chat_template_kwargs"] = {"enable_thinking": False}
+        # Braces: Qwen3's in-band soft switch. The chat template itself
+        # reads "/no_think" from the latest user turn and disables
+        # thinking — this works even when the API flag is dropped.
+        # Copy the messages so we never mutate the caller's prompt rows
+        # (they get written verbatim into silver.jsonl).
+        msgs = [dict(m) for m in messages]
+        for m in reversed(msgs):
+            if m.get("role") == "user":
+                m["content"] = m["content"].rstrip() + "\n\n/no_think"
+                break
+        body["messages"] = msgs
     req = urllib.request.Request(
         base_url.rstrip("/") + "/chat/completions",
         data=json.dumps(body).encode(),
@@ -110,7 +128,19 @@ def chat(base_url: str, model: str, messages: list, max_tokens: int,
         except Exception:
             detail = ""
         raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from None
-    return strip_thinking(payload["choices"][0]["message"]["content"])
+    msg = payload["choices"][0]["message"]
+    content = msg.get("content") or ""
+    # LM Studio separates hidden reasoning into reasoning_content. If the
+    # model spent its whole token budget thinking, content is empty and
+    # the formatted answer was never generated — salvaging the reasoning
+    # text is useless, so surface a targeted diagnostic instead.
+    if not content.strip() and (msg.get("reasoning_content") or "").strip():
+        raise RuntimeError(
+            "all tokens went to reasoning_content, answer is empty — the "
+            "/no_think switch should stop this; if it persists, open the "
+            "model's settings in LM Studio (gear icon next to the loaded "
+            "model) and turn Reasoning OFF, then retry")
+    return strip_thinking(content)
 
 
 def looks_valid(answer: str) -> bool:
@@ -139,7 +169,9 @@ def answer_one(p: dict, args) -> tuple:
                      args.max_tokens, args.thinking)
         except Exception as e:
             msg = str(e)
-            if "context" in msg.lower():
+            if "reasoning_content" in msg:
+                print(f"  {p['ticker']}: {msg}")
+            elif "context" in msg.lower():
                 print(f"  {p['ticker']}: CONTEXT OVERFLOW — in LM Studio, "
                       f"eject the model and reload it with Context Length "
                       f"8192 (each parallel worker gets ctx/workers; "

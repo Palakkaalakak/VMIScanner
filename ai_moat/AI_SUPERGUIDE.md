@@ -228,6 +228,7 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 | gen_silver: "connection refused" | LM Studio server not started | Developer tab → Start Server |
 | gen_silver: HTTP 400 on every ticker | Model not loaded into the SERVER, or just-started server still warming up | Developer/Server tab → make sure the model is selected/loaded THERE (not only in the Chat tab), then re-run |
 | "Context size has been exceeded" | Context split across workers: 4096/2 = 2048 each, too small | Eject model → reload with Context Length 8192; or `--workers 1` |
+| EVERY ticker "failed the format gate" / SKIPPED | LM Studio ignored our no-thinking API flag: the model spends its whole 800-token budget "thinking" (LM Studio hides it in `reasoning_content`), the visible answer stays empty, so the format check correctly fails | `git pull` — the script now also appends Qwen3's in-band `/no_think` switch to every prompt, which the model itself obeys regardless of API flags. If it STILL happens: click the gear icon next to the loaded model in LM Studio and switch Reasoning OFF |
 | Teacher crawls at 1-3 tok/s | GPU Offload partial | Set to MAX; close VRAM-hungry apps; reload model |
 | "CUDA out of memory" during teaching | Something else is using VRAM | Close browsers/games; retry. Persists → tell me, we add `--batch-size 1` |
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |
