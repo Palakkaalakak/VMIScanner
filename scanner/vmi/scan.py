@@ -240,14 +240,15 @@ def main():
                 "ticker": m["ticker"], "company": m.get("company", ""),
                 "sector": m.get("sector", ""), "industry": m.get("industry", ""),
                 "company_type": ctype,
-                "reason": f"Excluded per user instruction: {ctype} companies have "
-                          "VMI exception rules (REITs/banks/financial firms/property/"
-                          "commodity are structurally leveraged) — not scanned for now.",
+                "reason": f"Excluded: {ctype} — ETFs are funds, not companies; "
+                          "no financial statements to check. (Banks/REITs are "
+                          "INCLUDED since 2026-08-16 with their own VMI "
+                          "methods: P/B §8, P/NAV+yield §9, DNI §7.)",
             })
         else:
             included.append(m)
-    print(f"Step 2: excluded {len(excluded_rows)} reit/financial/property/commodity "
-          f"companies -> {len(included)} remain to deep-scan")
+    print(f"Step 2: excluded {len(excluded_rows)} ETFs "
+          f"-> {len(included)} remain to deep-scan (banks/REITs now included)")
 
     if args.limit:
         included = included[:args.limit]
