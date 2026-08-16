@@ -2,10 +2,14 @@
 
 TIER A — gold      : Adam Khoo's own verdicts (adam_seed_labels.json) fused with the
                      scanner's quantitative evidence card. ~38 examples, highest weight.
-TIER B — silver    : rubric-only prompts for every other scanned ticker. A teacher
-                     model (local large model or API) answers them using ONLY the
+TIER B — silver    : rubric-only prompts for scanned tickers that PASS the
+                     great-business scan (is_great == True). A teacher model
+                     (local large model or API) answers them using ONLY the
                      rubric system prompt — it never sees consensus moat ratings.
                      Human spot-review ~10% before training.
+                     (The moat model grades companies that already pass the
+                     scan — labelling the ~300 rejects wastes GPU hours.
+                     Use --all-silver to include every scanned ticker.)
 TIER C — contrastive: corrupted-evidence variants of gold tickers. Same company name,
                      degraded fundamentals → the correct answer DOWNGRADES the verdict
                      citing the evidence. This is what makes it a reasoning model
@@ -16,10 +20,15 @@ Output (chat-messages JSONL, axolotl/unsloth/llama-factory ready):
   ai_moat/dataset/contrastive.jsonl
   ai_moat/dataset/silver_prompts.jsonl   (prompts only — teacher fills answers)
 
-Usage:  python3 -m ai_moat.build_dataset
+Usage:  python3 -m ai_moat.build_dataset                 # great-only silver
+        python3 -m ai_moat.build_dataset --all-silver    # every ticker
+
+Tip: refresh the scan first so is_great flags are current:
+        python3 -m scanner.vmi.scan
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 from copy import deepcopy
@@ -163,6 +172,12 @@ ACTION (Adam's framework): buyable-with-caution at most; treat as avoid until th
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--all-silver", action="store_true",
+                    help="include EVERY scanned ticker in silver prompts, "
+                         "not just great businesses")
+    args = ap.parse_args()
+
     os.makedirs(OUTDIR, exist_ok=True)
     with open(SYSPROMPT) as f:
         system = f.read()
@@ -219,10 +234,15 @@ def main():
         ], "tier": "contrastive", "ticker": t})
 
     # ---- TIER B: silver prompts (no answers — teacher model fills them) ----
+    # Default: only companies that pass the great-business scan. The moat
+    # model's real job is grading businesses that already made the cut.
     gold_ticks = {lab["ticker"] for lab in labels}
-    silver = []
+    silver, silver_skipped = [], 0
     for t, row in sorted(scan.items()):
         if t in gold_ticks:
+            continue
+        if not args.all_silver and not row.get("is_great"):
+            silver_skipped += 1
             continue
         ev = evidence_block(row, t)
         silver.append({"messages": [
@@ -243,7 +263,10 @@ def main():
 
     print(f"gold: {len(gold)}  (no evidence card for: {missing or 'none'})")
     print(f"contrastive: {len(contrastive)}")
-    print(f"silver prompts: {len(silver)}")
+    scope = "ALL tickers" if args.all_silver else "great businesses only"
+    print(f"silver prompts: {len(silver)}  ({scope}"
+          + (f"; {silver_skipped} non-great skipped" if silver_skipped else "")
+          + ")")
     print(f"written to {OUTDIR}/")
 
 

@@ -1,26 +1,51 @@
-"""Fill the silver-tier prompts with a FREE local teacher model.
+"""Fill the silver-tier prompts with a FREE local teacher model — FAST.
 
 The teacher sees ONLY the Adam rubric (system prompt) + the evidence card.
 It never sees analyst consensus or third-party moat ratings, so consensus
 bias structurally cannot leak into the labels.
 
+WHY THIS IS NOW ~20-50x FASTER THAN BEFORE
+------------------------------------------
+The old setup (Qwen2.5-32B Q3_K_M on a 12GB card) offloaded half the model
+to system RAM -> 1-3 tok/s -> ~16h even for a handful of prompts. Fixes:
+
+1. TEACHER THAT FITS ENTIRELY IN 12GB VRAM (the big one):
+     RECOMMENDED: Qwen3-14B  GGUF Q4_K_M (~9.0GB)  -> 30-50 tok/s
+     search LM Studio for:  "Qwen3-14B GGUF" (lmstudio-community or unsloth)
+     Fully-in-VRAM 14B beats half-offloaded 32B on wall-clock by 20-50x and
+     the quality difference on a structured rubric task is small.
+     QUALITY OPTION (slower): Qwen3.8-27B UD-Q3_K_XL — newest model, but at
+     ~14GB it partially offloads on 12GB; expect ~5-10 tok/s. Use overnight.
+   In LM Studio set: GPU offload = MAX, context = 4096 (NOT more — long
+   context steals VRAM), and turn OFF "keep model in RAM".
+
+2. GREAT-BUSINESSES-ONLY (default): the moat model's job is to grade moats
+   of companies that already pass the great-business scan, so we only label
+   those (~150 prompts instead of ~440). Override with --all if ever needed.
+
+3. THINKING SUPPRESSED: Qwen3-series models think by default (hundreds of
+   hidden tokens per answer). We request non-thinking mode and strip any
+   <think> blocks. Override with --thinking if you want it (3-5x slower,
+   marginal quality gain on this structured task).
+
+4. PARALLEL WORKERS: --workers 2 (default) keeps the GPU saturated while
+   HTTP round-trips happen. LM Studio queues them safely.
+
+EXPECTED RUNTIME (Qwen3-14B Q4_K_M fully in VRAM, ~150 great-only prompts):
+   roughly 20-40s per answer -> ~1-1.5 hours total. Not 16 hours.
+
 Works with any OpenAI-compatible server — LM Studio is the zero-config
 option (Developer tab -> Start Server -> default http://localhost:1234).
-Teacher model: Qwen2.5-32B-Instruct GGUF, e.g. the community upload
-  jorgedelpozolerida/Qwen2.5-32B-Instruct-Q3_K_M-GGUF  (~15.95 GB)
-It will offload to system RAM on a 12GB card — slow (roughly 1-3 tok/s,
-~1-3 min per answer, so ~443 prompts = one long overnight run, possibly
-two nights). Speed does not matter for batch label generation; quality
-does. Progress is checkpointed after EVERY answer, so you can stop and
-re-run at any time — it resumes where it left off.
 
 Usage (on your PC, from the repo root):
-  python ai_moat/gen_silver.py                          # LM Studio default
-  python ai_moat/gen_silver.py --base-url http://localhost:1234/v1
-  python ai_moat/gen_silver.py --model qwen2.5-32b-instruct  # exact name from LM Studio
-  python ai_moat/gen_silver.py --limit 5                # smoke test 5 prompts first
+  python ai_moat/gen_silver.py --limit 5     # smoke test first — ALWAYS
+  python ai_moat/gen_silver.py               # full great-only run
+  python ai_moat/gen_silver.py --all         # label every scanned ticker
+  python ai_moat/gen_silver.py --workers 1   # if LM Studio misbehaves
+  python ai_moat/gen_silver.py --thinking    # allow chain-of-thought (slow)
 
 Output: ai_moat/dataset/silver.jsonl (same chat-messages format as gold).
+Progress is checkpointed after EVERY answer — stop and re-run any time.
 Uses only the Python standard library — nothing to pip install.
 """
 from __future__ import annotations
@@ -28,36 +53,91 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
+import threading
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
 PROMPTS = os.path.join(HERE, "dataset", "silver_prompts.jsonl")
+SCAN = os.path.join(ROOT, "public", "data", "scan_results.json")
 OUT = os.path.join(HERE, "dataset", "silver.jsonl")
 
 REQUIRED_HEADERS = ("MOAT VERDICT:", "SOURCES", "REASONING:", "ACTION")
 
+_THINK_RE = re.compile(r"<think>.*?</think>\s*", re.DOTALL)
 
-def chat(base_url: str, model: str, messages: list, timeout: int = 900) -> str:
+_write_lock = threading.Lock()
+
+
+def strip_thinking(text: str) -> str:
+    """Remove Qwen3-style <think>...</think> blocks (and a dangling open tag)."""
+    text = _THINK_RE.sub("", text)
+    # model ran out of tokens mid-think: drop everything from the open tag
+    if "<think>" in text:
+        text = text.split("<think>")[0]
+    return text.strip()
+
+
+def chat(base_url: str, model: str, messages: list, max_tokens: int,
+         thinking: bool, timeout: int = 900) -> str:
     """One OpenAI-compatible /chat/completions call, stdlib only."""
-    body = json.dumps({
+    body = {
         "model": model,
         "messages": messages,
         "temperature": 0.3,        # low temp: consistent, rubric-bound answers
-        "max_tokens": 900,
-    }).encode()
+        "max_tokens": max_tokens,
+    }
+    if not thinking:
+        # Understood by LM Studio / llama-server for Qwen3-family templates;
+        # harmless no-op for models that don't support it.
+        body["chat_template_kwargs"] = {"enable_thinking": False}
     req = urllib.request.Request(
         base_url.rstrip("/") + "/chat/completions",
-        data=body, headers={"Content-Type": "application/json"})
+        data=json.dumps(body).encode(),
+        headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         payload = json.load(r)
-    return payload["choices"][0]["message"]["content"]
+    return strip_thinking(payload["choices"][0]["message"]["content"])
 
 
 def looks_valid(answer: str) -> bool:
     """Cheap structural gate: the mandated format headers must be present."""
     return all(h in answer for h in REQUIRED_HEADERS)
+
+
+def great_tickers() -> set:
+    """Tickers that pass the great-business scan (is_great == True)."""
+    if not os.path.exists(SCAN):
+        print(f"WARNING: {SCAN} missing — cannot filter to great businesses; "
+              f"labelling ALL prompts")
+        return set()
+    with open(SCAN, encoding="utf-8") as f:
+        d = json.load(f)
+    rows = d["results"] if isinstance(d, dict) else d
+    return {r["ticker"] for r in rows
+            if isinstance(r, dict) and r.get("is_great")}
+
+
+def answer_one(p: dict, args) -> tuple:
+    """Worker: returns (prompt, answer_or_None)."""
+    for attempt in range(1 + args.retries):
+        try:
+            a = chat(args.base_url, args.model, p["messages"],
+                     args.max_tokens, args.thinking)
+        except Exception as e:
+            print(f"  {p['ticker']}: request failed ({e}); "
+                  f"is the LM Studio server running?")
+            time.sleep(5)
+            continue
+        if looks_valid(a):
+            return p, a
+        print(f"  {p['ticker']}: attempt {attempt+1} failed the format gate, "
+              f"retrying")
+    return p, None
 
 
 def main():
@@ -71,12 +151,31 @@ def main():
                     help="stop after N new answers (0 = all; use 5 to smoke-test)")
     ap.add_argument("--retries", type=int, default=2,
                     help="retries per prompt when the answer fails the format gate")
+    ap.add_argument("--workers", type=int, default=2,
+                    help="parallel in-flight requests (2 keeps the GPU busy; "
+                         "use 1 if the server misbehaves)")
+    ap.add_argument("--max-tokens", type=int, default=800,
+                    help="answer token cap (800 fits the mandated format easily)")
+    ap.add_argument("--all", action="store_true",
+                    help="label EVERY scanned ticker, not just great businesses")
+    ap.add_argument("--thinking", action="store_true",
+                    help="allow chain-of-thought (3-5x slower; off by default)")
     args = ap.parse_args()
 
     if not os.path.exists(PROMPTS):
         sys.exit(f"missing {PROMPTS} — run: python3 -m ai_moat.build_dataset")
 
     prompts = [json.loads(l) for l in open(PROMPTS, encoding="utf-8")]
+
+    # Great-businesses-only by default — the moat model grades companies that
+    # already pass the scan; labelling the rejects wastes hours of GPU time.
+    if not args.all:
+        g = great_tickers()
+        if g:
+            before = len(prompts)
+            prompts = [p for p in prompts if p["ticker"] in g]
+            print(f"great-only filter: {before} prompts -> {len(prompts)} "
+                  f"(pass the great-business scan); use --all to override")
 
     # Resume support: skip tickers already answered.
     done = set()
@@ -87,47 +186,40 @@ def main():
             except Exception:
                 pass
     todo = [p for p in prompts if p["ticker"] not in done]
-    print(f"{len(prompts)} prompts total, {len(done)} already answered, "
-          f"{len(todo)} to go")
+    if args.limit:
+        todo = todo[:args.limit]
+    print(f"{len(prompts)} prompts in scope, {len(done)} already answered, "
+          f"{len(todo)} to do now")
     if not todo:
-        print("nothing to do — silver.jsonl is complete")
+        print("nothing to do — silver.jsonl is complete for this scope")
         return
 
-    new = 0
+    new = skipped = 0
     t0 = time.time()
-    with open(OUT, "a", encoding="utf-8") as f:
-        for i, p in enumerate(todo, 1):
-            if args.limit and new >= args.limit:
-                break
-            answer = None
-            for attempt in range(1 + args.retries):
-                try:
-                    a = chat(args.base_url, args.model, p["messages"])
-                except Exception as e:
-                    print(f"  {p['ticker']}: request failed ({e}); "
-                          f"is the LM Studio server running?")
-                    time.sleep(5)
-                    continue
-                if looks_valid(a):
-                    answer = a
-                    break
-                print(f"  {p['ticker']}: attempt {attempt+1} failed the "
-                      f"format gate, retrying")
+    with open(OUT, "a", encoding="utf-8") as f, \
+         ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+        futures = [ex.submit(answer_one, p, args) for p in todo]
+        for i, fut in enumerate(as_completed(futures), 1):
+            p, answer = fut.result()
             if answer is None:
+                skipped += 1
                 print(f"  {p['ticker']}: SKIPPED after retries "
                       f"(re-run the script later to retry it)")
                 continue
             row = {"messages": p["messages"] + [
                        {"role": "assistant", "content": answer}],
                    "tier": "silver", "ticker": p["ticker"]}
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
-            f.flush()                       # checkpoint after every answer
+            with _write_lock:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+                f.flush()                   # checkpoint after every answer
             new += 1
-            rate = (time.time() - t0) / new
-            left = (len(todo) - i) * rate / 3600
+            rate = (time.time() - t0) / max(1, new)
+            left = (len(todo) - i) * rate / 60
             print(f"[{i}/{len(todo)}] {p['ticker']} done "
-                  f"({rate:.0f}s/answer, ~{left:.1f}h remaining)")
-    print(f"\nwrote {new} new answers -> {OUT}")
+                  f"({rate:.0f}s/answer, ~{left:.0f}min remaining)")
+
+    print(f"\nwrote {new} new answers -> {OUT}"
+          + (f"  ({skipped} skipped — re-run to retry)" if skipped else ""))
     print("NEXT: human spot-review ~10% of silver.jsonl (delete rows whose "
           "verdict contradicts the evidence card), then run train_qlora.py")
 
