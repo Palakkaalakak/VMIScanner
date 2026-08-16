@@ -409,8 +409,11 @@ def classify(sector: str, industry: str, asset_type: str = "") -> str:
 
     A broad "Financials" GICS sector label is NOT an exclusion — Mastercard
     and S&P Global are operating businesses fully evaluable with the
-    standard checklist. Only types whose evaluation requires data we don't
-    have (ETF holdings, bank CET1/NPL, REIT gearing/FFO) are excluded.
+    standard checklist. Since 2026-08-16 (user instruction) banks and REITs
+    are INCLUDED and routed to their own VMI valuation methods (master doc
+    §8 P/B for banks, §9 P/NAV+yield for REITs, §7 DNI for financials,
+    §10 P/S for cyclicals). Only ETFs remain excluded — they are funds,
+    not companies, and have no financial statements to check.
     """
     s = (sector or "").lower().strip()
     i = (industry or "").lower()
@@ -429,9 +432,11 @@ def classify(sector: str, industry: str, asset_type: str = "") -> str:
     return "standard"
 
 
-# Only types whose great-business evaluation NEEDS unavailable data are
-# excluded: ETFs (not companies), banks (CET1/NPL), REITs (gearing/FFO).
-EXCLUDED_TYPES = {"etf", "bank", "reit"}
+# 2026-08-16 (user instruction): banks and REITs are no longer excluded —
+# they get type-appropriate checks (ROE not ROIC, gearing, dividend yield)
+# and type-appropriate valuation (P/B / P/NAV per master doc §8-9). Only
+# ETFs stay out: they are funds, not companies.
+EXCLUDED_TYPES = {"etf"}
 
 
 # ---------------------------------------------------------------- results
@@ -508,8 +513,14 @@ class ScanResult:
         """Great business = zero hard FAILs anywhere, at most 2 review
         WARNs, every core check a hard PASS (WARN on a core check is not
         enough; NA is tolerated — absence of data never disqualifies), and
-        enough applicable checks for a meaningful verdict."""
-        if self.n_fail != 0 or self.applicable < 8:
+        enough applicable checks for a meaningful verdict.
+
+        Banks/REITs (included since 2026-08-16) structurally have fewer
+        applicable checks — CFO/FCF/ROIC/receivables/debt tests are NA by
+        design for them (master doc §7-9 uses NI, ROE, gearing, yield
+        instead) — so their applicable floor is 5, not 8."""
+        min_applicable = 5 if self.company_type in ("bank", "reit") else 8
+        if self.n_fail != 0 or self.applicable < min_applicable:
             return False
         # Heavenly Queens: Adam holds/grades these as super-excellent
         # compounders. Zero hard FAILs (already established above) is
@@ -678,10 +689,18 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             "5y-only pass — review flag" if st_ni == WARN else "")
 
     # ---- 3. CFO consistently increasing — multi-window
+    # Banks: NA by design — bank CFO is dominated by deposit/trading/loan
+    # flows, not operations quality. Master doc §7: for financial firms the
+    # consistency test is NET INCOME (check #2 above), not CFO.
     ocf = _first_present(_series(cf, "ncfo"))
     st, w, cagr = _multi_window_trend(ocf, accept_5y, any_long_window)
     res.metrics["cfo_cagr_10y"] = _cagr(_window(ocf, 10))
-    if st == NA:
+    if ctype == "bank":
+        add("CFO increasing (multi-window)", NA, None,
+            "Banks: CFO reflects deposit/loan/trading flows, not operating "
+            "quality — VMI §7 tests NET INCOME consistency for financial "
+            "firms instead (see check #2); NA never disqualifies")
+    elif st == NA:
         add("CFO increasing (multi-window)", NA, None,
             _na_reason(ocf, 5, "operating cash flow history"))
     elif st == FAIL and _trend_distortion_idx(ocf, any_long_window) is not None:
@@ -708,7 +727,13 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
             fcf = []
     fcf_w = _window(fcf, WINDOW_10Y)
     vals = [v for v in fcf_w if v is not None]
-    if not vals:
+    if ctype in ("bank", "reit"):
+        add("FCF positive", NA, None,
+            "Capex-based FCF is not meaningful for banks (no plant capex) or "
+            "REITs (property acquisitions booked as capex) — VMI values banks "
+            "on NI/book (§7-8) and REITs on distributions/NAV (§9); "
+            "NA never disqualifies")
+    elif not vals:
         add("FCF positive", NA, None,
             "Neither FCF nor CFO+capex reported by the data source — cannot "
             "compute free cash flow; NA never disqualifies")
