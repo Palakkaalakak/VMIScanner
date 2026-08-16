@@ -146,6 +146,12 @@ def main():
                          "(quick gold-only test run)")
     args = ap.parse_args()
 
+    try:                                       # HF token (faster downloads)
+        from ai_moat.hf_auth import load_hf_token
+    except ImportError:                        # run as plain script
+        from hf_auth import load_hf_token
+    load_hf_token()
+
     from unsloth import FastLanguageModel     # import late: needs GPU
     from datasets import Dataset
     from trl import SFTTrainer, SFTConfig

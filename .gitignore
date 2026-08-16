@@ -10,3 +10,5 @@ scanner/cache/
 scanner/__pycache__/
 scanner/vmi/__pycache__/
 *.pyc
+ai_moat/.hf_token
+ai_moat/outputs/
