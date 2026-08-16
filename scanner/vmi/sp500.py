@@ -91,7 +91,9 @@ def fetch_sp500(use_cache: bool = True, cache_max_age: float = 86400 * 7) -> Lis
         return _fetch_sp500_csv_fallback()
     i = html.find('id="constituents"')
     if i == -1:
-        raise RuntimeError("Wikipedia constituents table not found (page layout changed?)")
+        # Also covers a poisoned cache entry (e.g. a cached 429/error body)
+        print("  Wikipedia table not found in response; using GitHub CSV fallback")
+        return _fetch_sp500_csv_fallback()
     j = html.find("</table>", i)
     table_html = html[i:j]
 
