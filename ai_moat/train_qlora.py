@@ -1,5 +1,15 @@
-"""QLoRA fine-tune of Qwen2.5-14B-Instruct on the 3-tier moat dataset.
+"""QLoRA fine-tune on the 3-tier moat dataset.
 Sized for an RTX 5070 Ti (12GB VRAM) + 16GB RAM. 100% free stack.
+
+BASE MODEL CHOICE (2026-08 review):
+  qwen3-14b (DEFAULT) — Qwen3-14B: newer generation, stronger reasoning,
+      mature unsloth QLoRA support AND mature llama.cpp GGUF support
+      (standard transformer arch — quantizes cleanly with quantize_model.py).
+  14b / 7b — the previous Qwen2.5 bases, kept as proven fallbacks.
+  Qwen3.8-27B was evaluated and REJECTED as a student: (a) 27B 4-bit QLoRA
+      needs ~17-19GB — does not fit 12GB VRAM for training; (b) its new
+      Gated DeltaNet hybrid architecture is days old — fine as a TEACHER
+      via ready-made GGUFs, wrong as a fine-tune target on this hardware.
 
 What it does:
   1. Loads the free pre-quantized 4-bit base (auto-downloads ~9GB once).
@@ -13,12 +23,14 @@ Setup on your PC (once):
   pip install unsloth            # pulls torch/transformers/peft/trl/bitsandbytes
 
 Run (from the repo root):
-  python ai_moat/train_qlora.py                 # full run
-  python ai_moat/train_qlora.py --base 7b       # fallback if 14B OOMs
+  python ai_moat/train_qlora.py                 # full run (Qwen3-14B)
+  python ai_moat/train_qlora.py --base 14b      # Qwen2.5-14B fallback
+  python ai_moat/train_qlora.py --base 7b       # smallest fallback if OOM
   python ai_moat/train_qlora.py --eval-only     # re-run the eval on a saved adapter
 
-After training, quantize for LM Studio (see TRAINING.md step 4/5):
-  merged fp16 -> llama.cpp convert -> Q5_K_M GGUF (~9.9GB, fits fully in VRAM).
+After training, quantize for LM Studio AUTOMATICALLY:
+  python ai_moat/quantize_model.py --base qwen3-14b
+  (one command: merge fp16 -> llama.cpp convert -> Q5_K_M GGUF ~9.9GB)
 
 OOM ladder (apply in order): --seq 1536, then --rank 32, then --base 7b.
 """
@@ -39,8 +51,9 @@ EVAL_GOLD = {"META", "TSLA", "AMZN", "INTC", "ZM"}
 EVAL_CONTRASTIVE = {"MSFT", "GOOGL", "AAPL"}
 
 BASES = {
-    "14b": "unsloth/Qwen2.5-14B-Instruct-bnb-4bit",
-    "7b": "unsloth/Qwen2.5-7B-Instruct-bnb-4bit",
+    "qwen3-14b": "unsloth/Qwen3-14B-unsloth-bnb-4bit",   # default: newest with mature support
+    "14b": "unsloth/Qwen2.5-14B-Instruct-bnb-4bit",       # proven fallback
+    "7b": "unsloth/Qwen2.5-7B-Instruct-bnb-4bit",         # smallest fallback
 }
 
 
@@ -111,7 +124,7 @@ def run_eval(model, tokenizer, eval_rows, max_new=900):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", choices=list(BASES), default="14b")
+    ap.add_argument("--base", choices=list(BASES), default="qwen3-14b")
     ap.add_argument("--seq", type=int, default=2048)
     ap.add_argument("--rank", type=int, default=64)
     ap.add_argument("--epochs", type=int, default=3)
@@ -174,12 +187,8 @@ def main():
 
     run_eval(model, tokenizer, eval_rows)
 
-    print("\nNEXT (TRAINING.md steps 4-5): merge + quantize for LM Studio:")
-    print(f"  python -c \"from unsloth import FastLanguageModel; "
-          f"m,t=FastLanguageModel.from_pretrained('{adapter_dir}'); "
-          f"m.save_pretrained_merged('{OUTDIR}/moat-{args.base}-merged', t, "
-          f"save_method='merged_16bit')\"")
-    print("  then llama.cpp: convert_hf_to_gguf.py + llama-quantize Q5_K_M")
+    print("\nNEXT: automatic quantization for LM Studio (one command):")
+    print(f"  python ai_moat/quantize_model.py --base {args.base}")
 
 
 if __name__ == "__main__":
