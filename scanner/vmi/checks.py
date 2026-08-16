@@ -1503,6 +1503,21 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         # so gearing is informational-only via CET1 note below).
         _tot_assets = _latest_bal("assets")
         _tot_debt = _latest_bal("debt")
+        if _tot_assets is None or _tot_debt is None:
+            # Fallback: stockanalysis balance sheet (bank/REIT statements
+            # use suffixed keys like longTermDebtRE / longTermDebtBank).
+            try:
+                _balT = _sa_fetch2(res.ticker, "balance") or {}
+                if _tot_assets is None:
+                    _a = [v for v in (_balT.get("assets") or [])
+                          if isinstance(v, (int, float))]
+                    _tot_assets = _a[0] if _a else None
+                if _tot_debt is None:
+                    _d = [v for v in (_balT.get("debt") or [])
+                          if isinstance(v, (int, float))]
+                    _tot_debt = _d[0] if _d else None
+            except Exception:
+                pass
         if ctype == "reit":
             if _tot_assets and _tot_debt is not None and _tot_assets > 0:
                 _gear = _tot_debt / _tot_assets * 100
