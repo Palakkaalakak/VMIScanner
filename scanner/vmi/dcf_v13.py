@@ -393,7 +393,8 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
                       ocf_series: Optional[List[Optional[float]]] = None,
                       capex_series: Optional[List[Optional[float]]] = None,
                       ttm_ocf: Optional[float] = None,
-                      g_low: Optional[float] = None
+                      g_low: Optional[float] = None,
+                      force_ni: bool = False
                       ) -> Optional[Dict[str, float]]:
     """DIRECT DCF per Adam Khoo's Lesson 5 procedure (VMI Master Document):
     no fitted blend, no sector terms — the taught manual method verbatim.
@@ -449,7 +450,11 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     base_desc = None
     ocf_cons = _upfrac(ocf_series)
     ni_cons = _upfrac(ni_series)
-    use_ni = (ocf_latest is None or
+    # force_ni: Discounted Net Income routing (master doc §7) — financial
+    # firms (insurers/brokers/asset managers/banks) are valued on NET
+    # INCOME, never CFO/FCF (their cash flow is dominated by float/deposit
+    # movements). BLK worked example §7.2 uses NI directly.
+    use_ni = (force_ni or ocf_latest is None or
               (ocf_cons is not None and ni_cons is not None
                and ni_cons > ocf_cons))
     if not use_ni and ocf_latest is not None:

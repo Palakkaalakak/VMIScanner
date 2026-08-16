@@ -854,7 +854,13 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
     roic_latest = next((v for v in roic_computed if v is not None), None)
     st, w, roic_avg = _multi_window_avg(roic_computed, 12.0, accept_5y,
                                         any_long_window)
-    if st == NA:
+    if ctype in ("bank", "reit"):
+        add("ROIC ≥ 12%", NA, None,
+            "EBIT/(Equity+Debt−Cash) is not meaningful when the balance sheet "
+            "IS the business (bank deposits / REIT property debt) — VMI §8-9 "
+            "grades banks on ROE and REITs on distribution quality instead; "
+            "NA never disqualifies")
+    elif st == NA:
         _missing = [nm for nm, s_ in (("EBIT", ebit_s), ("pretax income", pretax_s),
                                       ("income tax", tax_s), ("equity", equity_s),
                                       ("LT debt", debt_s), ("cash", cash_s))
@@ -889,9 +895,13 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
 
     # ---- 9. Current ratio >= 1
     # Course: the standard debt checks aren't apples-to-apples for financial
-    # firms / property developers / commodity producers (structurally
-    # different balance sheets). Keep the company; mark these checks NA.
-    debt_checks_apply = ctype not in {"financial", "property", "commodity"}
+    # firms / property developers / commodity producers / banks / REITs
+    # (structurally leveraged balance sheets — deposits and property debt
+    # are the business model, not a risk signal by themselves). Keep the
+    # company; mark these checks NA. Banks get a CET1 note and REITs a
+    # gearing check in the type-specific block below instead.
+    debt_checks_apply = ctype not in {"financial", "property", "commodity",
+                                      "bank", "reit"}
     cr = _series(rat, "currentRatio") or _series(rat, "currentratio")
     cr_latest = cr[0] if cr else None
     if not debt_checks_apply:
@@ -973,7 +983,12 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
                          _series(bal, "balance_sheet_total_trade_receivables"),
                          _series(bal, "balance_sheet_accounts_receivable"))
     rev_cagr, rec_cagr = _paired_cagrs(rev, rec, WINDOW_10Y)
-    if rev_cagr is None or rec_cagr is None:
+    if ctype in ("bank", "reit"):
+        add("Receivables ≤ sales growth", NA, None,
+            "Channel-stuffing test does not apply — banks' receivables are "
+            "loans (tested via NPL, see type checks) and REITs collect rent; "
+            "NA never disqualifies")
+    elif rev_cagr is None or rec_cagr is None:
         _rec_avail = sum(1 for v in rec if v is not None)
         add("Receivables ≤ sales growth", NA, None,
             ("Trade receivables not reported by the data source — many "
