@@ -126,6 +126,31 @@
     "ni": 2.71
    },
    "finding": "Adam's 230.98 implies a ~$5.2B base \u2014 half-way between plain FCF ($2.8B) and raw OCF ($6.0B). No filing-derived flow reproduces it; closest hypothesis is a much smaller capex normalization (maintenance-capex-only ~$0.8B) than the 5y average. UNRESOLVED \u2014 our lower value is the conservative side."
+  },
+  "WM": {
+   "status": "RESOLVED 2026-08-16 \u2014 method difference, not staleness or data error",
+   "root_cause": "Adam's team's published WM 230.98 is a 'Discounted Free Cash Flow (Terminal) \u2014 Base Case': 2-stage growth then 4% Gordon perpetuity terminal value discounted through year 11. Our headline uses Adam's TAUGHT 20-year no-terminal method \u2014 structurally lower for slow-growers.",
+   "team_inputs_reproduced_exactly": {
+    "fcf_musd": 2163,
+    "shares_m": 404.3,
+    "disc_pct": 7.05,
+    "g1_pct": 9.54,
+    "g1_source": "avg of StockOracle 8.50 / Finviz 10.29 / Zacks 10.81 / GuruFocus 8.57",
+    "g2_pct": 10.81,
+    "g2_source": "StockOracle LT Growth (NOT min(g1,15))",
+    "terminal": "FCF11=FCF10*1.04; TV=FCF11/(disc-0.04); discounted through YEAR 11",
+    "debt_musd": 24020,
+    "cash_musd": 485,
+    "stages": {
+     "yrs1_5": 28.68,
+     "yrs6_10": 33.32,
+     "terminal": 227.19,
+     "total": 230.98
+    },
+    "terminal_share_of_iv": "98%"
+   },
+   "master_doc_contradiction": "Doc line ~2743 states the perpetuity 'DCF Terminal' exists on StockOracle but 'Adam does not use or teach it' \u2014 yet the team's published WM sheet IS this method. Both facts recorded; taught 20-year method stays the scanner headline, terminal DCF exported as intrinsic_value_terminal for team-report comparison.",
+   "permanent_fix": "dcf_v13.compute_iv_direct now also returns iv_terminal (guarded disc>4%); checks.py exports metrics.intrinsic_value_terminal for EVERY scanned company, so any future team-sheet comparison can be made against the matching method instead of looking like an error."
   }
  },
  "growth_rules_2026-08-16": {
@@ -151,6 +176,22 @@
    },
    "source": "GOOGL case study band 15.3/10.13/4 \u2014 10.13 is FactSet next-period rate = 0.66*g1; Adam's MSFT xlsx uses min(g1,15). Both exist in his practice.",
    "status": "2/3-band exported as intrinsic_value_direct_g2_23 metric; taught band stays headline pending user decision"
+  }
+ },
+ "valuation_routing_2026-08-16": {
+  "user_instruction": "no longer excluding financials/banks/REITs; use the correct valuation model per company type per master doc",
+  "routing": {
+   "standard/commodity/property": "DCF 20y on normalized FCF (\u00a74-5, \u00a711)",
+   "financial (insurer/broker/asset mgr)": "Discounted Net Income (\u00a77, BLK example) \u2014 force_ni in compute_iv_direct",
+   "bank": "P/B primary: 5y avg P/B \u00d7 current BVPS (\u00a78.5 BAC 1.24\u00d738.44=47.67); DNI secondary; dividend-yield check; CET1>10%/NPL<5% flagged NA (regulatory data) with manual-verify note",
+   "reit": "P/NAV primary: 5y avg P/B \u00d7 BVPS (\u00a79.4 Ascendas 1.32\u00d72.27=2.99); dividend yield \u22655% (\u00a79.3); gearing <45% (\u00a79.5); ROE NA (depreciation-distorted); \u22641.2\u00d7 NAV rule exported as p_nav_verdict"
+  },
+  "checks_adapted": "banks/REITs: CFO/FCF/ROIC/receivables/debt tests NA by design; banks keep ROE (\u00a78.4 core bank metric); applicable floor 5 instead of 8",
+  "only_exclusion_remaining": "etf (funds, not companies)",
+  "verified_on": {
+   "JPM": "bank\u2192P/B 240.38",
+   "O": "reit\u2192P/NAV 56.15, gearing 41% PASS, yield 5.2% PASS",
+   "BLK": "financial\u2192DNI 1325.54"
   }
  }
 }
