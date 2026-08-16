@@ -172,10 +172,22 @@ python ai_moat/gen_silver.py
   run), `--all` (include non-great companies), `--workers 1` (if your
   PC struggles).
 
-**Checkpoint ✋:** open `ai_moat/dataset/silver.jsonl` in a text editor.
-Skim 3-4 answers. Do they talk about actual moats (switching costs,
-network effects, brands) with numbers from the evidence? Good. Garbage?
-Stop and tell me.
+### Step 2.2b — Automated quality check (~10-20 min, NO manual review)
+The teacher grade-inflates: it hands out 9/10 and 10/10 too easily. In
+Adam's framework those scores are reserved for near-monopolies — very
+few businesses deserve them. With LM Studio still running:
+```powershell
+python ai_moat/review_silver.py
+```
+- Finds every answer scored **above 8/10** and sends it back to the
+  teacher in **skeptical second-reviewer mode**: justify the 9-10 from
+  the evidence card alone, or downgrade.
+- The reviewer can confirm or LOWER a score — never raise it.
+- Originals are backed up to `silver.pre_qc.jsonl`; progress checkpoints
+  after every review, so interrupting is safe.
+- It prints the score distribution before/after so you can see the
+  inflation get corrected. That's your quality check — no file-skimming
+  needed.
 
 ### Step 2.3 — Teach the Student (~1-2 hours, GPU fans will spin)
 ```powershell
@@ -184,6 +196,9 @@ python ai_moat/train_qlora.py
 ```
 - Downloads the student (Qwen3-14B 4-bit, ~9GB, one time), then teaches
   it the curriculum: gold (weighted highest) + contrastive + silver.
+- **FIRST: eject the Teacher in LM Studio** (or quit LM Studio). It holds
+  ~9GB of VRAM; teaching needs the card to itself. The script checks and
+  refuses to start if VRAM is occupied.
 - **The exam is automatic:** some companies are held OUT of teaching and
   used as a test. The script prints held-out accuracy at the end.
   - **Rule of thumb: below ~70% held-out agreement → don't trust it, ask
@@ -230,6 +245,7 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 | "Context size has been exceeded" | Context split across workers: 4096/2 = 2048 each, too small | Eject model → reload with Context Length 8192; or `--workers 1` |
 | EVERY ticker "failed the format gate" / SKIPPED | LM Studio ignored our no-thinking API flag: the model spends its whole 800-token budget "thinking" (LM Studio hides it in `reasoning_content`), the visible answer stays empty, so the format check correctly fails | `git pull` — the script now also appends Qwen3's in-band `/no_think` switch to every prompt, which the model itself obeys regardless of API flags. If it STILL happens: click the gear icon next to the loaded model in LM Studio and switch Reasoning OFF |
 | Teacher crawls at 1-3 tok/s | GPU Offload partial | Set to MAX; close VRAM-hungry apps; reload model |
+| train_qlora: "Some modules are dispatched on the CPU" | **LM Studio still has the Teacher loaded** — it's holding ~9GB of your 12GB; the student can't fit in what's left | Eject the model in LM Studio (or quit LM Studio), then re-run. The script now checks free VRAM upfront and tells you exactly this |
 | "CUDA out of memory" during teaching | Something else is using VRAM | Close browsers/games; retry. Persists → tell me, we add `--batch-size 1` |
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |
 | Held-out accuracy < 70% | Model didn't learn well enough | Don't ship it. We add lessons or tune together |

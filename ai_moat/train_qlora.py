@@ -15,7 +15,7 @@ What it does:
   1. Loads the free pre-quantized 4-bit base (auto-downloads ~9GB once).
   2. Builds the training mix: gold x6 + contrastive x4 + silver x1,
      HOLDING OUT eval tickers (never trained on) for the trust gate.
-  3. Trains a rank-64 LoRA adapter (~2-4h).
+  3. Trains a rank-64 LoRA adapter (~1-2h with packing enabled).
   4. Saves the adapter + runs the held-out eval so you see immediately
      whether the model reasons (downgrades corrupted evidence) or memorized.
 
@@ -33,6 +33,12 @@ After training, quantize for LM Studio AUTOMATICALLY:
   (one command: merge fp16 -> llama.cpp convert -> Q5_K_M GGUF ~9.9GB)
 
 OOM ladder (apply in order): --seq 1536, then --rank 32, then --base 7b.
+
+IMPORTANT — VRAM: the student needs ~10-11GB of the 12GB card. If LM
+Studio still has the TEACHER loaded, it is holding ~9GB and this script
+CANNOT fit ("Some modules are dispatched on the CPU" error). Eject the
+model in LM Studio (or quit LM Studio) before running. A preflight check
+below catches this and tells you.
 """
 from __future__ import annotations
 
@@ -151,6 +157,32 @@ def main():
     except ImportError:                        # run as plain script
         from hf_auth import load_hf_token
     load_hf_token()
+
+    # ---- VRAM preflight: the #1 failure is LM Studio still holding the
+    # teacher (~9GB). Training needs nearly the whole 12GB card free. ----
+    try:
+        import torch
+        if torch.cuda.is_available():
+            free_b, total_b = torch.cuda.mem_get_info()
+            free_gb, total_gb = free_b / 1024**3, total_b / 1024**3
+            if free_gb < 10.0:
+                raise SystemExit(
+                    "\n" + "=" * 68 + "\n"
+                    f"STOP: only {free_gb:.1f}GB of {total_gb:.1f}GB VRAM is "
+                    "free — training needs ~10GB+.\n"
+                    "Something else is holding the GPU. Most likely: LM "
+                    "Studio still has\nthe Teacher model loaded (~9GB).\n\n"
+                    "FIX: in LM Studio, EJECT the loaded model (or quit LM "
+                    "Studio\nentirely), close games/browser video tabs, "
+                    "then re-run this script.\nYou can reload the Teacher "
+                    "afterwards — training does not need it.\n"
+                    + "=" * 68)
+            print(f"VRAM preflight OK: {free_gb:.1f}GB free "
+                  f"of {total_gb:.1f}GB")
+    except SystemExit:
+        raise
+    except Exception:
+        pass  # preflight is best-effort; unsloth gives its own error if OOM
 
     from unsloth import FastLanguageModel     # import late: needs GPU
     from datasets import Dataset

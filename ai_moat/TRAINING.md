@@ -77,7 +77,7 @@ gold it never saw AND downgrade corrupted versions of famous names.
 
 ```bash
 pip install unsloth                       # one time
-python ai_moat/train_qlora.py             # Qwen3-14B default, ~2-4h
+python ai_moat/train_qlora.py             # Qwen3-14B default, ~1-2h (eject the LM Studio model first!)
 python ai_moat/train_qlora.py --eval-only # re-run the trust gate later
 ```
 OOM ladder (apply in order): `--seq 1536` → `--rank 32` → `--base 7b`.
@@ -142,5 +142,5 @@ ai_moat/
 | Step | Time |
 |---|---|
 | gen_silver (137 great-only, 14B in VRAM) | **~1-1.5h** (was 16h+) |
-| teach 3 epochs | 2-4h |
+| teach 3 epochs | 1-2h (packing) |
 | merge + convert + quantize | 30-60min |
