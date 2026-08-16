@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-16T14:48:42.293588+00:00",
+ "generated_at": "2026-08-16T14:55:48.345514+00:00",
  "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
  "universe": "S&P 500 + Dow Jones 30 + Nasdaq-100 + curated extras (ADRs/ex-index quality) (merged)",
  "universe_size": 540,
@@ -96789,5 +96789,5 @@
    "exclusion_reason": ""
   }
  ],
- "elapsed_seconds": 841.9
+ "elapsed_seconds": 0.0
 }
