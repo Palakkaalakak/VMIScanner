@@ -1,1 +1,4808 @@
-{"generated_at": "2026-08-15T18:06:37.658415+00:00", "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)", "universe": "ad-hoc tickers (2)", "universe_size": 2, "included_after_exclusion": 2, "excluded_count": 60, "counts": {"great": 152, "near_miss": 246, "failed": 82, "errors": 0}, "excluded": [{"ticker": "ARE", "company": "Alexandria Real Estate Equities", "sector": "Real Estate", "industry": "Office REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "AMT", "company": "American Tower", "sector": "Real Estate", "industry": "Telecom Tower REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "AMP", "company": "Ameriprise Financial", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "APO", "company": "Apollo Global Management", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "ARES", "company": "Ares Management", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "AVB", "company": "AvalonBay Communities", "sector": "Real Estate", "industry": "Multi-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "BAC", "company": "Bank of America", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "BLK", "company": "BlackRock", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "BX", "company": "Blackstone Inc.", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "BNY", "company": "BNY Mellon", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "BXP", "company": "BXP, Inc.", "sector": "Real Estate", "industry": "Office REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "CPT", "company": "Camden Property Trust", "sector": "Real Estate", "industry": "Multi-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "SCHW", "company": "Charles Schwab Corporation", "sector": "Financials", "industry": "Investment Banking & Brokerage", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "C", "company": "Citigroup", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "CFG", "company": "Citizens Financial Group", "sector": "Financials", "industry": "Regional Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "CCI", "company": "Crown Castle", "sector": "Real Estate", "industry": "Telecom Tower REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "DLR", "company": "Digital Realty", "sector": "Real Estate", "industry": "Data Center REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "EQIX", "company": "Equinix", "sector": "Real Estate", "industry": "Data Center REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "EQR", "company": "Equity Residential", "sector": "Real Estate", "industry": "Multi-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "ESS", "company": "Essex Property Trust", "sector": "Real Estate", "industry": "Multi-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "EXR", "company": "Extra Space Storage", "sector": "Real Estate", "industry": "Self-Storage REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "FRT", "company": "Federal Realty Investment Trust", "sector": "Real Estate", "industry": "Retail REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "FITB", "company": "Fifth Third Bancorp", "sector": "Financials", "industry": "Regional Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "BEN", "company": "Franklin Resources", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "GS", "company": "Goldman Sachs", "sector": "Financials", "industry": "Investment Banking & Brokerage", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "DOC", "company": "Healthpeak Properties", "sector": "Real Estate", "industry": "Health Care REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "HST", "company": "Host Hotels & Resorts", "sector": "Real Estate", "industry": "Hotel & Resort REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "HBAN", "company": "Huntington Bancshares", "sector": "Financials", "industry": "Regional Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "IBKR", "company": "Interactive Brokers", "sector": "Financials", "industry": "Investment Banking & Brokerage", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "IVZ", "company": "Invesco", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "INVH", "company": "Invitation Homes", "sector": "Real Estate", "industry": "Single-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "IRM", "company": "Iron Mountain", "sector": "Real Estate", "industry": "Other Specialized REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "JPM", "company": "JPMorgan Chase", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "KEY", "company": "KeyCorp", "sector": "Financials", "industry": "Regional Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "KIM", "company": "Kimco Realty", "sector": "Real Estate", "industry": "Retail REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "KKR", "company": "KKR & Co.", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "MTB", "company": "M&T Bank", "sector": "Financials", "industry": "Regional Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "MAA", "company": "Mid-America Apartment Communities", "sector": "Real Estate", "industry": "Multi-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "MS", "company": "Morgan Stanley", "sector": "Financials", "industry": "Investment Banking & Brokerage", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "NTRS", "company": "Northern Trust", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "PNC", "company": "PNC Financial Services", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "PLD", "company": "Prologis", "sector": "Real Estate", "industry": "Industrial REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "PSA", "company": "Public Storage", "sector": "Real Estate", "industry": "Self-Storage REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "RJF", "company": "Raymond James Financial", "sector": "Financials", "industry": "Investment Banking & Brokerage", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "O", "company": "Realty Income", "sector": "Real Estate", "industry": "Retail REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "REG", "company": "Regency Centers", "sector": "Real Estate", "industry": "Retail REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "RF", "company": "Regions Financial Corporation", "sector": "Financials", "industry": "Regional Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "HOOD", "company": "Robinhood Markets", "sector": "Financials", "industry": "Investment Banking & Brokerage", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "SBAC", "company": "SBA Communications", "sector": "Real Estate", "industry": "Telecom Tower REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "SPG", "company": "Simon Property Group", "sector": "Real Estate", "industry": "Retail REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "STT", "company": "State Street Corporation", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "TROW", "company": "T. Rowe Price", "sector": "Financials", "industry": "Asset Management & Custody Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "TFC", "company": "Truist Financial", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "USB", "company": "U.S. Bancorp", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "UDR", "company": "UDR, Inc.", "sector": "Real Estate", "industry": "Multi-Family Residential REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "VTR", "company": "Ventas", "sector": "Real Estate", "industry": "Health Care REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "VICI", "company": "Vici Properties", "sector": "Real Estate", "industry": "Hotel & Resort REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "WFC", "company": "Wells Fargo", "sector": "Financials", "industry": "Diversified Banks", "company_type": "bank", "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "WELL", "company": "Welltower", "sector": "Real Estate", "industry": "Health Care REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}, {"ticker": "WY", "company": "Weyerhaeuser", "sector": "Real Estate", "industry": "Timber REITs", "company_type": "reit", "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."}], "results": [], "elapsed_seconds": 4.8}
+{
+ "generated_at": "2026-08-16T04:11:37.128694+00:00",
+ "criteria_version": "VMI fundamentals only (no valuation/TA) \u2014 5y window for ROE/margins (explicit in docs), 10y default elsewhere (docs ambiguous/silent)",
+ "universe": "S&P 500 + Dow Jones 30 + Nasdaq-100 + curated extras (ADRs/ex-index quality) (merged)",
+ "universe_size": 540,
+ "included_after_exclusion": 480,
+ "excluded_count": 60,
+ "counts": {
+  "great": 9,
+  "near_miss": 7,
+  "failed": 9,
+  "errors": 0
+ },
+ "excluded": [
+  {
+   "ticker": "ARE",
+   "company": "Alexandria Real Estate Equities",
+   "sector": "Real Estate",
+   "industry": "Office REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "AMT",
+   "company": "American Tower",
+   "sector": "Real Estate",
+   "industry": "Telecom Tower REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "AMP",
+   "company": "Ameriprise Financial",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "APO",
+   "company": "Apollo Global Management",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "ARES",
+   "company": "Ares Management",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "AVB",
+   "company": "AvalonBay Communities",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BAC",
+   "company": "Bank of America",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BLK",
+   "company": "BlackRock",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BX",
+   "company": "Blackstone Inc.",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BNY",
+   "company": "BNY Mellon",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BXP",
+   "company": "BXP, Inc.",
+   "sector": "Real Estate",
+   "industry": "Office REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "CPT",
+   "company": "Camden Property Trust",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "SCHW",
+   "company": "Charles Schwab Corporation",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "C",
+   "company": "Citigroup",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "CFG",
+   "company": "Citizens Financial Group",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "CCI",
+   "company": "Crown Castle",
+   "sector": "Real Estate",
+   "industry": "Telecom Tower REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "DLR",
+   "company": "Digital Realty",
+   "sector": "Real Estate",
+   "industry": "Data Center REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "EQIX",
+   "company": "Equinix",
+   "sector": "Real Estate",
+   "industry": "Data Center REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "EQR",
+   "company": "Equity Residential",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "ESS",
+   "company": "Essex Property Trust",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "EXR",
+   "company": "Extra Space Storage",
+   "sector": "Real Estate",
+   "industry": "Self-Storage REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "FRT",
+   "company": "Federal Realty Investment Trust",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "FITB",
+   "company": "Fifth Third Bancorp",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "BEN",
+   "company": "Franklin Resources",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "GS",
+   "company": "Goldman Sachs",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "DOC",
+   "company": "Healthpeak Properties",
+   "sector": "Real Estate",
+   "industry": "Health Care REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "HST",
+   "company": "Host Hotels & Resorts",
+   "sector": "Real Estate",
+   "industry": "Hotel & Resort REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "HBAN",
+   "company": "Huntington Bancshares",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "IBKR",
+   "company": "Interactive Brokers",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "IVZ",
+   "company": "Invesco",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "INVH",
+   "company": "Invitation Homes",
+   "sector": "Real Estate",
+   "industry": "Single-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "IRM",
+   "company": "Iron Mountain",
+   "sector": "Real Estate",
+   "industry": "Other Specialized REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "JPM",
+   "company": "JPMorgan Chase",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "KEY",
+   "company": "KeyCorp",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "KIM",
+   "company": "Kimco Realty",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "KKR",
+   "company": "KKR & Co.",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "MTB",
+   "company": "M&T Bank",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "MAA",
+   "company": "Mid-America Apartment Communities",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "MS",
+   "company": "Morgan Stanley",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "NTRS",
+   "company": "Northern Trust",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "PNC",
+   "company": "PNC Financial Services",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "PLD",
+   "company": "Prologis",
+   "sector": "Real Estate",
+   "industry": "Industrial REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "PSA",
+   "company": "Public Storage",
+   "sector": "Real Estate",
+   "industry": "Self-Storage REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "RJF",
+   "company": "Raymond James Financial",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "O",
+   "company": "Realty Income",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "REG",
+   "company": "Regency Centers",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "RF",
+   "company": "Regions Financial Corporation",
+   "sector": "Financials",
+   "industry": "Regional Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "HOOD",
+   "company": "Robinhood Markets",
+   "sector": "Financials",
+   "industry": "Investment Banking & Brokerage",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "SBAC",
+   "company": "SBA Communications",
+   "sector": "Real Estate",
+   "industry": "Telecom Tower REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "SPG",
+   "company": "Simon Property Group",
+   "sector": "Real Estate",
+   "industry": "Retail REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "STT",
+   "company": "State Street Corporation",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "TROW",
+   "company": "T. Rowe Price",
+   "sector": "Financials",
+   "industry": "Asset Management & Custody Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "TFC",
+   "company": "Truist Financial",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "USB",
+   "company": "U.S. Bancorp",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "UDR",
+   "company": "UDR, Inc.",
+   "sector": "Real Estate",
+   "industry": "Multi-Family Residential REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "VTR",
+   "company": "Ventas",
+   "sector": "Real Estate",
+   "industry": "Health Care REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "VICI",
+   "company": "Vici Properties",
+   "sector": "Real Estate",
+   "industry": "Hotel & Resort REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "WFC",
+   "company": "Wells Fargo",
+   "sector": "Financials",
+   "industry": "Diversified Banks",
+   "company_type": "bank",
+   "reason": "Excluded per user instruction: bank companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "WELL",
+   "company": "Welltower",
+   "sector": "Real Estate",
+   "industry": "Health Care REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  },
+  {
+   "ticker": "WY",
+   "company": "Weyerhaeuser",
+   "sector": "Real Estate",
+   "industry": "Timber REITs",
+   "company_type": "reit",
+   "reason": "Excluded per user instruction: reit companies have VMI exception rules (REITs/banks/financial firms/property/commodity are structurally leveraged) \u2014 not scanned for now."
+  }
+ ],
+ "results": [
+  {
+   "ticker": "AMD",
+   "company": "Advanced Micro Devices",
+   "sector": "Information Technology",
+   "industry": "Semiconductors",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 80.8,
+   "is_great": false,
+   "n_pass": 8,
+   "n_fail": 0,
+   "n_warn": 5,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "12.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "16.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "23.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "2/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 49.5%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 12.5%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg -13.6%, latest 6.9%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 15.3%, latest 6.3%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.85",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.56",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "1.7%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 37.0% vs sales 26.0%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +75.1%/yr, next-Y +104.5%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.20491251645171027,
+    "rev_cagr_10y": 0.2602731461199397,
+    "rev_cagr_15y": 0.12611014642190277,
+    "ni_cagr_5y": 0.08207361901124788,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": 0.16832811890321953,
+    "cfo_cagr_10y": 0.658955668593773,
+    "proj_eps_next_5y": 75.07,
+    "proj_eps_next_y": 104.46,
+    "eps_past_5y": 5.13,
+    "shares_finviz_listed_class": 1630000000,
+    "shares_implied_total": 1632475042,
+    "price": 514.39,
+    "intrinsic_value": 158.89,
+    "dcf_growth_used": 16.7,
+    "dcf_base_flow": "fwdni:0.25+ocf3:0.672+fcf3:0.078",
+    "dcf_sector_group": "tech-hw",
+    "dcf_discount_rate": 10.32,
+    "discount_pct": -223.7,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 46.21,
+    "rev_cagr_hist_max": 26.03,
+    "direct_growth_prefit": 26.03,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 17.88,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 159.29,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 137.73,
+    "intrinsic_value_doomsday": 113.62,
+    "direct_growth_low": 14.45,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -222.9,
+    "ttm_roe": 10.196,
+    "ttm_roic": 9.769,
+    "ttm_roa": 5.128,
+    "ttm_pe": 131.292,
+    "ttm_fwd_pe": 46.316,
+    "ttm_peg": 0.704,
+    "ttm_fcf_yield": 1.001,
+    "ttm_current_ratio": 2.609,
+    "ttm_debt_equity": 0.06,
+    "ttm_debt_ebitda": 0.43,
+    "ttm_interest_coverage": 44.456,
+    "ttm_z_score": 15.21,
+    "ttm_f_score": 8.0,
+    "ttm_eps_growth_3y": 73.26,
+    "peg_adam": 7.34,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 8.73,
+    "fair_value_ps": 185.23,
+    "pb_avg_5y": 7.76,
+    "fair_value_pb": 299.41,
+    "rev_growth_proj": 25.31,
+    "psg": 0.96,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 132.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 91.8,
+    "sort_predictability": 67.9,
+    "sort_profitability": 26.3,
+    "sort_growth": 57.2,
+    "moat_gm_trend_pp": 13.4,
+    "moat_om_trend_pp": 10.6,
+    "moat_evidence_score": 79.4,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 49.5% \u2014 below the 50% pricing-power tell; 3y-avg trend +13.4pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 5/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 10.7%, +10.6pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 67% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 8/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ABBV",
+   "company": "AbbVie",
+   "sector": "Health Care",
+   "industry": "Biotechnology",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 80.8,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 1,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.4% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "1.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 70.2%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 6.9%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 32.4%, latest 17.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.67",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "4.07",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "15.2%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 12.0% vs sales 10.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +21.6%/yr, next-Y +16.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.02138290840395274,
+    "rev_cagr_10y": 0.10142189048804329,
+    "rev_cagr_15y": 0.09374432887600892,
+    "ni_cagr_5y": -0.22212089528356893,
+    "ni_cagr_10y": -0.03735544940891511,
+    "ni_cagr_15y": 0.014955111153564848,
+    "cfo_cagr_10y": 0.11680737072282077,
+    "proj_eps_next_5y": 21.65,
+    "proj_eps_next_y": 16.56,
+    "eps_past_5y": -2.81,
+    "shares_finviz_listed_class": 1770000000,
+    "shares_implied_total": 1767117285,
+    "price": 249.46,
+    "intrinsic_value": 781.28,
+    "dcf_growth_used": 22.2,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 4.34,
+    "discount_pct": 68.1,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 12.81,
+    "rev_cagr_hist_max": 10.14,
+    "direct_growth_prefit": 10.14,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 11.6,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 271.75,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 221.9,
+    "intrinsic_value_doomsday": 188.37,
+    "direct_growth_low": 9.16,
+    "mos_verdict": "below base IV only",
+    "discount_pct_direct": 8.2,
+    "ttm_roe": -129.235,
+    "ttm_roic": 17.699,
+    "ttm_roa": 10.51,
+    "ttm_pe": 70.475,
+    "ttm_fwd_pe": 16.445,
+    "ttm_peg": 1.221,
+    "ttm_fcf_yield": 4.131,
+    "ttm_div_yield": 2.774,
+    "ttm_current_ratio": 0.809,
+    "ttm_debt_equity": -20.49,
+    "ttm_debt_ebitda": 2.28,
+    "ttm_interest_coverage": 7.851,
+    "ttm_z_score": 2.42,
+    "ttm_f_score": 8.0,
+    "ttm_eps_growth_3y": 21.65,
+    "peg_adam": 6.07,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 5.28,
+    "fair_value_ps": 182.7,
+    "pb_avg_5y": 37.92,
+    "fair_value_pb": -70.18,
+    "rev_growth_proj": 3.76,
+    "psg": 1.92,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 361.6,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 30.3,
+    "sort_predictability": 71.4,
+    "sort_profitability": 20.0,
+    "sort_growth": 19.8,
+    "moat_gm_trend_pp": -7.3,
+    "moat_om_trend_pp": -6.1,
+    "moat_evidence_score": 79.9,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 70.2% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -7.3pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 10/10 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 24.6%, -6.1pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 71% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ABT",
+   "company": "Abbott Laboratories",
+   "sector": "Health Care",
+   "industry": "Health Care Equipment",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 92.3,
+   "is_great": false,
+   "n_pass": 11,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "0.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 56.4%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 14.7%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 14.6%, latest 12.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 15.9%, latest 11.0%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.58",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.36",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "1.9%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 10.4% vs sales 8.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.3%/yr, next-Y +9.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.007194192037995428,
+    "rev_cagr_10y": 0.08740156793665488,
+    "rev_cagr_15y": 0.053368110097900434,
+    "ni_cagr_5y": -0.019927329961127227,
+    "ni_cagr_10y": 0.18649278558704818,
+    "ni_cagr_15y": 0.02326547276718771,
+    "cfo_cagr_10y": 0.12926806998373297,
+    "proj_eps_next_5y": 9.29,
+    "proj_eps_next_y": 9.93,
+    "eps_past_5y": 8.23,
+    "shares_finviz_listed_class": 1730000000,
+    "shares_implied_total": 1730383296,
+    "price": 111.25,
+    "intrinsic_value": 122.92,
+    "dcf_growth_used": 9.2,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 5.22,
+    "discount_pct": 9.5,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 8.74,
+    "direct_growth_prefit": 3.43,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 8.95,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 104.96,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 104.96,
+    "intrinsic_value_doomsday": 91.05,
+    "direct_growth_low": 8.95,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -6.0,
+    "ttm_roe": 10.576,
+    "ttm_roic": 7.509,
+    "ttm_roa": 5.328,
+    "ttm_pe": 35.997,
+    "ttm_fwd_pe": 19.181,
+    "ttm_peg": 2.226,
+    "ttm_fcf_yield": 4.064,
+    "ttm_div_yield": 2.265,
+    "ttm_current_ratio": 1.376,
+    "ttm_debt_equity": 0.63,
+    "ttm_debt_ebitda": 2.71,
+    "ttm_interest_coverage": 10.751,
+    "ttm_z_score": 3.49,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 9.26,
+    "peg_adam": 4.02,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 4.87,
+    "fair_value_ps": 124.73,
+    "pb_avg_5y": 5.01,
+    "fair_value_pb": 150.83,
+    "rev_growth_proj": 3.15,
+    "psg": 1.38,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 51.8,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 37.0,
+    "sort_predictability": 67.9,
+    "sort_profitability": 21.8,
+    "sort_growth": 8.3,
+    "moat_gm_trend_pp": 2.4,
+    "moat_om_trend_pp": 8.3,
+    "moat_evidence_score": 79.6,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 56.4% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +2.4pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 3/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 18.2%, +8.3pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 67% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ADBE",
+   "company": "Adobe Inc.",
+   "sector": "Information Technology",
+   "industry": "Application Software",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": true,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.1% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "16.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "14.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 89.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 30.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 25.0%, latest 61.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 26.4%, latest 57.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "WARN",
+     "value": "1.00",
+     "detail": "Slightly below 1 \u2014 check for deferred revenue in current liabilities (course caveat: deliberate low current ratio)"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.65",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 12.2% vs sales 16.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +14.5%/yr, next-Y +12.7%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.10774954699996808,
+    "rev_cagr_10y": 0.16846049187299617,
+    "rev_cagr_15y": 0.13148509667183728,
+    "ni_cagr_5y": 0.10272083668849241,
+    "ni_cagr_10y": 0.2225363457639935,
+    "ni_cagr_15y": 0.16575927338602003,
+    "cfo_cagr_10y": 0.18363956020926708,
+    "proj_eps_next_5y": 14.49,
+    "proj_eps_next_y": 12.73,
+    "eps_past_5y": 9.04,
+    "shares_finviz_listed_class": 399000000,
+    "shares_implied_total": 397500000,
+    "price": 264.02,
+    "intrinsic_value": 536.7,
+    "dcf_growth_used": 8.9,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 7.45,
+    "discount_pct": 50.8,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 16.85,
+    "direct_growth_prefit": 13.53,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 12.94,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 694.76,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 676.41,
+    "intrinsic_value_doomsday": 561.33,
+    "direct_growth_low": 12.56,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 62.0,
+    "ttm_roe": 62.954,
+    "ttm_roic": 60.736,
+    "ttm_roa": 19.926,
+    "ttm_pe": 15.101,
+    "ttm_fwd_pe": 10.181,
+    "ttm_peg": 0.725,
+    "ttm_fcf_yield": 9.795,
+    "ttm_current_ratio": 0.751,
+    "ttm_debt_equity": 0.61,
+    "ttm_debt_ebitda": 0.72,
+    "ttm_interest_coverage": 35.448,
+    "ttm_z_score": 8.35,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 14.25,
+    "peg_adam": 1.17,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 11.63,
+    "fair_value_ps": 695.65,
+    "pb_avg_5y": 15.13,
+    "fair_value_pb": 442.33,
+    "rev_growth_proj": 10.94,
+    "psg": 0.4,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 47.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 66.3,
+    "sort_predictability": 78.6,
+    "sort_profitability": 90.6,
+    "sort_growth": 29.6,
+    "moat_gm_trend_pp": 0.7,
+    "moat_om_trend_pp": 13.0,
+    "moat_evidence_score": 93.7,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 89.3% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +0.7pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 9/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 36.6%, +13.0pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 78% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AES",
+   "company": "AES Corporation",
+   "sector": "Utilities",
+   "industry": "Independent Power Producers & Energy Traders",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 63.6,
+   "is_great": false,
+   "n_pass": 6,
+   "n_fail": 3,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-2.4% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "6/10 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 18.1%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 7.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 18.4%, latest 22.4%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing EBIT, LT debt; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.77",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "EBITDA not reported/derivable from this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "26.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 1.6% vs sales 1.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +3.7%/yr, next-Y +5.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.007697196905587234,
+    "rev_cagr_10y": 0.016796037185736523,
+    "rev_cagr_15y": -0.023900948618660323,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.06208669109664422,
+    "proj_eps_next_5y": 3.67,
+    "proj_eps_next_y": 5.75,
+    "eps_past_5y": 82.82,
+    "shares_finviz_listed_class": 713160000,
+    "shares_implied_total": 713438630,
+    "price": 14.73,
+    "intrinsic_value": 38.93,
+    "dcf_growth_used": -9.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.2,
+    "discount_pct": 62.2,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 41.43,
+    "rev_cagr_hist_max": 1.68,
+    "direct_growth_prefit": 1.68,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 8.26,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 30.18,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 30.18,
+    "intrinsic_value_doomsday": 26.92,
+    "direct_growth_low": 8.26,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 51.2,
+    "ttm_roe": 9.574,
+    "ttm_roic": 3.521,
+    "ttm_roa": 2.964,
+    "ttm_pe": 5.525,
+    "ttm_fwd_pe": 7.131,
+    "ttm_peg": 0.891,
+    "ttm_fcf_yield": -16.367,
+    "ttm_div_yield": 4.778,
+    "ttm_current_ratio": 0.746,
+    "ttm_debt_equity": 2.57,
+    "ttm_debt_ebitda": 7.95,
+    "ttm_interest_coverage": 1.699,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 2.4,
+    "peg_adam": 0.67,
+    "peg_verdict": "cheap (<1)",
+    "ps_avg_5y": 1.11,
+    "fair_value_ps": 19.12,
+    "pb_avg_5y": 1.94,
+    "fair_value_pb": 11.08,
+    "rev_growth_proj": 5.17,
+    "psg": 0.17,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 453.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 9.4,
+    "sort_predictability": 46.4,
+    "sort_profitability": 20.7,
+    "sort_growth": 4.6,
+    "moat_gm_trend_pp": -0.8,
+    "moat_evidence_score": 40.8,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 18.1% \u2014 below the 50% pricing-power tell; 3y-avg trend -0.8pp vs decade start",
+    "growth_consistency": "revenue/income up-years 46% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 4/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "MMM",
+   "company": "3M",
+   "sector": "Industrials",
+   "industry": "Industrial Conglomerates",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 69.2,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 4,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-1.2% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-2.0% CAGR",
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-5.8% CAGR ()",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 39.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 13.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 33.6%, latest 69.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 18.6%, latest 29.2%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.71",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.12",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "FAIL",
+     "value": "41.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -2.4% vs sales -2.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.5%/yr, next-Y +10.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.08347097388978575,
+    "rev_cagr_10y": -0.020675543028777943,
+    "rev_cagr_15y": -0.012164849428491498,
+    "ni_cagr_5y": -0.1392598232864546,
+    "ni_cagr_10y": -0.047790647969401134,
+    "ni_cagr_15y": -0.019521139033551127,
+    "cfo_cagr_10y": -0.11119584751809908,
+    "proj_eps_next_5y": 9.54,
+    "proj_eps_next_y": 9.99,
+    "eps_past_5y": -8.5,
+    "shares_finviz_listed_class": 515720000,
+    "shares_implied_total": 515722417,
+    "price": 182.65,
+    "intrinsic_value": 83.99,
+    "dcf_growth_used": 8.8,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.36,
+    "discount_pct": -117.5,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 1.72,
+    "rev_cagr_hist_max": -2.07,
+    "direct_growth_used": -2.07,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 53.64,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 53.64,
+    "intrinsic_value_doomsday": 55.58,
+    "direct_growth_low": -2.07,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -240.5,
+    "ttm_roe": 81.892,
+    "ttm_roic": 36.579,
+    "ttm_roa": 8.742,
+    "ttm_pe": 32.489,
+    "ttm_fwd_pe": 19.733,
+    "ttm_peg": 2.141,
+    "ttm_fcf_yield": 4.231,
+    "ttm_div_yield": 1.708,
+    "ttm_current_ratio": 1.24,
+    "ttm_debt_equity": 4.38,
+    "ttm_debt_ebitda": 1.94,
+    "ttm_interest_coverage": 5.861,
+    "ttm_z_score": 4.41,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 9.13,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 2.85,
+    "fair_value_ps": 137.96,
+    "pb_avg_5y": 11.96,
+    "fair_value_pb": 109.08,
+    "rev_growth_proj": -6.4,
+    "cfo_vs_ni_pct": 50.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 39.6,
+    "sort_predictability": 57.1,
+    "sort_profitability": 67.6,
+    "sort_growth": 8.0,
+    "moat_gm_trend_pp": -7.4,
+    "moat_om_trend_pp": -23.1,
+    "moat_evidence_score": 57.2,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 39.9% \u2014 below the 50% pricing-power tell; 3y-avg trend -7.4pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 8/9 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 18.6%, -23.1pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 57% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AOS",
+   "company": "A. O. Smith",
+   "sector": "Industrials",
+   "industry": "Building Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "18.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 38.8%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 14.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 21.5%, latest 29.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 24.4%, latest 30.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.50",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.19",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "2.2%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 1.3% vs sales 4.0%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +4.8%/yr, next-Y +9.2%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.019972095112358534,
+    "rev_cagr_10y": 0.040221281855898905,
+    "rev_cagr_15y": 0.05927086352420674,
+    "ni_cagr_5y": 0.029042689161283608,
+    "ni_cagr_10y": 0.05883876902303298,
+    "ni_cagr_15y": 0.042327073607122845,
+    "cfo_cagr_10y": 0.03652701923526824,
+    "proj_eps_next_5y": 4.79,
+    "proj_eps_next_y": 9.23,
+    "eps_past_5y": 12.66,
+    "shares_finviz_listed_class": 110800000,
+    "shares_implied_total": 135908573,
+    "price": 62.17,
+    "intrinsic_value": 140.09,
+    "dcf_growth_used": 14.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 6.77,
+    "discount_pct": 55.6,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 4.25,
+    "rev_cagr_hist_max": 4.02,
+    "direct_growth_prefit": 4.02,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 9.18,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 100.0,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 99.14,
+    "intrinsic_value_doomsday": 86.69,
+    "direct_growth_low": 9.06,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 37.8,
+    "ttm_roe": 27.133,
+    "ttm_roic": 22.967,
+    "ttm_roa": 12.54,
+    "ttm_pe": 17.324,
+    "ttm_fwd_pe": 15.943,
+    "ttm_peg": 1.329,
+    "ttm_fcf_yield": 7.567,
+    "ttm_div_yield": 2.316,
+    "ttm_current_ratio": 1.594,
+    "ttm_debt_equity": 0.37,
+    "ttm_debt_ebitda": 0.84,
+    "ttm_interest_coverage": 32.608,
+    "ttm_z_score": 6.56,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 5.1,
+    "peg_adam": 1.89,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.88,
+    "fair_value_ps": 81.13,
+    "pb_avg_5y": 5.87,
+    "fair_value_pb": 80.31,
+    "rev_growth_proj": 1.93,
+    "psg": 1.14,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 26.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 66.8,
+    "sort_predictability": 67.9,
+    "sort_profitability": 44.4,
+    "sort_growth": 8.1,
+    "moat_gm_trend_pp": 5.3,
+    "moat_om_trend_pp": 6.0,
+    "moat_evidence_score": 89.1,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 38.8% \u2014 below the 50% pricing-power tell; 3y-avg trend +5.3pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 10/10 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 19.0%, +6.0pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 67% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ACN",
+   "company": "Accenture",
+   "sector": "Information Technology",
+   "industry": "IT Consulting & Other Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": true,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.9% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 31.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 11.0%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 41.4%, latest 24.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 99.0%, latest 31.5%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.42",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.46",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 13.8% vs sales 8.0%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +6.8%/yr, next-Y +5.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08360621097031795,
+    "rev_cagr_10y": 0.0801935768707589,
+    "rev_cagr_15y": 0.06906556389954632,
+    "ni_cagr_5y": 0.06777541639386198,
+    "ni_cagr_10y": 0.07185679784924659,
+    "ni_cagr_15y": 0.0906831518239204,
+    "cfo_cagr_10y": 0.1051115116257666,
+    "proj_eps_next_5y": 6.8,
+    "proj_eps_next_y": 5.9,
+    "eps_past_5y": 9.01,
+    "shares_finviz_listed_class": 611860000,
+    "shares_implied_total": 611942109,
+    "price": 176.89,
+    "intrinsic_value": 744.42,
+    "dcf_growth_used": 14.9,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 6.58,
+    "discount_pct": 76.2,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 8.02,
+    "direct_growth_prefit": 7.43,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 10.53,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 522.53,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 513.44,
+    "intrinsic_value_doomsday": 441.42,
+    "direct_growth_low": 10.28,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 66.1,
+    "ttm_roe": 24.406,
+    "ttm_roic": 27.093,
+    "ttm_roa": 10.903,
+    "ttm_pe": 14.148,
+    "ttm_fwd_pe": 12.337,
+    "ttm_peg": 1.94,
+    "ttm_fcf_yield": 11.623,
+    "ttm_div_yield": 3.686,
+    "ttm_current_ratio": 1.339,
+    "ttm_debt_equity": 0.25,
+    "ttm_debt_ebitda": 0.6,
+    "ttm_interest_coverage": 43.369,
+    "ttm_z_score": 4.79,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 6.89,
+    "peg_adam": 1.34,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 3.2,
+    "fair_value_ps": 364.25,
+    "pb_avg_5y": 7.75,
+    "fair_value_pb": 394.82,
+    "rev_growth_proj": 7.81,
+    "psg": 0.2,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 71.7,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 66.8,
+    "sort_predictability": 89.3,
+    "sort_profitability": 43.2,
+    "sort_growth": 18.3,
+    "moat_gm_trend_pp": 1.7,
+    "moat_om_trend_pp": 1.1,
+    "moat_evidence_score": 90.6,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 31.9% \u2014 below the 50% pricing-power tell; 3y-avg trend +1.7pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 10/10 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 14.7%, +1.1pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 89% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AFL",
+   "company": "Aflac",
+   "sector": "Financials",
+   "industry": "Life & Health Insurance",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "financial",
+   "data_source": "sec",
+   "score": 71.4,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 2,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-1.8% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-9.8% CAGR ()",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 21.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 17.1%, latest 12.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing LT debt; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "NA",
+     "value": null,
+     "detail": "Trade receivables not reported by the data source \u2014 many companies fold them into other current assets; NA never disqualifies"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +1.8%/yr, next-Y +7.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.055346241512179706,
+    "rev_cagr_10y": -0.029912379705880343,
+    "rev_cagr_15y": -0.018117508396269577,
+    "ni_cagr_5y": -0.03651843422119294,
+    "ni_cagr_10y": 0.035698023481364416,
+    "ni_cagr_15y": 0.046213941789245094,
+    "cfo_cagr_10y": -0.09027721586380921,
+    "proj_eps_next_5y": 1.77,
+    "proj_eps_next_y": 7.78,
+    "eps_past_5y": 0.43,
+    "shares_finviz_listed_class": 502260000,
+    "shares_implied_total": 501343298,
+    "price": 121.45,
+    "intrinsic_value": 132.2,
+    "dcf_growth_used": 2.5,
+    "dcf_base_flow": "ni:0.24+fwdni:0.76",
+    "dcf_sector_group": "fin-net",
+    "dcf_discount_rate": 5.16,
+    "discount_pct": 8.1,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 2.24,
+    "rev_cagr_hist_max": -2.99,
+    "direct_growth_used": -2.99,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 86.83,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 86.83,
+    "intrinsic_value_doomsday": 89.85,
+    "direct_growth_low": -2.99,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -39.9,
+    "ttm_roe": 16.908,
+    "ttm_roic": 11.143,
+    "ttm_roa": 3.13,
+    "ttm_pe": 12.96,
+    "ttm_fwd_pe": 16.585,
+    "ttm_peg": 1.882,
+    "ttm_fcf_yield": 4.347,
+    "ttm_div_yield": 2.009,
+    "ttm_current_ratio": 0.892,
+    "ttm_debt_equity": 0.53,
+    "ttm_debt_ebitda": 2.65,
+    "ttm_interest_coverage": 24.909,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 2.06,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 2.62,
+    "fair_value_ps": 89.77,
+    "pb_avg_5y": 1.95,
+    "fair_value_pb": 114.56,
+    "rev_growth_proj": -4.66,
+    "cfo_vs_ni_pct": -27.4,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 42.2,
+    "sort_predictability": 50.0,
+    "sort_profitability": 41.1,
+    "sort_growth": 1.5,
+    "moat_om_trend_pp": 2.5,
+    "moat_evidence_score": 83.3,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "margin_durability": "operating margin 21.7%, +2.5pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 50% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "A",
+   "company": "Agilent Technologies",
+   "sector": "Health Care",
+   "industry": "Life Sciences Tools & Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 88.5,
+   "is_great": false,
+   "n_pass": 11,
+   "n_fail": 1,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "0.4% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "1.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "FAIL",
+     "value": "1.5% CAGR ()",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 52.4%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 18.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 17.2%, latest 19.3%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 16.9%, latest 16.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.96",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "1.73",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "3.2%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 10.0% vs sales 5.7%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.4%/yr, next-Y +9.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.02400685419721804,
+    "rev_cagr_10y": 0.057467636120332344,
+    "rev_cagr_15y": 0.0035143072346148774,
+    "ni_cagr_5y": 0.018684648326672937,
+    "ni_cagr_10y": 0.12210527623195166,
+    "ni_cagr_15y": 0.0182168478927478,
+    "cfo_cagr_10y": 0.0780011253178019,
+    "proj_eps_next_5y": 9.37,
+    "proj_eps_next_y": 8.98,
+    "eps_past_5y": 14.68,
+    "shares_finviz_listed_class": 282220000,
+    "shares_implied_total": 282431944,
+    "price": 148.53,
+    "intrinsic_value": 144.24,
+    "dcf_growth_used": 11.1,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 6.99,
+    "discount_pct": -3.0,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 7.42,
+    "rev_cagr_hist_max": 5.75,
+    "direct_growth_prefit": 5.75,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 9.87,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 99.62,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 98.81,
+    "intrinsic_value_doomsday": 84.8,
+    "direct_growth_low": 9.76,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -49.1,
+    "ttm_roe": 21.331,
+    "ttm_roic": 17.718,
+    "ttm_roa": 8.613,
+    "ttm_pe": 29.807,
+    "ttm_fwd_pe": 23.505,
+    "ttm_peg": 2.354,
+    "ttm_fcf_yield": 2.591,
+    "ttm_div_yield": 0.687,
+    "ttm_current_ratio": 2.099,
+    "ttm_debt_equity": 0.5,
+    "ttm_debt_ebitda": 1.72,
+    "ttm_interest_coverage": 16.552,
+    "ttm_z_score": 5.03,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 9.56,
+    "peg_adam": 3.02,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 5.94,
+    "fair_value_ps": 146.0,
+    "pb_avg_5y": 6.85,
+    "fair_value_pb": 163.47,
+    "rev_growth_proj": 3.34,
+    "psg": 1.81,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 11.4,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 54.7,
+    "sort_predictability": 64.3,
+    "sort_profitability": 42.3,
+    "sort_growth": 11.4,
+    "moat_gm_trend_pp": 0.9,
+    "moat_om_trend_pp": 7.2,
+    "moat_evidence_score": 86.9,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 52.4% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +0.9pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 7/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 21.3%, +7.2pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 64% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ABNB",
+   "company": "Airbnb",
+   "sector": "Consumer Discretionary",
+   "industry": "Hotels, Resorts & Cruise Lines",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 72.7,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 0,
+   "n_warn": 6,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "WARN",
+     "value": "19.6% CAGR (5y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "WARN",
+     "value": "19.0% CAGR (5y)",
+     "detail": "5y-only pass \u2014 review flag"
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "1/7 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 83.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 20.5%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 89.5%, latest 124.2%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.38",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.00",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "NA",
+     "value": null,
+     "detail": "Trade receivables not reported by the data source \u2014 many companies fold them into other current assets; NA never disqualifies"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +22.3%/yr, next-Y +17.4%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.19553218784023874,
+    "rev_cagr_10y": 0.1686478133170244,
+    "rev_cagr_15y": 0.1686478133170244,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.659145179865184,
+    "proj_eps_next_5y": 22.31,
+    "proj_eps_next_y": 17.38,
+    "eps_past_5y": null,
+    "shares_finviz_listed_class": 420000000,
+    "shares_implied_total": 598785682,
+    "price": 184.06,
+    "intrinsic_value": 310.06,
+    "dcf_growth_used": 16.2,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-net",
+    "dcf_discount_rate": 6.83,
+    "discount_pct": 40.6,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 19.83,
+    "rev_cagr_hist_max": 16.86,
+    "direct_growth_prefit": 16.86,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 14.26,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 269.55,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 269.55,
+    "intrinsic_value_doomsday": 219.67,
+    "direct_growth_low": 14.26,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 31.7,
+    "ttm_roe": 34.542,
+    "ttm_roic": 16.811,
+    "ttm_roa": 6.139,
+    "ttm_pe": 41.642,
+    "ttm_fwd_pe": 33.084,
+    "ttm_peg": 1.752,
+    "ttm_fcf_yield": 4.478,
+    "ttm_current_ratio": 1.408,
+    "ttm_debt_equity": 0.32,
+    "ttm_debt_ebitda": 0.88,
+    "ttm_interest_coverage": 58.255,
+    "ttm_z_score": 3.01,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 22.21,
+    "peg_adam": 2.92,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 9.35,
+    "fair_value_ps": 191.19,
+    "pb_avg_5y": 12.41,
+    "fair_value_pb": 169.94,
+    "rev_growth_proj": 18.74,
+    "psg": 0.48,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 93.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 64.9,
+    "sort_predictability": 66.7,
+    "sort_profitability": 51.3,
+    "sort_growth": 52.3,
+    "moat_gm_trend_pp": 6.3,
+    "moat_om_trend_pp": 56.2,
+    "moat_evidence_score": 90.5,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 83.0% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +6.3pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 4/4 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 20.8%, +56.2pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 66% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 6/7 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "APD",
+   "company": "Air Products",
+   "sector": "Materials",
+   "industry": "Industrial Gases",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "commodity",
+   "data_source": "sec",
+   "score": 65.0,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 2,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "1.6% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "WARN",
+     "value": null,
+     "detail": "Trend passes once a SINGLE distorted year is excluded \u2014 likely a temporary one-off (M&A/integration charges, impairment, legal settlement, tax one-off). Review that year manually; underlying trend intact"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "3/10 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 31.4%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest -3.3%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 15.8%, latest -2.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 11.0%, latest 11.3%",
+     "detail": "10-12%: below the 12-15% target but at/above the course's own 10% screen floor \u2014 review flag, not a hard fail"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 5.8% vs sales 5.4%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.2%/yr, next-Y +7.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.03915609505488282,
+    "rev_cagr_10y": 0.05391590340004271,
+    "rev_cagr_15y": 0.015736774794593344,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.04149462864193598,
+    "proj_eps_next_5y": 9.25,
+    "proj_eps_next_y": 7.58,
+    "eps_past_5y": null,
+    "shares_finviz_listed_class": 222690000,
+    "shares_implied_total": 222685530,
+    "price": 308.97,
+    "intrinsic_value": 55.27,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.65,
+    "discount_pct": -459.1,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 5.39,
+    "direct_growth_used": -4.64,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": null,
+    "discount_pct_direct": null,
+    "ttm_roe": 0.023,
+    "ttm_roic": -1.482,
+    "ttm_roa": -0.784,
+    "ttm_fwd_pe": 21.693,
+    "ttm_peg": 2.235,
+    "ttm_fcf_yield": -0.438,
+    "ttm_div_yield": 2.343,
+    "ttm_current_ratio": 1.085,
+    "ttm_debt_equity": 1.1,
+    "ttm_debt_ebitda": 15.83,
+    "ttm_interest_coverage": -2.346,
+    "ttm_z_score": 2.4,
+    "ttm_f_score": 3.0,
+    "ttm_eps_growth_3y": 9.19,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 5.01,
+    "fair_value_ps": 270.99,
+    "pb_avg_5y": 3.77,
+    "fair_value_pb": 254.42,
+    "rev_growth_proj": 4.32,
+    "psg": 1.32,
+    "psg_verdict": "overvalued (>0.3)",
+    "sort_financial_strength": 15.0,
+    "sort_predictability": 50.0,
+    "sort_profitability": 0.0,
+    "sort_growth": 16.5,
+    "moat_gm_trend_pp": 4.6,
+    "moat_om_trend_pp": 2.5,
+    "moat_evidence_score": 56.6,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 31.4% \u2014 below the 50% pricing-power tell; 3y-avg trend +4.6pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/7 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin -7.3%, +2.5pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 50% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 7/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AKAM",
+   "company": "Akamai Technologies",
+   "sector": "Information Technology",
+   "industry": "Internet Services & Infrastructure",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 90.9,
+   "is_great": true,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.7% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "9.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 58.9%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 10.7%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.7%, latest 9.1%",
+     "detail": "10-12%: between the course's Finviz floor (>10%) and the 12-15% target"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing LT debt; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.36",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "long-term debt not reported by this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "2.0%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 8.9% vs sales 6.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +4.5%/yr, next-Y +6.1%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.05006468475460668,
+    "rev_cagr_10y": 0.0669776548741361,
+    "rev_cagr_15y": 0.09651129027796501,
+    "ni_cagr_5y": -0.08738040806232228,
+    "ni_cagr_10y": 0.038865176391804646,
+    "ni_cagr_15y": 0.05963352034834424,
+    "cfo_cagr_10y": 0.06361708341665384,
+    "proj_eps_next_5y": 4.47,
+    "proj_eps_next_y": 6.12,
+    "eps_past_5y": -1.83,
+    "shares_finviz_listed_class": 143590000,
+    "shares_implied_total": 143716609,
+    "price": 124.99,
+    "intrinsic_value": 462.07,
+    "dcf_growth_used": 17.0,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-sw",
+    "dcf_discount_rate": 5.41,
+    "discount_pct": 72.9,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 6.7,
+    "direct_growth_used": -1.03,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 94.92,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 94.92,
+    "intrinsic_value_doomsday": 96.16,
+    "direct_growth_low": -1.03,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -31.7,
+    "ttm_roe": 8.918,
+    "ttm_roic": 4.123,
+    "ttm_roa": 2.515,
+    "ttm_pe": 45.39,
+    "ttm_fwd_pe": 18.214,
+    "ttm_peg": 2.431,
+    "ttm_fcf_yield": 5.323,
+    "ttm_current_ratio": 1.637,
+    "ttm_debt_equity": 1.97,
+    "ttm_debt_ebitda": 6.22,
+    "ttm_interest_coverage": 15.544,
+    "ttm_z_score": 1.68,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 4.86,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 4.08,
+    "fair_value_ps": 119.61,
+    "pb_avg_5y": 3.32,
+    "fair_value_pb": 114.91,
+    "rev_growth_proj": 5.34,
+    "psg": 0.8,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 220.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 25.6,
+    "sort_predictability": 78.6,
+    "sort_profitability": 16.6,
+    "sort_growth": 7.9,
+    "moat_gm_trend_pp": -3.7,
+    "moat_om_trend_pp": -10.2,
+    "moat_evidence_score": 71.8,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 58.9% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -3.7pp vs decade start",
+    "margin_durability": "operating margin 13.5%, -10.2pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 78% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ALB",
+   "company": "Albemarle Corporation",
+   "sector": "Materials",
+   "industry": "Specialty Chemicals",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "commodity",
+   "data_source": "sec",
+   "score": 50.0,
+   "is_great": false,
+   "n_pass": 4,
+   "n_fail": 4,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "FAIL",
+     "value": null,
+     "detail": "Neither net income nor operating income consistently rising over the full 20y window (or 5y)"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "7/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 13.0%",
+     "detail": "Positive but compressed vs 5y average \u2014 review whether temporary"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "FAIL",
+     "value": "latest -9.9%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 12.2%, latest -5.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "FAIL",
+     "value": "20y avg 8.8%, latest -4.2%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to commodity companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 2.2% vs sales 7.5%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "FAIL",
+     "value": "EPS next-Y est -12.5% (no 5Y estimate)",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.11494660068682139,
+    "rev_cagr_10y": 0.07523008694479438,
+    "rev_cagr_15y": 0.042568205915898716,
+    "ni_cagr_5y": null,
+    "ni_cagr_10y": null,
+    "ni_cagr_15y": null,
+    "cfo_cagr_10y": 0.06370249937583572,
+    "proj_eps_next_5y": null,
+    "proj_eps_next_y": -12.52,
+    "eps_past_5y": null,
+    "shares_finviz_listed_class": 117990000,
+    "shares_implied_total": 118005057,
+    "price": 136.15,
+    "intrinsic_value": 39.52,
+    "dcf_growth_used": -12.0,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 7.24,
+    "discount_pct": -244.5,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 56.57,
+    "rev_cagr_hist_max": 7.52,
+    "direct_growth_prefit": 7.52,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 10.57,
+    "direct_growth_sources": "stockanalysis",
+    "intrinsic_value_direct": 79.65,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 79.65,
+    "intrinsic_value_doomsday": 66.14,
+    "direct_growth_low": 10.57,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -70.9,
+    "ttm_roe": 2.648,
+    "ttm_roic": 4.101,
+    "ttm_roa": 3.165,
+    "ttm_pe": 279.286,
+    "ttm_fwd_pe": 14.617,
+    "ttm_peg": 0.794,
+    "ttm_fcf_yield": 8.355,
+    "ttm_div_yield": 1.205,
+    "ttm_current_ratio": 2.086,
+    "ttm_debt_equity": 0.19,
+    "ttm_debt_ebitda": 1.25,
+    "ttm_interest_coverage": 4.727,
+    "ttm_z_score": 2.92,
+    "ttm_f_score": 7.0,
+    "peg_adam": 26.43,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.71,
+    "fair_value_ps": 161.86,
+    "pb_avg_5y": 2.45,
+    "fair_value_pb": 198.09,
+    "rev_growth_proj": 13.05,
+    "psg": 0.24,
+    "psg_verdict": "fair (0.2-0.3)",
+    "sort_financial_strength": 45.8,
+    "sort_predictability": 50.0,
+    "sort_profitability": 7.7,
+    "sort_growth": null,
+    "moat_gm_trend_pp": -26.0,
+    "moat_om_trend_pp": -31.9,
+    "moat_evidence_score": 22.6,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 13.0% \u2014 below the 50% pricing-power tell; 3y-avg trend -26.0pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 2/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin -7.1%, -31.9pp vs decade start \u2014 ERODING (Intel-style decay warning)",
+    "growth_consistency": "revenue/income up-years 50% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 3/10 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ALLE",
+   "company": "Allegion",
+   "sector": "Industrials",
+   "industry": "Building Products",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 96.2,
+   "is_great": false,
+   "n_pass": 12,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.5% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "8.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 45.2%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 15.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 44.8%, latest 31.1%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 22.0%, latest 19.5%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.84",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.00",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "11.4%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 6.0% vs sales 6.9%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.7%/yr, next-Y +9.0%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.09132594822293072,
+    "rev_cagr_10y": 0.0686299632382108,
+    "rev_cagr_15y": 0.05518014257078918,
+    "ni_cagr_5y": 0.07448649276309838,
+    "ni_cagr_10y": 0.12165276550758963,
+    "ni_cagr_15y": 0.08606601833256322,
+    "cfo_cagr_10y": 0.08456168034330691,
+    "proj_eps_next_5y": 9.71,
+    "proj_eps_next_y": 9.0,
+    "eps_past_5y": 16.9,
+    "shares_finviz_listed_class": 85060000,
+    "shares_implied_total": 85036786,
+    "price": 164.78,
+    "intrinsic_value": 332.05,
+    "dcf_growth_used": 15.8,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.93,
+    "discount_pct": 50.4,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 9.31,
+    "rev_cagr_hist_max": 6.86,
+    "direct_growth_prefit": 6.86,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 10.31,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 193.91,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 193.91,
+    "intrinsic_value_doomsday": 162.77,
+    "direct_growth_low": 10.31,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 15.0,
+    "ttm_roe": 33.73,
+    "ttm_roic": 18.758,
+    "ttm_roa": 11.03,
+    "ttm_pe": 21.624,
+    "ttm_fwd_pe": 17.542,
+    "ttm_peg": 2.969,
+    "ttm_fcf_yield": 4.789,
+    "ttm_div_yield": 1.335,
+    "ttm_current_ratio": 1.93,
+    "ttm_debt_equity": 1.05,
+    "ttm_debt_ebitda": 1.98,
+    "ttm_interest_coverage": 9.004,
+    "ttm_z_score": 4.63,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 9.61,
+    "peg_adam": 2.1,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.28,
+    "fair_value_ps": 156.82,
+    "pb_avg_5y": 9.6,
+    "fair_value_pb": 233.43,
+    "rev_growth_proj": 9.01,
+    "psg": 0.38,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 19.5,
+    "cfo_fcf_substitute_ok": true,
+    "sort_financial_strength": 47.3,
+    "sort_predictability": 73.1,
+    "sort_profitability": 47.8,
+    "sort_growth": 21.9,
+    "moat_gm_trend_pp": 3.3,
+    "moat_om_trend_pp": 5.3,
+    "moat_evidence_score": 92.7,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 45.2% \u2014 below the 50% pricing-power tell; 3y-avg trend +3.3pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 10/10 years \u2014 competitors have failed to compete these returns away",
+    "margin_durability": "operating margin 21.1%, +5.3pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 73% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ALGN",
+   "company": "Align Technology",
+   "sector": "Health Care",
+   "industry": "Health Care Supplies",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 95.0,
+   "is_great": true,
+   "n_pass": 9,
+   "n_fail": 0,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "16.4% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "13.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "11.4% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 67.2%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "WARN",
+     "value": "latest 10.2%",
+     "detail": "Positive but compressed / growth-transition \u2014 review whether temporary"
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.6%, latest 10.1%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing LT debt; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.36",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "long-term debt not reported by this source \u2014 cannot compute the ratio; NA never disqualifies"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Interest expense not available from this free data source \u2014 check manually if debt levels look material"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 18.1% vs sales 15.8%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +9.5%/yr, next-Y +11.1%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.005170279377421538,
+    "rev_cagr_10y": 0.1577302945779715,
+    "rev_cagr_15y": 0.16428549714857965,
+    "ni_cagr_5y": -0.14614969833742586,
+    "ni_cagr_10y": 0.08952348825324297,
+    "ni_cagr_15y": 0.1385492489562592,
+    "cfo_cagr_10y": 0.10192621438239202,
+    "proj_eps_next_5y": 9.51,
+    "proj_eps_next_y": 11.05,
+    "eps_past_5y": -24.08,
+    "shares_finviz_listed_class": 71250000,
+    "shares_implied_total": 71039852,
+    "price": 181.31,
+    "intrinsic_value": 195.12,
+    "dcf_growth_used": 8.1,
+    "dcf_base_flow": "ocf3:1.0",
+    "dcf_sector_group": "health",
+    "dcf_discount_rate": 8.11,
+    "discount_pct": 7.1,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 15.77,
+    "direct_growth_prefit": 1.79,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 8.3,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 154.58,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 154.58,
+    "intrinsic_value_doomsday": 139.25,
+    "direct_growth_low": 8.3,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -17.3,
+    "ttm_roe": 10.155,
+    "ttm_roic": 16.851,
+    "ttm_roa": 7.402,
+    "ttm_pe": 31.497,
+    "ttm_fwd_pe": 15.293,
+    "ttm_peg": 1.525,
+    "ttm_fcf_yield": 4.919,
+    "ttm_current_ratio": 1.395,
+    "ttm_debt_equity": 0.03,
+    "ttm_debt_ebitda": 0.13,
+    "ttm_interest_coverage": 10701.078,
+    "ttm_z_score": 4.93,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 9.5,
+    "peg_adam": 3.79,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 5.92,
+    "fair_value_ps": 336.52,
+    "pb_avg_5y": 6.29,
+    "fair_value_pb": 358.7,
+    "rev_growth_proj": 1.06,
+    "psg": 3.01,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 84.2,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 73.3,
+    "sort_predictability": 75.0,
+    "sort_profitability": 26.3,
+    "sort_growth": 8.4,
+    "moat_gm_trend_pp": -5.9,
+    "moat_om_trend_pp": -1.0,
+    "moat_evidence_score": 79.7,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 67.2% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -5.9pp vs decade start",
+    "margin_durability": "operating margin 13.5%, -1.0pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 75% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "LNT",
+   "company": "Alliant Energy",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 69.2,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 2,
+   "n_warn": 4,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.2% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "6.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "3.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "7/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 85.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 18.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 10.8%, latest 11.0%",
+     "detail": "10-12%: between the course's Finviz floor (>10%) and the 12-15% target"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 6.7%, latest 7.1%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.80",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "5.85",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "FAIL",
+     "value": "43.8%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv -0.4% vs sales 3.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +7.6%/yr, next-Y +7.5%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.04420191987546396,
+    "rev_cagr_10y": 0.030794168744974204,
+    "rev_cagr_15y": 0.02188712890023825,
+    "ni_cagr_5y": 0.04702314136398922,
+    "ni_cagr_10y": 0.08719384323066581,
+    "ni_cagr_15y": 0.06813464833534577,
+    "cfo_cagr_10y": 0.12882599919521365,
+    "proj_eps_next_5y": 7.64,
+    "proj_eps_next_y": 7.49,
+    "eps_past_5y": 4.94,
+    "shares_finviz_listed_class": 258930000,
+    "shares_implied_total": 259284699,
+    "price": 70.6,
+    "intrinsic_value": 171.35,
+    "dcf_growth_used": 17.3,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.05,
+    "discount_pct": 58.8,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 6.62,
+    "rev_cagr_hist_max": 3.08,
+    "direct_growth_prefit": 3.08,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 8.81,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 30.01,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 30.01,
+    "intrinsic_value_doomsday": 20.68,
+    "direct_growth_low": 8.81,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -135.2,
+    "ttm_roe": 11.135,
+    "ttm_roic": 3.153,
+    "ttm_roa": 2.448,
+    "ttm_pe": 22.346,
+    "ttm_fwd_pe": 19.533,
+    "ttm_peg": 2.333,
+    "ttm_fcf_yield": -7.003,
+    "ttm_div_yield": 3.031,
+    "ttm_current_ratio": 0.466,
+    "ttm_debt_equity": 1.61,
+    "ttm_debt_ebitda": 6.63,
+    "ttm_interest_coverage": 1.735,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 7.81,
+    "peg_adam": 2.54,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.68,
+    "fair_value_ps": 61.86,
+    "pb_avg_5y": 2.23,
+    "fair_value_pb": 63.1,
+    "rev_growth_proj": 4.58,
+    "psg": 0.92,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 43.0,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 6.3,
+    "sort_predictability": 71.4,
+    "sort_profitability": 24.9,
+    "sort_growth": 14.0,
+    "moat_gm_trend_pp": -0.9,
+    "moat_om_trend_pp": 6.7,
+    "moat_evidence_score": 60.3,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 85.7% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -0.9pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 23.5%, +6.7pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 71% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 3/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "ALL",
+   "company": "Allstate",
+   "sector": "Financials",
+   "industry": "Property & Casualty Insurance",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "financial",
+   "data_source": "sec",
+   "score": 78.6,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 1,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "20.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "12.6% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 15.2%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 11.7%, latest 33.6%",
+     "detail": "Average clears 12% (13.0%) once ONE outlier year (-7.4%) is excluded \u2014 likely a temporary distortion (impairment/M&A charge, one-off loss, equity swing from buybacks). Review that year manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "NA",
+     "value": null,
+     "detail": "Cannot compute EBIT x (1-tax) / (Equity+Debt-Cash): source is missing EBIT; NA never disqualifies"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "NA",
+     "value": null,
+     "detail": "Standard debt test not applicable to financial companies under VMI rules"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "NA",
+     "value": null,
+     "detail": "Trade receivables not reported by the data source \u2014 many companies fold them into other current assets; NA never disqualifies"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "FAIL",
+     "value": "EPS next-5Y est -9.0%/yr",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.07543293708129606,
+    "rev_cagr_10y": 0.0681342155318645,
+    "rev_cagr_15y": 0.053443253265772483,
+    "ni_cagr_5y": 0.588705932538665,
+    "ni_cagr_10y": 0.20800337440712657,
+    "ni_cagr_15y": 0.2014940746866234,
+    "cfo_cagr_10y": 0.10873557564764602,
+    "proj_eps_next_5y": -8.99,
+    "proj_eps_next_y": -21.32,
+    "eps_past_5y": 17.07,
+    "shares_finviz_listed_class": 254000000,
+    "shares_implied_total": 252857950,
+    "price": 261.41,
+    "intrinsic_value": 1749.75,
+    "dcf_growth_used": 18.2,
+    "dcf_base_flow": "ni:0.24+fwdni:0.76",
+    "dcf_sector_group": "fin-net",
+    "dcf_discount_rate": 4.02,
+    "discount_pct": 85.1,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 18.92,
+    "rev_cagr_hist_max": 6.81,
+    "direct_growth_prefit": 6.81,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 10.29,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 1265.32,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 1265.32,
+    "intrinsic_value_doomsday": 1078.78,
+    "direct_growth_low": 10.29,
+    "mos_verdict": "below doomsday IV \u2014 strong margin of safety",
+    "discount_pct_direct": 79.3,
+    "ttm_roe": 46.114,
+    "ttm_roic": 32.602,
+    "ttm_roa": 8.678,
+    "ttm_pe": 5.219,
+    "ttm_fwd_pe": 9.275,
+    "ttm_peg": 3.132,
+    "ttm_fcf_yield": 18.531,
+    "ttm_div_yield": 1.653,
+    "ttm_current_ratio": 0.363,
+    "ttm_debt_equity": 0.22,
+    "ttm_debt_ebitda": 0.44,
+    "ttm_interest_coverage": 42.509,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": -8.37,
+    "peg_adam": 0.51,
+    "peg_verdict": "cheap (<1)",
+    "ps_avg_5y": 0.72,
+    "fair_value_ps": 193.26,
+    "pb_avg_5y": 1.93,
+    "fair_value_pb": 233.9,
+    "rev_growth_proj": 6.71,
+    "psg": 0.15,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 21.3,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 62.8,
+    "sort_predictability": 78.6,
+    "sort_profitability": 68.3,
+    "sort_growth": 39.6,
+    "moat_evidence_score": null,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "growth_consistency": "revenue/income up-years 78% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "GOOGL",
+   "company": "Alphabet Inc. (Class A)",
+   "sector": "Communication Services",
+   "industry": "Interactive Media & Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "18.0% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "21.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "19.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 59.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 32.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.9%, latest 31.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.4%, latest 24.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.01",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.33",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 18.0% vs sales 18.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +18.1%/yr, next-Y -26.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.11822709300933298,
+    "rev_cagr_10y": 0.1807964080950275,
+    "rev_cagr_15y": 0.17957045642424196,
+    "ni_cagr_5y": 0.14824005025709597,
+    "ni_cagr_10y": 0.23708267676956263,
+    "ni_cagr_15y": 0.21530004106124112,
+    "cfo_cagr_10y": 0.18394728666681037,
+    "proj_eps_next_5y": 18.13,
+    "proj_eps_next_y": -26.8,
+    "eps_past_5y": 29.82,
+    "shares_finviz_listed_class": 5870000000,
+    "shares_implied_total": 12229934831,
+    "price": 345.9,
+    "intrinsic_value": 136.11,
+    "dcf_growth_used": -4.3,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-net",
+    "dcf_discount_rate": 6.91,
+    "discount_pct": -154.1,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 23.91,
+    "rev_cagr_hist_max": 18.08,
+    "direct_growth_prefit": 18.08,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 14.74,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 376.48,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 376.48,
+    "intrinsic_value_doomsday": 301.71,
+    "direct_growth_low": 14.74,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 8.1,
+    "ttm_roe": 48.676,
+    "ttm_roic": 24.926,
+    "ttm_roa": 12.959,
+    "ttm_pe": 17.355,
+    "ttm_fwd_pe": 26.031,
+    "ttm_peg": 1.933,
+    "ttm_fcf_yield": 1.259,
+    "ttm_div_yield": 0.254,
+    "ttm_current_ratio": 2.724,
+    "ttm_debt_equity": 0.19,
+    "ttm_debt_ebitda": 0.68,
+    "ttm_interest_coverage": 65.554,
+    "ttm_z_score": 9.56,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 16.95,
+    "peg_adam": 1.18,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 6.65,
+    "fair_value_ps": 219.0,
+    "pb_avg_5y": 6.91,
+    "fair_value_pb": 234.66,
+    "rev_growth_proj": 14.07,
+    "psg": 0.75,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 40.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 93.2,
+    "sort_predictability": 91.7,
+    "sort_profitability": 82.4,
+    "sort_growth": 37.3,
+    "moat_gm_trend_pp": -3.1,
+    "moat_om_trend_pp": 4.3,
+    "moat_evidence_score": 82.3,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 59.7% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -3.1pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 7/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 32.0%, +4.3pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 91% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "GOOG",
+   "company": "Alphabet Inc. (Class C)",
+   "sector": "Communication Services",
+   "industry": "Interactive Media & Services",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 100.0,
+   "is_great": true,
+   "n_pass": 13,
+   "n_fail": 0,
+   "n_warn": 0,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "18.0% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "21.5% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "19.9% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 59.7%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 32.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.9%, latest 31.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 19.4%, latest 24.8%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "2.01",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.33",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 18.0% vs sales 18.1%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +18.1%/yr, next-Y -26.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.11822709300933298,
+    "rev_cagr_10y": 0.1807964080950275,
+    "rev_cagr_15y": 0.17957045642424196,
+    "ni_cagr_5y": 0.14824005025709597,
+    "ni_cagr_10y": 0.23708267676956263,
+    "ni_cagr_15y": 0.21530004106124112,
+    "cfo_cagr_10y": 0.18394728666681037,
+    "proj_eps_next_5y": 18.05,
+    "proj_eps_next_y": -26.85,
+    "eps_past_5y": 29.82,
+    "shares_finviz_listed_class": 5530000000,
+    "shares_implied_total": 12229934831,
+    "price": 343.54,
+    "intrinsic_value": 135.55,
+    "dcf_growth_used": -4.4,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-net",
+    "dcf_discount_rate": 6.91,
+    "discount_pct": -153.4,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 23.87,
+    "rev_cagr_hist_max": 18.08,
+    "direct_growth_prefit": 18.08,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 14.74,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 376.48,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 376.17,
+    "intrinsic_value_doomsday": 301.52,
+    "direct_growth_low": 14.73,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 8.7,
+    "ttm_roe": 48.676,
+    "ttm_roic": 24.926,
+    "ttm_roa": 12.959,
+    "ttm_pe": 17.276,
+    "ttm_fwd_pe": 25.515,
+    "ttm_peg": 0.931,
+    "ttm_fcf_yield": 1.263,
+    "ttm_div_yield": 0.256,
+    "ttm_current_ratio": 2.724,
+    "ttm_debt_equity": 0.19,
+    "ttm_debt_ebitda": 0.68,
+    "ttm_interest_coverage": 65.554,
+    "ttm_z_score": 9.56,
+    "ttm_f_score": 5.0,
+    "ttm_eps_growth_3y": 16.95,
+    "peg_adam": 1.17,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 6.65,
+    "fair_value_ps": 219.0,
+    "pb_avg_5y": 6.91,
+    "fair_value_pb": 234.66,
+    "rev_growth_proj": 14.07,
+    "psg": 0.74,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 40.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 93.2,
+    "sort_predictability": 91.7,
+    "sort_profitability": 82.4,
+    "sort_growth": 37.2,
+    "moat_gm_trend_pp": -3.1,
+    "moat_om_trend_pp": 4.3,
+    "moat_evidence_score": 82.3,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 59.7% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend -3.1pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 7/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 32.0%, +4.3pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 91% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "MO",
+   "company": "Altria",
+   "sector": "Consumer Staples",
+   "industry": "Tobacco",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 76.9,
+   "is_great": false,
+   "n_pass": 9,
+   "n_fail": 2,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "FAIL",
+     "value": "-0.2% CAGR ()",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "5.3% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 62.5%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 29.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "negative equity in window",
+     "detail": "ROE distorted by negative shareholder equity (often buybacks, e.g. MCD/YUM/AZO) \u2014 course explicitly says judge manually"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 29.7%, latest 41.3%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.65",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "2.53",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "11.6%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 6.4% vs sales -1.1%",
+     "detail": "Excess receivables growth traces to a SINGLE step-change year \u2014 signature of an acquisition adding acquired receivables, not channel stuffing. Verify the M&A year, then judge organically"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +4.0%/yr, next-Y +3.5%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": -0.027379386107906134,
+    "rev_cagr_10y": -0.011121023931171203,
+    "rev_cagr_15y": -0.0015797447492325034,
+    "ni_cagr_5y": 0.29436131303374835,
+    "ni_cagr_10y": -0.07664512718970617,
+    "ni_cagr_15y": 0.05258450247322588,
+    "cfo_cagr_10y": 0.10359026525584891,
+    "proj_eps_next_5y": 4.0,
+    "proj_eps_next_y": 3.52,
+    "eps_past_5y": 11.4,
+    "shares_finviz_listed_class": 1670000000,
+    "shares_implied_total": 1669743926,
+    "price": 65.7,
+    "intrinsic_value": 3732.38,
+    "dcf_growth_used": 56.3,
+    "dcf_base_flow": "ocf:1.0",
+    "dcf_sector_group": "consumer",
+    "dcf_discount_rate": 4.92,
+    "discount_pct": 98.2,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 18.47,
+    "rev_cagr_hist_max": -1.11,
+    "direct_growth_used": -1.11,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 50.76,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 50.76,
+    "intrinsic_value_doomsday": 51.75,
+    "direct_growth_low": -1.11,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -29.4,
+    "ttm_roe": -198.372,
+    "ttm_roic": 46.098,
+    "ttm_roa": 29.548,
+    "ttm_pe": 13.843,
+    "ttm_fwd_pe": 11.396,
+    "ttm_peg": 2.883,
+    "ttm_fcf_yield": 8.306,
+    "ttm_div_yield": 6.454,
+    "ttm_current_ratio": 0.518,
+    "ttm_debt_equity": -7.789,
+    "ttm_debt_ebitda": 1.56,
+    "ttm_interest_coverage": 13.275,
+    "ttm_z_score": 5.34,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 3.77,
+    "peg_adam": null,
+    "peg_verdict": null,
+    "ps_avg_5y": 4.14,
+    "fair_value_ps": 57.73,
+    "rev_growth_proj": -0.51,
+    "cfo_vs_ni_pct": 35.4,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 41.5,
+    "sort_predictability": 50.0,
+    "sort_profitability": 63.2,
+    "sort_growth": 27.9,
+    "moat_gm_trend_pp": 20.5,
+    "moat_om_trend_pp": 16.2,
+    "moat_evidence_score": 88.0,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 62.5% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +20.5pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 9/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 42.5%, +16.2pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 50% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AMZN",
+   "company": "Amazon",
+   "sector": "Consumer Discretionary",
+   "industry": "Broadline Retail",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 88.5,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "21.3% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "41.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "29.1% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "WARN",
+     "value": "2/10 years negative (latest positive)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 50.3%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 10.8%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 15.4%, latest 18.9%",
+     "detail": "5y-only clearance \u2014 review flag"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 16.4%, latest 16.4%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.05",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "PASS",
+     "value": "0.47",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "net interest income",
+     "detail": "Interest income exceeds interest expense"
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "WARN",
+     "value": "recv 26.2% vs sales 20.3%",
+     "detail": "Course red flag (possible channel stuffing), but not proof of a bad business \u2014 inspect customer/distribution changes manually"
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +24.7%/yr, next-Y -15.9%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.11143723551067208,
+    "rev_cagr_10y": 0.20287230323601557,
+    "rev_cagr_15y": 0.2128971702070659,
+    "ni_cagr_5y": 0.2352185302693086,
+    "ni_cagr_10y": 0.4735642732758629,
+    "ni_cagr_15y": 0.41026819112761603,
+    "cfo_cagr_10y": 0.26183192546402667,
+    "proj_eps_next_5y": 24.68,
+    "proj_eps_next_y": -15.91,
+    "eps_past_5y": 27.96,
+    "shares_finviz_listed_class": 10780000000,
+    "shares_implied_total": 10786313572,
+    "price": 262.65,
+    "intrinsic_value": 208.81,
+    "dcf_growth_used": 3.2,
+    "dcf_base_flow": "ocfT:1.0",
+    "dcf_sector_group": "tech-net",
+    "dcf_discount_rate": 7.51,
+    "discount_pct": -25.8,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 27.75,
+    "rev_cagr_hist_max": 20.29,
+    "direct_growth_prefit": 20.29,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 15.61,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 250.45,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 250.45,
+    "intrinsic_value_doomsday": 202.44,
+    "direct_growth_low": 15.61,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -4.9,
+    "ttm_roe": 30.558,
+    "ttm_roic": 11.935,
+    "ttm_roa": 6.589,
+    "ttm_pe": 21.12,
+    "ttm_fwd_pe": 28.256,
+    "ttm_peg": 1.36,
+    "ttm_fcf_yield": -0.41,
+    "ttm_current_ratio": 1.033,
+    "ttm_debt_equity": 0.46,
+    "ttm_debt_ebitda": 1.35,
+    "ttm_interest_coverage": 28.133,
+    "ttm_z_score": 4.17,
+    "ttm_f_score": 6.0,
+    "ttm_eps_growth_3y": 23.17,
+    "peg_adam": 1.35,
+    "peg_verdict": "reasonable (<=1.5)",
+    "ps_avg_5y": 3.01,
+    "fair_value_ps": 200.14,
+    "pb_avg_5y": 7.99,
+    "fair_value_pb": 304.48,
+    "rev_growth_proj": 12.01,
+    "psg": 0.33,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 107.8,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 51.3,
+    "sort_predictability": 89.3,
+    "sort_profitability": 42.9,
+    "sort_growth": 49.5,
+    "moat_gm_trend_pp": 23.9,
+    "moat_om_trend_pp": 8.1,
+    "moat_evidence_score": 87.9,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 50.3% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?); 3y-avg trend +23.9pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 7/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 11.2%, +8.1pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 89% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 8/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AMCR",
+   "company": "Amcor",
+   "sector": "Materials",
+   "industry": "Paper & Plastic Packaging Products & Materials",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 91.7,
+   "is_great": true,
+   "n_pass": 10,
+   "n_fail": 0,
+   "n_warn": 2,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "11.1% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.8% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "10.0% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "PASS",
+     "value": "all 10y positive",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 20.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 4.7%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "PASS",
+     "value": "20y avg 30.7%, latest 9.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 9.8%, latest 6.6%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "PASS",
+     "value": "1.25",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "4.10",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "28.4%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 12.9% vs sales 12.3%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "NA",
+     "value": null,
+     "detail": "finviz has no analyst EPS estimates for this ticker (thin coverage / foreign listing) \u2014 does not count against is_great"
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.12751860409988258,
+    "rev_cagr_10y": 0.11118849271851072,
+    "rev_cagr_15y": 0.11118849271851072,
+    "ni_cagr_5y": 0.08265431625457853,
+    "ni_cagr_10y": 0.07769864269738291,
+    "ni_cagr_15y": 0.07769864269738291,
+    "cfo_cagr_10y": 0.1004475996296843,
+    "proj_eps_next_5y": null,
+    "proj_eps_next_y": null,
+    "eps_past_5y": -4.62,
+    "shares_finviz_listed_class": 461900000,
+    "shares_implied_total": 462345690,
+    "price": 46.03,
+    "intrinsic_value": 369.36,
+    "dcf_growth_used": 26.3,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 5.24,
+    "discount_pct": 87.5,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": 11.12,
+    "direct_growth_prefit": 4.11,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 9.22,
+    "direct_growth_sources": "stockanalysis",
+    "intrinsic_value_direct": 53.77,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": 53.77,
+    "intrinsic_value_doomsday": 43.05,
+    "direct_growth_low": 9.22,
+    "mos_verdict": "below conservative IV",
+    "discount_pct_direct": 14.4,
+    "ttm_roe": 9.396,
+    "ttm_roic": 6.906,
+    "ttm_roa": 3.567,
+    "ttm_pe": 19.34,
+    "ttm_fwd_pe": 10.818,
+    "ttm_peg": 1.089,
+    "ttm_fcf_yield": 5.78,
+    "ttm_div_yield": 5.648,
+    "ttm_current_ratio": 1.254,
+    "ttm_debt_equity": 1.28,
+    "ttm_debt_ebitda": 3.92,
+    "ttm_interest_coverage": 3.13,
+    "ttm_z_score": 1.37,
+    "ttm_f_score": 7.0,
+    "ttm_eps_growth_3y": 4.91,
+    "peg_adam": 2.1,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 1.11,
+    "fair_value_ps": 56.22,
+    "pb_avg_5y": 3.0,
+    "fair_value_pb": 76.58,
+    "rev_growth_proj": 10.49,
+    "psg": 0.09,
+    "psg_verdict": "undervalued (<0.2)",
+    "cfo_vs_ni_pct": 94.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 20.8,
+    "sort_predictability": 72.2,
+    "sort_profitability": 14.8,
+    "sort_growth": 26.3,
+    "moat_gm_trend_pp": -0.4,
+    "moat_om_trend_pp": -1.8,
+    "moat_evidence_score": 60.9,
+    "moat_no_moat_industry": true
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 20.0% \u2014 below the 50% pricing-power tell; 3y-avg trend -0.4pp vs decade start",
+    "roic_persistence": "ROIC \u2265 15% in 1/9 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 8.1%, -1.8pp vs decade start \u2014 stable",
+    "growth_consistency": "revenue/income up-years 72% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 10/10 of last 10y",
+    "industry_warning": "\u26a0\ufe0f STRUCTURALLY NO-MOAT INDUSTRY per the course avoid-list (commodities, airlines, autos, shipping, construction, oil & gas) \u2014 moat claim needs extraordinary evidence",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AEE",
+   "company": "Ameren",
+   "sector": "Utilities",
+   "industry": "Multi-Utilities",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "sec",
+   "score": 70.8,
+   "is_great": false,
+   "n_pass": 7,
+   "n_fail": 2,
+   "n_warn": 3,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "PASS",
+     "value": "2.6% CAGR (20y)",
+     "detail": "Durable-trend test over the full 20y window; 5y alone \u2192 WARN"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "PASS",
+     "value": "7.7% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "PASS",
+     "value": "4.2% CAGR (20y)",
+     "detail": ""
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "9/10 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "NA",
+     "value": null,
+     "detail": "gross margin (needs COGS split) not reported by the data source for this company \u2014 cannot evaluate; NA never disqualifies"
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 16.6%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 7.5%, latest 10.9%",
+     "detail": "Growth-stage profitability improving; historical ROE not yet representative"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "WARN",
+     "value": "20y avg 5.4%, latest 5.6%",
+     "detail": "Growth-stage profitability transition makes the historical average unrepresentative; review normalized ROIC manually"
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.66",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "WARN",
+     "value": "5.34",
+     "detail": "Above the preferred \u22643 target; course case-study material includes a ~5.6x example, so this is a review flag rather than auto-reject"
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "23.1%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 4.8% vs sales 4.2%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +7.9%/yr, next-Y +7.8%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.08309155959368297,
+    "rev_cagr_10y": 0.042001621347393936,
+    "rev_cagr_15y": 0.02593864692506176,
+    "ni_cagr_5y": 0.1007958504883748,
+    "ni_cagr_10y": 0.09360294356516397,
+    "ni_cagr_15y": 0.07672778066665176,
+    "cfo_cagr_10y": 0.052422924290113304,
+    "proj_eps_next_5y": 7.87,
+    "proj_eps_next_y": 7.81,
+    "eps_past_5y": 8.84,
+    "shares_finviz_listed_class": 276800000,
+    "shares_implied_total": 276843251,
+    "price": 109.74,
+    "intrinsic_value": 59.52,
+    "dcf_growth_used": -1.9,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 4.89,
+    "discount_pct": -84.4,
+    "hype_filter_applied": true,
+    "direct_growth_analyst_raw": 7.43,
+    "rev_cagr_hist_max": 4.2,
+    "direct_growth_prefit": 4.2,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 9.25,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": 55.88,
+    "direct_base_flow": "net income (DNI)",
+    "intrinsic_value_conservative": 55.88,
+    "intrinsic_value_doomsday": 38.8,
+    "direct_growth_low": 9.25,
+    "mos_verdict": "above base IV",
+    "discount_pct_direct": -96.4,
+    "ttm_roe": 11.943,
+    "ttm_roic": 4.396,
+    "ttm_roa": 3.057,
+    "ttm_pe": 19.361,
+    "ttm_fwd_pe": 19.826,
+    "ttm_peg": 2.515,
+    "ttm_fcf_yield": -4.773,
+    "ttm_div_yield": 2.734,
+    "ttm_current_ratio": 0.531,
+    "ttm_debt_equity": 1.58,
+    "ttm_debt_ebitda": 5.58,
+    "ttm_interest_coverage": 2.894,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 7.88,
+    "peg_adam": 2.09,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 3.16,
+    "fair_value_ps": 100.58,
+    "pb_avg_5y": 2.02,
+    "fair_value_pb": 97.68,
+    "rev_growth_proj": 8.61,
+    "psg": 0.4,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 122.5,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 7.8,
+    "sort_predictability": 75.0,
+    "sort_profitability": 26.4,
+    "sort_growth": 21.9,
+    "moat_om_trend_pp": 2.0,
+    "moat_evidence_score": 46.2,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "roic_persistence": "ROIC \u2265 15% in 0/10 years \u2014 excess returns not fully defended",
+    "margin_durability": "operating margin 23.0%, +2.0pp vs decade start \u2014 expanding (moat strengthening)",
+    "growth_consistency": "revenue/income up-years 75% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 1/10 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  },
+  {
+   "ticker": "AEP",
+   "company": "American Electric Power",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "country": "USA",
+   "market_cap": "",
+   "company_type": "standard",
+   "data_source": "yahoo",
+   "score": 55.0,
+   "is_great": false,
+   "n_pass": 5,
+   "n_fail": 4,
+   "n_warn": 1,
+   "checks": [
+    {
+     "name": "Sales increasing (multi-window)",
+     "status": "NA",
+     "value": null,
+     "detail": "only 4 annual value(s) of revenue history available \u2014 this test needs \u22655; NA never disqualifies"
+    },
+    {
+     "name": "Net income increasing (multi-window)",
+     "status": "NA",
+     "value": null,
+     "detail": "only 4 annual value(s) of net income history available \u2014 this test needs \u22655; NA never disqualifies"
+    },
+    {
+     "name": "CFO increasing (multi-window)",
+     "status": "NA",
+     "value": null,
+     "detail": "only 4 annual value(s) of operating cash flow history available \u2014 this test needs \u22655; NA never disqualifies"
+    },
+    {
+     "name": "FCF positive",
+     "status": "FAIL",
+     "value": "4/4 years negative (incl. latest)",
+     "detail": ""
+    },
+    {
+     "name": "Gross margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 61.0%",
+     "detail": ""
+    },
+    {
+     "name": "Net margin stable/up (5y)",
+     "status": "PASS",
+     "value": "latest 16.4%",
+     "detail": ""
+    },
+    {
+     "name": "ROE \u2265 12%",
+     "status": "WARN",
+     "value": "5y avg 10.2%, latest 11.5%",
+     "detail": "10-12%: between the course's Finviz floor (>10%) and the 12-15% target"
+    },
+    {
+     "name": "ROIC \u2265 12%",
+     "status": "FAIL",
+     "value": "5y avg 6.9%, latest 7.4%",
+     "detail": ""
+    },
+    {
+     "name": "Current ratio \u2265 1",
+     "status": "FAIL",
+     "value": "0.45",
+     "detail": ""
+    },
+    {
+     "name": "Debt/EBITDA \u2264 3",
+     "status": "FAIL",
+     "value": "7.67",
+     "detail": ""
+    },
+    {
+     "name": "Debt servicing < 30%",
+     "status": "PASS",
+     "value": "29.2%",
+     "detail": ""
+    },
+    {
+     "name": "Receivables \u2264 sales growth",
+     "status": "PASS",
+     "value": "recv 0.6% vs sales 3.7%",
+     "detail": ""
+    },
+    {
+     "name": "Positive projected growth",
+     "status": "PASS",
+     "value": "EPS next-5Y est +8.4%/yr, next-Y +7.6%",
+     "detail": ""
+    }
+   ],
+   "metrics": {
+    "rev_cagr_5y": 0.036603082441915236,
+    "rev_cagr_10y": 0.036603082441915236,
+    "rev_cagr_15y": 0.036603082441915236,
+    "ni_cagr_5y": 0.1577086046817906,
+    "ni_cagr_10y": 0.1577086046817906,
+    "ni_cagr_15y": 0.1577086046817906,
+    "cfo_cagr_10y": 0.09506379838467627,
+    "proj_eps_next_5y": 8.4,
+    "proj_eps_next_y": 7.62,
+    "eps_past_5y": 8.53,
+    "shares_finviz_listed_class": 544360000,
+    "shares_implied_total": 544397352,
+    "price": 125.6,
+    "intrinsic_value": 36.92,
+    "dcf_growth_used": -4.2,
+    "dcf_base_flow": "ocf:0.918+fcf3:0.082",
+    "dcf_sector_group": "industrial",
+    "dcf_discount_rate": 4.97,
+    "discount_pct": -240.2,
+    "hype_filter_applied": false,
+    "rev_cagr_hist_max": null,
+    "direct_growth_prefit": 6.84,
+    "adam_growth_calibration": true,
+    "direct_growth_used": 10.3,
+    "direct_growth_sources": "finviz+stockanalysis",
+    "intrinsic_value_direct": -78.95,
+    "direct_base_flow": "normalized FCF (CFO - 5y avg capex)",
+    "intrinsic_value_conservative": -79.03,
+    "intrinsic_value_doomsday": -79.26,
+    "direct_growth_low": 9.68,
+    "discount_pct_direct": null,
+    "ttm_roe": 10.131,
+    "ttm_roic": 4.155,
+    "ttm_roa": 2.979,
+    "ttm_pe": 21.755,
+    "ttm_fwd_pe": 19.033,
+    "ttm_peg": 2.182,
+    "ttm_fcf_yield": -8.614,
+    "ttm_div_yield": 3.025,
+    "ttm_current_ratio": 0.504,
+    "ttm_debt_equity": 1.61,
+    "ttm_debt_ebitda": 5.84,
+    "ttm_interest_coverage": 2.508,
+    "ttm_f_score": 4.0,
+    "ttm_eps_growth_3y": 8.28,
+    "peg_adam": 2.11,
+    "peg_verdict": "expensive (>1.5)",
+    "ps_avg_5y": 2.54,
+    "fair_value_ps": 102.14,
+    "pb_avg_5y": 1.88,
+    "fair_value_pb": 107.76,
+    "rev_growth_proj": 7.05,
+    "psg": 0.44,
+    "psg_verdict": "overvalued (>0.3)",
+    "cfo_vs_ni_pct": 114.9,
+    "cfo_fcf_substitute_ok": false,
+    "sort_financial_strength": 7.3,
+    "sort_predictability": 66.7,
+    "sort_profitability": 21.0,
+    "sort_growth": 23.2,
+    "moat_evidence_score": 41.7,
+    "moat_no_moat_industry": false
+   },
+   "moat_hints": {
+    "pricing_power": "gross margin 61.0% \u2014 high, pricing-power territory (doc: can it raise prices yearly without losing share?)",
+    "roic_persistence": "ROIC \u2265 15% in 0/4 years \u2014 excess returns not fully defended",
+    "growth_consistency": "revenue/income up-years 66% \u2014 doc: strong moats show as consistent growth",
+    "self_financing": "FCF positive 0/4 of last 10y",
+    "human_checklist": "YOUR CALL \u2014 need \u22653 of 5 sources: \u2460 brand monopoly \u2461 switching costs \u2462 network effect \u2463 barriers to entry (patents/regulation) \u2464 economies of scale. Plus the pricing-power test, and the talent-dependency warning: if the moat depends on one irreplaceable person (key-man risk), the doc says that is DANGEROUS \u2014 'once you lose the talent, the whole business is gone.' Numbers cannot see this; only you can."
+   },
+   "error": "",
+   "excluded": false,
+   "exclusion_reason": ""
+  }
+ ],
+ "elapsed_seconds": 58.0
+}
