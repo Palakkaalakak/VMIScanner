@@ -1199,6 +1199,12 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
         _ivd_ps = _ivd["iv_ps"]
         res.metrics["intrinsic_value_direct"] = round(_ivd_ps, 2)
         res.metrics["direct_base_flow"] = _ivd.get("base_desc")
+        # A/B diagnostic: same inputs, yrs 6-10 at 2/3 of g1 (GOOGL case
+        # study band 15.3/10.13/4 — 10.13 = 0.66 * 15.3). Comparison only;
+        # the taught min(g1,15) band stays the headline number.
+        _iv23 = _ivd.get("iv_ps_g2_23")
+        res.metrics["intrinsic_value_direct_g2_23"] = (
+            round(_iv23, 2) if _iv23 is not None else None)
         # Margin-of-safety ladder (§4.9): base / conservative / doomsday.
         _ivc = _ivd.get("iv_conservative")
         _ivdm = _ivd.get("iv_doomsday")

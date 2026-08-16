@@ -501,7 +501,15 @@ def compute_iv_direct(*, shares: float, beta: Optional[float],
     # of flattening Adam's band structure.
     iv_cons = _pv(g_lo, min(g_lo, 15.0))
     iv_doom = _pv(g_lo, min(g_lo / 2.0, 15.0))
+    # A/B candidate (2026-08-16, NOT the default): yrs 6-10 at 2/3 of g1.
+    # Source: GOOGL case study in the master doc uses 15.3% / 10.13% / 4%
+    # — the 10.13% is StockOracle's FactSet "next period" rate, which is
+    # 10.13/15.3 = 0.662 of g1. Adam's own MSFT xlsx uses min(g1,15)
+    # instead, so BOTH bands exist in his practice. This output lets us
+    # compare them against his fresh valuations without changing the
+    # taught default.
+    iv_ps_g2_23 = _pv(g5, min(g5 * 2.0 / 3.0, 15.0))
     return {"iv_ps": iv_ps, "g_pct": g5, "disc_pct": disc * 100,
             "base_desc": base_desc,
             "iv_conservative": iv_cons, "iv_doomsday": iv_doom,
-            "g_low_pct": g_lo}
+            "g_low_pct": g_lo, "iv_ps_g2_23": iv_ps_g2_23}

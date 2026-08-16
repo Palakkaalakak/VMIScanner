@@ -98,12 +98,28 @@ def sa_forecast_growth(ticker: str) -> Optional[float]:
                         all(isinstance(d, str) for d in dates)):
                     yrs = [d[:4] for d in dates]
                     if len(set(yrs)) == len(yrs):  # annual, not quarterly
+                        # FORWARD-ONLY (bugfix 2026-08-16): the /forecast
+                        # table mixes HISTORICAL actuals with estimates
+                        # (TMO: 2021 19.46 ... 2026e 20.08 -> bogus 0.6%
+                        # "forecast" CAGR poisoned by the 2021-23 earnings
+                        # decline). A forecast CAGR must start at the last
+                        # COMPLETED fiscal year, not five years back.
+                        from datetime import date as _date
+                        _cy = _date.today().year
                         pr = [(d, e) for d, e in zip(dates, eps)
-                              if isinstance(e, (int, float)) and e > 0]
+                              if isinstance(e, (int, float)) and e > 0
+                              and int(d[:4]) >= _cy - 1]
                         if len(pr) >= 2:
                             (d0, e0), (d1, e1) = pr[0], pr[-1]
                             n = int(d1[:4]) - int(d0[:4])
-                            if n >= 1:
+                            # n >= 2 REQUIRED: with 2027-28 estimates
+                            # paywalled ("[PRO]") the visible window can
+                            # collapse to a single forward year, and a
+                            # 1-year GAAP EPS change is NOT comparable to
+                            # the 3-5y growth rates it would be averaged
+                            # with (PANW: -16% one-year GAAP blip vs ~20%
+                            # long-term consensus). Multi-year or nothing.
+                            if n >= 2:
                                 best = ((e1 / e0) ** (1 / n) - 1) * 100
             for v in o.values():
                 visit(v)
