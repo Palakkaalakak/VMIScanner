@@ -788,10 +788,20 @@ def run_checks(meta: Dict, data: Dict[str, Dict],
          if nm_status == WARN else ""))
 
     # ---- 7. ROE >= 12% — multi-window average (20/15/10y any-pass; 5y gated)
+    # Banks KEEP this check — ROE is Adam's core bank profitability metric
+    # (§8.4). REITs get NA: property depreciation structurally crushes net
+    # income, so accounting ROE is meaningless — §9 grades REITs on
+    # distributions, gearing and occupancy instead.
     roe = _series(rat, "roe")
     roe_latest = next((v for v in roe if v is not None), None)
     st, w, roe_avg = _multi_window_avg(roe, 12.0, accept_5y, any_long_window)
-    if st == NA:
+    if ctype == "reit":
+        add("ROE ≥ 12%", NA,
+            f"latest {roe_latest:.1f}%" if roe_latest is not None else None,
+            "REITs: accounting ROE is depressed by property depreciation by "
+            "design — VMI §9 grades REITs on dividend yield, gearing and "
+            "P/NAV instead (see type checks); NA never disqualifies")
+    elif st == NA:
         add("ROE ≥ 12%", NA, None, _na_reason(roe, 6, "ROE history"))
     elif any(v is not None and v < 0
              for v in _window(_series(bal, "equity"), WINDOW_10Y)):
