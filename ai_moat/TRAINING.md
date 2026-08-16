@@ -1,179 +1,146 @@
-# Training the Moat-Reasoning Model — Super-High-Quality Recipe
+# Teaching the Moat-Reasoning Model — High-Quality, FAST Recipe
 ### Target hardware: RTX 5070 Ti 12GB VRAM + 16GB system RAM
 
-This is the maximum-quality path for your card, implementing your own idea:
-**train a model LARGER than what you'd run day-to-day, then quantize it down.**
+**Why "teaching", not "training"** (your framing — adopted, it's more accurate):
+we are NOT training a model from scratch (that takes trillions of tokens and a
+datacenter). We take a model that already knows English, finance and reasoning,
+and **teach it one specific discipline** — Adam's moat-analysis rubric — with a
+small, deliberately-designed curriculum (~200 lessons): worked examples from the
+teacher (gold), trick questions that punish memorization (contrastive), and
+practice breadth (silver). The mechanism (QLoRA) literally freezes 99.5% of the
+model and only adjusts small "habit" adapters — the model keeps everything it
+knew and gains one skill. That is teaching in any meaningful sense of the word.
 
 ---
 
-## 0. The decision (why this exact setup)
+## 0. The decision (updated 2026-08-16 after the Qwen3.8 review)
 
 | Choice | Decision | Why |
 |---|---|---|
-| Base model | **Qwen2.5-14B-Instruct** (fallback: Qwen2.5-7B-Instruct if OOM) | 14B is the largest model whose **QLoRA training** fits a 12GB card. Qwen2.5 has the strongest instruction-following + reasoning per parameter in this class, Apache-licensed. |
-| Method | **QLoRA** (4-bit NF4 frozen base + LoRA adapters, rank 64) | You train ~0.5% of the weights. 14B at 4-bit ≈ 8.2GB; adapters + optimizer + activations fit in the remaining ~3.5GB with the settings below. Full fine-tune of even 7B is impossible on 12GB. |
-| After training | **Merge adapter → quantize to GGUF Q5_K_M** (Q4_K_M if you want more headroom) | This is the "bigger then quantize" step. A 14B at Q5 ≈ 9.9GB — fits fully in VRAM for inference at full GPU speed. Quality loss from Q5 is far smaller than the quality gain from 14B vs 7B. |
-| Why not offload to RAM | PCIe ≈ 64GB/s vs GDDR7 ≈ 600-900GB/s | Offload gives capacity, not speed. For **training** it's worse: gradient traffic murders throughput. Everything below is sized to stay on-card. |
+| Student (the model we teach) | **Qwen3-14B** (`unsloth/Qwen3-14B-unsloth-bnb-4bit`), fallbacks: Qwen2.5-14B, Qwen2.5-7B | Newest generation that BOTH unsloth QLoRA and llama.cpp GGUF support maturely. 14B is the largest QLoRA-teachable size on 12GB. |
+| Teacher (labels the silver tier) | **Qwen3-14B GGUF Q4_K_M (~9.0GB)** in LM Studio — fits FULLY in 12GB VRAM → 30-50 tok/s | The old 32B Q3_K_M half-offloaded to RAM at 1-3 tok/s → your 16h ETA. A fully-in-VRAM 14B is **20-50× faster** and near-equal on a structured rubric task. |
+| Quality-option teacher | Qwen3.8-27B UD-Q3_K_XL (unsloth GGUF exists, llama.cpp supports Gated DeltaNet) | ~14GB → partial offload on 12GB, ~5-10 tok/s. Use overnight only if you want maximum label quality. |
+| Qwen3.8-27B as STUDENT | **REJECTED** | 27B 4-bit QLoRA needs 17-19GB — does not fit 12GB for teaching. Fine as a teacher via GGUF, wrong as a fine-tune target on this card. |
+| Method | **QLoRA** rank 64 (4-bit frozen base + adapters) | Teaches ~0.5% of weights; fits 12GB with unsloth gradient checkpointing. |
+| After teaching | **`python ai_moat/quantize_model.py`** — fully automatic | Merges the adapter → converts → quantizes to Q5_K_M GGUF (~9.9GB, fits fully in VRAM). One command; it even fetches llama.cpp itself. |
 
-**Reasoning-model claim, honestly stated:** this is not an RL-trained "reasoning
-model" like o1. It's a supervised model whose dataset *forces* reasoning:
-- **Gold tier** anchors verdicts to Adam's actual judgments (no consensus anywhere in the pipeline).
-- **Contrastive tier** shows the SAME famous ticker with corrupted fundamentals and a
-  DOWNGRADED answer — so the model cannot pass by memorizing "MSFT = wide"; it must
-  read the evidence card. That's the mechanism that makes it reason instead of recall.
-- **Silver tier** teaches breadth: a teacher model answers rubric-only prompts (it
-  never sees Morningstar/analyst moat ratings), you spot-check ~10%, then train.
+**Reasoning-model claim, honestly stated:** this is not an RL "reasoning model"
+like o1. It's a supervised model whose curriculum *forces* reasoning:
+- **Gold tier** anchors verdicts to Adam's actual judgments (no consensus anywhere).
+- **Contrastive tier** shows the SAME famous ticker with corrupted fundamentals and
+  a DOWNGRADED answer — the model cannot pass by memorizing "MSFT = wide"; it must
+  read the evidence card.
+- **Silver tier** teaches breadth — now **great-businesses only** (~137 prompts,
+  not 443): the moat model's job is grading companies that already pass the
+  great-business scan; labelling the ~300 rejects wasted GPU hours for nothing.
 
 ---
 
-## 1. Generate the silver tier (do this first, one overnight run)
+## 1. Generate the silver tier (NOW ~1-1.5 HOURS, not 16)
 
-The builder produced `dataset/silver_prompts.jsonl` (445 prompts, answers missing).
-Fill them with a **teacher model** that sees ONLY the rubric — two options:
+**Setup in LM Studio (one time):**
+1. Search & download: **`Qwen3-14B GGUF`** (lmstudio-community or unsloth), pick **Q4_K_M** (~9.0GB).
+2. Load it with: GPU offload = **MAX**, context = **4096** (no more — long context steals VRAM), "keep model in RAM" **OFF**.
+3. Developer tab → **Start Server** (default `http://localhost:1234`).
 
-**Option A — fully local, fully free (slower):**
+**Run (from the repo root):**
 ```bash
-# On your machine, with ollama or llama.cpp:
-ollama pull qwen2.5:32b-instruct-q3_K_M   # ~14GB, will offload to RAM — fine for
-                                          # batch generation overnight (speed doesn't matter here)
-python3 ai_moat/gen_silver.py --backend ollama --model qwen2.5:32b-instruct-q3_K_M
+python ai_moat/gen_silver.py --limit 5     # ALWAYS smoke-test 5 first
+python ai_moat/gen_silver.py               # full run: great-only, ~137 prompts
 ```
-**Option B — API (a few dollars, better labels):** any strong API model, same script
-with `--backend openai`. The system prompt already forbids consensus; the teacher
-only receives the rubric + evidence card, so consensus bias cannot leak in.
+What makes it fast now (all default, no flags needed):
+- teacher fully in VRAM (the 20-50× lever),
+- great-businesses-only prompt set (~137 vs 443),
+- thinking mode suppressed (Qwen3 thinks by default — hundreds of hidden tokens per answer; `--thinking` re-enables if you ever want it),
+- 2 parallel in-flight requests (`--workers 1` if LM Studio misbehaves),
+- 800-token answer cap.
 
-Then **human review**: open `dataset/silver.jsonl`, check ~45 random rows (10%).
-Delete rows where the verdict contradicts the evidence card. This half hour is the
-highest-leverage quality step in the whole pipeline.
+Progress checkpoints after EVERY answer — stop/re-run anytime, it resumes.
 
-## 2. Assemble the training mix
+Then **human review**: open `dataset/silver.jsonl`, check ~14 random rows (10%).
+Delete rows whose verdict contradicts the evidence card. Highest-leverage
+half hour in the whole pipeline.
+
+## 2. The curriculum mix (automatic in train_qlora.py)
 
 ```
-gold.jsonl         × 6 repeats   (40 → 240 rows; these are the anchors)
-contrastive.jsonl  × 4 repeats   (24 → 96 rows; anti-memorization)
-silver.jsonl       × 1           (~420 rows after review)
-                                 ≈ 750 training rows, ~40 held out for eval
+gold.jsonl         × 6 repeats   (42 → ~220 rows; the anchors)
+contrastive.jsonl  × 4 repeats   (26 → ~90 rows; anti-memorization)
+silver.jsonl       × 1           (~120 rows after review, great-only)
+                                 ≈ 430 teaching rows
+HELD OUT, never taught: gold META/TSLA/AMZN/INTC/ZM + contrastive MSFT/GOOGL/AAPL
 ```
-**Hold out** 5 gold tickers (e.g. META, TSLA, AMZN, INTC, ZM) + 3 contrastive rows as
-the eval set — never trained on, used to verify the model reproduces Adam's verdicts
-AND downgrades corrupted evidence.
+The held-out set is the trust gate: the model must reproduce Adam's verdicts on
+gold it never saw AND downgrade corrupted versions of famous names.
 
-## 3. Train (unsloth — fastest QLoRA on consumer cards)
-
-```bash
-pip install unsloth
-python3 ai_moat/train_qlora.py   # config below, ~2-4h on the 5070 Ti
-```
-
-Key config (already what `train_qlora.py` should contain):
-```python
-from unsloth import FastLanguageModel
-model, tok = FastLanguageModel.from_pretrained(
-    "unsloth/Qwen2.5-14B-Instruct-bnb-4bit",   # pre-quantized 4-bit base
-    max_seq_length = 2048,                     # evidence card + answer fits easily
-    load_in_4bit = True,
-)
-model = FastLanguageModel.get_peft_model(
-    model, r = 64, lora_alpha = 64,
-    target_modules = ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],
-    use_gradient_checkpointing = "unsloth",    # the thing that makes 14B fit
-)
-# TrainingArguments:
-#   per_device_train_batch_size = 1
-#   gradient_accumulation_steps = 16          # effective batch 16
-#   num_train_epochs = 3
-#   learning_rate = 1e-4, cosine schedule, warmup_ratio = 0.05
-#   bf16 = True, optim = "paged_adamw_8bit"
-```
-If you OOM at 14B despite this: drop `max_seq_length` to 1536, then r to 32,
-then (last resort) switch base to Qwen2.5-7B — in that order.
-
-## 4. Merge + quantize (the "bigger then quantize" step)
+## 3. Teach (unsloth QLoRA)
 
 ```bash
-# merge LoRA into fp16 weights (needs disk, not VRAM — streams to disk)
-python3 -c "from unsloth import FastLanguageModel; \
-  m,t = FastLanguageModel.from_pretrained('outputs/checkpoint-final'); \
-  m.save_pretrained_merged('moat-14b-merged', t, save_method='merged_16bit')"
-
-# quantize to GGUF with llama.cpp
-python3 llama.cpp/convert_hf_to_gguf.py moat-14b-merged --outfile moat-14b-f16.gguf
-llama.cpp/llama-quantize moat-14b-f16.gguf moat-14b-Q5_K_M.gguf Q5_K_M   # ~9.9GB
-# fallback if you want more free VRAM while it runs alongside other apps:
-llama.cpp/llama-quantize moat-14b-f16.gguf moat-14b-Q4_K_M.gguf Q4_K_M   # ~8.4GB
+pip install unsloth                       # one time
+python ai_moat/train_qlora.py             # Qwen3-14B default, ~2-4h
+python ai_moat/train_qlora.py --eval-only # re-run the trust gate later
 ```
+OOM ladder (apply in order): `--seq 1536` → `--rank 32` → `--base 7b`.
+
+## 4. Quantize — FULLY AUTOMATIC now
+
+```bash
+python ai_moat/quantize_model.py          # merge → GGUF → Q5_K_M, one command
+```
+- Clones llama.cpp itself, installs converter deps, finds or builds `llama-quantize`.
+- Windows easiest path if the auto-build can't find a compiler: download a
+  release zip from https://github.com/ggml-org/llama.cpp/releases
+  (`llama-bXXXX-bin-win-cuda-x64.zip`), then:
+  `python ai_moat/quantize_model.py --llama-bin C:\path\to\llama-quantize.exe`
+- Disk: ~56GB peak briefly, intermediates auto-deleted.
+- Output: `ai_moat/outputs/moat-qwen3-14b-Q5_K_M.gguf` (~9.9GB — fits fully in
+  your 12GB VRAM → 30-50 tok/s in LM Studio).
 
 ## 5. Evaluate before trusting it
 
-Run the held-out set and check, in order of importance:
-1. **Contrastive rows downgrade.** If corrupted-MSFT still comes back WIDE, the model
-   memorized tickers → retrain with more contrastive repeats (×6) and fewer epochs (2).
-2. **Held-out gold verdicts match Adam** (META wide 9, TSLA narrow, ZM narrow 6,
-   INTC lost-moat, AMZN wide-but-weak with the segment split stated).
-3. **Format compliance** — every answer in the mandated block format.
-4. **No invented numbers** — every figure cited must appear in the evidence card.
+The teach run prints the held-out eval automatically. Verify by hand:
+- gold rows ≈ Adam's verdict (grade within one notch),
+- contrastive rows MUST downgrade (this is the whole point),
+- reasoning cites the evidence card, not fame.
+If contrastive rows don't downgrade → more contrastive repeats (edit `_repeat`)
+or lower LR to 5e-5 and re-teach. Do NOT ship a model that fails the gate.
 
 ## 6. Wire into the scanner
 
-Inference: `llama-server -m moat-14b-Q5_K_M.gguf -ngl 99 -c 2048` → the Streamlit
-moat expander POSTs the evidence card to `localhost:8080/v1/chat/completions` with
-the rubric system prompt. The evidence card the scanner already renders per ticker
-IS the model's input format — zero glue code beyond the HTTP call.
+Same OpenAI-compatible call as gen_silver uses — point it at your own model in
+LM Studio and batch-grade the great-business list.
 
----
 ## File map
-- `adam_seed_labels.json` — 40 gold verdicts, verbatim from the doc, with line refs
-- `rubric_system_prompt.md` — Adam's rubric as the system prompt (consensus forbidden)
-- `build_dataset.py` — builds gold/contrastive/silver_prompts (run: `python3 -m ai_moat.build_dataset`)
-- `dataset/` — the JSONL outputs (chat-messages format, axolotl/unsloth/llama-factory ready)
-- `gen_silver.py` — teacher loop (LM Studio/OpenAI-compatible, resumable)
-- `train_qlora.py` — full unsloth QLoRA script with built-in held-out eval
-
----
+```
+ai_moat/
+  build_dataset.py      # builds gold/contrastive/silver_prompts (great-only default)
+  gen_silver.py         # FAST teacher labelling (great-only, no-think, parallel)
+  train_qlora.py        # QLoRA teaching run + held-out trust gate
+  quantize_model.py     # automatic merge → GGUF → Q5_K_M
+  rubric_system_prompt.md
+  adam_seed_labels.json # Adam's own verdicts (gold source)
+  dataset/              # the curriculum
+  outputs/              # adapters + final GGUF
+```
 
 ## PC Safety — researched, not guessed (2026-08-16)
 
-**Question: can any of this crash/damage the PC? Short answer: it cannot damage
-hardware; the only real risk is an out-of-memory (OOM) freeze, and every step
-below has a specific mitigation. Sources: unsloth official requirements docs,
-LM Studio docs/blog (v0.3.14 guardrails), r/LocalLLaMA OOM reports.**
-
-### Teacher phase (Qwen2.5-32B Q3_K_M, 15.95GB in LM Studio)
-- The GGUF does NOT fit 12GB VRAM; LM Studio splits it: ~10-11GB in VRAM,
-  the remaining ~5-6GB + context (KV cache) in system RAM.
-- **Researched requirement: ≥16GB free system RAM for the overflow; 32GB
-  total strongly recommended** (LM Studio low-VRAM guidance). A reported
-  failure mode on Reddit: RAM fills, whole system freezes for minutes before
-  the app OOMs. Mitigations, in order:
-  1. In LM Studio: Settings → Hardware → keep **"Model loading guardrails"
-     ON** (default "Balanced") — LM Studio then refuses/auto-trims loads
-     that would exceed memory instead of freezing the machine.
-  2. Set **context length to 4096** when loading the model (our prompts are
-     ~2-3k tokens; default 32k contexts balloon the KV cache into RAM).
-  3. Close browsers/games while the overnight run goes (frees both RAM and
-     VRAM).
-  4. If your machine has 16GB RAM total (not 32): load with GPU offload
-     slider reduced OR use a smaller teacher
-     (Qwen2.5-32B **Q2_K** ~12.3GB, or 14B-Instruct Q6 as teacher-lite).
-- Worst case if you ignore all this: a freeze + app crash, requiring a
-  reboot. No data loss (gen_silver.py flushes after every answer and
-  resumes), no hardware damage.
+### Teacher phase (Qwen3-14B Q4_K_M fully in VRAM)
+- ~9.0GB model + ~0.7GB KV cache at ctx 4096 ≈ 9.7GB of 12GB — safe.
+- GPU will run hot (it's compute-bound now, not RAM-bound) — normal.
+- If Windows starts swapping: close browsers; LM Studio itself stays ~1GB.
 
 ### Student phase (14B QLoRA in unsloth)
-- **Official unsloth table: 14B QLoRA minimum = 8.5GB VRAM** — your 12GB
-  card has ~3.5GB headroom. Our script already uses every documented
-  OOM-avoidance lever: `load_in_4bit`, batch size 1 (unsloth's own #1 OOM
-  fix), gradient accumulation 16, `use_gradient_checkpointing="unsloth"`,
-  `paged_adamw_8bit` (spills optimizer state to RAM safely).
-- If it still OOMs (long samples can spike KV memory): the built-in ladder
-  is `--seq 3072` → `--rank 32` → `--base 7b` (7B QLoRA = 5GB min, trivial
-  fit). CUDA OOM in PyTorch just kills the python process with an error —
-  it does not hang the machine the way system-RAM exhaustion does.
-- Disk: base model download ~9GB + adapter ~1GB + merged fp16 ~28GB +
-  final GGUF ~10GB → **keep ~50GB free** during the merge step; the merged
-  fp16 can be deleted right after quantization.
+- 4-bit base ≈ 8.2GB + adapters/optimizer/activations ≈ 3.3GB → ~11.5GB: tight
+  but fits with unsloth gradient checkpointing (enabled in the script).
+- First OOM → `--seq 1536`; second → `--rank 32`; last resort `--base 7b`.
+
+### Quantize phase
+- CPU/disk-bound, no VRAM needed. Needs ~56GB free disk briefly.
 
 ### Duration expectations (so nothing looks "stuck")
-- Teacher: 443 prompts × 1-3 min ≈ one overnight run (resumable).
-- Training: 3 epochs × ~500 effective rows on a 12GB card ≈ 2-5 hours.
-- Quantization: ~20-40 min CPU-bound.
+| Step | Time |
+|---|---|
+| gen_silver (137 great-only, 14B in VRAM) | **~1-1.5h** (was 16h+) |
+| teach 3 epochs | 2-4h |
+| merge + convert + quantize | 30-60min |
