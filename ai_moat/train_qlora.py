@@ -64,16 +64,28 @@ def load_jsonl(name):
     return [json.loads(l) for l in open(p, encoding="utf-8")]
 
 
-def build_mix():
+def build_mix(allow_no_silver: bool = False):
     gold = load_jsonl("gold.jsonl")
     contr = load_jsonl("contrastive.jsonl")
     silver = load_jsonl("silver.jsonl")
     if not gold:
         raise SystemExit("dataset/gold.jsonl missing — run: "
                          "python3 -m ai_moat.build_dataset")
-    if not silver:
-        print("WARNING: dataset/silver.jsonl is empty — run gen_silver.py "
-              "first for full quality. Training on gold+contrastive only.")
+    if not silver and not allow_no_silver:
+        raise SystemExit(
+            "\n" + "=" * 68 + "\n"
+            "STOP: dataset/silver.jsonl is EMPTY — you skipped Step 2.2.\n"
+            "The silver lessons are ~70% of the curriculum; teaching without\n"
+            "them gives a much weaker model.\n\n"
+            "DO THIS FIRST (with LM Studio running + server started):\n"
+            "  python ai_moat/gen_silver.py\n"
+            "(~1-1.5h, safe to interrupt/resume; see AI_SUPERGUIDE.md 2.2)\n\n"
+            "Or, if you REALLY want a quick gold-only test run:\n"
+            "  python ai_moat/train_qlora.py --no-silver\n"
+            + "=" * 68)
+    if not silver and allow_no_silver:
+        print("NOTE: --no-silver set — teaching on gold+contrastive only "
+              "(quick-test mode, not the full curriculum).")
 
     train, eval_rows = [], []
     for r in gold:
@@ -129,13 +141,17 @@ def main():
     ap.add_argument("--rank", type=int, default=64)
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--eval-only", action="store_true")
+    ap.add_argument("--no-silver", action="store_true",
+                    help="allow teaching without silver lessons "
+                         "(quick gold-only test run)")
     args = ap.parse_args()
 
     from unsloth import FastLanguageModel     # import late: needs GPU
     from datasets import Dataset
     from trl import SFTTrainer, SFTConfig
 
-    train_rows, eval_rows = build_mix()
+    train_rows, eval_rows = build_mix(
+        allow_no_silver=args.no_silver or args.eval_only)
 
     adapter_dir = os.path.join(OUTDIR, f"moat-{args.base}-lora")
     if args.eval_only:
