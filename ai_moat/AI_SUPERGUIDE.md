@@ -89,7 +89,10 @@ on the 27B Qwen class: KL divergence, AIME math, blind quality duels):
    - **GPU Offload: MAX** (all layers). This is the single most
      important setting. If it's partial, you get 1-3 tok/s (the old
      16-hour problem). Full = 30-50 tok/s.
-   - **Context Length: 4096** (bigger wastes VRAM for our short prompts).
+   - **Context Length: 8192** — important! LM Studio SPLITS the context
+     between parallel requests, and gen_silver uses 2 workers:
+     8192 / 2 = 4096 per worker, comfortable. (4096 total → 2048 each →
+     "Context size has been exceeded" crashes mid-answer.)
 3. Say "hi" to it. If it answers fast, you're done here.
 
 ### Step 1.4 — Turn on the local server
@@ -200,6 +203,8 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 | Symptom | Cause | Fix |
 |---|---|---|
 | gen_silver: "connection refused" | LM Studio server not started | Developer tab → Start Server |
+| gen_silver: HTTP 400 on every ticker | Model not loaded into the SERVER, or just-started server still warming up | Developer/Server tab → make sure the model is selected/loaded THERE (not only in the Chat tab), then re-run |
+| "Context size has been exceeded" | Context split across workers: 4096/2 = 2048 each, too small | Eject model → reload with Context Length 8192; or `--workers 1` |
 | Teacher crawls at 1-3 tok/s | GPU Offload partial | Set to MAX; close VRAM-hungry apps; reload model |
 | "CUDA out of memory" during teaching | Something else is using VRAM | Close browsers/games; retry. Persists → tell me, we add `--batch-size 1` |
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |

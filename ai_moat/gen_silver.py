@@ -99,8 +99,17 @@ def chat(base_url: str, model: str, messages: list, max_tokens: int,
         base_url.rstrip("/") + "/chat/completions",
         data=json.dumps(body).encode(),
         headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        payload = json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            payload = json.load(r)
+    except urllib.error.HTTPError as e:
+        # Read the server's actual error text — a bare "400 Bad Request"
+        # hides the real reason (model not loaded, context exceeded, ...).
+        try:
+            detail = e.read().decode("utf-8", "replace")[:300]
+        except Exception:
+            detail = ""
+        raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from None
     return strip_thinking(payload["choices"][0]["message"]["content"])
 
 
@@ -129,8 +138,16 @@ def answer_one(p: dict, args) -> tuple:
             a = chat(args.base_url, args.model, p["messages"],
                      args.max_tokens, args.thinking)
         except Exception as e:
-            print(f"  {p['ticker']}: request failed ({e}); "
-                  f"is the LM Studio server running?")
+            msg = str(e)
+            if "context" in msg.lower():
+                print(f"  {p['ticker']}: CONTEXT OVERFLOW — in LM Studio, "
+                      f"eject the model and reload it with Context Length "
+                      f"8192 (each parallel worker gets ctx/workers; "
+                      f"4096/2 = 2048 is too small for prompt+answer). "
+                      f"Or re-run with --workers 1.")
+            else:
+                print(f"  {p['ticker']}: request failed ({msg}); "
+                      f"check LM Studio: model loaded? server started?")
             time.sleep(5)
             continue
         if looks_valid(a):
