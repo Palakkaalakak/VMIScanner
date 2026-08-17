@@ -189,6 +189,11 @@ python ai_moat/review_silver.py
   inflation get corrected. That's your quality check — no file-skimming
   needed.
 
+**Already generated silver.jsonl with an older version of the scripts?**
+No regeneration needed — `review_silver.py` works directly on your
+existing file. Just `git pull` and run it. Same for every step: each
+script reads whatever the previous step produced, old version or new.
+
 ### Step 2.3 — Teach the Student (~1-2 hours, GPU fans will spin)
 ```powershell
 pip install unsloth
@@ -245,7 +250,7 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 | "Context size has been exceeded" | Context split across workers: 4096/2 = 2048 each, too small | Eject model → reload with Context Length 8192; or `--workers 1` |
 | EVERY ticker "failed the format gate" / SKIPPED | LM Studio ignored our no-thinking API flag: the model spends its whole 800-token budget "thinking" (LM Studio hides it in `reasoning_content`), the visible answer stays empty, so the format check correctly fails | `git pull` — the script now also appends Qwen3's in-band `/no_think` switch to every prompt, which the model itself obeys regardless of API flags. If it STILL happens: click the gear icon next to the loaded model in LM Studio and switch Reasoning OFF |
 | Teacher crawls at 1-3 tok/s | GPU Offload partial | Set to MAX; close VRAM-hungry apps; reload model |
-| train_qlora: "Some modules are dispatched on the CPU" | **LM Studio still has the Teacher loaded** — it's holding ~9GB of your 12GB; the student can't fit in what's left | Eject the model in LM Studio (or quit LM Studio), then re-run. The script now checks free VRAM upfront and tells you exactly this |
+| train_qlora: "Some modules are dispatched on the CPU" | Not enough free VRAM for the student. Either LM Studio still holds the Teacher (~9GB), OR you hit the old oversized default: the "unsloth-dynamic" 14B repo is 10.36GB of weights — too big even on an empty 12GB laptop card | `git pull` (default now points at the standard 9.25GB repo, which fits). Eject any LM Studio model, close video tabs, re-run. Still failing? `python ai_moat/train_qlora.py --base qwen3-8b` — guaranteed fit |
 | "CUDA out of memory" during teaching | Something else is using VRAM | Close browsers/games; retry. Persists → tell me, we add `--batch-size 1` |
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |
 | Held-out accuracy < 70% | Model didn't learn well enough | Don't ship it. We add lessons or tune together |

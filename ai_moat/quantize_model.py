@@ -59,7 +59,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUTDIR = os.path.join(HERE, "outputs")
 
 BASES = {
-    "qwen3-14b": "unsloth/Qwen3-14B-unsloth-bnb-4bit",
+    "qwen3-14b": "unsloth/Qwen3-14B-bnb-4bit",    # matches train_qlora.py
+    "qwen3-8b": "unsloth/Qwen3-8B-bnb-4bit",
     "14b": "unsloth/Qwen2.5-14B-Instruct-bnb-4bit",
     "7b": "unsloth/Qwen2.5-7B-Instruct-bnb-4bit",
 }

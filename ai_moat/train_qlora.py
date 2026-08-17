@@ -56,11 +56,21 @@ EVAL_GOLD = {"META", "TSLA", "AMZN", "INTC", "ZM"}
 # Held-out contrastive tickers — must DOWNGRADE despite famous names.
 EVAL_CONTRASTIVE = {"MSFT", "GOOGL", "AAPL"}
 
+# MEASURED weight sizes (HuggingFace API, 2026-08): the "unsloth-dynamic"
+# 14B variant is 10.36GB of weights — on a 12GB Windows laptop (~1.5GB
+# taken by the desktop) that leaves NOTHING for activations and the load
+# fails with "Some modules are dispatched on the CPU". The standard
+# bnb-4bit repo is 9.25GB and fits (tightly). Qwen3-8B (5.66GB) is the
+# comfortable fallback — still a strong student for a rubric task.
 BASES = {
-    "qwen3-14b": "unsloth/Qwen3-14B-unsloth-bnb-4bit",   # default: newest with mature support
+    "qwen3-14b": "unsloth/Qwen3-14B-bnb-4bit",            # default: 9.25GB weights
+    "qwen3-8b": "unsloth/Qwen3-8B-bnb-4bit",              # 5.66GB — safe fallback
     "14b": "unsloth/Qwen2.5-14B-Instruct-bnb-4bit",       # proven fallback
     "7b": "unsloth/Qwen2.5-7B-Instruct-bnb-4bit",         # smallest fallback
 }
+
+# Minimum free VRAM to even attempt loading (weights + activation headroom).
+MIN_FREE_GB = {"qwen3-14b": 10.2, "qwen3-8b": 6.8, "14b": 10.2, "7b": 6.0}
 
 
 def load_jsonl(name):
@@ -165,17 +175,17 @@ def main():
         if torch.cuda.is_available():
             free_b, total_b = torch.cuda.mem_get_info()
             free_gb, total_gb = free_b / 1024**3, total_b / 1024**3
-            if free_gb < 10.0:
+            need = MIN_FREE_GB.get(args.base, 10.2)
+            if free_gb < need:
                 raise SystemExit(
                     "\n" + "=" * 68 + "\n"
                     f"STOP: only {free_gb:.1f}GB of {total_gb:.1f}GB VRAM is "
-                    "free — training needs ~10GB+.\n"
-                    "Something else is holding the GPU. Most likely: LM "
-                    "Studio still has\nthe Teacher model loaded (~9GB).\n\n"
-                    "FIX: in LM Studio, EJECT the loaded model (or quit LM "
-                    "Studio\nentirely), close games/browser video tabs, "
-                    "then re-run this script.\nYou can reload the Teacher "
-                    "afterwards — training does not need it.\n"
+                    f"free — '{args.base}' needs ~{need}GB+.\n"
+                    "Something else is holding the GPU (LM Studio model "
+                    "still loaded?\ngames? browser video tabs?).\n\n"
+                    "FIX: free the VRAM and re-run — or use the smaller "
+                    "student that\nalways fits on this card:\n"
+                    "  python ai_moat/train_qlora.py --base qwen3-8b\n"
                     + "=" * 68)
             print(f"VRAM preflight OK: {free_gb:.1f}GB free "
                   f"of {total_gb:.1f}GB")
@@ -198,8 +208,23 @@ def main():
         run_eval(model, tokenizer, eval_rows)
         return
 
-    model, tokenizer = FastLanguageModel.from_pretrained(
-        BASES[args.base], max_seq_length=args.seq, load_in_4bit=True)
+    try:
+        model, tokenizer = FastLanguageModel.from_pretrained(
+            BASES[args.base], max_seq_length=args.seq, load_in_4bit=True)
+    except ValueError as e:
+        if "dispatched on the CPU" in str(e) and args.base != "qwen3-8b":
+            raise SystemExit(
+                "\n" + "=" * 68 + "\n"
+                "The model didn't fit in your free VRAM even after the "
+                "preflight.\nYour card is right on the edge for a 14B "
+                "student. Two options:\n"
+                "  1. Free more VRAM (quit LM Studio fully, close every "
+                "browser tab\n     playing video, disconnect a second "
+                "monitor) and re-run.\n"
+                "  2. Use the 8B student — guaranteed fit, still strong:\n"
+                "     python ai_moat/train_qlora.py --base qwen3-8b\n"
+                + "=" * 68)
+        raise
     model = FastLanguageModel.get_peft_model(
         model, r=args.rank, lora_alpha=args.rank,
         target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
