@@ -49,7 +49,7 @@ import random
 
 # Bumped on every behavioural change — printed at startup so a stale
 # checkout is obvious at a glance ("did my git pull actually land?").
-SCRIPT_VERSION = "2026-08-17d (py3.14 dill/pickle shim; student=Qwen3-14B-bnb-4bit)"
+SCRIPT_VERSION = "2026-08-17e (py3.14 fingerprint failsafe — cannot crash in fingerprinting)"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DS = os.path.join(HERE, "dataset")
@@ -132,45 +132,73 @@ def build_mix(allow_no_silver: bool = False):
 
 
 def _patch_py314_pickle_compat(_force: bool = False):
-    """Python 3.14 changed pickle's save_dict to call
-    self._batch_setitems(items, obj) with a NEW second argument; the dill
-    library (used by `datasets` for dataset fingerprinting) still defines
-    the old 1-arg version -> 'TypeError: Pickler._batch_setitems() takes
-    2 positional arguments but 3 were given'. Until dill ships a py3.14
-    release, wrap the old method to accept-and-ignore the extra arg.
-    Harmless no-op on Python <= 3.13 or already-fixed dill versions."""
+    """Python 3.14 changed pickle's dict-saving internals: save_dict now
+    calls self._batch_setitems(items, obj) with a NEW second argument,
+    while dill / datasets still define and CALL the old (self, items)
+    form. The mismatch surfaces both ways ('takes 2 positional arguments
+    but 3 were given' AND 'missing 1 required positional argument: obj')
+    because the call chain crosses the boundary twice:
+        stdlib save_dict -> datasets Pickler -> stdlib _batch_setitems.
+
+    Defense in depth, two independent layers:
+      L1: REPLACE datasets' Pickler._batch_setitems with a version that
+          keeps its key-sorting behaviour but adapts to whichever
+          signature the running stdlib exposes (2-arg or 3-arg).
+      L2: FAILSAFE — wrap datasets' Hasher.hash so ANY exception during
+          fingerprinting falls back to a random fingerprint. The
+          fingerprint is only a cache key; for a one-shot training run a
+          random one merely disables dataset caching, which we don't
+          need. Training can then never die in fingerprinting again.
+
+    No-op on Python <= 3.13. Harmless once dill/datasets ship fixes."""
     import sys
     if sys.version_info < (3, 14) and not _force:
         return
-    import inspect
     patched = []
+
+    # ---- L1: signature-adaptive _batch_setitems on datasets' Pickler ----
     try:
-        import dill
-        classes = [dill.Pickler]
-        try:
-            from datasets.utils import _dill as _ds_dill
-            if getattr(_ds_dill, "Pickler", None) is not None:
-                classes.append(_ds_dill.Pickler)
-        except Exception:
-            pass
-        for cls in classes:
-            fn = getattr(cls, "_batch_setitems", None)
-            if fn is None:
-                continue
-            try:
-                nparams = len(inspect.signature(fn).parameters)
-            except (TypeError, ValueError):
-                continue
-            if nparams == 2:            # old (self, items) signature
-                def _shim(self, items, obj=None, _orig=fn):
-                    return _orig(self, items)
-                cls._batch_setitems = _shim
-                patched.append(cls.__module__ + "." + cls.__qualname__)
+        import pickle as _pickle
+        from datasets.utils import _dill as _ds_dill
+
+        def _adaptive_batch_setitems(self, items, obj=None):
+            if not getattr(self, "_legacy_no_dict_keys_sorting", False):
+                try:
+                    items = sorted(items)      # datasets: order-free hashing
+                except Exception:
+                    from datasets.fingerprint import Hasher
+                    items = sorted(items, key=lambda x: Hasher.hash(x[0]))
+            base = _pickle._Pickler._batch_setitems
+            try:                               # py3.14 stdlib: (items, obj)
+                return base(self, iter(items), obj)
+            except TypeError:                  # older stdlib: (items)
+                return base(self, iter(items))
+
+        if getattr(_ds_dill, "Pickler", None) is not None:
+            _ds_dill.Pickler._batch_setitems = _adaptive_batch_setitems
+            patched.append("datasets Pickler (adaptive)")
     except Exception:
         pass
+
+    # ---- L2: never-crash fingerprinting failsafe ----
+    try:
+        from datasets.fingerprint import Hasher
+        _orig_hash = Hasher.hash.__func__
+
+        def _safe_hash(cls, value):
+            try:
+                return _orig_hash(cls, value)
+            except Exception:
+                import uuid                    # random cache key: caching
+                return uuid.uuid4().hex        # off, correctness intact
+
+        Hasher.hash = classmethod(_safe_hash)
+        patched.append("Hasher.hash failsafe")
+    except Exception:
+        pass
+
     if patched:
-        print("py3.14 compat: patched _batch_setitems on "
-              + ", ".join(patched))
+        print("py3.14 compat: " + "; ".join(patched))
 
 
 def run_eval(model, tokenizer, eval_rows, max_new=900):
