@@ -190,8 +190,9 @@ def main():
     load_hf_token()
 
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", choices=list(BASES), default="qwen3-14b",
-                    help="which base you trained (matches train_qlora.py)")
+    ap.add_argument("--base", choices=list(BASES) + ["auto"], default="auto",
+                    help="which base you trained (auto = detect from the "
+                         "adapter folder train_qlora.py wrote)")
     ap.add_argument("--quant", default="Q5_K_M",
                     choices=["Q5_K_M", "Q4_K_M", "Q6_K", "Q8_0"],
                     help="GGUF quant type (Q5_K_M ~9.9GB for 14B, "
@@ -213,6 +214,18 @@ def main():
                     help="GPU layers for the imatrix pass (99=all; set 0 "
                          "for CPU-only builds)")
     args = ap.parse_args()
+
+    # auto-detect which student was actually trained: newest adapter wins
+    if args.base == "auto":
+        candidates = [(b, os.path.join(OUTDIR, f"moat-{b}-lora"))
+                      for b in BASES]
+        existing = [(b, p) for b, p in candidates if os.path.exists(p)]
+        if not existing:
+            sys.exit("no trained adapter found in ai_moat/outputs/ — "
+                     "run train_qlora.py first")
+        args.base = max(existing, key=lambda bp: os.path.getmtime(bp[1]))[0]
+        print(f"auto-detected trained student: {args.base} "
+              f"(newest adapter in outputs/)")
 
     adapter_dir = args.adapter or os.path.join(OUTDIR,
                                                f"moat-{args.base}-lora")

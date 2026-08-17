@@ -49,7 +49,7 @@ import random
 
 # Bumped on every behavioural change — printed at startup so a stale
 # checkout is obvious at a glance ("did my git pull actually land?").
-SCRIPT_VERSION = "2026-08-17e (py3.14 fingerprint failsafe — cannot crash in fingerprinting)"
+SCRIPT_VERSION = "2026-08-17f (auto student sizing by measured free VRAM — training-time need, not load-time)"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DS = os.path.join(HERE, "dataset")
@@ -73,8 +73,14 @@ BASES = {
     "7b": "unsloth/Qwen2.5-7B-Instruct-bnb-4bit",         # smallest fallback
 }
 
-# Minimum free VRAM to even attempt loading (weights + activation headroom).
-MIN_FREE_GB = {"qwen3-14b": 10.2, "qwen3-8b": 6.8, "14b": 10.2, "7b": 6.0}
+# Minimum free VRAM to TRAIN (not just load!). Measured reality from an
+# RTX 5070 Ti Laptop run (2026-08-17): 14B loaded fine into 10.8GB free
+# but died at the first training step ("No or negligible GPU memory
+# available for fused cross entropy") — training needs weights PLUS
+# LoRA gradients + activations + the loss buffer. 9.25GB of weights +
+# ~2.5-3GB of training overhead means a 14B student needs ~12GB FREE,
+# which a Windows laptop 12GB card (desktop eats ~1GB) never has.
+TRAIN_FREE_GB = {"qwen3-14b": 12.0, "14b": 12.0, "qwen3-8b": 7.6, "7b": 6.2}
 
 
 def load_jsonl(name):
@@ -226,7 +232,9 @@ def run_eval(model, tokenizer, eval_rows, max_new=900):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", choices=list(BASES), default="qwen3-14b")
+    ap.add_argument("--base", choices=list(BASES) + ["auto"], default="auto",
+                    help="auto = pick the largest student that ACTUALLY "
+                         "fits your free VRAM for training (recommended)")
     ap.add_argument("--seq", type=int, default=2048)
     ap.add_argument("--rank", type=int, default=64)
     ap.add_argument("--epochs", type=int, default=3)
@@ -237,6 +245,31 @@ def main():
     args = ap.parse_args()
 
     print(f"train_qlora version: {SCRIPT_VERSION}")
+
+    # ---- auto-pick the student by MEASURED free VRAM (training needs
+    # much more than loading — see TRAIN_FREE_GB comment) ----
+    if args.base == "auto":
+        chosen = "7b"                                   # absolute fallback
+        try:
+            import torch
+            if torch.cuda.is_available():
+                free_gb = torch.cuda.mem_get_info()[0] / 1024**3
+                for cand in ("qwen3-14b", "qwen3-8b", "7b"):
+                    if free_gb >= TRAIN_FREE_GB[cand]:
+                        chosen = cand
+                        break
+                print(f"auto student selection: {free_gb:.1f}GB free VRAM "
+                      f"-> {chosen} "
+                      f"(needs ~{TRAIN_FREE_GB[chosen]}GB to train; "
+                      f"a 14B student needs ~{TRAIN_FREE_GB['qwen3-14b']}GB "
+                      f"free — loading it is not enough, training "
+                      f"gradients/activations must fit too)")
+            else:
+                print("auto student selection: no CUDA visible -> 7b")
+        except Exception:
+            print("auto student selection: VRAM probe failed -> 7b")
+        args.base = chosen
+
     print(f"student model: {BASES[args.base]}")
 
     try:                                       # HF token (faster downloads)
@@ -252,7 +285,7 @@ def main():
         if torch.cuda.is_available():
             free_b, total_b = torch.cuda.mem_get_info()
             free_gb, total_gb = free_b / 1024**3, total_b / 1024**3
-            need = MIN_FREE_GB.get(args.base, 10.2)
+            need = TRAIN_FREE_GB.get(args.base, 12.0)
             if free_gb < need:
                 raise SystemExit(
                     "\n" + "=" * 68 + "\n"
@@ -340,7 +373,20 @@ def main():
                             # -> ~2-3x fewer training steps, same learning.
             seed=42,
         ))
-    trainer.train()
+    try:
+        trainer.train()
+    except RuntimeError as e:
+        low = str(e).lower()
+        if "memory" in low or "cuda" in low:
+            raise SystemExit(
+                "\n" + "=" * 68 + "\n"
+                f"GPU ran out of memory DURING training of '{args.base}'.\n"
+                "Drop one size down — it will finish and the quality "
+                "difference on\na fixed-rubric task is small:\n"
+                "  python ai_moat/train_qlora.py --base qwen3-8b\n"
+                "(or --base 7b if 8B also fails)\n"
+                + "=" * 68)
+        raise
     model.save_pretrained(adapter_dir)
     tokenizer.save_pretrained(adapter_dir)
     print(f"\nadapter saved -> {adapter_dir}")

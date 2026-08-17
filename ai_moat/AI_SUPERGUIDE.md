@@ -199,11 +199,17 @@ script reads whatever the previous step produced, old version or new.
 pip install unsloth
 python ai_moat/train_qlora.py
 ```
-- Downloads the student (Qwen3-14B 4-bit, ~9GB, one time), then teaches
-  it the curriculum: gold (weighted highest) + contrastive + silver.
 - **FIRST: eject the Teacher in LM Studio** (or quit LM Studio). It holds
-  ~9GB of VRAM; teaching needs the card to itself. The script checks and
-  refuses to start if VRAM is occupied.
+  ~9GB of VRAM; teaching needs the card to itself.
+- The script **measures your free VRAM and auto-picks the student size**
+  that actually fits *training* (which needs weights + gradients +
+  activations — far more than just loading). On a 12GB laptop card the
+  winner is **Qwen3-8B**: newest generation, fully-in-VRAM, ~3GB of
+  headroom. A 14B student needs ~12GB free — physically impossible here
+  once Windows takes its ~1GB. 8B learns a fixed rubric format nearly
+  as well; this is the honest right size, not a downgrade to worry about.
+- Downloads the student once (~5.7GB for 8B), then teaches it the
+  curriculum: gold (weighted highest) + contrastive + silver.
 - **The exam is automatic:** some companies are held OUT of teaching and
   used as a test. The script prints held-out accuracy at the end.
   - **Rule of thumb: below ~70% held-out agreement → don't trust it, ask
@@ -250,7 +256,7 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 | "Context size has been exceeded" | Context split across workers: 4096/2 = 2048 each, too small | Eject model → reload with Context Length 8192; or `--workers 1` |
 | EVERY ticker "failed the format gate" / SKIPPED | LM Studio ignored our no-thinking API flag: the model spends its whole 800-token budget "thinking" (LM Studio hides it in `reasoning_content`), the visible answer stays empty, so the format check correctly fails | `git pull` — the script now also appends Qwen3's in-band `/no_think` switch to every prompt, which the model itself obeys regardless of API flags. If it STILL happens: click the gear icon next to the loaded model in LM Studio and switch Reasoning OFF |
 | Teacher crawls at 1-3 tok/s | GPU Offload partial | Set to MAX; close VRAM-hungry apps; reload model |
-| train_qlora: "Some modules are dispatched on the CPU" | Not enough free VRAM for the student. Either LM Studio still holds the Teacher (~9GB), OR you hit the old oversized default: the "unsloth-dynamic" 14B repo is 10.36GB of weights — too big even on an empty 12GB laptop card | `git pull` (default now points at the standard 9.25GB repo, which fits). Eject any LM Studio model, close video tabs, re-run. Still failing? `python ai_moat/train_qlora.py --base qwen3-8b` — guaranteed fit |
+| train_qlora: "Some modules are dispatched on the CPU" or "No or negligible GPU memory available for fused cross entropy" | TRAINING needs far more VRAM than loading: weights + gradients + activations + loss buffers. A 14B student needs ~12GB FREE — a Windows 12GB laptop card (desktop eats ~1GB) never has that, even with LM Studio closed | `git pull` — the script now MEASURES your free VRAM and auto-picks the largest student that actually fits training (on this laptop: Qwen3-8B). Just run `python ai_moat/train_qlora.py` with no flags |
 | train_qlora: any `_batch_setitems` / pickling error ("takes 2 positional arguments but 3 were given", "missing 1 required positional argument: 'obj'") | Python 3.14 changed an internal pickle API; dill/datasets haven't caught up | `git pull` — the script auto-patches at startup (you'll see "py3.14 compat: datasets Pickler (adaptive); Hasher.hash failsafe"). The failsafe means fingerprinting can NEVER crash training again — worst case it just disables dataset caching, which we don't use |
 | "CUDA out of memory" during teaching | Something else is using VRAM | Close browsers/games; retry. Persists → tell me, we add `--batch-size 1` |
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |
