@@ -47,6 +47,10 @@ import json
 import os
 import random
 
+# Bumped on every behavioural change — printed at startup so a stale
+# checkout is obvious at a glance ("did my git pull actually land?").
+SCRIPT_VERSION = "2026-08-17c (student=Qwen3-14B-bnb-4bit 9.25GB, qwen3-8b fallback)"
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 DS = os.path.join(HERE, "dataset")
 OUTDIR = os.path.join(HERE, "outputs")
@@ -161,6 +165,9 @@ def main():
                     help="allow teaching without silver lessons "
                          "(quick gold-only test run)")
     args = ap.parse_args()
+
+    print(f"train_qlora version: {SCRIPT_VERSION}")
+    print(f"student model: {BASES[args.base]}")
 
     try:                                       # HF token (faster downloads)
         from ai_moat.hf_auth import load_hf_token
