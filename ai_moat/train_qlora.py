@@ -49,7 +49,7 @@ import random
 
 # Bumped on every behavioural change — printed at startup so a stale
 # checkout is obvious at a glance ("did my git pull actually land?").
-SCRIPT_VERSION = "2026-08-17c (student=Qwen3-14B-bnb-4bit 9.25GB, qwen3-8b fallback)"
+SCRIPT_VERSION = "2026-08-17d (py3.14 dill/pickle shim; student=Qwen3-14B-bnb-4bit)"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DS = os.path.join(HERE, "dataset")
@@ -131,6 +131,48 @@ def build_mix(allow_no_silver: bool = False):
     return expanded, eval_rows
 
 
+def _patch_py314_pickle_compat(_force: bool = False):
+    """Python 3.14 changed pickle's save_dict to call
+    self._batch_setitems(items, obj) with a NEW second argument; the dill
+    library (used by `datasets` for dataset fingerprinting) still defines
+    the old 1-arg version -> 'TypeError: Pickler._batch_setitems() takes
+    2 positional arguments but 3 were given'. Until dill ships a py3.14
+    release, wrap the old method to accept-and-ignore the extra arg.
+    Harmless no-op on Python <= 3.13 or already-fixed dill versions."""
+    import sys
+    if sys.version_info < (3, 14) and not _force:
+        return
+    import inspect
+    patched = []
+    try:
+        import dill
+        classes = [dill.Pickler]
+        try:
+            from datasets.utils import _dill as _ds_dill
+            if getattr(_ds_dill, "Pickler", None) is not None:
+                classes.append(_ds_dill.Pickler)
+        except Exception:
+            pass
+        for cls in classes:
+            fn = getattr(cls, "_batch_setitems", None)
+            if fn is None:
+                continue
+            try:
+                nparams = len(inspect.signature(fn).parameters)
+            except (TypeError, ValueError):
+                continue
+            if nparams == 2:            # old (self, items) signature
+                def _shim(self, items, obj=None, _orig=fn):
+                    return _orig(self, items)
+                cls._batch_setitems = _shim
+                patched.append(cls.__module__ + "." + cls.__qualname__)
+    except Exception:
+        pass
+    if patched:
+        print("py3.14 compat: patched _batch_setitems on "
+              + ", ".join(patched))
+
+
 def run_eval(model, tokenizer, eval_rows, max_new=900):
     """Trust gate: print model answers on held-out rows for human review."""
     from unsloth import FastLanguageModel
@@ -202,6 +244,7 @@ def main():
         pass  # preflight is best-effort; unsloth gives its own error if OOM
 
     from unsloth import FastLanguageModel     # import late: needs GPU
+    _patch_py314_pickle_compat()               # BEFORE datasets is used
     from datasets import Dataset
     from trl import SFTTrainer, SFTConfig
 
