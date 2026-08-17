@@ -47,9 +47,15 @@ import json
 import os
 import random
 
+# Reduce CUDA memory fragmentation (must be set BEFORE torch initializes).
+# On tight-VRAM cards this prevents the allocator from wasting hundreds of
+# MB to fragmentation, which can be the difference between staying on the
+# GPU and silently spilling into (100x slower) system RAM.
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+
 # Bumped on every behavioural change — printed at startup so a stale
 # checkout is obvious at a glance ("did my git pull actually land?").
-SCRIPT_VERSION = "2026-08-17f (auto student sizing by measured free VRAM — training-time need, not load-time)"
+SCRIPT_VERSION = "2026-08-17g (step-speed sentinel + sysmem-fallback guard; expandable CUDA allocator)"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DS = os.path.join(HERE, "dataset")
@@ -352,6 +358,54 @@ def main():
                                            remove_columns=["messages", "tier",
                                                            "ticker", "_repeat"])
 
+    # ---- step-speed sentinel: catch the Windows "sysmem fallback" trap.
+    # NVIDIA's Windows driver, instead of erroring when VRAM runs tight,
+    # silently spills GPU memory into system RAM over PCIe. Training then
+    # "works" but runs 10-30x slower (observed: 1005 s/step instead of
+    # ~60-120 s/step on this very task). Detect it from the first steps'
+    # wall-clock and tell the user how to fix it — don't let them burn a
+    # day on a 23-hour run that should take 90 minutes. ----
+    from transformers import TrainerCallback
+
+    class StepSpeedSentinel(TrainerCallback):
+        SLOW_SECONDS_PER_STEP = 360          # 6 min/step = definitely spilling
+
+        def __init__(self):
+            self._t0 = None
+
+        def on_step_begin(self, args_, state, control, **kw):
+            import time as _t
+            if self._t0 is None:
+                self._t0 = _t.time()
+
+        def on_step_end(self, args_, state, control, **kw):
+            import time as _t
+            if state.global_step != 2 or self._t0 is None:
+                return
+            per_step = (_t.time() - self._t0) / 2
+            if per_step > self.SLOW_SECONDS_PER_STEP:
+                total_h = per_step * state.max_steps / 3600
+                print("\n" + "!" * 68)
+                print(f"WARNING: ~{per_step/60:.0f} min/step -> "
+                      f"~{total_h:.0f}h total. This is 10-30x too slow.")
+                print("CAUSE: the NVIDIA Windows driver is silently "
+                      "spilling GPU memory\ninto system RAM over PCIe "
+                      "('sysmem fallback') instead of keeping the\nrun "
+                      "fully on the GPU. (It also makes the whole PC feel "
+                      "sluggish.)")
+                print("FIX (2 minutes):")
+                print("  1. Ctrl+C this run.")
+                print("  2. NVIDIA Control Panel -> Manage 3D Settings -> "
+                      "'CUDA - Sysmem\n     Fallback Policy' -> set to "
+                      "'Prefer No Sysmem Fallback'\n     (globally, or "
+                      "just for python.exe under Program Settings).")
+                print("  3. Close Chrome and other GPU-using apps.")
+                print("  4. Re-run: python ai_moat/train_qlora.py")
+                print("     (add --seq 1024 if it then errors with real "
+                      "CUDA OOM — our\n     lessons are short, 1024 "
+                      "still fits nearly all of them)")
+                print("!" * 68 + "\n")
+
     trainer = SFTTrainer(
         model=model, tokenizer=tokenizer, train_dataset=ds,
         dataset_text_field="text",
@@ -372,7 +426,8 @@ def main():
                             # each 2048-token window instead of padding it
                             # -> ~2-3x fewer training steps, same learning.
             seed=42,
-        ))
+        ),
+        callbacks=[StepSpeedSentinel()])
     try:
         trainer.train()
     except RuntimeError as e:
