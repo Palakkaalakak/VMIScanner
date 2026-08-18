@@ -149,7 +149,8 @@ The dashboard is a standard Streamlit app — the easiest free public host is
 
 1. Push this repo to GitHub (already at `Palakkaalakak/VMIScanner`).
 2. Go to https://share.streamlit.io → "New app" → pick the repo,
-   branch `main`, main file **`scanner/webapp_ui.py`**.
+   branch `main`, main file **`streamlit_app.py`** (the standard
+   Streamlit Cloud entrypoint — it wraps `scanner/webapp_ui.py`).
 3. Python dependencies are read automatically from **`requirements.txt`**;
    the theme comes from **`.streamlit/config.toml`**.
 4. Done — you get a permanent `https://<name>.streamlit.app` URL.

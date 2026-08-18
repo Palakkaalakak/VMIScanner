@@ -259,10 +259,18 @@ your trained model automatically — no copy-pasting prompts:
 
 1. LM Studio → **Developer tab → Start Server** (default port 1234), and
    load the moat model INTO THE SERVER (select it in the Developer tab).
-2. Run the dashboard **on the same PC**:
-   `streamlit run scanner/webapp_ui.py` from the repo folder.
-   (⚠️ The cloud-sandbox dashboard cannot reach the LM Studio on your
-   PC — the Python backend does the talking, not your browser.)
+2. Get a dashboard that can REACH LM Studio — two ways:
+   - **Local (simplest):** double-click `run_dashboard.bat` in the repo
+     folder (or `streamlit run streamlit_app.py`). localhost:1234 just
+     works because both run on the same PC.
+   - **Hosted on share.streamlit.io:** the cloud server cannot see your
+     PC's localhost, so expose LM Studio with a tunnel:
+     `cloudflared tunnel --url http://localhost:1234`
+     (download cloudflared.exe from developers.cloudflare.com, no
+     account needed) → it prints a `https://….trycloudflare.com` URL →
+     paste that URL **+ `/v1`** into the tab's server-URL box.
+     ⚠️ Anyone who has the tunnel URL can use your model while the
+     tunnel runs — close the cloudflared window when done.
 3. Open the tab — it auto-detects the server and auto-picks any model
    with "moat" in its name (the quantize step names it that way). Green
    banner = your trained model is live.
