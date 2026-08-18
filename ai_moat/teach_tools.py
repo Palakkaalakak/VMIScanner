@@ -99,7 +99,8 @@ def main():
     from unsloth import FastLanguageModel
     sys.path.insert(0, HERE)
     from train_qlora import (_patch_py314_pickle_compat,   # reuse fixes
-                             StepSpeedSentinel)
+                             make_step_speed_sentinel)
+    StepSpeedSentinel = make_step_speed_sentinel()
     _patch_py314_pickle_compat()
     from datasets import Dataset
     from trl import SFTTrainer, SFTConfig

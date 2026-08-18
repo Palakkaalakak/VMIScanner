@@ -261,6 +261,48 @@ def make_step_speed_sentinel():
     from transformers import TrainerCallback
 
     class StepSpeedSentinel(TrainerCallback):
+        SLOW_SECONDS_PER_STEP = 360          # 6 min/step = definitely spilling
+
+        def __init__(self):
+            self._t0 = None
+
+        def on_step_begin(self, args_, state, control, **kw):
+            import time as _t
+            if self._t0 is None:
+                self._t0 = _t.time()
+
+        def on_step_end(self, args_, state, control, **kw):
+            import time as _t
+            if state.global_step != 2 or self._t0 is None:
+                return
+            per_step = (_t.time() - self._t0) / 2
+            if per_step > self.SLOW_SECONDS_PER_STEP:
+                total_h = per_step * state.max_steps / 3600
+                print("\n" + "!" * 68)
+                print(f"WARNING: ~{per_step/60:.0f} min/step -> "
+                      f"~{total_h:.0f}h total. This is 10-30x too slow.")
+                print("CAUSE: the NVIDIA Windows driver is silently "
+                      "spilling GPU memory\ninto system RAM over PCIe "
+                      "('sysmem fallback') instead of keeping the\nrun "
+                      "fully on the GPU. (It also makes the whole PC feel "
+                      "sluggish.)")
+                print("FIX (2 minutes):")
+                print("  1. Ctrl+C this run.")
+                print("  2. NVIDIA Control Panel -> Manage 3D Settings -> "
+                      "'CUDA - Sysmem\n     Fallback Policy' -> set to "
+                      "'Prefer No Sysmem Fallback'\n     (globally, or "
+                      "just for python.exe under Program Settings).")
+                print("  3. Close Chrome and other GPU-using apps.")
+                print("  4. Re-run: python ai_moat/train_qlora.py")
+                print("     (add --seq 1024 if it then errors with real "
+                      "CUDA OOM — our\n     lessons are short, 1024 "
+                      "still fits nearly all of them)")
+                print("!" * 68 + "\n")
+
+    return StepSpeedSentinel
+
+
+def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", choices=list(BASES) + ["auto"], default="auto",
                     help="auto = pick the largest student that ACTUALLY "
@@ -383,43 +425,6 @@ def make_step_speed_sentinel():
                                                            "ticker", "_repeat"])
 
     StepSpeedSentinel = make_step_speed_sentinel()
-        SLOW_SECONDS_PER_STEP = 360          # 6 min/step = definitely spilling
-
-        def __init__(self):
-            self._t0 = None
-
-        def on_step_begin(self, args_, state, control, **kw):
-            import time as _t
-            if self._t0 is None:
-                self._t0 = _t.time()
-
-        def on_step_end(self, args_, state, control, **kw):
-            import time as _t
-            if state.global_step != 2 or self._t0 is None:
-                return
-            per_step = (_t.time() - self._t0) / 2
-            if per_step > self.SLOW_SECONDS_PER_STEP:
-                total_h = per_step * state.max_steps / 3600
-                print("\n" + "!" * 68)
-                print(f"WARNING: ~{per_step/60:.0f} min/step -> "
-                      f"~{total_h:.0f}h total. This is 10-30x too slow.")
-                print("CAUSE: the NVIDIA Windows driver is silently "
-                      "spilling GPU memory\ninto system RAM over PCIe "
-                      "('sysmem fallback') instead of keeping the\nrun "
-                      "fully on the GPU. (It also makes the whole PC feel "
-                      "sluggish.)")
-                print("FIX (2 minutes):")
-                print("  1. Ctrl+C this run.")
-                print("  2. NVIDIA Control Panel -> Manage 3D Settings -> "
-                      "'CUDA - Sysmem\n     Fallback Policy' -> set to "
-                      "'Prefer No Sysmem Fallback'\n     (globally, or "
-                      "just for python.exe under Program Settings).")
-                print("  3. Close Chrome and other GPU-using apps.")
-                print("  4. Re-run: python ai_moat/train_qlora.py")
-                print("     (add --seq 1024 if it then errors with real "
-                      "CUDA OOM — our\n     lessons are short, 1024 "
-                      "still fits nearly all of them)")
-                print("!" * 68 + "\n")
 
     trainer = SFTTrainer(
         model=model, tokenizer=tokenizer, train_dataset=ds,
