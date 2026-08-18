@@ -242,7 +242,25 @@ def run_eval(model, tokenizer, eval_rows, max_new=900):
         print(f">>> EXPECTED: {expected}")
 
 
-def main():
+def make_step_speed_sentinel():
+    """Build the step-speed sentinel callback class (lazy factory).
+
+    Catches the Windows "sysmem fallback" trap: NVIDIA's Windows driver,
+    instead of erroring when VRAM runs tight, silently spills GPU memory
+    into system RAM over PCIe. Training then "works" but runs 10-30x
+    slower (observed: 1005 s/step instead of ~60-120 s/step on this very
+    task). Detect it from the first steps' wall-clock and tell the user
+    how to fix it — don't let them burn a day on a 23-hour run that
+    should take 90 minutes.
+
+    This is a FACTORY (returns the class) so that importing this module
+    stays lightweight — `from transformers import TrainerCallback` only
+    happens when training actually starts. teach_tools.py imports this
+    factory to reuse the same sentinel for the tool-calling top-up run.
+    """
+    from transformers import TrainerCallback
+
+    class StepSpeedSentinel(TrainerCallback):
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", choices=list(BASES) + ["auto"], default="auto",
                     help="auto = pick the largest student that ACTUALLY "
@@ -364,16 +382,7 @@ def main():
                                            remove_columns=["messages", "tier",
                                                            "ticker", "_repeat"])
 
-    # ---- step-speed sentinel: catch the Windows "sysmem fallback" trap.
-    # NVIDIA's Windows driver, instead of erroring when VRAM runs tight,
-    # silently spills GPU memory into system RAM over PCIe. Training then
-    # "works" but runs 10-30x slower (observed: 1005 s/step instead of
-    # ~60-120 s/step on this very task). Detect it from the first steps'
-    # wall-clock and tell the user how to fix it — don't let them burn a
-    # day on a 23-hour run that should take 90 minutes. ----
-    from transformers import TrainerCallback
-
-    class StepSpeedSentinel(TrainerCallback):
+    StepSpeedSentinel = make_step_speed_sentinel()
         SLOW_SECONDS_PER_STEP = 360          # 6 min/step = definitely spilling
 
         def __init__(self):
