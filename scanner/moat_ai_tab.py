@@ -428,10 +428,17 @@ def render():
             "LM Studio server not reachable at {u} — {e}\n\n"
             "**Checklist:** 1) LM Studio open → Developer tab → **Start "
             "Server**. 2) Load the moat model INTO THE SERVER (select it "
-            "in the Developer tab, not just the Chat tab). 3) If the "
-            "dashboard runs in the cloud sandbox, it cannot reach your "
-            "PC — run it locally: `streamlit run scanner/webapp_ui.py` "
-            "from the repo folder.").replace("{u}", base_url)
+            "in the Developer tab, not just the Chat tab).\n\n"
+            "3) **If this dashboard is HOSTED in the cloud** (streamlit.io "
+            "/ sandbox URL): the cloud server can never see `localhost` on "
+            "your PC — that word means the *cloud machine* there. Two "
+            "options: **(a)** run the dashboard on your PC instead "
+            "(`streamlit run scanner/webapp_ui.py` or double-click "
+            "`run_dashboard.bat`), or **(b)** keep using the hosted site "
+            "and tunnel LM Studio out: install cloudflared, run "
+            "`cloudflared tunnel --url http://localhost:1234`, then paste "
+            "the printed `https://….trycloudflare.com/v1` URL into the "
+            "server-URL box above (add `/v1`!).").replace("{u}", base_url)
             .replace("{e}", err[:120]))
     else:
         auto = pick_moat_model(ids)
