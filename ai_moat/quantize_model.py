@@ -115,7 +115,8 @@ def ensure_llamacpp(llama_dir: str) -> None:
             print("WARNING: your numpy was downgraded to "
                   f"{_np.__version__} (likely by an earlier run of this "
                   "script). This breaks pandas/scipy/streamlit.")
-            print("REPAIR:  python -m pip install -U numpy protobuf")
+            # protobuf must be >=5.26 (streamlit) but <7 (opentelemetry)
+            print('REPAIR:  python -m pip install -U numpy "protobuf>=5.26,<7"')
     except Exception:
         pass
 
