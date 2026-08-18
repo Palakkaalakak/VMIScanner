@@ -148,6 +148,19 @@ def main():
             {"role": "assistant", "content": gold_answer(lab)},
         ], "tier": "tool_search", "ticker": t})
 
+    # ---- Emphasize CORRECTED labels ---------------------------------------
+    # The TSLA gold answer changed (key-man now names Elon Musk explicitly).
+    # The already-trained adapter learned the OLD bare "flagged" answer, so
+    # this top-up must overwrite that habit: repeat every TSLA trajectory x4
+    # (same trick as gold x6 weighting in full training — repetition, not
+    # invention; the answer text is still Adam's real verdict).
+    emphasized = []
+    for r in rows:
+        emphasized.append(r)
+        if r["ticker"] == "TSLA":
+            emphasized.extend([r] * 3)
+    rows = emphasized
+
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         for r in rows:
