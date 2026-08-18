@@ -40,7 +40,7 @@ like o1. It's a supervised model whose curriculum *forces* reasoning:
 
 **Setup in LM Studio (one time):**
 1. Search & download: **`Qwen3-14B GGUF`** (lmstudio-community or unsloth), pick **Q4_K_M** (~9.0GB).
-2. Load it with: GPU offload = **MAX**, context = **4096** (no more — long context steals VRAM), "keep model in RAM" **OFF**.
+2. Load it with: GPU offload = **MAX**, context = **8192** (project default; the 14B teacher at Q4 still fits — ~9.0GB + ~1.4GB KV ≈ 10.4GB of 12 — close the browser first), "keep model in RAM" **OFF**.
 3. Developer tab → **Start Server** (default `http://localhost:1234`).
 
 **Run (from the repo root):**

@@ -240,7 +240,9 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
    Studio models folder). If LM Studio doesn't see it, the models folder
    needs the layout `models/<anything>/<anything>/model.gguf` — e.g.
    `models/you/moat/moat-qwen3-8b-Q5_K_M.gguf`.
-2. Load it: GPU Offload MAX, context 4096. (The Q5_K_M 8B file is
+2. Load it: GPU Offload MAX, **context 8192** (default henceforth — the
+   rubric + evidence card + live-research addendum need the room; the
+   8B at Q5_K_M leaves plenty of VRAM for it). (The Q5_K_M 8B file is
    ~5.7GB — fits in ~7GB VRAM with context.)
 3. Set the **system prompt** to the contents of
    `ai_moat/rubric_system_prompt.md` (this puts it in "moat analyst
