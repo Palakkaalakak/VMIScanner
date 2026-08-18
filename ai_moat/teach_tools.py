@@ -2,11 +2,14 @@
 
 This does NOT retrain from scratch. It loads the adapter you already
 trained (outputs/moat-<base>-lora) and continues teaching it on the small
-tool-calling dataset (~59 trajectories) so it learns to:
+tool-calling dataset (~73 trajectories) so it learns to:
 
   * call research_stock(ticker) when no evidence card is given
   * call web_search(query) for recent-events questions
   * answer directly (NO tool call) when the card is already provided
+  * PLUS the corrected TSLA key-man label (Elon Musk named explicitly) —
+    TSLA trajectories are repeated x4, so this one pass ALSO fixes the
+    "didn't identify Musk" gap. No separate key-man retrain needed.
 
 Because the moat knowledge is already in the adapter and this dataset is
 tiny, the whole pass is ~8-12 optimizer steps ≈ **20-40 minutes** on your

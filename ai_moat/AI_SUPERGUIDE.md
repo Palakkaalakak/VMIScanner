@@ -300,7 +300,48 @@ GGUFs for free; that's where LM Studio downloads models from). Anyone
 then: downloads it, imports into LM Studio, clones this repo, and
 follows this Step 2.6. Needs a GPU with ~7GB+ free VRAM for smooth use.
 
-### Step 2.7 — How to READ the held-out eval (don't panic!)
+### Step 2.7 — Teach it to RESEARCH ITSELF (tool calling, ~20-40 min)
+Your model has a knowledge cutoff. This quick top-up teaches it to CALL
+TOOLS so it can fetch fresh facts forever — and it is NOT a retrain:
+it **continues from the adapter you already trained**, adding ~73 small
+tool-use lessons (~9-12 steps ≈ **20-40 minutes**, vs hours for full
+training). It also bakes in the corrected TSLA key-man label (Elon Musk
+named explicitly, repeated x4) — so one pass fixes both gaps.
+
+What it learns:
+- no evidence card in the prompt → call `research_stock(ticker)` first
+- "recent/current events" questions → call `web_search(query)`
+- evidence card already provided → answer directly, NO tool spam
+- every final answer is still Adam's real verdict — nothing invented
+
+Commands (eject LM Studio's model first, same as training):
+```
+git pull
+python -m ai_moat.build_tool_dataset      # seconds
+python ai_moat/teach_tools.py             # ~20-40 min
+python ai_moat/quantize_model.py          # auto-picks the new -tools adapter
+```
+Output: a NEW adapter `outputs/moat-<base>-tools-lora` — your original
+judge adapter is never touched. teach_tools ends with a smoke test that
+prints whether the model actually emits a `<tool_call>` (should say
+"YES ✅"). The quantized file is named `moat-<base>-tools-Q5_K_M.gguf`.
+
+Then in the dashboard's AI Moat Evaluator you get a **Research mode**
+choice:
+- **🔍 Dashboard research** — Python fetches Yahoo data, model judges
+  (always works, even with the plain adapter)
+- **🤖 Self-research agent** — the MODEL decides what to research and
+  calls research_stock / web_search itself via LM Studio's tool-calling
+  API; the dashboard executes the calls and shows you exactly which
+  tools it used. If it answers without calling any tool, you're probably
+  running the plain adapter — load the -tools GGUF.
+
+Why we didn't bolt on Cactus Needle: it's a 14MB tool-ROUTER for
+phones/wearables — great when tools are unknown ahead of time. Ours are
+fixed (2 tools), so teaching YOUR model to call them directly is
+simpler, and the executor stays deterministic Python either way.
+
+### Step 2.8 — How to READ the held-out eval (don't panic!)
 The eval prints two kinds of rows — they are graded OPPOSITE ways:
 
 - **[gold] rows** (META, TSLA, AMZN, INTC, ZM): real evidence, the model
