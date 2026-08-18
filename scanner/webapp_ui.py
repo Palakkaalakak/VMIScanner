@@ -202,7 +202,9 @@ div[data-testid="stMetric"] {
 /* tighten page padding a touch */
 section.main > div.block-container { padding-top: 1.4rem; }
 </style>""", unsafe_allow_html=True)
-tab_scan, tab_bt = st.tabs([tr("🔎 Scanner"), tr("🕰️ Backtest 2000–2013")])
+tab_scan, tab_bt, tab_ai = st.tabs([tr("🔎 Scanner"),
+                                    tr("🕰️ Backtest 2000–2013"),
+                                    tr("🤖 AI Moat Evaluator")])
 
 with tab_bt:
     try:
@@ -210,6 +212,13 @@ with tab_bt:
     except ImportError:  # streamlit puts scanner/ itself on sys.path
         import backtest_tab
     backtest_tab.render()
+
+with tab_ai:
+    try:
+        from scanner import moat_ai_tab
+    except ImportError:
+        import moat_ai_tab
+    moat_ai_tab.render()
 
 with tab_scan:
     # ---- Adhoc "Scan specific tickers" results (survives st.rerun via
@@ -358,6 +367,19 @@ with tab_scan:
 
     df = pd.DataFrame([_row(r) for r in rows])
 
+    # ---- Merge saved AI-moat evaluations (from the AI Moat Evaluator
+    # ---- tab) as filterable columns. Missing = ticker not evaluated yet.
+    try:
+        from scanner.moat_ai_tab import load_evals as _load_moat_evals
+    except ImportError:
+        from moat_ai_tab import load_evals as _load_moat_evals
+    _ai = (_load_moat_evals().get("evaluations") or {})
+    if _ai:
+        df["AI Moat verdict"] = df["Ticker"].map(
+            lambda t: (_ai.get(t) or {}).get("verdict"))
+        df["AI Moat score /10"] = df["Ticker"].map(
+            lambda t: (_ai.get(t) or {}).get("score"))
+
 
     # Valuation mode toggle: refined (calibrated blend, 36/36 within ±7%
     # of StockOracle) vs direct (raw analyst 3-5y growth + TTM EPS into
@@ -382,6 +404,7 @@ with tab_scan:
     # alphabetically — that was the old "seemingly random" ordering).
     MAIN_COLS = ["Ticker", "Company", "Sector", "Verdict", "Fails", "Warns",
                  "Score", "Price $", _iv_col, _dc_col,
+                 "AI Moat verdict", "AI Moat score /10",
                  "Financial strength (0-100)", "Predictability (0-100)",
                  "Profitability (0-100)", "Growth (0-100)", "Source"]
     MAIN_COLS = [col for col in MAIN_COLS if col in df.columns]
@@ -415,6 +438,14 @@ with tab_scan:
             format="%.0f",
             help="Avg of 5y revenue CAGR, 5y NI CAGR, analyst 3-5y EPS "
                  "growth (40%/yr = full marks each)"),
+        "AI Moat verdict": st.column_config.TextColumn(
+            help="Verdict from YOUR fine-tuned moat model (AI Moat "
+                 "Evaluator tab). Blank = not evaluated yet. AI output — "
+                 "judge it, don't obey it"),
+        "AI Moat score /10": st.column_config.NumberColumn(
+            format="%d",
+            help="0-10 moat score from your fine-tuned model. Adam's "
+                 "rule: 9-10 reserved for near-monopolies"),
     }
 
     # ---- Base filters -----------------------------------------------------
@@ -431,6 +462,34 @@ with tab_scan:
         s = search.strip().lower()
         view = view[view["Ticker"].str.lower().str.contains(s)
                     | view["Company"].str.lower().str.contains(s)]
+
+    # ---- AI-moat filters (only shown once at least one ticker has been
+    # ---- evaluated in the AI Moat Evaluator tab) --------------------------
+    if "AI Moat verdict" in df.columns:
+        af1, af2, af3 = st.columns([2, 2, 3])
+        _verdicts_avail = sorted(v for v in df["AI Moat verdict"]
+                                 .dropna().unique())
+        ai_verdict_f = af1.multiselect(
+            tr("🤖 AI Moat verdict"), _verdicts_avail,
+            help=tr("Filter by your fine-tuned model's verdict. Unevaluated "
+                    "tickers are kept unless you tick the box on the right."))
+        ai_min_score = af2.slider(
+            tr("🤖 Min AI moat score /10"), 0, 10, 0,
+            help=tr("Keep only tickers your model scored at or above this. "
+                    "0 = filter off. Adam's rule: 6+ = real moat source, "
+                    "9-10 = near-monopoly."))
+        ai_only_eval = af3.checkbox(
+            tr("Only show AI-evaluated tickers"), value=False)
+        if ai_verdict_f:
+            view = view[view["AI Moat verdict"].isin(ai_verdict_f)
+                        | (view["AI Moat verdict"].isna()
+                           if not ai_only_eval else False)]
+        if ai_min_score > 0:
+            view = view[(view["AI Moat score /10"] >= ai_min_score)
+                        | (view["AI Moat score /10"].isna()
+                           if not ai_only_eval else False)]
+        if ai_only_eval:
+            view = view[view["AI Moat verdict"].notna()]
 
     # ---- Custom filters + sorting (ALL known data) ------------------------
     numeric_fields = sorted(
