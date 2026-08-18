@@ -382,6 +382,9 @@ The eval prints two kinds of rows — they are graded OPPOSITE ways:
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |
 | Held-out accuracy < 70% | Model didn't learn well enough | Don't ship it. We add lessons or tune together |
 | quantize: "llama-quantize not found" | No C++ compiler | Release-zip + `--llama-bin` trick above |
+| teach_tools: `ImportError: cannot import name 'StepSpeedSentinel' from 'train_qlora'` | Old code version — the sentinel used to live *inside* another function, so it couldn't be imported. Fixed: it's now a `make_step_speed_sentinel()` factory | `git pull`, then re-run `python ai_moat/teach_tools.py` |
+| After running quantize, streamlit/pandas break with "protobuf 4.25.9 is incompatible" / "numpy 1.26.4 is incompatible" | An older version of quantize_model.py pip-installed llama.cpp's requirements file, which *downgrades* numpy and protobuf. Fixed: it now installs only `gguf` + tokenizer helpers with `--upgrade-strategy only-if-needed` | Repair your environment once: `python -m pip install -U numpy protobuf` — then `git pull` so it never happens again |
+| quantize says `[plain judge]` but you wanted `[tool-calling]` | The `-tools-lora` adapter doesn't exist yet (teach_tools crashed or hasn't run). The detection is telling the truth, not misbehaving | Run `python ai_moat/teach_tools.py` successfully first, THEN re-run quantize — it will automatically pick up the newer `-tools-lora` adapter and name the GGUF `moat-…-tools-….gguf` |
 | Answers are generic finance-blah | Forgot the system prompt | Step 2.5.3 |
 | Anything else interrupted | — | Everything checkpoints. Just re-run the same command |
 

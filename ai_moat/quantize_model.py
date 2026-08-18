@@ -98,14 +98,26 @@ def ensure_llamacpp(llama_dir: str) -> None:
         print(f"cloning llama.cpp -> {llama_dir}")
         sh(["git", "clone", "--depth", "1",
             "https://github.com/ggml-org/llama.cpp", llama_dir])
-    # converter deps (gguf, sentencepiece, ...) — small pure-python installs
-    req = os.path.join(llama_dir, "requirements",
-                       "requirements-convert_hf_to_gguf.txt")
-    if os.path.exists(req):
-        sh([sys.executable, "-m", "pip", "install", "-q", "-r", req])
-    else:
-        sh([sys.executable, "-m", "pip", "install", "-q",
-            "gguf", "sentencepiece", "protobuf"])
+    # converter deps. DO NOT pip-install llama.cpp's requirements file:
+    # it pins numpy~=1.26 and protobuf 4.x, which DOWNGRADES the user's
+    # environment and breaks streamlit/pandas/scipy (seen in the wild).
+    # We only actually need `gguf` + tokenizer helpers, installed with
+    # --upgrade-strategy only-if-needed so already-installed newer deps
+    # (numpy 2.x, protobuf 5.x, transformers, torch) are left alone.
+    sh([sys.executable, "-m", "pip", "install", "-q",
+        "--upgrade-strategy", "only-if-needed",
+        "gguf", "sentencepiece", "mistral-common"])
+    # sanity: if a previous run of this script (older version) already
+    # downgraded numpy/protobuf, warn with the exact repair command.
+    try:
+        import numpy as _np
+        if int(_np.__version__.split(".")[0]) < 2:
+            print("WARNING: your numpy was downgraded to "
+                  f"{_np.__version__} (likely by an earlier run of this "
+                  "script). This breaks pandas/scipy/streamlit.")
+            print("REPAIR:  python -m pip install -U numpy protobuf")
+    except Exception:
+        pass
 
 
 def try_build_quantize(llama_dir: str) -> str | None:
