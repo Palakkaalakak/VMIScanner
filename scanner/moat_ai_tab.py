@@ -463,24 +463,58 @@ def render():
             tr("…or any ticker (no evidence card — qualitative only)"),
             placeholder="COST")
         ticker = (manual.strip().upper() or pick or "").strip()
-        live = st.toggle(
-            tr("🔍 Live research (fetch fresh Yahoo fundamentals + "
-               "headlines into the prompt)"), value=True,
-            help=tr("The dashboard fetches CURRENT margins, ROE, growth "
-                    "and recent headlines from Yahoo Finance and appends "
-                    "them to the evidence card, so the model's verdict "
-                    "reflects today — not the last scan. The model stays "
-                    "a pure judge; deterministic code does the research. "
-                    "No numbers are invented — missing fields are "
-                    "omitted."))
+        mode = st.radio(
+            tr("Research mode"),
+            [tr("🔍 Dashboard research (deterministic — code fetches, "
+                "model judges)"),
+             tr("🤖 Self-research agent (the MODEL calls the tools "
+                "itself — needs the -tools adapter)")],
+            index=0,
+            help=tr("Dashboard research: Python fetches fresh Yahoo "
+                    "fundamentals + headlines and hands them to the model "
+                    "— always works, zero tool-call risk. Self-research "
+                    "agent: the model DECIDES what to research and calls "
+                    "research_stock / web_search itself through LM "
+                    "Studio's tool-calling API — train it first with "
+                    "teach_tools.py (~20-40 min top-up) for reliable "
+                    "behaviour. Both modes use only real fetched data — "
+                    "no invented numbers."))
+        agent_mode = mode.startswith("🤖")
         if st.button(tr("🏰 Evaluate moat"), type="primary",
                      disabled=not (ok and ticker)):
             with st.spinner(tr("Asking your moat model about ") + ticker +
-                            tr(" (30-90s on GPU)…")):
+                            tr(" (30-90s on GPU; agent mode can take "
+                               "2-3x that)…")):
                 try:
-                    res = evaluate_ticker(base_url, model, ticker,
-                                          scan_rows.get(ticker),
-                                          live_research=live)
+                    if agent_mode:
+                        tracebox = st.empty()
+                        tlog = []
+
+                        def _trace(line):
+                            tlog.append(line)
+                            tracebox.caption(" · ".join(tlog))
+                        answer, tools_used = agent_evaluate(
+                            base_url, model, ticker, scan_rows,
+                            trace=_trace)
+                        verdict, score = parse_answer(answer)
+                        res = {"verdict": verdict, "score": score,
+                               "answer": answer, "model": model,
+                               "had_evidence_card": True,
+                               "agent_mode": True,
+                               "tools_used": tools_used,
+                               "at": datetime.now(
+                                   timezone.utc).isoformat()}
+                        if not tools_used:
+                            st.warning(tr(
+                                "⚠️ The model answered WITHOUT calling "
+                                "any tool — it may be the plain judge "
+                                "adapter. Run teach_tools.py for real "
+                                "self-research, or use Dashboard "
+                                "research mode."))
+                    else:
+                        res = evaluate_ticker(base_url, model, ticker,
+                                              scan_rows.get(ticker),
+                                              live_research=True)
                     evals["evaluations"][ticker] = res
                     save_evals(evals)
                     st.session_state["moat_ai_last"] = ticker
@@ -533,7 +567,12 @@ def render():
             st.caption(tr("⚠️ No scanner evidence card was available — this "
                           "verdict is qualitative-only. Scan the ticker "
                           "first for the full evidence-based answer."))
-        if e.get("live_research"):
+        if e.get("agent_mode"):
+            used = e.get("tools_used") or []
+            st.caption(tr("🤖 Self-research agent mode — tools the model "
+                          "called: ") + ("; ".join(used) if used
+                                         else tr("none (!)")))
+        elif e.get("live_research"):
             st.caption(tr("🔍 Included live Yahoo research "
                           "(fresh fundamentals + headlines)."))
         elif e.get("research_error"):
