@@ -237,13 +237,50 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 
 ### Step 2.5 — Chat with your own moat AI (forever, free)
 1. LM Studio → My Models → import the `.gguf` (or drop it into the LM
-   Studio models folder).
-2. Load it: GPU Offload MAX, context 4096.
+   Studio models folder). If LM Studio doesn't see it, the models folder
+   needs the layout `models/<anything>/<anything>/model.gguf` — e.g.
+   `models/you/moat/moat-qwen3-8b-Q5_K_M.gguf`.
+2. Load it: GPU Offload MAX, context 4096. (The Q5_K_M 8B file is
+   ~5.7GB — fits in ~7GB VRAM with context.)
 3. Set the **system prompt** to the contents of
    `ai_moat/rubric_system_prompt.md` (this puts it in "moat analyst
-   mode").
-4. Ask: *"Analyse the moat of Costco"* — it should answer in Adam's
+   mode"). Without it you get generic finance-blah.
+4. If the model "thinks" forever before answering: click the gear icon
+   next to the loaded model → Reasoning OFF (or end your question with
+   `/no_think`).
+5. Ask: *"Analyse the moat of Costco"* — it should answer in Adam's
    framework: moat type, evidence, durability, verdict.
+
+### Step 2.6 — Use it INSIDE the dashboard (AI Moat Evaluator tab)
+The dashboard now has a **🤖 AI Moat Evaluator** top-level tab that runs
+your trained model automatically — no copy-pasting prompts:
+
+1. LM Studio → **Developer tab → Start Server** (default port 1234), and
+   load the moat model INTO THE SERVER (select it in the Developer tab).
+2. Run the dashboard **on the same PC**:
+   `streamlit run scanner/webapp_ui.py` from the repo folder.
+   (⚠️ The cloud-sandbox dashboard cannot reach the LM Studio on your
+   PC — the Python backend does the talking, not your browser.)
+3. Open the tab — it auto-detects the server and auto-picks any model
+   with "moat" in its name (the quantize step names it that way). Green
+   banner = your trained model is live.
+4. Evaluate one ticker (scanned tickers get the full quantitative
+   evidence card — the exact prompt format it was trained on) or hit
+   **⚡ Evaluate all GREAT stocks** for a batch run.
+5. Every verdict/score is saved to
+   `public/data/moat_ai_evaluations.json` and shows up as
+   **AI Moat verdict** / **AI Moat score /10** columns in the Scanner
+   tab, with dedicated filters (verdict multiselect, min-score slider,
+   "only evaluated" toggle). Unevaluated tickers are never silently
+   dropped — NA never disqualifies.
+
+**Sharing the model with other people**: the `.gguf` is ~5.7GB, far over
+GitHub's 100MB file limit — do NOT `git add` it (outputs/ is
+git-ignored anyway). The standard free way is a Hugging Face model repo:
+create an account → New Model → upload the `.gguf` (they host multi-GB
+GGUFs for free; that's where LM Studio downloads models from). Anyone
+then: downloads it, imports into LM Studio, clones this repo, and
+follows this Step 2.6. Needs a GPU with ~7GB+ free VRAM for smooth use.
 
 ---
 
