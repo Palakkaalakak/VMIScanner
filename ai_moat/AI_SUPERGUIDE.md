@@ -260,11 +260,12 @@ Q5 is already in the indistinguishable-from-full zone — saves 30 min.
 | train_qlora: any `_batch_setitems` / pickling error ("takes 2 positional arguments but 3 were given", "missing 1 required positional argument: 'obj'") | Python 3.14 changed an internal pickle API; dill/datasets haven't caught up | `git pull` — the script auto-patches at startup (you'll see "py3.14 compat: datasets Pickler (adaptive); Hasher.hash failsafe"). The failsafe means fingerprinting can NEVER crash training again — worst case it just disables dataset caching, which we don't use |
 | Training crawls (10+ min per step, ~20h+ estimate, whole PC sluggish) | NVIDIA's Windows driver silently spills GPU memory into system RAM over PCIe ("sysmem fallback") instead of erroring — training "works" but 10-30x slower | Ctrl+C. **NVIDIA Control Panel → Manage 3D Settings → "CUDA - Sysmem Fallback Policy" → "Prefer No Sysmem Fallback"**. Close Chrome. Re-run. The script now warns you automatically after 2 slow steps. Expected healthy speed: ~1-3 min/step, ~1.5-3h total |
 | "CUDA out of memory" during teaching | Something else is using VRAM | Close browsers/games; retry. Persists → tell me, we add `--batch-size 1` |
+| PC shut down / crashed during or right after training | The script's order is: train (hours) → **save adapter (seconds)** → save tokenizer (seconds) → held-out eval (minutes). If the progress bar finished, the adapter was almost certainly saved — usually only the eval got skipped. And a checkpoint is written at EVERY epoch boundary (steps 30/60/90 on defaults), so even a mid-training crash loses at most part of one epoch | `git pull`, then `python ai_moat/check_training.py` — it inspects `outputs/`, reports COMPLETE / RECOVERED / NOTHING, auto-promotes the newest checkpoint to final if the final save was cut off, and prints your exact next commands. Then run `python ai_moat/train_qlora.py --eval-only` (the skipped trust-gate eval) and `python ai_moat/quantize_model.py` |
 | Teaching loss not going down | Data/config issue | Screenshot the numbers, send to me. **Don't guess.** |
 | Held-out accuracy < 70% | Model didn't learn well enough | Don't ship it. We add lessons or tune together |
 | quantize: "llama-quantize not found" | No C++ compiler | Release-zip + `--llama-bin` trick above |
 | Answers are generic finance-blah | Forgot the system prompt | Step 2.5.3 |
-| Anything interrupted | — | Everything checkpoints. Just re-run the same command |
+| Anything else interrupted | — | Everything checkpoints. Just re-run the same command |
 
 ---
 
