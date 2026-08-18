@@ -276,6 +276,22 @@ your trained model automatically — no copy-pasting prompts:
    "only evaluated" toggle). Unevaluated tickers are never silently
    dropped — NA never disqualifies.
 
+**🔍 Live research (staying up to date)**: the Evaluate panel has a
+"Live research" toggle (ON by default for single tickers). The dashboard
+fetches CURRENT fundamentals (gross/operating/net margin, ROE, revenue
+and earnings growth, P/E) plus the latest headlines from Yahoo Finance
+and appends them to the evidence card before asking the model. This is
+deliberate architecture: **deterministic code does the research, the
+model stays a pure judge.** We did NOT teach the model to make its own
+tool calls — an 8B QLoRA is excellent at judging evidence it's handed
+but unreliable at orchestrating searches, and letting it fetch its own
+facts would reintroduce the hallucination risk the evidence card exists
+to prevent. Same reason we don't bolt on a second "tool-calling AI"
+(e.g. Cactus Needle — a 14MB function-calling model for phones/wearables):
+our tools are known in advance (Yahoo lookup), so a Python `if` is
+more reliable than any model deciding which tool to call. No numbers
+are invented: only fields Yahoo actually returns are included.
+
 **Sharing the model with other people**: the `.gguf` is ~5.7GB, far over
 GitHub's 100MB file limit — do NOT `git add` it (outputs/ is
 git-ignored anyway). The standard free way is a Hugging Face model repo:
@@ -283,6 +299,28 @@ create an account → New Model → upload the `.gguf` (they host multi-GB
 GGUFs for free; that's where LM Studio downloads models from). Anyone
 then: downloads it, imports into LM Studio, clones this repo, and
 follows this Step 2.6. Needs a GPU with ~7GB+ free VRAM for smooth use.
+
+### Step 2.7 — How to READ the held-out eval (don't panic!)
+The eval prints two kinds of rows — they are graded OPPOSITE ways:
+
+- **[gold] rows** (META, TSLA, AMZN, INTC, ZM): real evidence, the model
+  should match Adam's actual verdict shown on the `>>> EXPECTED:` line.
+  TSLA and ZM are IN the gold set on purpose — they're Adam's own
+  low/narrow examples (TSLA: failed pricing-power test, no-moat auto
+  industry; ZM: "didn't have a very strong moat… easily disrupted",
+  6/10, NOT bought). A rubric that only contains 9/10 near-monopolies
+  would teach the model that everything is WIDE.
+- **[contrastive] rows** (MSFT, GOOGL, AAPL): the evidence card is
+  **DELIBERATELY FALSIFIED** — we inject fake margin collapse (~12pp
+  gross-margin erosion, ~9pp operating-margin drop, sub-par ROIC) into
+  famous names. The CORRECT answer is a LOW score (~NARROW 4/10). If the
+  model says "MSFT is wide, everyone knows that", it failed — it's
+  reciting reputation instead of reading evidence. A downgrade here is
+  the model PASSING its hardest test. The eval output now labels these
+  rows "(FAKE degraded evidence — low score = PASS)" so this can't be
+  misread again.
+- The `max_new_tokens`/`max_length` warning is cosmetic — our 900-token
+  limit simply takes precedence. Ignore it.
 
 ---
 
