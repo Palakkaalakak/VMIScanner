@@ -204,6 +204,138 @@ def build_research_addendum(ticker):
     return "\n".join(out), None
 
 
+# ----------------------------------------------------- agent (self-research)
+AGENT_TOOLS = [
+    {"type": "function", "function": {
+        "name": "research_stock",
+        "description": ("Fetch the quantitative evidence card for a stock: "
+                        "10-year scanner metrics plus CURRENT fundamentals "
+                        "and recent headlines. Call this BEFORE judging a "
+                        "moat whenever no evidence card was provided."),
+        "parameters": {"type": "object", "properties": {
+            "ticker": {"type": "string",
+                       "description": "Stock ticker symbol, e.g. AAPL"}},
+            "required": ["ticker"]}}},
+    {"type": "function", "function": {
+        "name": "web_search",
+        "description": ("Search the web for recent news, events or facts "
+                        "not covered by the evidence card."),
+        "parameters": {"type": "object", "properties": {
+            "query": {"type": "string", "description": "Search query"}},
+            "required": ["query"]}}},
+]
+
+
+def exec_tool(name, args, scan_rows):
+    """Execute a tool call the MODEL made. Deterministic, no invented data."""
+    if name == "research_stock":
+        t = (args.get("ticker") or "").upper().strip()
+        if not t:
+            return "ERROR: no ticker given"
+        parts = []
+        row = scan_rows.get(t)
+        if row:
+            try:
+                from ai_moat.build_dataset import evidence_block
+                parts.append(evidence_block(row, t))
+            except Exception:
+                pass
+        research, err = build_research_addendum(t)
+        if research:
+            parts.append(research)
+        if not parts:
+            return (f"TICKER: {t}\nNo scanner data and Yahoo lookup failed "
+                    f"({err}). Reason qualitatively from the rubric.")
+        return "\n".join(parts)
+    if name == "web_search":
+        q = args.get("query") or ""
+        # DuckDuckGo instant-answer JSON — free, no key. Falls back to
+        # Yahoo headline search on the first ticker-looking token.
+        try:
+            import urllib.parse
+            url = ("https://api.duckduckgo.com/?format=json&no_html=1&q=" +
+                   urllib.parse.quote(q))
+            d = _http_json(url, timeout=10)
+            outs = []
+            if d.get("AbstractText"):
+                outs.append("- " + d["AbstractText"][:300])
+            for topic in (d.get("RelatedTopics") or [])[:4]:
+                txt = topic.get("Text")
+                if txt:
+                    outs.append("- " + txt[:200])
+            if outs:
+                return "SEARCH RESULTS:\n" + "\n".join(outs)
+        except Exception:
+            pass
+        # fallback: yfinance news for any ticker-like token in the query
+        for tok in q.replace(",", " ").split():
+            if tok.isalpha() and tok.isupper() and 1 <= len(tok) <= 5:
+                r, _ = build_research_addendum(tok)
+                if r:
+                    return r
+        return ("SEARCH RESULTS: (no results found — answer from the "
+                "rubric and any evidence you already have; say so if "
+                "evidence is insufficient)")
+    return f"ERROR: unknown tool {name}"
+
+
+def agent_evaluate(base_url, model, ticker, scan_rows, max_rounds=4,
+                   trace=None):
+    """Self-research mode: the MODEL decides which tools to call
+    (LM Studio OpenAI-compatible tool-calling API); we execute them and
+    loop until it produces a final answer. Requires the -tools adapter
+    (teach_tools.py) for reliable behaviour; the plain judge may answer
+    directly without researching."""
+    with open(RUBRIC_PATH, encoding="utf-8") as f:
+        system = f.read()
+    system += ("\n\n## TOOLS\nYou can call tools. If the user gives you no "
+               "evidence card, call research_stock first. For questions "
+               "about recent/current events, call web_search. Never invent "
+               "numbers — only use what a tool result actually says.")
+    messages = [
+        {"role": "system", "content": system},
+        {"role": "user", "content":
+            "Evaluate this company's economic moat using the rubric. "
+            "No evidence card is attached — research it first, then "
+            f"follow the output format exactly.\n\nTICKER: {ticker} "
+            "/no_think"},
+    ]
+    tools_used = []
+    for _ in range(max_rounds):
+        d = _http_json(base_url.rstrip("/") + "/chat/completions", {
+            "model": model, "messages": messages, "tools": AGENT_TOOLS,
+            "temperature": 0.2, "max_tokens": 900, "stream": False,
+        }, timeout=600)
+        msg = d["choices"][0]["message"]
+        calls = msg.get("tool_calls") or []
+        if not calls:
+            content = (msg.get("content") or "").strip()
+            if not content and msg.get("reasoning_content"):
+                raise RuntimeError(
+                    "Empty visible answer (all 'thinking'). LM Studio: "
+                    "gear icon next to the model → Reasoning OFF.")
+            return content, tools_used
+        messages.append({"role": "assistant", "content": msg.get("content")
+                         or "", "tool_calls": calls})
+        for call in calls:
+            fn = call.get("function") or {}
+            name = fn.get("name", "?")
+            try:
+                fargs = json.loads(fn.get("arguments") or "{}")
+            except json.JSONDecodeError:
+                fargs = {}
+            tools_used.append(f"{name}({json.dumps(fargs)})")
+            if trace is not None:
+                trace(f"🔧 model called {name}({json.dumps(fargs)})")
+            result = exec_tool(name, fargs, scan_rows)
+            messages.append({"role": "tool",
+                             "tool_call_id": call.get("id", ""),
+                             "content": result})
+    raise RuntimeError(f"No final answer after {max_rounds} tool rounds — "
+                       "the model kept calling tools. Try again or use "
+                       "Dashboard-research mode.")
+
+
 # ------------------------------------------------------------------ prompt
 def _load_scan_rows():
     if not os.path.exists(RESULTS_PATH):

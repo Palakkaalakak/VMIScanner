@@ -215,27 +215,39 @@ def main():
                          "for CPU-only builds)")
     args = ap.parse_args()
 
-    # auto-detect which student was actually trained: newest adapter wins
+    # auto-detect which student was actually trained: newest adapter wins.
+    # -tools-lora (the teach_tools.py tool-calling top-up) is included and
+    # wins over the plain adapter when it's newer.
+    _auto_suffix = "-lora"
     if args.base == "auto":
-        candidates = [(b, os.path.join(OUTDIR, f"moat-{b}-lora"))
-                      for b in BASES]
-        existing = [(b, p) for b, p in candidates if os.path.exists(p)]
-        if not existing:
+        candidates = []
+        for b in BASES:
+            for suffix in ("-tools-lora", "-lora"):
+                p = os.path.join(OUTDIR, f"moat-{b}{suffix}")
+                if os.path.isfile(os.path.join(
+                        p, "adapter_model.safetensors")):
+                    candidates.append((b, suffix, p))
+        if not candidates:
             sys.exit("no trained adapter found in ai_moat/outputs/ — "
                      "run train_qlora.py first")
-        args.base = max(existing, key=lambda bp: os.path.getmtime(bp[1]))[0]
-        print(f"auto-detected trained student: {args.base} "
+        args.base, _auto_suffix, _ = max(
+            candidates, key=lambda c: os.path.getmtime(c[2]))
+        kind = ("tool-calling" if _auto_suffix == "-tools-lora"
+                else "plain judge")
+        print(f"auto-detected trained student: {args.base} [{kind}] "
               f"(newest adapter in outputs/)")
 
-    adapter_dir = args.adapter or os.path.join(OUTDIR,
-                                               f"moat-{args.base}-lora")
+    adapter_dir = args.adapter or os.path.join(
+        OUTDIR, f"moat-{args.base}{_auto_suffix}")
     if not os.path.exists(adapter_dir):
         sys.exit(f"adapter not found: {adapter_dir}\n"
                  f"run train_qlora.py first (or pass --adapter).")
 
-    merged_dir = os.path.join(OUTDIR, f"moat-{args.base}-merged")
-    fp16_gguf = os.path.join(OUTDIR, f"moat-{args.base}-fp16.gguf")
-    out_gguf = os.path.join(OUTDIR, f"moat-{args.base}-{args.quant}.gguf")
+    _tag = args.base + ("-tools" if adapter_dir.endswith("-tools-lora")
+                        else "")
+    merged_dir = os.path.join(OUTDIR, f"moat-{_tag}-merged")
+    fp16_gguf = os.path.join(OUTDIR, f"moat-{_tag}-fp16.gguf")
+    out_gguf = os.path.join(OUTDIR, f"moat-{_tag}-{args.quant}.gguf")
     llama_dir = os.path.join(OUTDIR, "llama.cpp")
 
     if os.path.exists(out_gguf):
