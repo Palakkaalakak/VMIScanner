@@ -131,6 +131,79 @@ def evals_dataframe(evals):
     return pd.DataFrame(rows)
 
 
+# ------------------------------------------------------- live research
+def build_research_addendum(ticker):
+    """Fetch FRESH fundamentals + recent headlines via Yahoo (yfinance)
+    and render them as a plain-text addendum for the prompt.
+
+    This is the 'tool-calling' layer: the dashboard (deterministic
+    Python) does the research and hands the results to the moat model,
+    which stays a pure judge. No numbers are invented — only fields
+    Yahoo actually returns are printed; missing fields are omitted.
+    Returns (text or None, error or None).
+    """
+    try:
+        import yfinance as yf
+    except ImportError:
+        return None, "yfinance not installed (pip install yfinance)"
+    try:
+        tk = yf.Ticker(ticker)
+        info = tk.info or {}
+    except Exception as e:  # yfinance raises all sorts
+        return None, f"Yahoo fetch failed: {str(e)[:120]}"
+    if not info or info.get("regularMarketPrice") is None and \
+            info.get("currentPrice") is None:
+        return None, "Yahoo returned no data for this ticker"
+
+    def pct(x):
+        return f"{x * 100:.1f}%" if isinstance(x, (int, float)) else None
+
+    fields = [
+        ("current price", lambda: f"${info['currentPrice']:,.2f}"
+         if info.get("currentPrice") else None),
+        ("gross margin (TTM)", lambda: pct(info.get("grossMargins"))),
+        ("operating margin (TTM)", lambda: pct(info.get("operatingMargins"))),
+        ("net margin (TTM)", lambda: pct(info.get("profitMargins"))),
+        ("ROE (TTM)", lambda: pct(info.get("returnOnEquity"))),
+        ("revenue growth (yoy)", lambda: pct(info.get("revenueGrowth"))),
+        ("earnings growth (yoy)", lambda: pct(info.get("earningsGrowth"))),
+        ("trailing P/E", lambda: f"{info['trailingPE']:.1f}"
+         if isinstance(info.get("trailingPE"), (int, float)) else None),
+        ("forward P/E", lambda: f"{info['forwardPE']:.1f}"
+         if isinstance(info.get("forwardPE"), (int, float)) else None),
+    ]
+    lines = []
+    for label, fn in fields:
+        try:
+            v = fn()
+        except (TypeError, ValueError, KeyError):
+            v = None
+        if v is not None:
+            lines.append(f"- {label}: {v}")
+
+    news_lines = []
+    try:
+        for item in (tk.news or [])[:5]:
+            c = item.get("content") or item
+            title = c.get("title") or item.get("title")
+            when = (c.get("pubDate") or "")[:10]
+            if title:
+                news_lines.append(f"- {when} {title}".strip())
+    except Exception:
+        pass
+
+    if not lines and not news_lines:
+        return None, "Yahoo returned no usable fields"
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    out = [f"\nLIVE RESEARCH ADDENDUM (fetched {today} from Yahoo Finance "
+           f"— fresher than the evidence card above; weigh both):"]
+    if lines:
+        out += ["Current fundamentals:"] + lines
+    if news_lines:
+        out += ["Recent headlines:"] + news_lines
+    return "\n".join(out), None
+
+
 # ------------------------------------------------------------------ prompt
 def _load_scan_rows():
     if not os.path.exists(RESULTS_PATH):
@@ -145,8 +218,9 @@ def _load_scan_rows():
         return {}
 
 
-def build_messages(ticker, scan_row):
-    """EXACT training prompt: rubric system prompt + evidence card."""
+def build_messages(ticker, scan_row, research_text=None):
+    """EXACT training prompt: rubric system prompt + evidence card
+    (+ optional live-research addendum fetched by the dashboard)."""
     with open(RUBRIC_PATH, encoding="utf-8") as f:
         system = f.read()
     ask = ("Evaluate this company's economic moat using the rubric. "
@@ -160,6 +234,8 @@ def build_messages(ticker, scan_row):
     else:
         ev = (f"TICKER: {ticker}\n(No scanner evidence card available — "
               f"reason qualitatively from the rubric.)")
+    if research_text:
+        ev = ev + "\n" + research_text
     return [{"role": "system", "content": system},
             {"role": "user", "content": ask + ev}], bool(scan_row)
 
@@ -172,13 +248,17 @@ def parse_answer(text):
             int(s.group(1)) if s else None)
 
 
-def evaluate_ticker(base_url, model, ticker, scan_row):
-    messages, had_card = build_messages(ticker, scan_row)
+def evaluate_ticker(base_url, model, ticker, scan_row, live_research=False):
+    research_text, research_err = (build_research_addendum(ticker)
+                                   if live_research else (None, None))
+    messages, had_card = build_messages(ticker, scan_row, research_text)
     answer = chat_once(base_url, model, messages)
     verdict, score = parse_answer(answer)
     return {
         "verdict": verdict, "score": score, "answer": answer,
         "model": model, "had_evidence_card": had_card,
+        "live_research": bool(research_text),
+        "research_error": research_err,
         "at": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -251,13 +331,24 @@ def render():
             tr("…or any ticker (no evidence card — qualitative only)"),
             placeholder="COST")
         ticker = (manual.strip().upper() or pick or "").strip()
+        live = st.toggle(
+            tr("🔍 Live research (fetch fresh Yahoo fundamentals + "
+               "headlines into the prompt)"), value=True,
+            help=tr("The dashboard fetches CURRENT margins, ROE, growth "
+                    "and recent headlines from Yahoo Finance and appends "
+                    "them to the evidence card, so the model's verdict "
+                    "reflects today — not the last scan. The model stays "
+                    "a pure judge; deterministic code does the research. "
+                    "No numbers are invented — missing fields are "
+                    "omitted."))
         if st.button(tr("🏰 Evaluate moat"), type="primary",
                      disabled=not (ok and ticker)):
             with st.spinner(tr("Asking your moat model about ") + ticker +
                             tr(" (30-90s on GPU)…")):
                 try:
                     res = evaluate_ticker(base_url, model, ticker,
-                                          scan_rows.get(ticker))
+                                          scan_rows.get(ticker),
+                                          live_research=live)
                     evals["evaluations"][ticker] = res
                     save_evals(evals)
                     st.session_state["moat_ai_last"] = ticker
@@ -274,6 +365,9 @@ def render():
                    .replace("{d}", str(len(todo))))
         redo = st.checkbox(tr("Re-evaluate already-done tickers"),
                            value=False)
+        st.checkbox(tr("🔍 Live research in batch (slower — one Yahoo "
+                       "fetch per ticker)"), value=False,
+                    key="moat_batch_live")
         batch = great if redo else todo
         if st.button(tr("⚡ Evaluate all GREAT stocks"),
                      disabled=not (ok and batch)):
@@ -284,7 +378,9 @@ def render():
                 status.text(f"{t} ({i + 1}/{len(batch)})")
                 try:
                     evals["evaluations"][t] = evaluate_ticker(
-                        base_url, model, t, scan_rows.get(t))
+                        base_url, model, t, scan_rows.get(t),
+                        live_research=st.session_state.get(
+                            "moat_batch_live", False))
                     save_evals(evals)   # checkpoint after every ticker
                     done_n += 1
                 except (RuntimeError, urllib.error.URLError, OSError,
@@ -305,6 +401,12 @@ def render():
             st.caption(tr("⚠️ No scanner evidence card was available — this "
                           "verdict is qualitative-only. Scan the ticker "
                           "first for the full evidence-based answer."))
+        if e.get("live_research"):
+            st.caption(tr("🔍 Included live Yahoo research "
+                          "(fresh fundamentals + headlines)."))
+        elif e.get("research_error"):
+            st.caption(tr("⚠️ Live research failed: ") +
+                       str(e.get("research_error")))
         st.code(e.get("answer", ""), language=None)
 
     df = evals_dataframe(evals)
