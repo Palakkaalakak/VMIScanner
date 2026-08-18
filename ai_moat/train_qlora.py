@@ -220,6 +220,10 @@ def run_eval(model, tokenizer, eval_rows, max_new=900):
     print("\n" + "=" * 70)
     print("HELD-OUT EVAL — verify by hand (TRAINING.md step 5):")
     print("  gold rows must match Adam; contrastive rows MUST downgrade.")
+    print("  ⚠️ [contrastive] rows use DELIBERATELY FALSIFIED evidence cards")
+    print("  (fake margin collapse injected into famous names). A LOW score")
+    print("  on MSFT/GOOGL/AAPL here is CORRECT — it proves the model reads")
+    print("  the evidence instead of reciting reputation. Do NOT panic.")
     print("=" * 70)
     for r in eval_rows:
         msgs = r["messages"][:2]          # system + user only
@@ -230,7 +234,9 @@ def run_eval(model, tokenizer, eval_rows, max_new=900):
                              temperature=0.2, do_sample=True)
         text = tokenizer.decode(out[0][ids.shape[1]:],
                                 skip_special_tokens=True)
-        print(f"\n----- {r['ticker']} [{r['tier']}] -----")
+        tag = (" (FAKE degraded evidence — low score = PASS)"
+               if r["tier"] == "contrastive" else "")
+        print(f"\n----- {r['ticker']} [{r['tier']}]{tag} -----")
         print(text[:1200])
         expected = r["messages"][2]["content"].splitlines()[0]
         print(f">>> EXPECTED: {expected}")

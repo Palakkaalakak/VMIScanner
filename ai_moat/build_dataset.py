@@ -132,7 +132,8 @@ def gold_answer(lab: dict) -> str:
     else:
         rule_line = ("SOURCES PASSING (>=6/10): per Adam's stated verdict "
                      f"({'meets' if grade == 'WIDE' else 'does not clearly meet'} the >=3-of-5 rule)")
-    keyman = "flagged" if lab["ticker"] == "TSLA" else "none identified"
+    keyman = (f"flagged: {lab['key_man']}" if lab.get("key_man")
+              else "none identified")
     decay = "decaying — this is a canonical lost-moat case" if lab["verdict"] == "lost_moat" else "stable per Adam's assessment at the time"
     industry = "flagged: structurally no-moat industry" if lab["ticker"] in ("TSLA", "CVX", "XOM", "SHEL", "SLB", "AA", "DOW") else "clean"
     return "\n".join([
