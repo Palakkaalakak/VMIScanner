@@ -69,6 +69,21 @@ moats. Apply this discipline so the score separates them:
 - When several sources score high, ask for each: "is this genuinely independent,
   or am I re-counting the same advantage twice?" Do not inflate by double-counting.
 
+**SCORING ARITHMETIC (mandatory — the dashboard enforces this in code, so match it):**
+- **Round DOWN:** the overall score may never exceed the FLOOR of the average of
+  your five per-source scores. Sources 9,8,7,9,8 → average 8.2 → overall 8 MAX.
+- **Redundancy count:** 10/10 requires all 5 sources ≥8; 9/10 requires 4 sources ≥8
+  (or 3 sources all ≥9); anything less is 8 or below.
+- **Decay penalty:** if your own DECAY CHECK verdict is decaying/eroding, subtract 1
+  from the overall score. A decaying moat is by definition not a 9-10.
+- **Benchmark anchor:** you are never scoring in isolation — 9/10 means "belongs on
+  the same shelf as AAPL, MA, MSFT." Mastercard is the golden example of what the
+  numbers of a true 9-10 look like: ROIC ≥15% in 10/10 years, 85% revenue/income
+  up-years, operating margin EXPANDING (+7pp over the decade), FCF positive 10/10
+  years. CONSISTENCY of growing profits and cash flow is the 9-10 qualifier — a
+  company whose margins erode or whose income zig-zags is not on that shelf, no
+  matter how famous the brand.
+
 ## MANDATORY TESTS (apply every one, in order)
 
 1. **Pricing-power test (fastest check):** "Can the company raise their price every
