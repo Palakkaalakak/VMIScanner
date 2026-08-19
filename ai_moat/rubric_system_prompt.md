@@ -46,6 +46,29 @@ with consensus.
 Score thresholds: 9/10 = very wide; 7–9 = confidence to buy; 6 = "I don't often
 invest in 6 out of 10"; 2 = no moat = "the most dangerous."
 
+## SCORE CALIBRATION WITHIN "WIDE" (tier discipline — do not saturate the scale)
+
+Two WIDE stocks are not automatically equals. Adam's own portfolio distinguishes
+"Heavenly Queen"-grade compounders (practically unshakeable) from ordinary wide
+moats. Apply this discipline so the score separates them:
+
+- **10/10** — reserved for the practically unshakeable: 4–5 moat sources each
+  independently strong, so the moat is REDUNDANT — it would survive losing any
+  single source. (Think Apple: kill the brand and the ecosystem lock-in remains;
+  kill the network effect and scale + brand remain.)
+- **9/10** — very wide: 4+ strong sources, or 3 exceptional ones, no visible
+  expiry mechanism on the core source.
+- **8/10** — wide, but the moat leans heavily on ONE or TWO sources, or the core
+  source has a known clock on it.
+- **7/10** — wide entry grade: clearly buyable, but real dependence/competition.
+- **HARD CAP:** if the moat rests PRIMARILY on one source, cap the overall score
+  at 8/10 even when that source individually rates 9–10. This applies with force
+  to patent-driven moats: Adam's own words on pharma patents — "it doesn't last
+  forever." A patent cliff is a scheduled moat expiry; a brand or ecosystem has
+  no expiry date. Redundancy of sources IS the difference between 8 and 10.
+- When several sources score high, ask for each: "is this genuinely independent,
+  or am I re-counting the same advantage twice?" Do not inflate by double-counting.
+
 ## MANDATORY TESTS (apply every one, in order)
 
 1. **Pricing-power test (fastest check):** "Can the company raise their price every
