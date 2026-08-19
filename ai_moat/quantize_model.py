@@ -229,13 +229,15 @@ def main():
     args = ap.parse_args()
 
     # auto-detect which student was actually trained: newest adapter wins.
-    # -tools-lora (the teach_tools.py tool-calling top-up) is included and
-    # wins over the plain adapter when it's newer.
+    # Top-up suffixes are included and win over the plain adapter when
+    # newer: -tools-lora (teach_tools.py), -calib-lora / -tools-calib-lora
+    # (teach_calibration.py score-discipline top-up).
     _auto_suffix = "-lora"
     if args.base == "auto":
         candidates = []
         for b in BASES:
-            for suffix in ("-tools-lora", "-lora"):
+            for suffix in ("-tools-calib-lora", "-calib-lora",
+                           "-tools-lora", "-lora"):
                 p = os.path.join(OUTDIR, f"moat-{b}{suffix}")
                 if os.path.isfile(os.path.join(
                         p, "adapter_model.safetensors")):
@@ -245,8 +247,10 @@ def main():
                      "run train_qlora.py first")
         args.base, _auto_suffix, _ = max(
             candidates, key=lambda c: os.path.getmtime(c[2]))
-        kind = ("tool-calling" if _auto_suffix == "-tools-lora"
-                else "plain judge")
+        kind = {"-tools-calib-lora": "tool-calling + calibrated",
+                "-calib-lora": "calibrated judge",
+                "-tools-lora": "tool-calling"}.get(_auto_suffix,
+                                                   "plain judge")
         print(f"auto-detected trained student: {args.base} [{kind}] "
               f"(newest adapter in outputs/)")
 
@@ -256,8 +260,11 @@ def main():
         sys.exit(f"adapter not found: {adapter_dir}\n"
                  f"run train_qlora.py first (or pass --adapter).")
 
-    _tag = args.base + ("-tools" if adapter_dir.endswith("-tools-lora")
-                        else "")
+    _tag = args.base
+    if "-tools" in os.path.basename(adapter_dir):
+        _tag += "-tools"
+    if "-calib" in os.path.basename(adapter_dir):
+        _tag += "-calib"
     merged_dir = os.path.join(OUTDIR, f"moat-{_tag}-merged")
     fp16_gguf = os.path.join(OUTDIR, f"moat-{_tag}-fp16.gguf")
     out_gguf = os.path.join(OUTDIR, f"moat-{_tag}-{args.quant}.gguf")
