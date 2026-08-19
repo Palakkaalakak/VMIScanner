@@ -49,7 +49,10 @@ def run_scan(extra_args: list, label: str):
     lines = []
     t0 = time.time()
     proc = subprocess.Popen(cmd, cwd=REPO_ROOT, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, text=True, bufsize=1)
+                            stderr=subprocess.STDOUT, text=True, bufsize=1,
+                            # Windows: default locale codec (cp1252) crashes
+                            # on UTF-8 bytes in scan output — force UTF-8.
+                            encoding="utf-8", errors="replace")
     for line in proc.stdout:
         lines.append(line.rstrip())
         log.code("\n".join(lines[-14:]), language=None)

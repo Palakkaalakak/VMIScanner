@@ -85,10 +85,18 @@ def _curl_get(url: str, timeout: int) -> "tuple[int, str]":
             ["curl", "-s", "-L", "-A", UA, "-w", "\n__HTTP_CODE__%{http_code}",
              "--max-time", str(timeout), url],
             capture_output=True, text=True, timeout=timeout + 10,
+            # CRITICAL on Windows: text=True alone decodes with the locale
+            # codec (cp1252), which crashes the stdout reader thread on any
+            # non-cp1252 byte in a UTF-8 page (seen: 0x8d on Wikipedia) and
+            # silently returns stdout=None. Force UTF-8 and never crash on
+            # a stray byte.
+            encoding="utf-8", errors="replace",
         )
     except (subprocess.TimeoutExpired, FileNotFoundError) as e:
         raise RuntimeError(f"curl fallback failed for {url}: {e}")
     out = proc.stdout
+    if out is None:  # reader thread died (e.g. decode error) — treat as failed
+        raise RuntimeError(f"curl fallback returned no output for {url}")
     marker = "__HTTP_CODE__"
     idx = out.rfind(marker)
     if idx == -1:
