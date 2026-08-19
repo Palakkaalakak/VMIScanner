@@ -27,9 +27,10 @@ _session_local = threading.local()
 # finviz and wikipedia are comfortable much faster).
 _DOMAIN_MIN_INTERVAL = {
     "macrotrends": 8.0,     # fallback source; aggressively rate-limited
-    "sec": 0.15,            # below the SEC fair-access ceiling of 10 req/s
-    "yahoo": 0.35,
-    "stockanalysis": 0.35,
+    "sec": 0.11,            # just under the SEC fair-access ceiling of
+                            # 10 req/s; ~540 tickers x 0.11s ≈ 60s floor
+    "yahoo": 0.25,
+    "stockanalysis": 0.25,
     "finviz": 0.5,
     "wikipedia": 0.5,
     "default": 0.5,

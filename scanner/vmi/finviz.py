@@ -176,14 +176,20 @@ def fetch_growth_estimates(tickers: List[str], use_cache: bool = True,
         if out[t] is None:
             missing.append(t)
     # Non-S&P tickers (NVO, MELI, POOL...) aren't in the idx_sp500 screen —
-    # fetch them individually via the per-ticker t= filter.
-    for t in missing:
-        k = t.upper().replace(".", "-")
+    # fetch them comma-BATCHED via the t= filter, 20 per request (= one
+    # result page, verified live 2026-08). With the Nasdaq-100 and curated
+    # extras merged into the universe, "missing" is ~100+ names; the old
+    # one-URL-per-ticker loop at the finviz throttle added minutes of
+    # serial wait to every fresh scan — batching cuts it to ~6 requests.
+    for i in range(0, len(missing), 20):
+        chunk = missing[i:i + 20]
+        keys = [t.upper().replace(".", "-") for t in chunk]
         try:
-            url = f"{BASE}?v=152&t={k}&c={_EST_COLS}"
+            url = f"{BASE}?v=152&t={','.join(keys)}&c={_EST_COLS}"
             html = get(url, use_cache=use_cache, cache_max_age=cache_max_age)
             rows = _parse_est_rows(html)
+        except Exception:  # noqa: BLE001 — estimates stay None
+            continue
+        for t, k in zip(chunk, keys):
             out[t] = rows.get(k) or rows.get(k.replace("-", "."))
-        except Exception:  # noqa: BLE001 — estimate stays None
-            pass
     return out
