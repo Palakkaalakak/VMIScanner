@@ -35,6 +35,14 @@ try:
 except ImportError:
     from i18n import tr
 
+try:
+    from ai_moat.calibration import (enforce_calibration, BENCHMARK_BLOCK)
+except ImportError:  # scanner/ run as cwd — add repo root
+    import sys as _sys
+    _sys.path.insert(0, os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))))
+    from ai_moat.calibration import (enforce_calibration, BENCHMARK_BLOCK)
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_PATH = os.path.join(REPO_ROOT, "public", "data", "scan_results.json")
 EVALS_PATH = os.path.join(REPO_ROOT, "public", "data",
@@ -288,6 +296,7 @@ def agent_evaluate(base_url, model, ticker, scan_rows, max_rounds=4,
     directly without researching."""
     with open(RUBRIC_PATH, encoding="utf-8") as f:
         system = f.read()
+    system += "\n\n" + BENCHMARK_BLOCK
     system += ("\n\n## TOOLS\nYou can call tools. If the user gives you no "
                "evidence card, call research_stock first. For questions "
                "about recent/current events, call web_search. Never invent "
@@ -355,6 +364,9 @@ def build_messages(ticker, scan_row, research_text=None):
     (+ optional live-research addendum fetched by the dashboard)."""
     with open(RUBRIC_PATH, encoding="utf-8") as f:
         system = f.read()
+    # Benchmark anchor: every evaluation compares against the 9-10 shelf
+    # (MA/AAPL/MSFT) instead of grading the stock in isolation.
+    system += "\n\n" + BENCHMARK_BLOCK
     ask = ("Evaluate this company's economic moat using the rubric. "
            "Use the evidence card; follow the output format exactly.\n\n")
     if scan_row:
@@ -386,8 +398,13 @@ def evaluate_ticker(base_url, model, ticker, scan_row, live_research=False):
     messages, had_card = build_messages(ticker, scan_row, research_text)
     answer = chat_once(base_url, model, messages)
     verdict, score = parse_answer(answer)
+    # Deterministic tier discipline — the model can print anything, the
+    # SAVED score obeys the calibration rules (round-down avg, redundancy
+    # cap, decay penalty). See ai_moat/calibration.py.
+    final, notes = enforce_calibration(answer, score, scan_row)
     return {
-        "verdict": verdict, "score": score, "answer": answer,
+        "verdict": verdict, "score": final, "answer": answer,
+        "model_score": score, "calibration_notes": notes,
         "model": model, "had_evidence_card": had_card,
         "live_research": bool(research_text),
         "research_error": research_err,
@@ -504,7 +521,11 @@ def render():
                             base_url, model, ticker, scan_rows,
                             trace=_trace)
                         verdict, score = parse_answer(answer)
-                        res = {"verdict": verdict, "score": score,
+                        _fin, _cn = enforce_calibration(
+                            answer, score, scan_rows.get(ticker))
+                        res = {"verdict": verdict, "score": _fin,
+                               "model_score": score,
+                               "calibration_notes": _cn,
                                "answer": answer, "model": model,
                                "had_evidence_card": True,
                                "agent_mode": True,
@@ -541,19 +562,39 @@ def render():
         st.checkbox(tr("🔍 Live research in batch (slower — one Yahoo "
                        "fetch per ticker)"), value=False,
                     key="moat_batch_live")
+        st.checkbox(tr("🤖 Self-research agent in batch (the model calls "
+                       "the tools itself per ticker — needs the -tools "
+                       "adapter, 2-3x slower)"), value=False,
+                    key="moat_batch_agent")
         batch = great if redo else todo
         if st.button(tr("⚡ Evaluate all GREAT stocks"),
                      disabled=not (ok and batch)):
             prog = st.progress(0.0)
             status = st.empty()
             done_n = 0
+            batch_agent = st.session_state.get("moat_batch_agent", False)
             for i, t in enumerate(batch):
                 status.text(f"{t} ({i + 1}/{len(batch)})")
                 try:
-                    evals["evaluations"][t] = evaluate_ticker(
-                        base_url, model, t, scan_rows.get(t),
-                        live_research=st.session_state.get(
-                            "moat_batch_live", False))
+                    if batch_agent:
+                        answer, tools_used = agent_evaluate(
+                            base_url, model, t, scan_rows)
+                        verdict, score = parse_answer(answer)
+                        _fin, _cn = enforce_calibration(
+                            answer, score, scan_rows.get(t))
+                        evals["evaluations"][t] = {
+                            "verdict": verdict, "score": _fin,
+                            "model_score": score,
+                            "calibration_notes": _cn,
+                            "answer": answer, "model": model,
+                            "had_evidence_card": True,
+                            "agent_mode": True, "tools_used": tools_used,
+                            "at": datetime.now(timezone.utc).isoformat()}
+                    else:
+                        evals["evaluations"][t] = evaluate_ticker(
+                            base_url, model, t, scan_rows.get(t),
+                            live_research=st.session_state.get(
+                                "moat_batch_live", False))
                     save_evals(evals)   # checkpoint after every ticker
                     done_n += 1
                 except (RuntimeError, urllib.error.URLError, OSError,
@@ -570,6 +611,8 @@ def render():
         v, s = e.get("verdict") or "?", e.get("score")
         st.markdown(f"### {last} — {v}" + (f" · **{s}/10**"
                                            if s is not None else ""))
+        for _note in (e.get("calibration_notes") or []):
+            st.caption(tr("📐 Calibration: ") + _note)
         if not e.get("had_evidence_card"):
             st.caption(tr("⚠️ No scanner evidence card was available — this "
                           "verdict is qualitative-only. Scan the ticker "
