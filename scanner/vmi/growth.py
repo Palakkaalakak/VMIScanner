@@ -35,7 +35,12 @@ _fails = {"gurufocus": 0, "zacks": 0}
 _MAX_FAILS = 3
 
 
-def _get(url: str, timeout: int = 10) -> bytes:
+def _get(url: str, timeout: int = 4) -> bytes:
+    # timeout 4s (was 10): this raw fetcher is only used for GuruFocus and
+    # Zacks, both currently 403-blocked — each provider self-disables after
+    # 3 consecutive failures, but with 10s timeouts those doomed first
+    # attempts could stall the scan up to ~60s. 4s caps the total waste
+    # at ~24s while still giving a real unblock a fair chance.
     req = urllib.request.Request(url, headers=_UA)
     return urllib.request.urlopen(req, timeout=timeout).read()
 

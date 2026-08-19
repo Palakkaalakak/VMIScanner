@@ -155,8 +155,13 @@ def main():
                      help="merge curated non-index quality names (MELI, POOL, "
                           "CNSWF, DSGX, NVO, ASML, ...) into the universe (default on)")
     ap.add_argument("--no-extras", dest="include_extras", action="store_false")
-    ap.add_argument("--workers", type=int, default=8,
-                     help="parallel fetch workers (SEC fair-access allows 10 req/s)")
+    ap.add_argument("--workers", type=int, default=16,
+                     help="parallel fetch workers. Per-domain rate limits are "
+                          "enforced centrally in http.py, so more workers just "
+                          "means better interleaving across domains (SEC + "
+                          "stockanalysis + yahoo pipelines overlap) — 16 keeps "
+                          "every domain's throttle saturated without exceeding "
+                          "any site's rate ceiling.")
     ap.add_argument("--no-macrotrends", dest="allow_macrotrends", action="store_false",
                      default=True, help="skip the slow macrotrends fallback")
     ap.add_argument("--accept-5y-alone", dest="accept_5y_alone", action="store_true",
