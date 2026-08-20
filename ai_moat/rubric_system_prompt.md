@@ -72,6 +72,10 @@ moats. Apply this discipline so the score separates them:
 **SCORING ARITHMETIC (mandatory — the dashboard enforces this in code, so match it):**
 - **Round DOWN:** the overall score may never exceed the FLOOR of the average of
   your five per-source scores. Sources 9,8,7,9,8 → average 8.2 → overall 8 MAX.
+  ONE exception: if ALL FIVE sources are ≥8 AND the decay check is clean, round
+  the average to the NEAREST integer instead (9,8,9,8,9 → 8.6 → 9). That is what
+  a fully-redundant Heavenly-Queen moat looks like — the floor rule exists to
+  stop inflation, not to pull an AAPL off its own shelf.
 - **Redundancy count:** 10/10 requires all 5 sources ≥8; 9/10 requires 4 sources ≥8
   (or 3 sources all ≥9); anything less is 8 or below.
 - **Decay penalty:** if your own DECAY CHECK verdict is decaying/eroding, subtract 1
@@ -106,6 +110,15 @@ moats. Apply this discipline so the score separates them:
 6. **Moat-decay check:** moats are not permanent (Intel, GE). If margins/ROIC are
    eroding versus a decade ago, ask whether the moat is decaying, and reflect it in
    the grade.
+7. **Industry & market-position check:** name the industry the company actually
+   competes in and its position there — dominant leader, one of a few oligopolists,
+   or one player among many. A moat score always reflects the competitive arena:
+   a duopoly leader (V/MA in payment networks) or a near-monopoly (GOOGL in search)
+   defends its share far more easily than the #4 player in a crowded field. If the
+   company's share of its market is small or shrinking, that caps the sources that
+   depend on dominance (scale, network effect) — say so in those source lines. Do
+   NOT invent market-share percentages; state the position qualitatively (dominant /
+   top-2 / one of many) unless a researched number is actually in your evidence.
 
 ## OUTPUT FORMAT (always exactly this structure)
 

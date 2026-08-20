@@ -18,6 +18,13 @@ no invented financial numbers):
 
   A. ROUND DOWN: the overall score may never exceed the FLOOR of the
      average of the five per-source scores. (9,8,7,9,8 → avg 8.2 → max 8.)
+     EXCEPTION (user report 2026-08-20 — AAPL was being underestimated):
+     when ALL FIVE sources are ≥8 AND there is no decay anywhere (answer
+     verdict + scanner margin trend both clean), the average is rounded to
+     the NEAREST integer instead of floored (9,8,9,8,9 → avg 8.6 → 9).
+     A fully-redundant, non-decaying moat is exactly what the 9-10 shelf
+     means — the floor discipline exists to stop saturation, not to pull
+     true Heavenly-Queens off their own shelf.
   B. REDUNDANCY CAP (the 8-vs-10 difference IS redundancy of sources):
        5 sources ≥8  → cap 10
        4 sources ≥8  → cap 9
@@ -75,14 +82,38 @@ def enforce_calibration(answer: str, score: Optional[int],
     notes: List[str] = []
     s = int(score)
 
+    # Decay is decided FIRST because it also gates the rounding rule below.
+    decayed = bool(DECAY_RE.search(answer or ""))
+    why = "the answer's own DECAY CHECK says decaying"
+    if not decayed and scan_row:
+        om_pp = (scan_row.get("metrics") or {}).get("moat_om_trend_pp")
+        if om_pp is not None and om_pp <= -3:
+            decayed = True
+            why = (f"scanner evidence: operating margin {om_pp:+.1f}pp vs "
+                   "decade start — eroding (Intel-style decay)")
+
     srcs = [int(x) for x in SRC_SCORE_RE.findall(answer or "")][:5]
     if len(srcs) >= 3:
-        floor_avg = int(sum(srcs) / len(srcs))  # floor (scores are ≥0)
-        if s > floor_avg:
-            notes.append(f"rounded DOWN to the source average: {s} → "
-                         f"{floor_avg} (sources {srcs}, avg "
-                         f"{sum(srcs)/len(srcs):.1f})")
-            s = floor_avg
+        avg = sum(srcs) / len(srcs)
+        strong_all = len(srcs) == 5 and min(srcs) >= 8
+        if strong_all and not decayed:
+            # Fully-redundant, non-decaying moat (the AAPL/MA/MSFT shelf):
+            # round to NEAREST so 8.6 → 9 instead of being floored to 8.
+            avg_cap = int(avg + 0.5)
+            rule = "nearest (all 5 sources ≥8 and no decay — redundant moat)"
+        else:
+            avg_cap = int(avg)  # floor (scores are ≥0)
+            rule = "DOWN"
+        if s > avg_cap:
+            notes.append(f"rounded {rule} to the source average: {s} → "
+                         f"{avg_cap} (sources {srcs}, avg {avg:.1f})")
+            s = avg_cap
+        elif strong_all and not decayed and s < avg_cap and s >= 8:
+            notes.append(f"rounded UP to the source average: {s} → "
+                         f"{avg_cap} (sources {srcs}, avg {avg:.1f} — all 5 "
+                         "sources ≥8 with no decay; a fully-redundant moat "
+                         "belongs on the 9-10 shelf)")
+            s = avg_cap
         strong = [x for x in srcs if x >= 8]
         if len(strong) >= 5:
             cap = 10
@@ -98,14 +129,6 @@ def enforce_calibration(answer: str, score: Optional[int],
                          "to survive losing any single source)")
             s = cap
 
-    decayed = bool(DECAY_RE.search(answer or ""))
-    why = "the answer's own DECAY CHECK says decaying"
-    if not decayed and scan_row:
-        om_pp = (scan_row.get("metrics") or {}).get("moat_om_trend_pp")
-        if om_pp is not None and om_pp <= -3:
-            decayed = True
-            why = (f"scanner evidence: operating margin {om_pp:+.1f}pp vs "
-                   "decade start — eroding (Intel-style decay)")
     if decayed and s > 1:
         notes.append(f"decay penalty −1: {s} → {s - 1} ({why}; a decaying "
                      "moat cannot hold a 9-10 — consistency of growing "

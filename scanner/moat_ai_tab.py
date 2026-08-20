@@ -36,12 +36,14 @@ except ImportError:
     from i18n import tr
 
 try:
-    from ai_moat.calibration import (enforce_calibration, BENCHMARK_BLOCK)
+    from ai_moat.calibration import (enforce_calibration, BENCHMARK_BLOCK,
+                                     rewrite_verdict_score)
 except ImportError:  # scanner/ run as cwd — add repo root
     import sys as _sys
     _sys.path.insert(0, os.path.dirname(os.path.dirname(
         os.path.abspath(__file__))))
-    from ai_moat.calibration import (enforce_calibration, BENCHMARK_BLOCK)
+    from ai_moat.calibration import (enforce_calibration, BENCHMARK_BLOCK,
+                                     rewrite_verdict_score)
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_PATH = os.path.join(REPO_ROOT, "public", "data", "scan_results.json")
@@ -402,6 +404,11 @@ def evaluate_ticker(base_url, model, ticker, scan_row, live_research=False):
     # SAVED score obeys the calibration rules (round-down avg, redundancy
     # cap, decay penalty). See ai_moat/calibration.py.
     final, notes = enforce_calibration(answer, score, scan_row)
+    if notes and final is not None and final != score:
+        # The model's printed number was wrong — rewrite the MOAT VERDICT
+        # line so the SAVED ANSWER shows the enforced score, not the
+        # model's. The raw number survives in model_score.
+        answer = rewrite_verdict_score(answer, final)
     return {
         "verdict": verdict, "score": final, "answer": answer,
         "model_score": score, "calibration_notes": notes,
@@ -523,6 +530,8 @@ def render():
                         verdict, score = parse_answer(answer)
                         _fin, _cn = enforce_calibration(
                             answer, score, scan_rows.get(ticker))
+                        if _cn and _fin is not None and _fin != score:
+                            answer = rewrite_verdict_score(answer, _fin)
                         res = {"verdict": verdict, "score": _fin,
                                "model_score": score,
                                "calibration_notes": _cn,
@@ -582,6 +591,8 @@ def render():
                         verdict, score = parse_answer(answer)
                         _fin, _cn = enforce_calibration(
                             answer, score, scan_rows.get(t))
+                        if _cn and _fin is not None and _fin != score:
+                            answer = rewrite_verdict_score(answer, _fin)
                         evals["evaluations"][t] = {
                             "verdict": verdict, "score": _fin,
                             "model_score": score,
