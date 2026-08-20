@@ -143,3 +143,97 @@ def rewrite_verdict_score(answer: str, new_score: int) -> str:
     return re.sub(r"(MOAT VERDICT:[^\n]*?—\s*)\d+(\s*/\s*10)",
                   lambda m: f"{m.group(1)}{new_score}{m.group(2)}",
                   answer, count=1)
+
+
+def compute_arithmetic(srcs: List[int], decayed: bool) -> Tuple[int, str]:
+    """PURE scoring function: the deterministic score the 5 source scores
+    and the decay flag imply, plus the shown work. This is the number the
+    model SHOULD print — same rules as enforce_calibration, but computed
+    forward from the sources instead of clamping a model guess."""
+    avg = sum(srcs) / len(srcs)
+    strong = [x for x in srcs if x >= 8]
+    all5 = len(srcs) == 5 and min(srcs) >= 8
+    if all5 and not decayed:
+        base = int(avg + 0.5)
+        how = "all 5 sources ≥8 and no decay → round to NEAREST"
+    else:
+        base = int(avg)
+        how = "round DOWN (floor)"
+    if len(strong) >= 5:
+        cap = 10
+    elif len(strong) == 4:
+        cap = 9
+    elif len(strong) == 3:
+        cap = 9 if min(strong) >= 9 else 8
+    else:
+        cap = 8
+    s = min(base, cap)
+    parts = [f"sources {srcs} → average {avg:.1f} → {how} → {base}",
+             f"redundancy: {len(strong)}/5 sources ≥8 → cap {cap}"]
+    if decayed:
+        s = max(1, s - 1)
+        parts.append(f"decay: eroding → −1 → {s}")
+    else:
+        parts.append("decay: none")
+    parts.append(f"final {s}/10")
+    return s, "; ".join(parts)
+
+
+_VERDICT_LINE_RE = re.compile(r"^MOAT VERDICT:\s*([A-Z][A-Z /-]*?)\s*[—–-]"
+                              r"\s*(\d+)\s*/\s*10.*$", re.M)
+_ACTION_LINE_RE = re.compile(r"^ACTION\b", re.M)
+
+
+def restructure_answer(answer: str, scan_row: Optional[dict] = None
+                       ) -> Tuple[str, Optional[int]]:
+    """THE ROOT-CAUSE FIX (user report 2026-08-20): the trained output
+    format put 'MOAT VERDICT: … — N/10' on LINE 1, so an autoregressive
+    model had to commit to the score BEFORE generating the five source
+    scores — it cannot average numbers it has not written yet. No retrain
+    volume fixes that ordering.
+
+    This transform rebuilds any answer into the arithmetic-first format:
+      sources / tests / reasoning …
+      SCORE ARITHMETIC: <computed work, from the sources actually written>
+      MOAT VERDICT: <word> — <computed score>/10
+      ACTION …
+    so the score token is generated AFTER the arithmetic that determines
+    it. Used by teach_calibration + build_dataset so the model learns to
+    write in this order. Returns (new_answer, final_score); if the answer
+    has no parsable verdict line it is returned unchanged with None."""
+    m = _VERDICT_LINE_RE.search(answer or "")
+    if not m:
+        return answer, None
+    word, printed = m.group(1).strip(), int(m.group(2))
+
+    decayed = bool(DECAY_RE.search(answer))
+    if not decayed and scan_row:
+        om_pp = (scan_row.get("metrics") or {}).get("moat_om_trend_pp")
+        if om_pp is not None and om_pp <= -3:
+            decayed = True
+
+    srcs = [int(x) for x in SRC_SCORE_RE.findall(answer)][:5]
+    if len(srcs) >= 3:
+        final, work = compute_arithmetic(srcs, decayed)
+    else:
+        # Sources not individually scored (some gold labels) — keep the
+        # stated score, enforce only the decay rule; never invent numbers.
+        final, _ = enforce_calibration(answer, printed, scan_row)
+        work = ("sources not separately scored — grade taken as stated"
+                + (f"; decay: eroding → −1 → {final}" if decayed else "")
+                + f"; final {final}/10")
+
+    # Drop the old verdict line (and any old arithmetic line), then insert
+    # SCORE ARITHMETIC + MOAT VERDICT immediately before the ACTION line.
+    body = _VERDICT_LINE_RE.sub("", answer, count=1)
+    body = re.sub(r"^SCORE ARITHMETIC.*$\n?", "", body, flags=re.M)
+    body = body.lstrip("\n").rstrip()
+    block = (f"SCORE ARITHMETIC: {work}\n"
+             f"MOAT VERDICT: {word} — {final}/10")
+    am = _ACTION_LINE_RE.search(body)
+    if am:
+        new = body[:am.start()].rstrip() + "\n" + block + "\n" + \
+            body[am.start():]
+    else:
+        new = body + "\n" + block
+    return new, final

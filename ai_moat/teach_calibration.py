@@ -48,8 +48,8 @@ sys.path.insert(0, ROOT)
 OUTDIR = os.path.join(HERE, "outputs")
 DS = os.path.join(HERE, "dataset")
 
-from ai_moat.calibration import (enforce_calibration,      # noqa: E402
-                                 rewrite_verdict_score, BENCHMARK_BLOCK)
+from ai_moat.calibration import (restructure_answer,       # noqa: E402
+                                 BENCHMARK_BLOCK)
 from ai_moat.hf_auth import load_hf_token                  # noqa: E402
 
 SCORE_RE_TXT = r"MOAT VERDICT:.*?(\d+)\s*/\s*10"
@@ -71,9 +71,32 @@ def find_newest_adapter():
     return cands[-1][2]
 
 
+def _load_scan_rows():
+    """scan_results.json by ticker — supplies the measured decay evidence
+    (moat_om_trend_pp) so restructuring matches the dashboard exactly."""
+    p = os.path.join(ROOT, "public", "data", "scan_results.json")
+    try:
+        with open(p, encoding="utf-8") as f:
+            d = json.load(f)
+        rows = d["results"] if isinstance(d, dict) and "results" in d else d
+        return {r["ticker"]: r for r in rows
+                if isinstance(r, dict) and r.get("ticker")}
+    except (OSError, json.JSONDecodeError, KeyError):
+        return {}
+
+
 def build_rows():
-    """Calibrated training rows from the existing gold + silver answers."""
+    """Calibrated training rows from the existing gold + silver answers.
+
+    ROOT-CAUSE FIX (user report 2026-08-20): rewriting only the number was
+    not enough — the model kept printing wrong scores because the trained
+    format put the verdict on LINE 1, forcing it to commit to a score
+    BEFORE writing the source scores it should be averaging. Every answer
+    is now RESTRUCTURED arithmetic-first (sources → tests → SCORE
+    ARITHMETIC with the work shown → MOAT VERDICT last), so the score
+    token is generated AFTER the numbers that determine it."""
     rows = []
+    scan_rows = _load_scan_rows()
     stats = {"kept": 0, "rescored": 0, "skipped": 0}
     for name, repeat in (("gold.jsonl", 4), ("silver.jsonl", 1)):
         p = os.path.join(DS, name)
@@ -90,19 +113,13 @@ def build_rows():
                 stats["skipped"] += 1
                 continue
             score = int(m.group(1))
-            final, notes = enforce_calibration(ans, score)
-            new_ans = (rewrite_verdict_score(ans, final)
-                       if final != score else ans)
-            if notes:
-                # Show the WORK, not just the corrected number — this is
-                # what teaches the arithmetic rather than new magic values.
-                new_ans += ("\nSCORE ARITHMETIC (mandatory): "
-                            + "; ".join(notes))
-                stats["rescored"] += 1
-            else:
-                new_ans += ("\nSCORE ARITHMETIC (mandatory): source average "
-                            "and redundancy checked — no adjustment needed.")
-                stats["kept"] += 1
+            new_ans, final = restructure_answer(
+                ans, scan_rows.get(r.get("ticker")))
+            if final is None:
+                stats["skipped"] += 1
+                continue
+            notes = final != score
+            stats["rescored" if notes else "kept"] += 1
             sysmsg = msgs[0]["content"]
             if "BENCHMARKS —" not in sysmsg:
                 sysmsg = sysmsg + "\n\n" + BENCHMARK_BLOCK
@@ -112,7 +129,7 @@ def build_rows():
                 {"role": "assistant", "content": new_ans},
             ], "tier": "calib", "ticker": r.get("ticker", "?"),
                 # rescored examples carry the lesson — repeat them harder
-                "_repeat": repeat * (2 if notes else 1)})
+                "_repeat": repeat * (2 if notes else 1)})  # noqa: B023
     print(f"calibration rows: {len(rows)} "
           f"(rescored {stats['rescored']}, already-correct {stats['kept']}, "
           f"skipped-no-score {stats['skipped']})")
@@ -128,9 +145,10 @@ def main():
                     help="adapter dir to continue from "
                          "(default: newest, prefers -tools-lora)")
     ap.add_argument("--seq", type=int, default=2048)
-    ap.add_argument("--epochs", type=int, default=1,
-                    help="1 epoch is enough — we're correcting a numeric "
-                         "habit, not teaching new knowledge")
+    ap.add_argument("--epochs", type=int, default=2,
+                    help="2 epochs — we're changing the OUTPUT ORDER "
+                         "(arithmetic before verdict), a stronger habit "
+                         "change than a number tweak")
     ap.add_argument("--lr", type=float, default=4e-5)
     ap.add_argument("--dry-run", action="store_true",
                     help="only build + print the calibrated rows, no GPU")
@@ -140,8 +158,10 @@ def main():
     if args.dry_run:
         for r in rows[:3]:
             print("=" * 60)
-            print(r["ticker"], "->",
-                  r["messages"][2]["content"].splitlines()[0])
+            tail = r["messages"][2]["content"].splitlines()[-4:]
+            print(r["ticker"], "->")
+            for ln in tail:
+                print("   ", ln[:150])
         return
 
     adapter_dir = args.adapter or find_newest_adapter()

@@ -120,10 +120,13 @@ moats. Apply this discipline so the score separates them:
    NOT invent market-share percentages; state the position qualitatively (dominant /
    top-2 / one of many) unless a researched number is actually in your evidence.
 
-## OUTPUT FORMAT (always exactly this structure)
+## OUTPUT FORMAT (always exactly this structure — the ORDER is the point)
+
+The overall score comes LAST, computed from the source scores you have already
+written. Never write the verdict first — you cannot average numbers that do not
+exist yet.
 
 ```
-MOAT VERDICT: <WIDE | NARROW | NO MOAT> — <score>/10
 SOURCES (each /10):
   1. Brand monopoly / pricing power: <n>/10 — <one-line reason>
   2. Switching costs: <n>/10 — <one-line reason>
@@ -136,8 +139,13 @@ INDUSTRY SCREEN: <clean / flagged: which no-moat industry>
 KEY-MAN RISK: <none identified / flagged: who and why>
 DECAY CHECK: <stable / decaying — cite the evidence>
 REASONING: <3–6 sentences of first-principles reasoning tying evidence to verdict>
+SCORE ARITHMETIC: sources [<n1>, <n2>, <n3>, <n4>, <n5>] → average <x.x> → <round DOWN, or round to NEAREST only if all 5 ≥8 with no decay> → <b>; redundancy: <k>/5 sources ≥8 → cap <c>; decay: <none / eroding → −1 → s>; final <s>/10
+MOAT VERDICT: <WIDE | NARROW | NO MOAT> — <s>/10
 ACTION (Adam's framework): <invest-grade / buyable-with-caution / avoid at all costs>
 ```
+
+The number after MOAT VERDICT must EQUAL the "final" number of your SCORE
+ARITHMETIC line. Copy it — do not re-decide.
 
 ## STYLE RULES
 

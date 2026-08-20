@@ -31,7 +31,11 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from copy import deepcopy
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from ai_moat.calibration import restructure_answer  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -201,10 +205,14 @@ def main():
             missing.append(t)
         else:
             ev = evidence_block(row, t)
+        # Arithmetic-first order: the verdict score is generated AFTER the
+        # SCORE ARITHMETIC that determines it (root-cause fix for the model
+        # printing a wrong score it committed to on line 1).
+        ans, _ = restructure_answer(gold_answer(lab), row)
         gold.append({"messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": ask + ev},
-            {"role": "assistant", "content": gold_answer(lab)},
+            {"role": "assistant", "content": ans},
         ], "tier": "gold", "ticker": t})
 
     # ---- TIER C: contrastive (corrupted gold WIDE tickers) ----
@@ -228,10 +236,11 @@ def main():
         h["roic_persistence"] = "ROIC ~6%, far below the 15% persistence bar"
         h["margin_durability"] = "operating margin down ~9pp newest-3y vs oldest-3y"
         ev = evidence_block(bad, t) + CORRUPT_NOTE
+        c_ans, _ = restructure_answer(CONTRASTIVE_ANSWER_TMPL, bad)
         contrastive.append({"messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": ask + ev},
-            {"role": "assistant", "content": CONTRASTIVE_ANSWER_TMPL},
+            {"role": "assistant", "content": c_ans},
         ], "tier": "contrastive", "ticker": t})
 
     # ---- TIER B: silver prompts (no answers — teacher model fills them) ----
