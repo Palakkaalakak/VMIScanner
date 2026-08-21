@@ -98,7 +98,11 @@ def build_rows():
     rows = []
     scan_rows = _load_scan_rows()
     stats = {"kept": 0, "rescored": 0, "skipped": 0}
-    for name, repeat in (("gold.jsonl", 4), ("silver.jsonl", 1)):
+    # Repeats trimmed (user report 2026-08-21: 40 steps × 138s = 92 min on a
+    # 5070 Ti — way over budget). Every row already teaches the new
+    # arithmetic-first ORDER, so heavy gold repetition adds little; the
+    # step budget in main() is the real length control.
+    for name, repeat in (("gold.jsonl", 2), ("silver.jsonl", 1)):
         p = os.path.join(DS, name)
         if not os.path.exists(p):
             continue
@@ -149,7 +153,16 @@ def main():
                     help="2 epochs — we're changing the OUTPUT ORDER "
                          "(arithmetic before verdict), a stronger habit "
                          "change than a number tweak")
-    ap.add_argument("--lr", type=float, default=4e-5)
+    ap.add_argument("--lr", type=float, default=5e-5,
+                    help="slightly higher than before — fewer optimizer "
+                         "steps under the step budget need a bit more "
+                         "push per step")
+    ap.add_argument("--max-steps", type=int, default=8,
+                    help="hard step budget — 8 steps ≈ 18 min at the "
+                         "~140 s/step measured on a 5070 Ti Laptop "
+                         "(packed 16x2048-token batches ≈ 260k tokens "
+                         "≈ the whole calibration set once). 0 = no cap, "
+                         "run the full --epochs")
     ap.add_argument("--dry-run", action="store_true",
                     help="only build + print the calibrated rows, no GPU")
     args = ap.parse_args()
@@ -215,15 +228,44 @@ def main():
             per_device_train_batch_size=1,
             gradient_accumulation_steps=16,
             num_train_epochs=args.epochs,
+            # max_steps overrides epochs when set — the ≤20-min budget
+            **({"max_steps": args.max_steps} if args.max_steps > 0 else {}),
             learning_rate=args.lr,
             lr_scheduler_type="cosine", warmup_ratio=0.1,
-            logging_steps=1, save_strategy="epoch",
+            # Checkpoint every 2 steps (~5 min) so an interrupted run
+            # RESUMES instead of restarting from 0% (user report
+            # 2026-08-21). save_total_limit keeps disk use bounded.
+            logging_steps=1, save_strategy="steps", save_steps=2,
+            save_total_limit=2,
             bf16=True, optim="paged_adamw_8bit",
             max_seq_length=args.seq, packing=True, seed=42,
         ),
         callbacks=[StepSpeedSentinel()],
     )
-    trainer.train()
+    def _usable_checkpoint():
+        """Newest checkpoint from a run with the SAME step budget —
+        resuming across a changed config would silently mis-train."""
+        best = None
+        for c in glob.glob(os.path.join(out_dir, "checkpoint-*")):
+            st = os.path.join(c, "trainer_state.json")
+            try:
+                with open(st, encoding="utf-8") as f:
+                    state = json.load(f)
+                if state.get("max_steps") == trainer.args.max_steps and \
+                        state.get("global_step", 0) < trainer.args.max_steps:
+                    if best is None or os.path.getmtime(c) > \
+                            os.path.getmtime(best):
+                        best = c
+            except (OSError, json.JSONDecodeError):
+                continue
+        return best
+
+    latest = _usable_checkpoint()
+    if latest:
+        print(f"RESUMING from {os.path.basename(latest)} — not from 0%")
+        trainer.train(resume_from_checkpoint=latest)
+    else:
+        trainer.train()
     model.save_pretrained(out_dir)
     tokenizer.save_pretrained(out_dir)
     print(f"\nDONE — calibrated adapter at: {out_dir}")
