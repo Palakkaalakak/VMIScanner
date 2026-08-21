@@ -61,7 +61,12 @@ BENCHMARKS — the 9-10/10 shelf (compare against these, not against nothing):
   margin +13.7pp vs decade start.
 A 9/10 claim means: "this moat is as redundant and as consistently PROVEN in the
 numbers as those three." If the company leans on one expiring source, or its
-margins are eroding while the benchmarks' expand, it is NOT on that shelf — 8 max."""
+margins are eroding while the benchmarks' expand, it is NOT on that shelf — 8 max.
+IMPORTANT: these benchmarks are a MEASURING STICK for the score, not competitors.
+Never call MA/AAPL/MSFT a "competitor" of the company you are grading unless they
+actually compete in its industry (a pharma company does not compete with Apple).
+Name actual industry rivals when you compare; use the benchmarks only to judge
+whether the moat's REDUNDANCY and CONSISTENCY earn a 9-10."""
 
 # "  1. Brand monopoly / pricing power: 8/10 — ..." (numbered source lines)
 SRC_SCORE_RE = re.compile(r"^\s*[1-5][.)][^:\n]{0,120}:\s*(\d{1,2})\s*/\s*10",
@@ -76,13 +81,18 @@ def enforce_calibration(answer: str, score: Optional[int],
                         scan_row: Optional[dict] = None
                         ) -> Tuple[Optional[int], List[str]]:
     """Return (enforced_score, notes). notes explain every adjustment;
-    empty notes == the model's own number already obeyed the rules."""
-    if score is None:
-        return None, []
-    notes: List[str] = []
-    s = int(score)
+    empty notes == the model's own number already obeyed the rules.
 
-    # Decay is decided FIRST because it also gates the rounding rule below.
+    v3 (user report 2026-08-21): the model computed the CORRECT number in
+    its own SCORE ARITHMETIC line ("final 7") and then printed a DIFFERENT
+    one in the verdict ("— 6/10") — a copy failure. The old clamp-only
+    logic could only push the printed number DOWN, so it punished the copy
+    error twice (6 → 5 via the decay penalty) instead of restoring 7. Now
+    the score is RECOMPUTED forward from the source scores the model
+    actually wrote (same compute_arithmetic used by training), in either
+    direction — when sources parse, the printed verdict number is ignored
+    entirely."""
+    # Decay is decided first because it feeds the arithmetic.
     decayed = bool(DECAY_RE.search(answer or ""))
     why = "the answer's own DECAY CHECK says decaying"
     if not decayed and scan_row:
@@ -94,41 +104,24 @@ def enforce_calibration(answer: str, score: Optional[int],
 
     srcs = [int(x) for x in SRC_SCORE_RE.findall(answer or "")][:5]
     if len(srcs) >= 3:
-        avg = sum(srcs) / len(srcs)
-        strong_all = len(srcs) == 5 and min(srcs) >= 8
-        if strong_all and not decayed:
-            # Fully-redundant, non-decaying moat (the AAPL/MA/MSFT shelf):
-            # round to NEAREST so 8.6 → 9 instead of being floored to 8.
-            avg_cap = int(avg + 0.5)
-            rule = "nearest (all 5 sources ≥8 and no decay — redundant moat)"
-        else:
-            avg_cap = int(avg)  # floor (scores are ≥0)
-            rule = "DOWN"
-        if s > avg_cap:
-            notes.append(f"rounded {rule} to the source average: {s} → "
-                         f"{avg_cap} (sources {srcs}, avg {avg:.1f})")
-            s = avg_cap
-        elif strong_all and not decayed and s < avg_cap and s >= 8:
-            notes.append(f"rounded UP to the source average: {s} → "
-                         f"{avg_cap} (sources {srcs}, avg {avg:.1f} — all 5 "
-                         "sources ≥8 with no decay; a fully-redundant moat "
-                         "belongs on the 9-10 shelf)")
-            s = avg_cap
-        strong = [x for x in srcs if x >= 8]
-        if len(strong) >= 5:
-            cap = 10
-        elif len(strong) == 4:
-            cap = 9
-        elif len(strong) == 3:
-            cap = 9 if min(strong) >= 9 else 8
-        else:
-            cap = 8
-        if s > cap:
-            notes.append(f"redundancy cap: only {len(strong)}/5 sources "
-                         f"≥8/10 → capped {s} → {cap} (10/10 needs the moat "
-                         "to survive losing any single source)")
-            s = cap
+        s, work = compute_arithmetic(srcs, decayed)
+        notes: List[str] = []
+        if decayed:
+            work += f" [decay evidence: {why}]"
+        if score is None:
+            notes.append(f"score computed from the source scores: {work}")
+        elif int(score) != s:
+            direction = "UP" if s > int(score) else "DOWN"
+            notes.append(f"verdict number corrected {direction}: the model "
+                         f"printed {score}, but its own source scores imply "
+                         f"{s} ({work})")
+        return s, notes
 
+    # No parsable source scores — fall back to clamping the printed number.
+    if score is None:
+        return None, []
+    s = int(score)
+    notes = []
     if decayed and s > 1:
         notes.append(f"decay penalty −1: {s} → {s - 1} ({why}; a decaying "
                      "moat cannot hold a 9-10 — consistency of growing "

@@ -139,13 +139,17 @@ INDUSTRY SCREEN: <clean / flagged: which no-moat industry>
 KEY-MAN RISK: <none identified / flagged: who and why>
 DECAY CHECK: <stable / decaying — cite the evidence>
 REASONING: <3–6 sentences of first-principles reasoning tying evidence to verdict>
-SCORE ARITHMETIC: sources [<n1>, <n2>, <n3>, <n4>, <n5>] → average <x.x> → <round DOWN, or round to NEAREST only if all 5 ≥8 with no decay> → <b>; redundancy: <k>/5 sources ≥8 → cap <c>; decay: <none / eroding → −1 → s>; final <s>/10
+SCORE ARITHMETIC: sources [<n1>, <n2>, <n3>, <n4>, <n5>] → average <x.x> → round DOWN → <b>; redundancy: <k>/5 sources ≥8 → cap <c>; decay: none; final <s>/10
 MOAT VERDICT: <WIDE | NARROW | NO MOAT> — <s>/10
 ACTION (Adam's framework): <invest-grade / buyable-with-caution / avoid at all costs>
 ```
 
-The number after MOAT VERDICT must EQUAL the "final" number of your SCORE
-ARITHMETIC line. Copy it — do not re-decide.
+SCORE ARITHMETIC rules — pick ONE option per slot, never write both:
+- Rounding: write "round DOWN" (the default). Only if ALL five sources are ≥8 AND
+  the decay check is clean, write "round to NEAREST" instead.
+- Decay: write "decay: none" OR "decay: eroding → −1 → <s>". Never "none / eroding".
+- The number after MOAT VERDICT must EQUAL the "final" number of your SCORE
+  ARITHMETIC line. Copy that exact digit — do not re-decide, do not adjust it again.
 
 ## STYLE RULES
 
